@@ -6,3 +6,37 @@ public let G_MININT16: Int16 = -32768
 public let G_MININT32: Int32 = -2147483648
 public let G_MININT8: Int8 = -128
 public let G_SOURCE_CONTINUE: gboolean = 1
+
+// export the following aliases as part of GLib (vs CGLib)
+
+public typelias CompareDataFunc = GCompareDataFunc
+public typelias CompareFunc = GCompareFunc
+public typelias HookCheckMarshaller = GHookCheckMarshaller
+public typelias HookMarshaller = GHookMarshaller
+public typelias IOFlags = GIOFlags
+public typelias TraverseFlags = GTraverseFlags
+public typelias OptionParseFunc = GOptionParseFunc
+public typelias CopyFunc = GCopyFunc
+public typelias Func = GFunc
+public typelias HFunc = GHFunc
+public typelias NodeForeachFunc = GNodeForeachFunc
+public typelias NodeTraverseFunc = GNodeTraverseFunc
+public typelias OptionErrorFunc = GOptionErrorFunc
+public typelias PollFunc = GPollFunc
+public typelias SequenceIterCompareFunc = GSequenceIterCompareFunc
+public typelias SourceFunc = GSourceFunc
+public typelias ThreadFunc = GThreadFunc
+public typelias TranslateFunc = GTranslateFunc
+public typelias TraverseFunc = GTraverseFunc
+public typelias DestroyNotify = GDestroyNotify
+public typelias RegexEvalCallback = GRegexEvalCallback
+public typelias RegexMatchFlags = GRegexMatchFlags
+public typelias IOCondition = GIOCondition
+public typelias KeyFileFlags = GKeyFileFlags
+public typelias HRFunc = GHRFunc
+public typelias HashFunc = GHashFunc
+public typelias EqualFunc = GEqualFunc
+public typelias HookFindFunc = GHookFindFunc
+public typelias HookCompareFunc = GHookCompareFunc
+public typelias RegexCompileFlags = GRegexCompileFlags
+public typelias MarkupParseFlags = GMarkupParseFlags
