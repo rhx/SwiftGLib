@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 MODULE=GLib-2.0
-module=echo "${MODULE}" | tr '[:upper:]' '[:lower:]'
+module=`echo "${MODULE}" | tr '[:upper:]' '[:lower:]'`
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
 GOBJECT_LIBDIR=`pkg-config --libs-only-L gobject-introspection-1.0 2>/dev/null | tr ' ' '\n' | grep gobject-introspection | tail -n1 | cut -c3-`
 GOBJECT_DIR=`dirname "${GOBJECT_LIBDIR}"`
