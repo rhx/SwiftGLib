@@ -1,6 +1,7 @@
 #!/bin/sh
 #
 MODULE=GLib-2.0
+module=echo "${MODULE}" | tr '[:upper:]' '[:lower:]'
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
 GOBJECT_LIBDIR=`pkg-config --libs-only-L gobject-introspection-1.0 2>/dev/null | tr ' ' '\n' | grep gobject-introspection | tail -n1 | cut -c3-`
 GOBJECT_DIR=`dirname "${GOBJECT_LIBDIR}"`
@@ -18,7 +19,7 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-LINKFLAGS=`pkg-config --libs glib-2.0 | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
-CCFLAGS=`pkg-config --cflags glib-2.0 | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
+LINKFLAGS=`pkg-config --libs $module | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
+CCFLAGS=`pkg-config --cflags $module | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
 gir2swift "${GIR}" > Sources/${MODULE}.swift
 swift build $CCFLAGS $LINKFLAGS
