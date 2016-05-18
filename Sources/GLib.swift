@@ -1,3 +1,3 @@
-struct GLib {
+struct GLibWrapper {
 
 }
