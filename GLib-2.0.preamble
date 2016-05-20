@@ -41,7 +41,7 @@ public typealias HookCompareFunc = GHookCompareFunc
 public typealias RegexCompileFlags = GRegexCompileFlags
 public typealias MarkupParseFlags = GMarkupParseFlags
 
-extension GLib {
+public extension GLib {
     public typealias CompareDataFunc = GCompareDataFunc
     public typealias CompareFunc = GCompareFunc
     public typealias HookCheckMarshaller = GHookCheckMarshaller
