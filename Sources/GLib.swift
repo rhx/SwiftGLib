@@ -1,1 +1,1 @@
-public struct GLib {}
+struct GLib {}
