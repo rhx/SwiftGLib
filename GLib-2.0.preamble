@@ -40,3 +40,37 @@ public typealias HookFindFunc = GHookFindFunc
 public typealias HookCompareFunc = GHookCompareFunc
 public typealias RegexCompileFlags = GRegexCompileFlags
 public typealias MarkupParseFlags = GMarkupParseFlags
+
+extension GLib {
+    public typealias CompareDataFunc = GCompareDataFunc
+    public typealias CompareFunc = GCompareFunc
+    public typealias HookCheckMarshaller = GHookCheckMarshaller
+    public typealias HookMarshaller = GHookMarshaller
+    public typealias IOFlags = GIOFlags
+    public typealias TraverseFlags = GTraverseFlags
+    public typealias OptionParseFunc = GOptionParseFunc
+    public typealias CopyFunc = GCopyFunc
+    public typealias Func = GFunc
+    public typealias HFunc = GHFunc
+    public typealias NodeForeachFunc = GNodeForeachFunc
+    public typealias NodeTraverseFunc = GNodeTraverseFunc
+    public typealias OptionErrorFunc = GOptionErrorFunc
+    public typealias PollFunc = GPollFunc
+    public typealias SequenceIterCompareFunc = GSequenceIterCompareFunc
+    public typealias SourceFunc = GSourceFunc
+    public typealias ThreadFunc = GThreadFunc
+    public typealias TranslateFunc = GTranslateFunc
+    public typealias TraverseFunc = GTraverseFunc
+    public typealias DestroyNotify = GDestroyNotify
+    public typealias RegexEvalCallback = GRegexEvalCallback
+    public typealias RegexMatchFlags = GRegexMatchFlags
+    public typealias IOCondition = GIOCondition
+    public typealias KeyFileFlags = GKeyFileFlags
+    public typealias HRFunc = GHRFunc
+    public typealias HashFunc = GHashFunc
+    public typealias EqualFunc = GEqualFunc
+    public typealias HookFindFunc = GHookFindFunc
+    public typealias HookCompareFunc = GHookCompareFunc
+    public typealias RegexCompileFlags = GRegexCompileFlags
+    public typealias MarkupParseFlags = GMarkupParseFlags
+}
