@@ -22,4 +22,4 @@ fi
 LINKFLAGS=`pkg-config --libs $module | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
 CCFLAGS=`pkg-config --cflags $module | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
 gir2swift "${GIR}" > Sources/${MODULE}.swift
-swift build $CCFLAGS $LINKFLAGS
+swift build $CCFLAGS $LINKFLAGS "$@"
