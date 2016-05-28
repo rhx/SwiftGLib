@@ -19,7 +19,7 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-LINKFLAGS=`pkg-config --libs $module | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
-CCFLAGS=`pkg-config --cflags $module | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
+LINKFLAGS=`pkg-config --libs $module gio-unix-2.0 | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
+CCFLAGS=`pkg-config --cflags $module gio-unix-2.0 | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
 gir2swift "${GIR}" > Sources/${MODULE}.swift
 swift build $CCFLAGS $LINKFLAGS "$@"
