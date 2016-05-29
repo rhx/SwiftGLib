@@ -7,8 +7,8 @@ public extension MainContextRef {
     /// main context, i.e. the main context used for main loop functions
     /// when a main loop is not explicitly specified, and corresponds to
     /// the "main" main loop. See also g_main_context_get_thread_default().
-    public static func sharedContext() -> MainContextRef {
-        return MainContextRef(ptr: g_main_context_default()!)
+    public static func defaultContext() -> MainContextRef {
+        return MainContextRef(g_main_context_default()!)
     }
 }
 
@@ -19,8 +19,8 @@ public extension MainContext {
     /// main context, i.e. the main context used for main loop functions
     /// when a main loop is not explicitly specified, and corresponds to
     /// the "main" main loop. See also g_main_context_get_thread_default().
-    public static func sharedContext() -> MainContext {
-        let context = MainContext(ptr: g_main_context_default()!)
+    public static func defaultContext() -> MainContext {
+        let context = MainContext(g_main_context_default()!)
         context.ref()
         return context
     }
@@ -40,6 +40,6 @@ public extension MainLoop {
     /// Convenience initialiser that creates and returns the
     /// default main loop.
     public convenience init() {
-        self.init(ptr: g_main_loop_new(g_main_context_default()!, 0))
+        self.init(g_main_loop_new(g_main_context_default()!, 0))
     }
 }
