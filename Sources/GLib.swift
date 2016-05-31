@@ -7,10 +7,10 @@
 import CGLib
 
 /// Allow Swift strings to interact with GLib strings
-extension String: StringTypeProtocol {
+extension String {
     /// Return a GString corresponding to the given swift string.
     /// The returned string pointer needs to be freed using g_string_free(*, true)
-    public var ptr: UnsafeMutablePointer<GString> { return g_string_new(self) }
+    var ptr: UnsafeMutablePointer<GString> { return g_string_new(self) }
 }
 
 /// Allow StringRefs to be initialised from Swift strings
@@ -43,10 +43,10 @@ public class StringClass: StringType {
 public extension String {
     /// Return a GString reference that needs to be manually freed
     /// using free(free_segment: true)
-    public var ref: StringRef { return StringRef(self) }
+    public var g_string_ref: StringRef { return StringRef(self) }
 
     /// Return a memory-managed StringType that will be freed using ARC.
-    public var gstring: StringClass { return StringClass(self) }
+    public var g_string: StringClass { return StringClass(self) }
 }
 
 
