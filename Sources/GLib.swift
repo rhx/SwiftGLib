@@ -73,8 +73,7 @@ public extension MainContext {
     /// when a main loop is not explicitly specified, and corresponds to
     /// the "main" main loop. See also g_main_context_get_thread_default().
     public static func defaultContext() -> MainContext {
-        let context = MainContext(g_main_context_default()!)
-        context.ref()
+        let context = MainContext(g_main_context_ref(g_main_context_default())!)
         return context
     }
 }
