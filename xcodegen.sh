@@ -5,6 +5,7 @@
 # and pass them to subprojects, based on the configured -I flags.
 #
 . ./config.sh
+[ -e Sources/${Module}.swift ] || ./generate-wrapper.sh
 ./package.sh generate-xcodeproj "$@"
 ( cd GLib.xcodeproj/Configs						&& \
   mv Project.xcconfig Project.xcconfig.in				&& \
