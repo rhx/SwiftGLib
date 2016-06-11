@@ -1,5 +1,9 @@
 #!/bin/sh
 #
+# Script to generate an Xcode project using the Swift package manager.
+# The generated project gets patched to configure the header search paths
+# and pass them to subprojects, based on the configured -I flags.
+#
 . ./config.sh
 ./package.sh generate-xcodeproj "$@"
 ( cd GLib.xcodeproj/Configs						&& \

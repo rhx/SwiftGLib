@@ -1,5 +1,8 @@
 #!/bin/sh
 #
+# Configuration for the module to compile, the Swift toolchain, and
+# the compiler and linker flags to use.
+#
 Module=GLib-2.0
 module="`echo "${Module}" | tr '[:upper:]' '[:lower:]'`"
 export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:"${PATH}"
