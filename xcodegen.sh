@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-. config.sh
+. ./config.sh
 ./package.sh generate-xcodeproj "$@"
 ( cd GLib.xcodeproj/Configs						&& \
   mv Project.xcconfig Project.xcconfig.in				&& \

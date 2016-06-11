@@ -1,4 +1,4 @@
 #!/bin/sh
 #
-. config.sh
+. ./config.sh
 exec swift build $CCFLAGS $LINKFLAGS "$@"

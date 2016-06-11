@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-. config.sh
+. ./config.sh
 GOBJECT_LIBDIR=`pkg-config --libs-only-L gobject-introspection-1.0 2>/dev/null | tr ' ' '\n' | grep gobject-introspection | tail -n1 | cut -c3-`
 GOBJECT_DIR=`dirname "${GOBJECT_LIBDIR}"`
 for prefix in $PREFIX GOBJECT_DIR /usr/local /usr ; do
