@@ -1,18 +1,73 @@
+#if os(Linux)
+    import Glibc
+#else
+    import Darwin
+#endif
+
 import XCTest
 @testable import GLib
 
 class GLibTests: XCTestCase {
 
-	func testExample() {
-		// This is an example of a functional test case.
-		// Use XCTAssert and related functions to verify your tests produce the correct results.
-	}
+    /// check that we can get the current date and time
+    func testDateTime() {
+        let dateTime = DateTime.new_now_local()
+        XCTAssertNotNil(dateTime)
+    }
 
+    /// check that we can convert the given Unix UTC time
+    func testDateTimeUnixUTC() {
+        let t = Int64(time(nil))
+        let dateTime = DateTime(unix_utc: t)
+        let unix = dateTime.to_unix()
+        XCTAssertEqual(unix, t)
+        let offs = dateTime.utcOffset
+        XCTAssertEqual(offs, 0)
+        let abbr = dateTime.timezoneAbbreviation
+        XCTAssertEqual(abbr, "UTC")
+    }
+
+    /// check that we can read a directory
+    func testDirOpen() {
+        let existing_path = "/tmp"
+        do {
+            guard let dir = try Dir.open(path: existing_path, flags: 0) else {
+                XCTFail() ; return
+            }
+            defer { dir.close() }
+            let first = dir.read_name()         // get the first entry
+            XCTAssertFalse(first.isEmpty)
+            dir.rewind()                        // go back
+            let first_again = dir.read_name()   // get first entry again
+            XCTAssertEqual(first, first_again)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+    
+    /// check that we can handle errors
+    func testErrorType() {
+        let nonexistent = "/non/existent/path"
+        do {
+            guard let dir = try Dir.open(path: nonexistent, flags: 0) else {
+                XCTFail() ; return
+            }
+            defer { dir.close() }
+            XCTFail("\(nonexistent) should have failed to open")
+        } catch let e as GLib.ErrorType {
+            XCTAssertFalse(e.description.isEmpty)
+        } catch {
+            XCTFail("Unknown error: \(error)")
+        }
+    }
 }
 extension GLibTests {
-	static var allTests : [(String, GLibTests -> () throws -> Void)] {
-		return [
-			("testExample", testExample),
-		]
-	}
+    static var allTests : [(String, (GLibTests) -> () throws -> Void)] {
+        return [
+            ("testDateTime",        testDateTime),
+            ("testDateTimeUnixUTC", testDateTimeUnixUTC),
+            ("testDirOpen",         testDirOpen),
+            ("testErrorType",       testErrorType),
+        ]
+    }
 }
