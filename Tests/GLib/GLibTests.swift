@@ -35,10 +35,11 @@ class GLibTests: XCTestCase {
                 XCTFail() ; return
             }
             defer { dir.close() }
-            let first = dir.read_name()         // get the first entry
+            let first: String! = dir.read_name()    // get the first entry
+            XCTAssertNotNil(first)
             XCTAssertFalse(first.isEmpty)
-            dir.rewind()                        // go back
-            let first_again = dir.read_name()   // get first entry again
+            dir.rewind()                            // go back
+            let first_again = dir.read_name()       // get first entry again
             XCTAssertEqual(first, first_again)
         } catch {
             XCTFail("\(error)")
