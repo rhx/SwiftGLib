@@ -97,3 +97,21 @@ public extension MainLoop {
         self.init(g_main_loop_new(g_main_context_default()!, 0))
     }
 }
+
+
+/// CustomStringConvertible extension for GError ErrorType
+extension ErrorTypeProtocol {
+    /// The error message associated with the receiver.
+    public var description: String {
+        return String(cString: ptr.pointee.message)
+    }
+
+    /// The error domain, code, and message associated with the receiver.
+    public var debugDescription: String {
+        return String("\(quark_to_string(quark: ptr.pointee.domain)) error \(ptr.pointee.code): \(String(cString: ptr.pointee.message))")
+    }
+}
+extension ErrorType: CustomStringConvertible {}
+extension ErrorType: CustomDebugStringConvertible {}
+extension ErrorRef: CustomStringConvertible {}
+extension ErrorRef: CustomDebugStringConvertible {}
