@@ -44,7 +44,7 @@ class GLibTests: XCTestCase {
             XCTFail("\(error)")
         }
     }
-    
+
     /// check that we can handle errors
     func testErrorType() {
         let nonexistent = "/non/existent/path"
@@ -60,14 +60,64 @@ class GLibTests: XCTestCase {
             XCTFail("Unknown error: \(error)")
         }
     }
+
+    /// check that we can get the default main context
+    func testDefaultMainContext() {
+        let context = MainContext.defaultContext()
+        let p = context.ref()
+        XCTAssertEqual(p, context.ptr)
+        context.unref()
+        XCTAssertNil(context.find_source_by_id(source_id: 123))
+        XCTAssertNotNil(context.pollFunc)
+        let pending = context.pending()
+        XCTAssertEqual(context.iteration(may_block: false), pending)
+        XCTAssertFalse(context.isOwner)
+        context.push_thread_default()
+        XCTAssertTrue(context.isOwner)
+    }
+
+    /// check that we can create a main loop
+    func testMainLoopCreation() {
+        let mainLoop = MainLoop()
+        let context = mainLoop.context
+        XCTAssertNotNil(context)
+    }
+
+    /// test mainloop run and timeout_add
+    func testTimeoutAdd() {
+        let mainLoop = MainLoop()
+        let context = MainContextRef(mainLoop.context)
+        var count = 10
+        withUnsafeMutablePointer(&count) {
+            let rv = timeout_add(interval: 10, function: {
+                guard let p = UnsafeMutablePointer<Int>($0) else {
+                    XCTFail("Unexpected NULL pointer")
+                    return 0
+                }
+                p.pointee -= 1
+                return p.pointee == 0 ? 0 : 1
+            }, data: OpaquePointer($0))
+            XCTAssertEqual(rv, 1)
+            while count > 0 {
+                let oldCount = count
+                let trigger = context.iteration(may_block: true)
+                let value = trigger ? oldCount - 1 : oldCount
+                XCTAssertEqual(count, value)
+            }
+        }
+        XCTAssertFalse(context.pending())
+    }
 }
 extension GLibTests {
     static var allTests : [(String, (GLibTests) -> () throws -> Void)] {
         return [
-            ("testDateTime",        testDateTime),
-            ("testDateTimeUnixUTC", testDateTimeUnixUTC),
-            ("testDirOpen",         testDirOpen),
-            ("testErrorType",       testErrorType),
+            ("testDateTime",            testDateTime),
+            ("testDateTimeUnixUTC",     testDateTimeUnixUTC),
+            ("testDirOpen",             testDirOpen),
+            ("testErrorType",           testErrorType),
+            ("testDefaultMainContext",  testDefaultMainContext),
+            ("testMainLoopCreation",    testMainLoopCreation),
+            ("testTimeoutAdd",          testTimeoutAdd),
         ]
     }
 }
