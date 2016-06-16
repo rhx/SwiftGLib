@@ -108,7 +108,7 @@ extension ErrorTypeProtocol {
 
     /// The error domain, code, and message associated with the receiver.
     public var debugDescription: String {
-        return String("\(quark_to_string(quark: ptr.pointee.domain)) error \(ptr.pointee.code): \(String(cString: ptr.pointee.message))")
+        return String("\(quarkToString(quark: ptr.pointee.domain)) error \(ptr.pointee.code): \(String(cString: ptr.pointee.message))")
     }
 }
 extension ErrorType: CustomStringConvertible {}

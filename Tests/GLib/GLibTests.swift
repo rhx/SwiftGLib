@@ -19,7 +19,7 @@ class GLibTests: XCTestCase {
     func testDateTimeUnixUTC() {
         let t = Int64(time(nil))
         let dateTime = DateTime(unix_utc: t)
-        let unix = dateTime.to_unix()
+        let unix = dateTime.toUnix()
         XCTAssertEqual(unix, t)
         let offs = dateTime.utcOffset
         XCTAssertEqual(offs, 0)
@@ -35,11 +35,11 @@ class GLibTests: XCTestCase {
                 XCTFail() ; return
             }
             defer { dir.close() }
-            let first: String! = dir.read_name()    // get the first entry
+            let first: String! = dir.readName()    // get the first entry
             XCTAssertNotNil(first)
             XCTAssertFalse(first.isEmpty)
             dir.rewind()                            // go back
-            let first_again = dir.read_name()       // get first entry again
+            let first_again = dir.readName()       // get first entry again
             XCTAssertEqual(first, first_again)
         } catch {
             XCTFail("\(error)")
@@ -68,12 +68,12 @@ class GLibTests: XCTestCase {
         let p = context.ref()
         XCTAssertEqual(p, context.ptr)
         context.unref()
-        XCTAssertNil(context.find_source_by_id(source_id: 123))
+        XCTAssertNil(context.findSourceById(source_id: 123))
         XCTAssertNotNil(context.pollFunc)
         let pending = context.pending()
         XCTAssertEqual(context.iteration(may_block: false), pending)
         XCTAssertFalse(context.isOwner)
-        context.push_thread_default()
+        context.pushThreadDefault()
         XCTAssertTrue(context.isOwner)
     }
 
@@ -90,7 +90,7 @@ class GLibTests: XCTestCase {
         let context = MainContextRef(mainLoop.context)
         var count = 10
         withUnsafeMutablePointer(&count) {
-            let rv = timeout_add(interval: 10, function: {
+            let rv = timeoutAdd(interval: 10, function: {
                 guard let p = UnsafeMutablePointer<Int>($0) else {
                     XCTFail("Unexpected NULL pointer")
                     return 0
