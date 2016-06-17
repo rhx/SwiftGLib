@@ -68,7 +68,7 @@ class GLibTests: XCTestCase {
         let p = context.ref()
         XCTAssertEqual(p, context.ptr)
         context.unref()
-        XCTAssertNil(context.findSourceById(sourceId: 123))
+        XCTAssertNil(context.findSourceByID(sourceID: 123))
         XCTAssertNotNil(context.pollFunc)
         let pending = context.pending()
         XCTAssertEqual(context.iteration(mayBlock: false), pending)
