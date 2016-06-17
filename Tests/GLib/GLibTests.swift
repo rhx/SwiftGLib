@@ -18,7 +18,7 @@ class GLibTests: XCTestCase {
     /// check that we can convert the given Unix UTC time
     func testDateTimeUnixUTC() {
         let t = Int64(time(nil))
-        let dateTime = DateTime(unix_utc: t)
+        let dateTime = DateTime(unixUTC: t)
         let unix = dateTime.toUnix()
         XCTAssertEqual(unix, t)
         let offs = dateTime.utcOffset
@@ -68,10 +68,10 @@ class GLibTests: XCTestCase {
         let p = context.ref()
         XCTAssertEqual(p, context.ptr)
         context.unref()
-        XCTAssertNil(context.findSourceById(source_id: 123))
+        XCTAssertNil(context.findSourceById(sourceId: 123))
         XCTAssertNotNil(context.pollFunc)
         let pending = context.pending()
-        XCTAssertEqual(context.iteration(may_block: false), pending)
+        XCTAssertEqual(context.iteration(mayBlock: false), pending)
         XCTAssertFalse(context.isOwner)
         context.pushThreadDefault()
         XCTAssertTrue(context.isOwner)
@@ -101,7 +101,7 @@ class GLibTests: XCTestCase {
             XCTAssertEqual(rv, 1)
             while count > 0 {
                 let oldCount = count
-                let trigger = context.iteration(may_block: true)
+                let trigger = context.iteration(mayBlock: true)
                 let value = trigger ? oldCount - 1 : oldCount
                 XCTAssertEqual(count, value)
             }
