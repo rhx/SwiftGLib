@@ -11,7 +11,7 @@ class GLibTests: XCTestCase {
 
     /// check that we can get the current date and time
     func testDateTime() {
-        let dateTime = DateTime.new_now_local()
+        let dateTime = DateTime.newNowLocal()
         XCTAssertNotNil(dateTime)
     }
 
