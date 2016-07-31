@@ -5,4 +5,12 @@
 #
 . ./config.sh
 ./package.sh fetch
+if ! pushd .build/gir2swift >/dev/null 2>&1 ; then
+	mkdir -p .build
+	pushd .build >/dev/null
+	git clone https://github.com/rhx/gir2swift.git
+	cd gir2swift && ./build.sh
+fi
+export PATH=`pwd`/.build/debug:${PATH}
+popd >/dev/null
 . ./gir-to-swift.sh "$@"
