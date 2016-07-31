@@ -38,7 +38,7 @@ If you prefer a newer version of gtk, you can also install it from the GNOME 3 S
 
 #### macOS
 
-On macOS, you can install gtk using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of gtk:
+On macOS, you can install glib using HomeBrew (for setup instructions, see http://brew.sh):
 
 	brew update
 	brew install glib glib-networking gobject-introspection
@@ -47,7 +47,7 @@ On macOS, you can install gtk using HomeBrew (for setup instructions, see http:/
 ## Building
 Normally, you don't build this package directly, but you embed it into your own project (see 'Embedding' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
-	git clone https://github.com/rhx/SwiftGtk.git
+	git clone https://github.com/rhx/SwiftGLib.git
 	./build.sh
 	./test.sh
 
@@ -56,7 +56,7 @@ Normally, you don't build this package directly, but you embed it into your own 
 On macOS, you can build the project using Xcode instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
 
 	./xcodegen.sh
-	open Gtk.xcodeproj
+	open GLib.xcodeproj
 
 After that, use the (usual) Build and Test buttons to build/test this package.
 
