@@ -89,15 +89,15 @@ class GLibTests: XCTestCase {
         let mainLoop = MainLoop()
         let context = MainContextRef(mainLoop.context)
         var count = 10
-        withUnsafeMutablePointer(&count) {
+        withUnsafeMutablePointer(to: &count) {
             let rv = timeoutAdd(interval: 10, function: {
-                guard let p = UnsafeMutablePointer<Int>($0) else {
+                guard let p = $0?.assumingMemoryBound(to: Int.self) else {
                     XCTFail("Unexpected NULL pointer")
                     return 0
                 }
                 p.pointee -= 1
                 return p.pointee == 0 ? 0 : 1
-            }, data: OpaquePointer($0))
+            }, data: UnsafeMutableRawPointer($0))
             XCTAssertEqual(rv, 1)
             while count > 0 {
                 let oldCount = count
