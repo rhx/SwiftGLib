@@ -84,7 +84,7 @@ class GLibTests: XCTestCase {
         XCTAssertNotNil(context)
     }
 
-    /// test mainloop run and timeout_add
+    /// test mainloop run and timeout_add / timeout_add_full
     func testTimeoutAdd() {
         let mainLoop = MainLoop()
         let context = MainContextRef(mainLoop.context)
@@ -105,6 +105,20 @@ class GLibTests: XCTestCase {
                 let value = trigger ? oldCount - 1 : oldCount
                 XCTAssertEqual(count, value)
             }
+        }
+        XCTAssertFalse(context.pending())
+
+        count = 10
+        let rv = timeout(add: 5) {
+            count -= 1
+            return count != 0
+        }
+        XCTAssertEqual(rv, 2)
+        while count > 0 {
+            let oldCount = count
+            let trigger = context.iteration(mayBlock: true)
+            let value = trigger ? oldCount - 1 : oldCount
+            XCTAssertEqual(count, value)
         }
         XCTAssertFalse(context.pending())
     }
