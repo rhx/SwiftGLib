@@ -7,7 +7,8 @@
 . ./config.sh
 [ -e Sources/${Module}.swift ] || ./generate-wrapper.sh
 ./package.sh generate-xcodeproj "$@"
-( cd GLib.xcodeproj/Configs						&& \
+[ ! -e ${Mod}.xcodeproj/Configs ] ||					   \
+( cd ${Mod}.xcodeproj/Configs						&& \
   mv Project.xcconfig Project.xcconfig.in				&& \
   echo 'SWIFT_VERSION = 3.0' >> Project.xcconfig.in			&& \
   sed -e 's/ -I ?[^ ]*//g' < Project.xcconfig.in > Project.xcconfig	&& \
@@ -15,8 +16,8 @@
     tr ' ' '\n' | grep -- -I | tr '\n' ' '				|  \
     sed -e 's/^/HEADER_SEARCH_PATHS = /' -e 's/ -I/ /g' >> Project.xcconfig
 )
-( cd GLib.xcodeproj							&& \
+( cd ${Mod}.xcodeproj							&& \
   mv project.pbxproj project.pbxproj.in					&& \
   sed < project.pbxproj.in > project.pbxproj				   \
-    -e "s/\(HEADER_SEARCH_PATHS[^A-Za-z][^']*'[^']*\)'/\\1 \\\$(inherited)'/"
+    -e "s|\(HEADER_SEARCH_PATHS = .\)$|\\1 \"`echo $CCFLAGS | sed -e 's/-Xcc  *-I */ /g' -e 's/^ *//' -e 's/ *$//'`\",|"
 )

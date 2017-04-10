@@ -17,7 +17,7 @@ public class TimerClosureHolder {
     }
 }
 
-func _timeoutAdd(_ interval: CUnsignedInt, priority p: CInt = 0, data: TimerClosureHolder, handler: @convention(c) (gpointer) -> gboolean) -> CUnsignedInt {
+func _timeoutAdd(_ interval: CUnsignedInt, priority p: CInt = 0, data: TimerClosureHolder, handler: @convention(c) @escaping (gpointer) -> gboolean) -> CUnsignedInt {
     let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
     let callback = unsafeBitCast(handler, to: SourceFunc.self)
     let rv = timeoutAddFull(priority: p, interval: interval, function: callback, data: opaqueHolder) {
