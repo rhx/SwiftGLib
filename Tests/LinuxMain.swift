@@ -1,5 +1,5 @@
 import XCTest
-@testable import GLibTestSuite
+@testable import GLibTests
 
 XCTMain([
 	 testCase(GLibTests.allTests),
