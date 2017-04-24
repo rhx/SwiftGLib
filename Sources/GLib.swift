@@ -6,6 +6,20 @@
 
 import CGLib
 
+/// Convenience conversion from a constant pointer to a mutable pointer.
+///
+/// This function is provided for convenience as many glib types and functions
+/// declare a non-const pointer even in cases where the original data are not
+/// modified.
+///
+/// USE WITH EXTREME CARE!
+///
+/// - Parameter p: original pointer
+/// - Returns: mutating pointer
+public func mutate<T>(_ s: UnsafePointer<T>) -> UnsafeMutablePointer<T> {
+    return UnsafeMutablePointer(mutating: s)
+}
+
 /// Internal Class that wraps a one-parameter closure to make sure the closure
 /// is retained until no longer required
 public class TimerClosureHolder {
