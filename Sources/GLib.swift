@@ -34,6 +34,13 @@ public func g_slice_new<T>() -> UnsafeMutablePointer<T>! {
     return g_slice_alloc(gsize(MemoryLayout<T>.size)).assumingMemoryBound(to: T.self)
 }
 
+/// Free a slice of memory based on its type T
+///
+/// - Parameter mem_block: memory block of a given type T
+public func g_slice_free<T>(_ mem_block: UnsafePointer<T>!) {
+    g_slice_free1(gsize(MemoryLayout<T>.size), UnsafeMutableRawPointer(UnsafeMutablePointer<T>(mutating: mem_block)))
+}
+
 /// Internal Class that wraps a one-parameter closure to make sure the closure
 /// is retained until no longer required
 public class TimerClosureHolder {
