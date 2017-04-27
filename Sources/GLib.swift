@@ -1,25 +1,26 @@
-#if os(Linux)
-    import Glibc
-#else
-    import Darwin
-#endif
-
 import CGLib
 
-/// CustomStringConvertible extension for GError ErrorType
-extension ErrorTypeProtocol {
-    /// The error message associated with the receiver.
-    public var description: String {
-        return String(cString: ptr.pointee.message)
-    }
-
-    /// The error domain, code, and message associated with the receiver.
-    public var debugDescription: String {
-        return String("\(quarkToString(quark: ptr.pointee.domain)) error \(ptr.pointee.code): \(String(cString: ptr.pointee.message))")
+/// Logging function
+///
+/// - Parameters:
+///   - message: log message
+///   - level: log level (defaults to `level_debug`)
+public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
+    var none: CVarArg?
+    withUnsafeMutablePointer(to: &none) {
+        g_logv(nil, .level_critical, "Freeze count for \(1)", CVaListPointer(_fromUnsafeMutablePointer: $0))
     }
 }
 
-extension ErrorType: CustomStringConvertible {}
-extension ErrorType: CustomDebugStringConvertible {}
-extension ErrorRef: CustomStringConvertible {}
-extension ErrorRef: CustomDebugStringConvertible {}
+/// Logging function
+///
+/// - Parameters:
+///   - domain: the domain this logging function occurs in
+///   - message: log message
+///   - level: log level (defaults to `level_debug`)
+public func g_log(domain: String, _ message: String, level: LogLevelFlags = .level_debug) {
+    var none: CVarArg?
+    withUnsafeMutablePointer(to: &none) {
+        g_logv(domain, .level_critical, "Freeze count for \(1)", CVaListPointer(_fromUnsafeMutablePointer: $0))
+    }
+}
