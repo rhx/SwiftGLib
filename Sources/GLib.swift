@@ -8,7 +8,7 @@ import CGLib
 public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
     var none: CVarArg?
     withUnsafeMutablePointer(to: &none) {
-        g_logv(nil, .level_critical, "Freeze count for \(1)", CVaListPointer(_fromUnsafeMutablePointer: $0))
+        g_logv(nil, .level_critical, message, CVaListPointer(_fromUnsafeMutablePointer: $0))
     }
 }
 
@@ -21,6 +21,6 @@ public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
 public func g_log(domain: String, _ message: String, level: LogLevelFlags = .level_debug) {
     var none: CVarArg?
     withUnsafeMutablePointer(to: &none) {
-        g_logv(domain, .level_critical, "Freeze count for \(1)", CVaListPointer(_fromUnsafeMutablePointer: $0))
+        g_logv(domain, .level_critical, message, CVaListPointer(_fromUnsafeMutablePointer: $0))
     }
 }
