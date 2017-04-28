@@ -30,7 +30,7 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .lev
 /// - Parameters:
 ///   - message: warning message
 ///   - domain: the domain this logging occurs in (defaults to `nil`)
-public func g_warning(_ message: String, domain: String?) {
+public func g_warning(_ message: String, domain: String? = nil) {
     if let d = domain {
         g_log(domain: d, message, level: .level_warning)
     } else {
