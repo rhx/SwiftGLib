@@ -24,3 +24,16 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .lev
         g_logv(domain, .level_critical, message, CVaListPointer(_fromUnsafeMutablePointer: $0))
     }
 }
+
+/// Log a warning message
+///
+/// - Parameters:
+///   - message: warning message
+///   - domain: the domain this logging occurs in (defaults to `nil`)
+public func g_warning(_ message: String, domain: String?) {
+    if let d = domain {
+        g_log(domain: d, message, level: .level_warning)
+    } else {
+        g_log(message, level: .level_warning)
+    }
+}
