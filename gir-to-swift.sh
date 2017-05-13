@@ -22,4 +22,9 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-exec gir2swift "${GIR}" | sed -f ${Module}.sed | awk -f ${Module}.awk > Sources/${Module}.swift
+gir2swift -o Sources -s -m ${Module}.module "${GIR}"
+for src in Sources/*-*.swift ; do
+	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
+	mv ${src}.out ${src}
+done
+touch Sources/${Module}.swift
