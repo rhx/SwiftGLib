@@ -21,4 +21,8 @@ BEGIN { etpInit = 0 }
 	print "	g_error_free(ptr)"
 	next
 }
+/ -> GIConv {/, /^}/ {
+	sub(/GIConv {/,"GIConv? {")
+	sub(/return rv/,"return rv == unsafeBitCast(-1, to: GIConv.self) ? nil : rv")
+}
 // { print }
