@@ -23,7 +23,7 @@ if [ ! -e "${GIR}" ] ; then
 	exit 1
 fi
 gir2swift -o Sources/${Mod} -s -m ${Module}.module "${GIR}"
-for src in Sources//${Mod}/*-*.swift ; do
+for src in Sources/${Mod}/*-*.swift ; do
 	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
 	mv ${src}.out ${src}
 done
