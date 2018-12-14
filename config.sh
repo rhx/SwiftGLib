@@ -3,8 +3,9 @@
 # Configuration for the module to compile, the Swift toolchain, and
 # the compiler and linker flags to use.
 #
-Mod=GLib
-Module=${Mod}-2.0
+VER=2.0
+Mod=`grep name: Package.swift | head -n1 | cut -d'"' -f2`
+Module=${Mod}-${VER}
 module="`echo "${Module}" | tr '[:upper:]' '[:lower:]'`"
 BUILD_DIR=`pwd`/.build
 export PATH="${BUILD_DIR}/gir2swift/.build/release:${BUILD_DIR}/gir2swift/.build/debug:${PATH}"
