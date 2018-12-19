@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -18,7 +18,7 @@ extension String {
 public extension StringRef {
     /// Construct a StringRef from a Swift string.
     /// The returned string needs to be freed using free(free_segment: true)
-    public init(_ s: String) { ptr = s.ptr }
+    init(_ s: String) { ptr = s.ptr }
 }
 
 /// A subclass of StringType that represents unique ownership of the underlying
@@ -44,8 +44,8 @@ public class StringClass: StringType {
 public extension String {
     /// Return a GString reference that needs to be manually freed
     /// using free(free_segment: true)
-    public var g_string_ref: StringRef { return StringRef(self) }
+    var g_string_ref: StringRef { return StringRef(self) }
 
     /// Return a memory-managed StringType that will be freed using ARC.
-    public var g_string: StringClass { return StringClass(self) }
+    var g_string: StringClass { return StringClass(self) }
 }
