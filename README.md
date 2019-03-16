@@ -6,7 +6,7 @@ A Swift wrapper around glib-2.x that is largely auto-generated from gobject-intr
 
 ### Swift
 
-To build, you need at least Swift 3.1 (Swift 4.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
@@ -20,7 +20,7 @@ on macOS, or on Linux you should get something like:
 
 ### GLib 2.46 or higher
 
-These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, and 2.58.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, and 2.60.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
