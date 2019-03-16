@@ -1,5 +1,8 @@
 import CGLib
 
+/// Opaque type. See RecMutexLocker for details.
+public struct GRecMutexLocker {}
+
 /// Logging function
 ///
 /// - Parameters:
