@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -41,7 +41,7 @@ public extension MainLoopRef {
     /// Convenience initialiser that returns a retained reference to the
     /// default main loop.  See also g_main_loop_unref()
     init() {
-        self.ptr = UnsafeMutablePointer(g_main_loop_new(g_main_context_default()!, 0)!)
+        ptr = UnsafeMutableRawPointer(g_main_loop_new(g_main_context_default()!, 0)!)
     }
 }
 

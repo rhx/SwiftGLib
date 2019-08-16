@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017, 2018 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -11,14 +11,14 @@ import CGLib
 extension String {
     /// Return a GString corresponding to the given swift string.
     /// The returned string pointer needs to be freed using g_string_free(*, true)
-    var ptr: UnsafeMutablePointer<GString> { return g_string_new(self) }
+    var gstring_ptr: UnsafeMutablePointer<GString> { return g_string_new(self) }
 }
 
 /// Allow StringRefs to be initialised from Swift strings
 public extension StringRef {
     /// Construct a StringRef from a Swift string.
     /// The returned string needs to be freed using free(free_segment: true)
-    init(_ s: String) { ptr = s.ptr }
+    init(_ s: String) { ptr = UnsafeMutableRawPointer(s.gstring_ptr) }
 }
 
 /// A subclass of StringType that represents unique ownership of the underlying
@@ -31,12 +31,12 @@ public class StringClass: StringType {
 
     /// Initialise from a swift string
     public init(_ s: String) {
-        super.init(s.ptr)
+        super.init(s.gstring_ptr)
     }
 
     /// free the contained string upon release
     deinit {
-        g_string_free(ptr, 1)
+        g_string_free(gstring_ptr, 1)
     }
 }
 

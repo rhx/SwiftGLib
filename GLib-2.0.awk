@@ -18,7 +18,7 @@ BEGIN { etpInit = 0 }
 }
 /no reference counting for GError, cannot ref/ { next }
 /no reference counting for GError, cannot unref/ {
-	print "	g_error_free(ptr)"
+	print "	    g_error_free(error_ptr)"
 	next
 }
 / -> GIConv {/, /^}/ {
