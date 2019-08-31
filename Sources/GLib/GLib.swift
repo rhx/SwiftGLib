@@ -1,3 +1,10 @@
+//
+//  GLib.swift
+//  GLib
+//
+//  Created by Rene Hexel on 27/04/2017.
+//  Copyright © 2016, 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//
 import CGLib
 
 /// Opaque type. See RecMutexLocker for details.
