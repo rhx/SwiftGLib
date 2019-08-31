@@ -66,7 +66,7 @@ class GLibTests: XCTestCase {
     func testDefaultMainContext() {
         let context = MainContext.defaultContext()
         let p = context.ref()
-        XCTAssertEqual(p, context.ptr)
+        XCTAssertEqual(p, context.main_context_ptr)
         context.unref()
         XCTAssertNil(context.findSourceByID(sourceID: 123))
         XCTAssertNotNil(context.pollFunc)
