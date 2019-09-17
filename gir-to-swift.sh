@@ -26,5 +26,11 @@ gir2swift -o Sources/${Mod} -s -m ${Module}.module "${GIR}"
 for src in Sources/${Mod}/*-*.swift ; do
 	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
 	mv ${src}.out ${src}
+	for ver in 2.62.0 ; do
+		if pkg-config --exact-version=$ver glib-2.0 ; then
+			sed -f ${Module}-$ver.sed < ${src} > ${src}.out
+			mv ${src}.out ${src}
+		fi
+	done
 done
 touch Sources/${Mod}/${Module}.swift

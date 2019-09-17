@@ -15,12 +15,12 @@ To build, you need at least Swift 4.2 (Swift 5.x should work fine), download fro
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.0.2 (swift-5.0.2-RELEASE)
+	Swift version 5.0.3 (swift-5.0.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.46 or higher
 
-These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, and 2.60.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, 2.60, and 2.62.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 

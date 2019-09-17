@@ -119,7 +119,9 @@ struct _GMenuLinkIterPrivate {};
 struct _GMenuModelPrivate {};
 struct _GMount {};
 struct _GMountOperationPrivate {};
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 62
 struct _GNativeSocketAddress {};
+#endif
 struct _GNetworkAddressPrivate {};
 struct _GNetworkMonitor {};
 struct _GNetworkServicePrivate {};
