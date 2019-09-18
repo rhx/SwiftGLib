@@ -28,7 +28,8 @@ for src in Sources/${Mod}/*-*.swift ; do
 	mv ${src}.out ${src}
 	for ver in 2.62.0 ; do
 		if pkg-config --exact-version=$ver glib-2.0 ; then
-			sed -f ${Module}-$ver.sed < ${src} > ${src}.out
+			sed -f ${Module}-$ver.sed < ${src} |		\
+			awk -f ${Module}-$ver.awk > ${src}.out
 			mv ${src}.out ${src}
 		fi
 	done
