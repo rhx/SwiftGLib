@@ -8,3 +8,5 @@ s/: \([A-Za-z]*Notify[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Func[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Marshaller[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Callback[,)]\)/: @escaping \1/g
+s|^public typealias RWLockWriterLocker|// GRWLockWriterLocker is a void typedef in C|
+s|^public typealias RWLockReaderLocker|// GRWLockReaderLocker is a void typedef in C|
