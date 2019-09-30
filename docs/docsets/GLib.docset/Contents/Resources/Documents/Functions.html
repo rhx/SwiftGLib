@@ -18054,15 +18054,14 @@ the lifetime of the process.</p>
 
 <p>The value of <code>errno</code> will not be changed by this function. However, it may
 be changed by intermediate function calls, so you should save its value
-as soon as the call returns:
-|[
-  int saved_errno;</p>
+as soon as the call returns:</p>
+<pre class="highlight swift"><code>  <span class="n">int</span> <span class="n">saved_errno</span><span class="p">;</span>
 
-<p>ret = read (blah);
-  saved_errno = errno;</p>
+  <span class="n">ret</span> <span class="o">=</span> <span class="nf">read</span> <span class="p">(</span><span class="n">blah</span><span class="p">);</span>
+  <span class="n">saved_errno</span> <span class="o">=</span> <span class="n">errno</span><span class="p">;</span>
 
-<p>g_strerror (saved_errno);</p>
-<pre class="highlight swift"><code></code></pre>
+  <span class="nf">g_strerror</span> <span class="p">(</span><span class="n">saved_errno</span><span class="p">);</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -20775,17 +20774,16 @@ timestamp is assumed to be in local time.)</p>
 <p>Any leading or trailing space in <code>iso_date</code> is ignored.</p>
 
 <p>This function was deprecated, along with <code>GTimeVal</code> itself, in GLib 2.62.
-Equivalent functionality is available using code like:
-|[
-GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
-gint64 time_val = g_date_time_to_unix (dt);
-g_date_time_unref (dt);</p>
-<pre class="highlight swift"><code>
-
-<span class="o">**</span><span class="n">time_val_from_iso8601</span> <span class="k">is</span> <span class="nv">deprecated</span><span class="p">:</span><span class="o">**</span>
-<span class="cp">#GTimeVal is not year-2038-safe. Use</span>
-   <span class="nf">g_date_time_new_from_iso8601</span><span class="p">()</span> <span class="n">instead</span><span class="o">.</span>
+Equivalent functionality is available using code like:</p>
+<pre class="highlight swift"><code><span class="kt">GDateTime</span> <span class="o">*</span><span class="n">dt</span> <span class="o">=</span> <span class="nf">g_date_time_new_from_iso8601</span> <span class="p">(</span><span class="n">iso8601_string</span><span class="p">,</span> <span class="kt">NULL</span><span class="p">);</span>
+<span class="n">gint64</span> <span class="n">time_val</span> <span class="o">=</span> <span class="nf">g_date_time_to_unix</span> <span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+<span class="nf">g_date_time_unref</span> <span class="p">(</span><span class="n">dt</span><span class="p">);</span>
 </code></pre>
+
+<p><strong>time_val_from_iso8601 is deprecated:</strong></p>
+<h1 id='gtimeval-is-not-year-2038-safe-use' class='heading'>GTimeVal is not year-2038-safe. Use</h1>
+
+<p>g_date_time_new_from_iso8601() instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -23223,12 +23221,11 @@ discarding any comments. The URIs are not validated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the scheme portion of a URI string. RFC 3986 decodes the scheme as:
-|[
-URI = scheme <q>:</q> hier-part [ <q>?</q> query ] [ <q>&ldquo;</q> fragment ]</p>
-<pre class="highlight swift"><code>
-<span class="kt">Common</span> <span class="n">schemes</span> <span class="n">include</span> <span class="s">"file"</span><span class="p">,</span> <span class="s">"http"</span><span class="p">,</span> <span class="s">"svn+ssh"</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+                        <p>Gets the scheme portion of a URI string. RFC 3986 decodes the scheme as:</p>
+<pre class="highlight swift"><code><span class="kt">URI</span> <span class="o">=</span> <span class="n">scheme</span> <span class="s">":"</span> <span class="n">hier</span><span class="o">-</span><span class="n">part</span> <span class="p">[</span> <span class="s">"?"</span> <span class="n">query</span> <span class="p">]</span> <span class="p">[</span> <span class="s">"``"</span> <span class="n">fragment</span> <span class="p">]</span>
 </code></pre>
+
+<p>Common schemes include <q>file</q>, <q>http</q>, <q>svn+ssh</q>, etc.</p>
 
                       </div>
                       <div class="declaration">
@@ -24625,17 +24622,13 @@ error within the string for which parsing was attempted.</p>
 monospace media where newlines are treated in the usual way.</p>
 
 <p>The message will typically look something like one of the following:</p>
+<pre class="highlight swift"><code><span class="n">unterminated</span> <span class="n">string</span> <span class="nv">constant</span><span class="p">:</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">'</span><span class="n">abc</span>
+            <span class="o">^^^^</span>
+</code></pre>
 
-<p>|[
-unterminated string constant:
-  (1, 2, 3, &lsquo;abc
-            ^^^^</p>
-<pre class="highlight swift"><code>
-
-<span class="n">or</span>
-
-<span class="o">|</span><span class="p">[</span>
-<span class="n">unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">a</span> <span class="n">common</span> <span class="nv">type</span><span class="p">:</span>
+<p>or</p>
+<pre class="highlight swift"><code><span class="n">unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">a</span> <span class="n">common</span> <span class="nv">type</span><span class="p">:</span>
   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">'</span><span class="n">str</span><span class="err">'</span><span class="p">]</span>
    <span class="o">^</span>        <span class="o">^^^^^</span>
 </code></pre>
