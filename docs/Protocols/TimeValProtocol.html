@@ -3626,16 +3626,16 @@ function has been deprecated. Equivalent functionality is available using:
 |[
 GDateTime *dt = g_date_time_new_from_unix_utc (time_val);
 iso8601_string = g_date_time_format_iso8601 (dt);
-g_date_time_unref (dt);
-]|</p>
+g_date_time_unref (dt);</p>
+<pre class="highlight swift"><code>
 
-<p>The return value of g_time_val_to_iso8601() has been nullable since GLib
-2.54; before then, GLib would crash under the same conditions.</p>
+<span class="kt">The</span> <span class="k">return</span> <span class="n">value</span> <span class="n">of</span> <span class="nf">g_time_val_to_iso8601</span><span class="p">()</span> <span class="n">has</span> <span class="n">been</span> <span class="n">nullable</span> <span class="n">since</span> <span class="kt">GLib</span>
+<span class="mf">2.54</span><span class="p">;</span> <span class="n">before</span> <span class="n">then</span><span class="p">,</span> <span class="kt">GLib</span> <span class="n">would</span> <span class="n">crash</span> <span class="n">under</span> <span class="n">the</span> <span class="n">same</span> <span class="n">conditions</span><span class="o">.</span>
 
-<p><strong>to_iso8601 is deprecated:</strong></p>
-<h1 id='gtimeval-is-not-year-2038-safe-use' class='heading'>GTimeVal is not year-2038-safe. Use</h1>
-
-<p>g_date_time_format_iso8601(dt) instead.</p>
+<span class="o">**</span><span class="n">to_iso8601</span> <span class="k">is</span> <span class="nv">deprecated</span><span class="p">:</span><span class="o">**</span>
+<span class="cp">#GTimeVal is not year-2038-safe. Use</span>
+   <span class="nf">g_date_time_format_iso8601</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="n">instead</span><span class="o">.</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3648,7 +3648,7 @@ g_date_time_unref (dt);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L210-L213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L211-L214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3684,13 +3684,13 @@ Equivalent functionality is available using code like:
 |[
 GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
 gint64 time_val = g_date_time_to_unix (dt);
-g_date_time_unref (dt);
-]|</p>
+g_date_time_unref (dt);</p>
+<pre class="highlight swift"><code>
 
-<p><strong>from_iso8601 is deprecated:</strong></p>
-<h1 id='gtimeval-is-not-year-2038-safe-use' class='heading'>GTimeVal is not year-2038-safe. Use</h1>
-
-<p>g_date_time_new_from_iso8601() instead.</p>
+<span class="o">**</span><span class="n">from_iso8601</span> <span class="k">is</span> <span class="nv">deprecated</span><span class="p">:</span><span class="o">**</span>
+<span class="cp">#GTimeVal is not year-2038-safe. Use</span>
+   <span class="nf">g_date_time_new_from_iso8601</span><span class="p">()</span> <span class="n">instead</span><span class="o">.</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3703,7 +3703,7 @@ g_date_time_unref (dt);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L236-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L238-L241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3744,7 +3744,7 @@ g_date_time_unref (dt);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L248-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L250-L253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3780,13 +3780,13 @@ Equivalent functionality is available using code like:
 |[
 GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
 gint64 time_val = g_date_time_to_unix (dt);
-g_date_time_unref (dt);
-]|</p>
+g_date_time_unref (dt);</p>
+<pre class="highlight swift"><code>
 
-<p><strong>time_val_from_iso8601 is deprecated:</strong></p>
-<h1 id='gtimeval-is-not-year-2038-safe-use' class='heading'>GTimeVal is not year-2038-safe. Use</h1>
-
-<p>g_date_time_new_from_iso8601() instead.</p>
+<span class="o">**</span><span class="n">time_val_from_iso8601</span> <span class="k">is</span> <span class="nv">deprecated</span><span class="p">:</span><span class="o">**</span>
+<span class="cp">#GTimeVal is not year-2038-safe. Use</span>
+   <span class="nf">g_date_time_new_from_iso8601</span><span class="p">()</span> <span class="n">instead</span><span class="o">.</span>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3799,7 +3799,7 @@ g_date_time_unref (dt);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L274-L277">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L277-L280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

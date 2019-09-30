@@ -3801,32 +3801,32 @@ inconsistent value to be constructed (ie: adding too many values or
 a value of an incorrect type).</p>
 
 <p>Example of building a nested variant:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-GVariantBuilder builder;
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>GVariantBuilder builder;
 guint32 some_number = get_number ();
 g_autoptr (GHashTable) some_dict = get_dict ();
 GHashTableIter iter;
 const gchar *key;
 const GVariant *value;
-g_autoptr (GVariant) output = NULL;</p>
+g_autoptr (GVariant) output = NULL;
 
-<p>g_variant_builder_init (&amp;builder, G_VARIANT_TYPE (<q>(ua{sv})</q>));
-g_variant_builder_add (&amp;builder, <q>u</q>, some_number);
-g_variant_builder_open (&amp;builder, G_VARIANT_TYPE (<q>a{sv}</q>));</p>
+g_variant_builder_init (&amp;builder, G_VARIANT_TYPE ("(ua{sv})"));
+g_variant_builder_add (&amp;builder, "u", some_number);
+g_variant_builder_open (&amp;builder, G_VARIANT_TYPE ("a{sv}"));
 
-<p>g_hash_table_iter_init (&amp;iter, some_dict);
+g_hash_table_iter_init (&amp;iter, some_dict);
 while (g_hash_table_iter_next (&amp;iter, (gpointer *) &amp;key, (gpointer *) &amp;value))
   {
-    g_variant_builder_open (&amp;builder, G_VARIANT_TYPE (<q>{sv}</q>));
-    g_variant_builder_add (&amp;builder, <q>s</q>, key);
-    g_variant_builder_add (&amp;builder, <q>v</q>, value);
+    g_variant_builder_open (&amp;builder, G_VARIANT_TYPE ("{sv}"));
+    g_variant_builder_add (&amp;builder, "s", key);
+    g_variant_builder_add (&amp;builder, "v", value);
     g_variant_builder_close (&amp;builder);
-  }</p>
+  }
 
-<p>g_variant_builder_close (&amp;builder);</p>
+g_variant_builder_close (&amp;builder);
 
-<p>output = g_variant_builder_end (&amp;builder);
-]|</p>
+output = g_variant_builder_end (&amp;builder);
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3838,7 +3838,7 @@ while (g_hash_table_iter_next (&amp;iter, (gpointer *) &amp;key, (gpointer *) &a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L326-L329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L328-L331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3874,7 +3874,7 @@ things will happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L335-L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L337-L340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3913,7 +3913,7 @@ things will happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L347-L350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L349-L352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

@@ -3457,37 +3457,37 @@ threads to wake up to collect the data.</p>
 
 <p>Here is an example for using GCond to block a thread until a condition
 is satisfied:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  gpointer current_data = NULL;
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  gpointer current_data = NULL;
   GMutex data_mutex;
-  GCond data_cond;</p>
+  GCond data_cond;
 
-<p>void
+  void
   push_data (gpointer data)
   {
     g_mutex_lock (&amp;data_mutex);
     current_data = data;
     g_cond_signal (&amp;data_cond);
     g_mutex_unlock (&amp;data_mutex);
-  }</p>
+  }
 
-<p>gpointer
+  gpointer
   pop_data (void)
   {
-    gpointer data;</p>
-<pre class="highlight swift"><code><span class="nf">g_mutex_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">current_data</span><span class="p">)</span>
-  <span class="nf">g_cond_wait</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_cond</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">current_data</span><span class="p">;</span>
-<span class="n">current_data</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
-<span class="nf">g_mutex_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
+    gpointer data;
 
-<span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    g_mutex_lock (&amp;data_mutex);
+    while (!current_data)
+      g_cond_wait (&amp;data_cond, &amp;data_mutex);
+    data = current_data;
+    current_data = NULL;
+    g_mutex_unlock (&amp;data_mutex);
+
+    return data;
+  }
 </code></pre>
 
-<p>}
-]|
-Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls pop_data() now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
 has called push_data().</p>
 
@@ -3544,7 +3544,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3585,7 +3585,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L160-L161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L164-L165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3615,7 +3615,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L164-L166">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L168-L170">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3646,7 +3646,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L170-L172">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L174-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3677,7 +3677,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L176-L178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L180-L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3708,7 +3708,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L182-L184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L186-L188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3739,7 +3739,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L188-L190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L192-L194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3770,7 +3770,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L194-L196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L198-L200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

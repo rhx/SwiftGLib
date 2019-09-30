@@ -3559,18 +3559,18 @@ which is inefficient when adding multiple elements. A common idiom
 to avoid the inefficiency is to use g_list_prepend() and reverse
 the list with g_list_reverse() when all elements have been added.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-// Notice that these are initialized to the empty list.
-GList *string_list = NULL, *number_list = NULL;</p>
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>// Notice that these are initialized to the empty list.
+GList *string_list = NULL, *number_list = NULL;
 
-<p>// This is a list of strings.
-string_list = g_list_append (string_list, <q>first</q>);
-string_list = g_list_append (string_list, <q>second</q>);</p>
+// This is a list of strings.
+string_list = g_list_append (string_list, "first");
+string_list = g_list_append (string_list, "second");
 
-<p>// This is a list of integers.
+// This is a list of integers.
 number_list = g_list_append (number_list, GINT_TO_POINTER (27));
 number_list = g_list_append (number_list, GINT_TO_POINTER (14));
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3582,7 +3582,7 @@ number_list = g_list_append (number_list, GINT_TO_POINTER (14));
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L173-L176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L175-L178">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3609,10 +3609,10 @@ They are used directly.</p>
 
 <p>This function is for example used to move an element in the list.
 The following example moves an element to the top of the list:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-list = g_list_remove_link (list, llink);
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>list = g_list_remove_link (list, llink);
 list = g_list_concat (llink, list);
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3624,7 +3624,7 @@ list = g_list_concat (llink, list);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L188-L191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L192-L195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3662,7 +3662,7 @@ to copy the data as well.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L199-L202">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L203-L206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3696,14 +3696,14 @@ may get compiler warnings from this though if compiling with GCC’s
 <code>-Wcast-function-type</code> warning.</p>
 
 <p>For instance, if <code>list</code> holds a list of GObjects, you can do:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-another_list = g_list_copy_deep (list, (GCopyFunc) g_object_ref, NULL);
-]|</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>another_list = g_list_copy_deep (list, (GCopyFunc) g_object_ref, NULL);
+</code></pre>
 
 <p>And, to entirely free the new list, you could do:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-g_list_free_full (another_list, g_object_unref);
-]|</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>g_list_free_full (another_list, g_object_unref);
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3715,7 +3715,7 @@ g_list_free_full (another_list, g_object_unref);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L225-L228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L233-L236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3750,7 +3750,7 @@ without freeing it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L233-L236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L241-L244">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3783,7 +3783,7 @@ without freeing it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L239-L242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L247-L250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3821,7 +3821,7 @@ given user data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L250-L253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L258-L261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3854,7 +3854,7 @@ given user data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L256-L259">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L264-L267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3890,7 +3890,7 @@ not modify any part of the list after that element.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L265-L268">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L273-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3927,7 +3927,7 @@ either use g_list_free_full() or free them manually first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L275-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L283-L286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3964,7 +3964,7 @@ element that is currently part of a list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L293-L296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4001,7 +4001,7 @@ element from it).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L295-L298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L303-L306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4035,7 +4035,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L310-L313">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4068,7 +4068,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L308-L311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L316-L319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4101,7 +4101,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L314-L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L322-L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4134,7 +4134,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L320-L323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L328-L331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4173,7 +4173,7 @@ with g_list_sort().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L332-L335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L340-L343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4212,7 +4212,7 @@ with g_list_sort().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L344-L347">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L352-L355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4245,7 +4245,7 @@ with g_list_sort().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L350-L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L358-L361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4283,7 +4283,7 @@ of items. To check whether the list is non-empty, it is faster to check
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L361-L364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L369-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4320,7 +4320,7 @@ described in the <code>GList</code> introduction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L371-L374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L379-L382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4357,7 +4357,7 @@ described in the <code>GList</code> introduction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L381-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L389-L392">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4390,7 +4390,7 @@ described in the <code>GList</code> introduction.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L387-L390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L395-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4424,7 +4424,7 @@ in the <code>GList</code> (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L394-L397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L402-L405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4450,13 +4450,13 @@ in the <code>GList</code> (starting from 0).</p>
 <p>Note that the return value is the new start of the list,
 which will have changed, so make sure you store the new value.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-// Notice that it is initialized to the empty list.
-GList *list = NULL;</p>
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>// Notice that it is initialized to the empty list.
+GList *list = NULL;
 
-<p>list = g_list_prepend (list, <q>last</q>);
-list = g_list_prepend (list, <q>first</q>);
-]|</p>
+list = g_list_prepend (list, "last");
+list = g_list_prepend (list, "first");
+</code></pre>
 
 <p>Do not use this function to prepend a new element to a different
 element than the start of the list. Use g_list_insert_before() instead.</p>
@@ -4471,7 +4471,7 @@ element than the start of the list. Use g_list_insert_before() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L414-L417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4506,7 +4506,7 @@ If none of the elements contain the data, the <code>GList</code> is unchanged.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L422-L425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L432-L435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4542,7 +4542,7 @@ matching the given data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L431-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L441-L444">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4570,11 +4570,11 @@ that it becomes a self-contained list with one element.</p>
 <p>This function is for example used to move an element in the list
 (see the example for g_list_concat()) or to remove an element in
 the list before freeing its data:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-list = g_list_remove_link (list, llink);
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>list = g_list_remove_link (list, llink);
 free_some_data_that_may_access_the_list_again (llink-&gt;data);
 g_list_free (llink);
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4586,7 +4586,7 @@ g_list_free (llink);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L448-L451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L460-L463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4620,7 +4620,7 @@ It simply switches the next and prev pointers of each element.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L455-L458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L467-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4654,7 +4654,7 @@ used is a stable sort.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L462-L465">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L474-L477">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4688,7 +4688,7 @@ a user data argument.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L469-L472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L481-L484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

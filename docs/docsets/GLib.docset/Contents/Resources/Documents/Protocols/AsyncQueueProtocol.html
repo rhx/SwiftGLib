@@ -4129,15 +4129,15 @@ it when it is finished.</p>
 
 <p>If you were sorting a list of priority numbers to make sure the
 lowest priority would be at the top of the queue, you could use:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
- gint32 id1;
- gint32 id2;</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code> gint32 id1;
+ gint32 id2;
 
-<p>id1 = GPOINTER_TO_INT (element1);
- id2 = GPOINTER_TO_INT (element2);</p>
+ id1 = GPOINTER_TO_INT (element1);
+ id2 = GPOINTER_TO_INT (element2);
 
-<p>return (id1 &gt; id2 ? +1 : id1 == id2 ? 0 : -1);
-]|</p>
+ return (id1 &gt; id2 ? +1 : id1 == id2 ? 0 : -1);
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4149,7 +4149,7 @@ lowest priority would be at the top of the queue, you could use:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L338-L341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L340-L343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4190,7 +4190,7 @@ element.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L352-L355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L354-L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4233,7 +4233,7 @@ use g_async_queue_timeout_pop().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L367-L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L369-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4278,7 +4278,7 @@ use g_async_queue_timeout_pop_unlocked().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L384-L387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L386-L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4314,7 +4314,7 @@ use g_async_queue_timeout_pop_unlocked().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L393-L396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L395-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4352,7 +4352,7 @@ use g_async_queue_timeout_pop_unlocked().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L404-L407">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L406-L409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4386,7 +4386,7 @@ use g_async_queue_timeout_pop_unlocked().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L411-L414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4422,7 +4422,7 @@ use g_async_queue_timeout_pop_unlocked().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L420-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L422-L425">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4459,7 +4459,7 @@ behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L430-L433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L432-L435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4497,7 +4497,7 @@ You do not need to hold the lock to call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L441-L444">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L443-L446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4539,7 +4539,7 @@ lock.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L455-L458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L457-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

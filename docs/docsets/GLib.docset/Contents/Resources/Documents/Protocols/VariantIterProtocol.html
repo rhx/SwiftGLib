@@ -3709,27 +3709,26 @@ of items remaining.</p>
 you no longer need it.</p>
 
 <p>Here is an example for iterating with g_variant_iter_next_value():
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  // recursively iterate a container
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  // recursively iterate a container
   void
   iterate_container_recursive (GVariant *container)
   {
     GVariantIter iter;
-    GVariant *child;</p>
-<pre class="highlight swift"><code><span class="nf">g_variant_iter_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">,</span> <span class="n">container</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">((</span><span class="n">child</span> <span class="o">=</span> <span class="nf">g_variant_iter_next_value</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">iter</span><span class="p">)))</span>
-  <span class="p">{</span>
-    <span class="nf">g_print</span> <span class="p">(</span><span class="s">"type '`s`'</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="nf">g_variant_get_type_string</span> <span class="p">(</span><span class="n">child</span><span class="p">));</span>
+    GVariant *child;
 
-    <span class="k">if</span> <span class="p">(</span><span class="nf">g_variant_is_container</span> <span class="p">(</span><span class="n">child</span><span class="p">))</span>
-      <span class="nf">iterate_container_recursive</span> <span class="p">(</span><span class="n">child</span><span class="p">);</span>
+    g_variant_iter_init (&amp;iter, container);
+    while ((child = g_variant_iter_next_value (&amp;iter)))
+      {
+        g_print ("type '`s`'\n", g_variant_get_type_string (child));
 
-    <span class="nf">g_variant_unref</span> <span class="p">(</span><span class="n">child</span><span class="p">);</span>
-  <span class="p">}</span>
+        if (g_variant_is_container (child))
+          iterate_container_recursive (child);
+
+        g_variant_unref (child);
+      }
+  }
 </code></pre>
-
-<p>}
-]|</p>
 
                       </div>
                       <div class="declaration">
@@ -3741,7 +3740,7 @@ you no longer need it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantIter.swift#L219-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantIter.swift#L221-L224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

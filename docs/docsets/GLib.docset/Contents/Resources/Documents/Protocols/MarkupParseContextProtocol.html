@@ -3896,13 +3896,13 @@ interface.</p>
 <p>As an example, see the following implementation of a simple
 parser that counts the number of tags encountered.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-typedef struct
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>typedef struct
 {
   gint tag_count;
-} CounterData;</p>
+} CounterData;
 
-<p>static void
+static void
 counter_start_element (GMarkupParseContext  *context,
                        const gchar          *element_name,
                        const gchar         **attribute_names,
@@ -3910,22 +3910,22 @@ counter_start_element (GMarkupParseContext  *context,
                        gpointer              user_data,
                        GError              **error)
 {
-  CounterData *data = user_data;</p>
+  CounterData *data = user_data;
 
-<p>data-&gt;tag_count++;
-}</p>
+  data-&gt;tag_count++;
+}
 
-<p>static void
+static void
 counter_error (GMarkupParseContext *context,
                GError              *error,
                gpointer             user_data)
 {
-  CounterData *data = user_data;</p>
+  CounterData *data = user_data;
 
-<p>g_slice_free (CounterData, data);
-}</p>
+  g_slice_free (CounterData, data);
+}
 
-<p>static GMarkupParser counter_subparser =
+static GMarkupParser counter_subparser =
 {
   counter_start_element,
   NULL,
@@ -3933,53 +3933,53 @@ counter_error (GMarkupParseContext *context,
   NULL,
   counter_error
 };
-]|</p>
+</code></pre>
 
 <p>In order to allow this parser to be easily used as a subparser, the
 following interface is provided:</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-void
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>void
 start_counting (GMarkupParseContext *context)
 {
-  CounterData *data = g_slice_new (CounterData);</p>
+  CounterData *data = g_slice_new (CounterData);
 
-<p>data-&gt;tag_count = 0;
+  data-&gt;tag_count = 0;
   g_markup_parse_context_push (context, &amp;counter_subparser, data);
-}</p>
+}
 
-<p>gint
+gint
 end_counting (GMarkupParseContext *context)
 {
   CounterData *data = g_markup_parse_context_pop (context);
-  int result;</p>
+  int result;
 
-<p>result = data-&gt;tag_count;
-  g_slice_free (CounterData, data);</p>
+  result = data-&gt;tag_count;
+  g_slice_free (CounterData, data);
 
-<p>return result;
+  return result;
 }
-]|</p>
+</code></pre>
 
 <p>The subparser would then be used as follows:</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static void start_element (context, element_name, &hellip;)
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>static void start_element (context, element_name, ...)
 {
-  if (strcmp (element_name, <q>count-these</q>) == 0)
-    start_counting (context);</p>
+  if (strcmp (element_name, "count-these") == 0)
+    start_counting (context);
 
-<p>// else, handle other tags&hellip;
-}</p>
-
-<p>static void end_element (context, element_name, &hellip;)
-{
-  if (strcmp (element_name, <q>count-these</q>) == 0)
-    g_print (<q>Counted `d` tags\n</q>, end_counting (context));</p>
-
-<p>// else, handle other tags&hellip;
+  // else, handle other tags...
 }
-]|</p>
+
+static void end_element (context, element_name, ...)
+{
+  if (strcmp (element_name, "count-these") == 0)
+    g_print ("Counted `d` tags\n", end_counting (context));
+
+  // else, handle other tags...
+}
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -3991,7 +3991,7 @@ static void start_element (context, element_name, &hellip;)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L386-L389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L392-L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4024,7 +4024,7 @@ static void start_element (context, element_name, &hellip;)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L392-L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L398-L401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4058,7 +4058,7 @@ drops to 0, it is freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L399-L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L405-L408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4095,7 +4095,7 @@ elements, see g_markup_parse_context_get_element_stack().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L408-L418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L414-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4138,7 +4138,7 @@ processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L431-L447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L437-L453">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4175,7 +4175,7 @@ of g_markup_parse_context_push().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L454-L464">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L460-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

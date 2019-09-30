@@ -51,7 +51,7 @@
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-aliases.swift",
-      "line": 82,
+      "line": 84,
       "symbol": "Type_",
       "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
@@ -156,119 +156,119 @@
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 181,
+      "line": 187,
       "symbol": "HAVE_GINT64",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 183,
+      "line": 189,
       "symbol": "HAVE_GNUC_VARARGS",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 185,
+      "line": 191,
       "symbol": "HAVE_GROWING_STACK",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 187,
+      "line": 193,
       "symbol": "HAVE_ISO_VARARGS",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 426,
+      "line": 433,
       "symbol": "MODULE_SUFFIX",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 500,
+      "line": 507,
       "symbol": "SIZEOF_LONG",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 502,
+      "line": 509,
       "symbol": "SIZEOF_SIZE_T",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 504,
+      "line": 511,
       "symbol": "SIZEOF_SSIZE_T",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 506,
+      "line": 513,
       "symbol": "SIZEOF_VOID_P",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 522,
+      "line": 529,
       "symbol": "SYSDEF_AF_INET",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 524,
+      "line": 531,
       "symbol": "SYSDEF_AF_INET6",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 526,
+      "line": 533,
       "symbol": "SYSDEF_AF_UNIX",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 528,
+      "line": 535,
       "symbol": "SYSDEF_MSG_DONTROUTE",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 530,
+      "line": 537,
       "symbol": "SYSDEF_MSG_OOB",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 532,
+      "line": 539,
       "symbol": "SYSDEF_MSG_PEEK",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 589,
+      "line": 596,
       "symbol": "VA_COPY_AS_ARRAY",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-constants.swift",
-      "line": 605,
+      "line": 612,
       "symbol": "WIN32_MSG_HANDLE",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
@@ -520,161 +520,161 @@
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 3589,
+      "line": 3591,
       "symbol": "ioChannelErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 3616,
+      "line": 3618,
       "symbol": "keyFileErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 4251,
+      "line": 4265,
       "symbol": "markupErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 4458,
+      "line": 4472,
       "symbol": "numberParserErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 4584,
+      "line": 4602,
       "symbol": "optionErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 5246,
+      "line": 5264,
       "symbol": "regexErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 5594,
+      "line": 5612,
       "symbol": "shellErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 5747,
+      "line": 5765,
       "symbol": "sliceGetConfig(ckey:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 5755,
+      "line": 5773,
       "symbol": "sliceGetConfigState(ckey:address:nValues:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 5763,
+      "line": 5781,
       "symbol": "sliceSetConfig(ckey:value:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 6214,
+      "line": 6232,
       "symbol": "spawnErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 6222,
+      "line": 6240,
       "symbol": "spawnExitErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 6990,
+      "line": 7017,
       "symbol": "strvGetType()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 7059,
+      "line": 7086,
       "symbol": "testAddVtable(testpath:dataSize:testData:dataSetup:dataTest:dataTeardown:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 7067,
+      "line": 7094,
       "symbol": "testAssertExpectedMessagesInternal(domain:file:line:func_:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 7308,
+      "line": 7337,
       "symbol": "testLogTypeName(logType:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 7566,
+      "line": 7597,
       "symbol": "testTrapAssertions(domain:file:line:func_:assertionFlags:pattern:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 7702,
+      "line": 7737,
       "symbol": "threadErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 8661,
+      "line": 8697,
       "symbol": "unixErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 9404,
+      "line": 9441,
       "symbol": "variantGetGtype()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 9522,
+      "line": 9561,
       "symbol": "variantParseErrorQuark()",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 9542,
+      "line": 9581,
       "symbol": "variantTypeChecked_(arg0:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"
     },
     {
       "file": "/Users/s254227/Dropbox/Developer/src/swift/rh/gtk/SwiftGLib/Sources/GLib/GLib-2.0-functions.swift",
-      "line": 9550,
+      "line": 9589,
       "symbol": "variantTypeStringGetDepth_(typeString:)",
       "symbol_kind": "source.lang.swift.decl.function.free",
       "warning": "undocumented"

@@ -3784,37 +3784,37 @@ threads to wake up to collect the data.</p>
 
 <p>Here is an example for using GCond to block a thread until a condition
 is satisfied:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  gpointer current_data = NULL;
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  gpointer current_data = NULL;
   GMutex data_mutex;
-  GCond data_cond;</p>
+  GCond data_cond;
 
-<p>void
+  void
   push_data (gpointer data)
   {
     g_mutex_lock (&amp;data_mutex);
     current_data = data;
     g_cond_signal (&amp;data_cond);
     g_mutex_unlock (&amp;data_mutex);
-  }</p>
+  }
 
-<p>gpointer
+  gpointer
   pop_data (void)
   {
-    gpointer data;</p>
-<pre class="highlight swift"><code><span class="nf">g_mutex_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">current_data</span><span class="p">)</span>
-  <span class="nf">g_cond_wait</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_cond</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">current_data</span><span class="p">;</span>
-<span class="n">current_data</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
-<span class="nf">g_mutex_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
+    gpointer data;
 
-<span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    g_mutex_lock (&amp;data_mutex);
+    while (!current_data)
+      g_cond_wait (&amp;data_cond, &amp;data_mutex);
+    data = current_data;
+    current_data = NULL;
+    g_mutex_unlock (&amp;data_mutex);
+
+    return data;
+  }
 </code></pre>
 
-<p>}
-]|
-Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls pop_data() now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
 has called push_data().</p>
 
@@ -3849,7 +3849,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L152-L156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L156-L160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5545,44 +5545,43 @@ lock when a reader already holds the lock and a writer is queued to acquire
 it.</p>
 
 <p>Here is an example for an array with access functions:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GRWLock lock;
-  GPtrArray *array;</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GRWLock lock;
+  GPtrArray *array;
 
-<p>gpointer
+  gpointer
   my_array_get (guint index)
   {
-    gpointer retval = NULL;</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kt">NULL</span><span class="p">;</span>
+    gpointer retval = NULL;
 
-<span class="nf">g_rw_lock_reader_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="n">retval</span> <span class="o">=</span> <span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
-<span class="nf">g_rw_lock_reader_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (!array)
+      return NULL;
 
-<span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
-</code></pre>
+    g_rw_lock_reader_lock (&amp;lock);
+    if (index &lt; array-&gt;len)
+      retval = g_ptr_array_index (array, index);
+    g_rw_lock_reader_unlock (&amp;lock);
 
-<p>}</p>
+    return retval;
+  }
 
-<p>void
+  void
   my_array_set (guint index, gpointer data)
   {
-    g_rw_lock_writer_lock (&amp;lock);</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="nf">g_ptr_array_new</span> <span class="p">();</span>
+    g_rw_lock_writer_lock (&amp;lock);
 
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="nf">g_ptr_array_set_size</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-<span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+    if (!array)
+      array = g_ptr_array_new ();
 
-<span class="nf">g_rw_lock_writer_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (index &gt;= array-&gt;len)
+      g_ptr_array_set_size (array, index+1);
+    g_ptr_array_index (array, index) = data;
+
+    g_rw_lock_writer_unlock (&amp;lock);
+  }
 </code></pre>
 
-<p>}
- ]|
-This example shows an array which can be accessed by many readers
+<p>This example shows an array which can be accessed by many readers
 (the my_array_get() function) simultaneously, whereas the writers
 (the my_array_set() function) will only be allowed one at a time
 and only if no readers currently access the array. This is because
@@ -5606,7 +5605,7 @@ g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L148-L152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L152-L156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7035,9 +7034,9 @@ along with a string representing the type of data you wish to pass to it.</p>
 <p>For instance, if you want to create a <code>GVariant</code> holding an integer value you
 can use:</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GVariant *v = g_variant_new (<q>u</q>, 40);
-]|</p>
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GVariant *v = g_variant_new ("u", 40);
+</code></pre>
 
 <p>The string <q>u</q> in the first argument tells <code>GVariant</code> that the data passed to
 the constructor (40) is going to be an unsigned integer.</p>
@@ -7271,7 +7270,7 @@ be shared.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L506-L510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L510-L514">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7394,59 +7393,57 @@ key is not found.  Each returns the new dictionary as a floating
 
 <p>&ldquo;` Using a stack-allocated GVariantDict</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GVariant *
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GVariant *
   add_to_count (GVariant  *orig,
                 GError   **error)
   {
     GVariantDict dict;
-    guint32 count;</p>
-<pre class="highlight swift"><code><span class="nf">g_variant_dict_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="n">orig</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">g_variant_dict_lookup</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="nf">g_set_error</span> <span class="p">(</span><span class="o">...</span><span class="p">);</span>
-    <span class="nf">g_variant_dict_clear</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">);</span>
-    <span class="k">return</span> <span class="kt">NULL</span><span class="p">;</span>
-  <span class="p">}</span>
+    guint32 count;
 
-<span class="nf">g_variant_dict_insert</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    g_variant_dict_init (&amp;dict, orig);
+    if (!g_variant_dict_lookup (&amp;dict, "count", "u", &amp;count))
+      {
+        g_set_error (...);
+        g_variant_dict_clear (&amp;dict);
+        return NULL;
+      }
 
-<span class="k">return</span> <span class="nf">g_variant_dict_end</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">);</span>
+    g_variant_dict_insert (&amp;dict, "count", "u", count + 1);
+
+    return g_variant_dict_end (&amp;dict);
+  }
 </code></pre>
-
-<p>}
-]|</p>
 
 <p>&rdquo;` Using heap-allocated GVariantDict</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GVariant *
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GVariant *
   add_to_count (GVariant  *orig,
                 GError   **error)
   {
     GVariantDict *dict;
     GVariant *result;
-    guint32 count;</p>
-<pre class="highlight swift"><code><span class="n">dict</span> <span class="o">=</span> <span class="nf">g_variant_dict_new</span> <span class="p">(</span><span class="n">orig</span><span class="p">);</span>
+    guint32 count;
 
-<span class="k">if</span> <span class="p">(</span><span class="nf">g_variant_dict_lookup</span> <span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="nf">g_variant_dict_insert</span> <span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="nf">g_variant_dict_end</span> <span class="p">(</span><span class="n">dict</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="k">else</span>
-  <span class="p">{</span>
-    <span class="nf">g_set_error</span> <span class="p">(</span><span class="o">...</span><span class="p">);</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
-  <span class="p">}</span>
+    dict = g_variant_dict_new (orig);
 
-<span class="nf">g_variant_dict_unref</span> <span class="p">(</span><span class="n">dict</span><span class="p">);</span>
+    if (g_variant_dict_lookup (dict, "count", "u", &amp;count))
+      {
+        g_variant_dict_insert (dict, "count", "u", count + 1);
+        result = g_variant_dict_end (dict);
+      }
+    else
+      {
+        g_set_error (...);
+        result = NULL;
+      }
 
-<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    g_variant_dict_unref (dict);
+
+    return result;
+  }
 </code></pre>
-
-<p>}
-]|</p>
 
                         <a href="Structs/VariantDictRef.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7459,7 +7456,7 @@ key is not found.  Each returns the new dictionary as a floating
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L200-L204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L208-L212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

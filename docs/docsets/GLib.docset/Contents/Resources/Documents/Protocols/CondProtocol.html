@@ -3458,37 +3458,37 @@ threads to wake up to collect the data.</p>
 
 <p>Here is an example for using GCond to block a thread until a condition
 is satisfied:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  gpointer current_data = NULL;
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  gpointer current_data = NULL;
   GMutex data_mutex;
-  GCond data_cond;</p>
+  GCond data_cond;
 
-<p>void
+  void
   push_data (gpointer data)
   {
     g_mutex_lock (&amp;data_mutex);
     current_data = data;
     g_cond_signal (&amp;data_cond);
     g_mutex_unlock (&amp;data_mutex);
-  }</p>
+  }
 
-<p>gpointer
+  gpointer
   pop_data (void)
   {
-    gpointer data;</p>
-<pre class="highlight swift"><code><span class="nf">g_mutex_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">current_data</span><span class="p">)</span>
-  <span class="nf">g_cond_wait</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_cond</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">current_data</span><span class="p">;</span>
-<span class="n">current_data</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
-<span class="nf">g_mutex_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">data_mutex</span><span class="p">);</span>
+    gpointer data;
 
-<span class="k">return</span> <span class="n">data</span><span class="p">;</span>
+    g_mutex_lock (&amp;data_mutex);
+    while (!current_data)
+      g_cond_wait (&amp;data_cond, &amp;data_mutex);
+    data = current_data;
+    current_data = NULL;
+    g_mutex_unlock (&amp;data_mutex);
+
+    return data;
+  }
 </code></pre>
 
-<p>}
-]|
-Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls pop_data() now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
 has called push_data().</p>
 
@@ -3544,7 +3544,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L77">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L79">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3582,7 +3582,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L80">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L82">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3629,7 +3629,7 @@ while calling this function, though not required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L333-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L339-L342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3668,7 +3668,7 @@ blocking leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L351-L354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3711,7 +3711,7 @@ to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L361-L364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L367-L370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3747,7 +3747,7 @@ while calling this function, though not required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L376-L379">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3793,7 +3793,7 @@ the documentation for <code>GCond</code> for a complete example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L389-L392">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L395-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3828,33 +3828,33 @@ passed.</p>
 condition variable (extending the example presented in the
 documentation for <code>GCond</code>):</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-gpointer
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>gpointer
 pop_data_timed (void)
 {
   gint64 end_time;
-  gpointer data;</p>
+  gpointer data;
 
-<p>g_mutex_lock (&amp;data_mutex);</p>
+  g_mutex_lock (&amp;data_mutex);
 
-<p>end_time = g_get_monotonic_time () + 5 * G_TIME_SPAN_SECOND;
+  end_time = g_get_monotonic_time () + 5 * G_TIME_SPAN_SECOND;
   while (!current_data)
     if (!g_cond_wait_until (&amp;data_cond, &amp;data_mutex, end_time))
       {
         // timeout has passed.
         g_mutex_unlock (&amp;data_mutex);
         return NULL;
-      }</p>
+      }
 
-<p>// there is data for us
+  // there is data for us
   data = current_data;
-  current_data = NULL;</p>
+  current_data = NULL;
 
-<p>g_mutex_unlock (&amp;data_mutex);</p>
+  g_mutex_unlock (&amp;data_mutex);
 
-<p>return data;
+  return data;
 }
-]|</p>
+</code></pre>
 
 <p>Notice that the end time is calculated once, before entering the
 loop and reused.  This is the motivation behind the use of absolute
@@ -3873,7 +3873,7 @@ time of more than 5 seconds).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L442-L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L450-L453">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
