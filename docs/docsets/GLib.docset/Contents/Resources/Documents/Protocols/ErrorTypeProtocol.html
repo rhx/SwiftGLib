@@ -3845,17 +3845,13 @@ error within the string for which parsing was attempted.</p>
 monospace media where newlines are treated in the usual way.</p>
 
 <p>The message will typically look something like one of the following:</p>
+<pre class="highlight swift"><code><span class="n">unterminated</span> <span class="n">string</span> <span class="nv">constant</span><span class="p">:</span>
+  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">'</span><span class="n">abc</span>
+            <span class="o">^^^^</span>
+</code></pre>
 
-<p>|[
-unterminated string constant:
-  (1, 2, 3, &lsquo;abc
-            ^^^^</p>
-<pre class="highlight swift"><code>
-
-<span class="n">or</span>
-
-<span class="o">|</span><span class="p">[</span>
-<span class="n">unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">a</span> <span class="n">common</span> <span class="nv">type</span><span class="p">:</span>
+<p>or</p>
+<pre class="highlight swift"><code><span class="n">unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">a</span> <span class="n">common</span> <span class="nv">type</span><span class="p">:</span>
   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="err">'</span><span class="n">str</span><span class="err">'</span><span class="p">]</span>
    <span class="o">^</span>        <span class="o">^^^^^</span>
 </code></pre>

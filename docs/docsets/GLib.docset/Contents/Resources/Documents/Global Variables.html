@@ -5548,15 +5548,13 @@ name. For example, <code>bloatpad</code> or <code>bloatpad-io</code>.</p>
 not advisable, as it cannot be filtered against using the <code>G_MESSAGES_DEBUG</code>
 environment variable.</p>
 
-<p>For example, GTK+ uses this in its <code>Makefile.am</code>:
-|[
-AM_CPPFLAGS = -DG_LOG_DOMAIN=\<q>Gtk\</q></p>
-<pre class="highlight swift"><code>
+<p>For example, GTK+ uses this in its <code>Makefile.am</code>:</p>
+<pre class="highlight swift"><code><span class="kt">AM_CPPFLAGS</span> <span class="o">=</span> <span class="o">-</span><span class="kt">DG_LOG_DOMAIN</span><span class="o">=</span><span class="err">\</span><span class="s">"Gtk</span><span class="se">\"</span><span class="s">
+</span></code></pre>
 
-<span class="kt">Applications</span> <span class="n">can</span> <span class="n">choose</span> <span class="n">to</span> <span class="n">leave</span> <span class="n">it</span> <span class="k">as</span> <span class="n">the</span> <span class="k">default</span> <span class="err">`</span><span class="kc">nil</span><span class="err">`</span> <span class="p">(</span><span class="n">or</span> <span class="err">`</span><span class="s">""</span><span class="err">`</span><span class="p">)</span>
-<span class="n">domain</span><span class="o">.</span> <span class="kt">However</span><span class="p">,</span> <span class="n">defining</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">offers</span> <span class="n">the</span> <span class="n">same</span> <span class="n">advantages</span> <span class="k">as</span>
-<span class="n">above</span><span class="o">.</span>
-</code></pre>
+<p>Applications can choose to leave it as the default <code>nil</code> (or <code>&quot;&quot;</code>)
+domain. However, defining the domain offers the same advantages as
+above.</p>
 
                       </div>
                       <div class="declaration">
