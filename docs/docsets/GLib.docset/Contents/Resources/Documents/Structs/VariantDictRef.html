@@ -3482,59 +3482,57 @@ key is not found.  Each returns the new dictionary as a floating
 
 <p>&ldquo;` Using a stack-allocated GVariantDict</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GVariant *
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GVariant *
   add_to_count (GVariant  *orig,
                 GError   **error)
   {
     GVariantDict dict;
-    guint32 count;</p>
-<pre class="highlight swift"><code><span class="nf">g_variant_dict_init</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="n">orig</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">g_variant_dict_lookup</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="nf">g_set_error</span> <span class="p">(</span><span class="o">...</span><span class="p">);</span>
-    <span class="nf">g_variant_dict_clear</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">);</span>
-    <span class="k">return</span> <span class="kt">NULL</span><span class="p">;</span>
-  <span class="p">}</span>
+    guint32 count;
 
-<span class="nf">g_variant_dict_insert</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    g_variant_dict_init (&amp;dict, orig);
+    if (!g_variant_dict_lookup (&amp;dict, "count", "u", &amp;count))
+      {
+        g_set_error (...);
+        g_variant_dict_clear (&amp;dict);
+        return NULL;
+      }
 
-<span class="k">return</span> <span class="nf">g_variant_dict_end</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">dict</span><span class="p">);</span>
+    g_variant_dict_insert (&amp;dict, "count", "u", count + 1);
+
+    return g_variant_dict_end (&amp;dict);
+  }
 </code></pre>
-
-<p>}
-]|</p>
 
 <p>&rdquo;` Using heap-allocated GVariantDict</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GVariant *
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GVariant *
   add_to_count (GVariant  *orig,
                 GError   **error)
   {
     GVariantDict *dict;
     GVariant *result;
-    guint32 count;</p>
-<pre class="highlight swift"><code><span class="n">dict</span> <span class="o">=</span> <span class="nf">g_variant_dict_new</span> <span class="p">(</span><span class="n">orig</span><span class="p">);</span>
+    guint32 count;
 
-<span class="k">if</span> <span class="p">(</span><span class="nf">g_variant_dict_lookup</span> <span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">count</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="nf">g_variant_dict_insert</span> <span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="s">"count"</span><span class="p">,</span> <span class="s">"u"</span><span class="p">,</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="nf">g_variant_dict_end</span> <span class="p">(</span><span class="n">dict</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="k">else</span>
-  <span class="p">{</span>
-    <span class="nf">g_set_error</span> <span class="p">(</span><span class="o">...</span><span class="p">);</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="kt">NULL</span><span class="p">;</span>
-  <span class="p">}</span>
+    dict = g_variant_dict_new (orig);
 
-<span class="nf">g_variant_dict_unref</span> <span class="p">(</span><span class="n">dict</span><span class="p">);</span>
+    if (g_variant_dict_lookup (dict, "count", "u", &amp;count))
+      {
+        g_variant_dict_insert (dict, "count", "u", count + 1);
+        result = g_variant_dict_end (dict);
+      }
+    else
+      {
+        g_set_error (...);
+        result = NULL;
+      }
 
-<span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    g_variant_dict_unref (dict);
+
+    return result;
+  }
 </code></pre>
-
-<p>}
-]|</p>
 
           </div>
         </section>
@@ -3569,7 +3567,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3610,7 +3608,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L208-L209">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L216-L217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3640,7 +3638,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L212-L214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L220-L222">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3671,7 +3669,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L218-L220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L226-L228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3702,7 +3700,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L224-L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L232-L234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3733,7 +3731,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L230-L232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L238-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3764,7 +3762,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L236-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L244-L246">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3795,7 +3793,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L242-L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L250-L252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3835,7 +3833,7 @@ using <code>GVariantDict</code> to construct a <code>GVariant</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L256-L259">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L264-L267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

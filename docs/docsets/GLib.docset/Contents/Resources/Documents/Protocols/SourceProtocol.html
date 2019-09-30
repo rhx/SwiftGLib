@@ -4749,37 +4749,37 @@ is unique within the <code>GMainContext</code> instance passed to g_source_attac
 from within idle handlers, but may have freed the object
 before the dispatch of your idle handler.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static gboolean
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>static gboolean
 idle_callback (gpointer data)
 {
-  SomeWidget *self = data;</p>
+  SomeWidget *self = data;
 
-<p>GDK_THREADS_ENTER ();
+  GDK_THREADS_ENTER ();
   // do stuff with self
   self-&gt;idle_id = 0;
-  GDK_THREADS_LEAVE ();</p>
+  GDK_THREADS_LEAVE ();
 
-<p>return G_SOURCE_REMOVE;
-}</p>
+  return G_SOURCE_REMOVE;
+}
 
-<p>static void
+static void
 some_widget_do_stuff_later (SomeWidget *self)
 {
   self-&gt;idle_id = g_idle_add (idle_callback, self);
-}</p>
+}
 
-<p>static void
+static void
 some_widget_finalize (GObject *object)
 {
-  SomeWidget *self = SOME_WIDGET (object);</p>
+  SomeWidget *self = SOME_WIDGET (object);
 
-<p>if (self-&gt;idle_id)
-    g_source_remove (self-&gt;idle_id);</p>
+  if (self-&gt;idle_id)
+    g_source_remove (self-&gt;idle_id);
 
-<p>G_OBJECT_CLASS (parent_class)-&gt;finalize (object);
+  G_OBJECT_CLASS (parent_class)-&gt;finalize (object);
 }
-]|</p>
+</code></pre>
 
 <p>This will fail in a multi-threaded application if the
 widget is destroyed before the idle handler fires due
@@ -4787,22 +4787,22 @@ to the use after free in the callback. A solution, to
 this particular problem, is to check to if the source
 has already been destroy within the callback.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static gboolean
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>static gboolean
 idle_callback (gpointer data)
 {
-  SomeWidget *self = data;</p>
+  SomeWidget *self = data;
 
-<p>GDK_THREADS_ENTER ();
+  GDK_THREADS_ENTER ();
   if (!g_source_is_destroyed (g_main_current_source ()))
     {
       // do stuff with self
     }
-  GDK_THREADS_LEAVE ();</p>
+  GDK_THREADS_LEAVE ();
 
-<p>return FALSE;
+  return FALSE;
 }
-]|</p>
+</code></pre>
 
 <p>Calls to this function from a thread other than the one acquired by the
 <code>GMainContext</code> the <code>GSource</code> is attached to are typically redundant, as the
@@ -4820,7 +4820,7 @@ used for opportunistic checks from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L643-L714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L647-L722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4854,7 +4854,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L718-L744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L726-L752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4887,7 +4887,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L747-L764">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L755-L772">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4924,7 +4924,7 @@ indication that the source will fire immediately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L771-L806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L779-L814">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4963,7 +4963,7 @@ other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L815-L827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L823-L835">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

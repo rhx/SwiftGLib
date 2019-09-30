@@ -4423,22 +4423,22 @@ example, integrating it with main loop implementations such as
 <p>Another related use for this function is when implementing a main
 loop with a termination condition, computed from multiple threads:</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  <code>define</code> NUM_TASKS 10
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  `define` NUM_TASKS 10
   static volatile gint tasks_remaining = NUM_TASKS;
-  &hellip;</p>
+  ...
 
-<p>while (g_atomic_int_get (&amp;tasks_remaining) != 0)
+  while (g_atomic_int_get (&amp;tasks_remaining) != 0)
     g_main_context_iteration (NULL, TRUE);
-]|</p>
+</code></pre>
 
 <p>Then in a thread:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  perform_work();</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  perform_work();
 
-<p>if (g_atomic_int_dec_and_test (&amp;tasks_remaining))
+  if (g_atomic_int_dec_and_test (&amp;tasks_remaining))
     g_main_context_wakeup (NULL);
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4450,7 +4450,7 @@ loop with a termination condition, computed from multiple threads:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L514-L517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L518-L521">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4486,7 +4486,7 @@ blocking to get ownership of <code>context</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L522-L531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L526-L535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4519,7 +4519,7 @@ blocking to get ownership of <code>context</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L534-L550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L538-L554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

@@ -3901,27 +3901,27 @@ i.e. you must free it regardless if regular expression actually matched.</p>
 <p>To retrieve all the non-overlapping matches of the pattern in
 string you can use g_match_info_next().</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static void
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>static void
 print_uppercase_words (const gchar *string)
 {
   // Print all uppercase-only words.
   GRegex *regex;
-  GMatchInfo *match_info;</p>
+  GMatchInfo *match_info;
 
-<p>regex = g_regex_new (<q>[A-Z]+</q>, 0, 0, NULL);
+  regex = g_regex_new ("[A-Z]+", 0, 0, NULL);
   g_regex_match (regex, string, 0, &amp;match_info);
   while (g_match_info_matches (match_info))
     {
       gchar *word = g_match_info_fetch (match_info, 0);
-      g_print (<q>Found: `s`\n</q>, word);
+      g_print ("Found: `s`\n", word);
       g_free (word);
       g_match_info_next (match_info, NULL);
     }
   g_match_info_free (match_info);
   g_regex_unref (regex);
 }
-]|</p>
+</code></pre>
 
 <p><code>string</code> is not copied and is used in <code>GMatchInfo</code> internally. If
 you use any <code>GMatchInfo</code> method (except g_match_info_free()) after
@@ -3937,7 +3937,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L446-L449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L448-L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3983,7 +3983,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L465-L468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L467-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4053,7 +4053,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L508-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L510-L517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4098,21 +4098,21 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
 <p>To retrieve all the non-overlapping matches of the pattern in
 string you can use g_match_info_next().</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static void
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>static void
 print_uppercase_words (const gchar *string)
 {
   // Print all uppercase-only words.
   GRegex *regex;
   GMatchInfo *match_info;
-  GError *error = NULL;</p>
+  GError *error = NULL;
 
-<p>regex = g_regex_new (<q>[A-Z]+</q>, 0, 0, NULL);
+  regex = g_regex_new ("[A-Z]+", 0, 0, NULL);
   g_regex_match_full (regex, string, -1, 0, 0, &amp;match_info, &amp;error);
   while (g_match_info_matches (match_info))
     {
       gchar *word = g_match_info_fetch (match_info, 0);
-      g_print (<q>Found: `s`\n</q>, word);
+      g_print ("Found: `s`\n", word);
       g_free (word);
       g_match_info_next (match_info, &amp;error);
     }
@@ -4120,11 +4120,11 @@ print_uppercase_words (const gchar *string)
   g_regex_unref (regex);
   if (error != NULL)
     {
-      g_printerr (<q>Error while matching: `s`\n</q>, error-&gt;message);
+      g_printerr ("Error while matching: `s`\n", error-&gt;message);
       g_error_free (error);
     }
 }
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4136,7 +4136,7 @@ print_uppercase_words (const gchar *string)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L568-L575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L572-L579">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4169,7 +4169,7 @@ print_uppercase_words (const gchar *string)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L578-L581">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L582-L585">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4229,7 +4229,7 @@ begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L609-L616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L613-L620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4259,42 +4259,42 @@ that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
 
 <p>The following example uses g_regex_replace_eval() to replace multiple
 strings at once:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-static gboolean
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>static gboolean
 eval_cb (const GMatchInfo *info,
          GString          *res,
          gpointer          data)
 {
   gchar *match;
-  gchar *r;</p>
+  gchar *r;
 
-<p>match = g_match_info_fetch (info, 0);
+   match = g_match_info_fetch (info, 0);
    r = g_hash_table_lookup ((GHashTable *)data, match);
    g_string_append (res, r);
-   g_free (match);</p>
+   g_free (match);
 
-<p>return FALSE;
-}</p>
+   return FALSE;
+}
 
-<p>&hellip;</p>
+...
 
-<p>GRegex *reg;
+GRegex *reg;
 GHashTable *h;
-gchar *res;</p>
+gchar *res;
 
-<p>h = g_hash_table_new (g_str_hash, g_str_equal);</p>
+h = g_hash_table_new (g_str_hash, g_str_equal);
 
-<p>g_hash_table_insert (h, <q>1</q>, <q>ONE</q>);
-g_hash_table_insert (h, <q>2</q>, <q>TWO</q>);
-g_hash_table_insert (h, <q>3</q>, <q>THREE</q>);
-g_hash_table_insert (h, <q>4</q>, <q>FOUR</q>);</p>
+g_hash_table_insert (h, "1", "ONE");
+g_hash_table_insert (h, "2", "TWO");
+g_hash_table_insert (h, "3", "THREE");
+g_hash_table_insert (h, "4", "FOUR");
 
-<p>reg = g_regex_new (<q>1|2|3|4</q>, 0, 0, NULL);
+reg = g_regex_new ("1|2|3|4", 0, 0, NULL);
 res = g_regex_replace_eval (reg, text, -1, 0, 0, eval_cb, h, NULL);
-g_hash_table_destroy (h);</p>
+g_hash_table_destroy (h);
 
-<p>&hellip;
-]|</p>
+...
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4306,7 +4306,7 @@ g_hash_table_destroy (h);</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L663-L670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L669-L676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4346,7 +4346,7 @@ assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L680-L687">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L686-L693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4395,7 +4395,7 @@ For example splitting <q>ab c</q> using as a separator <q>\s*</q>, you will get
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L706-L709">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L712-L715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4448,7 +4448,7 @@ that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L732-L739">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L738-L745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4482,7 +4482,7 @@ to zero, it frees all the memory associated with the regex structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L743-L746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L749-L752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4515,7 +4515,7 @@ to zero, it frees all the memory associated with the regex structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L748-L754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L754-L760">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4552,7 +4552,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L761-L771">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L767-L777">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4585,7 +4585,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L774-L780">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L780-L786">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4618,7 +4618,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L783-L789">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L789-L795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4653,7 +4653,7 @@ back references.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L794-L802">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L800-L808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4688,7 +4688,7 @@ the partial matching facilities.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L807-L815">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L813-L821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4722,7 +4722,7 @@ the string passed to g_regex_new().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L819-L826">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L825-L832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

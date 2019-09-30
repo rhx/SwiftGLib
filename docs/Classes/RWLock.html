@@ -3460,44 +3460,43 @@ lock when a reader already holds the lock and a writer is queued to acquire
 it.</p>
 
 <p>Here is an example for an array with access functions:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GRWLock lock;
-  GPtrArray *array;</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GRWLock lock;
+  GPtrArray *array;
 
-<p>gpointer
+  gpointer
   my_array_get (guint index)
   {
-    gpointer retval = NULL;</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kt">NULL</span><span class="p">;</span>
+    gpointer retval = NULL;
 
-<span class="nf">g_rw_lock_reader_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="n">retval</span> <span class="o">=</span> <span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
-<span class="nf">g_rw_lock_reader_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (!array)
+      return NULL;
 
-<span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
-</code></pre>
+    g_rw_lock_reader_lock (&amp;lock);
+    if (index &lt; array-&gt;len)
+      retval = g_ptr_array_index (array, index);
+    g_rw_lock_reader_unlock (&amp;lock);
 
-<p>}</p>
+    return retval;
+  }
 
-<p>void
+  void
   my_array_set (guint index, gpointer data)
   {
-    g_rw_lock_writer_lock (&amp;lock);</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="nf">g_ptr_array_new</span> <span class="p">();</span>
+    g_rw_lock_writer_lock (&amp;lock);
 
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="nf">g_ptr_array_set_size</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-<span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+    if (!array)
+      array = g_ptr_array_new ();
 
-<span class="nf">g_rw_lock_writer_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (index &gt;= array-&gt;len)
+      g_ptr_array_set_size (array, index+1);
+    g_ptr_array_index (array, index) = data;
+
+    g_rw_lock_writer_unlock (&amp;lock);
+  }
 </code></pre>
 
-<p>}
- ]|
-This example shows an array which can be accessed by many readers
+<p>This example shows an array which can be accessed by many readers
 (the my_array_get() function) simultaneously, whereas the writers
 (the my_array_set() function) will only be allowed one at a time
 and only if no readers currently access the array. This is because
@@ -3543,7 +3542,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L272">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3574,7 +3573,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L270-L272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L276-L278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3605,7 +3604,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L276-L279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L282-L285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3636,7 +3635,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L288-L290">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L294-L296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3667,7 +3666,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L294-L296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L300-L302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3698,7 +3697,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L300-L302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L306-L308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3729,7 +3728,7 @@ Ownership is transferred to the <code>RWLock</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L306-L308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L312-L314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

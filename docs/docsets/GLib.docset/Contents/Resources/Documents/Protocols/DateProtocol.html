@@ -4440,12 +4440,12 @@ specified as a time_t. The time to date conversion is done using
 the user&rsquo;s current timezone.</p>
 
 <p>To set the value of a date to the current day, you could write:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
- time_t now = time (NULL);
+(C Language Example):</p>
+<pre class="highlight plaintext"><code> time_t now = time (NULL);
  if (now == (time_t) -1)
    // handle the error
  g_date_set_time_t (date, now);
-]|</p>
+</code></pre>
 
                       </div>
                       <div class="declaration">
@@ -4457,7 +4457,7 @@ the user&rsquo;s current timezone.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L456-L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L458-L461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4500,7 +4500,7 @@ additional precision.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L470-L473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L472-L475">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4534,7 +4534,7 @@ triplet is invalid, the date will be invalid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L477-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L479-L482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4569,7 +4569,7 @@ The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L485-L488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L487-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4605,7 +4605,7 @@ may change. The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L494-L497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L496-L499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4642,7 +4642,7 @@ must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L504-L507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L506-L509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4676,7 +4676,7 @@ Initializes the non-date parts with something sane but meaningless.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L511-L514">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L513-L516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4711,7 +4711,7 @@ if it wasn&rsquo;t allocated by one of the g_date_new() variants.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L519-L522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L521-L524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4756,7 +4756,7 @@ where the C library only complies to C89.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L537-L540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L539-L542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4801,7 +4801,7 @@ where the C library only complies to C89.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L555-L558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L557-L560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4834,7 +4834,7 @@ where the C library only complies to C89.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L560-L571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L562-L573">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4868,7 +4868,7 @@ year. The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L575-L582">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L577-L584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4902,7 +4902,7 @@ The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L586-L593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L588-L595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4936,7 +4936,7 @@ The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L597-L604">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L599-L606">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4970,7 +4970,7 @@ to ISO 8601.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L608-L615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L610-L617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5006,7 +5006,7 @@ etc. The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L621-L634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L623-L636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5041,7 +5041,7 @@ The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L639-L647">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L641-L649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5074,7 +5074,7 @@ The date must be valid.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L650-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L652-L663">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5109,7 +5109,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L666-L674">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L668-L676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5142,7 +5142,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L677-L683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L679-L685">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5175,7 +5175,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L686-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L688-L699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

@@ -3461,44 +3461,43 @@ lock when a reader already holds the lock and a writer is queued to acquire
 it.</p>
 
 <p>Here is an example for an array with access functions:
-|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  GRWLock lock;
-  GPtrArray *array;</p>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>  GRWLock lock;
+  GPtrArray *array;
 
-<p>gpointer
+  gpointer
   my_array_get (guint index)
   {
-    gpointer retval = NULL;</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kt">NULL</span><span class="p">;</span>
+    gpointer retval = NULL;
 
-<span class="nf">g_rw_lock_reader_lock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="n">retval</span> <span class="o">=</span> <span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
-<span class="nf">g_rw_lock_reader_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (!array)
+      return NULL;
 
-<span class="k">return</span> <span class="n">retval</span><span class="p">;</span>
-</code></pre>
+    g_rw_lock_reader_lock (&amp;lock);
+    if (index &lt; array-&gt;len)
+      retval = g_ptr_array_index (array, index);
+    g_rw_lock_reader_unlock (&amp;lock);
 
-<p>}</p>
+    return retval;
+  }
 
-<p>void
+  void
   my_array_set (guint index, gpointer data)
   {
-    g_rw_lock_writer_lock (&amp;lock);</p>
-<pre class="highlight swift"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">array</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="nf">g_ptr_array_new</span> <span class="p">();</span>
+    g_rw_lock_writer_lock (&amp;lock);
 
-<span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">array</span><span class="o">-&gt;</span><span class="n">len</span><span class="p">)</span>
-  <span class="nf">g_ptr_array_set_size</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-<span class="nf">g_ptr_array_index</span> <span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+    if (!array)
+      array = g_ptr_array_new ();
 
-<span class="nf">g_rw_lock_writer_unlock</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">);</span>
+    if (index &gt;= array-&gt;len)
+      g_ptr_array_set_size (array, index+1);
+    g_ptr_array_index (array, index) = data;
+
+    g_rw_lock_writer_unlock (&amp;lock);
+  }
 </code></pre>
 
-<p>}
- ]|
-This example shows an array which can be accessed by many readers
+<p>This example shows an array which can be accessed by many readers
 (the my_array_get() function) simultaneously, whereas the writers
 (the my_array_set() function) will only be allowed one at a time
 and only if no readers currently access the array. This is because
@@ -3543,7 +3542,7 @@ g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L75">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L77">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3581,7 +3580,7 @@ g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L78">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L80">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3633,7 +3632,7 @@ leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L332-L335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L338-L341">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3661,17 +3660,17 @@ allocated on the stack, or as part of a larger structure.  It is not
 necessary to initialise a reader-writer lock that has been statically
 allocated.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  typedef struct {
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  typedef struct {
     GRWLock l;
-    &hellip;
-  } Blob;</p>
+    ...
+  } Blob;
 
-<p>Blob *b;</p>
+Blob *b;
 
-<p>b = g_new (Blob, 1);
+b = g_new (Blob, 1);
 g_rw_lock_init (&amp;b-&gt;l);
-]|</p>
+</code></pre>
 
 <p>To undo the effect of g_rw_lock_init() when a lock is no longer
 needed, use g_rw_lock_clear().</p>
@@ -3689,7 +3688,7 @@ to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L361-L364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L369-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3730,7 +3729,7 @@ or if a deadlock is detected, a critical warning will be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L375-L378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L383-L386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3765,7 +3764,7 @@ returns <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L383-L386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L391-L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3801,7 +3800,7 @@ by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L392-L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L400-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3836,7 +3835,7 @@ until all other threads have dropped their locks on <code>rw_lock</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L408-L411">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3871,7 +3870,7 @@ Otherwise it locks <code>rw_lock</code> and returns <code>true</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L408-L411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L416-L419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3907,7 +3906,7 @@ by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L417-L420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L425-L428">Show on GitHub</a>
                       </div>
                     </section>
                   </div>

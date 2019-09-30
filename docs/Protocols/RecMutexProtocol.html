@@ -3611,17 +3611,17 @@ structure.</p>
 <p>It is not necessary to initialise a recursive mutex that has been
 statically allocated.</p>
 
-<p>|[&lt;!&ndash; language=<q>C</q> &ndash;&gt;
-  typedef struct {
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>  typedef struct {
     GRecMutex m;
-    &hellip;
-  } Blob;</p>
+    ...
+  } Blob;
 
-<p>Blob *b;</p>
+Blob *b;
 
-<p>b = g_new (Blob, 1);
+b = g_new (Blob, 1);
 g_rec_mutex_init (&amp;b-&gt;m);
-]|</p>
+</code></pre>
 
 <p>Calling g_rec_mutex_init() on an already initialized <code>GRecMutex</code>
 leads to undefined behaviour.</p>
@@ -3639,7 +3639,7 @@ is no longer needed, use g_rec_mutex_clear().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L211-L214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L213-L216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3677,7 +3677,7 @@ as many times as it has been locked.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L222-L225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L224-L227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3712,7 +3712,7 @@ it locks <code>rec_mutex</code> and returns <code>true</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L230-L233">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L232-L235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3750,7 +3750,7 @@ locked by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L241-L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L243-L246">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
