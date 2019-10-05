@@ -4297,7 +4297,7 @@ It is best to avoid g_atexit().</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">atexit</span><span class="p">(</span><span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="Typealiases.html#/s:4GLib8VoidFunca">VoidFunc</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -4480,7 +4480,7 @@ Use g_atomic_int_add() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">atomicIntExchangeAndAdd</span><span class="p">(</span><span class="nv">atomic</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">val</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
@@ -5508,7 +5508,7 @@ Use g_path_get_basename() instead, but notice
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">basename</span><span class="p">(</span><span class="n">fileName</span> <span class="nv">file_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -9033,7 +9033,7 @@ This function is broken due to its use of SI
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">formatSizeForDisplay</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -9337,7 +9337,7 @@ the current directory is the target of a symbolic link.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCurrentTime</span><span class="p">(</span><span class="nv">result</span><span class="p">:</span> <span class="kt"><a href="Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -13074,7 +13074,7 @@ returns %TRUE.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">memIsSystemMalloc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
@@ -13110,7 +13110,7 @@ Use other memory profiling tools instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">memProfile</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -13148,7 +13148,7 @@ profiling tools instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">memSet</span><span class="p">(</span><span class="nv">vtable</span><span class="p">:</span> <span class="kt"><a href="Protocols/MemVTableProtocol.html">MemVTableProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -17699,7 +17699,7 @@ See g_strncasecmp() for a discussion of why this
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">strcasecmp</span><span class="p">(</span><span class="nv">s1</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">s2</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
@@ -17920,7 +17920,7 @@ instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">strdown</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -18437,7 +18437,7 @@ The problem with g_strncasecmp() is that it does
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">strncasecmp</span><span class="p">(</span><span class="nv">s1</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">s2</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">n</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
@@ -18837,7 +18837,7 @@ This function is totally broken for the reasons
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">strup</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -20247,7 +20247,7 @@ fork-without-exec. Use g_test_trap_subprocess() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">testTrapFork</span><span class="p">(</span><span class="n">usecTimeout</span> <span class="nv">usec_timeout</span><span class="p">:</span> <span class="kt">UInt64</span><span class="p">,</span> <span class="n">testTrapFlags</span> <span class="nv">test_trap_flags</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:4GLib13TestTrapFlagsa">TestTrapFlags</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
@@ -20790,7 +20790,7 @@ Equivalent functionality is available using code like:</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">timeValFromIso8601</span><span class="p">(</span><span class="n">isoDate</span> <span class="nv">iso_date</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">time_</span><span class="p">:</span> <span class="kt"><a href="Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
@@ -21127,7 +21127,7 @@ where N denotes the number of items on the stack.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">trashStackHeight</span><span class="p">(</span><span class="n">stackP</span> <span class="nv">stack_p</span><span class="p">:</span> <span class="kt"><a href="Protocols/TrashStackProtocol.html">TrashStackProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
@@ -21162,7 +21162,7 @@ which may be <code>nil</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">trashStackPeek</span><span class="p">(</span><span class="n">stackP</span> <span class="nv">stack_p</span><span class="p">:</span> <span class="kt"><a href="Protocols/TrashStackProtocol.html">TrashStackProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -21196,7 +21196,7 @@ which may be <code>nil</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">trashStackPop</span><span class="p">(</span><span class="n">stackP</span> <span class="nv">stack_p</span><span class="p">:</span> <span class="kt"><a href="Protocols/TrashStackProtocol.html">TrashStackProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -21230,7 +21230,7 @@ which may be <code>nil</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">trashStackPush</span><span class="p">(</span><span class="n">stackP</span> <span class="nv">stack_p</span><span class="p">:</span> <span class="kt"><a href="Protocols/TrashStackProtocol.html">TrashStackProtocol</a></span><span class="p">,</span> <span class="n">dataP</span> <span class="nv">data_p</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -22611,7 +22611,7 @@ Use the more flexible g_unichar_fully_decompose()
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">unicodeCanonicalDecomposition</span><span class="p">(</span><span class="nv">ch</span><span class="p">:</span> <span class="n">gunichar</span><span class="p">,</span> <span class="n">resultLen</span> <span class="nv">result_len</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gunichar</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -24709,7 +24709,7 @@ Use g_variant_parse_error_quark() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">variantParserGetErrorQuark</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GQuark</span></code></pre>
 
                         </div>
@@ -25490,7 +25490,7 @@ to provide a Swift closure that can capture its surrounding context.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-09-30)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
