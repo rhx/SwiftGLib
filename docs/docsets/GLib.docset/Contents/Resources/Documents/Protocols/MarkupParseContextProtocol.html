@@ -3448,7 +3448,7 @@ Alternatively, use <code><a href="../Structs/MarkupParseContextRef.html">MarkupP
 <p>A parse context is used to parse a stream of bytes that
 you expect to contain marked-up text.</p>
 
-<p>See g_markup_parse_context_new(), <code>GMarkupParser</code>, and so
+<p>See <code>g_markup_parse_context_new()</code>, <code>GMarkupParser</code>, and so
 on for more details.</p>
 
           </div>
@@ -3554,7 +3554,7 @@ on for more details.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Signals to the <code>GMarkupParseContext</code> that all data has been
-fed into the parse context with g_markup_parse_context_parse().</p>
+fed into the parse context with <code>g_markup_parse_context_parse()</code>.</p>
 
 <p>This function reports an error if the document isn&rsquo;t complete,
 for example if elements are still open.</p>
@@ -3630,7 +3630,7 @@ for example if elements are still open.</p>
 
 <p>If called from the start_element or end_element handlers this will
 give the element_name as passed to those functions. For the parent
-elements, see g_markup_parse_context_get_element_stack().</p>
+elements, see <code>g_markup_parse_context_get_element_stack()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3667,11 +3667,11 @@ elements, see g_markup_parse_context_get_element_stack().</p>
 
 <p>The returned <code>GSList</code> is a list of strings where the first item is
 the currently open tag (as would be returned by
-g_markup_parse_context_get_element()) and the next item is its
+<code>g_markup_parse_context_get_element()</code>) and the next item is its
 immediate parent.</p>
 
 <p>This function is intended to be used in the start_element and
-end_element handlers where g_markup_parse_context_get_element()
+end_element handlers where <code>g_markup_parse_context_get_element()</code>
 would merely return the name of the element that is being
 processed.</p>
 
@@ -3745,8 +3745,8 @@ semantics for what constitutes the <q>current</q> line number other than
                         <p>Returns the user_data associated with <code>context</code>.</p>
 
 <p>This will either be the user_data that was provided to
-g_markup_parse_context_new() or to the most recent call
-of g_markup_parse_context_push().</p>
+<code>g_markup_parse_context_new()</code> or to the most recent call
+of <code>g_markup_parse_context_push()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3824,9 +3824,9 @@ all errors are fatal.</p>
                         <p>Completes the process of a temporary sub-parser redirection.</p>
 
 <p>This function exists to collect the user_data allocated by a
-matching call to g_markup_parse_context_push(). It must be called
+matching call to <code>g_markup_parse_context_push()</code>. It must be called
 in the end_element handler corresponding to the start_element
-handler during which g_markup_parse_context_push() was called.
+handler during which <code>g_markup_parse_context_push()</code> was called.
 You must not call this function from the error callback &ndash; the
 <code>user_data</code> is provided directly to the callback in that case.</p>
 
@@ -3870,7 +3870,7 @@ interface.</p>
 
 <p>This function may only be called from the start_element handler of
 a <code>GMarkupParser</code>. It must be matched with a corresponding call to
-g_markup_parse_context_pop() in the matching end_element handler
+<code>g_markup_parse_context_pop()</code> in the matching end_element handler
 (except in the case that the parser aborts due to an error).</p>
 
 <p>All tags, text and other data between the matching tags is
@@ -3881,10 +3881,10 @@ errors that occur in subparsers of the subparser.</p>
 
 <p>The end tag matching the start tag for which this call was made is
 handled by the previous parser (which is given its own user_data)
-which is why g_markup_parse_context_pop() is provided to allow <q>one
+which is why <code>g_markup_parse_context_pop()</code> is provided to allow <q>one
 last access</q> to the <code>user_data</code> provided to this function. In the
 case of error, the <code>user_data</code> provided here is passed directly to
-the error callback of the subparser and g_markup_parse_context_pop()
+the error callback of the subparser and <code>g_markup_parse_context_pop()</code>
 should not be called. In either case, if <code>user_data</code> was allocated
 then it ought to be freed from both of these locations.</p>
 
@@ -3975,7 +3975,7 @@ end_counting (GMarkupParseContext *context)
 static void end_element (context, element_name, ...)
 {
   if (strcmp (element_name, "count-these") == 0)
-    g_print ("Counted `d` tags\n", end_counting (context));
+    g_print ("Counted %d tags\n", end_counting (context));
 
   // else, handle other tags...
 }
@@ -3991,7 +3991,7 @@ static void end_element (context, element_name, ...)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L392-L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L390-L393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4012,7 +4012,7 @@ static void end_element (context, element_name, ...)
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increases the reference count of <code>context</code>.</p>
+                        <p>Increases the reference count of <code>context.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4024,7 +4024,7 @@ static void end_element (context, element_name, ...)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L398-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L396-L399">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4058,7 +4058,7 @@ drops to 0, it is freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L405-L408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L403-L406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4083,7 +4083,7 @@ drops to 0, it is freed.</p>
 
 <p>If called from the start_element or end_element handlers this will
 give the element_name as passed to those functions. For the parent
-elements, see g_markup_parse_context_get_element_stack().</p>
+elements, see <code>g_markup_parse_context_get_element_stack()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4095,7 +4095,7 @@ elements, see g_markup_parse_context_get_element_stack().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L414-L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L412-L422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4120,11 +4120,11 @@ elements, see g_markup_parse_context_get_element_stack().</p>
 
 <p>The returned <code>GSList</code> is a list of strings where the first item is
 the currently open tag (as would be returned by
-g_markup_parse_context_get_element()) and the next item is its
+<code>g_markup_parse_context_get_element()</code>) and the next item is its
 immediate parent.</p>
 
 <p>This function is intended to be used in the start_element and
-end_element handlers where g_markup_parse_context_get_element()
+end_element handlers where <code>g_markup_parse_context_get_element()</code>
 would merely return the name of the element that is being
 processed.</p>
 
@@ -4138,7 +4138,7 @@ processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L437-L453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L435-L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4162,8 +4162,8 @@ processed.</p>
                         <p>Returns the user_data associated with <code>context</code>.</p>
 
 <p>This will either be the user_data that was provided to
-g_markup_parse_context_new() or to the most recent call
-of g_markup_parse_context_push().</p>
+<code>g_markup_parse_context_new()</code> or to the most recent call
+of <code>g_markup_parse_context_push()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4175,7 +4175,7 @@ of g_markup_parse_context_push().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L460-L470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L458-L468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4188,7 +4188,7 @@ of g_markup_parse_context_push().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

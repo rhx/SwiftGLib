@@ -3553,10 +3553,10 @@ matches.</p>
                         <p>Returns a new string containing the text in <code>string_to_expand</code> with
 references and escape sequences expanded. References refer to the last
 match done with <code><a href="../Protocols/MatchInfoProtocol.html#/s:4GLib17MatchInfoProtocolPAAE6stringSSSgvp">string</a></code> against <code><a href="../Protocols/MatchInfoProtocol.html#/s:4GLib17MatchInfoProtocolPAAE5regexSpySo7_GRegexVGSgvp">regex</a></code> and have the same syntax used by
-g_regex_replace().</p>
+<code>g_regex_replace()</code>.</p>
 
 <p>The <code>string_to_expand</code> must be UTF-8 encoded even if <code>G_REGEX_RAW</code> was
-passed to g_regex_new().</p>
+passed to <code>g_regex_new()</code>.</p>
 
 <p>The backreferences are extracted from the string passed to the match
 function, so you cannot call this function after freeing the string.</p>
@@ -3565,7 +3565,7 @@ function, so you cannot call this function after freeing the string.</p>
 contain references. For instance <q>foo\n</q> does not refer to an actual
 pattern and &lsquo;\n&rsquo; merely will be replaced with \n character,
 while to expand <q>\0</q> (whole match) one needs the result of a match.
-Use g_regex_check_replacement() to find out whether <code>string_to_expand</code>
+Use <code>g_regex_check_replacement()</code> to find out whether <code>string_to_expand</code>
 contains references.</p>
 
                       </div>
@@ -3608,7 +3608,7 @@ set, 2 the second, and so on.</p>
 string is returned.</p>
 
 <p>If the match was obtained using the DFA algorithm, that is using
-g_regex_match_all() or g_regex_match_all_full(), the retrieved
+<code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
 string is not that of a set of parentheses but that of a matched
 substring. Substrings are matched in reverse order of length, so
 0 is the longest match.</p>
@@ -3656,7 +3656,7 @@ text.</p>
 <q>b</q> against <q>(a)?b</q>) then an empty string is inserted.</p>
 
 <p>If the last match was obtained using the DFA algorithm, that is using
-g_regex_match_all() or g_regex_match_all_full(), the retrieved
+<code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
 strings are not that matched by sets of parentheses but that of the
 matched substring. Substrings are matched in reverse order of length,
 so the first one is the longest match.</p>
@@ -3781,7 +3781,7 @@ paren set, 2 the second, and so on.</p>
 and <code>end_pos</code> are set to -1 and <code>true</code> is returned.</p>
 
 <p>If the match was obtained using the DFA algorithm, that is using
-g_regex_match_all() or g_regex_match_all_full(), the retrieved
+<code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
 position is not that of a set of parentheses but that of a matched
 substring. Substrings are matched in reverse order of length, so
 0 is the longest match.</p>
@@ -3817,7 +3817,7 @@ substring. Substrings are matched in reverse order of length, so
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>match_info</code> is not <code>nil</code>, calls g_match_info_unref(); otherwise does
+                        <p>If <code>match_info</code> is not <code>nil</code>, calls <code>g_match_info_unref()</code>; otherwise does
 nothing.</p>
 
                       </div>
@@ -3856,7 +3856,7 @@ that is the whole matched text), so 1 is returned if the pattern
 has no substrings in it and 0 is returned if the match failed.</p>
 
 <p>If the last match was obtained using the DFA algorithm, that is
-using g_regex_match_all() or g_regex_match_all_full(), the retrieved
+using <code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
 count is not that of the number of capturing parentheses but that of
 the number of matched substrings.</p>
 
@@ -3892,7 +3892,7 @@ the number of matched substrings.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>GRegex</code> object used in <code>match_info</code>. It belongs to Glib
-and must not be freed. Use g_regex_ref() if you need to keep it
+and must not be freed. Use <code>g_regex_ref()</code> if you need to keep it
 after you free <code>match_info</code> object.</p>
 
                       </div>
@@ -3927,7 +3927,7 @@ after you free <code>match_info</code> object.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the string searched with <code>match_info</code>. This is the
-string passed to g_regex_match() or g_regex_replace() so
+string passed to <code>g_regex_match()</code> or <code>g_regex_replace()</code> so
 you may not free it before calling this function.</p>
 
                       </div>
@@ -3995,7 +3995,7 @@ you may not free it before calling this function.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Scans for the next match using the same parameters of the previous
-call to g_regex_match_full() or g_regex_match() that returned
+call to <code>g_regex_match_full()</code> or <code>g_regex_match()</code> that returned
 <code>match_info</code>.</p>
 
 <p>The match is done on the string passed to the match function, so you
@@ -4107,7 +4107,7 @@ distinguish this case from other cases in which there is no match.</p>
 <p>Consider, for example, an application where a human is required to
 type in data for a field with specific formatting requirements. An
 example might be a date in the form ddmmmyy, defined by the pattern
-<q>^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\d\d$</q>.
+<code>&quot;^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)</code>\d\d$&ldquo;.
 If the application sees the user’s keystrokes one by one, and can
 check that what has been typed so far is potentially valid, it is
 able to raise an error as soon as a mistake is made.</p>
@@ -4115,10 +4115,10 @@ able to raise an error as soon as a mistake is made.</p>
 <p>GRegex supports the concept of partial matching by means of the
 <code>G_REGEX_MATCH_PARTIAL_SOFT</code> and <code>G_REGEX_MATCH_PARTIAL_HARD</code> flags.
 When they are used, the return code for
-g_regex_match() or g_regex_match_full() is, as usual, <code>true</code>
+<code>g_regex_match()</code> or <code>g_regex_match_full()</code> is, as usual, <code>true</code>
 for a complete match, <code>false</code> otherwise. But, when these functions
 return <code>false</code>, you can check if the match was partial calling
-g_match_info_is_partial_match().</p>
+<code>g_match_info_is_partial_match()</code>.</p>
 
 <p>The difference between <code>G_REGEX_MATCH_PARTIAL_SOFT</code> and
 <code>G_REGEX_MATCH_PARTIAL_HARD</code> is that when a partial match is encountered
@@ -4131,7 +4131,7 @@ are set, the latter takes precedence.</p>
 <p>There were formerly some restrictions on the pattern for partial matching.
 The restrictions no longer apply.</p>
 
-<p>See pcrepartial(3) for more information on partial matching.</p>
+<p>See <code>pcrepartial(3)</code> for more information on partial matching.</p>
 
                       </div>
                       <div class="declaration">
@@ -4169,7 +4169,7 @@ that is the whole matched text), so 1 is returned if the pattern
 has no substrings in it and 0 is returned if the match failed.</p>
 
 <p>If the last match was obtained using the DFA algorithm, that is
-using g_regex_match_all() or g_regex_match_all_full(), the retrieved
+using <code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
 count is not that of the number of capturing parentheses but that of
 the number of matched substrings.</p>
 
@@ -4205,7 +4205,7 @@ the number of matched substrings.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>GRegex</code> object used in <code>match_info</code>. It belongs to Glib
-and must not be freed. Use g_regex_ref() if you need to keep it
+and must not be freed. Use <code>g_regex_ref()</code> if you need to keep it
 after you free <code>match_info</code> object.</p>
 
                       </div>
@@ -4240,7 +4240,7 @@ after you free <code>match_info</code> object.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the string searched with <code>match_info</code>. This is the
-string passed to g_regex_match() or g_regex_replace() so
+string passed to <code>g_regex_match()</code> or <code>g_regex_replace()</code> so
 you may not free it before calling this function.</p>
 
                       </div>
@@ -4266,7 +4266,7 @@ you may not free it before calling this function.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

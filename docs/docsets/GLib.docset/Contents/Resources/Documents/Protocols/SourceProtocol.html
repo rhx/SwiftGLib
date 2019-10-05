@@ -3559,7 +3559,7 @@ callback), and when <code>source</code> is destroyed, it will destroy
 its own prepare/check functions indicate that it is ready.)</p>
 
 <p>If you don&rsquo;t need <code>child_source</code> to do anything on its own when it
-triggers, you can call g_source_set_dummy_callback() on it to set a
+triggers, you can call <code>g_source_set_dummy_callback()</code> on it to set a
 callback that does nothing (except return <code>true</code> if appropriate).</p>
 
 <p><code>source</code> will hold a reference on <code>child_source</code> while <code>child_source</code>
@@ -3600,7 +3600,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Adds a file descriptor to the set of file descriptors polled for
-this source. This is usually combined with g_source_new() to add an
+this source. This is usually combined with <code>g_source_new()</code> to add an
 event source. The event source&rsquo;s check function will typically test
 the <code>revents</code> field in the <code>GPollFD</code> struct and return <code>true</code> if events need
 to be processed.</p>
@@ -3610,7 +3610,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
 
 <p>Using this API forces the linear scanning of event sources on each
 main loop iteration.  Newly-written event sources should try to use
-g_source_add_unix_fd() instead of this API.</p>
+<code>g_source_add_unix_fd()</code> instead of this API.</p>
 
                       </div>
                       <div class="declaration">
@@ -3646,8 +3646,8 @@ g_source_add_unix_fd() instead of this API.</p>
                         <p>Monitors <code>fd</code> for the IO events in <code>events</code>.</p>
 
 <p>The tag returned by this function can be used to remove or modify the
-monitoring of the fd using g_source_remove_unix_fd() or
-g_source_modify_unix_fd().</p>
+monitoring of the fd using <code>g_source_remove_unix_fd()</code> or
+<code>g_source_modify_unix_fd()</code>.</p>
 
 <p>It is not necessary to remove the fd before destroying the source; it
 will be cleaned up automatically.</p>
@@ -3689,7 +3689,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Adds a <code>GSource</code> to a <code><a href="../Protocols/SourceProtocol.html#/s:4GLib14SourceProtocolPAAE7contextSpySo13_GMainContextVGSgvp">context</a></code> so that it will be executed within
-that context. Remove it by calling g_source_destroy().</p>
+that context. Remove it by calling <code>g_source_destroy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3727,8 +3727,8 @@ destroyed.  The source cannot be subsequently added to another
 context. It is safe to call this on sources which have already been
 removed from their context.</p>
 
-<p>This does not unref the <code>GSource</code>: if you still hold a reference, use
-g_source_unref() to drop it.</p>
+<p>This does not unref the <code>GSource:</code> if you still hold a reference, use
+<code>g_source_unref()</code> to drop it.</p>
 
                       </div>
                       <div class="declaration">
@@ -3762,7 +3762,7 @@ g_source_unref() to drop it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Checks whether a source is allowed to be called recursively.
-see g_source_set_can_recurse().</p>
+see <code>g_source_set_can_recurse()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3801,7 +3801,7 @@ see g_source_set_can_recurse().</p>
 that the <code>GMainContext</code> it was attached to still exists (in which
 case it will return that <code>GMainContext</code>). In particular, you can
 always call this function on the source returned from
-g_main_current_source(). But calling this function on a source
+<code>g_main_current_source()</code>. But calling this function on a source
 whose <code>GMainContext</code> has been destroyed is an error.</p>
 
                       </div>
@@ -3836,7 +3836,7 @@ whose <code>GMainContext</code> has been destroyed is an error.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function ignores <code>source</code> and is otherwise the same as
-g_get_current_time().</p>
+<code>g_get_current_time()</code>.</p>
 
 <p><strong>get_current_time is deprecated:</strong>
 use g_source_get_time() instead</p>
@@ -3876,12 +3876,12 @@ use g_source_get_time() instead</p>
                         <p>Returns the numeric ID for a particular source. The ID of a source
 is a positive integer which is unique within a particular main loop
 context. The reverse
-mapping from ID to source is done by g_main_context_find_source_by_id().</p>
+mapping from ID to source is done by <code>g_main_context_find_source_by_id()</code>.</p>
 
 <p>You can only call this function while the source is associated to a
-<code>GMainContext</code> instance; calling this function before g_source_attach()
-or after g_source_destroy() yields undefined behavior. The ID returned
-is unique within the <code>GMainContext</code> instance passed to g_source_attach().</p>
+<code>GMainContext</code> instance; calling this function before <code>g_source_attach()</code>
+or after <code>g_source_destroy()</code> yields undefined behavior. The ID returned
+is unique within the <code>GMainContext</code> instance passed to <code>g_source_attach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3915,7 +3915,7 @@ is unique within the <code>GMainContext</code> instance passed to g_source_attac
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets a name for the source, used in debugging and profiling.  The
-name may be <code>NULL</code> if it has never been set with g_source_set_name().</p>
+name may be <code>NULL</code> if it has never been set with <code>g_source_set_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3982,7 +3982,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the <q>ready time</q> of <code>source</code>, as set by
-g_source_set_ready_time().</p>
+<code>g_source_set_ready_time()</code>.</p>
 
 <p>Any time before the current monotonic time (including 0) is an
 indication that the source will fire immediately.</p>
@@ -4019,12 +4019,12 @@ indication that the source will fire immediately.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the time to be used when checking this source. The advantage of
-calling this function over calling g_get_monotonic_time() directly is
+calling this function over calling <code>g_get_monotonic_time()</code> directly is
 that when checking multiple sources, GLib can cache a single value
 instead of having to repeatedly get the system monotonic time.</p>
 
 <p>The time here is the system monotonic time, if available, or some
-other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
+other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4059,10 +4059,10 @@ other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
                       <div class="abstract">
                         <p>Updates the event mask to watch for the fd identified by <code>tag</code>.</p>
 
-<p><code>tag</code> is the tag returned from g_source_add_unix_fd().</p>
+<p><code>tag</code> is the tag returned from <code>g_source_add_unix_fd()</code>.</p>
 
 <p>If you want to remove a fd, don&rsquo;t set its event mask to zero.
-Instead, call g_source_remove_unix_fd().</p>
+Instead, call <code>g_source_remove_unix_fd()</code>.</p>
 
 <p>This API is only intended to be used by implementations of <code>GSource</code>.
 Do not call this API on a <code>GSource</code> that you did not create.</p>
@@ -4248,7 +4248,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reverses the effect of a previous call to g_source_add_unix_fd().</p>
+                        <p>Reverses the effect of a previous call to <code>g_source_add_unix_fd()</code>.</p>
 
 <p>You only need to call this if you want to remove an fd from being
 watched while keeping the same source around.  In the normal case you
@@ -4295,14 +4295,14 @@ called from the source&rsquo;s dispatch function.</p>
 
 <p>The exact type of <code>func</code> depends on the type of source; ie. you
 should not count on <code>func</code> being called with <code>data</code> as its first
-parameter. Cast <code>func</code> with G_SOURCE_FUNC() to avoid warnings about
+parameter. Cast <code>func</code> with <code>G_SOURCE_FUNC()</code> to avoid warnings about
 incompatible function types.</p>
 
 <p>See [memory management of sources][mainloop-memory-management] for details
 on how to handle memory management of <code>data</code>.</p>
 
 <p>Typically, you won&rsquo;t use this function. Instead use functions specific
-to the type of source you are using, such as g_idle_add() or g_timeout_add().</p>
+to the type of source you are using, such as <code>g_idle_add()</code> or <code>g_timeout_add()</code>.</p>
 
 <p>It is safe to call this function multiple times on a source which has already
 been attached to a context. The changes will take effect for the next time
@@ -4341,7 +4341,7 @@ the source is dispatched after this call returns.</p>
                       <div class="abstract">
                         <p>Sets the callback function storing the data as a refcounted callback
 <q>object</q>. This is used internally. Note that calling
-g_source_set_callback_indirect() assumes
+<code>g_source_set_callback_indirect()</code> assumes
 an initial reference count on <code>callback_data</code>, and thus
 <code>callback_funcs</code>-&gt;unref will eventually be called once more
 than <code>callback_funcs</code>-&gt;ref.</p>
@@ -4464,7 +4464,7 @@ one could change the name in the <q>check</q> function of a <code>GSourceFuncs</
 to include details like the event type in the source name.</p>
 
 <p>Use caution if changing the name while another thread may be
-accessing it with g_source_get_name(); that function does not copy
+accessing it with <code>g_source_get_name()</code>; that function does not copy
 the value, and changing the value will free it while the other thread
 may be attempting to use it.</p>
 
@@ -4557,7 +4557,7 @@ for both sources is reached during the same main context iteration,
 then the order of dispatch is undefined.</p>
 
 <p>It is a no-op to call this function on a <code>GSource</code> which has already been
-destroyed with g_source_destroy().</p>
+destroyed with <code>g_source_destroy()</code>.</p>
 
 <p>This API is only intended to be used by implementations of <code>GSource</code>.
 Do not call this API on a <code>GSource</code> that you did not create.</p>
@@ -4629,7 +4629,7 @@ memory will be destroyed.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Checks whether a source is allowed to be called recursively.
-see g_source_set_can_recurse().</p>
+see <code>g_source_set_can_recurse()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4668,7 +4668,7 @@ see g_source_set_can_recurse().</p>
 that the <code>GMainContext</code> it was attached to still exists (in which
 case it will return that <code>GMainContext</code>). In particular, you can
 always call this function on the source returned from
-g_main_current_source(). But calling this function on a source
+<code>g_main_current_source()</code>. But calling this function on a source
 whose <code>GMainContext</code> has been destroyed is an error.</p>
 
                       </div>
@@ -4705,12 +4705,12 @@ whose <code>GMainContext</code> has been destroyed is an error.</p>
                         <p>Returns the numeric ID for a particular source. The ID of a source
 is a positive integer which is unique within a particular main loop
 context. The reverse
-mapping from ID to source is done by g_main_context_find_source_by_id().</p>
+mapping from ID to source is done by <code>g_main_context_find_source_by_id()</code>.</p>
 
 <p>You can only call this function while the source is associated to a
-<code>GMainContext</code> instance; calling this function before g_source_attach()
-or after g_source_destroy() yields undefined behavior. The ID returned
-is unique within the <code>GMainContext</code> instance passed to g_source_attach().</p>
+<code>GMainContext</code> instance; calling this function before <code>g_source_attach()</code>
+or after <code>g_source_destroy()</code> yields undefined behavior. The ID returned
+is unique within the <code>GMainContext</code> instance passed to <code>g_source_attach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4820,7 +4820,7 @@ used for opportunistic checks from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L647-L722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L645-L718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4842,7 +4842,7 @@ used for opportunistic checks from any thread.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets a name for the source, used in debugging and profiling.  The
-name may be <code>NULL</code> if it has never been set with g_source_set_name().</p>
+name may be <code>NULL</code> if it has never been set with <code>g_source_set_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4854,7 +4854,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L726-L752">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L722-L748">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4887,7 +4887,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L755-L772">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L751-L768">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4909,7 +4909,7 @@ name may be <code>NULL</code> if it has never been set with g_source_set_name().
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the <q>ready time</q> of <code>source</code>, as set by
-g_source_set_ready_time().</p>
+<code>g_source_set_ready_time()</code>.</p>
 
 <p>Any time before the current monotonic time (including 0) is an
 indication that the source will fire immediately.</p>
@@ -4924,7 +4924,7 @@ indication that the source will fire immediately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L779-L814">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L775-L810">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4946,12 +4946,12 @@ indication that the source will fire immediately.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the time to be used when checking this source. The advantage of
-calling this function over calling g_get_monotonic_time() directly is
+calling this function over calling <code>g_get_monotonic_time()</code> directly is
 that when checking multiple sources, GLib can cache a single value
 instead of having to repeatedly get the system monotonic time.</p>
 
 <p>The time here is the system monotonic time, if available, or some
-other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
+other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4963,7 +4963,7 @@ other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L823-L835">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L819-L831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4976,7 +4976,7 @@ other reasonable alternative otherwise.  See g_get_monotonic_time().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

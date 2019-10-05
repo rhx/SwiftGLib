@@ -3445,7 +3445,7 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Hook.html">Hook</a></code>.
 Alternatively, use <code><a href="../Structs/HookRef.html">HookRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The <code>GHook</code> struct represents a single hook function in a <code>GHookList</code>.</p>
+<p>The <code>GHook</code> struct represents a single hook function in a <code>GHookList.</code></p>
 
           </div>
         </section>
@@ -3584,7 +3584,7 @@ if the second id is greater than the first.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes one <code>GHook</code> from a <code>GHookList</code>, marking it
-inactive and calling g_hook_unref() on it.</p>
+inactive and calling <code>g_hook_unref()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -3618,7 +3618,7 @@ inactive and calling g_hook_unref() on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Calls the <code>GHookList</code> <code>finalize_hook</code> function if it exists,
-and frees the memory allocated for the <code>GHook</code>.</p>
+and frees the memory allocated for the <code>GHook.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3651,7 +3651,7 @@ and frees the memory allocated for the <code>GHook</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook</code>.</p>
+                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3719,8 +3719,8 @@ and frees the memory allocated for the <code>GHook</code>.</p>
                       <div class="abstract">
                         <p>Returns the next <code>GHook</code> in a <code>GHookList</code> which has not been destroyed.
 The reference count for the <code>GHook</code> is incremented, so you must call
-g_hook_unref() to restore it when no longer needed. (Or continue to call
-g_hook_next_valid() until <code>nil</code> is returned.)</p>
+<code>g_hook_unref()</code> to restore it when no longer needed. (Or continue to call
+<code>g_hook_next_valid()</code> until <code>nil</code> is returned.)</p>
 
                       </div>
                       <div class="declaration">
@@ -3753,7 +3753,7 @@ g_hook_next_valid() until <code>nil</code> is returned.)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList</code>.</p>
+                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3786,7 +3786,7 @@ g_hook_next_valid() until <code>nil</code> is returned.)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increments the reference count for a <code>GHook</code>.</p>
+                        <p>Increments the reference count for a <code>GHook.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3821,7 +3821,7 @@ g_hook_next_valid() until <code>nil</code> is returned.)</p>
                       <div class="abstract">
                         <p>Decrements the reference count of a <code>GHook</code>.
 If the reference count falls to 0, the <code>GHook</code> is removed
-from the <code>GHookList</code> and g_hook_free() is called to free it.</p>
+from the <code>GHookList</code> and <code>g_hook_free()</code> is called to free it.</p>
 
                       </div>
                       <div class="declaration">
@@ -3855,7 +3855,7 @@ from the <code>GHookList</code> and g_hook_free() is called to free it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes one <code>GHook</code> from a <code>GHookList</code>, marking it
-inactive and calling g_hook_unref() on it.</p>
+inactive and calling <code>g_hook_unref()</code> on it.</p>
 
                       </div>
                       <div class="declaration">
@@ -3889,7 +3889,7 @@ inactive and calling g_hook_unref() on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Calls the <code>GHookList</code> <code>finalize_hook</code> function if it exists,
-and frees the memory allocated for the <code>GHook</code>.</p>
+and frees the memory allocated for the <code>GHook.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3922,7 +3922,7 @@ and frees the memory allocated for the <code>GHook</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook</code>.</p>
+                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3955,7 +3955,7 @@ and frees the memory allocated for the <code>GHook</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList</code>.</p>
+                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3990,7 +3990,7 @@ and frees the memory allocated for the <code>GHook</code>.</p>
                       <div class="abstract">
                         <p>Decrements the reference count of a <code>GHook</code>.
 If the reference count falls to 0, the <code>GHook</code> is removed
-from the <code>GHookList</code> and g_hook_free() is called to free it.</p>
+from the <code>GHookList</code> and <code>g_hook_free()</code> is called to free it.</p>
 
                       </div>
                       <div class="declaration">
@@ -4015,7 +4015,7 @@ from the <code>GHookList</code> and g_hook_free() is called to free it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

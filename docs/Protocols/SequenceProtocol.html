@@ -3550,7 +3550,7 @@ Alternatively, use <code><a href="../Structs/SequenceRef.html">SequenceRef</a></
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds a new item to the end of <code>seq</code>.</p>
+                        <p>Adds a new item to the end of <code>seq.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3619,7 +3619,7 @@ to the function. <code>func</code> must not modify the sequence itself.</p>
                       <div class="abstract">
                         <p>Frees the memory allocated for <code>seq</code>. If <code>seq</code> has a data destroy
 function associated with it, that function is called on all items
-in <code>seq</code>.</p>
+in <code>seq.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3652,7 +3652,7 @@ in <code>seq</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the begin iterator for <code>seq</code>.</p>
+                        <p>Returns the begin iterator for <code>seq.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3752,8 +3752,8 @@ than the number of items in <code>seq</code>, the end iterator is returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the length of <code>seq</code>. Note that this method is O(h) where `h&rsquo; is the
-height of the tree. It is thus more efficient to use g_sequence_is_empty()
+                        <p>Returns the length of <code>seq</code>. Note that this method is <code>O(h)</code> where <code>h&#39; is the
+height of the tree. It is thus more efficient to use</code>g_sequence_is_empty()`
 when comparing the length to zero.</p>
 
                       </div>
@@ -3798,7 +3798,7 @@ if the second item comes before the first.</p>
 
 <p>Note that when adding a large amount of data to a <code>GSequence</code>,
 it is more efficient to do unsorted insertions and then call
-g_sequence_sort() or g_sequence_sort_iter().</p>
+<code>g_sequence_sort()</code> or <code>g_sequence_sort_iter()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3831,7 +3831,7 @@ g_sequence_sort() or g_sequence_sort_iter().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like g_sequence_insert_sorted(), but uses
+                        <p>Like <code>g_sequence_insert_sorted()</code>, but uses
 a <code>GSequenceIterCompareFunc</code> instead of a <code>GCompareDataFunc</code> as
 the compare function.</p>
 
@@ -3842,7 +3842,7 @@ positive value if the second iterator comes before the first.</p>
 
 <p>Note that when adding a large amount of data to a <code>GSequence</code>,
 it is more efficient to do unsorted insertions and then call
-g_sequence_sort() or g_sequence_sort_iter().</p>
+<code>g_sequence_sort()</code> or <code>g_sequence_sort_iter()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3878,8 +3878,8 @@ g_sequence_sort() or g_sequence_sort_iter().</p>
                         <p>Returns an iterator pointing to the position of the first item found
 equal to <code>data</code> according to <code>cmp_func</code> and <code>cmp_data</code>. If more than one
 item is equal, it is not guaranteed that it is the first which is
-returned. In that case, you can use g_sequence_iter_next() and
-g_sequence_iter_prev() to get others.</p>
+returned. In that case, you can use <code>g_sequence_iter_next()</code> and
+<code>g_sequence_iter_prev()</code> to get others.</p>
 
 <p><code>cmp_func</code> is called with two items of the <code>seq</code>, and <code>cmp_data</code>.
 It should return 0 if the items are equal, a negative value if
@@ -3920,7 +3920,7 @@ unsorted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like g_sequence_lookup(), but uses a <code>GSequenceIterCompareFunc</code>
+                        <p>Like <code>g_sequence_lookup()</code>, but uses a <code>GSequenceIterCompareFunc</code>
 instead of a <code>GCompareDataFunc</code> as the compare function.</p>
 
 <p><code>iter_cmp</code> is called with two iterators pointing into <code>seq</code>.
@@ -4004,7 +4004,7 @@ the first item comes before the second, and a positive value if
 the second item comes before the first.</p>
 
 <p>If you are simply searching for an existing element of the sequence,
-consider using g_sequence_lookup().</p>
+consider using <code>g_sequence_lookup()</code>.</p>
 
 <p>This function will fail if the data contained in the sequence is
 unsorted.</p>
@@ -4040,7 +4040,7 @@ unsorted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like g_sequence_search(), but uses a <code>GSequenceIterCompareFunc</code>
+                        <p>Like <code>g_sequence_search()</code>, but uses a <code>GSequenceIterCompareFunc</code>
 instead of a <code>GCompareDataFunc</code> as the compare function.</p>
 
 <p><code>iter_cmp</code> is called with two iterators pointing into <code>seq</code>.
@@ -4049,7 +4049,7 @@ if the first iterator comes before the second, and a positive
 value if the second iterator comes before the first.</p>
 
 <p>If you are simply searching for an existing element of the sequence,
-consider using g_sequence_lookup_iter().</p>
+consider using <code>g_sequence_lookup_iter()</code>.</p>
 
 <p>This function will fail if the data contained in the sequence is
 unsorted.</p>
@@ -4123,7 +4123,7 @@ if the second comes before the first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like g_sequence_sort(), but uses a <code>GSequenceIterCompareFunc</code> instead
+                        <p>Like <code>g_sequence_sort()</code>, but uses a <code>GSequenceIterCompareFunc</code> instead
 of a <code>GCompareDataFunc</code> as the compare function</p>
 
 <p><code>cmp_func</code> is called with two iterators pointing into <code>seq</code>. It should
@@ -4162,7 +4162,7 @@ iterator comes before the first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the begin iterator for <code>seq</code>.</p>
+                        <p>Returns the begin iterator for <code>seq.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4231,8 +4231,8 @@ iterator comes before the first.</p>
                         <p>Returns <code>true</code> if the sequence contains zero items.</p>
 
 <p>This function is functionally identical to checking the result of
-g_sequence_get_length() being equal to zero. However this function is
-implemented in O(1) running time.</p>
+<code>g_sequence_get_length()</code> being equal to zero. However this function is
+implemented in <code>O(1)</code> running time.</p>
 
                       </div>
                       <div class="declaration">
@@ -4265,8 +4265,8 @@ implemented in O(1) running time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the length of <code>seq</code>. Note that this method is O(h) where `h&rsquo; is the
-height of the tree. It is thus more efficient to use g_sequence_is_empty()
+                        <p>Returns the length of <code>seq</code>. Note that this method is <code>O(h)</code> where <code>h&#39; is the
+height of the tree. It is thus more efficient to use</code>g_sequence_is_empty()`
 when comparing the length to zero.</p>
 
                       </div>
@@ -4292,7 +4292,7 @@ when comparing the length to zero.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

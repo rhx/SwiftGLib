@@ -3563,8 +3563,8 @@ putting different types of items into an array, putting the wrong
 types or number of items in a tuple, putting more than one value into
 a variant, etc.</p>
 
-<p>If <code>value</code> is a floating reference (see g_variant_ref_sink()),
-the <code>builder</code> instance takes ownership of <code>value</code>.</p>
+<p>If <code>value</code> is a floating reference (see <code>g_variant_ref_sink()</code>),
+the <code>builder</code> instance takes ownership of <code>value.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3603,9 +3603,9 @@ freeing the <code>GVariantBuilder</code> structure itself.</p>
 <p>It typically only makes sense to do this on a stack-allocated
 <code>GVariantBuilder</code> if you want to abort building the value part-way
 through.  This function need not be called if you call
-g_variant_builder_end() and it also doesn&rsquo;t need to be called on
-builders allocated with g_variant_builder_new() (see
-g_variant_builder_unref() for that).</p>
+<code>g_variant_builder_end()</code> and it also doesn&rsquo;t need to be called on
+builders allocated with <code>g_variant_builder_new()</code> (see
+<code>g_variant_builder_unref()</code> for that).</p>
 
 <p>This function leaves the <code>GVariantBuilder</code> structure set to all-zeros.
 It is valid to call this function on either an initialised
@@ -3644,7 +3644,7 @@ to call this function on uninitialised memory.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Closes the subcontainer inside the given <code>builder</code> that was opened by
-the most recent call to g_variant_builder_open().</p>
+the most recent call to <code>g_variant_builder_open()</code>.</p>
 
 <p>It is an error to call this function in any way that would create an
 inconsistent value to be constructed (ie: too few values added to the
@@ -3686,10 +3686,10 @@ subcontainer).</p>
 <p>It is not permissible to use <code>builder</code> in any way after this call
 except for reference counting operations (in the case of a
 heap-allocated <code>GVariantBuilder</code>) or by reinitialising it with
-g_variant_builder_init() (in the case of stack-allocated). This
+<code>g_variant_builder_init()</code> (in the case of stack-allocated). This
 means that for the stack-allocated builders there is no need to
-call g_variant_builder_clear() after the call to
-g_variant_builder_end().</p>
+call <code>g_variant_builder_clear()</code> after the call to
+<code>g_variant_builder_end()</code>.</p>
 
 <p>It is an error to call this function in any way that would create an
 inconsistent value to be constructed (ie: insufficient number of
@@ -3739,9 +3739,9 @@ Maybe, array, tuple, dictionary entry and variant-typed values may be
 constructed.</p>
 
 <p>After the builder is initialised, values are added using
-g_variant_builder_add_value() or g_variant_builder_add().</p>
+<code>g_variant_builder_add_value()</code> or <code>g_variant_builder_add()</code>.</p>
 
-<p>After all the child values are added, g_variant_builder_end() frees
+<p>After all the child values are added, <code>g_variant_builder_end()</code> frees
 the memory associated with the builder and returns the <code>GVariant</code> that
 was created.</p>
 
@@ -3749,15 +3749,15 @@ was created.</p>
 On one hand this means that it is valid to pass in completely
 uninitialised memory.  On the other hand, this means that if you are
 initialising over top of an existing <code>GVariantBuilder</code> you need to
-first call g_variant_builder_clear() in order to avoid leaking
+first call <code>g_variant_builder_clear()</code> in order to avoid leaking
 memory.</p>
 
-<p>You must not call g_variant_builder_ref() or
-g_variant_builder_unref() on a <code>GVariantBuilder</code> that was initialised
+<p>You must not call <code>g_variant_builder_ref()</code> or
+<code>g_variant_builder_unref()</code> on a <code>GVariantBuilder</code> that was initialised
 with this function.  If you ever pass a reference to a
 <code>GVariantBuilder</code> outside of the control of your own code then you
 should assume that the person receiving that reference may try to use
-reference counting; you should use g_variant_builder_new() instead of
+reference counting; you should use <code>g_variant_builder_new()</code> instead of
 this function.</p>
 
                       </div>
@@ -3792,7 +3792,7 @@ this function.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Opens a subcontainer inside the given <code>builder</code>.  When done adding
-items to the subcontainer, g_variant_builder_close() must be called. <code>type</code>
+items to the subcontainer, <code>g_variant_builder_close()</code> must be called. <code>type</code>
 is the type of the container: so to build a tuple of several values, <code>type</code>
 must include the tuple itself.</p>
 
@@ -3926,7 +3926,7 @@ things will happen.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

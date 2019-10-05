@@ -3452,9 +3452,9 @@ multiple threads to coordinate access to a shared resource.</p>
 <p>The difference to a mutex is that a reader-writer lock discriminates
 between read-only (&lsquo;reader&rsquo;) and full (&lsquo;writer&rsquo;) access. While only
 one thread at a time is allowed write access (by holding the &lsquo;writer&rsquo;
-lock via g_rw_lock_writer_lock()), multiple threads can gain
+lock via <code>g_rw_lock_writer_lock()</code>), multiple threads can gain
 simultaneous read-only access (by holding the &lsquo;reader&rsquo; lock via
-g_rw_lock_reader_lock()).</p>
+<code>g_rw_lock_reader_lock()</code>).</p>
 
 <p>It is unspecified whether readers or writers have priority in acquiring the
 lock when a reader already holds the lock and a writer is queued to acquire
@@ -3495,18 +3495,19 @@ it.</p>
 
     g_rw_lock_writer_unlock (&amp;lock);
   }
+
 </code></pre>
 
 <p>This example shows an array which can be accessed by many readers
-(the my_array_get() function) simultaneously, whereas the writers
-(the my_array_set() function) will only be allowed one at a time
+(the <code>my_array_get()</code> function) simultaneously, whereas the writers
+(the <code>my_array_set()</code> function) will only be allowed one at a time
 and only if no readers currently access the array. This is because
 of the potentially dangerous resizing of the array. Using these
 functions is fully multi-thread safe now.</p>
 
 <p>If a <code>GRWLock</code> is allocated in static storage then it can be used
 without initialisation.  Otherwise, you should call
-g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
+<code>g_rw_lock_init()</code> on it and <code>g_rw_lock_clear()</code> when done.</p>
 
 <p>A GRWLock should only be accessed with the g_rw_lock_ functions.</p>
 
@@ -3612,12 +3613,12 @@ g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Frees the resources allocated to a lock with g_rw_lock_init().</p>
+                        <p>Frees the resources allocated to a lock with <code>g_rw_lock_init()</code>.</p>
 
 <p>This function should not be used with a <code>GRWLock</code> that has been
 statically allocated.</p>
 
-<p>Calling g_rw_lock_clear() when any thread holds the lock
+<p>Calling <code>g_rw_lock_clear()</code> when any thread holds the lock
 leads to undefined behaviour.</p>
 
 <p>Sine: 2.32</p>
@@ -3672,10 +3673,10 @@ b = g_new (Blob, 1);
 g_rw_lock_init (&amp;b-&gt;l);
 </code></pre>
 
-<p>To undo the effect of g_rw_lock_init() when a lock is no longer
-needed, use g_rw_lock_clear().</p>
+<p>To undo the effect of <code>g_rw_lock_init()</code> when a lock is no longer
+needed, use <code>g_rw_lock_clear()</code>.</p>
 
-<p>Calling g_rw_lock_init() on an already initialized <code>GRWLock</code> leads
+<p>Calling <code>g_rw_lock_init()</code> on an already initialized <code>GRWLock</code> leads
 to undefined behaviour.</p>
 
                       </div>
@@ -3688,7 +3689,7 @@ to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L369-L372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L368-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3729,7 +3730,7 @@ or if a deadlock is detected, a critical warning will be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L383-L386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L382-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3764,7 +3765,7 @@ returns <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L391-L394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L390-L393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3787,7 +3788,7 @@ returns <code>false</code>.</p>
                       <div class="abstract">
                         <p>Release a read lock on <code>rw_lock</code>.</p>
 
-<p>Calling g_rw_lock_reader_unlock() on a lock that is not held
+<p>Calling <code>g_rw_lock_reader_unlock()</code> on a lock that is not held
 by the current thread leads to undefined behaviour.</p>
 
                       </div>
@@ -3800,7 +3801,7 @@ by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L399-L402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3823,7 +3824,7 @@ by the current thread leads to undefined behaviour.</p>
                       <div class="abstract">
                         <p>Obtain a write lock on <code>rw_lock</code>. If any thread already holds
 a read or write lock on <code>rw_lock</code>, the current thread will block
-until all other threads have dropped their locks on <code>rw_lock</code>.</p>
+until all other threads have dropped their locks on <code>rw_lock.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3835,7 +3836,7 @@ until all other threads have dropped their locks on <code>rw_lock</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L408-L411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L407-L410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3870,7 +3871,7 @@ Otherwise it locks <code>rw_lock</code> and returns <code>true</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L416-L419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L415-L418">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3893,7 +3894,7 @@ Otherwise it locks <code>rw_lock</code> and returns <code>true</code>.</p>
                       <div class="abstract">
                         <p>Release a write lock on <code>rw_lock</code>.</p>
 
-<p>Calling g_rw_lock_writer_unlock() on a lock that is not held
+<p>Calling <code>g_rw_lock_writer_unlock()</code> on a lock that is not held
 by the current thread leads to undefined behaviour.</p>
 
                       </div>
@@ -3906,7 +3907,7 @@ by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L425-L428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3919,7 +3920,7 @@ by the current thread leads to undefined behaviour.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

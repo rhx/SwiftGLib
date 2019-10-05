@@ -3609,7 +3609,7 @@ allowed. The year is represented with four digits.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Opaque type. See g_mutex_locker_new() for details.</p>
+                        <p>Opaque type. See <code>g_mutex_locker_new()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -3706,7 +3706,7 @@ particular string. A GQuark value of zero is associated to <code>nil</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Opaque type. See g_rec_mutex_locker_new() for details.</p>
+                        <p>Opaque type. See <code>g_rec_mutex_locker_new()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -3739,10 +3739,10 @@ particular string. A GQuark value of zero is associated to <code>nil</code>.</p>
                         <p>A typedef for a reference-counted string. A pointer to a <code>GRefString</code> can be
 treated like a standard <code>char*</code> array by all code, but can additionally have
 <code>g_ref_string_*()</code> methods called on it. <code>g_ref_string_*()</code> methods cannot be
-called on <code>char*</code> arrays not allocated using g_ref_string_new().</p>
+called on <code>char*</code> arrays not allocated using <code>g_ref_string_new()</code>.</p>
 
-<p>If using <code>GRefString</code> with autocleanups, g_autoptr() must be used rather than
-g_autofree(), so that the reference counting metadata is also freed.</p>
+<p>If using <code>GRefString</code> with autocleanups, <code>g_autoptr()</code> must be used rather than
+<code>g_autofree()</code>, so that the reference counting metadata is also freed.</p>
 
                       </div>
                       <div class="declaration">
@@ -3773,7 +3773,7 @@ g_autofree(), so that the reference counting metadata is also freed.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A typedef alias for gchar**. This is mostly useful when used together with
-g_auto().</p>
+<code>g_auto()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3810,7 +3810,7 @@ with a 64-bit <code>time_t</code>. Unrelated to <code>GTimer</code>.</p>
 <p>Note that <code>GTime</code> is defined to always be a 32-bit integer,
 unlike <code>time_t</code> which may be 64-bit on some systems. Therefore,
 <code>GTime</code> will overflow in the year 2038, and you cannot use the
-address of a <code>GTime</code> variable as argument to the UNIX time()
+address of a <code>GTime</code> variable as argument to the UNIX <code>time()</code>
 function.</p>
 
 <p>Instead, do the following:
@@ -3948,7 +3948,7 @@ This is not <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2038-safe
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A test to perform on a file using g_file_test().</p>
+                        <p>A test to perform on a file using <code>g_file_test()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3978,7 +3978,7 @@ This is not <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2038-safe
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags to modify the format of the string returned by g_format_size_full().</p>
+                        <p>Flags to modify the format of the string returned by <code>g_format_size_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4070,8 +4070,8 @@ event source.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies properties of a <code>GIOChannel</code>. Some of the flags can only be
-read with g_io_channel_get_flags(), but not changed with
-g_io_channel_set_flags().</p>
+read with <code>g_io_channel_get_flags()</code>, but not changed with
+<code>g_io_channel_set_flags()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4134,7 +4134,7 @@ g_io_channel_set_flags().</p>
                         <p>Flags specifying the level of log messages.</p>
 
 <p>It is possible to change how GLib treats messages of the various
-levels using g_log_set_handler() and g_log_set_fatal_mask().</p>
+levels using <code>g_log_set_handler()</code> and <code>g_log_set_fatal_mask()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4319,7 +4319,7 @@ support other types.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags passed to g_spawn_sync(), g_spawn_async() and g_spawn_async_with_pipes().</p>
+                        <p>Flags passed to <code>g_spawn_sync()</code>, <code>g_spawn_async()</code> and <code>g_spawn_async_with_pipes()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4349,9 +4349,9 @@ support other types.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags to pass to g_test_trap_subprocess() to control input and output.</p>
+                        <p>Flags to pass to <code>g_test_trap_subprocess()</code> to control input and output.</p>
 
-<p>Note that in contrast with g_test_trap_fork(), the default is to
+<p>Note that in contrast with <code>g_test_trap_fork()</code>, the default is to
 not show stdout and stderr.</p>
 
                       </div>
@@ -4420,7 +4420,7 @@ These flags determine what traps to set.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies which nodes are visited during several of the tree
-functions, including g_node_traverse() and g_node_find().</p>
+functions, including <code>g_node_traverse()</code> and <code>g_node_find()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4456,7 +4456,7 @@ functions, including g_node_traverse() and g_node_find().</p>
                       <div class="abstract">
                         <p>Prototype of a <code>GChildWatchSource</code> callback, called when a child
 process has exited.  To interpret <code>status</code>, see the documentation
-for g_spawn_check_exit_status().</p>
+for <code>g_spawn_check_exit_status()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4486,10 +4486,10 @@ for g_spawn_check_exit_status().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_clear_handle_id().
+                        <p>Specifies the type of function passed to <code>g_clear_handle_id()</code>.
 The implementation is expected to free the resource identified
 by <code>handle_id</code>; for instance, if <code>handle_id</code> is a <code>GSource</code> ID,
-g_source_remove() can be used.</p>
+<code>g_source_remove()</code> can be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -4616,9 +4616,9 @@ when doing a deep-copy of a tree.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_dataset_foreach(). It is
+                        <p>Specifies the type of function passed to <code>g_dataset_foreach()</code>. It is
 called with each <code>GQuark</code> id and associated data element, together
-with the <code>user_data</code> parameter supplied to g_dataset_foreach().</p>
+with the <code>user_data</code> parameter supplied to <code>g_dataset_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4777,8 +4777,8 @@ not currently used in GLib or GTK+.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of functions passed to g_list_foreach() and
-g_slist_foreach().</p>
+                        <p>Specifies the type of functions passed to <code>g_list_foreach()</code> and
+<code>g_slist_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4808,9 +4808,9 @@ g_slist_foreach().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of the function passed to g_hash_table_foreach().
+                        <p>Specifies the type of the function passed to <code>g_hash_table_foreach()</code>.
 It is called with each key/value pair, together with the <code>user_data</code>
-parameter which is passed to g_hash_table_foreach().</p>
+parameter which is passed to <code>g_hash_table_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4841,10 +4841,10 @@ parameter which is passed to g_hash_table_foreach().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies the type of the function passed to
-g_hash_table_foreach_remove(). It is called with each key/value
+<code>g_hash_table_foreach_remove()</code>. It is called with each key/value
 pair, together with the <code>user_data</code> parameter passed to
-g_hash_table_foreach_remove(). It should return <code>true</code> if the
-key/value pair should be removed from the <code>GHashTable</code>.</p>
+<code>g_hash_table_foreach_remove()</code>. It should return <code>true</code> if the
+key/value pair should be removed from the <code>GHashTable.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4875,14 +4875,14 @@ key/value pair should be removed from the <code>GHashTable</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies the type of the hash function which is passed to
-g_hash_table_new() when a <code>GHashTable</code> is created.</p>
+<code>g_hash_table_new()</code> when a <code>GHashTable</code> is created.</p>
 
 <p>The function is passed a key and should return a <code>guint</code> hash value.
-The functions g_direct_hash(), g_int_hash() and g_str_hash() provide
+The functions <code>g_direct_hash()</code>, <code>g_int_hash()</code> and <code>g_str_hash()</code> provide
 hash functions which can be used when the key is a <code>gpointer</code>, <code>gint</code><em>,
 and <code>gchar</code></em> respectively.</p>
 
-<p>g_direct_hash() is also the appropriate hash function for keys
+<p><code>g_direct_hash()</code> is also the appropriate hash function for keys
 of the form <code>GINT_TO_POINTER (n)</code> (or similar macros).</p>
 
 <p>A good hash functions should produce
@@ -4896,7 +4896,7 @@ but are not particularly robust against manufactured keys that
 cause hash collisions. Therefore, you should consider choosing
 a more secure hash function when using a GHashTable with keys
 that originate in untrusted data (such as HTTP requests).
-Using g_str_hash() in that situation might make your application
+Using <code>g_str_hash()</code> in that situation might make your application
 vulerable to
 <a href="https://lwn.net/Articles/474912/">Algorithmic Complexity Attacks</a>.</p>
 
@@ -4934,7 +4934,7 @@ must be an element of randomness that an attacker is unable to guess.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Defines the type of a hook function that can be invoked
-by g_hook_list_invoke_check().</p>
+by <code>g_hook_list_invoke_check()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4964,7 +4964,7 @@ by g_hook_list_invoke_check().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines the type of function used by g_hook_list_marshal_check().</p>
+                        <p>Defines the type of function used by <code>g_hook_list_marshal_check()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4995,7 +4995,7 @@ by g_hook_list_invoke_check().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Defines the type of function used to compare <code>GHook</code> elements in
-g_hook_insert_sorted().</p>
+<code>g_hook_insert_sorted()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5056,7 +5056,7 @@ list of hooks gets finalized.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines the type of the function passed to g_hook_find().</p>
+                        <p>Defines the type of the function passed to <code>g_hook_find()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5087,7 +5087,7 @@ list of hooks gets finalized.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Defines the type of a hook function that can be invoked
-by g_hook_list_invoke().</p>
+by <code>g_hook_list_invoke()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5117,7 +5117,7 @@ by g_hook_list_invoke().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Defines the type of function used by g_hook_list_marshal().</p>
+                        <p>Defines the type of function used by <code>g_hook_list_marshal()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5147,8 +5147,8 @@ by g_hook_list_invoke().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_io_add_watch() or
-g_io_add_watch_full(), which is called when the requested condition
+                        <p>Specifies the type of function passed to <code>g_io_add_watch()</code> or
+<code>g_io_add_watch_full()</code>, which is called when the requested condition
 on a <code>GIOChannel</code> is satisfied.</p>
 
                       </div>
@@ -5181,7 +5181,7 @@ on a <code>GIOChannel</code> is satisfied.</p>
                       <div class="abstract">
                         <p>Specifies the prototype of log handler functions.</p>
 
-<p>The default log handler, g_log_default_handler(), automatically appends a
+<p>The default log handler, <code>g_log_default_handler()</code>, automatically appends a
 new-line character to <code>message</code> when printing it. It is advised that any
 custom log handler functions behave similarly, so that logging calls in user
 code do not need modifying to add a new-line character to the message if the
@@ -5221,7 +5221,7 @@ log handler is changed.</p>
                         <p>Writer function for log entries. A log entry is a collection of one or more
 <code>GLogFields</code>, using the standard <a href="https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html">field names from journal
 specification</a>.
-See g_log_structured() for more information.</p>
+See <code>g_log_structured()</code> for more information.</p>
 
 <p>Writer functions must ignore fields which they do not recognise, unless they
 can write arbitrary binary output, as field values may be arbitrary binary.</p>
@@ -5265,9 +5265,9 @@ chained and fall back to simpler handlers in case of failure.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_node_children_foreach().
+                        <p>Specifies the type of function passed to <code>g_node_children_foreach()</code>.
 The function is called with each child node, together with the user
-data passed to g_node_children_foreach().</p>
+data passed to <code>g_node_children_foreach()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5297,9 +5297,9 @@ data passed to g_node_children_foreach().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_node_traverse(). The
+                        <p>Specifies the type of function passed to <code>g_node_traverse()</code>. The
 function is called with each of the nodes visited, together with the
-user data passed to g_node_traverse(). If the function returns
+user data passed to <code>g_node_traverse()</code>. If the function returns
 <code>true</code>, then the traversal is stopped.</p>
 
                       </div>
@@ -5421,8 +5421,8 @@ options.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_main_context_set_poll_func().
-The semantics of the function should match those of the poll() system call.</p>
+                        <p>Specifies the type of function passed to <code>g_main_context_set_poll_func()</code>.
+The semantics of the function should match those of the <code>poll()</code> system call.</p>
 
                       </div>
                       <div class="declaration">
@@ -5483,10 +5483,10 @@ These are called with the complete formatted string to output.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of the function passed to g_regex_replace_eval().
+                        <p>Specifies the type of the function passed to <code>g_regex_replace_eval()</code>.
 It is called for each occurrence of the pattern in the string passed
-to g_regex_replace_eval(), and it should append the replacement to
-<code>result</code>.</p>
+to <code>g_regex_replace_eval()</code>, and it should append the replacement to
+<code>result.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5548,7 +5548,7 @@ to g_regex_replace_eval(), and it should append the replacement to
                       <div class="abstract">
                         <p>A <code>GSequenceIterCompareFunc</code> is a function used to compare iterators.
 It must return zero if the iterators compare equal, a negative value
-if <code>a</code> comes before <code>b</code>, and a positive value if <code>b</code> comes before <code>a</code>.</p>
+if <code>a</code> comes before <code>b</code>, and a positive value if <code>b</code> comes before <code>a.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5609,11 +5609,11 @@ which cannot be used here for dependency reasons.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_timeout_add(),
-g_timeout_add_full(), g_idle_add(), and g_idle_add_full().</p>
+                        <p>Specifies the type of function passed to <code>g_timeout_add()</code>,
+<code>g_timeout_add_full()</code>, <code>g_idle_add()</code>, and <code>g_idle_add_full()</code>.</p>
 
-<p>When calling g_source_set_callback(), you may need to cast a function of a
-different type to this type. Use G_SOURCE_FUNC() to avoid warnings about
+<p>When calling <code>g_source_set_callback()</code>, you may need to cast a function of a
+different type to this type. Use <code>G_SOURCE_FUNC()</code> to avoid warnings about
 incompatible function types.</p>
 
                       </div>
@@ -5644,13 +5644,13 @@ incompatible function types.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of the setup function passed to g_spawn_async(),
-g_spawn_sync() and g_spawn_async_with_pipes(), which can, in very
+                        <p>Specifies the type of the setup function passed to <code>g_spawn_async()</code>,
+<code>g_spawn_sync()</code> and <code>g_spawn_async_with_pipes()</code>, which can, in very
 limited ways, be used to affect the child&rsquo;s execution.</p>
 
 <p>On POSIX platforms, the function is called in the child after GLib
 has performed all the setup it plans to perform, but before calling
-exec(). Actions taken in this function will only affect the child,
+<code>exec()</code>. Actions taken in this function will only affect the child,
 not the parent.</p>
 
 <p>On Windows, the function is called in the parent. Its usefulness on
@@ -5661,18 +5661,18 @@ functions.</p>
 
 <p>However, even on POSIX, you are extremely limited in what you can
 safely do from a <code>GSpawnChildSetupFunc</code>, because any mutexes that were
-held by other threads in the parent process at the time of the fork()
+held by other threads in the parent process at the time of the <code>fork()</code>
 will still be locked in the child process, and they will never be
 unlocked (since the threads that held them don&rsquo;t exist in the child).
-POSIX allows only async-signal-safe functions (see signal(7)) to be
-called in the child between fork() and exec(), which drastically limits
+POSIX allows only async-signal-safe functions (see <code>signal(7)</code>) to be
+called in the child between <code>fork()</code> and <code>exec()</code>, which drastically limits
 the usefulness of child setup functions.</p>
 
 <p>In particular, it is not safe to call any function which may
-call malloc(), which includes POSIX functions such as setenv().
+call <code>malloc()</code>, which includes POSIX functions such as <code>setenv()</code>.
 If you need to set up the child environment differently from
-the parent, you should use g_get_environ(), g_environ_setenv(),
-and g_environ_unsetenv(), and then pass the complete environment
+the parent, you should use <code>g_get_environ()</code>, <code>g_environ_setenv()</code>,
+and <code>g_environ_unsetenv()</code>, and then pass the complete environment
 list to the <code>g_spawn...</code> function.</p>
 
                       </div>
@@ -5743,7 +5743,7 @@ the test case.</p>
 
 <p><code>fixture</code> will be a pointer to the area of memory allocated by the
 test framework, of the size requested.  If the requested size was
-zero then <code>fixture</code> will be equal to <code>user_data</code>.</p>
+zero then <code>fixture</code> will be equal to <code>user_data.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5833,8 +5833,8 @@ zero then <code>fixture</code> will be equal to <code>user_data</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of the <code>func</code> functions passed to g_thread_new()
-or g_thread_try_new().</p>
+                        <p>Specifies the type of the <code>func</code> functions passed to <code>g_thread_new()</code>
+or <code>g_thread_try_new()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5895,9 +5895,9 @@ strings, for <option>&ndash;help</option> output.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to g_tree_traverse(). It is
+                        <p>Specifies the type of function passed to <code>g_tree_traverse()</code>. It is
 passed the key and value of each node, together with the <code>user_data</code>
-parameter passed to g_tree_traverse(). If the function returns
+parameter passed to <code>g_tree_traverse()</code>. If the function returns
 <code>true</code>, the traversal is stopped.</p>
 
                       </div>
@@ -5961,7 +5961,7 @@ triggers.</p>
                       <div class="abstract">
                         <p>Declares a type of function which takes no arguments
 and has no return value. It is used to specify the type
-function passed to g_atexit().</p>
+function passed to <code>g_atexit()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6183,7 +6183,7 @@ to mark a number as a day, month, or year.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The possible errors, used in the <code>v_error</code> field
-of <code>GTokenValue</code>, when the token is a <code>G_TOKEN_ERROR</code>.</p>
+of <code>GTokenValue</code>, when the token is a <code>G_TOKEN_ERROR.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6285,7 +6285,7 @@ differences in when a system will report a given error, etc.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p><code>GIOError</code> is only used by the deprecated functions
-g_io_channel_read(), g_io_channel_write(), and g_io_channel_seek().</p>
+<code>g_io_channel_read()</code>, <code>g_io_channel_write()</code>, and <code>g_io_channel_seek()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6380,7 +6380,7 @@ was successfully handled by the writer, or whether there was an error in
 handling it (and hence a fallback writer should be used).</p>
 
 <p>If a <code>GLogWriterFunc</code> ignores a log entry, it should return
-<code>G_LOG_WRITER_HANDLED</code>.</p>
+<code>G_LOG_WRITER_HANDLED.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6629,7 +6629,7 @@ option: <code>--name arg</code> or combined in a single argument: <code>--name=a
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>An enumeration specifying the base position for a
-g_io_channel_seek_position() operation.</p>
+<code>g_io_channel_seek_position()</code> operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -6750,7 +6750,7 @@ g_io_channel_seek_position() operation.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The type of file to return the filename for, when used with
-g_test_build_filename().</p>
+<code>g_test_build_filename()</code>.</p>
 
 <p>These two options correspond rather directly to the &lsquo;dist&rsquo; and
 &lsquo;built&rsquo; terminology that automake uses and are explicitly used to
@@ -6922,7 +6922,7 @@ transitions, for example).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The possible types of token returned from each
-g_scanner_get_next_token() call.</p>
+<code>g_scanner_get_next_token()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -6952,8 +6952,8 @@ g_scanner_get_next_token() call.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of traveral performed by g_tree_traverse(),
-g_node_traverse() and g_node_find(). The different orders are
+                        <p>Specifies the type of traveral performed by <code>g_tree_traverse()</code>,
+<code>g_node_traverse()</code> and <code>g_node_find()</code>. The different orders are
 illustrated here:</p>
 
 <ul>
@@ -7037,7 +7037,7 @@ and is interchangeable with <code>PangoScript</code>.</p>
 
 <p>Note that new types may be added in the future. Applications
 should be ready to handle unknown values.
-See <a href="http://www.unicode.org/reports/tr24/">Unicode Standard Annex <code>24</code>: Script names</a>.</p>
+See <a href="http://www.unicode.org/reports/tr24/">Unicode Standard Annex <code>24:</code> Script names</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7100,7 +7100,7 @@ See <a href="http://www.unicode.org/reports/tr44/%60General_Category_Values%60">
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>These are logical ids for special directories which are defined
-depending on the platform used. You should use g_get_user_special_dir()
+depending on the platform used. You should use <code>g_get_user_special_dir()</code>
 to retrieve the full path associated to the logical id.</p>
 
 <p>The <code>GUserDirectory</code> enumeration can be extended at later date. Not
@@ -7190,7 +7190,7 @@ enumeration.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -3448,11 +3448,11 @@ Alternatively, use <code><a href="../Structs/DateRef.html">DateRef</a></code> as
 <p>Represents a day between January 1, Year 1 and a few thousand years in
 the future. None of its members should be accessed directly.</p>
 
-<p>If the <code>GDate</code>-struct is obtained from g_date_new(), it will be safe
+<p>If the <code>GDate</code>-struct is obtained from <code>g_date_new()</code>, it will be safe
 to mutate but invalid and thus not safe for calendrical computations.</p>
 
 <p>If it&rsquo;s declared on the stack, it will contain garbage so must be
-initialized with g_date_clear(). g_date_clear() makes the date invalid
+initialized with <code>g_date_clear()</code>. <code>g_date_clear()</code> makes the date invalid
 but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s <q>empty.</q> A date
 becomes valid after you set it to a Julian day or you set a day, month,
 and year.</p>
@@ -3707,7 +3707,7 @@ All non-<code>nil</code> dates must be valid.</p>
                         <p>Initializes one or more <code>GDate</code> structs to a sane but invalid
 state. The cleared dates will not represent an existing date, but will
 not contain garbage. Useful to init a date declared on the stack.
-Validity can be tested with g_date_valid().</p>
+Validity can be tested with <code>g_date_valid()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3740,7 +3740,7 @@ Validity can be tested with g_date_valid().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>qsort()-style comparison function for dates.
+                        <p><code>qsort()</code>-style comparison function for dates.
 Both dates must be valid.</p>
 
                       </div>
@@ -3775,7 +3775,7 @@ Both dates must be valid.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Copies a GDate to a newly-allocated GDate. If the input was invalid
-(as determined by g_date_valid()), the invalid state will be copied
+(as determined by <code>g_date_valid()</code>), the invalid state will be copied
 as is into the new object.</p>
 
                       </div>
@@ -3844,7 +3844,7 @@ Both dates must be valid.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Frees a <code>GDate</code> returned from g_date_new().</p>
+                        <p>Frees a <code>GDate</code> returned from <code>g_date_new()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4253,7 +4253,7 @@ day-month-year triplet is invalid, the date will be invalid.</p>
                       <div class="abstract">
                         <p>Sets the value of a <code>GDate</code> from a day, month, and year.
 The day-month-year triplet must be valid; if you aren&rsquo;t
-sure it is, call g_date_valid_dmy() to check before you
+sure it is, call <code>g_date_valid_dmy()</code> to check before you
 set it.</p>
 
                       </div>
@@ -4357,7 +4357,7 @@ day-month-year triplet is invalid, the date will be invalid.</p>
                         <p>Parses a user-inputted string <code>str</code>, and try to figure out what date it
 represents, taking the [current locale][setlocale] into account. If the
 string is successfully parsed, the date will be valid after the call.
-Otherwise, it will be invalid. You should check using g_date_valid()
+Otherwise, it will be invalid. You should check using <code>g_date_valid()</code>
 to see whether the parsing succeeded.</p>
 
 <p>This function is not appropriate for file formats and the like; it
@@ -4698,8 +4698,8 @@ Initializes the non-date parts with something sane but meaningless.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns <code>true</code> if the <code>GDate</code> represents an existing day. The date must not
-contain garbage; it should have been initialized with g_date_clear()
-if it wasn&rsquo;t allocated by one of the g_date_new() variants.</p>
+contain garbage; it should have been initialized with <code>g_date_clear()</code>
+if it wasn&rsquo;t allocated by one of the <code>g_date_new()</code> variants.</p>
 
                       </div>
                       <div class="declaration">
@@ -4734,16 +4734,16 @@ if it wasn&rsquo;t allocated by one of the g_date_new() variants.</p>
                       <div class="abstract">
                         <p>Generates a printed representation of the date, in a
 [locale][setlocale]-specific way.
-Works just like the platform&rsquo;s C library strftime() function,
+Works just like the platform&rsquo;s C library <code>strftime()</code> function,
 but only accepts date-related formats; time-related formats
-give undefined results. Date must be valid. Unlike strftime()
+give undefined results. Date must be valid. Unlike <code>strftime()</code>
 (which uses the locale encoding), works on a UTF-8 format
 string and stores a UTF-8 result.</p>
 
 <p>This function does not provide any conversion specifiers in
 addition to those implemented by the platform&rsquo;s C library.
-For example, don&rsquo;t expect that using g_date_strftime() would
-make the `F` provided by the C99 strftime() work on Windows
+For example, don&rsquo;t expect that using <code>g_date_strftime()</code> would
+make the `F<code>provided by the C99</code>strftime()` work on Windows
 where the C library only complies to C89.</p>
 
                       </div>
@@ -4779,16 +4779,16 @@ where the C library only complies to C89.</p>
                       <div class="abstract">
                         <p>Generates a printed representation of the date, in a
 [locale][setlocale]-specific way.
-Works just like the platform&rsquo;s C library strftime() function,
+Works just like the platform&rsquo;s C library <code>strftime()</code> function,
 but only accepts date-related formats; time-related formats
-give undefined results. Date must be valid. Unlike strftime()
+give undefined results. Date must be valid. Unlike <code>strftime()</code>
 (which uses the locale encoding), works on a UTF-8 format
 string and stores a UTF-8 result.</p>
 
 <p>This function does not provide any conversion specifiers in
 addition to those implemented by the platform&rsquo;s C library.
-For example, don&rsquo;t expect that using g_date_strftime() would
-make the `F` provided by the C99 strftime() work on Windows
+For example, don&rsquo;t expect that using <code>g_date_strftime()</code> would
+make the `F<code>provided by the C99</code>strftime()` work on Windows
 where the C library only complies to C89.</p>
 
                       </div>
@@ -5188,7 +5188,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

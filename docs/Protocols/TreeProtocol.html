@@ -3554,9 +3554,9 @@ accessed only by using the following functions.</p>
                         <p>Removes all keys and values from the <code>GTree</code> and decreases its
 reference count by one. If keys and/or values are dynamically
 allocated, you should either free them first or create the <code>GTree</code>
-using g_tree_new_full(). In the latter case the destroy functions
+using <code>g_tree_new_full()</code>. In the latter case the destroy functions
 you supplied will be called on all keys and values before destroying
-the <code>GTree</code>.</p>
+the <code>GTree.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3710,7 +3710,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                       <div class="abstract">
                         <p>Gets the value corresponding to the given key. Since a <code>GTree</code> is
 automatically balanced as key/value pairs are added, key lookup
-is O(log n) (where n is the number of key/value pairs in the tree).</p>
+is <code>O(log n)</code> (where n is the number of key/value pairs in the tree).</p>
 
                       </div>
                       <div class="declaration">
@@ -3746,7 +3746,7 @@ is O(log n) (where n is the number of key/value pairs in the tree).</p>
                         <p>Looks up a key in the <code>GTree</code>, returning the original key and the
 associated value. This is useful if you need to free the memory
 allocated for the original key, for example before calling
-g_tree_remove().</p>
+<code>g_tree_remove()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3779,7 +3779,7 @@ g_tree_remove().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the number of nodes in a <code>GTree</code>.</p>
+                        <p>Gets the number of nodes in a <code>GTree.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3849,7 +3849,7 @@ g_tree_remove().</p>
                       <div class="abstract">
                         <p>Removes a key/value pair from a <code>GTree</code>.</p>
 
-<p>If the <code>GTree</code> was created using g_tree_new_full(), the key and value
+<p>If the <code>GTree</code> was created using <code>g_tree_new_full()</code>, the key and value
 are freed using the supplied destroy functions, otherwise you have to
 make sure that any dynamically allocated values are freed yourself.
 If the key does not exist in the <code>GTree</code>, the function does nothing.</p>
@@ -3885,7 +3885,7 @@ If the key does not exist in the <code>GTree</code>, the function does nothing.<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inserts a new key and value into a <code>GTree</code> similar to g_tree_insert().
+                        <p>Inserts a new key and value into a <code>GTree</code> similar to <code>g_tree_insert()</code>.
 The difference is that if the key already exists in the <code>GTree</code>, it gets
 replaced by the new key. If you supplied a <code>value_destroy_func</code> when
 creating the <code>GTree</code>, the old value is freed using that function. If you
@@ -3931,7 +3931,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
 <p>The <code>search_func</code> is called with a pointer to the key of a key/value
 pair in the tree, and the passed in <code>user_data</code>. If <code>search_func</code> returns
 0 for a key/value pair, then the corresponding value is returned as
-the result of g_tree_search(). If <code>search_func</code> returns -1, searching
+the result of <code>g_tree_search()</code>. If <code>search_func</code> returns -1, searching
 will proceed among the key/value pairs that have a smaller key; if
 <code>search_func</code> returns 1, searching will proceed among the key/value
 pairs that have a larger key.</p>
@@ -4003,7 +4003,7 @@ the key and value destroy functions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calls the given function for each node in the <code>GTree</code>.</p>
+                        <p>Calls the given function for each node in the <code>GTree.</code></p>
 
 <p><strong>traverse is deprecated:</strong>
 The order of a balanced tree is somewhat arbitrary.
@@ -4073,7 +4073,7 @@ memory allocated by <code>tree</code> will be released.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

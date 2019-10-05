@@ -3710,7 +3710,7 @@ non-daylight) time is taken.</p>
 to be out of range, but in the case that they are, the function will
 return <code>nil</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -3780,7 +3780,7 @@ e.g. 2016-W34-3.</li>
 <p>This call can fail (returning <code>nil</code>) if <code>text</code> is not a valid ISO 8601
 formatted string.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -3821,7 +3821,7 @@ local time offset.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>tv</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
 <p><strong>new_from_timeval_local is deprecated:</strong></p>
@@ -3866,7 +3866,7 @@ seconds elapsed since 1970-01-01 00:00:00 UTC.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>tv</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
 <p><strong>new_from_timeval_utc is deprecated:</strong></p>
@@ -3912,7 +3912,7 @@ local time zone.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>t</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -3951,7 +3951,7 @@ when you are done with it.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>t</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -3985,8 +3985,8 @@ when you are done with it.</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the given date and time in
 the local time zone.</p>
 
-<p>This call is equivalent to calling g_date_time_new() with the time
-zone returned by g_time_zone_new_local().</p>
+<p>This call is equivalent to calling <code>g_date_time_new()</code> with the time
+zone returned by <code>g_time_zone_new_local()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4024,7 +4024,7 @@ maximum accuracy of 1 microsecond.</p>
 truly insane values (or unless GLib is still being used after the
 year 9999).</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4058,8 +4058,8 @@ when you are done with it.</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the given date and time in
 UTC.</p>
 
-<p>This call is equivalent to calling g_date_time_new() with the time
-zone returned by g_time_zone_new_utc().</p>
+<p>This call is equivalent to calling <code>g_date_time_new()</code> with the time
+zone returned by <code>g_time_zone_new_utc()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4128,7 +4128,7 @@ e.g. 2016-W34-3.</li>
 <p>This call can fail (returning <code>nil</code>) if <code>text</code> is not a valid ISO 8601
 formatted string.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4169,7 +4169,7 @@ local time offset.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>tv</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
 <p><strong>new_from_timeval_local is deprecated:</strong></p>
@@ -4214,7 +4214,7 @@ seconds elapsed since 1970-01-01 00:00:00 UTC.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>tv</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
 <p><strong>new_from_timeval_utc is deprecated:</strong></p>
@@ -4260,7 +4260,7 @@ local time zone.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>t</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4299,7 +4299,7 @@ when you are done with it.</p>
 <p>This call can fail (returning <code>nil</code>) if <code>t</code> represents a time outside
 of the supported range of <code>GDateTime</code>.</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4333,8 +4333,8 @@ when you are done with it.</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the given date and time in
 the local time zone.</p>
 
-<p>This call is equivalent to calling g_date_time_new() with the time
-zone returned by g_time_zone_new_local().</p>
+<p>This call is equivalent to calling <code>g_date_time_new()</code> with the time
+zone returned by <code>g_time_zone_new_local()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4372,7 +4372,7 @@ maximum accuracy of 1 microsecond.</p>
 truly insane values (or unless GLib is still being used after the
 year 9999).</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4406,8 +4406,8 @@ when you are done with it.</p>
                         <p>Creates a <code>GDateTime</code> corresponding to this exact instant in the local
 time zone.</p>
 
-<p>This is equivalent to calling g_date_time_new_now() with the time
-zone returned by g_time_zone_new_local().</p>
+<p>This is equivalent to calling <code>g_date_time_new_now()</code> with the time
+zone returned by <code>g_time_zone_new_local()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4439,8 +4439,8 @@ zone returned by g_time_zone_new_local().</p>
                       <div class="abstract">
                         <p>Creates a <code>GDateTime</code> corresponding to this exact instant in UTC.</p>
 
-<p>This is equivalent to calling g_date_time_new_now() with the time
-zone returned by g_time_zone_new_utc().</p>
+<p>This is equivalent to calling <code>g_date_time_new_now()</code> with the time
+zone returned by <code>g_time_zone_new_utc()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4473,8 +4473,8 @@ zone returned by g_time_zone_new_utc().</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the given date and time in
 UTC.</p>
 
-<p>This call is equivalent to calling g_date_time_new() with the time
-zone returned by g_time_zone_new_utc().</p>
+<p>This call is equivalent to calling <code>g_date_time_new()</code> with the time
+zone returned by <code>g_time_zone_new_utc()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4499,7 +4499,7 @@ zone returned by g_time_zone_new_utc().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

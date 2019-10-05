@@ -3480,9 +3480,9 @@ at construction time).  The type and value of a <code>GVariant</code> instance
 can never change other than by the <code>GVariant</code> itself being
 destroyed.  A <code>GVariant</code> cannot contain a pointer.</p>
 
-<p><code>GVariant</code> is reference counted using g_variant_ref() and
-g_variant_unref().  <code>GVariant</code> also has floating reference counts &ndash;
-see g_variant_ref_sink().</p>
+<p><code>GVariant</code> is reference counted using <code>g_variant_ref()</code> and
+<code>g_variant_unref()</code>.  <code>GVariant</code> also has floating reference counts &ndash;
+see <code>g_variant_ref_sink()</code>.</p>
 
 <p><code>GVariant</code> is completely threadsafe.  A <code>GVariant</code> instance can be
 concurrently accessed in any way from any number of threads without
@@ -3512,7 +3512,7 @@ or network stream).</p>
 <p>A <code>GVariant</code>&rsquo;s size is limited mainly by any lower level operating
 system constraints, such as the number of bits in <code>gsize</code>.  For
 example, it is reasonable to have a 2GB file mapped into memory
-with <code>GMappedFile</code>, and call g_variant_new_from_data() on it.</p>
+with <code>GMappedFile</code>, and call <code>g_variant_new_from_data()</code> on it.</p>
 
 <p>For convenience to C programmers, <code>GVariant</code> features powerful
 varargs-based value construction and destruction.  This feature is
@@ -3522,7 +3522,7 @@ designed to be embedded in other libraries.</p>
 values.  <code>GVariant</code> includes a printer for this language and a parser
 with type inferencing.</p>
 
-<p>&ldquo;` Memory Use</p>
+<p>&ldquo;&rdquo; Memory Use</p>
 
 <p><code>GVariant</code> tries to be quite efficient with respect to memory use.
 This section gives a rough idea of how much memory is used by the
@@ -3534,7 +3534,7 @@ purposes: memory for serialised data, memory for the type
 information cache, buffer management memory and memory for the
 <code>GVariant</code> structure itself.</p>
 
-<p>&rdquo;` Serialised Data Memory</p>
+<p>&ldquo;&rdquo; Serialised Data Memory</p>
 
 <p>This is the memory that is used for storing GVariant data in
 serialised form.  This is what would be sent over the network or
@@ -3593,7 +3593,7 @@ We now require 2 framing offsets for an extra two
 bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 dictionary.</p>
 
-<p>&ldquo;` Type Information Cache</p>
+<p>&ldquo;&rdquo; Type Information Cache</p>
 
 <p>For each GVariant type that currently exists in the program a type
 information structure is kept in the type information cache.  The
@@ -3639,20 +3639,20 @@ that a program will probably only have a very small number of
 different types of values in it and that only one type information
 structure is required for many different values of the same type.</p>
 
-<p>&rdquo;` Buffer Management Memory</p>
+<p>&ldquo;&rdquo; Buffer Management Memory</p>
 
 <p><code>GVariant</code> uses an internal buffer management structure to deal
 with the various different possible sources of serialised data
 that it uses.  The buffer is responsible for ensuring that the
 correct call is made when the data is no longer in use by
-<code>GVariant</code>.  This may involve a g_free() or a g_slice_free() or
-even g_mapped_file_unref().</p>
+<code>GVariant</code>.  This may involve a <code>g_free()</code> or a <code>g_slice_free()</code> or
+even <code>g_mapped_file_unref()</code>.</p>
 
 <p>One buffer management structure is used for each chunk of
 serialised data.  The size of the buffer management structure
 is 4 * (void *).  On 32-bit systems, that&rsquo;s 16 bytes.</p>
 
-<p>&ldquo;` GVariant structure</p>
+<p>&ldquo;&rdquo; GVariant structure</p>
 
 <p>The size of a <code>GVariant</code> structure is 6 * (void *).  On 32-bit
 systems, that&rsquo;s 24 bytes.</p>
@@ -3668,7 +3668,7 @@ dictionary.</p>
 
 <p>If calls are made to start accessing the other values then
 <code>GVariant</code> instances will exist for those values only for as long
-as they are in use (ie: until you call g_variant_unref()).  The
+as they are in use (ie: until you call <code>g_variant_unref()</code>).  The
 type information is shared.  The serialised data and the buffer
 management structure for that serialised data is shared by the
 child.</p>
@@ -3678,7 +3678,7 @@ strings to variants (with two entries, as given above), we are
 using 91 bytes of memory for type information, 29 bytes of memory
 for the serialised data, 16 bytes for buffer management and 24
 bytes for the `GVariant` instance, or a total of 160 bytes, plus
-malloc overhead.  If we were to use g_variant_get_child_value() to
+malloc overhead.  If we were to use `g_variant_get_child_value()` to
 access the two dictionary entries, we would use an additional 48
 bytes.  If we were to have other dictionaries of the same type, we
 would use more memory for the serialised data and buffer
@@ -3719,7 +3719,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3760,7 +3760,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L518-L519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L516-L517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3790,7 +3790,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L522-L524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L520-L522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3821,7 +3821,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L528-L530">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L526-L528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3852,7 +3852,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L534-L536">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L532-L534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3883,7 +3883,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L540-L542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L538-L540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3914,7 +3914,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L546-L548">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L544-L546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3945,7 +3945,7 @@ For type-safe access, use the generated, typed pointer <code>variant_ptr</code> 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L552-L554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L550-L552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3976,8 +3976,8 @@ in the <code>children</code> array may be <code>nil</code>.</p>
 <p>All items in the array must have the same type, which must be the
 same as <code>child_type</code>, if given.</p>
 
-<p>If the <code>children</code> are floating references (see g_variant_ref_sink()), the
-new instance takes ownership of them as if via g_variant_ref_sink().</p>
+<p>If the <code>children</code> are floating references (see <code>g_variant_ref_sink()</code>), the
+new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3989,7 +3989,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L575-L578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L573-L576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4019,7 +4019,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L581-L584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L579-L582">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4049,7 +4049,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L587-L590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L585-L588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4068,7 +4068,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates an array-of-bytes <code>GVariant</code> with the contents of <code>string</code>.
-This function is just like g_variant_new_string() except that the
+This function is just like <code>g_variant_new_string()</code> except that the
 string need not be valid UTF-8.</p>
 
 <p>The nul terminator character at the end of the string is stored in
@@ -4084,7 +4084,7 @@ the array.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L598-L601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L596-L599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4117,7 +4117,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L607-L610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L605-L608">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4147,7 +4147,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L613-L616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L611-L614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4173,7 +4173,7 @@ fixed-size as are tuples containing only other fixed-sized types.</p>
 
 <p><code>element_size</code> must be the size of a single element in the array.
 For example, if calling this function for an array of 32-bit integers,
-you might say sizeof(gint32). This value isn&rsquo;t used except for the purpose
+you might say <code>sizeof(gint32)</code>. This value isn&rsquo;t used except for the purpose
 of a double-check that the form of the serialised data matches the caller&rsquo;s
 expectation.</p>
 
@@ -4189,7 +4189,7 @@ expectation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L631-L634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L629-L632">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4227,7 +4227,7 @@ GLib 2.60) or (in older versions) fail and exit the process.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L645-L648">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L643-L646">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4264,7 +4264,7 @@ file in the user&rsquo;s home directory, etc.</p>
 
 <p>If <code>data</code> was not stored in this machine&rsquo;s native endianness, any multi-byte
 numeric values in the returned variant will also be in non-native
-endianness. g_variant_byteswap() can be used to recover the original values.</p>
+endianness. <code>g_variant_byteswap()</code> can be used to recover the original values.</p>
 
 <p><code>notify</code> will be called with <code>user_data</code> when <code>data</code> is no longer
 needed.  The exact time of this call is unspecified and might even be
@@ -4285,7 +4285,7 @@ process.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L679-L682">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L677-L680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4319,7 +4319,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L689-L692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L687-L690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4349,7 +4349,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L695-L698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L693-L696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4379,7 +4379,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L701-L704">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L699-L702">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4409,7 +4409,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L707-L710">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L705-L708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4435,8 +4435,8 @@ If <code>child_type</code> is non-<code>nil</code> then it must be a definite ty
 If they are both non-<code>nil</code> then <code>child_type</code> must be the type
 of <code>child</code>.</p>
 
-<p>If <code>child</code> is a floating reference (see g_variant_ref_sink()), the new
-instance takes ownership of <code>child</code>.</p>
+<p>If <code>child</code> is a floating reference (see <code>g_variant_ref_sink()</code>), the new
+instance takes ownership of <code>child.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4448,7 +4448,7 @@ instance takes ownership of <code>child</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L722-L725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L720-L723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4468,7 +4468,7 @@ instance takes ownership of <code>child</code>.</p>
                       <div class="abstract">
                         <p>Creates a D-Bus object path <code>GVariant</code> with the contents of <code>string</code>.
 <code>string</code> must be a valid D-Bus object path.  Use
-g_variant_is_object_path() if you&rsquo;re not sure.</p>
+<code>g_variant_is_object_path()</code> if you&rsquo;re not sure.</p>
 
                       </div>
                       <div class="declaration">
@@ -4480,7 +4480,7 @@ g_variant_is_object_path() if you&rsquo;re not sure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L730-L733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L728-L731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4502,7 +4502,7 @@ g_variant_is_object_path() if you&rsquo;re not sure.</p>
 strings.</p>
 
 <p>Each string must be a valid <code>GVariant</code> object path; see
-g_variant_is_object_path().</p>
+<code>g_variant_is_object_path()</code>.</p>
 
 <p>If <code>length</code> is -1 then <code>strv</code> is <code>nil</code>-terminated.</p>
 
@@ -4516,7 +4516,7 @@ g_variant_is_object_path().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L742-L745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L740-L743">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4536,7 +4536,7 @@ g_variant_is_object_path().</p>
                       <div class="abstract">
                         <p>Parses <code>format</code> and returns the result.</p>
 
-<p>This is the version of g_variant_new_parsed() intended to be used
+<p>This is the version of <code>g_variant_new_parsed()</code> intended to be used
 from libraries.</p>
 
 <p>The return value will be floating if it was a newly created GVariant
@@ -4550,11 +4550,11 @@ specified in <code>format</code> when collected into the <code>va_list</code>. S
 the [GVariant varargs documentation][gvariant-varargs].</p>
 
 <p>In order to behave correctly in all cases it is necessary for the
-calling function to g_variant_ref_sink() the return result before
+calling function to <code>g_variant_ref_sink()</code> the return result before
 returning control to the user that originally provided the pointer.
 At this point, the caller will have their own full reference to the
 result.  This can also be done by adding the result to a container,
-or by passing it to another g_variant_new() call.</p>
+or by passing it to another <code>g_variant_new()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -4566,7 +4566,7 @@ or by passing it to another g_variant_new() call.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L772-L775">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L770-L773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4586,7 +4586,7 @@ or by passing it to another g_variant_new() call.</p>
                       <div class="abstract">
                         <p>Creates a D-Bus type signature <code>GVariant</code> with the contents of
 <code>string</code>.  <code>string</code> must be a valid D-Bus type signature.  Use
-g_variant_is_signature() if you&rsquo;re not sure.</p>
+<code>g_variant_is_signature()</code> if you&rsquo;re not sure.</p>
 
                       </div>
                       <div class="declaration">
@@ -4598,7 +4598,7 @@ g_variant_is_signature() if you&rsquo;re not sure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L784-L787">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L782-L785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4619,7 +4619,7 @@ g_variant_is_signature() if you&rsquo;re not sure.</p>
                         <p>Creates a string <code>GVariant</code> with the contents of <code>string</code>.</p>
 
 <p><code>string</code> must be valid UTF-8, and must not be <code>nil</code>. To encode
-potentially-<code>nil</code> strings, use g_variant_new() with <code>ms</code> as the
+potentially-<code>nil</code> strings, use <code>g_variant_new()</code> with <code>ms</code> as the
 [format string][gvariant-format-strings-maybe-types].</p>
 
                       </div>
@@ -4632,7 +4632,7 @@ potentially-<code>nil</code> strings, use g_variant_new() with <code>ms</code> a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L794-L797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L792-L795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4665,7 +4665,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L803-L806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L801-L804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4686,9 +4686,9 @@ strings.</p>
                         <p>Creates a string <code>GVariant</code> with the contents of <code>string</code>.</p>
 
 <p><code>string</code> must be valid UTF-8, and must not be <code>nil</code>. To encode
-potentially-<code>nil</code> strings, use this with g_variant_new_maybe().</p>
+potentially-<code>nil</code> strings, use this with <code>g_variant_new_maybe()</code>.</p>
 
-<p>This function consumes <code>string</code>.  g_free() will be called on <code>string</code>
+<p>This function consumes <code>string</code>.  <code>g_free()</code> will be called on <code>string</code>
 when it is no longer required.</p>
 
 <p>You must not modify or access <code>string</code> in any other way after passing
@@ -4705,7 +4705,7 @@ freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L819-L822">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L817-L820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4729,8 +4729,8 @@ type is determined from the types of <code>children</code>.  No entry in the
 
 <p>If <code>n_children</code> is 0 then the unit tuple is constructed.</p>
 
-<p>If the <code>children</code> are floating references (see g_variant_ref_sink()), the
-new instance takes ownership of them as if via g_variant_ref_sink().</p>
+<p>If the <code>children</code> are floating references (see <code>g_variant_ref_sink()</code>), the
+new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4742,7 +4742,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L832-L835">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L830-L833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4772,7 +4772,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L838-L841">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L836-L839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4802,7 +4802,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L844-L847">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L842-L845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4832,7 +4832,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L850-L853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L848-L851">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4851,10 +4851,10 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function is intended to be used by libraries based on
-<code>GVariant</code> that want to provide g_variant_new()-like functionality
+<code>GVariant</code> that want to provide <code>g_variant_new()</code>-like functionality
 to their users.</p>
 
-<p>The API is more general than g_variant_new() to allow a wider range
+<p>The API is more general than <code>g_variant_new()</code> to allow a wider range
 of possible uses.</p>
 
 <p><code>format_string</code> must still point to a valid format string, but it only
@@ -4871,7 +4871,7 @@ types specified in <code>format_string</code> when collected into the <code>va_l
 See the [GVariant varargs documentation][gvariant-varargs].</p>
 
 <p>These two generalisations allow mixing of multiple calls to
-g_variant_new_va() and g_variant_get_va() within a single actual
+<code>g_variant_new_va()</code> and <code>g_variant_get_va()</code> within a single actual
 varargs call by the user.</p>
 
 <p>The return value will be floating if it was a newly created GVariant
@@ -4881,11 +4881,11 @@ that the format_string was &lsquo;*&rsquo;, &lsquo;?&rsquo;, &lsquo;r&rsquo;, or
 without adding any additional references.</p>
 
 <p>In order to behave correctly in all cases it is necessary for the
-calling function to g_variant_ref_sink() the return result before
+calling function to <code>g_variant_ref_sink()</code> the return result before
 returning control to the user that originally provided the pointer.
 At this point, the caller will have their own full reference to the
 result.  This can also be done by adding the result to a container,
-or by passing it to another g_variant_new() call.</p>
+or by passing it to another <code>g_variant_new()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -4897,7 +4897,7 @@ or by passing it to another g_variant_new() call.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L891-L894">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L889-L892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4928,8 +4928,8 @@ in the <code>children</code> array may be <code>nil</code>.</p>
 <p>All items in the array must have the same type, which must be the
 same as <code>child_type</code>, if given.</p>
 
-<p>If the <code>children</code> are floating references (see g_variant_ref_sink()), the
-new instance takes ownership of them as if via g_variant_ref_sink().</p>
+<p>If the <code>children</code> are floating references (see <code>g_variant_ref_sink()</code>), the
+new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4941,7 +4941,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L910-L913">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L908-L911">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4971,7 +4971,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L916-L919">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L914-L917">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5001,7 +5001,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L922-L925">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L920-L923">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5020,7 +5020,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates an array-of-bytes <code>GVariant</code> with the contents of <code>string</code>.
-This function is just like g_variant_new_string() except that the
+This function is just like <code>g_variant_new_string()</code> except that the
 string need not be valid UTF-8.</p>
 
 <p>The nul terminator character at the end of the string is stored in
@@ -5036,7 +5036,7 @@ the array.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L933-L936">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L931-L934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5069,7 +5069,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L942-L945">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L940-L943">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5099,7 +5099,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L948-L951">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L946-L949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5125,7 +5125,7 @@ fixed-size as are tuples containing only other fixed-sized types.</p>
 
 <p><code>element_size</code> must be the size of a single element in the array.
 For example, if calling this function for an array of 32-bit integers,
-you might say sizeof(gint32). This value isn&rsquo;t used except for the purpose
+you might say <code>sizeof(gint32)</code>. This value isn&rsquo;t used except for the purpose
 of a double-check that the form of the serialised data matches the caller&rsquo;s
 expectation.</p>
 
@@ -5141,7 +5141,7 @@ expectation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L966-L969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L964-L967">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5179,7 +5179,7 @@ GLib 2.60) or (in older versions) fail and exit the process.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L980-L983">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L978-L981">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5216,7 +5216,7 @@ file in the user&rsquo;s home directory, etc.</p>
 
 <p>If <code>data</code> was not stored in this machine&rsquo;s native endianness, any multi-byte
 numeric values in the returned variant will also be in non-native
-endianness. g_variant_byteswap() can be used to recover the original values.</p>
+endianness. <code>g_variant_byteswap()</code> can be used to recover the original values.</p>
 
 <p><code>notify</code> will be called with <code>user_data</code> when <code>data</code> is no longer
 needed.  The exact time of this call is unspecified and might even be
@@ -5237,7 +5237,7 @@ process.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1014-L1017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1012-L1015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5271,7 +5271,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1024-L1027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1022-L1025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5301,7 +5301,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1030-L1033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1028-L1031">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5331,7 +5331,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1036-L1039">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1034-L1037">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5361,7 +5361,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1042-L1045">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1040-L1043">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5387,8 +5387,8 @@ If <code>child_type</code> is non-<code>nil</code> then it must be a definite ty
 If they are both non-<code>nil</code> then <code>child_type</code> must be the type
 of <code>child</code>.</p>
 
-<p>If <code>child</code> is a floating reference (see g_variant_ref_sink()), the new
-instance takes ownership of <code>child</code>.</p>
+<p>If <code>child</code> is a floating reference (see <code>g_variant_ref_sink()</code>), the new
+instance takes ownership of <code>child.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5400,7 +5400,7 @@ instance takes ownership of <code>child</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1057-L1060">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1055-L1058">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5420,7 +5420,7 @@ instance takes ownership of <code>child</code>.</p>
                       <div class="abstract">
                         <p>Creates a D-Bus object path <code>GVariant</code> with the contents of <code>string</code>.
 <code>string</code> must be a valid D-Bus object path.  Use
-g_variant_is_object_path() if you&rsquo;re not sure.</p>
+<code>g_variant_is_object_path()</code> if you&rsquo;re not sure.</p>
 
                       </div>
                       <div class="declaration">
@@ -5432,7 +5432,7 @@ g_variant_is_object_path() if you&rsquo;re not sure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1065-L1068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1063-L1066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5454,7 +5454,7 @@ g_variant_is_object_path() if you&rsquo;re not sure.</p>
 strings.</p>
 
 <p>Each string must be a valid <code>GVariant</code> object path; see
-g_variant_is_object_path().</p>
+<code>g_variant_is_object_path()</code>.</p>
 
 <p>If <code>length</code> is -1 then <code>strv</code> is <code>nil</code>-terminated.</p>
 
@@ -5468,7 +5468,7 @@ g_variant_is_object_path().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1077-L1080">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1075-L1078">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5488,7 +5488,7 @@ g_variant_is_object_path().</p>
                       <div class="abstract">
                         <p>Parses <code>format</code> and returns the result.</p>
 
-<p>This is the version of g_variant_new_parsed() intended to be used
+<p>This is the version of <code>g_variant_new_parsed()</code> intended to be used
 from libraries.</p>
 
 <p>The return value will be floating if it was a newly created GVariant
@@ -5502,11 +5502,11 @@ specified in <code>format</code> when collected into the <code>va_list</code>. S
 the [GVariant varargs documentation][gvariant-varargs].</p>
 
 <p>In order to behave correctly in all cases it is necessary for the
-calling function to g_variant_ref_sink() the return result before
+calling function to <code>g_variant_ref_sink()</code> the return result before
 returning control to the user that originally provided the pointer.
 At this point, the caller will have their own full reference to the
 result.  This can also be done by adding the result to a container,
-or by passing it to another g_variant_new() call.</p>
+or by passing it to another <code>g_variant_new()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -5518,7 +5518,7 @@ or by passing it to another g_variant_new() call.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1107-L1110">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1105-L1108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5538,7 +5538,7 @@ or by passing it to another g_variant_new() call.</p>
                       <div class="abstract">
                         <p>Creates a D-Bus type signature <code>GVariant</code> with the contents of
 <code>string</code>.  <code>string</code> must be a valid D-Bus type signature.  Use
-g_variant_is_signature() if you&rsquo;re not sure.</p>
+<code>g_variant_is_signature()</code> if you&rsquo;re not sure.</p>
 
                       </div>
                       <div class="declaration">
@@ -5550,7 +5550,7 @@ g_variant_is_signature() if you&rsquo;re not sure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1119-L1122">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1117-L1120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5571,7 +5571,7 @@ g_variant_is_signature() if you&rsquo;re not sure.</p>
                         <p>Creates a string <code>GVariant</code> with the contents of <code>string</code>.</p>
 
 <p><code>string</code> must be valid UTF-8, and must not be <code>nil</code>. To encode
-potentially-<code>nil</code> strings, use g_variant_new() with <code>ms</code> as the
+potentially-<code>nil</code> strings, use <code>g_variant_new()</code> with <code>ms</code> as the
 [format string][gvariant-format-strings-maybe-types].</p>
 
                       </div>
@@ -5584,7 +5584,7 @@ potentially-<code>nil</code> strings, use g_variant_new() with <code>ms</code> a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1129-L1132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1127-L1130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5617,7 +5617,7 @@ strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1138-L1141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1136-L1139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5638,9 +5638,9 @@ strings.</p>
                         <p>Creates a string <code>GVariant</code> with the contents of <code>string</code>.</p>
 
 <p><code>string</code> must be valid UTF-8, and must not be <code>nil</code>. To encode
-potentially-<code>nil</code> strings, use this with g_variant_new_maybe().</p>
+potentially-<code>nil</code> strings, use this with <code>g_variant_new_maybe()</code>.</p>
 
-<p>This function consumes <code>string</code>.  g_free() will be called on <code>string</code>
+<p>This function consumes <code>string</code>.  <code>g_free()</code> will be called on <code>string</code>
 when it is no longer required.</p>
 
 <p>You must not modify or access <code>string</code> in any other way after passing
@@ -5657,7 +5657,7 @@ freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1154-L1157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1152-L1155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5681,8 +5681,8 @@ type is determined from the types of <code>children</code>.  No entry in the
 
 <p>If <code>n_children</code> is 0 then the unit tuple is constructed.</p>
 
-<p>If the <code>children</code> are floating references (see g_variant_ref_sink()), the
-new instance takes ownership of them as if via g_variant_ref_sink().</p>
+<p>If the <code>children</code> are floating references (see <code>g_variant_ref_sink()</code>), the
+new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5694,7 +5694,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1167-L1170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1165-L1168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5724,7 +5724,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1173-L1176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1171-L1174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5754,7 +5754,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1179-L1182">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1177-L1180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5784,7 +5784,7 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1185-L1188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1183-L1186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5803,10 +5803,10 @@ new instance takes ownership of them as if via g_variant_ref_sink().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function is intended to be used by libraries based on
-<code>GVariant</code> that want to provide g_variant_new()-like functionality
+<code>GVariant</code> that want to provide <code>g_variant_new()</code>-like functionality
 to their users.</p>
 
-<p>The API is more general than g_variant_new() to allow a wider range
+<p>The API is more general than <code>g_variant_new()</code> to allow a wider range
 of possible uses.</p>
 
 <p><code>format_string</code> must still point to a valid format string, but it only
@@ -5823,7 +5823,7 @@ types specified in <code>format_string</code> when collected into the <code>va_l
 See the [GVariant varargs documentation][gvariant-varargs].</p>
 
 <p>These two generalisations allow mixing of multiple calls to
-g_variant_new_va() and g_variant_get_va() within a single actual
+<code>g_variant_new_va()</code> and <code>g_variant_get_va()</code> within a single actual
 varargs call by the user.</p>
 
 <p>The return value will be floating if it was a newly created GVariant
@@ -5833,11 +5833,11 @@ that the format_string was &lsquo;*&rsquo;, &lsquo;?&rsquo;, &lsquo;r&rsquo;, or
 without adding any additional references.</p>
 
 <p>In order to behave correctly in all cases it is necessary for the
-calling function to g_variant_ref_sink() the return result before
+calling function to <code>g_variant_ref_sink()</code> the return result before
 returning control to the user that originally provided the pointer.
 At this point, the caller will have their own full reference to the
 result.  This can also be done by adding the result to a container,
-or by passing it to another g_variant_new() call.</p>
+or by passing it to another <code>g_variant_new()</code> call.</p>
 
                       </div>
                       <div class="declaration">
@@ -5849,7 +5849,7 @@ or by passing it to another g_variant_new() call.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1226-L1229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1224-L1227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5891,13 +5891,13 @@ with empty arrays).</p>
 
 <p>In the event that the parsing is successful, the resulting <code>GVariant</code>
 is returned. It is never floating, and must be freed with
-g_variant_unref().</p>
+<code>g_variant_unref()</code>.</p>
 
 <p>In case of any error, <code>nil</code> will be returned.  If <code>error</code> is non-<code>nil</code>
 then it will be set to reflect the error that occurred.</p>
 
 <p>Officially, the language understood by the parser is <q>any string
-produced by g_variant_print()</q>.</p>
+produced by `g_variant_print()`</q>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5909,7 +5909,7 @@ produced by g_variant_print()</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1262-L1269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1260-L1267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5922,7 +5922,7 @@ produced by g_variant_print()</q>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

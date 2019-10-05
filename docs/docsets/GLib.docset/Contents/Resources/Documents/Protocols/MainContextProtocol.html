@@ -3554,12 +3554,12 @@ type representing a set of sources to be handled in a main loop.</p>
 If some other thread is the owner of the context,
 returns <code>false</code> immediately. Ownership is properly
 recursive: the owner can require ownership again
-and will release ownership when g_main_context_release()
-is called as many times as g_main_context_acquire().</p>
+and will release ownership when <code>g_main_context_release()</code>
+is called as many times as <code>g_main_context_acquire()</code>.</p>
 
 <p>You must be the owner of a context before you
-can call g_main_context_prepare(), g_main_context_query(),
-g_main_context_check(), g_main_context_dispatch().</p>
+can call <code>g_main_context_prepare()</code>, <code>g_main_context_query()</code>,
+<code>g_main_context_check()</code>, <code>g_main_context_dispatch()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3594,7 +3594,7 @@ g_main_context_check(), g_main_context_dispatch().</p>
                       <div class="abstract">
                         <p>Adds a file descriptor to the set of file descriptors polled for
 this context. This will very seldom be used directly. Instead
-a typical event source will use g_source_add_unix_fd() instead.</p>
+a typical event source will use <code>g_source_add_unix_fd()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -3630,7 +3630,7 @@ a typical event source will use g_source_add_unix_fd() instead.</p>
                         <p>Passes the results of polling back to the main loop.</p>
 
 <p>You must have successfully acquired the context with
-g_main_context_acquire() before you may call this function.</p>
+<code>g_main_context_acquire()</code> before you may call this function.</p>
 
                       </div>
                       <div class="declaration">
@@ -3666,7 +3666,7 @@ g_main_context_acquire() before you may call this function.</p>
                         <p>Dispatches all pending sources.</p>
 
 <p>You must have successfully acquired the context with
-g_main_context_acquire() before you may call this function.</p>
+<code>g_main_context_acquire()</code> before you may call this function.</p>
 
                       </div>
                       <div class="declaration">
@@ -3741,7 +3741,7 @@ the first one found will be returned.</p>
 <p>More specifically: source IDs can be reissued after a source has been
 destroyed and therefore it is never valid to use this function with a
 source ID which may have already been removed.  An example is when
-scheduling an idle to run in another thread with g_idle_add(): the
+scheduling an idle to run in another thread with <code>g_idle_add()</code>: the
 idle may already have run and been removed by the time this function
 is called on its (now invalid) source ID.  This source ID may have
 been reissued, leading to the operation being performed against the
@@ -3813,7 +3813,7 @@ one found will be returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the poll function set by g_main_context_set_poll_func().</p>
+                        <p>Gets the poll function set by <code>g_main_context_set_poll_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3850,19 +3850,19 @@ one found will be returned.</p>
 invocation of <code>function</code>.</p>
 
 <p>If <code>context</code> is <code>nil</code> then the global default main context — as
-returned by g_main_context_default() — is used.</p>
+returned by <code>g_main_context_default()</code> — is used.</p>
 
 <p>If <code>context</code> is owned by the current thread, <code>function</code> is called
 directly.  Otherwise, if <code>context</code> is the thread-default main context
-of the current thread and g_main_context_acquire() succeeds, then
-<code>function</code> is called and g_main_context_release() is called
+of the current thread and <code>g_main_context_acquire()</code> succeeds, then
+<code>function</code> is called and <code>g_main_context_release()</code> is called
 afterwards.</p>
 
 <p>In any other case, an idle source is created to call <code>function</code> and
 that source is attached to <code>context</code> (presumably to be run in another
 thread).  The idle source is attached with <code>G_PRIORITY_DEFAULT</code>
 priority.  If you want a different priority, use
-g_main_context_invoke_full().</p>
+<code>g_main_context_invoke_full()</code>.</p>
 
 <p>Note that, as with normal idle functions, <code>function</code> should probably
 return <code>false</code>.  If it returns <code>true</code>, it will be continuously run in a
@@ -3902,7 +3902,7 @@ loop (and may prevent this call from returning).</p>
                         <p>Invokes a function in such a way that <code>context</code> is owned during the
 invocation of <code>function</code>.</p>
 
-<p>This function is the same as g_main_context_invoke() except that it
+<p>This function is the same as <code>g_main_context_invoke()</code> except that it
 lets you specify the priority in case <code>function</code> ends up being
 scheduled as an idle and also lets you give a <code>GDestroyNotify</code> for <code>data</code>.</p>
 
@@ -3950,7 +3950,7 @@ events sources will be dispatched (if any), that are ready at this
 given moment without further waiting.</p>
 
 <p>Note that even when <code>may_block</code> is <code>true</code>, it is still possible for
-g_main_context_iteration() to return <code>false</code>, since the wait may
+<code>g_main_context_iteration()</code> to return <code>false</code>, since the wait may
 be interrupted for other reasons than an event source becoming ready.</p>
 
                       </div>
@@ -4055,7 +4055,7 @@ it was on the top of the stack).</p>
 for polling is determined by calling g_main_context_query ().</p>
 
 <p>You must have successfully acquired the context with
-g_main_context_acquire() before you may call this function.</p>
+<code>g_main_context_acquire()</code> before you may call this function.</p>
 
                       </div>
                       <div class="declaration">
@@ -4094,15 +4094,15 @@ current thread. This will cause certain asynchronous operations
 started in this thread to run under <code>context</code> and deliver their
 results to its main loop, rather than running under the global
 default context in the main thread. Note that calling this function
-changes the context returned by g_main_context_get_thread_default(),
-not the one returned by g_main_context_default(), so it does not affect
-the context used by functions like g_idle_add().</p>
+changes the context returned by <code>g_main_context_get_thread_default()</code>,
+not the one returned by <code>g_main_context_default()</code>, so it does not affect
+the context used by functions like <code>g_idle_add()</code>.</p>
 
 <p>Normally you would call this function shortly after creating a new
 thread, passing it a <code>GMainContext</code> which will be run by a
 <code>GMainLoop</code> in that thread, to set a new default context for all
 async operations in that thread. In this case you may not need to
-ever call g_main_context_pop_thread_default(), assuming you want the
+ever call <code>g_main_context_pop_thread_default()</code>, assuming you want the
 new <code>GMainContext</code> to be the default for the whole lifecycle of the
 thread.</p>
 
@@ -4110,7 +4110,7 @@ thread.</p>
 in the new thread isn&rsquo;t newly created, or if the thread life
 cycle is managed by a <code>GThreadPool</code>), it is always suggested to wrap
 the logic that needs to use the new <code>GMainContext</code> inside a
-g_main_context_push_thread_default() / g_main_context_pop_thread_default()
+<code>g_main_context_push_thread_default()</code> / <code>g_main_context_pop_thread_default()</code>
 pair, otherwise threads that are re-used will end up never explicitly
 releasing the <code>GMainContext</code> reference they hold.</p>
 
@@ -4118,14 +4118,14 @@ releasing the <code>GMainContext</code> reference they hold.</p>
 non-default context, or temporarily use a non-default context in
 the main thread. In that case, you can wrap the call to the
 asynchronous operation inside a
-g_main_context_push_thread_default() /
-g_main_context_pop_thread_default() pair, but it is up to you to
+<code>g_main_context_push_thread_default()</code> /
+<code>g_main_context_pop_thread_default()</code> pair, but it is up to you to
 ensure that no other asynchronous operations accidentally get
 started while the non-default context is active.</p>
 
 <p>Beware that libraries that predate this function may not correctly
 handle being used from a thread with a thread-default context. Eg,
-see g_file_supports_thread_contexts().</p>
+see <code>g_file_supports_thread_contexts()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4161,7 +4161,7 @@ see g_file_supports_thread_contexts().</p>
                         <p>Determines information necessary to poll this main loop.</p>
 
 <p>You must have successfully acquired the context with
-g_main_context_acquire() before you may call this function.</p>
+<code>g_main_context_acquire()</code> before you may call this function.</p>
 
                       </div>
                       <div class="declaration">
@@ -4228,8 +4228,8 @@ g_main_context_acquire() before you may call this function.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Releases ownership of a context previously acquired by this thread
-with g_main_context_acquire(). If the context was acquired multiple
-times, the ownership will be released only when g_main_context_release()
+with <code>g_main_context_acquire()</code>. If the context was acquired multiple
+times, the ownership will be released only when <code>g_main_context_release()</code>
 is called as many times as it was acquired.</p>
 
                       </div>
@@ -4298,9 +4298,9 @@ polled for a particular context.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the function to use to handle polling of file descriptors. It
-will be used instead of the poll() system call
+will be used instead of the <code>poll()</code> system call
 (or GLib&rsquo;s replacement function, which is used where
-poll() isn&rsquo;t available).</p>
+<code>poll()</code> isn&rsquo;t available).</p>
 
 <p>This function could possibly be used to integrate the GLib event
 loop with an external event loop.</p>
@@ -4371,7 +4371,7 @@ the result is zero, free the context and free all associated memory.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Tries to become the owner of the specified context,
-as with g_main_context_acquire(). But if another thread
+as with <code>g_main_context_acquire()</code>. But if another thread
 is the owner, atomically drop <code>mutex</code> and wait on <code>cond</code> until
 that owner releases ownership or until <code>cond</code> is signaled, then
 try again (once) to become the owner.</p>
@@ -4411,10 +4411,10 @@ Use g_main_context_is_owner() and separate locking instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>context</code> is currently blocking in g_main_context_iteration()
+                        <p>If <code>context</code> is currently blocking in <code>g_main_context_iteration()</code>
 waiting for a source to become ready, cause it to stop blocking
 and return.  Otherwise, cause the next invocation of
-g_main_context_iteration() to return without blocking.</p>
+<code>g_main_context_iteration()</code> to return without blocking.</p>
 
 <p>This API is useful for low-level control over <code>GMainContext</code>; for
 example, integrating it with main loop implementations such as
@@ -4424,7 +4424,7 @@ example, integrating it with main loop implementations such as
 loop with a termination condition, computed from multiple threads:</p>
 
 <p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>  `define` NUM_TASKS 10
+<pre class="highlight plaintext"><code>  #define NUM_TASKS 10
   static volatile gint tasks_remaining = NUM_TASKS;
   ...
 
@@ -4450,7 +4450,7 @@ loop with a termination condition, computed from multiple threads:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L518-L521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L517-L520">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4474,7 +4474,7 @@ loop with a termination condition, computed from multiple threads:</p>
                         <p>Determines whether this thread holds the (recursive)
 ownership of this <code>GMainContext</code>. This is useful to
 know before waiting on another thread that may be
-blocking to get ownership of <code>context</code>.</p>
+blocking to get ownership of <code>context.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4486,7 +4486,7 @@ blocking to get ownership of <code>context</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L526-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L525-L534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4507,7 +4507,7 @@ blocking to get ownership of <code>context</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the poll function set by g_main_context_set_poll_func().</p>
+                        <p>Gets the poll function set by <code>g_main_context_set_poll_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4519,7 +4519,7 @@ blocking to get ownership of <code>context</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L538-L554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L537-L553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4532,7 +4532,7 @@ blocking to get ownership of <code>context</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
