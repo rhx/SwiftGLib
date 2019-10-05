@@ -4165,7 +4165,7 @@ is stored there.  In any case, the resulting array will be
                         <p>Checks if <code>one</code> and <code>two</code> have the same type and value.</p>
 
 <p>The types of <code>one</code> and <code>two</code> are <code>gconstpointer</code> only to allow use of
-this function with <code>GHashTable</code>.  They must each be a <code>GVariant.</code></p>
+this function with <code>GHashTable</code>.  They must each be a <code>GVariant</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4201,7 +4201,7 @@ this function with <code>GHashTable</code>.  They must each be a <code>GVariant.
                         <p>Returns the boolean value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_BOOLEAN.</code></p>
+other than <code>G_VARIANT_TYPE_BOOLEAN</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4237,7 +4237,7 @@ other than <code>G_VARIANT_TYPE_BOOLEAN.</code></p>
                         <p>Returns the byte value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_BYTE.</code></p>
+other than <code>G_VARIANT_TYPE_BYTE</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4507,7 +4507,7 @@ a reference to the variant data.</p>
                         <p>Returns the double precision floating point value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_DOUBLE.</code></p>
+other than <code>G_VARIANT_TYPE_DOUBLE</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4644,7 +4644,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         <p>Returns the 16-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT16.</code></p>
+other than <code>G_VARIANT_TYPE_INT16</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4680,7 +4680,7 @@ other than <code>G_VARIANT_TYPE_INT16.</code></p>
                         <p>Returns the 32-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT32.</code></p>
+other than <code>G_VARIANT_TYPE_INT32</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4716,7 +4716,7 @@ other than <code>G_VARIANT_TYPE_INT32.</code></p>
                         <p>Returns the 64-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT64.</code></p>
+other than <code>G_VARIANT_TYPE_INT64</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5085,7 +5085,7 @@ string belongs to <code>GVariant</code> and must not be freed.</p>
                         <p>Returns the 16-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT16.</code></p>
+other than <code>G_VARIANT_TYPE_UINT16</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5121,7 +5121,7 @@ other than <code>G_VARIANT_TYPE_UINT16.</code></p>
                         <p>Returns the 32-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT32.</code></p>
+other than <code>G_VARIANT_TYPE_UINT32</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5157,7 +5157,7 @@ other than <code>G_VARIANT_TYPE_UINT32.</code></p>
                         <p>Returns the 64-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT64.</code></p>
+other than <code>G_VARIANT_TYPE_UINT64</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5247,7 +5247,7 @@ see the section on
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Unboxes <code>value</code>.  The result is the <code>GVariant</code> instance that was
-contained in <code>value.</code></p>
+contained in <code>value</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5288,7 +5288,7 @@ architectures or even different versions of GLib.  Do not use this
 function as a basis for building protocols or file formats.</p>
 
 <p>The type of <code>value</code> is <code>gconstpointer</code> only to allow use of this
-function with <code>GHashTable</code>.  <code>value</code> must be a <code>GVariant.</code></p>
+function with <code>GHashTable</code>.  <code>value</code> must be a <code>GVariant</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5564,7 +5564,7 @@ a new empty <code>GString</code> is allocated and it is returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increases the reference count of <code>value.</code></p>
+                        <p>Increases the reference count of <code>value</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5662,7 +5662,7 @@ fully-normalised form if read from an untrusted source.  See
 serialised variant successfully, its type and (if the destination
 machine might be different) its endianness must also be available.</p>
 
-<p>This function is approximately <code>O(n)</code> in the size of <code><a href="../Protocols/VariantProtocol.html#/s:4GLib15VariantProtocolPAAE4dataSVSgvp">data.</a></code></p>
+<p>This function is approximately <code>O(n)</code> in the size of <code><a href="../Protocols/VariantProtocol.html#/s:4GLib15VariantProtocolPAAE4dataSVSgvp">data</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5842,7 +5842,7 @@ to the log writer as such. The size of the array should not be higher than
                         <p>Returns the boolean value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_BOOLEAN.</code></p>
+other than <code>G_VARIANT_TYPE_BOOLEAN</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5878,7 +5878,7 @@ other than <code>G_VARIANT_TYPE_BOOLEAN.</code></p>
                         <p>Returns the byte value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_BYTE.</code></p>
+other than <code>G_VARIANT_TYPE_BYTE</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6057,7 +6057,7 @@ a reference to the variant data.</p>
                         <p>Returns the double precision floating point value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_DOUBLE.</code></p>
+other than <code>G_VARIANT_TYPE_DOUBLE</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6133,7 +6133,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         <p>Returns the 16-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT16.</code></p>
+other than <code>G_VARIANT_TYPE_INT16</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6169,7 +6169,7 @@ other than <code>G_VARIANT_TYPE_INT16.</code></p>
                         <p>Returns the 32-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT32.</code></p>
+other than <code>G_VARIANT_TYPE_INT32</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6205,7 +6205,7 @@ other than <code>G_VARIANT_TYPE_INT32.</code></p>
                         <p>Returns the 64-bit signed integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_INT64.</code></p>
+other than <code>G_VARIANT_TYPE_INT64</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6563,7 +6563,7 @@ string belongs to <code>GVariant</code> and must not be freed.</p>
                         <p>Returns the 16-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT16.</code></p>
+other than <code>G_VARIANT_TYPE_UINT16</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6599,7 +6599,7 @@ other than <code>G_VARIANT_TYPE_UINT16.</code></p>
                         <p>Returns the 32-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT32.</code></p>
+other than <code>G_VARIANT_TYPE_UINT32</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6635,7 +6635,7 @@ other than <code>G_VARIANT_TYPE_UINT32.</code></p>
                         <p>Returns the 64-bit unsigned integer value of <code>value</code>.</p>
 
 <p>It is an error to call this function with a <code>value</code> of any type
-other than <code>G_VARIANT_TYPE_UINT64.</code></p>
+other than <code>G_VARIANT_TYPE_UINT64</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6669,7 +6669,7 @@ other than <code>G_VARIANT_TYPE_UINT64.</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Unboxes <code>value</code>.  The result is the <code>GVariant</code> instance that was
-contained in <code>value.</code></p>
+contained in <code>value</code>.</p>
 
                       </div>
                       <div class="declaration">

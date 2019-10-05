@@ -4923,7 +4923,7 @@ storing the result back in <code>atomic</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Atomically acquires a reference on the data pointed by <code>mem_block.</code></p>
+                        <p>Atomically acquires a reference on the data pointed by <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5061,7 +5061,7 @@ into it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the size of the reference counted data pointed by <code>mem_block.</code></p>
+                        <p>Retrieves the size of the reference counted data pointed by <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5094,7 +5094,7 @@ into it.</p>
                         <p>Atomically releases a reference on the data pointed by <code>mem_block</code>.</p>
 
 <p>If the reference was the last one, it will free the
-resources allocated for <code>mem_block.</code></p>
+resources allocated for <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5128,7 +5128,7 @@ resources allocated for <code>mem_block.</code></p>
 
 <p>If the reference was the last one, it will call <code>clear_func</code>
 to clear the contents of <code>mem_block</code>, and then will free the
-resources allocated for <code>mem_block.</code></p>
+resources allocated for <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5158,7 +5158,7 @@ resources allocated for <code>mem_block.</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Atomically compares the current value of <code>arc</code> with <code>val.</code></p>
+                        <p>Atomically compares the current value of <code>arc</code> with <code>val</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7043,7 +7043,7 @@ threads are using the same datalist and the same key.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the data element corresponding to <code>key_id.</code></p>
+                        <p>Retrieves the data element corresponding to <code>key_id</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7343,7 +7343,7 @@ than skipping over elements that are removed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the data element corresponding to a <code>GQuark.</code></p>
+                        <p>Gets the data element corresponding to a <code>GQuark</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -7681,7 +7681,7 @@ them to the same time zone.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Hashes <code>datetime</code> into a <code>guint</code>, suitable for use within <code>GHashTable.</code></p>
+                        <p>Hashes <code>datetime</code> into a <code>guint</code>, suitable for use within <code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8142,7 +8142,7 @@ proper.</p>
 <code>true</code> if they are equal.
 It can be passed to <code>g_hash_table_new()</code> as the <code>key_equal_func</code>
 parameter, when using non-<code>nil</code> pointers to doubles as keys in a
-<code>GHashTable.</code></p>
+<code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8175,7 +8175,7 @@ parameter, when using non-<code>nil</code> pointers to doubles as keys in a
                         <p>Converts a pointer to a <code>gdouble</code> to a hash value.
 It can be passed to <code>g_hash_table_new()</code> as the <code>hash_func</code> parameter,
 It can be passed to <code>g_hash_table_new()</code> as the <code>hash_func</code> parameter,
-when using non-<code>nil</code> pointers to doubles as keys in a <code>GHashTable.</code></p>
+when using non-<code>nil</code> pointers to doubles as keys in a <code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8287,7 +8287,7 @@ thus you may use non-string-literals as context and msgid arguments.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the value of the environment variable <code>variable</code> in the
-provided list <code>envp.</code></p>
+provided list <code>envp</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8318,7 +8318,7 @@ provided list <code>envp.</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the environment variable <code>variable</code> in the provided list
-<code>envp</code> to <code>value.</code></p>
+<code>envp</code> to <code>value</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8349,7 +8349,7 @@ provided list <code>envp.</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Removes the environment variable <code>variable</code> from the provided
-environment <code>envp.</code></p>
+environment <code>envp</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8386,7 +8386,7 @@ assume that all <code>GFileError</code> values will exist.</p>
 
 <p>Normally a <code>GFileError</code> value goes into a <code>GError</code> returned
 from a function that manipulates files. So you would use
-<code>g_file_error_from_errno()</code> when constructing a <code>GError.</code></p>
+<code>g_file_error_from_errno()</code> when constructing a <code>GError</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8595,7 +8595,7 @@ it returns <code>false</code> and sets <code>error</code>. The error domain is <
 Possible error codes are those in the <code>GFileError</code> enumeration.</p>
 
 <p>Note that the name for the temporary file is constructed by appending up
-to 7 characters to <code>filename.</code></p>
+to 7 characters to <code>filename</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9060,7 +9060,7 @@ This function is broken due to its use of SI
                         <p>Formats a size.</p>
 
 <p>This function is similar to <code>g_format_size()</code> but allows for flags
-that modify the output. See <code>GFormatSizeFlags.</code></p>
+that modify the output. See <code>GFormatSizeFlags</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10308,7 +10308,7 @@ or not.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks if <code>key</code> is in <code>hash_table.</code></p>
+                        <p>Checks if <code>key</code> is in <code>hash_table</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10594,7 +10594,7 @@ or not.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the number of elements contained in the <code>GHashTable.</code></p>
+                        <p>Returns the number of elements contained in the <code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10820,7 +10820,7 @@ inactive and calling <code>g_hook_unref()</code> on it.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Calls the <code>GHookList</code> <code>finalize_hook</code> function if it exists,
-and frees the memory allocated for the <code>GHook.</code></p>
+and frees the memory allocated for the <code>GHook</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10850,7 +10850,7 @@ and frees the memory allocated for the <code>GHook.</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook.</code></p>
+                        <p>Inserts a <code>GHook</code> into a <code>GHookList</code>, before a given <code>GHook</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10880,7 +10880,7 @@ and frees the memory allocated for the <code>GHook.</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList.</code></p>
+                        <p>Prepends a <code>GHook</code> on the start of a <code>GHookList</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11311,7 +11311,7 @@ use a custom main context.</p>
 and must be added to one with <code>g_source_attach()</code> before it will be
 executed. Note that the default priority for idle sources is
 <code>G_PRIORITY_DEFAULT_IDLE</code>, as compared to other sources which
-have a default priority of <code>G_PRIORITY_DEFAULT.</code></p>
+have a default priority of <code>G_PRIORITY_DEFAULT</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11345,7 +11345,7 @@ have a default priority of <code>G_PRIORITY_DEFAULT.</code></p>
 <code>true</code> if they are equal.
 It can be passed to <code>g_hash_table_new()</code> as the <code>key_equal_func</code>
 parameter, when using non-<code>nil</code> pointers to 64-bit integers as keys in a
-<code>GHashTable.</code></p>
+<code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11379,7 +11379,7 @@ parameter, when using non-<code>nil</code> pointers to 64-bit integers as keys i
 
 <p>It can be passed to <code>g_hash_table_new()</code> as the <code>hash_func</code> parameter,
 when using non-<code>nil</code> pointers to 64-bit integer values as keys in a
-<code>GHashTable.</code></p>
+<code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11622,7 +11622,7 @@ You can do these steps manually if you need greater control.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Converts an <code>errno</code> error number to a <code>GIOChannelError.</code></p>
+                        <p>Converts an <code>errno</code> error number to a <code>GIOChannelError</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12417,7 +12417,7 @@ sent.</p>
 <p>This is suitable for use as a <code>GLogWriterFunc</code>.</p>
 
 <p>If GLib has been compiled without systemd support, this function is still
-defined, but will always return <code>G_LOG_WRITER_UNHANDLED.</code></p>
+defined, but will always return <code>G_LOG_WRITER_UNHANDLED</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12458,7 +12458,7 @@ in the output.</p>
 
 <p>A trailing new-line character is added to the log message when it is printed.</p>
 
-<p>This is suitable for use as a <code>GLogWriterFunc.</code></p>
+<p>This is suitable for use as a <code>GLogWriterFunc</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14404,7 +14404,7 @@ variables in C++.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the string associated with the given <code>GQuark.</code></p>
+                        <p>Gets the string associated with the given <code>GQuark</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14595,7 +14595,7 @@ running.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the seed for the global random number generator, which is used
-by the g_random_* functions, to <code>seed.</code></p>
+by the g_random_* functions, to <code>seed</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14625,7 +14625,7 @@ by the g_random_* functions, to <code>seed.</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Acquires a reference on the data pointed by <code>mem_block.</code></p>
+                        <p>Acquires a reference on the data pointed by <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14763,7 +14763,7 @@ into it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the size of the reference counted data pointed by <code>mem_block.</code></p>
+                        <p>Retrieves the size of the reference counted data pointed by <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14796,7 +14796,7 @@ into it.</p>
                         <p>Releases a reference on the data pointed by <code>mem_block</code>.</p>
 
 <p>If the reference was the last one, it will free the
-resources allocated for <code>mem_block.</code></p>
+resources allocated for <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14830,7 +14830,7 @@ resources allocated for <code>mem_block.</code></p>
 
 <p>If the reference was the last one, it will call <code>clear_func</code>
 to clear the contents of <code>mem_block</code>, and then will free the
-resources allocated for <code>mem_block.</code></p>
+resources allocated for <code>mem_block</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -14925,7 +14925,7 @@ but care is taken to detect possible overflow during multiplication.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Compares the current value of <code>rc</code> with <code>val.</code></p>
+                        <p>Compares the current value of <code>rc</code> with <code>val</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15075,7 +15075,7 @@ but care is taken to detect possible overflow during multiplication.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the length of <code>str.</code></p>
+                        <p>Retrieves the length of <code>str</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15308,7 +15308,7 @@ subpattern) requires valid <code>GMatchInfo</code> object.</p>
 to compile a regex with embedded nul characters.</p>
 
 <p>For completeness, <code>length</code> can be -1 for a nul-terminated string.
-In this case the output string will be of course equal to <code>string.</code></p>
+In this case the output string will be of course equal to <code>string</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15344,7 +15344,7 @@ function is useful to dynamically generate regular expressions.</p>
 
 <p><code>string</code> can contain nul characters that are replaced with <q>\0</q>,
 in this case remember to specify the correct length of <code>string</code>
-in <code>length.</code></p>
+in <code>length</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -15601,7 +15601,7 @@ on your system.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inserts a new item just before the item pointed to by <code>iter.</code></p>
+                        <p>Inserts a new item just before the item pointed to by <code>iter</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17368,7 +17368,7 @@ comparison function, see <code>g_strcmp0()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Looks whether the string <code>str</code> begins with <code>prefix.</code></p>
+                        <p>Looks whether the string <code>str</code> begins with <code>prefix</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17398,7 +17398,7 @@ comparison function, see <code>g_strcmp0()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Looks whether the string <code>str</code> ends with <code>suffix.</code></p>
+                        <p>Looks whether the string <code>str</code> ends with <code>suffix</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17570,7 +17570,7 @@ be a valid POSIX locale string (of the form
 
 <p>If you want to do translation for no specific locale, and you want it
 to be done independently of the currently locale, specify <code>&quot;C&quot;</code> for
-<code>from_locale.</code></p>
+<code>from_locale</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18565,7 +18565,7 @@ containing multibyte characters. For that purpose, use
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Searches the string <code>haystack</code> for the last occurrence
-of the string <code>needle.</code></p>
+of the string <code>needle</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18597,7 +18597,7 @@ of the string <code>needle.</code></p>
                       <div class="abstract">
                         <p>Searches the string <code>haystack</code> for the last occurrence
 of the string <code>needle</code>, limiting the length of the search
-to <code>haystack_len.</code></p>
+to <code>haystack_len</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18755,7 +18755,7 @@ to delimit UTF-8 strings for anything but ASCII characters.</p>
                       <div class="abstract">
                         <p>Searches the string <code>haystack</code> for the first occurrence
 of the string <code>needle</code>, limiting the length of the search
-to <code>haystack_len.</code></p>
+to <code>haystack_len</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -19164,7 +19164,7 @@ do so even if it isn’t.</p>
                         <p>This function adds a message to test reports that
 associates a bug URI with a test case.
 Bug URIs are constructed from a base URI set with <code>g_test_bug_base()</code>
-and <code>bug_uri_snippet.</code></p>
+and <code>bug_uri_snippet</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -19277,7 +19277,7 @@ called with the same fixture, but varying <code>test_name</code> and
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a new test suite with the name <code>suite_name.</code></p>
+                        <p>Create a new test suite with the name <code>suite_name</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -20463,7 +20463,7 @@ returning <code>retval</code> from the function <code>func</code>, as given to <
 <p>You must only call <code>g_thread_exit()</code> from a thread that you created
 yourself with <code>g_thread_new()</code> or related APIs. You must not call
 this function from a thread created with another threading library
-or or from within a <code>GThreadPool.</code></p>
+or or from within a <code>GThreadPool</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -21186,7 +21186,7 @@ which may be <code>nil</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Pops a piece of memory off a <code>GTrashStack.</code></p>
+                        <p>Pops a piece of memory off a <code>GTrashStack</code>.</p>
 
 <p><strong>trash_stack_pop is deprecated:</strong></p>
 <h1 id='gtrashstack-is-deprecated-without-replacement' class='heading'>GTrashStack is deprecated without replacement</h1>
@@ -21220,7 +21220,7 @@ which may be <code>nil</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Pushes a piece of memory onto a <code>GTrashStack.</code></p>
+                        <p>Pushes a piece of memory onto a <code>GTrashStack</code>.</p>
 
 <p><strong>trash_stack_push is deprecated:</strong></p>
 <h1 id='gtrashstack-is-deprecated-without-replacement' class='heading'>GTrashStack is deprecated without replacement</h1>
@@ -22821,7 +22821,7 @@ to cancel the watch at any time that it exists.</p>
 
 <p>This is the same as <code>g_unix_fd_add()</code>, except that it allows you to
 specify a non-default priority and a provide a <code>GDestroyNotify</code> for
-<code>user_data.</code></p>
+<code>user_data</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -22923,7 +22923,7 @@ for <code>fcntl()</code>; these are different on Linux/glibc.</p>
                       <div class="abstract">
                         <p>Control the non-blocking state of the given file descriptor,
 according to <code>nonblock</code>. On most systems this uses <code>O_NONBLOCK</code>, but
-on some older ones may use <code>O_NDELAY.</code></p>
+on some older ones may use <code>O_NDELAY</code>.</p>
 
                       </div>
                       <div class="declaration">
