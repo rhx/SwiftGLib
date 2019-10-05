@@ -3561,9 +3561,9 @@ the bookmark has been registered by the application and the last
 time the application registered this bookmark.</p>
 
 <p>If <code>name</code> is <code>nil</code>, the name of the application will be the
-same returned by g_get_application_name(); if <code>exec</code> is <code>nil</code>, the
+same returned by <code>g_get_application_name()</code>; if <code>exec</code> is <code>nil</code>, the
 command line will be a composition of the program name as
-returned by g_get_prgname() and the <q>`u`</q> modifier, which will be
+returned by <code>g_get_prgname()</code> and the <q>`u`</q> modifier, which will be
 expanded to the bookmark&rsquo;s URI.</p>
 
 <p>This function will automatically take care of updating the
@@ -3640,7 +3640,7 @@ belongs to.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Frees a <code>GBookmarkFile</code>.</p>
+                        <p>Frees a <code>GBookmarkFile.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3676,7 +3676,7 @@ belongs to.</p>
                         <p>Gets the time the bookmark for <code>uri</code> was added to <code>bookmark</code></p>
 
 <p>In the event the URI cannot be found, -1 is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3710,7 +3710,7 @@ belongs to.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the registration information of <code>app_name</code> for the bookmark for
-<code>uri</code>.  See g_bookmark_file_set_app_info() for more information about
+<code>uri</code>.  See <code>g_bookmark_file_set_app_info()</code> for more information about
 the returned data.</p>
 
 <p>The string returned in <code>app_exec</code> must be freed.</p>
@@ -3758,7 +3758,7 @@ set and <code>false</code> is returned.</p>
 bookmark for <code>uri</code>.</p>
 
 <p>In the event the URI cannot be found, <code>nil</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3794,7 +3794,7 @@ bookmark for <code>uri</code>.</p>
                         <p>Retrieves the description of the bookmark for <code>uri</code>.</p>
 
 <p>In the event the URI cannot be found, <code>nil</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3869,7 +3869,7 @@ be <code>nil</code>.</p>
                         <p>Gets the icon of the bookmark for <code>uri</code>.</p>
 
 <p>In the event the URI cannot be found, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3907,7 +3907,7 @@ be <code>nil</code>.</p>
 <p>In the event the URI cannot be found, <code>false</code> is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.  In the
 event that the private flag cannot be found, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3945,7 +3945,7 @@ event that the private flag cannot be found, <code>false</code> is returned and
 <p>In the event the URI cannot be found, <code>nil</code> is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.  In the
 event that the MIME type cannot be found, <code>nil</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3981,7 +3981,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         <p>Gets the time when the bookmark for <code>uri</code> was last modified.</p>
 
 <p>In the event the URI cannot be found, -1 is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4014,7 +4014,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the number of bookmarks inside <code>bookmark</code>.</p>
+                        <p>Gets the number of bookmarks inside <code>bookmark.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4052,7 +4052,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
 <p>If <code>uri</code> is <code>nil</code>, the title of <code>bookmark</code> is returned.</p>
 
 <p>In the event the URI cannot be found, <code>nil</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4123,7 +4123,7 @@ optionally be <code>nil</code>.</p>
                         <p>Gets the time the bookmark for <code>uri</code> was last visited.</p>
 
 <p>In the event the URI cannot be found, -1 is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4160,7 +4160,7 @@ optionally be <code>nil</code>.</p>
 registered by application <code>name</code>.</p>
 
 <p>In the event the URI cannot be found, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4197,7 +4197,7 @@ registered by application <code>name</code>.</p>
 the bookmark for <code>uri</code> belongs to.</p>
 
 <p>In the event the URI cannot be found, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4230,7 +4230,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Looks whether the desktop bookmark has an item with its URI set to <code>uri</code>.</p>
+                        <p>Looks whether the desktop bookmark has an item with its URI set to <code>uri.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4265,7 +4265,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                       <div class="abstract">
                         <p>Loads a bookmark file from memory into an empty <code>GBookmarkFile</code>
 structure.  If the object cannot be created then <code>error</code> is set to a
-<code>GBookmarkFileError</code>.</p>
+<code>GBookmarkFileError.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4299,10 +4299,10 @@ structure.  If the object cannot be created then <code>error</code> is set to a
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function looks for a desktop bookmark file named <code>file</code> in the
-paths returned from g_get_user_data_dir() and g_get_system_data_dirs(),
+paths returned from <code>g_get_user_data_dir()</code> and <code>g_get_system_data_dirs()</code>,
 loads the file into <code>bookmark</code> and returns the file&rsquo;s full path in
 <code>full_path</code>.  If the file could not be loaded then <code>error</code> is
-set to either a <code>GFileError</code> or <code>GBookmarkFileError</code>.</p>
+set to either a <code>GFileError</code> or <code>GBookmarkFileError.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4337,7 +4337,7 @@ set to either a <code>GFileError</code> or <code>GBookmarkFileError</code>.</p>
                       <div class="abstract">
                         <p>Loads a desktop bookmark file into an empty <code>GBookmarkFile</code> structure.
 If the file could not be loaded then <code>error</code> is set to either a <code>GFileError</code>
-or <code>GBookmarkFileError</code>.</p>
+or <code>GBookmarkFileError.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4375,7 +4375,7 @@ existing bookmark for <code>new_uri</code> will be overwritten.  If <code>new_ur
 <code>nil</code>, then the bookmark is removed.</p>
 
 <p>In the event the URI cannot be found, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4415,7 +4415,7 @@ that have registered a bookmark for <code>uri</code> inside <code>bookmark</code
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.
 In the event that no application with name <code>app_name</code> has registered
 a bookmark for <code>uri</code>,  <code>false</code> is returned and error is set to
-<code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code>.</p>
+<code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4454,7 +4454,7 @@ for <code>uri</code> belongs to.</p>
 <p>In the event the URI cannot be found, <code>false</code> is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.
 In the event no group was defined, <code>false</code> is returned and
-<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE</code>.</p>
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_INVALID_VALUE.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4487,7 +4487,7 @@ In the event no group was defined, <code>false</code> is returned and
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the bookmark for <code>uri</code> from the bookmark file <code>bookmark</code>.</p>
+                        <p>Removes the bookmark for <code>uri</code> from the bookmark file <code>bookmark.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4559,8 +4559,8 @@ In the event no group was defined, <code>false</code> is returned and
 applications that have registered a bookmark for <code>uri</code> inside
 <code>bookmark</code>.</p>
 
-<p>You should rarely use this function; use g_bookmark_file_add_application()
-and g_bookmark_file_remove_application() instead.</p>
+<p>You should rarely use this function; use <code>g_bookmark_file_add_application()</code>
+and <code>g_bookmark_file_remove_application()</code> instead.</p>
 
 <p><code>name</code> can be any UTF-8 encoded string used to identify an
 application.
@@ -4568,7 +4568,7 @@ application.
 be expanded as the local file name retrieved from the bookmark&rsquo;s
 URI; <q>`u`</q>, which will be expanded as the bookmark&rsquo;s URI.
 The expansion is done automatically when retrieving the stored
-command line using the g_bookmark_file_get_app_info() function.
+command line using the <code>g_bookmark_file_get_app_info()</code> function.
 <code>count</code> is the number of times the application has registered the
 bookmark; if is &lt; 0, the current registration count will be increased
 by one, if is 0, the application with <code>name</code> will be removed from
@@ -4802,7 +4802,7 @@ file or the icon name following the Icon Naming specification.</p>
 <p>The <q>modified</q> time should only be set when the bookmark&rsquo;s meta-data
 was actually changed.  Every function of <code>GBookmarkFile</code> that
 modifies a bookmark also changes the modification time, except for
-g_bookmark_file_set_visited().</p>
+<code>g_bookmark_file_set_visited()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4878,9 +4878,9 @@ bookmark file <code>bookmark</code>.</p>
 <p>If no bookmark for <code>uri</code> is found then it is created.</p>
 
 <p>The <q>visited</q> time should only be set if the bookmark was launched,
-either using the command line retrieved by g_bookmark_file_get_app_info()
+either using the command line retrieved by <code>g_bookmark_file_get_app_info()</code>
 or by the default application for the bookmark&rsquo;s MIME type, retrieved
-using g_bookmark_file_get_mime_type().  Changing the <q>visited</q> time
+using <code>g_bookmark_file_get_mime_type()</code>.  Changing the <q>visited</q> time
 does not affect the <q>modified</q> time.</p>
 
                       </div>
@@ -4948,7 +4948,7 @@ does not affect the <q>modified</q> time.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This function outputs <code>bookmark</code> into a file.  The write process is
-guaranteed to be atomic by using g_file_set_contents() internally.</p>
+guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.</p>
 
                       </div>
                       <div class="declaration">
@@ -4981,7 +4981,7 @@ guaranteed to be atomic by using g_file_set_contents() internally.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the number of bookmarks inside <code>bookmark</code>.</p>
+                        <p>Gets the number of bookmarks inside <code>bookmark.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5006,7 +5006,7 @@ guaranteed to be atomic by using g_file_set_contents() internally.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -3553,7 +3553,7 @@ functions.</p>
                       <div class="abstract">
                         <p>Close an IO channel. Any pending data to be written will be
 flushed, ignoring errors. The channel will not be freed until the
-last reference is dropped using g_io_channel_unref().</p>
+last reference is dropped using <code>g_io_channel_unref()</code>.</p>
 
 <p><strong>close is deprecated:</strong>
 Use g_io_channel_shutdown() instead.</p>
@@ -3801,8 +3801,8 @@ flags such as <code>G_IO_FLAG_IS_READABLE</code>.</p>
 <p>The values of the flags <code>G_IO_FLAG_IS_READABLE</code> and <code>G_IO_FLAG_IS_WRITABLE</code>
 are cached for internal use by the channel when it is created.
 If they should change at some later point (e.g. partial shutdown
-of a socket with the UNIX shutdown() function), the user
-should immediately call g_io_channel_get_flags() to update
+of a socket with the UNIX <code>shutdown()</code> function), the user
+should immediately call <code>g_io_channel_get_flags()</code> to update
 the internal values of these flags.</p>
 
                       </div>
@@ -3908,7 +3908,7 @@ programmer (unless you are creating a new type of <code>GIOChannel</code>).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reads data from a <code>GIOChannel</code>.</p>
+                        <p>Reads data from a <code>GIOChannel.</code></p>
 
 <p><strong>read is deprecated:</strong>
 Use g_io_channel_read_chars() instead.</p>
@@ -3945,7 +3945,7 @@ Use g_io_channel_read_chars() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replacement for g_io_channel_read() with the new API.</p>
+                        <p>Replacement for <code>g_io_channel_read()</code> with the new API.</p>
 
                       </div>
                       <div class="declaration">
@@ -3978,10 +3978,10 @@ Use g_io_channel_read_chars() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reads a line, including the terminating character(s),
+                        <p>Reads a line, including the terminating <code>character(s)</code>,
 from a <code>GIOChannel</code> into a newly-allocated string.
 <code>str_return</code> will contain allocated memory if the return
-is <code>G_IO_STATUS_NORMAL</code>.</p>
+is <code>G_IO_STATUS_NORMAL.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4114,7 +4114,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increments the reference count of a <code>GIOChannel</code>.</p>
+                        <p>Increments the reference count of a <code>GIOChannel.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4148,7 +4148,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the current position in the <code>GIOChannel</code>, similar to the standard
-library function fseek().</p>
+library function <code>fseek()</code>.</p>
 
 <p><strong>seek is deprecated:</strong>
 Use g_io_channel_seek_position() instead.</p>
@@ -4185,7 +4185,7 @@ Use g_io_channel_seek_position() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replacement for g_io_channel_seek() with the new API.</p>
+                        <p>Replacement for <code>g_io_channel_seek()</code> with the new API.</p>
 
                       </div>
                       <div class="declaration">
@@ -4353,23 +4353,23 @@ is true:</p>
 <li><p>The channel was just created, and has not been written to or read from yet.</p></li>
 <li><p>The channel is write-only.</p></li>
 <li><p>The channel is a file, and the file pointer was just repositioned
-by a call to g_io_channel_seek_position(). (This flushes all the
+by a call to <code>g_io_channel_seek_position()</code>. (This flushes all the
 internal buffers.)</p></li>
 <li><p>The current encoding is <code>nil</code> or UTF-8.</p></li>
 <li><p>One of the (new API) read functions has just returned <code>G_IO_STATUS_EOF</code>
-(or, in the case of g_io_channel_read_to_end(), <code>G_IO_STATUS_NORMAL</code>).</p></li>
-<li><p>One of the functions g_io_channel_read_chars() or
-g_io_channel_read_unichar() has returned <code>G_IO_STATUS_AGAIN</code> or
+(or, in the case of <code>g_io_channel_read_to_end()</code>, <code>G_IO_STATUS_NORMAL</code>).</p></li>
+<li><p>One of the functions <code>g_io_channel_read_chars()</code> or
+<code>g_io_channel_read_unichar()</code> has returned <code>G_IO_STATUS_AGAIN</code> or
 <code>G_IO_STATUS_ERROR</code>. This may be useful in the case of
 <code>G_CONVERT_ERROR_ILLEGAL_SEQUENCE</code>.
-Returning one of these statuses from g_io_channel_read_line(),
-g_io_channel_read_line_string(), or g_io_channel_read_to_end()
+Returning one of these statuses from <code>g_io_channel_read_line()</code>,
+<code>g_io_channel_read_line_string()</code>, or <code>g_io_channel_read_to_end()</code>
 does not guarantee that the encoding can be changed.</p></li>
 </ul>
 
 <p>Channels which do not meet one of the above conditions cannot call
-g_io_channel_seek_position() with an offset of <code>G_SEEK_CUR</code>, and, if
-they are <q>seekable</q>, cannot call g_io_channel_write_chars() after
+<code>g_io_channel_seek_position()</code> with an offset of <code>G_SEEK_CUR</code>, and, if
+they are <q>seekable</q>, cannot call <code>g_io_channel_write_chars()</code> after
 calling one of the API <q>read</q> functions.</p>
 
                       </div>
@@ -4472,7 +4472,7 @@ where in the file a line break occurs.</p>
                       <div class="abstract">
                         <p>Close an IO channel. Any pending data to be written will be
 flushed if <code>flush</code> is <code>true</code>. The channel will not be freed until the
-last reference is dropped using g_io_channel_unref().</p>
+last reference is dropped using <code>g_io_channel_unref()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4508,7 +4508,7 @@ last reference is dropped using g_io_channel_unref().</p>
                         <p>Returns the file descriptor of the <code>GIOChannel</code>.</p>
 
 <p>On Windows this function returns the file descriptor or socket of
-the <code>GIOChannel</code>.</p>
+the <code>GIOChannel.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4541,7 +4541,7 @@ the <code>GIOChannel</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decrements the reference count of a <code>GIOChannel</code>.</p>
+                        <p>Decrements the reference count of a <code>GIOChannel.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4574,7 +4574,7 @@ the <code>GIOChannel</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Writes data to a <code>GIOChannel</code>.</p>
+                        <p>Writes data to a <code>GIOChannel.</code></p>
 
 <p><strong>write is deprecated:</strong>
 Use g_io_channel_write_chars() instead.</p>
@@ -4611,7 +4611,7 @@ Use g_io_channel_write_chars() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Replacement for g_io_channel_write() with the new API.</p>
+                        <p>Replacement for <code>g_io_channel_write()</code> with the new API.</p>
 
 <p>On seekable channels with encodings other than <code>nil</code> or UTF-8, generic
 mixing of reading and writing is not allowed. A call to g_io_channel_write_chars ()
@@ -4720,8 +4720,8 @@ with the default priority.</p>
                         <p>Adds the <code>GIOChannel</code> into the default main loop context
 with the given priority.</p>
 
-<p>This internally creates a main loop source using g_io_create_watch()
-and attaches it to the main loop context with g_source_attach().
+<p>This internally creates a main loop source using <code>g_io_create_watch()</code>
+and attaches it to the main loop context with <code>g_source_attach()</code>.
 You can do these steps manually if you need greater control.</p>
 
                       </div>
@@ -4759,7 +4759,7 @@ You can do these steps manually if you need greater control.</p>
 given <code>channel</code>. For example, if condition is <code>G_IO_IN</code>, the source will
 be dispatched when there&rsquo;s data available for reading.</p>
 
-<p>g_io_add_watch() is a simpler interface to this same functionality, for
+<p><code>g_io_add_watch()</code> is a simpler interface to this same functionality, for
 the case where you want to add the source to the default main loop context
 at the default priority.</p>
 
@@ -4976,8 +4976,8 @@ flags such as <code>G_IO_FLAG_IS_READABLE</code>.</p>
 <p>The values of the flags <code>G_IO_FLAG_IS_READABLE</code> and <code>G_IO_FLAG_IS_WRITABLE</code>
 are cached for internal use by the channel when it is created.
 If they should change at some later point (e.g. partial shutdown
-of a socket with the UNIX shutdown() function), the user
-should immediately call g_io_channel_get_flags() to update
+of a socket with the UNIX <code>shutdown()</code> function), the user
+should immediately call <code>g_io_channel_get_flags()</code> to update
 the internal values of these flags.</p>
 
                       </div>
@@ -5003,7 +5003,7 @@ the internal values of these flags.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -3453,7 +3453,7 @@ unlock the recursive mutex as often as it has been locked.</p>
 
 <p>If a <code>GRecMutex</code> is allocated in static storage then it can be used
 without initialisation.  Otherwise, you should call
-g_rec_mutex_init() on it and g_rec_mutex_clear() when done.</p>
+<code>g_rec_mutex_init()</code> on it and <code>g_rec_mutex_clear()</code> when done.</p>
 
 <p>A GRecMutex should only be accessed with the
 g_rec_mutex_ functions.</p>
@@ -3561,12 +3561,12 @@ g_rec_mutex_ functions.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Frees the resources allocated to a recursive mutex with
-g_rec_mutex_init().</p>
+<code>g_rec_mutex_init()</code>.</p>
 
 <p>This function should not be used with a <code>GRecMutex</code> that has been
 statically allocated.</p>
 
-<p>Calling g_rec_mutex_clear() on a locked recursive mutex leads
+<p>Calling <code>g_rec_mutex_clear()</code> on a locked recursive mutex leads
 to undefined behaviour.</p>
 
 <p>Sine: 2.32</p>
@@ -3623,11 +3623,11 @@ b = g_new (Blob, 1);
 g_rec_mutex_init (&amp;b-&gt;m);
 </code></pre>
 
-<p>Calling g_rec_mutex_init() on an already initialized <code>GRecMutex</code>
+<p>Calling <code>g_rec_mutex_init()</code> on an already initialized <code>GRecMutex</code>
 leads to undefined behaviour.</p>
 
-<p>To undo the effect of g_rec_mutex_init() when a recursive mutex
-is no longer needed, use g_rec_mutex_clear().</p>
+<p>To undo the effect of <code>g_rec_mutex_init()</code> when a recursive mutex
+is no longer needed, use <code>g_rec_mutex_clear()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3639,7 +3639,7 @@ is no longer needed, use g_rec_mutex_clear().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L213-L216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L212-L215">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3677,7 +3677,7 @@ as many times as it has been locked.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L224-L227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L223-L226">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3712,7 +3712,7 @@ it locks <code>rec_mutex</code> and returns <code>true</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L232-L235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L231-L234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3734,10 +3734,10 @@ it locks <code>rec_mutex</code> and returns <code>true</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Unlocks <code>rec_mutex</code>. If another thread is blocked in a
-g_rec_mutex_lock() call for <code>rec_mutex</code>, it will become unblocked
+<code>g_rec_mutex_lock()</code> call for <code>rec_mutex</code>, it will become unblocked
 and can lock <code>rec_mutex</code> itself.</p>
 
-<p>Calling g_rec_mutex_unlock() on a recursive mutex that is not
+<p>Calling <code>g_rec_mutex_unlock()</code> on a recursive mutex that is not
 locked by the current thread leads to undefined behaviour.</p>
 
                       </div>
@@ -3750,7 +3750,7 @@ locked by the current thread leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L243-L246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L242-L245">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3763,7 +3763,7 @@ locked by the current thread leads to undefined behaviour.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

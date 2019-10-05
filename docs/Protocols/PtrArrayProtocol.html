@@ -3595,7 +3595,7 @@ may get compiler warnings from this though if compiling with GCC’s
 pointing to) are copied to the new <code>GPtrArray</code>.</p>
 
 <p>The copy of <code>array</code> will have the same <code>GDestroyNotify</code> for its elements as
-<code>array</code>.</p>
+<code>array.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3639,7 +3639,7 @@ may get compiler warnings from this though if compiling with GCC’s
 <code>-Wcast-function-type</code> warning.</p>
 
 <p>If <code>func</code> is <code>nil</code>, then only the pointers (and not what they are
-pointing to) are copied to the new <code>GPtrArray</code>.</p>
+pointing to) are copied to the new <code>GPtrArray.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3676,7 +3676,7 @@ pointing to) are copied to the new <code>GPtrArray</code>.</p>
 ownership of each element from <code>array</code> to <code>array_to_extend</code> and modifying
 <code>array_to_extend</code> in-place. <code>array</code> is then freed.</p>
 
-<p>As with g_ptr_array_free(), <code>array</code> will be destroyed if its reference count
+<p>As with <code>g_ptr_array_free()</code>, <code>array</code> will be destroyed if its reference count
 is 1. If its reference count is higher, it will be decremented and the
 length of <code>array</code> set to zero.</p>
 
@@ -3717,7 +3717,7 @@ Otherwise, <code>false</code> is returned and <code>index_</code> is undefined. 
 multiple times in <code>haystack</code>, the index of the first instance is returned.</p>
 
 <p>This does pointer comparisons only. If you want to use more complex equality
-checks, such as string comparisons, use g_ptr_array_find_with_equal_func().</p>
+checks, such as string comparisons, use <code>g_ptr_array_find_with_equal_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3837,7 +3837,7 @@ be freed separately if <code>free_seg</code> is <code>true</code> and no <code>G
 function has been set for <code>array</code>.</p>
 
 <p>This function is not thread-safe. If using a <code>GPtrArray</code> from multiple
-threads, use only the atomic g_ptr_array_ref() and g_ptr_array_unref()
+threads, use only the atomic <code>g_ptr_array_ref()</code> and <code>g_ptr_array_unref()</code>
 functions.</p>
 
                       </div>
@@ -3981,7 +3981,7 @@ pointer was not found.</p>
                         <p>Removes the first occurrence of the given pointer from the pointer
 array. The last element in the array is used to fill in the space,
 so this function does not preserve the order of the array. But it
-is faster than g_ptr_array_remove(). If <code>array</code> has a non-<code>nil</code>
+is faster than <code>g_ptr_array_remove()</code>. If <code>array</code> has a non-<code>nil</code>
 <code>GDestroyNotify</code> function it is called for the removed element.</p>
 
 <p>It returns <code>true</code> if the pointer was removed, or <code>false</code> if the
@@ -4058,7 +4058,7 @@ to freed memory (depending on the <code>GDestroyNotify</code> implementation).</
                         <p>Removes the pointer at the given index from the pointer array.
 The last element in the array is used to fill in the space, so
 this function does not preserve the order of the array. But it
-is faster than g_ptr_array_remove_index(). If <code>array</code> has a non-<code>nil</code>
+is faster than <code>g_ptr_array_remove_index()</code>. If <code>array</code> has a non-<code>nil</code>
 <code>GDestroyNotify</code> function it is called for the removed element. If so, the
 return value from this function will potentially point to freed memory
 (depending on the <code>GDestroyNotify</code> implementation).</p>
@@ -4131,7 +4131,7 @@ called for the removed elements.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets a function for freeing each element when <code>array</code> is destroyed
-either via g_ptr_array_unref(), when g_ptr_array_free() is called
+either via <code>g_ptr_array_unref()</code>, when <code>g_ptr_array_free()</code> is called
 with <code>free_segment</code> set to <code>true</code> or when removing elements.</p>
 
                       </div>
@@ -4201,12 +4201,12 @@ called for the removed elements.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sorts the array, using <code>compare_func</code> which should be a qsort()-style
+                        <p>Sorts the array, using <code>compare_func</code> which should be a <code>qsort()</code>-style
 comparison function (returns less than zero for first arg is less
 than second arg, zero for equal, greater than zero if irst arg is
 greater than second arg).</p>
 
-<p>Note that the comparison function for g_ptr_array_sort() doesn&rsquo;t
+<p>Note that the comparison function for <code>g_ptr_array_sort()</code> doesn&rsquo;t
 take the pointers from the array as arguments, it takes pointers to
 the pointers in the array.</p>
 
@@ -4243,10 +4243,10 @@ the pointers in the array.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Like g_ptr_array_sort(), but the comparison function has an extra
+                        <p>Like <code>g_ptr_array_sort()</code>, but the comparison function has an extra
 user data argument.</p>
 
-<p>Note that the comparison function for g_ptr_array_sort_with_data()
+<p>Note that the comparison function for <code>g_ptr_array_sort_with_data()</code>
 doesn&rsquo;t take the pointers from the array as arguments, it takes
 pointers to the pointers in the array.</p>
 
@@ -4322,7 +4322,7 @@ the caller of this function.</p>
                         <p>Removes the pointer at the given index from the pointer array.
 The last element in the array is used to fill in the space, so
 this function does not preserve the order of the array. But it
-is faster than g_ptr_array_steal_index(). The <code>GDestroyNotify</code> for <code>array</code> is
+is faster than <code>g_ptr_array_steal_index()</code>. The <code>GDestroyNotify</code> for <code>array</code> is
 <em>not</em> called on the removed element; ownership is transferred to the caller
 of this function.</p>
 
@@ -4359,7 +4359,7 @@ of this function.</p>
                       <div class="abstract">
                         <p>Atomically decrements the reference count of <code>array</code> by one. If the
 reference count drops to 0, the effect is the same as calling
-g_ptr_array_free() with <code>free_segment</code> set to <code>true</code>. This function
+<code>g_ptr_array_free()</code> with <code>free_segment</code> set to <code>true</code>. This function
 is thread-safe and may be called from any thread.</p>
 
                       </div>
@@ -4399,7 +4399,7 @@ Otherwise, <code>false</code> is returned and <code>index_</code> is undefined. 
 multiple times in <code>haystack</code>, the index of the first instance is returned.</p>
 
 <p>This does pointer comparisons only. If you want to use more complex equality
-checks, such as string comparisons, use g_ptr_array_find_with_equal_func().</p>
+checks, such as string comparisons, use <code>g_ptr_array_find_with_equal_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4465,7 +4465,7 @@ equality is used.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

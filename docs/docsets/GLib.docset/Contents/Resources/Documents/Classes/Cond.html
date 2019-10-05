@@ -3487,27 +3487,27 @@ is satisfied:
   }
 </code></pre>
 
-<p>Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls <code>pop_data()</code> now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
-has called push_data().</p>
+has called <code>push_data()</code>.</p>
 
 <p>The example shows that use of a condition variable must always be
 paired with a mutex.  Without the use of a mutex, there would be a
 race between the check of <code>current_data</code> by the while loop in
-pop_data() and waiting. Specifically, another thread could set
+<code>pop_data()</code> and waiting. Specifically, another thread could set
 <code>current_data</code> after the check, and signal the cond (with nobody
 waiting on it) before the first thread goes to sleep. <code>GCond</code> is
 specifically useful for its ability to release the mutex and go
 to sleep atomically.</p>
 
-<p>It is also important to use the g_cond_wait() and g_cond_wait_until()
+<p>It is also important to use the <code>g_cond_wait()</code> and <code>g_cond_wait_until()</code>
 functions only inside a loop which checks for the condition to be
-true.  See g_cond_wait() for an explanation of why the condition may
+true.  See <code>g_cond_wait()</code> for an explanation of why the condition may
 not be true even after it returns.</p>
 
 <p>If a <code>GCond</code> is allocated in static storage then it can be used
-without initialisation.  Otherwise, you should call g_cond_init()
-on it and g_cond_clear() when done.</p>
+without initialisation.  Otherwise, you should call <code>g_cond_init()</code>
+on it and <code>g_cond_clear()</code> when done.</p>
 
 <p>A <code>GCond</code> should only be accessed via the g_cond_ functions.</p>
 
@@ -3544,7 +3544,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3575,7 +3575,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L282-L284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L279-L281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3606,7 +3606,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L288-L291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L285-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3637,7 +3637,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L300-L302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L297-L299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3668,7 +3668,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L306-L308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L303-L305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3699,7 +3699,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L312-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L309-L311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3730,7 +3730,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L318-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L315-L317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3743,7 +3743,7 @@ Ownership is transferred to the <code>Cond</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

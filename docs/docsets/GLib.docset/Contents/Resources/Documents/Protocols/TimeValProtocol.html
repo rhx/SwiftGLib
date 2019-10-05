@@ -3446,7 +3446,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/TimeValRef.html">TimeValRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>Represents a precise time, with seconds and microseconds.
-Similar to the struct timeval returned by the gettimeofday()
+Similar to the struct timeval returned by the <code>gettimeofday()</code>
 UNIX system call.</p>
 
 <p>GLib is attempting to unify around the use of 64-bit integers to
@@ -3558,7 +3558,7 @@ problem.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Adds the given number of microseconds to <code>time_</code>. <code>microseconds</code> can
-also be negative to decrease the value of <code>time_</code>.</p>
+also be negative to decrease the value of <code>time_.</code></p>
 
 <p><strong>add is deprecated:</strong></p>
 <h1 id='gtimeval-is-not-year-2038-safe-use-code-guint64-code-for' class='heading'>GTimeVal is not year-2038-safe. Use <code>guint64</code> for</h1>
@@ -3615,7 +3615,7 @@ the W3C Note
 <a href="http://www.w3.org/TR/NOTE-datetime-19980827">Date and Time Formats</a>.
 Both of these documents are profiles of ISO 8601.</p>
 
-<p>Use g_date_time_format() or g_strdup_printf() if a different
+<p>Use <code>g_date_time_format()</code> or <code>g_strdup_printf()</code> if a different
 variation of ISO 8601 format is required.</p>
 
 <p>If <code>time_</code> represents a date which is too large to fit into a <code>struct tm</code>,
@@ -3628,7 +3628,7 @@ function has been deprecated. Equivalent functionality is available using:</p>
 <span class="nf">g_date_time_unref</span> <span class="p">(</span><span class="n">dt</span><span class="p">);</span>
 </code></pre>
 
-<p>The return value of g_time_val_to_iso8601() has been nullable since GLib
+<p>The return value of <code>g_time_val_to_iso8601()</code> has been nullable since GLib
 2.54; before then, GLib would crash under the same conditions.</p>
 
 <p><strong>to_iso8601 is deprecated:</strong></p>
@@ -3647,7 +3647,7 @@ function has been deprecated. Equivalent functionality is available using:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L211-L214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L210-L213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3701,7 +3701,7 @@ Equivalent functionality is available using code like:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L238-L241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L237-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3722,9 +3722,9 @@ Equivalent functionality is available using code like:</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Equivalent to the UNIX gettimeofday() function, but portable.</p>
+                        <p>Equivalent to the UNIX <code>gettimeofday()</code> function, but portable.</p>
 
-<p>You may find g_get_real_time() to be more convenient.</p>
+<p>You may find <code>g_get_real_time()</code> to be more convenient.</p>
 
 <p><strong>get_current_time is deprecated:</strong></p>
 <h1 id='gtimeval-is-not-year-2038-safe-use-g_get_real_time' class='heading'>GTimeVal is not year-2038-safe. Use g_get_real_time()</h1>
@@ -3742,7 +3742,7 @@ Equivalent functionality is available using code like:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L250-L253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L249-L252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3796,7 +3796,7 @@ Equivalent functionality is available using code like:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L277-L280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L276-L279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3809,7 +3809,7 @@ Equivalent functionality is available using code like:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

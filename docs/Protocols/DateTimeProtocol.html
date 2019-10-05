@@ -3829,7 +3829,7 @@ copy. Add negative values to subtract weeks.</p>
                         <p>Creates a copy of <code>datetime</code> and adds the specified number of years to the
 copy. Add negative values to subtract years.</p>
 
-<p>As with g_date_time_add_months(), if the resulting date would be 29th
+<p>As with <code>g_date_time_add_months()</code>, if the resulting date would be 29th
 February on a non-leap year, the day will be clamped to 28th February.</p>
 
                       </div>
@@ -3901,77 +3901,77 @@ positive if the first parameter is larger).</p>
                         <p>Creates a newly allocated string representing the requested <code>format</code>.</p>
 
 <p>The format strings understood by this function are a subset of the
-strftime() format language as specified by C99.  The `D<code>, \</code>U<code>and \</code>W<code>
+<code>strftime()</code> format language as specified by C99.  The `D<code>, \</code>U<code>and \</code>W<code>
 conversions are not supported, nor is the &#39;E&#39; modifier.  The GNU
 extensions \</code>k<code>, \</code>l<code>, \</code>s<code>and \</code>P` are supported, however, as are the
 &lsquo;0&rsquo;, &lsquo;_&rsquo; and &lsquo;-&rsquo; modifiers.</p>
 
-<p>In contrast to strftime(), this function always produces a UTF-8
+<p>In contrast to <code>strftime()</code>, this function always produces a UTF-8
 string, regardless of the current locale.  Note that the rendering of
-many formats is locale-dependent and may not match the strftime()
+many formats is locale-dependent and may not match the <code>strftime()</code>
 output exactly.</p>
 
 <p>The following format specifiers are supported:</p>
 
 <ul>
-<li>`a`: the abbreviated weekday name according to the current locale</li>
-<li>`A`: the full weekday name according to the current locale</li>
-<li>`b`: the abbreviated month name according to the current locale</li>
-<li>`B`: the full month name according to the current locale</li>
-<li>`c`: the preferred date and time representation for the current locale</li>
-<li>`C`: the century number (year/100) as a 2-digit integer (00-99)</li>
-<li>`d`: the day of the month as a decimal number (range 01 to 31)</li>
-<li>`e`: the day of the month as a decimal number (range  1 to 31)</li>
-<li>`F<code>: equivalent to</code><code>Y</code>-<code>m</code>-<code>d</code>` (the ISO 8601 date format)</li>
-<li>`g<code>: the last two digits of the ISO 8601 week-based year as a
+<li>`a:` the abbreviated weekday name according to the current locale</li>
+<li>`A:` the full weekday name according to the current locale</li>
+<li>`b:` the abbreviated month name according to the current locale</li>
+<li>`B:` the full month name according to the current locale</li>
+<li>`c:` the preferred date and time representation for the current locale</li>
+<li>`C:` the century number (year/100) as a 2-digit integer (00-99)</li>
+<li>`d:` the day of the month as a decimal number (range 01 to 31)</li>
+<li>`e:` the day of the month as a decimal number (range  1 to 31)</li>
+<li>`F:<code>equivalent to</code><code>Y</code>-<code>m</code>-<code>d</code>` (the ISO 8601 date format)</li>
+<li>`g:<code>the last two digits of the ISO 8601 week-based year as a
 decimal number (00-99). This works well with \</code>V<code>and \</code>u`.</li>
-<li>`G<code>: the ISO 8601 week-based year as a decimal number. This works
+<li>`G:<code>the ISO 8601 week-based year as a decimal number. This works
 well with \</code>V<code>and \</code>u`.</li>
-<li>`h<code>: equivalent to \</code>b`</li>
-<li>`H`: the hour as a decimal number using a 24-hour clock (range 00 to 23)</li>
-<li>`I`: the hour as a decimal number using a 12-hour clock (range 01 to 12)</li>
-<li>`j`: the day of the year as a decimal number (range 001 to 366)</li>
-<li>`k`: the hour (24-hour clock) as a decimal number (range 0 to 23);
+<li>`h:<code>equivalent to \</code>b`</li>
+<li>`H:` the hour as a decimal number using a 24-hour clock (range 00 to 23)</li>
+<li>`I:` the hour as a decimal number using a 12-hour clock (range 01 to 12)</li>
+<li>`j:` the day of the year as a decimal number (range 001 to 366)</li>
+<li>`k:` the hour (24-hour clock) as a decimal number (range 0 to 23);
 single digits are preceded by a blank</li>
-<li>`l`: the hour (12-hour clock) as a decimal number (range 1 to 12);
+<li>`l:` the hour (12-hour clock) as a decimal number (range 1 to 12);
 single digits are preceded by a blank</li>
-<li>`m`: the month as a decimal number (range 01 to 12)</li>
-<li>`M`: the minute as a decimal number (range 00 to 59)</li>
-<li>`p`: either <q>AM</q> or <q>PM</q> according to the given time value, or the
+<li>`m:` the month as a decimal number (range 01 to 12)</li>
+<li>`M:` the minute as a decimal number (range 00 to 59)</li>
+<li>`p:` either <q>AM</q> or <q>PM</q> according to the given time value, or the
 corresponding  strings for the current locale.  Noon is treated as
 <q>PM</q> and midnight as <q>AM</q>.</li>
-<li>`P<code>: like \</code>p` but lowercase: <q>am</q> or <q>pm</q> or a corresponding string for
+<li>`P:<code>like \</code>p` but lowercase: <q>am</q> or <q>pm</q> or a corresponding string for
 the current locale</li>
-<li>`r`: the time in a.m. or p.m. notation</li>
-<li>`R<code>: the time in 24-hour notation (\</code>H<code>:\</code>M`)</li>
-<li>`s`: the number of seconds since the Epoch, that is, since 1970-01-01
+<li>`r:` the time in a.m. or p.m. notation</li>
+<li>`R:<code>the time in 24-hour notation (\</code>H:<code>\</code>M`)</li>
+<li>`s:` the number of seconds since the Epoch, that is, since 1970-01-01
 00:00:00 UTC</li>
-<li>`S`: the second as a decimal number (range 00 to 60)</li>
-<li>`t`: a tab character</li>
-<li>`T<code>: the time in 24-hour notation with seconds (\</code>H<code>:\</code>M<code>:\</code>S`)</li>
-<li>`u<code>: the ISO 8601 standard day of the week as a decimal, range 1 to 7,
+<li>`S:` the second as a decimal number (range 00 to 60)</li>
+<li>`t:` a tab character</li>
+<li>`T:<code>the time in 24-hour notation with seconds (\</code>H:<code>\</code>M:<code>\</code>S`)</li>
+<li>`u:<code>the ISO 8601 standard day of the week as a decimal, range 1 to 7,
 Monday being 1. This works well with \</code>G<code>and \</code>V`.</li>
-<li>`V<code>: the ISO 8601 standard week number of the current year as a decimal
+<li>`V:<code>the ISO 8601 standard week number of the current year as a decimal
 number, range 01 to 53, where week 1 is the first week that has at
-least 4 days in the new year. See g_date_time_get_week_of_year().
+least 4 days in the new year. See</code>g_date_time_get_week_of_year()<code>.
 This works well with \</code>G<code>and \</code>u`.</li>
-<li>`w<code>: the day of the week as a decimal, range 0 to 6, Sunday being 0.
+<li>`w:<code>the day of the week as a decimal, range 0 to 6, Sunday being 0.
 This is not the ISO 8601 standard format -- use \</code>u` instead.</li>
-<li>`x`: the preferred date representation for the current locale without
+<li>`x:` the preferred date representation for the current locale without
 the time</li>
-<li>`X`: the preferred time representation for the current locale without
+<li>`X:` the preferred time representation for the current locale without
 the date</li>
-<li>`y`: the year as a decimal number without the century</li>
-<li>`Y`: the year as a decimal number including the century</li>
-<li>`z`: the time zone as an offset from UTC (+hhmm)</li>
-<li>&ldquo;:z: the time zone as an offset from UTC (+hh:mm).
-This is a gnulib strftime() extension. Since: 2.38</li>
-<li>&rdquo;::z: the time zone as an offset from UTC (+hh:mm:ss). This is a
-gnulib strftime() extension. Since: 2.38</li>
-<li>&ldquo;:::z: the time zone as an offset from UTC, with : to necessary
-precision (e.g., -04, +05:30). This is a gnulib strftime() extension. Since: 2.38</li>
-<li>`Z`: the time zone or name or abbreviation</li>
-<li>`<code>\</code><code>: a literal \</code>` character</li>
+<li>`y:` the year as a decimal number without the century</li>
+<li>`Y:` the year as a decimal number including the century</li>
+<li>`z:` the time zone as an offset from UTC (+hhmm)</li>
+<li>`:z:<code>the time zone as an offset from UTC (+hh:mm).
+This is a gnulib</code>strftime()` extension. Since: 2.38</li>
+<li>`::z:<code>the time zone as an offset from UTC (+hh:mm:ss). This is a
+gnulib</code>strftime()` extension. Since: 2.38</li>
+<li>`:::z:<code>the time zone as an offset from UTC, with : to necessary
+precision (e.g., -04, +05:30). This is a gnulib</code>strftime()` extension. Since: 2.38</li>
+<li>`Z:` the time zone or name or abbreviation</li>
+<li>`<code>\</code>:<code>a literal \</code>` character</li>
 </ul>
 
 <p>Some conversion specifications can be modified by preceding the
@@ -3994,8 +3994,8 @@ form of a month name. The alternative form should be used when the month
 name is used without a day number (e.g., standalone). It is required in
 some languages (Baltic, Slavic, Greek, and more) due to their grammatical
 rules. For other languages there is no difference. `OB<code>is a GNU and BSD
-strftime() extension expected to be added to the future POSIX specification,
-\</code>Ob<code>and \</code>Oh` are GNU strftime() extensions. Since: 2.56</p>
+</code>strftime()<code>extension expected to be added to the future POSIX specification,
+\</code>Ob<code>and \</code>Oh<code>are GNU</code>strftime()` extensions. Since: 2.56</p>
 
                       </div>
                       <div class="declaration">
@@ -4365,7 +4365,7 @@ including the fractional part.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the time zone for this <code>datetime</code>.</p>
+                        <p>Get the time zone for this <code>datetime.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4479,12 +4479,12 @@ zones west of GMT, positive numbers for east).</p>
                         <p>Returns the ISO 8601 week-numbering year in which the week containing
 <code>datetime</code> falls.</p>
 
-<p>This function, taken together with g_date_time_get_week_of_year() and
-g_date_time_get_day_of_week() can be used to determine the full ISO
+<p>This function, taken together with <code>g_date_time_get_week_of_year()</code> and
+<code>g_date_time_get_day_of_week()</code> can be used to determine the full ISO
 week date on which <code>datetime</code> falls.</p>
 
 <p>This is usually equal to the normal Gregorian year (as returned by
-g_date_time_get_year()), except as detailed below:</p>
+<code>g_date_time_get_year()</code>), except as detailed below:</p>
 
 <p>For Thursday, the week-numbering year is always equal to the usual
 calendar year.  For other days, the number is such that every day
@@ -4619,7 +4619,7 @@ if 4 or more days of that week are contained within the new year.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the Gregorian day, month, and year of a given <code>GDateTime</code>.</p>
+                        <p>Retrieves the Gregorian day, month, and year of a given <code>GDateTime.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4688,8 +4688,8 @@ if 4 or more days of that week are contained within the new year.</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the same instant in time as
 <code>datetime</code>, but in the local time zone.</p>
 
-<p>This call is equivalent to calling g_date_time_to_timezone() with the
-time zone returned by g_time_zone_new_local().</p>
+<p>This call is equivalent to calling <code>g_date_time_to_timezone()</code> with the
+time zone returned by <code>g_time_zone_new_local()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4780,7 +4780,7 @@ out of range.</p>
 example, converting 0001-01-01 00:00:00 UTC to a time zone west of
 Greenwich will fail (due to the year 0 being out of range).</p>
 
-<p>You should release the return value by calling g_date_time_unref()
+<p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
 
                       </div>
@@ -4818,7 +4818,7 @@ when you are done with it.</p>
 nearest second.</p>
 
 <p>Unix time is the number of seconds that have elapsed since 1970-01-01
-00:00:00 UTC, regardless of the time zone associated with <code>datetime</code>.</p>
+00:00:00 UTC, regardless of the time zone associated with <code>datetime.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4854,8 +4854,8 @@ nearest second.</p>
                         <p>Creates a new <code>GDateTime</code> corresponding to the same instant in time as
 <code>datetime</code>, but in UTC.</p>
 
-<p>This call is equivalent to calling g_date_time_to_timezone() with the
-time zone returned by g_time_zone_new_utc().</p>
+<p>This call is equivalent to calling <code>g_date_time_to_timezone()</code> with the
+time zone returned by <code>g_time_zone_new_utc()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5060,7 +5060,7 @@ calendar.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Determines if daylight savings time is in effect at the time and in
-the time zone of <code>datetime</code>.</p>
+the time zone of <code>datetime.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5260,7 +5260,7 @@ including the fractional part.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get the time zone for this <code>datetime</code>.</p>
+                        <p>Get the time zone for this <code>datetime.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5374,12 +5374,12 @@ zones west of GMT, positive numbers for east).</p>
                         <p>Returns the ISO 8601 week-numbering year in which the week containing
 <code>datetime</code> falls.</p>
 
-<p>This function, taken together with g_date_time_get_week_of_year() and
-g_date_time_get_day_of_week() can be used to determine the full ISO
+<p>This function, taken together with <code>g_date_time_get_week_of_year()</code> and
+<code>g_date_time_get_day_of_week()</code> can be used to determine the full ISO
 week date on which <code>datetime</code> falls.</p>
 
 <p>This is usually equal to the normal Gregorian year (as returned by
-g_date_time_get_year()), except as detailed below:</p>
+<code>g_date_time_get_year()</code>), except as detailed below:</p>
 
 <p>For Thursday, the week-numbering year is always equal to the usual
 calendar year.  For other days, the number is such that every day
@@ -5506,7 +5506,7 @@ if 4 or more days of that week are contained within the new year.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

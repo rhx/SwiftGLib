@@ -3488,27 +3488,27 @@ is satisfied:
   }
 </code></pre>
 
-<p>Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls <code>pop_data()</code> now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
-has called push_data().</p>
+has called <code>push_data()</code>.</p>
 
 <p>The example shows that use of a condition variable must always be
 paired with a mutex.  Without the use of a mutex, there would be a
 race between the check of <code>current_data</code> by the while loop in
-pop_data() and waiting. Specifically, another thread could set
+<code>pop_data()</code> and waiting. Specifically, another thread could set
 <code>current_data</code> after the check, and signal the cond (with nobody
 waiting on it) before the first thread goes to sleep. <code>GCond</code> is
 specifically useful for its ability to release the mutex and go
 to sleep atomically.</p>
 
-<p>It is also important to use the g_cond_wait() and g_cond_wait_until()
+<p>It is also important to use the <code>g_cond_wait()</code> and <code>g_cond_wait_until()</code>
 functions only inside a loop which checks for the condition to be
-true.  See g_cond_wait() for an explanation of why the condition may
+true.  See <code>g_cond_wait()</code> for an explanation of why the condition may
 not be true even after it returns.</p>
 
 <p>If a <code>GCond</code> is allocated in static storage then it can be used
-without initialisation.  Otherwise, you should call g_cond_init()
-on it and g_cond_clear() when done.</p>
+without initialisation.  Otherwise, you should call <code>g_cond_init()</code>
+on it and <code>g_cond_clear()</code> when done.</p>
 
 <p>A <code>GCond</code> should only be accessed via the g_cond_ functions.</p>
 
@@ -3544,7 +3544,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L79">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3582,7 +3582,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L82">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L81">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3629,7 +3629,7 @@ while calling this function, though not required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L339-L342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3650,12 +3650,12 @@ while calling this function, though not required.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Frees the resources allocated to a <code>GCond</code> with g_cond_init().</p>
+                        <p>Frees the resources allocated to a <code>GCond</code> with <code>g_cond_init()</code>.</p>
 
 <p>This function should not be used with a <code>GCond</code> that has been
 statically allocated.</p>
 
-<p>Calling g_cond_clear() for a <code>GCond</code> on which threads are
+<p>Calling <code>g_cond_clear()</code> for a <code>GCond</code> on which threads are
 blocking leads to undefined behaviour.</p>
 
                       </div>
@@ -3668,7 +3668,7 @@ blocking leads to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L351-L354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L348-L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3695,10 +3695,10 @@ blocking leads to undefined behaviour.</p>
 allocated as part of a larger structure.  It is not necessary to
 initialise a <code>GCond</code> that has been statically allocated.</p>
 
-<p>To undo the effect of g_cond_init() when a <code>GCond</code> is no longer
-needed, use g_cond_clear().</p>
+<p>To undo the effect of <code>g_cond_init()</code> when a <code>GCond</code> is no longer
+needed, use <code>g_cond_clear()</code>.</p>
 
-<p>Calling g_cond_init() on an already-initialised <code>GCond</code> leads
+<p>Calling <code>g_cond_init()</code> on an already-initialised <code>GCond</code> leads
 to undefined behaviour.</p>
 
                       </div>
@@ -3711,7 +3711,7 @@ to undefined behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L367-L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L364-L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3747,7 +3747,7 @@ while calling this function, though not required.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L376-L379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L373-L376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3773,14 +3773,14 @@ When this function returns, <code>mutex</code> is locked again and owned by the
 calling thread.</p>
 
 <p>When using condition variables, it is possible that a spurious wakeup
-may occur (ie: g_cond_wait() returns even though g_cond_signal() was
+may occur (ie: <code>g_cond_wait()</code> returns even though <code>g_cond_signal()</code> was
 not called).  It&rsquo;s also possible that a stolen wakeup may occur.
-This is when g_cond_signal() is called, but another thread acquires
+This is when <code>g_cond_signal()</code> is called, but another thread acquires
 <code>mutex</code> before this thread and modifies the state of the program in
-such a way that when g_cond_wait() is able to return, the expected
+such a way that when <code>g_cond_wait()</code> is able to return, the expected
 condition is no longer met.</p>
 
-<p>For this reason, g_cond_wait() must always be used in a loop.  See
+<p>For this reason, <code>g_cond_wait()</code> must always be used in a loop.  See
 the documentation for <code>GCond</code> for a complete example.</p>
 
                       </div>
@@ -3793,7 +3793,7 @@ the documentation for <code>GCond</code> for a complete example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L395-L398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L392-L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3816,7 +3816,7 @@ the documentation for <code>GCond</code> for a complete example.</p>
                       <div class="abstract">
                         <p>Waits until either <code>cond</code> is signalled or <code>end_time</code> has passed.</p>
 
-<p>As with g_cond_wait() it is possible that a spurious or stolen wakeup
+<p>As with <code>g_cond_wait()</code> it is possible that a spurious or stolen wakeup
 could occur.  For that reason, waiting on a condition variable should
 always be in a loop, based on an explicitly-checked predicate.</p>
 
@@ -3873,7 +3873,7 @@ time of more than 5 seconds).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L450-L453">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L446-L449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3886,7 +3886,7 @@ time of more than 5 seconds).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

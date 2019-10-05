@@ -3585,7 +3585,7 @@ dynamically-allocated memory, they should be freed first.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Convenience method, which frees all the memory used by a <code>GQueue</code>,
-and calls the provided <code>free_func</code> on each item in the <code>GQueue</code>.</p>
+and calls the provided <code>free_func</code> on each item in the <code>GQueue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3655,7 +3655,7 @@ actual data is not.</p>
                       <div class="abstract">
                         <p>Removes <code>link_</code> from <code>queue</code> and frees it.</p>
 
-<p><code>link_</code> must be part of <code>queue</code>.</p>
+<p><code>link_</code> must be part of <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3688,7 +3688,7 @@ actual data is not.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finds the first link in <code>queue</code> which contains <code>data</code>.</p>
+                        <p>Finds the first link in <code>queue</code> which contains <code>data.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3796,11 +3796,11 @@ not modify any part of the queue after that element.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Frees the memory allocated for the <code>GQueue</code>. Only call this function
-if <code>queue</code> was created with g_queue_new(). If queue elements contain
+if <code>queue</code> was created with <code>g_queue_new()</code>. If queue elements contain
 dynamically-allocated memory, they should be freed first.</p>
 
 <p>If queue elements contain dynamically-allocated memory, you should
-either use g_queue_free_full() or free them manually first.</p>
+either use <code>g_queue_free_full()</code> or free them manually first.</p>
 
                       </div>
                       <div class="declaration">
@@ -3870,7 +3870,7 @@ element from it).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the number of items in <code>queue</code>.</p>
+                        <p>Returns the number of items in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3903,7 +3903,7 @@ element from it).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the position of the first element in <code>queue</code> which contains <code>data</code>.</p>
+                        <p>Returns the position of the first element in <code>queue</code> which contains <code>data.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3939,7 +3939,7 @@ element from it).</p>
                         <p>A statically-allocated <code>GQueue</code> must be initialized with this function
 before it can be used. Alternatively you can initialize it with
 <code>G_QUEUE_INIT</code>. It is not necessary to initialize queues created with
-g_queue_new().</p>
+<code>g_queue_new()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4010,7 +4010,7 @@ data at the head of the queue.</p>
                       <div class="abstract">
                         <p>Inserts <code>link_</code> into <code>queue</code> after <code>sibling</code>.</p>
 
-<p><code>sibling</code> must be part of <code>queue</code>.</p>
+<p><code>sibling</code> must be part of <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4081,7 +4081,7 @@ data at the tail of the queue.</p>
                       <div class="abstract">
                         <p>Inserts <code>link_</code> into <code>queue</code> before <code>sibling</code>.</p>
 
-<p><code>sibling</code> must be part of <code>queue</code>.</p>
+<p><code>sibling</code> must be part of <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4147,7 +4147,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the position of <code>link_</code> in <code>queue</code>.</p>
+                        <p>Returns the position of <code>link_</code> in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4213,7 +4213,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the first link in <code>queue</code>.</p>
+                        <p>Returns the first link in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4246,7 +4246,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the <code>n</code>&lsquo;th element of <code>queue</code>.</p>
+                        <p>Returns the <code>n</code>&lsquo;th element of <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4345,7 +4345,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the last link in <code>queue</code>.</p>
+                        <p>Returns the last link in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4774,7 +4774,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the first element in <code>queue</code> that contains <code>data</code>.</p>
+                        <p>Removes the first element in <code>queue</code> that contains <code>data.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4807,7 +4807,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Remove all elements whose data equals <code>data</code> from <code>queue</code>.</p>
+                        <p>Remove all elements whose data equals <code>data</code> from <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4840,7 +4840,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reverses the order of the items in <code>queue</code>.</p>
+                        <p>Reverses the order of the items in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4873,7 +4873,7 @@ data at the tail of the queue.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sorts <code>queue</code> using <code>compare_func</code>.</p>
+                        <p>Sorts <code>queue</code> using <code>compare_func.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4909,7 +4909,7 @@ data at the tail of the queue.</p>
                         <p>Unlinks <code>link_</code> so that it will no longer be part of <code>queue</code>.
 The link is not freed.</p>
 
-<p><code>link_</code> must be part of <code>queue</code>.</p>
+<p><code>link_</code> must be part of <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4975,7 +4975,7 @@ The link is not freed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the number of items in <code>queue</code>.</p>
+                        <p>Returns the number of items in <code>queue.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5000,7 +5000,7 @@ The link is not freed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

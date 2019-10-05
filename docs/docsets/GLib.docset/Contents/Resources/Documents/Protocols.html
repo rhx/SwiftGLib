@@ -3719,18 +3719,18 @@ move while they hold a reference.</p>
 
 <p>A <code>GBytes</code> can come from many different origins that may have
 different procedures for freeing the memory region.  Examples are
-memory from g_malloc(), from memory slices, from a <code>GMappedFile</code> or
+memory from <code>g_malloc()</code>, from memory slices, from a <code>GMappedFile</code> or
 memory from other allocators.</p>
 
-<p><code>GBytes</code> work well as keys in <code>GHashTable</code>. Use g_bytes_equal() and
-g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full().
-<code>GBytes</code> can also be used as keys in a <code>GTree</code> by passing the g_bytes_compare()
-function to g_tree_new().</p>
+<p><code>GBytes</code> work well as keys in <code>GHashTable</code>. Use <code>g_bytes_equal()</code> and
+<code>g_bytes_hash()</code> as parameters to <code>g_hash_table_new()</code> or <code>g_hash_table_new_full()</code>.
+<code>GBytes</code> can also be used as keys in a <code>GTree</code> by passing the <code>g_bytes_compare()</code>
+function to <code>g_tree_new()</code>.</p>
 
 <p>The data pointed to by this bytes must not be modified. For a mutable
-array of bytes see <code>GByteArray</code>. Use g_bytes_unref_to_array() to create a
+array of bytes see <code>GByteArray</code>. Use <code>g_bytes_unref_to_array()</code> to create a
 mutable array for a <code>GBytes</code> sequence. To create an immutable <code>GBytes</code> from
-a mutable <code>GByteArray</code>, use the g_byte_array_free_to_bytes() function.</p>
+a mutable <code>GByteArray</code>, use the <code>g_byte_array_free_to_bytes()</code> function.</p>
 
                         <a href="Protocols/BytesProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3778,8 +3778,8 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/ChecksumRef.html">ChecksumRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>An opaque structure representing a checksumming operation.
-To create a new GChecksum, use g_checksum_new(). To free
-a GChecksum, use g_checksum_free().</p>
+To create a new GChecksum, use <code>g_checksum_new()</code>. To free
+a GChecksum, use <code>g_checksum_free()</code>.</p>
 
                         <a href="Protocols/ChecksumProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3869,27 +3869,27 @@ is satisfied:
   }
 </code></pre>
 
-<p>Whenever a thread calls pop_data() now, it will wait until
+<p>Whenever a thread calls <code>pop_data()</code> now, it will wait until
 current_data is non-<code>nil</code>, i.e. until some other thread
-has called push_data().</p>
+has called <code>push_data()</code>.</p>
 
 <p>The example shows that use of a condition variable must always be
 paired with a mutex.  Without the use of a mutex, there would be a
 race between the check of <code>current_data</code> by the while loop in
-pop_data() and waiting. Specifically, another thread could set
+<code>pop_data()</code> and waiting. Specifically, another thread could set
 <code>current_data</code> after the check, and signal the cond (with nobody
 waiting on it) before the first thread goes to sleep. <code>GCond</code> is
 specifically useful for its ability to release the mutex and go
 to sleep atomically.</p>
 
-<p>It is also important to use the g_cond_wait() and g_cond_wait_until()
+<p>It is also important to use the <code>g_cond_wait()</code> and <code>g_cond_wait_until()</code>
 functions only inside a loop which checks for the condition to be
-true.  See g_cond_wait() for an explanation of why the condition may
+true.  See <code>g_cond_wait()</code> for an explanation of why the condition may
 not be true even after it returns.</p>
 
 <p>If a <code>GCond</code> is allocated in static storage then it can be used
-without initialisation.  Otherwise, you should call g_cond_init()
-on it and g_cond_clear() when done.</p>
+without initialisation.  Otherwise, you should call <code>g_cond_init()</code>
+on it and <code>g_cond_clear()</code> when done.</p>
 
 <p>A <code>GCond</code> should only be accessed via the g_cond_ functions.</p>
 
@@ -3904,7 +3904,7 @@ on it and g_cond_clear() when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L77-L83">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L76-L82">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3990,11 +3990,11 @@ Alternatively, use <code><a href="Structs/DateRef.html">DateRef</a></code> as a 
 <p>Represents a day between January 1, Year 1 and a few thousand years in
 the future. None of its members should be accessed directly.</p>
 
-<p>If the <code>GDate</code>-struct is obtained from g_date_new(), it will be safe
+<p>If the <code>GDate</code>-struct is obtained from <code>g_date_new()</code>, it will be safe
 to mutate but invalid and thus not safe for calendrical computations.</p>
 
 <p>If it&rsquo;s declared on the stack, it will contain garbage so must be
-initialized with g_date_clear(). g_date_clear() makes the date invalid
+initialized with <code>g_date_clear()</code>. <code>g_date_clear()</code> makes the date invalid
 but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s <q>empty.</q> A date
 becomes valid after you set it to a Julian day or you set a day, month,
 and year.</p>
@@ -4093,7 +4093,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/DebugKeyRef.html">DebugKeyRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>Associates a string with a bit flag.
-Used in g_parse_debug_string().</p>
+Used in <code>g_parse_debug_string()</code>.</p>
 
                         <a href="Protocols/DebugKeyProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4239,7 +4239,7 @@ Alternatively, use <code><a href="Structs/HashTableIterRef.html">HashTableIterRe
 <p>A GHashTableIter structure represents an iterator that can be used
 to iterate over the elements of a <code>GHashTable</code>. GHashTableIter
 structures are typically allocated on the stack and then initialized
-with g_hash_table_iter_init().</p>
+with <code>g_hash_table_iter_init()</code>.</p>
 
                         <a href="Protocols/HashTableIterProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4287,8 +4287,8 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/HmacRef.html">HmacRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>An opaque structure representing a HMAC operation.
-To create a new GHmac, use g_hmac_new(). To free
-a GHmac, use g_hmac_unref().</p>
+To create a new GHmac, use <code>g_hmac_new()</code>. To free
+a GHmac, use <code>g_hmac_unref()</code>.</p>
 
                         <a href="Protocols/HmacProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4335,7 +4335,7 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="Classes/Hook.html">Hook</a></code>.
 Alternatively, use <code><a href="Structs/HookRef.html">HookRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The <code>GHook</code> struct represents a single hook function in a <code>GHookList</code>.</p>
+<p>The <code>GHook</code> struct represents a single hook function in a <code>GHookList.</code></p>
 
                         <a href="Protocols/HookProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4429,7 +4429,7 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="Classes/IConv.html">IConv</a></code>.
 Alternatively, use <code><a href="Structs/IConvRef.html">IConvRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The GIConv struct wraps an iconv() conversion descriptor. It contains
+<p>The GIConv struct wraps an <code>iconv()</code> conversion descriptor. It contains
 private data and should only be accessed using the following functions.</p>
 
                         <a href="Protocols/IConvProtocol.html" class="slightly-smaller">See more</a>
@@ -4670,7 +4670,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/LogFieldRef.html">LogFieldRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>Structure representing a single field in a structured log entry. See
-g_log_structured() for details.</p>
+<code>g_log_structured()</code> for details.</p>
 
 <p>Log fields may contain arbitrary values, including binary with embedded nul
 bytes. If the field contains a string, the string must be UTF-8 encoded and
@@ -4819,7 +4819,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/MappedFileRef.html">MappedFileRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>The <code>GMappedFile</code> represents a file mapping created with
-g_mapped_file_new(). It has only private members and should
+<code>g_mapped_file_new()</code>. It has only private members and should
 not be accessed directly.</p>
 
                         <a href="Protocols/MappedFileProtocol.html" class="slightly-smaller">See more</a>
@@ -4870,7 +4870,7 @@ Alternatively, use <code><a href="Structs/MarkupParseContextRef.html">MarkupPars
 <p>A parse context is used to parse a stream of bytes that
 you expect to contain marked-up text.</p>
 
-<p>See g_markup_parse_context_new(), <code>GMarkupParser</code>, and so
+<p>See <code>g_markup_parse_context_new()</code>, <code>GMarkupParser</code>, and so
 on for more details.</p>
 
                         <a href="Protocols/MarkupParseContextProtocol.html" class="slightly-smaller">See more</a>
@@ -4923,7 +4923,7 @@ will be ignored. Except for the <code>error</code> function, any of these callba
 can set an error; in particular the <code>G_MARKUP_ERROR_UNKNOWN_ELEMENT</code>,
 <code>G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE</code>, and <code>G_MARKUP_ERROR_INVALID_CONTENT</code>
 errors are intended to be set from these callbacks. If you set an error
-from a callback, g_markup_parse_context_parse() will report that error
+from a callback, <code>g_markup_parse_context_parse()</code> will report that error
 back to its caller.</p>
 
                         <a href="Protocols/MarkupParserProtocol.html" class="slightly-smaller">See more</a>
@@ -5020,7 +5020,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/MemVTableRef.html">MemVTableRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>A set of functions used to perform memory allocation. The same <code>GMemVTable</code> must
-be used for all allocations in the same program; a call to g_mem_set_vtable(),
+be used for all allocations in the same program; a call to <code>g_mem_set_vtable()</code>,
 if it exists, should be prior to any use of GLib.</p>
 
 <p>This functions related to this has been deprecated in 2.46, and no longer work.</p>
@@ -5216,8 +5216,8 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/OptionEntryRef.html">OptionEntryRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>A GOptionEntry struct defines a single option. To have an effect, they
-must be added to a <code>GOptionGroup</code> with g_option_context_add_main_entries()
-or g_option_group_add_entries().</p>
+must be added to a <code>GOptionGroup</code> with <code>g_option_context_add_main_entries()</code>
+or <code>g_option_group_add_entries()</code>.</p>
 
                         <a href="Protocols/OptionEntryProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5270,7 +5270,7 @@ group. The struct has only private fields and should not be directly accessed.</
 <p>All options in a group share the same translation function. Libraries which
 need to parse commandline options are expected to provide a function for
 getting a <code>GOptionGroup</code> holding their options, which
-the application can then add to its <code>GOptionContext</code>.</p>
+the application can then add to its <code>GOptionContext.</code></p>
 
                         <a href="Protocols/OptionGroupProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5415,8 +5415,8 @@ Alternatively, use <code><a href="Structs/PrivateRef.html">PrivateRef</a></code>
 
 <p>The <code>GPrivate</code> struct is an opaque data structure to represent a
 thread-local data key. It is approximately equivalent to the
-pthread_setspecific()/pthread_getspecific() APIs on POSIX and to
-TlsSetValue()/TlsGetValue() on Windows.</p>
+<code>pthread_setspecific()</code><code>/pthread_getspecific()</code> APIs on POSIX and to
+<code>TlsSetValue()</code><code>/TlsGetValue()</code> on Windows.</p>
 
 <p>If you don&rsquo;t already know why you might want this functionality,
 then you probably don&rsquo;t need it.</p>
@@ -5426,7 +5426,7 @@ shared between all libraries). It is also not possible to destroy a
 <code>GPrivate</code> after it has been used. As such, it is only ever acceptable
 to use <code>GPrivate</code> in static scope, and even then sparingly so.</p>
 
-<p>See G_PRIVATE_INIT() for a couple of examples.</p>
+<p>See <code>G_PRIVATE_INIT()</code> for a couple of examples.</p>
 
 <p>The <code>GPrivate</code> structure should be considered opaque.  It should only
 be accessed via the g_private_ functions.</p>
@@ -5578,9 +5578,9 @@ multiple threads to coordinate access to a shared resource.</p>
 <p>The difference to a mutex is that a reader-writer lock discriminates
 between read-only (&lsquo;reader&rsquo;) and full (&lsquo;writer&rsquo;) access. While only
 one thread at a time is allowed write access (by holding the &lsquo;writer&rsquo;
-lock via g_rw_lock_writer_lock()), multiple threads can gain
+lock via <code>g_rw_lock_writer_lock()</code>), multiple threads can gain
 simultaneous read-only access (by holding the &lsquo;reader&rsquo; lock via
-g_rw_lock_reader_lock()).</p>
+<code>g_rw_lock_reader_lock()</code>).</p>
 
 <p>It is unspecified whether readers or writers have priority in acquiring the
 lock when a reader already holds the lock and a writer is queued to acquire
@@ -5621,18 +5621,19 @@ it.</p>
 
     g_rw_lock_writer_unlock (&amp;lock);
   }
+
 </code></pre>
 
 <p>This example shows an array which can be accessed by many readers
-(the my_array_get() function) simultaneously, whereas the writers
-(the my_array_set() function) will only be allowed one at a time
+(the <code>my_array_get()</code> function) simultaneously, whereas the writers
+(the <code>my_array_set()</code> function) will only be allowed one at a time
 and only if no readers currently access the array. This is because
 of the potentially dangerous resizing of the array. Using these
 functions is fully multi-thread safe now.</p>
 
 <p>If a <code>GRWLock</code> is allocated in static storage then it can be used
 without initialisation.  Otherwise, you should call
-g_rw_lock_init() on it and g_rw_lock_clear() when done.</p>
+<code>g_rw_lock_init()</code> on it and <code>g_rw_lock_clear()</code> when done.</p>
 
 <p>A GRWLock should only be accessed with the g_rw_lock_ functions.</p>
 
@@ -5737,7 +5738,7 @@ unlock the recursive mutex as often as it has been locked.</p>
 
 <p>If a <code>GRecMutex</code> is allocated in static storage then it can be used
 without initialisation.  Otherwise, you should call
-g_rec_mutex_init() on it and g_rec_mutex_clear() when done.</p>
+<code>g_rec_mutex_init()</code> on it and <code>g_rec_mutex_clear()</code> when done.</p>
 
 <p>A GRecMutex should only be accessed with the
 g_rec_mutex_ functions.</p>
@@ -5841,7 +5842,7 @@ the specified number of hex digits, they match &lsquo;x&rsquo; and &lsquo;u&rsqu
 &lsquo;\U&rsquo; always matches &lsquo;U&rsquo; instead of being an error in the pattern. Finally,
 pattern matching is modified so that back references to an unset subpattern
 group produces a match with the empty string instead of an error. See
-pcreapi(3) for more information.</p>
+<code>pcreapi(3)</code> for more information.</p>
 
 <p>Creating and manipulating the same <code>GRegex</code> structure from different
 threads is not a problem as <code>GRegex</code> does not modify its internal
@@ -5959,7 +5960,7 @@ can place them here.</p>
 
 <p>If you want to use your own message handler you can set the
 <code>msg_handler</code> field. The type of the message handler function
-is declared by <code>GScannerMsgFunc</code>.</p>
+is declared by <code>GScannerMsgFunc.</code></p>
 
                         <a href="Protocols/ScannerProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6104,7 +6105,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/SequenceIterRef.html">SequenceIterRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>The <code>GSequenceIter</code> struct is an opaque data type representing an
-iterator pointing into a <code>GSequence</code>.</p>
+iterator pointing into a <code>GSequence.</code></p>
 
                         <a href="Protocols/SequenceIterProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6252,20 +6253,20 @@ functions used to handle event sources in a generic manner.</p>
 
 <p>For idle sources, the prepare and check functions always return <code>true</code>
 to indicate that the source is always ready to be processed. The prepare
-function also returns a timeout value of 0 to ensure that the poll() call
+function also returns a timeout value of 0 to ensure that the <code>poll()</code> call
 doesn&rsquo;t block (since that would be time wasted which could have been spent
 running the idle function).</p>
 
 <p>For timeout sources, the prepare and check functions both return <code>true</code>
 if the timeout interval has expired. The prepare function also returns
-a timeout value to ensure that the poll() call doesn&rsquo;t block too long
+a timeout value to ensure that the <code>poll()</code> call doesn&rsquo;t block too long
 and miss the next timeout.</p>
 
 <p>For file descriptor sources, the prepare function typically returns <code>false</code>,
-since it must wait until poll() has been called before it knows whether
+since it must wait until <code>poll()</code> has been called before it knows whether
 any events need to be processed. It sets the returned timeout to -1 to
-indicate that it doesn&rsquo;t mind how long the poll() call blocks. In the
-check function, it tests the results of the poll() call to see if the
+indicate that it doesn&rsquo;t mind how long the <code>poll()</code> call blocks. In the
+check function, it tests the results of the <code>poll()</code> call to see if the
 required condition has been met, and returns <code>true</code> if so.</p>
 
                         <a href="Protocols/SourceFuncsProtocol.html" class="slightly-smaller">See more</a>
@@ -6358,10 +6359,10 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="Classes/StatBuf.html">StatBuf</a></code>.
 Alternatively, use <code><a href="Structs/StatBufRef.html">StatBufRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A type corresponding to the appropriate struct type for the stat()
+<p>A type corresponding to the appropriate struct type for the <code>stat()</code>
 system call, depending on the platform and/or compiler being used.</p>
 
-<p>See g_stat() for more information.</p>
+<p>See <code>g_stat()</code> for more information.</p>
 
                         <a href="Protocols/StatBufProtocol.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6733,13 +6734,13 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/ThreadRef.html">ThreadRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>The <code>GThread</code> struct represents a running thread. This struct
-is returned by g_thread_new() or g_thread_try_new(). You can
+is returned by <code>g_thread_new()</code> or <code>g_thread_try_new()</code>. You can
 obtain the <code>GThread</code> struct representing the current thread by
-calling g_thread_self().</p>
+calling <code>g_thread_self()</code>.</p>
 
-<p>GThread is refcounted, see g_thread_ref() and g_thread_unref().
+<p>GThread is refcounted, see <code>g_thread_ref()</code> and <code>g_thread_unref()</code>.
 The thread represented by it holds a reference while it is running,
-and g_thread_join() consumes the reference that it is given, so
+and <code>g_thread_join()</code> consumes the reference that it is given, so
 it is normally not necessary to manage GThread references
 explicitly.</p>
 
@@ -6841,7 +6842,7 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="Structs/TimeValRef.html">TimeValRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>Represents a precise time, with seconds and microseconds.
-Similar to the struct timeval returned by the gettimeofday()
+Similar to the struct timeval returned by the <code>gettimeofday()</code>
 UNIX system call.</p>
 
 <p>GLib is attempting to unify around the use of 64-bit integers to
@@ -7123,9 +7124,9 @@ at construction time).  The type and value of a <code>GVariant</code> instance
 can never change other than by the <code>GVariant</code> itself being
 destroyed.  A <code>GVariant</code> cannot contain a pointer.</p>
 
-<p><code>GVariant</code> is reference counted using g_variant_ref() and
-g_variant_unref().  <code>GVariant</code> also has floating reference counts &ndash;
-see g_variant_ref_sink().</p>
+<p><code>GVariant</code> is reference counted using <code>g_variant_ref()</code> and
+<code>g_variant_unref()</code>.  <code>GVariant</code> also has floating reference counts &ndash;
+see <code>g_variant_ref_sink()</code>.</p>
 
 <p><code>GVariant</code> is completely threadsafe.  A <code>GVariant</code> instance can be
 concurrently accessed in any way from any number of threads without
@@ -7155,7 +7156,7 @@ or network stream).</p>
 <p>A <code>GVariant</code>&rsquo;s size is limited mainly by any lower level operating
 system constraints, such as the number of bits in <code>gsize</code>.  For
 example, it is reasonable to have a 2GB file mapped into memory
-with <code>GMappedFile</code>, and call g_variant_new_from_data() on it.</p>
+with <code>GMappedFile</code>, and call <code>g_variant_new_from_data()</code> on it.</p>
 
 <p>For convenience to C programmers, <code>GVariant</code> features powerful
 varargs-based value construction and destruction.  This feature is
@@ -7165,7 +7166,7 @@ designed to be embedded in other libraries.</p>
 values.  <code>GVariant</code> includes a printer for this language and a parser
 with type inferencing.</p>
 
-<p>&ldquo;` Memory Use</p>
+<p>&ldquo;&rdquo; Memory Use</p>
 
 <p><code>GVariant</code> tries to be quite efficient with respect to memory use.
 This section gives a rough idea of how much memory is used by the
@@ -7177,7 +7178,7 @@ purposes: memory for serialised data, memory for the type
 information cache, buffer management memory and memory for the
 <code>GVariant</code> structure itself.</p>
 
-<p>&rdquo;` Serialised Data Memory</p>
+<p>&ldquo;&rdquo; Serialised Data Memory</p>
 
 <p>This is the memory that is used for storing GVariant data in
 serialised form.  This is what would be sent over the network or
@@ -7236,7 +7237,7 @@ We now require 2 framing offsets for an extra two
 bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 dictionary.</p>
 
-<p>&ldquo;` Type Information Cache</p>
+<p>&ldquo;&rdquo; Type Information Cache</p>
 
 <p>For each GVariant type that currently exists in the program a type
 information structure is kept in the type information cache.  The
@@ -7282,20 +7283,20 @@ that a program will probably only have a very small number of
 different types of values in it and that only one type information
 structure is required for many different values of the same type.</p>
 
-<p>&rdquo;` Buffer Management Memory</p>
+<p>&ldquo;&rdquo; Buffer Management Memory</p>
 
 <p><code>GVariant</code> uses an internal buffer management structure to deal
 with the various different possible sources of serialised data
 that it uses.  The buffer is responsible for ensuring that the
 correct call is made when the data is no longer in use by
-<code>GVariant</code>.  This may involve a g_free() or a g_slice_free() or
-even g_mapped_file_unref().</p>
+<code>GVariant</code>.  This may involve a <code>g_free()</code> or a <code>g_slice_free()</code> or
+even <code>g_mapped_file_unref()</code>.</p>
 
 <p>One buffer management structure is used for each chunk of
 serialised data.  The size of the buffer management structure
 is 4 * (void *).  On 32-bit systems, that&rsquo;s 16 bytes.</p>
 
-<p>&ldquo;` GVariant structure</p>
+<p>&ldquo;&rdquo; GVariant structure</p>
 
 <p>The size of a <code>GVariant</code> structure is 6 * (void *).  On 32-bit
 systems, that&rsquo;s 24 bytes.</p>
@@ -7311,7 +7312,7 @@ dictionary.</p>
 
 <p>If calls are made to start accessing the other values then
 <code>GVariant</code> instances will exist for those values only for as long
-as they are in use (ie: until you call g_variant_unref()).  The
+as they are in use (ie: until you call <code>g_variant_unref()</code>).  The
 type information is shared.  The serialised data and the buffer
 management structure for that serialised data is shared by the
 child.</p>
@@ -7321,7 +7322,7 @@ strings to variants (with two entries, as given above), we are
 using 91 bytes of memory for type information, 29 bytes of memory
 for the serialised data, 16 bytes for buffer management and 24
 bytes for the `GVariant` instance, or a total of 160 bytes, plus
-malloc overhead.  If we were to use g_variant_get_child_value() to
+malloc overhead.  If we were to use `g_variant_get_child_value()` to
 access the two dictionary entries, we would use an additional 48
 bytes.  If we were to have other dictionaries of the same type, we
 would use more memory for the serialised data and buffer
@@ -7340,7 +7341,7 @@ be shared.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L254-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L253-L259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7440,17 +7441,17 @@ dictionaries.</p>
 
 <p>It is possible to use <code>GVariantDict</code> allocated on the stack or on the
 heap.  When using a stack-allocated <code>GVariantDict</code>, you begin with a
-call to g_variant_dict_init() and free the resources with a call to
-g_variant_dict_clear().</p>
+call to <code>g_variant_dict_init()</code> and free the resources with a call to
+<code>g_variant_dict_clear()</code>.</p>
 
 <p>Heap-allocated <code>GVariantDict</code> follows normal refcounting rules: you
-allocate it with g_variant_dict_new() and use g_variant_dict_ref()
-and g_variant_dict_unref().</p>
+allocate it with <code>g_variant_dict_new()</code> and use <code>g_variant_dict_ref()</code>
+and <code>g_variant_dict_unref()</code>.</p>
 
-<p>g_variant_dict_end() is used to convert the <code>GVariantDict</code> back into a
+<p><code>g_variant_dict_end()</code> is used to convert the <code>GVariantDict</code> back into a
 dictionary-type <code>GVariant</code>.  When used with stack-allocated instances,
 this also implicitly frees all associated memory, but for
-heap-allocated instances, you must still call g_variant_dict_unref()
+heap-allocated instances, you must still call <code>g_variant_dict_unref()</code>
 afterwards.</p>
 
 <p>You will typically want to use a heap-allocated <code>GVariantDict</code> when
@@ -7463,7 +7464,7 @@ key, adding 1 to it if it is found, or returning an error if the
 key is not found.  Each returns the new dictionary as a floating
 <code>GVariant</code>.</p>
 
-<p>&ldquo;` Using a stack-allocated GVariantDict</p>
+<p>&ldquo;&rdquo; Using a stack-allocated GVariantDict</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
@@ -7487,7 +7488,7 @@ key is not found.  Each returns the new dictionary as a floating
   }
 </code></pre>
 
-<p>&rdquo;` Using heap-allocated GVariantDict</p>
+<p>&ldquo;&rdquo; Using heap-allocated GVariantDict</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
@@ -7528,7 +7529,7 @@ key is not found.  Each returns the new dictionary as a floating
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L103-L109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L102-L108">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7651,8 +7652,8 @@ containing exactly one argument.</p>
 abstract type in other type systems.  No value can exist that has an
 indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
-g_variant_get_type() will never return an indefinite type, but
-calling g_variant_is_of_type() with an indefinite type may return
+<code>g_variant_get_type()</code> will never return an indefinite type, but
+calling <code>g_variant_is_of_type()</code> with an indefinite type may return
 <code>true</code>.  For example, you cannot have a value that represents <q>an
 array of no particular type</q>, but you can have an <q>array of integers</q>
 which certainly matches the type of <q>an array of no particular type</q>,
@@ -7667,7 +7668,7 @@ but a <code>GtkWindow</code> can certainly be instantiated, and you would say
 that the <code>GtkWindow</code> is a <code>GtkBin</code> (since <code>GtkWindow</code> is a subclass of
 <code>GtkBin</code>).</p>
 
-<p>&ldquo;` GVariant Type Strings</p>
+<p>&ldquo;&rdquo; GVariant Type Strings</p>
 
 <p>A GVariant type string can be any of the following:</p>
 
@@ -7682,13 +7683,13 @@ followed by another type string, followed by the character &lsquo;}&rsquo;</p></
 </ul>
 
 <p>A basic type string describes a basic type (as per
-g_variant_type_is_basic()) and is always a single character in length.
+<code>g_variant_type_is_basic()</code>) and is always a single character in length.
 The valid basic type strings are <q>b</q>, <q>y</q>, <q>n</q>, <q>q</q>, <q>i</q>, <q>u</q>, <q>x</q>, <q>t</q>,
 <q>h</q>, <q>d</q>, <q>s</q>, <q>o</q>, <q>g</q> and <q>?</q>.</p>
 
 <p>The above definition is recursive to arbitrary depth. <q>aaaaai</q> and
-<q>(ui(nq((y)))s)</q> are both valid type strings, as is
-<q>a(aa(ui)(qna{ya(yd)}))</q>. In order to not hit memory limits, <code>GVariant</code>
+<q>(`ui(nq((y)`))s)</q> are both valid type strings, as is
+<code>&quot;a(aa(ui)</code>(<code>qna{ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
 imposes a limit on recursion depth of 65 nested containers. This is the
 limit in the D-Bus specification (64) plus one to allow a <code>GDBusMessage</code> to
 be nested in a top-level tuple.</p>
@@ -7786,7 +7787,7 @@ be a basic type, <q>{**}</q> is not a valid type string.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

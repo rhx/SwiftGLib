@@ -3486,8 +3486,8 @@ containing exactly one argument.</p>
 abstract type in other type systems.  No value can exist that has an
 indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
-g_variant_get_type() will never return an indefinite type, but
-calling g_variant_is_of_type() with an indefinite type may return
+<code>g_variant_get_type()</code> will never return an indefinite type, but
+calling <code>g_variant_is_of_type()</code> with an indefinite type may return
 <code>true</code>.  For example, you cannot have a value that represents <q>an
 array of no particular type</q>, but you can have an <q>array of integers</q>
 which certainly matches the type of <q>an array of no particular type</q>,
@@ -3502,7 +3502,7 @@ but a <code>GtkWindow</code> can certainly be instantiated, and you would say
 that the <code>GtkWindow</code> is a <code>GtkBin</code> (since <code>GtkWindow</code> is a subclass of
 <code>GtkBin</code>).</p>
 
-<p>&ldquo;` GVariant Type Strings</p>
+<p>&ldquo;&rdquo; GVariant Type Strings</p>
 
 <p>A GVariant type string can be any of the following:</p>
 
@@ -3517,13 +3517,13 @@ followed by another type string, followed by the character &lsquo;}&rsquo;</p></
 </ul>
 
 <p>A basic type string describes a basic type (as per
-g_variant_type_is_basic()) and is always a single character in length.
+<code>g_variant_type_is_basic()</code>) and is always a single character in length.
 The valid basic type strings are <q>b</q>, <q>y</q>, <q>n</q>, <q>q</q>, <q>i</q>, <q>u</q>, <q>x</q>, <q>t</q>,
 <q>h</q>, <q>d</q>, <q>s</q>, <q>o</q>, <q>g</q> and <q>?</q>.</p>
 
 <p>The above definition is recursive to arbitrary depth. <q>aaaaai</q> and
-<q>(ui(nq((y)))s)</q> are both valid type strings, as is
-<q>a(aa(ui)(qna{ya(yd)}))</q>. In order to not hit memory limits, <code>GVariant</code>
+<q>(`ui(nq((y)`))s)</q> are both valid type strings, as is
+<code>&quot;a(aa(ui)</code>(<code>qna{ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
 imposes a limit on recursion depth of 65 nested containers. This is the
 limit in the D-Bus specification (64) plus one to allow a <code>GDBusMessage</code> to
 be nested in a top-level tuple.</p>
@@ -3700,7 +3700,7 @@ be a basic type, <q>{**}</q> is not a valid type string.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Makes a copy of a <code>GVariantType</code>.  It is appropriate to call
-g_variant_type_free() on the return value.  <code>type</code> may not be <code>nil</code>.</p>
+<code>g_variant_type_free()</code> on the return value.  <code>type</code> may not be <code>nil</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3735,7 +3735,7 @@ g_variant_type_free() on the return value.  <code>type</code> may not be <code>n
                       <div class="abstract">
                         <p>Returns a newly-allocated copy of the type string corresponding to
 <code>type</code>.  The returned string is nul-terminated.  It is appropriate to
-call g_free() on the return value.</p>
+call <code>g_free()</code> on the return value.</p>
 
                       </div>
                       <div class="declaration">
@@ -3808,7 +3808,7 @@ call g_free() on the return value.</p>
 <p>Only returns <code>true</code> if the types are exactly equal.  Even if one type
 is an indefinite type and the other is a subtype of it, <code>false</code> will
 be returned if they are not exactly equal.  If you want to check for
-subtypes, use g_variant_type_is_subtype_of().</p>
+subtypes, use <code>g_variant_type_is_subtype_of()</code>.</p>
 
 <p>The argument types of <code>type1</code> and <code>type2</code> are only <code>gconstpointer</code> to
 allow use with <code>GHashTable</code> without function pointer casting.  For
@@ -3857,7 +3857,7 @@ the key.</p>
 
 <p><code>nil</code> is returned in case of <code>type</code> being <code>G_VARIANT_TYPE_UNIT</code>.</p>
 
-<p>This call, together with g_variant_type_next() provides an iterator
+<p>This call, together with <code>g_variant_type_next()</code> provides an iterator
 interface over tuple and dictionary entry types.</p>
 
                       </div>
@@ -3892,7 +3892,7 @@ interface over tuple and dictionary entry types.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Frees a <code>GVariantType</code> that was allocated with
-g_variant_type_copy(), g_variant_type_new() or one of the container
+<code>g_variant_type_copy()</code>, <code>g_variant_type_new()</code> or one of the container
 type constructor functions.</p>
 
 <p>In the case that <code>type</code> is <code>nil</code>, this function does nothing.</p>
@@ -3932,7 +3932,7 @@ type constructor functions.</p>
                       <div class="abstract">
                         <p>Returns the length of the type string corresponding to the given
 <code>type</code>.  This function must be used to determine the valid extent of
-the memory region returned by g_variant_type_peek_string().</p>
+the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4043,7 +4043,7 @@ only indefinite types can have subtypes.</p>
 
 <p>This function may only be used with a dictionary entry type.  Other
 than the additional restriction, this call is equivalent to
-g_variant_type_first().</p>
+<code>g_variant_type_first()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4121,7 +4121,7 @@ return 2.</p>
 type.</p>
 
 <p><code>type</code> must be the result of a previous call to
-g_variant_type_first() or g_variant_type_next().</p>
+<code>g_variant_type_first()</code> or <code>g_variant_type_next()</code>.</p>
 
 <p>If called on the key type of a dictionary entry then this call
 returns the value type.  If called on the value type of a dictionary
@@ -4162,9 +4162,9 @@ entry then this call returns <code>nil</code>.</p>
                       <div class="abstract">
                         <p>Returns the type string corresponding to the given <code>type</code>.  The
 result is not nul-terminated; in order to determine its length you
-must call g_variant_type_get_string_length().</p>
+must call <code>g_variant_type_get_string_length()</code>.</p>
 
-<p>To get a nul-terminated string, see g_variant_type_dup_string().</p>
+<p>To get a nul-terminated string, see <code>g_variant_type_dup_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4256,13 +4256,13 @@ with empty arrays).</p>
 
 <p>In the event that the parsing is successful, the resulting <code>GVariant</code>
 is returned. It is never floating, and must be freed with
-g_variant_unref().</p>
+<code>g_variant_unref()</code>.</p>
 
 <p>In case of any error, <code>nil</code> will be returned.  If <code>error</code> is non-<code>nil</code>
 then it will be set to reflect the error that occurred.</p>
 
 <p>Officially, the language understood by the parser is <q>any string
-produced by g_variant_print()</q>.</p>
+produced by `g_variant_print()`</q>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4341,7 +4341,7 @@ paths and signatures.</p>
 <p>Only a basic type may be used as the key of a dictionary entry.</p>
 
 <p>This function returns <code>false</code> for all indefinite types except
-<code>G_VARIANT_TYPE_BASIC</code>.</p>
+<code>G_VARIANT_TYPE_BASIC.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4420,7 +4420,7 @@ example.</p>
 type characters (&lsquo;*&rsquo;, &lsquo;?&rsquo;, or &lsquo;r&rsquo;).</p>
 
 <p>A <code>GVariant</code> instance may not have an indefinite type, so calling
-this function on the result of g_variant_get_type() will always
+this function on the result of <code>g_variant_get_type()</code> will always
 result in <code>true</code> being returned.  Calling this function on an
 indefinite type like <code>G_VARIANT_TYPE_ARRAY</code>, however, will result in
 <code>false</code> being returned.</p>
@@ -4606,7 +4606,7 @@ example.</p>
                       <div class="abstract">
                         <p>Returns the length of the type string corresponding to the given
 <code>type</code>.  This function must be used to determine the valid extent of
-the memory region returned by g_variant_type_peek_string().</p>
+the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4631,7 +4631,7 @@ the memory region returned by g_variant_type_peek_string().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

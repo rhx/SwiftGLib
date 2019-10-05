@@ -3457,17 +3457,17 @@ dictionaries.</p>
 
 <p>It is possible to use <code>GVariantDict</code> allocated on the stack or on the
 heap.  When using a stack-allocated <code>GVariantDict</code>, you begin with a
-call to g_variant_dict_init() and free the resources with a call to
-g_variant_dict_clear().</p>
+call to <code>g_variant_dict_init()</code> and free the resources with a call to
+<code>g_variant_dict_clear()</code>.</p>
 
 <p>Heap-allocated <code>GVariantDict</code> follows normal refcounting rules: you
-allocate it with g_variant_dict_new() and use g_variant_dict_ref()
-and g_variant_dict_unref().</p>
+allocate it with <code>g_variant_dict_new()</code> and use <code>g_variant_dict_ref()</code>
+and <code>g_variant_dict_unref()</code>.</p>
 
-<p>g_variant_dict_end() is used to convert the <code>GVariantDict</code> back into a
+<p><code>g_variant_dict_end()</code> is used to convert the <code>GVariantDict</code> back into a
 dictionary-type <code>GVariant</code>.  When used with stack-allocated instances,
 this also implicitly frees all associated memory, but for
-heap-allocated instances, you must still call g_variant_dict_unref()
+heap-allocated instances, you must still call <code>g_variant_dict_unref()</code>
 afterwards.</p>
 
 <p>You will typically want to use a heap-allocated <code>GVariantDict</code> when
@@ -3480,7 +3480,7 @@ key, adding 1 to it if it is found, or returning an error if the
 key is not found.  Each returns the new dictionary as a floating
 <code>GVariant</code>.</p>
 
-<p>&ldquo;` Using a stack-allocated GVariantDict</p>
+<p>&ldquo;&rdquo; Using a stack-allocated GVariantDict</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
@@ -3504,7 +3504,7 @@ key is not found.  Each returns the new dictionary as a floating
   }
 </code></pre>
 
-<p>&rdquo;` Using heap-allocated GVariantDict</p>
+<p>&ldquo;&rdquo; Using heap-allocated GVariantDict</p>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
@@ -3567,7 +3567,7 @@ For type-safe access, use the generated, typed pointer <code>variant_dict_ptr</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3598,7 +3598,7 @@ Ownership is transferred to the <code>VariantDict</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L374-L376">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L371-L373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3629,7 +3629,7 @@ Will retain <code>GVariantDict</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L380-L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L377-L380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3660,7 +3660,7 @@ Will retain <code>GVariantDict</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L392-L394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L389-L391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3691,7 +3691,7 @@ Will retain <code>GVariantDict</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L398-L400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L395-L397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3722,7 +3722,7 @@ Will retain <code>GVariantDict</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L404-L406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L401-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3753,7 +3753,7 @@ Will retain <code>GVariantDict</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L410-L412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L407-L409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3773,14 +3773,14 @@ Will retain <code>GVariantDict</code>.</p>
                       <div class="abstract">
                         <p>Allocates and initialises a new <code>GVariantDict</code>.</p>
 
-<p>You should call g_variant_dict_unref() on the return value when it
+<p>You should call <code>g_variant_dict_unref()</code> on the return value when it
 is no longer needed.  The memory will not be automatically freed by
 any other call.</p>
 
 <p>In some cases it may be easier to place a <code>GVariantDict</code> directly on
 the stack of the calling function and initialise it with
-g_variant_dict_init().  This is particularly useful when you are
-using <code>GVariantDict</code> to construct a <code>GVariant</code>.</p>
+<code>g_variant_dict_init()</code>.  This is particularly useful when you are
+using <code>GVariantDict</code> to construct a <code>GVariant.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3792,7 +3792,7 @@ using <code>GVariantDict</code> to construct a <code>GVariant</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L424-L427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L421-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3805,7 +3805,7 @@ using <code>GVariantDict</code> to construct a <code>GVariant</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

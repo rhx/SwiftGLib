@@ -3486,7 +3486,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A good size for a buffer to be passed into g_ascii_dtostr().
+                        <p>A good size for a buffer to be passed into <code>g_ascii_dtostr()</code>.
 It is guaranteed to be enough for all output of that function
 on systems with 64bit IEEE-compatible doubles.</p>
 
@@ -3494,7 +3494,7 @@ on systems with 64bit IEEE-compatible doubles.</p>
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>  char buf[G_ASCII_DTOSTR_BUF_SIZE];
 
-  fprintf (out, "value=`s`\n", g_ascii_dtostr (buf, sizeof (buf), value));
+  fprintf (out, "value=%s\n", g_ascii_dtostr (buf, sizeof (buf), value));
 </code></pre>
 
                       </div>
@@ -3526,7 +3526,7 @@ on systems with 64bit IEEE-compatible doubles.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies one of the possible types of byte order.
-See <code>G_BYTE_ORDER</code>.</p>
+See <code>G_BYTE_ORDER.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3558,7 +3558,7 @@ See <code>G_BYTE_ORDER</code>.</p>
                       <div class="abstract">
                         <p>The set of uppercase ASCII alphabet characters.
 Used for specifying valid identifier characters
-in <code>GScannerConfig</code>.</p>
+in <code>GScannerConfig.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3590,7 +3590,7 @@ in <code>GScannerConfig</code>.</p>
                       <div class="abstract">
                         <p>The set of ASCII digits.
 Used for specifying valid identifier characters
-in <code>GScannerConfig</code>.</p>
+in <code>GScannerConfig.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3622,7 +3622,7 @@ in <code>GScannerConfig</code>.</p>
                       <div class="abstract">
                         <p>The set of lowercase ASCII alphabet characters.
 Used for specifying valid identifier characters
-in <code>GScannerConfig</code>.</p>
+in <code>GScannerConfig.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3653,7 +3653,7 @@ in <code>GScannerConfig</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A bitmask that restricts the possible flags passed to
-g_datalist_set_flags(). Passing a flags value where
+<code>g_datalist_set_flags()</code>. Passing a flags value where
 flags &amp; ~G_DATALIST_FLAGS_MASK != 0 is an error.</p>
 
                       </div>
@@ -3684,7 +3684,7 @@ flags &amp; ~G_DATALIST_FLAGS_MASK != 0 is an error.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents an invalid <code>GDateDay</code>.</p>
+                        <p>Represents an invalid <code>GDateDay.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3874,9 +3874,9 @@ modifiers between percent-sign and conversion specifier.</p>
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>gint16 in;
 gint32 out;
-sscanf ("42", "``" G_GINT16_FORMAT, &amp;in)
+sscanf ("42", "%" G_GINT16_FORMAT, &amp;in)
 out = in * 1000;
-g_print ("``" G_GINT32_FORMAT, out);
+g_print ("%" G_GINT32_FORMAT, out);
 </code></pre>
 
                       </div>
@@ -3916,7 +3916,7 @@ and conversion specifier and append a conversion specifier.</p>
 <p>The following example prints <q>0x7b</q>;
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>gint16 value = 123;
-g_print ("```" G_GINT16_MODIFIER "x", value);
+g_print ("%#" G_GINT16_MODIFIER "x", value);
 </code></pre>
 
                       </div>
@@ -3948,7 +3948,7 @@ g_print ("```" G_GINT16_MODIFIER "x", value);
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier for scanning
-and printing values of type <code>gint32</code>. See also <code>G_GINT16_FORMAT</code>.</p>
+and printing values of type <code>gint32</code>. See also <code>G_GINT16_FORMAT.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3980,7 +3980,7 @@ and printing values of type <code>gint32</code>. See also <code>G_GINT16_FORMAT<
                       <div class="abstract">
                         <p>The platform dependent length modifier for conversion specifiers
 for scanning and printing values of type <code>gint32</code> or <code>guint32</code>. It
-is a string literal. See also <code>G_GINT16_MODIFIER</code>.</p>
+is a string literal. See also <code>G_GINT16_MODIFIER.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4015,9 +4015,9 @@ and printing values of type <code>gint64</code>. See also <code>G_GINT16_FORMAT<
 
 <p>Some platforms do not support scanning and printing 64-bit integers,
 even though the types are supported. On such platforms <code>G_GINT64_FORMAT</code>
-is not defined. Note that scanf() may not support 64-bit integers, even
-if <code>G_GINT64_FORMAT</code> is defined. Due to its weak error handling, scanf()
-is not recommended for parsing anyway; consider using g_ascii_strtoull()
+is not defined. Note that <code>scanf()</code> may not support 64-bit integers, even
+if <code>G_GINT64_FORMAT</code> is defined. Due to its weak error handling, <code>scanf()</code>
+is not recommended for parsing anyway; consider using <code>g_ascii_strtoull()</code>
 instead.</p>
 
                       </div>
@@ -4085,7 +4085,7 @@ is not defined.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier for scanning
-and printing values of type <code>gintptr</code>.</p>
+and printing values of type <code>gintptr.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4148,7 +4148,7 @@ It is a string literal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier for scanning
-and printing values of type <code>gsize</code>. See also <code>G_GINT16_FORMAT</code>.</p>
+and printing values of type <code>gsize</code>. See also <code>G_GINT16_FORMAT.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4211,7 +4211,7 @@ is a string literal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier for scanning
-and printing values of type <code>gssize</code>. See also <code>G_GINT16_FORMAT</code>.</p>
+and printing values of type <code>gssize</code>. See also <code>G_GINT16_FORMAT.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4305,7 +4305,7 @@ and printing values of type <code>guint16</code>. See also <code>G_GINT16_FORMAT
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier for scanning
-and printing values of type <code>guint32</code>. See also <code>G_GINT16_FORMAT</code>.</p>
+and printing values of type <code>guint32</code>. See also <code>G_GINT16_FORMAT.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4340,9 +4340,9 @@ and printing values of type <code>guint64</code>. See also <code>G_GINT16_FORMAT
 
 <p>Some platforms do not support scanning and printing 64-bit integers,
 even though the types are supported. On such platforms <code>G_GUINT64_FORMAT</code>
-is not defined.  Note that scanf() may not support 64-bit integers, even
-if <code>G_GINT64_FORMAT</code> is defined. Due to its weak error handling, scanf()
-is not recommended for parsing anyway; consider using g_ascii_strtoull()
+is not defined.  Note that <code>scanf()</code> may not support 64-bit integers, even
+if <code>G_GINT64_FORMAT</code> is defined. Due to its weak error handling, <code>scanf()</code>
+is not recommended for parsing anyway; consider using <code>g_ascii_strtoull()</code>
 instead.</p>
 
                       </div>
@@ -4374,7 +4374,7 @@ instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the platform dependent conversion specifier
-for scanning and printing values of type <code>guintptr</code>.</p>
+for scanning and printing values of type <code>guintptr.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5225,7 +5225,7 @@ with the <code>Application</code> type.</p>
 giving the type of the desktop entry. Usually
 <code>G_KEY_FILE_DESKTOP_TYPE_APPLICATION</code>,
 <code>G_KEY_FILE_DESKTOP_TYPE_LINK</code>, or
-<code>G_KEY_FILE_DESKTOP_TYPE_DIRECTORY</code>.</p>
+<code>G_KEY_FILE_DESKTOP_TYPE_DIRECTORY.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5413,7 +5413,7 @@ entries representing links to documents.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies one of the possible types of byte order.
-See <code>G_BYTE_ORDER</code>.</p>
+See <code>G_BYTE_ORDER.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5566,7 +5566,7 @@ above.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5599,7 +5599,7 @@ above.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5630,7 +5630,7 @@ Higher bits can be used for user-defined log levels.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5664,7 +5664,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5682,7 +5682,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>gint16</code>.</p>
+                        <p>The maximum value which can be held in a <code>gint16.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5694,7 +5694,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5712,7 +5712,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>gint32</code>.</p>
+                        <p>The maximum value which can be held in a <code>gint32.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5724,7 +5724,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5742,7 +5742,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>gint64</code>.</p>
+                        <p>The maximum value which can be held in a <code>gint64.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5754,7 +5754,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5772,7 +5772,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>gint8</code>.</p>
+                        <p>The maximum value which can be held in a <code>gint8.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5784,7 +5784,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L392">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5802,7 +5802,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>guint16</code>.</p>
+                        <p>The maximum value which can be held in a <code>guint16.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5814,7 +5814,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5832,7 +5832,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>guint32</code>.</p>
+                        <p>The maximum value which can be held in a <code>guint32.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5844,7 +5844,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L399">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5862,7 +5862,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>guint64</code>.</p>
+                        <p>The maximum value which can be held in a <code>guint64.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5874,7 +5874,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5892,7 +5892,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum value which can be held in a <code>guint8</code>.</p>
+                        <p>The maximum value which can be held in a <code>guint8.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5904,7 +5904,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5938,7 +5938,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L411">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5956,7 +5956,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum value which can be held in a <code>gint16</code>.</p>
+                        <p>The minimum value which can be held in a <code>gint16.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5968,7 +5968,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L415">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5986,7 +5986,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum value which can be held in a <code>gint32</code>.</p>
+                        <p>The minimum value which can be held in a <code>gint32.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -5998,7 +5998,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6016,7 +6016,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum value which can be held in a <code>gint64</code>.</p>
+                        <p>The minimum value which can be held in a <code>gint64.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6028,7 +6028,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6046,7 +6046,7 @@ linked against at application run time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum value which can be held in a <code>gint8</code>.</p>
+                        <p>The minimum value which can be held in a <code>gint8.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6058,7 +6058,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6092,7 +6092,7 @@ linked against at application run time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6160,7 +6160,7 @@ necessary encoding conversions for strings or filenames.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L444">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6179,7 +6179,7 @@ necessary encoding conversions for strings or filenames.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Specifies one of the possible types of byte order
-(currently unused). See <code>G_BYTE_ORDER</code>.</p>
+(currently unused). See <code>G_BYTE_ORDER.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6191,7 +6191,7 @@ necessary encoding conversions for strings or filenames.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6221,7 +6221,7 @@ necessary encoding conversions for strings or filenames.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L452">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6239,8 +6239,8 @@ necessary encoding conversions for strings or filenames.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A format specifier that can be used in printf()-style format strings
-when printing a <code>GPid</code>.</p>
+                        <p>A format specifier that can be used in <code>printf()</code>-style format strings
+when printing a <code>GPid.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6252,7 +6252,7 @@ when printing a <code>GPid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L456">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6282,7 +6282,7 @@ when printing a <code>GPid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6312,7 +6312,7 @@ when printing a <code>GPid</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6330,8 +6330,8 @@ when printing a <code>GPid</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A format specifier that can be used in printf()-style format strings
-when printing the <code>fd</code> member of a <code>GPollFD</code>.</p>
+                        <p>A format specifier that can be used in <code>printf()</code>-style format strings
+when printing the <code>fd</code> member of a <code>GPollFD.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -6343,7 +6343,7 @@ when printing the <code>fd</code> member of a <code>GPollFD</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L466">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6364,7 +6364,7 @@ when printing the <code>fd</code> member of a <code>GPollFD</code>.</p>
                         <p>Use this for default priority event sources.</p>
 
 <p>In GLib this priority is used when adding timeout functions
-with g_timeout_add(). In GDK this priority is used for events
+with <code>g_timeout_add()</code>. In GDK this priority is used for events
 from the X server.</p>
 
                       </div>
@@ -6377,7 +6377,7 @@ from the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6398,7 +6398,7 @@ from the X server.</p>
                         <p>Use this for default priority idle functions.</p>
 
 <p>In GLib this priority is used when adding idle functions with
-g_idle_add().</p>
+<code>g_idle_add()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6410,7 +6410,7 @@ g_idle_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L479">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6442,7 +6442,7 @@ g_idle_add().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6477,7 +6477,7 @@ pending redraws, so that widgets are not redrawn twice unnecessarily.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6509,7 +6509,7 @@ pending redraws, so that widgets are not redrawn twice unnecessarily.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6540,7 +6540,7 @@ This is &lsquo;:&rsquo; on UNIX machines and &lsquo;;&rsquo; under Windows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L501">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6571,7 +6571,7 @@ This is <q>:</q> on UNIX machines and <q>;</q> under Windows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L505">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L504">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6722,7 +6722,7 @@ the <code>GSource</code> in the main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6753,7 +6753,7 @@ the <code>GSource</code> from the main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L520">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6783,7 +6783,7 @@ the <code>GSource</code> from the main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6801,7 +6801,7 @@ the <code>GSource</code> from the main loop.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The standard delimiters, used in g_strdelimit().</p>
+                        <p>The standard delimiters, used in <code>g_strdelimit()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6813,7 +6813,7 @@ the <code>GSource</code> from the main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7012,28 +7012,28 @@ the <code>GSource</code> from the main loop.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates a unique temporary directory for each unit test and uses
-g_set_user_dirs() to set XDG directories to point into subdirectories of it
+<code>g_set_user_dirs()</code> to set XDG directories to point into subdirectories of it
 for the duration of the unit test. The directory tree is cleaned up after the
 test finishes successfully. Note that this doesn’t take effect until
-g_test_run() is called, so calls to (for example) g_get_user_home_dir() will
-return the system-wide value when made in a test program’s main() function.</p>
+<code>g_test_run()</code> is called, so calls to (for example) <code>g_get_user_home_dir()</code> will
+return the system-wide value when made in a test program’s <code>main()</code> function.</p>
 
 <p>The following functions will return subdirectories of the temporary directory
 when this option is used. The specific subdirectory paths in use are not
 guaranteed to be stable API — always use a getter function to retrieve them.</p>
 
 <ul>
-<li>g_get_home_dir()</li>
-<li>g_get_user_cache_dir()</li>
-<li>g_get_system_config_dirs()</li>
-<li>g_get_user_config_dir()</li>
-<li>g_get_system_data_dirs()</li>
-<li>g_get_user_data_dir()</li>
-<li>g_get_user_runtime_dir()</li>
+<li><code>g_get_home_dir()</code></li>
+<li><code>g_get_user_cache_dir()</code></li>
+<li><code>g_get_system_config_dirs()</code></li>
+<li><code>g_get_user_config_dir()</code></li>
+<li><code>g_get_system_data_dirs()</code></li>
+<li><code>g_get_user_data_dir()</code></li>
+<li><code>g_get_user_runtime_dir()</code></li>
 </ul>
 
 <p>The subdirectories may not be created by the test harness; as with normal
-calls to functions like g_get_user_cache_dir(), the caller must be prepared
+calls to functions like <code>g_get_user_cache_dir()</code>, the caller must be prepared
 to create the directory if it doesn’t exist.</p>
 
                       </div>
@@ -7046,7 +7046,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L562">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7076,7 +7076,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7106,7 +7106,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L569">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7136,7 +7136,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L571">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7166,7 +7166,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L574">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7196,7 +7196,7 @@ to create the directory if it doesn’t exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7229,7 +7229,7 @@ decomposition of a single Unicode character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L583">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7259,7 +7259,7 @@ decomposition of a single Unicode character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L586">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7289,7 +7289,7 @@ decomposition of a single Unicode character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L589">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7320,7 +7320,7 @@ This macro is provided for code readability.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L594">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L593">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7391,7 +7391,7 @@ using functions deprecated in later releases will not).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-constants.swift#L609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7558,7 +7558,7 @@ using functions deprecated in later releases will not).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

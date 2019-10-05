@@ -3457,18 +3457,18 @@ move while they hold a reference.</p>
 
 <p>A <code>GBytes</code> can come from many different origins that may have
 different procedures for freeing the memory region.  Examples are
-memory from g_malloc(), from memory slices, from a <code>GMappedFile</code> or
+memory from <code>g_malloc()</code>, from memory slices, from a <code>GMappedFile</code> or
 memory from other allocators.</p>
 
-<p><code>GBytes</code> work well as keys in <code>GHashTable</code>. Use g_bytes_equal() and
-g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full().
-<code>GBytes</code> can also be used as keys in a <code>GTree</code> by passing the g_bytes_compare()
-function to g_tree_new().</p>
+<p><code>GBytes</code> work well as keys in <code>GHashTable</code>. Use <code>g_bytes_equal()</code> and
+<code>g_bytes_hash()</code> as parameters to <code>g_hash_table_new()</code> or <code>g_hash_table_new_full()</code>.
+<code>GBytes</code> can also be used as keys in a <code>GTree</code> by passing the <code>g_bytes_compare()</code>
+function to <code>g_tree_new()</code>.</p>
 
 <p>The data pointed to by this bytes must not be modified. For a mutable
-array of bytes see <code>GByteArray</code>. Use g_bytes_unref_to_array() to create a
+array of bytes see <code>GByteArray</code>. Use <code>g_bytes_unref_to_array()</code> to create a
 mutable array for a <code>GBytes</code> sequence. To create an immutable <code>GBytes</code> from
-a mutable <code>GByteArray</code>, use the g_byte_array_free_to_bytes() function.</p>
+a mutable <code>GByteArray</code>, use the <code>g_byte_array_free_to_bytes()</code> function.</p>
 
           </div>
         </section>
@@ -3580,7 +3580,7 @@ a mutable <code>GByteArray</code>, use the g_byte_array_free_to_bytes() function
 prefix of the longer one then the shorter one is considered to be less than
 the longer one. Otherwise the first byte where both differ is used for
 comparison. If <code>bytes1</code> has a smaller value at that position it is
-considered less, otherwise greater than <code>bytes2</code>.</p>
+considered less, otherwise greater than <code>bytes2.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3616,8 +3616,8 @@ considered less, otherwise greater than <code>bytes2</code>.</p>
                         <p>Compares the two <code>GBytes</code> values being pointed to and returns
 <code>true</code> if they are equal.</p>
 
-<p>This function can be passed to g_hash_table_new() as the <code>key_equal_func</code>
-parameter, when using non-<code>nil</code> <code>GBytes</code> pointers as keys in a <code>GHashTable</code>.</p>
+<p>This function can be passed to <code>g_hash_table_new()</code> as the <code>key_equal_func</code>
+parameter, when using non-<code>nil</code> <code>GBytes</code> pointers as keys in a <code>GHashTable.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3691,7 +3691,7 @@ not be returned if <code><a href="../Protocols/BytesProtocol.html#/s:4GLib13Byte
                       <div class="abstract">
                         <p>Get the size of the byte data in the <code>GBytes</code>.</p>
 
-<p>This function will always return the same value for a given <code>GBytes</code>.</p>
+<p>This function will always return the same value for a given <code>GBytes.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3726,8 +3726,8 @@ not be returned if <code><a href="../Protocols/BytesProtocol.html#/s:4GLib13Byte
                       <div class="abstract">
                         <p>Creates an integer hash code for the byte data in the <code>GBytes</code>.</p>
 
-<p>This function can be passed to g_hash_table_new() as the <code>key_hash_func</code>
-parameter, when using non-<code>nil</code> <code>GBytes</code> pointers as keys in a <code>GHashTable</code>.</p>
+<p>This function can be passed to <code>g_hash_table_new()</code> as the <code>key_hash_func</code>
+parameter, when using non-<code>nil</code> <code>GBytes</code> pointers as keys in a <code>GHashTable.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3803,7 +3803,7 @@ usage of <code>GBytes</code> when asynchronously writing to streams.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Increase the reference count on <code>bytes</code>.</p>
+                        <p>Increase the reference count on <code>bytes.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3875,7 +3875,7 @@ the same byte data.</p>
 
 <p>As an optimization, the byte data is transferred to the array without copying
 if this was the last reference to bytes and bytes was created with
-g_bytes_new(), g_bytes_new_take() or g_byte_array_free_to_bytes(). In all
+<code>g_bytes_new()</code>, <code>g_bytes_new_take()</code> or <code>g_byte_array_free_to_bytes()</code>. In all
 other cases the data is copied.</p>
 
                       </div>
@@ -3913,8 +3913,8 @@ other cases the data is copied.</p>
 contents.</p>
 
 <p>As an optimization, the byte data is returned without copying if this was
-the last reference to bytes and bytes was created with g_bytes_new(),
-g_bytes_new_take() or g_byte_array_free_to_bytes(). In all other cases the
+the last reference to bytes and bytes was created with <code>g_bytes_new()</code>,
+<code>g_bytes_new_take()</code> or <code>g_byte_array_free_to_bytes()</code>. In all other cases the
 data is copied.</p>
 
                       </div>
@@ -3949,8 +3949,8 @@ data is copied.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Computes the checksum for a binary <code>data</code>. This is a
-convenience wrapper for g_checksum_new(), g_checksum_get_string()
-and g_checksum_free().</p>
+convenience wrapper for <code>g_checksum_new()</code>, <code>g_checksum_get_string()</code>
+and <code>g_checksum_free()</code>.</p>
 
 <p>The hexadecimal string returned will be in lower case.</p>
 
@@ -3986,8 +3986,8 @@ and g_checksum_free().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Computes the HMAC for a binary <code>data</code>. This is a
-convenience wrapper for g_hmac_new(), g_hmac_get_string()
-and g_hmac_unref().</p>
+convenience wrapper for <code>g_hmac_new()</code>, <code>g_hmac_get_string()</code>
+and <code>g_hmac_unref()</code>.</p>
 
 <p>The hexadecimal string returned will be in lower case.</p>
 
@@ -4024,7 +4024,7 @@ and g_hmac_unref().</p>
                       <div class="abstract">
                         <p>Get the size of the byte data in the <code>GBytes</code>.</p>
 
-<p>This function will always return the same value for a given <code>GBytes</code>.</p>
+<p>This function will always return the same value for a given <code>GBytes.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4049,7 +4049,7 @@ and g_hmac_unref().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

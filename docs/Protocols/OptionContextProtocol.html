@@ -3657,7 +3657,7 @@ added to it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the description. See g_option_context_set_description().</p>
+                        <p>Returns the description. See <code>g_option_context_set_description()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3730,7 +3730,7 @@ To obtain the help text for an option group, call
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether automatic <code>--help</code> generation
-is turned on for <code>context</code>. See g_option_context_set_help_enabled().</p>
+is turned on for <code>context</code>. See <code>g_option_context_set_help_enabled()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3764,7 +3764,7 @@ is turned on for <code>context</code>. See g_option_context_set_help_enabled().<
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether unknown options are ignored or not. See
-g_option_context_set_ignore_unknown_options().</p>
+<code>g_option_context_set_ignore_unknown_options()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3797,7 +3797,7 @@ g_option_context_set_ignore_unknown_options().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a pointer to the main group of <code>context</code>.</p>
+                        <p>Returns a pointer to the main group of <code>context.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3832,7 +3832,7 @@ g_option_context_set_ignore_unknown_options().</p>
                       <div class="abstract">
                         <p>Returns whether strict POSIX code is enabled.</p>
 
-<p>See g_option_context_set_strict_posix() for more information.</p>
+<p>See <code>g_option_context_set_strict_posix()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -3865,7 +3865,7 @@ g_option_context_set_ignore_unknown_options().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the summary. See g_option_context_set_summary().</p>
+                        <p>Returns the summary. See <code>g_option_context_set_summary()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3900,7 +3900,7 @@ g_option_context_set_ignore_unknown_options().</p>
                       <div class="abstract">
                         <p>Parses the command line arguments, recognizing options
 which have been added to <code>context</code>. A side-effect of
-calling this function is that g_set_prgname() will be
+calling this function is that <code>g_set_prgname()</code> will be
 called.</p>
 
 <p>If the parsing is successful, any parsed arguments are
@@ -3911,7 +3911,7 @@ or some of the options after it start with &lsquo;-&rsquo;. In case
 of an error, <code>argc</code> and <code>argv</code> are left unmodified.</p>
 
 <p>If automatic <code>--help</code> support is enabled
-(see g_option_context_set_help_enabled()), and the
+(see <code>g_option_context_set_help_enabled()</code>), and the
 <code>argv</code> array contains one of the recognized help options,
 this function will produce help output to stdout and
 call <code>exit (0)</code>.</p>
@@ -3953,20 +3953,20 @@ arguments.</p>
                       <div class="abstract">
                         <p>Parses the command line arguments.</p>
 
-<p>This function is similar to g_option_context_parse() except that it
+<p>This function is similar to <code>g_option_context_parse()</code> except that it
 respects the normal memory rules when dealing with a strv instead of
 assuming that the passed-in array is the argv of the main function.</p>
 
 <p>In particular, strings that are removed from the arguments list will
-be freed using g_free().</p>
+be freed using <code>g_free()</code>.</p>
 
 <p>On Windows, the strings are expected to be in UTF-8.  This is in
-contrast to g_option_context_parse() which expects them to be in the
-system codepage, which is how they are passed as <code>argv</code> to main().
-See g_win32_get_command_line() for a solution.</p>
+contrast to <code>g_option_context_parse()</code> which expects them to be in the
+system codepage, which is how they are passed as <code>argv</code> to <code>main()</code>.
+See <code>g_win32_get_command_line()</code> for a solution.</p>
 
 <p>This function is useful if you are trying to use <code>GOptionContext</code> with
-<code>GApplication</code>.</p>
+<code>GApplication.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4003,7 +4003,7 @@ See g_win32_get_command_line() for a solution.</p>
 of options. This text often includes a bug reporting address.</p>
 
 <p>Note that the summary is translated (see
-g_option_context_set_translate_func()).</p>
+<code>g_option_context_set_translate_func()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -4037,7 +4037,7 @@ g_option_context_set_translate_func()).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Enables or disables automatic generation of <code>--help</code> output.
-By default, g_option_context_parse() recognizes <code>--help</code>, <code>-h</code>,
+By default, <code>g_option_context_parse()</code> recognizes <code>--help</code>, <code>-h</code>,
 <code>-?</code>, <code>--help-all</code> and <code>--help-groupname</code> and creates suitable
 output to stdout.</p>
 
@@ -4074,7 +4074,7 @@ output to stdout.</p>
                       <div class="abstract">
                         <p>Sets whether to ignore unknown options or not. If an argument is
 ignored, it is left in the <code>argv</code> array after parsing. By default,
-g_option_context_parse() treats unknown options as error.</p>
+<code>g_option_context_parse()</code> treats unknown options as error.</p>
 
 <p>This setting does not affect non-option arguments (i.e. arguments
 which don&rsquo;t start with a dash). But note that GOption cannot reliably
@@ -4112,7 +4112,7 @@ determine whether a non-option belongs to a preceding unknown option.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets a <code>GOptionGroup</code> as main group of the <code>context</code>.
-This has the same effect as calling g_option_context_add_group(),
+This has the same effect as calling <code>g_option_context_add_group()</code>,
 the only difference is that the options in the main group are
 treated differently when generating <code>--help</code> output.</p>
 
@@ -4207,8 +4207,8 @@ parsing).</p>
 of options. This is typically a summary of the program functionality.</p>
 
 <p>Note that the summary is translated (see
-g_option_context_set_translate_func() and
-g_option_context_set_translation_domain()).</p>
+<code>g_option_context_set_translate_func()</code> and
+<code>g_option_context_set_translation_domain()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -4246,12 +4246,12 @@ user-visible strings, for <code>--help</code> output. If <code>func</code> is <c
 strings are not translated.</p>
 
 <p>Note that option groups have their own translation functions,
-this function only affects the <code>parameter_string</code> (see g_option_context_new()),
-the summary (see g_option_context_set_summary()) and the description
-(see g_option_context_set_description()).</p>
+this function only affects the <code>parameter_string</code> (see <code>g_option_context_new()</code>),
+the summary (see <code>g_option_context_set_summary()</code>) and the description
+(see <code>g_option_context_set_description()</code>).</p>
 
-<p>If you are using gettext(), you only need to set the translation
-domain, see g_option_context_set_translation_domain().</p>
+<p>If you are using <code>gettext()</code>, you only need to set the translation
+domain, see <code>g_option_context_set_translation_domain()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4284,7 +4284,7 @@ domain, see g_option_context_set_translation_domain().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A convenience function to use gettext() for translating
+                        <p>A convenience function to use <code>gettext()</code> for translating
 user-visible strings.</p>
 
                       </div>
@@ -4318,7 +4318,7 @@ user-visible strings.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the description. See g_option_context_set_description().</p>
+                        <p>Returns the description. See <code>g_option_context_set_description()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4352,7 +4352,7 @@ user-visible strings.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether automatic <code>--help</code> generation
-is turned on for <code>context</code>. See g_option_context_set_help_enabled().</p>
+is turned on for <code>context</code>. See <code>g_option_context_set_help_enabled()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4386,7 +4386,7 @@ is turned on for <code>context</code>. See g_option_context_set_help_enabled().<
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether unknown options are ignored or not. See
-g_option_context_set_ignore_unknown_options().</p>
+<code>g_option_context_set_ignore_unknown_options()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4419,7 +4419,7 @@ g_option_context_set_ignore_unknown_options().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a pointer to the main group of <code>context</code>.</p>
+                        <p>Returns a pointer to the main group of <code>context.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -4454,7 +4454,7 @@ g_option_context_set_ignore_unknown_options().</p>
                       <div class="abstract">
                         <p>Returns whether strict POSIX code is enabled.</p>
 
-<p>See g_option_context_set_strict_posix() for more information.</p>
+<p>See <code>g_option_context_set_strict_posix()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -4487,7 +4487,7 @@ g_option_context_set_ignore_unknown_options().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the summary. See g_option_context_set_summary().</p>
+                        <p>Returns the summary. See <code>g_option_context_set_summary()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4512,7 +4512,7 @@ g_option_context_set_ignore_unknown_options().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

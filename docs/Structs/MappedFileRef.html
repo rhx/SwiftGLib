@@ -3445,7 +3445,7 @@ It exposes methods that can operate on this data type through <code><a href="../
 Use <code>MappedFileRef</code> only as an <code>unowned</code> reference to an existing <code>GMappedFile</code> instance.</p>
 
 <p>The <code>GMappedFile</code> represents a file mapping created with
-g_mapped_file_new(). It has only private members and should
+<code>g_mapped_file_new()</code>. It has only private members and should
 not be accessed directly.</p>
 
           </div>
@@ -3725,7 +3725,7 @@ For type-safe access, use the generated, typed pointer <code>mapped_file_ptr</co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Maps</span> <span class="n">a</span> <span class="n">file</span> <span class="n">into</span> <span class="n">memory</span><span class="o">.</span> <span class="kt">On</span> <span class="kt">UNIX</span><span class="p">,</span> <span class="n">this</span> <span class="k">is</span> <span class="n">using</span> <span class="n">the</span> <span class="nf">mmap</span><span class="p">()</span> <span class="n">function</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Maps</span> <span class="n">a</span> <span class="n">file</span> <span class="n">into</span> <span class="n">memory</span><span class="o">.</span> <span class="kt">On</span> <span class="kt">UNIX</span><span class="p">,</span> <span class="n">this</span> <span class="k">is</span> <span class="n">using</span> <span class="n">the</span> <span class="err">`</span><span class="nf">mmap</span><span class="p">()</span><span class="err">`</span> <span class="n">function</span><span class="o">.</span>
 </code></pre>
 
 <p>If <code>writable</code> is <code>true</code>, the mapped buffer may be modified, otherwise
@@ -3736,12 +3736,12 @@ written back to the file.</p>
 <p>Note that modifications of the underlying file might affect the contents
 of the <code>GMappedFile</code>. Therefore, mapping should only be used if the file
 will not be modified, or if all modifications of the file are done
-atomically (e.g. using g_file_set_contents()).</p>
+atomically (e.g. using <code>g_file_set_contents()</code>).</p>
 
 <p>If <code>filename</code> is the name of an empty, regular file, the function
 will successfully return an empty <code>GMappedFile</code>. In other cases of
 size 0 (e.g. device files such as /dev/null), <code>error</code> will be set
-to the <code>GFileError</code> value <code>G_FILE_ERROR_INVAL</code>.</p>
+to the <code>GFileError</code> value <code>G_FILE_ERROR_INVAL.</code></p>
 
                       </div>
                       <div class="declaration">
@@ -3771,7 +3771,7 @@ to the <code>GFileError</code> value <code>G_FILE_ERROR_INVAL</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Maps a file into memory. On UNIX, this is using the mmap() function.</p>
+                        <p>Maps a file into memory. On UNIX, this is using the <code>mmap()</code> function.</p>
 
 <p>If <code>writable</code> is <code>true</code>, the mapped buffer may be modified, otherwise
 it is an error to modify the mapped buffer. Modifications to the buffer
@@ -3781,7 +3781,7 @@ written back to the file.</p>
 <p>Note that modifications of the underlying file might affect the contents
 of the <code>GMappedFile</code>. Therefore, mapping should only be used if the file
 will not be modified, or if all modifications of the file are done
-atomically (e.g. using g_file_set_contents()).</p>
+atomically (e.g. using <code>g_file_set_contents()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -3811,7 +3811,7 @@ atomically (e.g. using g_file_set_contents()).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Maps a file into memory. On UNIX, this is using the mmap() function.</p>
+                        <p>Maps a file into memory. On UNIX, this is using the <code>mmap()</code> function.</p>
 
 <p>If <code>writable</code> is <code>true</code>, the mapped buffer may be modified, otherwise
 it is an error to modify the mapped buffer. Modifications to the buffer
@@ -3821,7 +3821,7 @@ written back to the file.</p>
 <p>Note that modifications of the underlying file might affect the contents
 of the <code>GMappedFile</code>. Therefore, mapping should only be used if the file
 will not be modified, or if all modifications of the file are done
-atomically (e.g. using g_file_set_contents()).</p>
+atomically (e.g. using <code>g_file_set_contents()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -3846,7 +3846,7 @@ atomically (e.g. using g_file_set_contents()).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-05)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
