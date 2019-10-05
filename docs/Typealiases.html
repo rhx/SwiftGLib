@@ -4844,7 +4844,7 @@ parameter which is passed to <code>g_hash_table_foreach()</code>.</p>
 <code>g_hash_table_foreach_remove()</code>. It is called with each key/value
 pair, together with the <code>user_data</code> parameter passed to
 <code>g_hash_table_foreach_remove()</code>. It should return <code>true</code> if the
-key/value pair should be removed from the <code>GHashTable.</code></p>
+key/value pair should be removed from the <code>GHashTable</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5486,7 +5486,7 @@ These are called with the complete formatted string to output.</p>
                         <p>Specifies the type of the function passed to <code>g_regex_replace_eval()</code>.
 It is called for each occurrence of the pattern in the string passed
 to <code>g_regex_replace_eval()</code>, and it should append the replacement to
-<code>result.</code></p>
+<code>result</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5548,7 +5548,7 @@ to <code>g_regex_replace_eval()</code>, and it should append the replacement to
                       <div class="abstract">
                         <p>A <code>GSequenceIterCompareFunc</code> is a function used to compare iterators.
 It must return zero if the iterators compare equal, a negative value
-if <code>a</code> comes before <code>b</code>, and a positive value if <code>b</code> comes before <code>a.</code></p>
+if <code>a</code> comes before <code>b</code>, and a positive value if <code>b</code> comes before <code>a</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -5743,7 +5743,7 @@ the test case.</p>
 
 <p><code>fixture</code> will be a pointer to the area of memory allocated by the
 test framework, of the size requested.  If the requested size was
-zero then <code>fixture</code> will be equal to <code>user_data.</code></p>
+zero then <code>fixture</code> will be equal to <code>user_data</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6183,7 +6183,7 @@ to mark a number as a day, month, or year.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The possible errors, used in the <code>v_error</code> field
-of <code>GTokenValue</code>, when the token is a <code>G_TOKEN_ERROR.</code></p>
+of <code>GTokenValue</code>, when the token is a <code>G_TOKEN_ERROR</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -6380,7 +6380,7 @@ was successfully handled by the writer, or whether there was an error in
 handling it (and hence a fallback writer should be used).</p>
 
 <p>If a <code>GLogWriterFunc</code> ignores a log entry, it should return
-<code>G_LOG_WRITER_HANDLED.</code></p>
+<code>G_LOG_WRITER_HANDLED</code>.</p>
 
                       </div>
                       <div class="declaration">

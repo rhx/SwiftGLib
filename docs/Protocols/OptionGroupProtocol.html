@@ -3451,7 +3451,7 @@ group. The struct has only private fields and should not be directly accessed.</
 <p>All options in a group share the same translation function. Libraries which
 need to parse commandline options are expected to provide a function for
 getting a <code>GOptionGroup</code> holding their options, which
-the application can then add to its <code>GOptionContext.</code></p>
+the application can then add to its <code>GOptionContext</code>.</p>
 
           </div>
         </section>
@@ -3555,7 +3555,7 @@ the application can then add to its <code>GOptionContext.</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds the options specified in <code>entries</code> to <code>group.</code></p>
+                        <p>Adds the options specified in <code>entries</code> to <code>group</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -3589,7 +3589,7 @@ the application can then add to its <code>GOptionContext.</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Frees a <code>GOptionGroup</code>. Note that you must not free groups
-which have been added to a <code>GOptionContext.</code></p>
+which have been added to a <code>GOptionContext</code>.</p>
 
 <p><strong>free is deprecated:</strong>
 Use g_option_group_unref() instead.</p>
