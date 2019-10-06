@@ -3668,7 +3668,7 @@ If <code>key</code> is <code>nil</code> then <code>comment</code> will be read f
 <code>group_name</code>. If both <code>key</code> and <code>group_name</code> are <code>nil</code>, then
 <code>comment</code> will be read from above the first group in the file.</p>
 
-<p>Note that the returned string does not include the &lsquo;&ldquo;&rsquo; comment markers,
+<p>Note that the returned string does not include the &lsquo;#&rsquo; comment markers,
 but does include any whitespace after them (on each line). It includes
 the line breaks between lines, but does not include the final line break.</p>
 
@@ -4793,8 +4793,8 @@ If <code>group_name</code> is <code>nil</code>, the start_group is used.</p>
 If both <code>key</code> and <code>group_name</code>  are <code>nil</code>, then <code>comment</code> will be
 written above the first group in the file.</p>
 
-<p>Note that this function prepends a &lsquo;`<code>&#39; comment marker to
-each line of</code>comment`.</p>
+<p>Note that this function prepends a &lsquo;#&rsquo; comment marker to
+each line of <code>comment</code>.</p>
 
                       </div>
                       <div class="declaration">

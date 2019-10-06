@@ -3522,8 +3522,7 @@ designed to be embedded in other libraries.</p>
 <p>There is a Python-inspired text language for describing <code>GVariant</code>
 values.  <code>GVariant</code> includes a printer for this language and a parser
 with type inferencing.</p>
-
-<p>&ldquo;&rdquo; Memory Use</p>
+<h2 id='memory-use' class='heading'>Memory Use</h2>
 
 <p><code>GVariant</code> tries to be quite efficient with respect to memory use.
 This section gives a rough idea of how much memory is used by the
@@ -3534,8 +3533,7 @@ in the future.</p>
 purposes: memory for serialised data, memory for the type
 information cache, buffer management memory and memory for the
 <code>GVariant</code> structure itself.</p>
-
-<p>&ldquo;&rdquo; Serialised Data Memory</p>
+<h2 id='serialised-data-memory' class='heading'>Serialised Data Memory</h2>
 
 <p>This is the memory that is used for storing GVariant data in
 serialised form.  This is what would be sent over the network or
@@ -3593,8 +3591,7 @@ After the 14 bytes of the first item, that&rsquo;s 2 bytes required.
 We now require 2 framing offsets for an extra two
 bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 dictionary.</p>
-
-<p>&ldquo;&rdquo; Type Information Cache</p>
+<h2 id='type-information-cache' class='heading'>Type Information Cache</h2>
 
 <p>For each GVariant type that currently exists in the program a type
 information structure is kept in the type information cache.  The
@@ -3639,8 +3636,7 @@ are zero items in the type cache.</p>
 that a program will probably only have a very small number of
 different types of values in it and that only one type information
 structure is required for many different values of the same type.</p>
-
-<p>&ldquo;&rdquo; Buffer Management Memory</p>
+<h2 id='buffer-management-memory' class='heading'>Buffer Management Memory</h2>
 
 <p><code>GVariant</code> uses an internal buffer management structure to deal
 with the various different possible sources of serialised data
@@ -3652,8 +3648,7 @@ even <code>g_mapped_file_unref()</code>.</p>
 <p>One buffer management structure is used for each chunk of
 serialised data.  The size of the buffer management structure
 is 4 * (void *).  On 32-bit systems, that&rsquo;s 16 bytes.</p>
-
-<p>&ldquo;&rdquo; GVariant structure</p>
+<h2 id='gvariant-structure' class='heading'>GVariant structure</h2>
 
 <p>The size of a <code>GVariant</code> structure is 6 * (void *).  On 32-bit
 systems, that&rsquo;s 24 bytes.</p>
@@ -3673,19 +3668,19 @@ as they are in use (ie: until you call <code>g_variant_unref()</code>).  The
 type information is shared.  The serialised data and the buffer
 management structure for that serialised data is shared by the
 child.</p>
-<pre class="highlight plaintext"><code>
-To put the entire example together, for our dictionary mapping
+<h2 id='summary' class='heading'>Summary</h2>
+
+<p>To put the entire example together, for our dictionary mapping
 strings to variants (with two entries, as given above), we are
 using 91 bytes of memory for type information, 29 bytes of memory
 for the serialised data, 16 bytes for buffer management and 24
-bytes for the `GVariant` instance, or a total of 160 bytes, plus
-malloc overhead.  If we were to use `g_variant_get_child_value()` to
+bytes for the <code>GVariant</code> instance, or a total of 160 bytes, plus
+malloc overhead.  If we were to use <code>g_variant_get_child_value()</code> to
 access the two dictionary entries, we would use an additional 48
 bytes.  If we were to have other dictionaries of the same type, we
 would use more memory for the serialised data and buffer
 management for those dictionaries, but the type information would
-be shared.
-</code></pre>
+be shared.</p>
 
           </div>
         </section>
