@@ -134,14 +134,14 @@ public let GINTPTR_MODIFIER = G_GINTPTR_MODIFIER /* utf8 20 */
 ///
 /// **GNUC_FUNCTION is deprecated:**
 /// Use G_STRFUNC() instead
-public let GNUC_FUNCTION = G_GNUC_FUNCTION /* utf8 21 */
+// deprecated GNUC_FUNCTION = G_GNUC_FUNCTION /* utf8 21 */
 
 /// Expands to "" on all modern compilers, and to __PRETTY_FUNCTION__
 /// on gcc version 2.x. Don't use it.
 ///
 /// **GNUC_PRETTY_FUNCTION is deprecated:**
 /// Use G_STRFUNC() instead
-public let GNUC_PRETTY_FUNCTION = G_GNUC_PRETTY_FUNCTION /* utf8 22 */
+// deprecated GNUC_PRETTY_FUNCTION = G_GNUC_PRETTY_FUNCTION /* utf8 22 */
 
 /// This is the platform dependent conversion specifier for scanning
 /// and printing values of type `gsize`. See also `G_GINT16_FORMAT`.
