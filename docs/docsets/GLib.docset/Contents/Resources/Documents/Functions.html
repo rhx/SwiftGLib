@@ -7576,7 +7576,7 @@ is also divisible by 400.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Generates a printed representation of the date, in a
-[locale][setlocale]-specific way.
+<a href="#setlocale">locale</a>-specific way.
 Works just like the platform&rsquo;s C library <code>strftime()</code> function,
 but only accepts date-related formats; time-related formats
 give undefined results. Date must be valid. Unlike <code>strftime()</code>
@@ -8818,7 +8818,7 @@ encoding used for filenames.</p>
                         <p>Converts a string from UTF-8 to the encoding GLib uses for
 filenames. Note that on Windows GLib uses UTF-8 for filenames;
 on other platforms, this function indirectly depends on the
-[current locale][setlocale].</p>
+<a href="#setlocale">current locale</a>.</p>
 
 <p>The input string shall not contain nul characters even if the <code>len</code>
 argument is positive. A nul character found inside the string will result
@@ -8888,7 +8888,7 @@ component following Section 3.3. of RFC 2396.</p>
                         <p>Converts a string which is in the encoding used by GLib for
 filenames into a UTF-8 string. Note that on Windows GLib uses UTF-8
 for filenames; on other platforms, this function indirectly depends on
-the [current locale][setlocale].</p>
+the <a href="#setlocale">current locale</a>.</p>
 
 <p>The input string shall not contain nul characters even if the <code>len</code>
 argument is positive. A nul character found inside the string will result
@@ -9159,7 +9159,7 @@ been called).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Obtains the character set for the [current locale][setlocale]; you
+                        <p>Obtains the character set for the <a href="#setlocale">current locale</a>; you
 might use this character set as an argument to <code>g_convert()</code>, to convert
 from the current locale&rsquo;s encoding to some other encoding. (Frequently
 <code>g_locale_to_utf8()</code> and <code>g_locale_from_utf8()</code> are nice shortcuts, though.)</p>
@@ -9412,7 +9412,7 @@ and said environment variables have no effect.</p>
 
 <p><code>G_FILENAME_ENCODING</code> may be set to a comma-separated list of
 character set names. The special token <q>`locale`</q> is taken
-to  mean the character set for the [current locale][setlocale].
+to  mean the character set for the <a href="#setlocale">current locale</a>.
 If <code>G_FILENAME_ENCODING</code> is not set, but <code>G_BROKEN_FILENAMES</code> is,
 the character set of the current locale is taken as the filename
 encoding. If neither environment variable  is set, UTF-8 is taken
@@ -11197,7 +11197,7 @@ default idle priority, <code>G_PRIORITY_DEFAULT_IDLE</code>.  If the function
 returns <code>false</code> it is automatically removed from the list of event
 sources and will not be called again.</p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>This internally creates a main loop source using <code>g_idle_source_new()</code>
@@ -11238,7 +11238,7 @@ use a custom main context.</p>
 events pending.  If the function returns <code>false</code> it is automatically
 removed from the list of event sources and will not be called again.</p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>This internally creates a main loop source using <code>g_idle_source_new()</code>
@@ -11791,7 +11791,7 @@ the UTF-8 encoding that this function and <code>g_getenv()</code> provide.</p>
                       <div class="abstract">
                         <p>Converts a string from UTF-8 to the encoding used for strings by
 the C runtime (usually the same as that used by the operating
-system) in the [current locale][setlocale]. On Windows this means
+system) in the <a href="#setlocale">current locale</a>. On Windows this means
 the system codepage.</p>
 
 <p>The input string shall not contain nul characters even if the <code>len</code>
@@ -11829,7 +11829,7 @@ input that may contain embedded nul characters.</p>
                       <div class="abstract">
                         <p>Converts a string which is in the encoding used for strings by
 the C runtime (usually the same as that used by the operating
-system) in the [current locale][setlocale] into a UTF-8 string.</p>
+system) in the <a href="#setlocale">current locale</a> into a UTF-8 string.</p>
 
 <p>If the source encoding is not UTF-8 and the conversion output contains a
 nul character, the error <code>G_CONVERT_ERROR_EMBEDDED_NUL</code> is set and the
@@ -11892,7 +11892,7 @@ these messages are not printed.</p></li>
 the rest.</p>
 
 <p>This has no effect if structured logging is enabled; see
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11925,7 +11925,7 @@ the rest.</p>
                         <p>Removes the log handler.</p>
 
 <p>This has no effect if structured logging is enabled; see
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11970,7 +11970,7 @@ by a process, including those from other libraries.</p>
 <p>Structured log messages (using <code>g_log_structured()</code> and
 <code>g_log_structured_array()</code>) are fatal only if the default log writer is used;
 otherwise it is up to the writer function to determine which log messages
-are fatal. See [Using Structured Logging][using-structured-logging].</p>
+are fatal. See <a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12006,7 +12006,7 @@ and log level combination. By default, GLib uses
 <code>g_log_default_handler()</code> as default log handler.</p>
 
 <p>This has no effect if structured logging is enabled; see
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12043,7 +12043,7 @@ and log level combination. By default, GLib uses
 <code>g_log_structured_array()</code>). To change the fatal behaviour for specific log
 messages, programs must install a custom log writer function using
 <code>g_log_set_writer_func()</code>. See
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
 <p>This function is mostly intended to be used with
 <code>G_LOG_LEVEL_CRITICAL</code>.  You should typically not set
@@ -12088,7 +12088,7 @@ you want to set a handler for this log level you must combine it with
 <code>G_LOG_FLAG_FATAL</code>.</p>
 
 <p>This has no effect if structured logging is enabled; see
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
 <p>Here is an example for adding a log handler for all warning messages
 in the default domain:
@@ -12140,7 +12140,7 @@ in the default domain:
                         <p>Like <code>g_log_set_handler()</code>, but takes a destroy notify for the <code>user_data</code>.</p>
 
 <p>This has no effect if structured logging is enabled; see
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12530,7 +12530,7 @@ details of the debugging options this provides.</p>
 character will automatically be appended to @&hellip;, and need not be entered
 manually.</p>
 
-<p>If [structured logging is enabled][using-structured-logging] this will
+<p>If <a href="#using-structured-logging">structured logging is enabled</a> this will
 output via the structured log writer function (see <code>g_log_set_writer_func()</code>).</p>
 
                       </div>
@@ -16259,7 +16259,7 @@ though in general slices are 2 * sizeof (void*) bytes aligned,
 if a <code>malloc()</code> fallback implementation is used instead,
 the alignment may be reduced in a libc dependent fashion.
 Note that the underlying slice allocation mechanism can
-be changed with the [<code>G_SLICE=always-malloc</code>][G_SLICE]
+be changed with the <a href="#G_SLICE"><code>G_SLICE=always-malloc</code></a>
 environment variable.</p>
 
                       </div>
@@ -16292,7 +16292,7 @@ environment variable.</p>
                       <div class="abstract">
                         <p>Allocates a block of memory via <code>g_slice_alloc()</code> and initializes
 the returned memory to 0. Note that the underlying slice allocation
-mechanism can be changed with the [<code>G_SLICE=always-malloc</code>][G_SLICE]
+mechanism can be changed with the <a href="#G_SLICE"><code>G_SLICE=always-malloc</code></a>
 environment variable.</p>
 
                       </div>
@@ -16361,8 +16361,8 @@ and copies <code>block_size</code> bytes into it from <code>mem_block</code>.</p
 <p>The memory must have been allocated via <code>g_slice_alloc()</code> or
 <code>g_slice_alloc0()</code> and the <code>block_size</code> has to match the size
 specified upon allocation. Note that the exact release behaviour
-can be changed with the [<code>G_DEBUG=gc-friendly</code>][G_DEBUG] environment
-variable, also see [<code>G_SLICE</code>][G_SLICE] for related debugging options.</p>
+can be changed with the <a href="#G_DEBUG"><code>G_DEBUG=gc-friendly</code></a> environment
+variable, also see <a href="#G_SLICE"><code>G_SLICE</code></a> for related debugging options.</p>
 
 <p>If <code>mem_block</code> is <code>nil</code>, this function does nothing.</p>
 
@@ -16401,8 +16401,8 @@ variable, also see [<code>G_SLICE</code>][G_SLICE] for related debugging options
 <code>next</code> pointer (similar to <code>GSList</code>). The offset of the <code>next</code>
 field in each block is passed as third argument.
 Note that the exact release behaviour can be changed with the
-[<code>G_DEBUG=gc-friendly</code>][G_DEBUG] environment variable, also see
-[<code>G_SLICE</code>][G_SLICE] for related debugging options.</p>
+<a href="#G_DEBUG"><code>G_DEBUG=gc-friendly</code></a> environment variable, also see
+<a href="#G_SLICE"><code>G_SLICE</code></a> for related debugging options.</p>
 
 <p>If <code>mem_chain</code> is <code>nil</code>, this function does nothing.</p>
 
@@ -19314,7 +19314,7 @@ not abort.</p>
 
 <p>This API may only be used with the old logging API (<code>g_log()</code> without
 <code>G_LOG_USE_STRUCTURED</code> defined). It will not work with the structured logging
-API. See [Testing for Messages][testing-for-messages].</p>
+API. See <a href="#testing-for-messages">Testing for Messages</a>.</p>
 
 <p>Use <code>g_test_assert_expected_messages()</code> to assert that all
 previously-expected messages have been seen and suppressed.</p>
@@ -19574,7 +19574,7 @@ function which needs the special behavior.</p>
 <code>g_log_structured()</code> or <code>g_log_structured_array()</code>). To change the fatal
 behaviour for specific log messages, programs must install a custom log
 writer function using <code>g_log_set_writer_func()</code>.See
-[Using Structured Logging][using-structured-logging].</p>
+<a href="#using-structured-logging">Using Structured Logging</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -20826,7 +20826,7 @@ After each call to the timeout function, the time of the next
 timeout is recalculated based on the current time and the given interval
 (it does not try to &lsquo;catch up&rsquo; time lost in delays).</p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>If you want to have a timer in the <q>seconds</q> range and do not care
@@ -20884,7 +20884,7 @@ After each call to the timeout function, the time of the next
 timeout is recalculated based on the current time and the given interval
 (it does not try to &lsquo;catch up&rsquo; time lost in delays).</p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>This internally creates a main loop source using <code>g_timeout_source_new()</code>
@@ -20938,7 +20938,7 @@ greater control. Also see <code>g_timeout_add_seconds_full()</code>.</p>
 of one second. If you need finer precision and have such a timeout,
 you may want to use <code>g_timeout_add()</code> instead.</p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>The interval given is in terms of monotonic time, not wall clock
@@ -20990,7 +20990,7 @@ event sources. Thus they should not be relied on for precise timing.
 After each call to the timeout function, the time of the next
 timeout is recalculated based on the current time and the given <code>interval</code></p>
 
-<p>See [memory management of sources][mainloop-memory-management] for details
+<p>See <a href="#mainloop-memory-management">memory management of sources</a> for details
 on how to handle the return value and memory management of <code>data</code>.</p>
 
 <p>If you want timing more precise than whole seconds, use <code>g_timeout_add()</code>
@@ -23476,7 +23476,7 @@ provide such a function.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Compares two strings for ordering using the linguistically
-correct rules for the [current locale][setlocale].
+correct rules for the <a href="#setlocale">current locale</a>.
 When sorting a large number of strings, it will be significantly
 faster to obtain collation keys with <code>g_utf8_collate_key()</code> and
 compare the keys with <code>strcmp()</code> when sorting instead of sorting
@@ -23518,7 +23518,7 @@ with other collation keys produced by the same function using
 with <code>strcmp()</code> will always be the same as comparing the two
 original keys with <code>g_utf8_collate()</code>.</p>
 
-<p>Note that this function depends on the [current locale][setlocale].</p>
+<p>Note that this function depends on the <a href="#setlocale">current locale</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -23558,7 +23558,7 @@ insignificant, thus producing the ordering <q>event.c</q> <q>eventgenerator.c</q
 would like to treat numbers intelligently so that <q>file1</q> <q>file10</q> <q>file5</q>
 is sorted as <q>file1</q> <q>file5</q> <q>file10</q>.</p>
 
-<p>Note that this function depends on the [current locale][setlocale].</p>
+<p>Note that this function depends on the <a href="#setlocale">current locale</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -24489,7 +24489,7 @@ passing it to <code>g_variant_new_object_path()</code>.</p>
 
 <p>A valid object path starts with <code>/</code> followed by zero or more
 sequences of characters separated by <code>/</code> characters.  Each sequence
-must contain only the characters <code>[A-Z][a-z][0-9]_</code>.  No sequence
+must contain only the characters <code>[A-Z](#a-z)(#0-9)_</code>.  No sequence
 (including the one following the final <code>/</code> character) may be empty.</p>
 
                       </div>
@@ -24559,7 +24559,7 @@ strings in sequence.</p>
 
 <p>A single <code>GVariant</code> is parsed from the content of <code>text</code>.</p>
 
-<p>The format is described [here][gvariant-text].</p>
+<p>The format is described <a href="#gvariant-text">here</a>.</p>
 
 <p>The memory at <code>limit</code> will never be accessed and the parser behaves as
 if the character at <code>limit</code> is the nul terminator.  This has the

@@ -3883,7 +3883,7 @@ It exposes methods that can operate on this data type through <code><a href="Pro
 Use <code>DataRef</code> only as an <code>unowned</code> reference to an existing <code>GData</code> instance.</p>
 
 <p>The <code>GData</code> struct is an opaque data structure to represent a
-[Keyed Data List][glib-Keyed-Data-Lists]. It should only be
+<a href="../Protocols/DataProtocol.html">Keyed Data List</a>. It should only be
 accessed via the following functions.</p>
 
                         <a href="Structs/DataRef.html" class="slightly-smaller">See more</a>
@@ -4174,7 +4174,7 @@ It exposes methods that can operate on this data type through <code><a href="Pro
 Use <code>HashTableRef</code> only as an <code>unowned</code> reference to an existing <code>GHashTable</code> instance.</p>
 
 <p>The <code>GHashTable</code> struct is an opaque data structure to represent a
-[Hash Table][glib-Hash-Tables]. It should only be accessed via the
+<a href="../Protocols/HashTableProtocol.html">Hash Table</a>. It should only be accessed via the
 following functions.</p>
 
                         <a href="Structs/HashTableRef.html" class="slightly-smaller">See more</a>
@@ -5038,7 +5038,7 @@ if it exists, should be prior to any use of GLib.</p>
 It exposes methods that can operate on this data type through <code><a href="Protocols/NodeProtocol.html">NodeProtocol</a></code> conformance.
 Use <code>NodeRef</code> only as an <code>unowned</code> reference to an existing <code>GNode</code> instance.</p>
 
-<p>The <code>GNode</code> struct represents one node in a [n-ary tree][glib-N-ary-Trees].</p>
+<p>The <code>GNode</code> struct represents one node in a <a href="../Protocols/NodeProtocol.html">n-ary tree</a>.</p>
 
                         <a href="Structs/NodeRef.html" class="slightly-smaller">See more</a>
                       </div>
@@ -5483,7 +5483,7 @@ It exposes methods that can operate on this data type through <code><a href="Pro
 Use <code>QueueRef</code> only as an <code>unowned</code> reference to an existing <code>GQueue</code> instance.</p>
 
 <p>Contains the public fields of a
-[Queue][glib-Double-ended-Queues].</p>
+<a href="../Protocols/QueueProtocol.html">Queue</a>.</p>
 
                         <a href="Structs/QueueRef.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6008,7 +6008,7 @@ It exposes methods that can operate on this data type through <code><a href="Pro
 Use <code>SequenceRef</code> only as an <code>unowned</code> reference to an existing <code>GSequence</code> instance.</p>
 
 <p>The <code>GSequence</code> struct is an opaque data type representing a
-[sequence][glib-Sequences] data type.</p>
+<a href="../Protocols/SequenceProtocol.html">sequence</a> data type.</p>
 
                         <a href="Structs/SequenceRef.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6971,7 +6971,7 @@ It exposes methods that can operate on this data type through <code><a href="Pro
 Use <code>TreeRef</code> only as an <code>unowned</code> reference to an existing <code>GTree</code> instance.</p>
 
 <p>The GTree struct is an opaque data structure representing a
-[balanced binary tree][glib-Balanced-Binary-Trees]. It should be
+<a href="../Protocols/TreeProtocol.html">balanced binary tree</a>. It should be
 accessed only by using the following functions.</p>
 
                         <a href="Structs/TreeRef.html" class="slightly-smaller">See more</a>
@@ -7043,7 +7043,7 @@ can use:</p>
 the constructor (40) is going to be an unsigned integer.</p>
 
 <p>More advanced examples of <code>GVariant</code> in use can be found in documentation for
-[GVariant format strings][gvariant-format-strings-pointers].</p>
+<a href="#gvariant-format-strings-pointers">GVariant format strings</a>.</p>
 
 <p>The range of possible values is determined by the type.</p>
 
@@ -7607,7 +7607,7 @@ The valid basic type strings are <q>b</q>, <q>y</q>, <q>n</q>, <q>q</q>, <q>i</q
 
 <p>The above definition is recursive to arbitrary depth. <q>aaaaai</q> and
 <q>(`ui(nq((y)`))s)</q> are both valid type strings, as is
-<code>&quot;a(aa(ui)</code>(<code>qna{ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
+<code>&quot;a(aa(ui)</code>(qna{<code>ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
 imposes a limit on recursion depth of 65 nested containers. This is the
 limit in the D-Bus specification (64) plus one to allow a <code>GDBusMessage</code> to
 be nested in a top-level tuple.</p>

@@ -4355,7 +4355,7 @@ day-month-year triplet is invalid, the date will be invalid.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Parses a user-inputted string <code>str</code>, and try to figure out what date it
-represents, taking the [current locale][setlocale] into account. If the
+represents, taking the <a href="#setlocale">current locale</a> into account. If the
 string is successfully parsed, the date will be valid after the call.
 Otherwise, it will be invalid. You should check using <code>g_date_valid()</code>
 to see whether the parsing succeeded.</p>
@@ -4733,7 +4733,7 @@ if it wasn&rsquo;t allocated by one of the <code>g_date_new()</code> variants.</
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Generates a printed representation of the date, in a
-[locale][setlocale]-specific way.
+<a href="#setlocale">locale</a>-specific way.
 Works just like the platform&rsquo;s C library <code>strftime()</code> function,
 but only accepts date-related formats; time-related formats
 give undefined results. Date must be valid. Unlike <code>strftime()</code>
@@ -4778,7 +4778,7 @@ where the C library only complies to C89.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Generates a printed representation of the date, in a
-[locale][setlocale]-specific way.
+<a href="#setlocale">locale</a>-specific way.
 Works just like the platform&rsquo;s C library <code>strftime()</code> function,
 but only accepts date-related formats; time-related formats
 give undefined results. Date must be valid. Unlike <code>strftime()</code>
