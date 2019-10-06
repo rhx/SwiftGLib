@@ -4,11 +4,6 @@ import CGLib
 /// `G_DATE_BAD_DAY` represents an invalid day of the month.
 public typealias DateDay = GDateDay
 
-public typealias NativeSocketAddress = GNativeSocketAddress
-public typealias NativeSocketAddressPrivate = GNativeSocketAddressPrivate
-public typealias NativeSocketAddressClass = GNativeSocketAddressClass
-
-
 /// Integer representing a year; `G_DATE_BAD_YEAR` is the invalid
 /// value. The year must be 1 or higher; negative (BC) years are not
 /// allowed. The year is represented with four digits.
