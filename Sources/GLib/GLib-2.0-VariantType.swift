@@ -87,7 +87,7 @@ import CGLib
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
 /// "(`ui(nq((y)`))s)" are both valid type strings, as is
-/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
+/// `"a(aa(ui)`(qna{`ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -246,7 +246,7 @@ public protocol VariantTypeProtocol {
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
 /// "(`ui(nq((y)`))s)" are both valid type strings, as is
-/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
+/// `"a(aa(ui)`(qna{`ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -481,7 +481,7 @@ public extension VariantTypeRef {
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
 /// "(`ui(nq((y)`))s)" are both valid type strings, as is
-/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
+/// `"a(aa(ui)`(qna{`ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -803,7 +803,7 @@ public extension VariantTypeProtocol {
     /// 
     /// A single `GVariant` is parsed from the content of `text`.
     /// 
-    /// The format is described [here][gvariant-text].
+    /// The format is described [here](#gvariant-text).
     /// 
     /// The memory at `limit` will never be accessed and the parser behaves as
     /// if the character at `limit` is the nul terminator.  This has the

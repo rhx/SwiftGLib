@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `TreeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree][glib-Balanced-Binary-Trees]. It should be
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 public protocol TreeProtocol {
     /// Untyped pointer to the underlying `GTree` instance.
@@ -23,7 +23,7 @@ public protocol TreeProtocol {
 /// Use `TreeRef` only as an `unowned` reference to an existing `GTree` instance.
 ///
 /// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree][glib-Balanced-Binary-Trees]. It should be
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 public struct TreeRef: TreeProtocol {
     /// Untyped pointer to the underlying `GTree` instance.
@@ -92,7 +92,7 @@ public extension TreeRef {
 /// Use `Tree` as a strong reference or owner of a `GTree` instance.
 ///
 /// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree][glib-Balanced-Binary-Trees]. It should be
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 open class Tree: TreeProtocol {
     /// Untyped pointer to the underlying `GTree` instance.

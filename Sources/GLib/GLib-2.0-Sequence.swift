@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `SequenceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GSequence` struct is an opaque data type representing a
-/// [sequence][glib-Sequences] data type.
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
 public protocol SequenceProtocol {
     /// Untyped pointer to the underlying `GSequence` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -22,7 +22,7 @@ public protocol SequenceProtocol {
 /// Use `SequenceRef` only as an `unowned` reference to an existing `GSequence` instance.
 ///
 /// The `GSequence` struct is an opaque data type representing a
-/// [sequence][glib-Sequences] data type.
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
 public struct SequenceRef: SequenceProtocol {
     /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -76,7 +76,7 @@ public extension SequenceRef {
 /// Use `Sequence` as a strong reference or owner of a `GSequence` instance.
 ///
 /// The `GSequence` struct is an opaque data type representing a
-/// [sequence][glib-Sequences] data type.
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
 open class Sequence: SequenceProtocol {
     /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

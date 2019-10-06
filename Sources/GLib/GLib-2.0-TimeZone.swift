@@ -99,7 +99,7 @@ public extension TimeZoneRef {
     /// 0 is a Sunday).  Times are in local wall clock time, the default is
     /// 02:00:00.
     /// 
-    /// In Windows, the "tzn[+|–]hh[:mm[:ss]][dzn]" format is used, but also
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
     /// accepts POSIX format.  The Windows format uses US rules for all time
     /// zones; daylight savings time is 60 minutes behind the standard time
     /// with date and time of change taken from Pacific Standard Time.
@@ -266,7 +266,7 @@ open class TimeZone: TimeZoneProtocol {
     /// 0 is a Sunday).  Times are in local wall clock time, the default is
     /// 02:00:00.
     /// 
-    /// In Windows, the "tzn[+|–]hh[:mm[:ss]][dzn]" format is used, but also
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
     /// accepts POSIX format.  The Windows format uses US rules for all time
     /// zones; daylight savings time is 60 minutes behind the standard time
     /// with date and time of change taken from Pacific Standard Time.

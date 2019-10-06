@@ -140,7 +140,7 @@ public typealias IOFunc = GIOFunc
 /// log handler is changed.
 /// 
 /// This is not used if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public typealias LogFunc = GLogFunc
 
 /// Writer function for log entries. A log entry is a collection of one or more

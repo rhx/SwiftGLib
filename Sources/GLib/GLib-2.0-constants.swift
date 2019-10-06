@@ -365,7 +365,7 @@ public let LOG_DOMAIN: gchar = 0 /* G_LOG_DOMAIN */
 /// GLib log levels that are considered fatal by default.
 /// 
 /// This is not used if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public let LOG_FATAL_MASK: CInt = 5 /* G_LOG_FATAL_MASK */
 
 /// Log levels below 1<<G_LOG_LEVEL_USER_SHIFT are used by GLib.

@@ -395,7 +395,7 @@ public extension SourceProtocol {
     /// parameter. Cast `func` with `G_SOURCE_FUNC()` to avoid warnings about
     /// incompatible function types.
     /// 
-    /// See [memory management of sources][mainloop-memory-management] for details
+    /// See [memory management of sources](#mainloop-memory-management) for details
     /// on how to handle memory management of `data`.
     /// 
     /// Typically, you won't use this function. Instead use functions specific

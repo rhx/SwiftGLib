@@ -7,7 +7,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `Node`.
 /// Alternatively, use `NodeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree][glib-N-ary-Trees].
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 public protocol NodeProtocol {
     /// Untyped pointer to the underlying `GNode` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -20,7 +20,7 @@ public protocol NodeProtocol {
 /// It exposes methods that can operate on this data type through `NodeProtocol` conformance.
 /// Use `NodeRef` only as an `unowned` reference to an existing `GNode` instance.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree][glib-N-ary-Trees].
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 public struct NodeRef: NodeProtocol {
     /// Untyped pointer to the underlying `GNode` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -73,7 +73,7 @@ public extension NodeRef {
 /// It provides the methods that can operate on this data type through `NodeProtocol` conformance.
 /// Use `Node` as a strong reference or owner of a `GNode` instance.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree][glib-N-ary-Trees].
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 open class Node: NodeProtocol {
     /// Untyped pointer to the underlying `GNode` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -235,7 +235,7 @@ public extension OptionContextProtocol {
     /// this function will produce help output to stdout and
     /// call `exit (0)`.
     /// 
-    /// Note that function depends on the [current locale][setlocale] for
+    /// Note that function depends on the [current locale](#setlocale) for
     /// automatic character set conversion of string and filename
     /// arguments.
     func parse(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {

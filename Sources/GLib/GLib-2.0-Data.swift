@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `DataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List][glib-Keyed-Data-Lists]. It should only be
+/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 public protocol DataProtocol {
     /// Untyped pointer to the underlying `GData` instance.
@@ -23,7 +23,7 @@ public protocol DataProtocol {
 /// Use `DataRef` only as an `unowned` reference to an existing `GData` instance.
 ///
 /// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List][glib-Keyed-Data-Lists]. It should only be
+/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 public struct DataRef: DataProtocol {
     /// Untyped pointer to the underlying `GData` instance.
@@ -78,7 +78,7 @@ public extension DataRef {
 /// Use `Data` as a strong reference or owner of a `GData` instance.
 ///
 /// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List][glib-Keyed-Data-Lists]. It should only be
+/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 open class Data: DataProtocol {
     /// Untyped pointer to the underlying `GData` instance.

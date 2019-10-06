@@ -120,7 +120,7 @@ public extension DateTimeRef {
     /// 
     /// <time> is in the form:
     /// 
-    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
@@ -265,7 +265,7 @@ public extension DateTimeRef {
     /// 
     /// <time> is in the form:
     /// 
-    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
@@ -517,7 +517,7 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// <time> is in the form:
     /// 
-    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
@@ -663,7 +663,7 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// <time> is in the form:
     /// 
-    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:

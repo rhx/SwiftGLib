@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `QueueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Contains the public fields of a
-/// [Queue][glib-Double-ended-Queues].
+/// [Queue](../Protocols/QueueProtocol.html).
 public protocol QueueProtocol {
     /// Untyped pointer to the underlying `GQueue` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -22,7 +22,7 @@ public protocol QueueProtocol {
 /// Use `QueueRef` only as an `unowned` reference to an existing `GQueue` instance.
 ///
 /// Contains the public fields of a
-/// [Queue][glib-Double-ended-Queues].
+/// [Queue](../Protocols/QueueProtocol.html).
 public struct QueueRef: QueueProtocol {
     /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -76,7 +76,7 @@ public extension QueueRef {
 /// Use `Queue` as a strong reference or owner of a `GQueue` instance.
 ///
 /// Contains the public fields of a
-/// [Queue][glib-Double-ended-Queues].
+/// [Queue](../Protocols/QueueProtocol.html).
 open class Queue: QueueProtocol {
     /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

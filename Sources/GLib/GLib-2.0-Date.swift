@@ -417,7 +417,7 @@ public extension DateProtocol {
     }
 
     /// Parses a user-inputted string `str`, and try to figure out what date it
-    /// represents, taking the [current locale][setlocale] into account. If the
+    /// represents, taking the [current locale](#setlocale) into account. If the
     /// string is successfully parsed, the date will be valid after the call.
     /// Otherwise, it will be invalid. You should check using `g_date_valid()`
     /// to see whether the parsing succeeded.
@@ -524,7 +524,7 @@ public extension DateProtocol {
     }
 
     /// Generates a printed representation of the date, in a
-    /// [locale][setlocale]-specific way.
+    /// [locale](#setlocale)-specific way.
     /// Works just like the platform's C library `strftime()` function,
     /// but only accepts date-related formats; time-related formats
     /// give undefined results. Date must be valid. Unlike `strftime()`
@@ -542,7 +542,7 @@ public extension DateProtocol {
     }
 
     /// Generates a printed representation of the date, in a
-    /// [locale][setlocale]-specific way.
+    /// [locale](#setlocale)-specific way.
     /// Works just like the platform's C library `strftime()` function,
     /// but only accepts date-related formats; time-related formats
     /// give undefined results. Date must be valid. Unlike `strftime()`

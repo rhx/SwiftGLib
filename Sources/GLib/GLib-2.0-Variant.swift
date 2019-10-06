@@ -33,7 +33,7 @@ import CGLib
 /// the constructor (40) is going to be an unsigned integer.
 /// 
 /// More advanced examples of `GVariant` in use can be found in documentation for
-/// [GVariant format strings][gvariant-format-strings-pointers].
+/// [GVariant format strings](#gvariant-format-strings-pointers).
 /// 
 /// The range of possible values is determined by the type.
 /// 
@@ -288,7 +288,7 @@ public protocol VariantProtocol {
 /// the constructor (40) is going to be an unsigned integer.
 /// 
 /// More advanced examples of `GVariant` in use can be found in documentation for
-/// [GVariant format strings][gvariant-format-strings-pointers].
+/// [GVariant format strings](#gvariant-format-strings-pointers).
 /// 
 /// The range of possible values is determined by the type.
 /// 
@@ -759,7 +759,7 @@ public extension VariantRef {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their types
     /// specified in `format` when collected into the `va_list`. See
-    /// the [GVariant varargs documentation][gvariant-varargs].
+    /// the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// In order to behave correctly in all cases it is necessary for the
     /// calling function to `g_variant_ref_sink()` the return result before
@@ -788,7 +788,7 @@ public extension VariantRef {
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
-    /// [format string][gvariant-format-strings-maybe-types].
+    /// [format string](#gvariant-format-strings-maybe-types).
     init(string: UnsafePointer<gchar>) {
         let rv = g_variant_new_string(string)
         self.init(cast(rv))
@@ -868,7 +868,7 @@ public extension VariantRef {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their
     /// types specified in `format_string` when collected into the `va_list`.
-    /// See the [GVariant varargs documentation][gvariant-varargs].
+    /// See the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// These two generalisations allow mixing of multiple calls to
     /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
@@ -1094,7 +1094,7 @@ public extension VariantRef {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their types
     /// specified in `format` when collected into the `va_list`. See
-    /// the [GVariant varargs documentation][gvariant-varargs].
+    /// the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// In order to behave correctly in all cases it is necessary for the
     /// calling function to `g_variant_ref_sink()` the return result before
@@ -1123,7 +1123,7 @@ public extension VariantRef {
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
-    /// [format string][gvariant-format-strings-maybe-types].
+    /// [format string](#gvariant-format-strings-maybe-types).
     static func new(string: UnsafePointer<gchar>) -> VariantRef! {
         let rv = g_variant_new_string(string)
         return rv.map { VariantRef(cast($0)) }
@@ -1203,7 +1203,7 @@ public extension VariantRef {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their
     /// types specified in `format_string` when collected into the `va_list`.
-    /// See the [GVariant varargs documentation][gvariant-varargs].
+    /// See the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// These two generalisations allow mixing of multiple calls to
     /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
@@ -1230,7 +1230,7 @@ public extension VariantRef {
     /// 
     /// A single `GVariant` is parsed from the content of `text`.
     /// 
-    /// The format is described [here][gvariant-text].
+    /// The format is described [here](#gvariant-text).
     /// 
     /// The memory at `limit` will never be accessed and the parser behaves as
     /// if the character at `limit` is the nul terminator.  This has the
@@ -1297,7 +1297,7 @@ public extension VariantRef {
 /// the constructor (40) is going to be an unsigned integer.
 /// 
 /// More advanced examples of `GVariant` in use can be found in documentation for
-/// [GVariant format strings][gvariant-format-strings-pointers].
+/// [GVariant format strings](#gvariant-format-strings-pointers).
 /// 
 /// The range of possible values is determined by the type.
 /// 
@@ -1769,7 +1769,7 @@ open class Variant: VariantProtocol {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their types
     /// specified in `format` when collected into the `va_list`. See
-    /// the [GVariant varargs documentation][gvariant-varargs].
+    /// the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// In order to behave correctly in all cases it is necessary for the
     /// calling function to `g_variant_ref_sink()` the return result before
@@ -1798,7 +1798,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
-    /// [format string][gvariant-format-strings-maybe-types].
+    /// [format string](#gvariant-format-strings-maybe-types).
     public convenience init(string: UnsafePointer<gchar>) {
         let rv = g_variant_new_string(string)
         self.init(cast(rv))
@@ -1878,7 +1878,7 @@ open class Variant: VariantProtocol {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their
     /// types specified in `format_string` when collected into the `va_list`.
-    /// See the [GVariant varargs documentation][gvariant-varargs].
+    /// See the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// These two generalisations allow mixing of multiple calls to
     /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
@@ -2105,7 +2105,7 @@ open class Variant: VariantProtocol {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their types
     /// specified in `format` when collected into the `va_list`. See
-    /// the [GVariant varargs documentation][gvariant-varargs].
+    /// the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// In order to behave correctly in all cases it is necessary for the
     /// calling function to `g_variant_ref_sink()` the return result before
@@ -2134,7 +2134,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
-    /// [format string][gvariant-format-strings-maybe-types].
+    /// [format string](#gvariant-format-strings-maybe-types).
     public static func new(string: UnsafePointer<gchar>) -> Variant! {
         let rv = g_variant_new_string(string)
         return rv.map { Variant(cast($0)) }
@@ -2214,7 +2214,7 @@ open class Variant: VariantProtocol {
     /// 
     /// Note that the arguments in `app` must be of the correct width for their
     /// types specified in `format_string` when collected into the `va_list`.
-    /// See the [GVariant varargs documentation][gvariant-varargs].
+    /// See the [GVariant varargs documentation](#gvariant-varargs).
     /// 
     /// These two generalisations allow mixing of multiple calls to
     /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
@@ -2241,7 +2241,7 @@ open class Variant: VariantProtocol {
     /// 
     /// A single `GVariant` is parsed from the content of `text`.
     /// 
-    /// The format is described [here][gvariant-text].
+    /// The format is described [here](#gvariant-text).
     /// 
     /// The memory at `limit` will never be accessed and the parser behaves as
     /// if the character at `limit` is the nul terminator.  This has the
@@ -2569,7 +2569,7 @@ public extension VariantProtocol {
     /// 
     /// `element_size` must be the size of a single element in the array,
     /// as given by the section on
-    /// [serialized data memory][gvariant-serialised-data-memory].
+    /// [serialized data memory](#gvariant-serialised-data-memory).
     /// 
     /// In particular, arrays of these fixed-sized types can be interpreted
     /// as an array of the given C type, with `element_size` set to the size
@@ -2799,7 +2799,7 @@ public extension VariantProtocol {
     /// `format_string` determines the C types that are used for unpacking
     /// the values and also determines if the values are copied or borrowed,
     /// see the section on
-    /// [GVariant format strings][gvariant-format-strings-pointers].
+    /// [GVariant format strings](#gvariant-format-strings-pointers).
     func getVa(formatString format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) {
         g_variant_get_va(cast(variant_ptr), format_string, cast(endptr), cast(app))
     
@@ -2893,7 +2893,7 @@ public extension VariantProtocol {
 
     /// Pretty-prints `value` in the format understood by `g_variant_parse()`.
     /// 
-    /// The format is described [here][gvariant-text].
+    /// The format is described [here](#gvariant-text).
     /// 
     /// If `type_annotate` is `true`, then type information is included in
     /// the output.

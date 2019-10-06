@@ -893,8 +893,8 @@ public extension TraverseType {
     /// visits the node's children, then the node itself.
     static let post_order = G_POST_ORDER /* 2 */
     /// is not implemented for
-    ///              [balanced binary trees][glib-Balanced-Binary-Trees].
-    ///              For [n-ary trees][glib-N-ary-Trees], it
+    ///              [balanced binary trees](../Protocols/TreeProtocol.html).
+    ///              For [n-ary trees](../Protocols/NodeProtocol.html), it
     ///              vists the root node first, then its children, then
     ///              its grandchildren, and so on. Note that this is less
     ///              efficient than the other orders.

@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `HashTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table][glib-Hash-Tables]. It should only be accessed via the
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 public protocol HashTableProtocol {
     /// Untyped pointer to the underlying `GHashTable` instance.
@@ -23,7 +23,7 @@ public protocol HashTableProtocol {
 /// Use `HashTableRef` only as an `unowned` reference to an existing `GHashTable` instance.
 ///
 /// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table][glib-Hash-Tables]. It should only be accessed via the
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 public struct HashTableRef: HashTableProtocol {
     /// Untyped pointer to the underlying `GHashTable` instance.
@@ -93,7 +93,7 @@ public extension HashTableRef {
 /// Use `HashTable` as a strong reference or owner of a `GHashTable` instance.
 ///
 /// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table][glib-Hash-Tables]. It should only be accessed via the
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 open class HashTable: HashTableProtocol {
     /// Untyped pointer to the underlying `GHashTable` instance.

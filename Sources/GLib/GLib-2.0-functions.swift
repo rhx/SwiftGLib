@@ -1757,7 +1757,7 @@ public func dateIsLeap(year: DateYear) -> Bool {
 
 
 /// Generates a printed representation of the date, in a
-/// [locale][setlocale]-specific way.
+/// [locale](#setlocale)-specific way.
 /// Works just like the platform's C library `strftime()` function,
 /// but only accepts date-related formats; time-related formats
 /// give undefined results. Date must be valid. Unlike `strftime()`
@@ -2333,7 +2333,7 @@ public func filenameFrom(uri: UnsafePointer<gchar>, hostname: UnsafeMutablePoint
 /// Converts a string from UTF-8 to the encoding GLib uses for
 /// filenames. Note that on Windows GLib uses UTF-8 for filenames;
 /// on other platforms, this function indirectly depends on the
-/// [current locale][setlocale].
+/// [current locale](#setlocale).
 /// 
 /// The input string shall not contain nul characters even if the `len`
 /// argument is positive. A nul character found inside the string will result
@@ -2369,7 +2369,7 @@ public func filenameToURI(String_: UnsafePointer<gchar>, hostname: UnsafePointer
 /// Converts a string which is in the encoding used by GLib for
 /// filenames into a UTF-8 string. Note that on Windows GLib uses UTF-8
 /// for filenames; on other platforms, this function indirectly depends on
-/// the [current locale][setlocale].
+/// the [current locale](#setlocale).
 /// 
 /// The input string shall not contain nul characters even if the `len`
 /// argument is positive. A nul character found inside the string will result
@@ -2503,7 +2503,7 @@ public func getApplicationName() -> String! {
 
 
 
-/// Obtains the character set for the [current locale][setlocale]; you
+/// Obtains the character set for the [current locale](#setlocale); you
 /// might use this character set as an argument to `g_convert()`, to convert
 /// from the current locale's encoding to some other encoding. (Frequently
 /// `g_locale_to_utf8()` and `g_locale_from_utf8()` are nice shortcuts, though.)
@@ -2628,7 +2628,7 @@ public func getEnviron() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
 /// 
 /// `G_FILENAME_ENCODING` may be set to a comma-separated list of
 /// character set names. The special token "\`locale`" is taken
-/// to  mean the character set for the [current locale][setlocale].
+/// to  mean the character set for the [current locale](#setlocale).
 /// If `G_FILENAME_ENCODING` is not set, but `G_BROKEN_FILENAMES` is,
 /// the character set of the current locale is taken as the filename
 /// encoding. If neither environment variable  is set, UTF-8 is taken
@@ -3405,7 +3405,7 @@ public func iconvOpen(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset fr
 /// returns `false` it is automatically removed from the list of event
 /// sources and will not be called again.
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// This internally creates a main loop source using `g_idle_source_new()`
@@ -3425,7 +3425,7 @@ public func idleAdd(function: @escaping SourceFunc, data: UnsafeMutableRawPointe
 /// events pending.  If the function returns `false` it is automatically
 /// removed from the list of event sources and will not be called again.
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// This internally creates a main loop source using `g_idle_source_new()`
@@ -3640,7 +3640,7 @@ public func listenv() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
 
 /// Converts a string from UTF-8 to the encoding used for strings by
 /// the C runtime (usually the same as that used by the operating
-/// system) in the [current locale][setlocale]. On Windows this means
+/// system) in the [current locale](#setlocale). On Windows this means
 /// the system codepage.
 /// 
 /// The input string shall not contain nul characters even if the `len`
@@ -3661,7 +3661,7 @@ public func localeFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesR
 
 /// Converts a string which is in the encoding used for strings by
 /// the C runtime (usually the same as that used by the operating
-/// system) in the [current locale][setlocale] into a UTF-8 string.
+/// system) in the [current locale](#setlocale) into a UTF-8 string.
 /// 
 /// If the source encoding is not UTF-8 and the conversion output contains a
 /// nul character, the error `G_CONVERT_ERROR_EMBEDDED_NUL` is set and the
@@ -3713,7 +3713,7 @@ public func localeToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRe
 /// the rest.
 /// 
 /// This has no effect if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public func logDefaultHandler(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, message: UnsafePointer<gchar>, unusedData unused_data: UnsafeMutableRawPointer) {
     g_log_default_handler(log_domain, log_level, message, cast(unused_data))
 
@@ -3725,7 +3725,7 @@ public func logDefaultHandler(logDomain log_domain: UnsafePointer<gchar>, logLev
 /// Removes the log handler.
 /// 
 /// This has no effect if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public func logRemoveHandler(logDomain log_domain: UnsafePointer<gchar>, handlerID handler_id: CUnsignedInt) {
     g_log_remove_handler(log_domain, guint(handler_id))
 
@@ -3749,7 +3749,7 @@ public func logRemoveHandler(logDomain log_domain: UnsafePointer<gchar>, handler
 /// Structured log messages (using `g_log_structured()` and
 /// `g_log_structured_array()`) are fatal only if the default log writer is used;
 /// otherwise it is up to the writer function to determine which log messages
-/// are fatal. See [Using Structured Logging][using-structured-logging].
+/// are fatal. See [Using Structured Logging](#using-structured-logging).
 public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelFlags {
     let rv = g_log_set_always_fatal(fatal_mask)
     return rv
@@ -3764,7 +3764,7 @@ public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelF
 /// `g_log_default_handler()` as default log handler.
 /// 
 /// This has no effect if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public func logSetDefaultHandler(logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer) -> GLogFunc! {
     let rv = g_log_set_default_handler(log_func, cast(user_data))
     return rv
@@ -3780,7 +3780,7 @@ public func logSetDefaultHandler(logFunc log_func: @escaping LogFunc, userData u
 /// `g_log_structured_array()`). To change the fatal behaviour for specific log
 /// messages, programs must install a custom log writer function using
 /// `g_log_set_writer_func()`. See
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 /// 
 /// This function is mostly intended to be used with
 /// `G_LOG_LEVEL_CRITICAL`.  You should typically not set
@@ -3804,7 +3804,7 @@ public func logSetFatalMask(logDomain log_domain: UnsafePointer<gchar>, fatalMas
 /// `G_LOG_FLAG_FATAL`.
 /// 
 /// This has no effect if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 /// 
 /// Here is an example for adding a log handler for all warning messages
 /// in the default domain:
@@ -3839,7 +3839,7 @@ public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels 
 /// Like `g_log_set_handler()`, but takes a destroy notify for the `user_data`.
 /// 
 /// This has no effect if structured logging is enabled; see
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public func logSetHandlerFull(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_log_set_handler_full(log_domain, log_levels, log_func, cast(user_data), destroy)
     return CUnsignedInt(rv)
@@ -4035,7 +4035,7 @@ public func logWriterSupportsColor(outputFd output_fd: CInt) -> Bool {
 /// character will automatically be appended to @..., and need not be entered
 /// manually.
 /// 
-/// If [structured logging is enabled][using-structured-logging] this will
+/// If [structured logging is enabled](#using-structured-logging) this will
 /// output via the structured log writer function (see `g_log_set_writer_func()`).
 public func logv(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, format: UnsafePointer<gchar>, args: CVaListPointer) {
     g_logv(log_domain, log_level, format, args)
@@ -5686,7 +5686,7 @@ public func shellUnquote(quotedString quoted_string: UnsafePointer<gchar>) throw
 /// if a `malloc()` fallback implementation is used instead,
 /// the alignment may be reduced in a libc dependent fashion.
 /// Note that the underlying slice allocation mechanism can
-/// be changed with the [`G_SLICE=always-malloc`][G_SLICE]
+/// be changed with the [`G_SLICE=always-malloc`](#G_SLICE)
 /// environment variable.
 public func sliceAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
     let rv = g_slice_alloc(gsize(block_size))
@@ -5698,7 +5698,7 @@ public func sliceAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 
 /// Allocates a block of memory via `g_slice_alloc()` and initializes
 /// the returned memory to 0. Note that the underlying slice allocation
-/// mechanism can be changed with the [`G_SLICE=always-malloc`][G_SLICE]
+/// mechanism can be changed with the [`G_SLICE=always-malloc`](#G_SLICE)
 /// environment variable.
 public func sliceAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
     let rv = g_slice_alloc0(gsize(block_size))
@@ -5725,8 +5725,8 @@ public func sliceCopy(blockSize block_size: Int, memBlock mem_block: gconstpoint
 /// The memory must have been allocated via `g_slice_alloc()` or
 /// `g_slice_alloc0()` and the `block_size` has to match the size
 /// specified upon allocation. Note that the exact release behaviour
-/// can be changed with the [`G_DEBUG=gc-friendly`][G_DEBUG] environment
-/// variable, also see [`G_SLICE`][G_SLICE] for related debugging options.
+/// can be changed with the [`G_DEBUG=gc-friendly`](#G_DEBUG) environment
+/// variable, also see [`G_SLICE`](#G_SLICE) for related debugging options.
 /// 
 /// If `mem_block` is `nil`, this function does nothing.
 public func sliceFree1(blockSize block_size: Int, memBlock mem_block: UnsafeMutableRawPointer) {
@@ -5744,8 +5744,8 @@ public func sliceFree1(blockSize block_size: Int, memBlock mem_block: UnsafeMuta
 /// `next` pointer (similar to `GSList`). The offset of the `next`
 /// field in each block is passed as third argument.
 /// Note that the exact release behaviour can be changed with the
-/// [`G_DEBUG=gc-friendly`][G_DEBUG] environment variable, also see
-/// [`G_SLICE`][G_SLICE] for related debugging options.
+/// [`G_DEBUG=gc-friendly`](#G_DEBUG) environment variable, also see
+/// [`G_SLICE`](#G_SLICE) for related debugging options.
 /// 
 /// If `mem_chain` is `nil`, this function does nothing.
 public func sliceFreeChainWithOffset(blockSize block_size: Int, memChain mem_chain: UnsafeMutableRawPointer, nextOffset next_offset: Int) {
@@ -7167,7 +7167,7 @@ public func testCreateSuite(suiteName suite_name: UnsafePointer<CChar>) -> Unsaf
 /// 
 /// This API may only be used with the old logging API (`g_log()` without
 /// `G_LOG_USE_STRUCTURED` defined). It will not work with the structured logging
-/// API. See [Testing for Messages][testing-for-messages].
+/// API. See [Testing for Messages](#testing-for-messages).
 /// 
 /// Use `g_test_assert_expected_messages()` to assert that all
 /// previously-expected messages have been seen and suppressed.
@@ -7316,7 +7316,7 @@ public func testIncomplete(msg: UnsafePointer<gchar>) {
 /// `g_log_structured()` or `g_log_structured_array()`). To change the fatal
 /// behaviour for specific log messages, programs must install a custom log
 /// writer function using `g_log_set_writer_func()`.See
-/// [Using Structured Logging][using-structured-logging].
+/// [Using Structured Logging](#using-structured-logging).
 public func testLogSetFatalHandler(logFunc log_func: @escaping TestLogFatalFunc, userData user_data: UnsafeMutableRawPointer) {
     g_test_log_set_fatal_handler(log_func, cast(user_data))
 
@@ -7898,7 +7898,7 @@ public func threadYield() {
 /// timeout is recalculated based on the current time and the given interval
 /// (it does not try to 'catch up' time lost in delays).
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// If you want to have a timer in the "seconds" range and do not care
@@ -7935,7 +7935,7 @@ public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, d
 /// timeout is recalculated based on the current time and the given interval
 /// (it does not try to 'catch up' time lost in delays).
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// This internally creates a main loop source using `g_timeout_source_new()`
@@ -7968,7 +7968,7 @@ public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @es
 /// of one second. If you need finer precision and have such a timeout,
 /// you may want to use `g_timeout_add()` instead.
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
@@ -7999,7 +7999,7 @@ public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping Source
 /// After each call to the timeout function, the time of the next
 /// timeout is recalculated based on the current time and the given `interval`
 /// 
-/// See [memory management of sources][mainloop-memory-management] for details
+/// See [memory management of sources](#mainloop-memory-management) for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// If you want timing more precise than whole seconds, use `g_timeout_add()`
@@ -9012,7 +9012,7 @@ public func utf8Casefold(str: UnsafePointer<gchar>, len: gssize) -> String! {
 
 
 /// Compares two strings for ordering using the linguistically
-/// correct rules for the [current locale][setlocale].
+/// correct rules for the [current locale](#setlocale).
 /// When sorting a large number of strings, it will be significantly
 /// faster to obtain collation keys with `g_utf8_collate_key()` and
 /// compare the keys with `strcmp()` when sorting instead of sorting
@@ -9033,7 +9033,7 @@ public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) 
 /// with `strcmp()` will always be the same as comparing the two
 /// original keys with `g_utf8_collate()`.
 /// 
-/// Note that this function depends on the [current locale][setlocale].
+/// Note that this function depends on the [current locale](#setlocale).
 public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
     let rv = g_utf8_collate_key(str, len)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -9052,7 +9052,7 @@ public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// would like to treat numbers intelligently so that "file1" "file10" "file5"
 /// is sorted as "file1" "file5" "file10".
 /// 
-/// Note that this function depends on the [current locale][setlocale].
+/// Note that this function depends on the [current locale](#setlocale).
 public func utf8CollateKeyForFilename(str: UnsafePointer<gchar>, len: gssize) -> String! {
     let rv = g_utf8_collate_key_for_filename(str, len)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -9442,7 +9442,7 @@ public func variantGetGtype() -> GType {
 /// 
 /// A valid object path starts with `/` followed by zero or more
 /// sequences of characters separated by `/` characters.  Each sequence
-/// must contain only the characters `[A-Z][a-z][0-9]_`.  No sequence
+/// must contain only the characters `[A-Z](#a-z)(#0-9)_`.  No sequence
 /// (including the one following the final `/` character) may be empty.
 public func variantIsObjectPath(string: UnsafePointer<gchar>) -> Bool {
     let rv = g_variant_is_object_path(string)
@@ -9470,7 +9470,7 @@ public func variantIsSignature(string: UnsafePointer<gchar>) -> Bool {
 /// 
 /// A single `GVariant` is parsed from the content of `text`.
 /// 
-/// The format is described [here][gvariant-text].
+/// The format is described [here](#gvariant-text).
 /// 
 /// The memory at `limit` will never be accessed and the parser behaves as
 /// if the character at `limit` is the nul terminator.  This has the
