@@ -3479,8 +3479,7 @@ style: take an existing dictionary and look up the <q>count</q> uint32
 key, adding 1 to it if it is found, or returning an error if the
 key is not found.  Each returns the new dictionary as a floating
 <code>GVariant</code>.</p>
-
-<p>&ldquo;&rdquo; Using a stack-allocated GVariantDict</p>
+<h2 id='using-a-stack-allocated-gvariantdict' class='heading'>Using a stack-allocated GVariantDict</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
@@ -3503,8 +3502,7 @@ key is not found.  Each returns the new dictionary as a floating
     return g_variant_dict_end (&amp;dict);
   }
 </code></pre>
-
-<p>&ldquo;&rdquo; Using heap-allocated GVariantDict</p>
+<h2 id='using-heap-allocated-gvariantdict' class='heading'>Using heap-allocated GVariantDict</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>  GVariant *
