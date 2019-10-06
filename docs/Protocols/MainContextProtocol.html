@@ -4090,7 +4090,7 @@ for polling is determined by calling g_main_context_query ().</p>
                       <div class="abstract">
                         <p>Acquires <code>context</code> and sets it as the thread-default context for the
 current thread. This will cause certain asynchronous operations
-(such as most [gio][gio]-based I/O) which are
+(such as most <a href="#gio">gio</a>-based I/O) which are
 started in this thread to run under <code>context</code> and deliver their
 results to its main loop, rather than running under the global
 default context in the main thread. Note that calling this function
