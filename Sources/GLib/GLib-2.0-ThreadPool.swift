@@ -182,7 +182,7 @@ public extension ThreadPoolProtocol {
     /// 
     /// When the number of currently running threads is lower than the
     /// maximal allowed number of threads, a new thread is started (or
-    /// reused) with the properties given to g_thread_pool_new().
+    /// reused) with the properties given to `g_thread_pool_new()`.
     /// Otherwise, `data` stays in the queue until a thread in this pool
     /// finishes its previous task and processes `data`.
     /// 
@@ -211,8 +211,8 @@ public extension ThreadPoolProtocol {
     /// value again.
     /// 
     /// A thread is never terminated while calling `func`, as supplied by
-    /// g_thread_pool_new(). Instead the maximal number of threads only
-    /// has effect for the allocation of new threads in g_thread_pool_push().
+    /// `g_thread_pool_new()`. Instead the maximal number of threads only
+    /// has effect for the allocation of new threads in `g_thread_pool_push()`.
     /// A new thread is allocated, whenever the number of currently
     /// running threads in `pool` is smaller than the maximal number.
     /// 
@@ -235,7 +235,7 @@ public extension ThreadPoolProtocol {
     /// just in the order in which they were added to the pool.
     /// 
     /// Note, if the maximum number of threads is more than 1, the order
-    /// that threads are executed cannot be guaranteed 100``. Threads are
+    /// that threads are executed cannot be guaranteed 100%. Threads are
     /// scheduled by the operating system and are executed at random. It
     /// cannot be assumed that threads are executed in the order they are
     /// created.

@@ -15,7 +15,7 @@ import CGLib
 /// 
 /// If a `GRecMutex` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rec_mutex_init() on it and g_rec_mutex_clear() when done.
+/// `g_rec_mutex_init()` on it and `g_rec_mutex_clear()` when done.
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
@@ -39,7 +39,7 @@ public protocol RecMutexProtocol {
 /// 
 /// If a `GRecMutex` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rec_mutex_init() on it and g_rec_mutex_clear() when done.
+/// `g_rec_mutex_init()` on it and `g_rec_mutex_clear()` when done.
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
@@ -103,7 +103,7 @@ public extension RecMutexRef {
 /// 
 /// If a `GRecMutex` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rec_mutex_init() on it and g_rec_mutex_clear() when done.
+/// `g_rec_mutex_init()` on it and `g_rec_mutex_clear()` when done.
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
@@ -168,12 +168,12 @@ public extension RecMutexProtocol {
     var _ptr: UnsafeMutablePointer<GRecMutex> { return ptr.assumingMemoryBound(to: GRecMutex.self) }
 
     /// Frees the resources allocated to a recursive mutex with
-    /// g_rec_mutex_init().
+    /// `g_rec_mutex_init()`.
     /// 
     /// This function should not be used with a `GRecMutex` that has been
     /// statically allocated.
     /// 
-    /// Calling g_rec_mutex_clear() on a locked recursive mutex leads
+    /// Calling `g_rec_mutex_clear()` on a locked recursive mutex leads
     /// to undefined behaviour.
     /// 
     /// Sine: 2.32
@@ -191,7 +191,8 @@ public extension RecMutexProtocol {
     /// It is not necessary to initialise a recursive mutex that has been
     /// statically allocated.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     ///   typedef struct {
     ///     GRecMutex m;
     ///     ...
@@ -201,13 +202,13 @@ public extension RecMutexProtocol {
     /// 
     /// b = g_new (Blob, 1);
     /// g_rec_mutex_init (&b->m);
-    /// ]|
+    /// ```
     /// 
-    /// Calling g_rec_mutex_init() on an already initialized `GRecMutex`
+    /// Calling `g_rec_mutex_init()` on an already initialized `GRecMutex`
     /// leads to undefined behaviour.
     /// 
-    /// To undo the effect of g_rec_mutex_init() when a recursive mutex
-    /// is no longer needed, use g_rec_mutex_clear().
+    /// To undo the effect of `g_rec_mutex_init()` when a recursive mutex
+    /// is no longer needed, use `g_rec_mutex_clear()`.
     func init_() {
         g_rec_mutex_init(cast(_ptr))
     
@@ -233,10 +234,10 @@ public extension RecMutexProtocol {
     }
 
     /// Unlocks `rec_mutex`. If another thread is blocked in a
-    /// g_rec_mutex_lock() call for `rec_mutex`, it will become unblocked
+    /// `g_rec_mutex_lock()` call for `rec_mutex`, it will become unblocked
     /// and can lock `rec_mutex` itself.
     /// 
-    /// Calling g_rec_mutex_unlock() on a recursive mutex that is not
+    /// Calling `g_rec_mutex_unlock()` on a recursive mutex that is not
     /// locked by the current thread leads to undefined behaviour.
     func unlock() {
         g_rec_mutex_unlock(cast(_ptr))

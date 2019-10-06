@@ -180,7 +180,7 @@ public extension HookListProtocol {
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
-    /// inactive and calling g_hook_unref() on it.
+    /// inactive and calling `g_hook_unref()` on it.
     func hookDestroyLink(hook: HookProtocol) {
         g_hook_destroy_link(cast(_ptr), cast(hook.ptr))
     
@@ -207,7 +207,7 @@ public extension HookListProtocol {
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
-    /// from the `GHookList` and g_hook_free() is called to free it.
+    /// from the `GHookList` and `g_hook_free()` is called to free it.
     func hookUnref(hook: HookProtocol) {
         g_hook_unref(cast(_ptr), cast(hook.ptr))
     

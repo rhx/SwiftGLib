@@ -8,8 +8,8 @@ import CGLib
 /// Alternatively, use `ChecksumRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use g_checksum_new(). To free
-/// a GChecksum, use g_checksum_free().
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
 public protocol ChecksumProtocol {
     /// Untyped pointer to the underlying `GChecksum` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,8 +23,8 @@ public protocol ChecksumProtocol {
 /// Use `ChecksumRef` only as an `unowned` reference to an existing `GChecksum` instance.
 ///
 /// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use g_checksum_new(). To free
-/// a GChecksum, use g_checksum_free().
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
 public struct ChecksumRef: ChecksumProtocol {
     /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.
@@ -76,13 +76,13 @@ public extension ChecksumRef {
     /// A `GChecksum` can be used to compute the checksum, or digest, of an
     /// arbitrary binary blob, using different hashing algorithms.
     /// 
-    /// A `GChecksum` works by feeding a binary blob through g_checksum_update()
+    /// A `GChecksum` works by feeding a binary blob through `g_checksum_update()`
     /// until there is data to be checked; the digest can then be extracted
-    /// using g_checksum_get_string(), which will return the checksum as a
-    /// hexadecimal string; or g_checksum_get_digest(), which will return a
-    /// vector of raw bytes. Once either g_checksum_get_string() or
-    /// g_checksum_get_digest() have been called on a `GChecksum`, the checksum
-    /// will be closed and it won't be possible to call g_checksum_update()
+    /// using `g_checksum_get_string()`, which will return the checksum as a
+    /// hexadecimal string; or `g_checksum_get_digest()`, which will return a
+    /// vector of raw bytes. Once either `g_checksum_get_string()` or
+    /// `g_checksum_get_digest()` have been called on a `GChecksum`, the checksum
+    /// will be closed and it won't be possible to call `g_checksum_update()`
     /// on it anymore.
     init( checksum_type: ChecksumType) {
         let rv = g_checksum_new(checksum_type)
@@ -95,8 +95,8 @@ public extension ChecksumRef {
 /// Use `Checksum` as a strong reference or owner of a `GChecksum` instance.
 ///
 /// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use g_checksum_new(). To free
-/// a GChecksum, use g_checksum_free().
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
 open class Checksum: ChecksumProtocol {
     /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.
@@ -149,13 +149,13 @@ open class Checksum: ChecksumProtocol {
     /// A `GChecksum` can be used to compute the checksum, or digest, of an
     /// arbitrary binary blob, using different hashing algorithms.
     /// 
-    /// A `GChecksum` works by feeding a binary blob through g_checksum_update()
+    /// A `GChecksum` works by feeding a binary blob through `g_checksum_update()`
     /// until there is data to be checked; the digest can then be extracted
-    /// using g_checksum_get_string(), which will return the checksum as a
-    /// hexadecimal string; or g_checksum_get_digest(), which will return a
-    /// vector of raw bytes. Once either g_checksum_get_string() or
-    /// g_checksum_get_digest() have been called on a `GChecksum`, the checksum
-    /// will be closed and it won't be possible to call g_checksum_update()
+    /// using `g_checksum_get_string()`, which will return the checksum as a
+    /// hexadecimal string; or `g_checksum_get_digest()`, which will return a
+    /// vector of raw bytes. Once either `g_checksum_get_string()` or
+    /// `g_checksum_get_digest()` have been called on a `GChecksum`, the checksum
+    /// will be closed and it won't be possible to call `g_checksum_update()`
     /// on it anymore.
     public convenience init( checksum_type: ChecksumType) {
         let rv = g_checksum_new(checksum_type)
@@ -175,7 +175,7 @@ public extension ChecksumProtocol {
     var checksum_ptr: UnsafeMutablePointer<GChecksum> { return ptr.assumingMemoryBound(to: GChecksum.self) }
 
     /// Copies a `GChecksum`. If `checksum` has been closed, by calling
-    /// g_checksum_get_string() or g_checksum_get_digest(), the copied
+    /// `g_checksum_get_string()` or `g_checksum_get_digest()`, the copied
     /// checksum will be closed as well.
     func copy() -> UnsafeMutablePointer<GChecksum>! {
         let rv = g_checksum_copy(cast(checksum_ptr))
@@ -192,7 +192,7 @@ public extension ChecksumProtocol {
     /// into `buffer`. The size of the digest depends on the type of checksum.
     /// 
     /// Once this function has been called, the `GChecksum` is closed and can
-    /// no longer be updated with g_checksum_update().
+    /// no longer be updated with `g_checksum_update()`.
     func getDigest(buffer: UnsafeMutablePointer<UInt8>, digestLen digest_len: UnsafeMutablePointer<Int>) {
         g_checksum_get_digest(cast(checksum_ptr), cast(buffer), cast(digest_len))
     
@@ -201,7 +201,7 @@ public extension ChecksumProtocol {
     /// Gets the digest as an hexadecimal string.
     /// 
     /// Once this function has been called the `GChecksum` can no longer be
-    /// updated with g_checksum_update().
+    /// updated with `g_checksum_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     func getString() -> String! {
@@ -216,7 +216,7 @@ public extension ChecksumProtocol {
     }
 
     /// Feeds `data` into an existing `GChecksum`. The checksum must still be
-    /// open, that is g_checksum_get_string() or g_checksum_get_digest() must
+    /// open, that is `g_checksum_get_string()` or `g_checksum_get_digest()` must
     /// not have been called on `checksum`.
     func update(data: UnsafePointer<guchar>, length: gssize) {
         g_checksum_update(cast(checksum_ptr), cast(data), length)
@@ -225,14 +225,14 @@ public extension ChecksumProtocol {
     /// Gets the digest as an hexadecimal string.
     /// 
     /// Once this function has been called the `GChecksum` can no longer be
-    /// updated with g_checksum_update().
+    /// updated with `g_checksum_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     var string: String! {
         /// Gets the digest as an hexadecimal string.
         /// 
         /// Once this function has been called the `GChecksum` can no longer be
-        /// updated with g_checksum_update().
+        /// updated with `g_checksum_update()`.
         /// 
         /// The hexadecimal characters will be lower case.
         get {

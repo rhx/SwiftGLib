@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `DebugKeyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Associates a string with a bit flag.
-/// Used in g_parse_debug_string().
+/// Used in `g_parse_debug_string()`.
 public protocol DebugKeyProtocol {
     /// Untyped pointer to the underlying `GDebugKey` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -22,7 +22,7 @@ public protocol DebugKeyProtocol {
 /// Use `DebugKeyRef` only as an `unowned` reference to an existing `GDebugKey` instance.
 ///
 /// Associates a string with a bit flag.
-/// Used in g_parse_debug_string().
+/// Used in `g_parse_debug_string()`.
 public struct DebugKeyRef: DebugKeyProtocol {
     /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -76,7 +76,7 @@ public extension DebugKeyRef {
 /// Use `DebugKey` as a strong reference or owner of a `GDebugKey` instance.
 ///
 /// Associates a string with a bit flag.
-/// Used in g_parse_debug_string().
+/// Used in `g_parse_debug_string()`.
 open class DebugKey: DebugKeyProtocol {
     /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

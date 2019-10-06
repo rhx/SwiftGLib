@@ -100,8 +100,8 @@ public extension HookRef {
 
     /// Returns the first `GHook` in a `GHookList` which has not been destroyed.
     /// The reference count for the `GHook` is incremented, so you must call
-    /// g_hook_unref() to restore it when no longer needed. (Or call
-    /// g_hook_next_valid() if you are stepping through the `GHookList`.)
+    /// `g_hook_unref()` to restore it when no longer needed. (Or call
+    /// `g_hook_next_valid()` if you are stepping through the `GHookList`.)
     static func firstValid(hookList hook_list: HookListProtocol, mayBeInCall may_be_in_call: Bool) -> HookRef! {
         let rv = g_hook_first_valid(cast(hook_list.ptr), gboolean(may_be_in_call ? 1 : 0))
         return rv.map { HookRef(cast($0)) }
@@ -115,8 +115,8 @@ public extension HookRef {
 
     /// Returns the next `GHook` in a `GHookList` which has not been destroyed.
     /// The reference count for the `GHook` is incremented, so you must call
-    /// g_hook_unref() to restore it when no longer needed. (Or continue to call
-    /// g_hook_next_valid() until `nil` is returned.)
+    /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
+    /// `g_hook_next_valid()` until `nil` is returned.)
     static func nextValid(hookList hook_list: HookListProtocol, hook: HookProtocol, mayBeInCall may_be_in_call: Bool) -> HookRef! {
         let rv = g_hook_next_valid(cast(hook_list.ptr), cast(hook.ptr), gboolean(may_be_in_call ? 1 : 0))
         return rv.map { HookRef(cast($0)) }
@@ -215,8 +215,8 @@ open class Hook: HookProtocol {
 
     /// Returns the first `GHook` in a `GHookList` which has not been destroyed.
     /// The reference count for the `GHook` is incremented, so you must call
-    /// g_hook_unref() to restore it when no longer needed. (Or call
-    /// g_hook_next_valid() if you are stepping through the `GHookList`.)
+    /// `g_hook_unref()` to restore it when no longer needed. (Or call
+    /// `g_hook_next_valid()` if you are stepping through the `GHookList`.)
     public static func firstValid(hookList hook_list: HookListProtocol, mayBeInCall may_be_in_call: Bool) -> Hook! {
         let rv = g_hook_first_valid(cast(hook_list.ptr), gboolean(may_be_in_call ? 1 : 0))
         return rv.map { Hook(cast($0)) }
@@ -230,8 +230,8 @@ open class Hook: HookProtocol {
 
     /// Returns the next `GHook` in a `GHookList` which has not been destroyed.
     /// The reference count for the `GHook` is incremented, so you must call
-    /// g_hook_unref() to restore it when no longer needed. (Or continue to call
-    /// g_hook_next_valid() until `nil` is returned.)
+    /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
+    /// `g_hook_next_valid()` until `nil` is returned.)
     public static func nextValid(hookList hook_list: HookListProtocol, hook: HookProtocol, mayBeInCall may_be_in_call: Bool) -> Hook! {
         let rv = g_hook_next_valid(cast(hook_list.ptr), cast(hook.ptr), gboolean(may_be_in_call ? 1 : 0))
         return rv.map { Hook(cast($0)) }
@@ -262,7 +262,7 @@ public extension HookProtocol {
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
-    /// inactive and calling g_hook_unref() on it.
+    /// inactive and calling `g_hook_unref()` on it.
     func destroyLink(hookList hook_list: HookListProtocol) {
         g_hook_destroy_link(cast(hook_list.ptr), cast(_ptr))
     
@@ -289,8 +289,8 @@ public extension HookProtocol {
 
     /// Returns the next `GHook` in a `GHookList` which has not been destroyed.
     /// The reference count for the `GHook` is incremented, so you must call
-    /// g_hook_unref() to restore it when no longer needed. (Or continue to call
-    /// g_hook_next_valid() until `nil` is returned.)
+    /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
+    /// `g_hook_next_valid()` until `nil` is returned.)
     func nextValid(hookList hook_list: HookListProtocol, mayBeInCall may_be_in_call: Bool) -> UnsafeMutablePointer<GHook>! {
         let rv = g_hook_next_valid(cast(hook_list.ptr), cast(_ptr), gboolean(may_be_in_call ? 1 : 0))
         return cast(rv)
@@ -310,14 +310,14 @@ public extension HookProtocol {
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
-    /// from the `GHookList` and g_hook_free() is called to free it.
+    /// from the `GHookList` and `g_hook_free()` is called to free it.
     func unref(hookList hook_list: HookListProtocol) {
         g_hook_unref(cast(hook_list.ptr), cast(_ptr))
     
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
-    /// inactive and calling g_hook_unref() on it.
+    /// inactive and calling `g_hook_unref()` on it.
     func hookDestroyLink(hookList hook_list: HookListProtocol) {
         g_hook_destroy_link(cast(hook_list.ptr), cast(_ptr))
     
@@ -344,7 +344,7 @@ public extension HookProtocol {
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
-    /// from the `GHookList` and g_hook_free() is called to free it.
+    /// from the `GHookList` and `g_hook_free()` is called to free it.
     func hookUnref(hookList hook_list: HookListProtocol) {
         g_hook_unref(cast(hook_list.ptr), cast(_ptr))
     

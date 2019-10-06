@@ -16,7 +16,7 @@ public extension AsciiType {
     static let xdigit = G_ASCII_XDIGIT /* 1024 */
 }
 
-/// A test to perform on a file using g_file_test().
+/// A test to perform on a file using `g_file_test()`.
 public typealias FileTest = GFileTest
 
 public extension FileTest {
@@ -35,11 +35,11 @@ public extension FileTest {
     static let exists = G_FILE_TEST_EXISTS /* 16 */
 }
 
-/// Flags to modify the format of the string returned by g_format_size_full().
+/// Flags to modify the format of the string returned by `g_format_size_full()`.
 public typealias FormatSizeFlags = GFormatSizeFlags
 
 public extension FormatSizeFlags {
-    /// behave the same as g_format_size()
+    /// behave the same as `g_format_size()`
     static let default_ = G_FORMAT_SIZE_DEFAULT /* 0 */
     /// include the exact number of bytes as part
     ///     of the returned string.  For example, "45.6 kB (45,612 bytes)".
@@ -88,16 +88,16 @@ public extension IOCondition {
 }
 
 /// Specifies properties of a `GIOChannel`. Some of the flags can only be
-/// read with g_io_channel_get_flags(), but not changed with
-/// g_io_channel_set_flags().
+/// read with `g_io_channel_get_flags()`, but not changed with
+/// `g_io_channel_set_flags()`.
 public typealias IOFlags = GIOFlags
 
 public extension IOFlags {
     /// turns on append mode, corresponds to `O_APPEND`
-    ///     (see the documentation of the UNIX open() syscall)
+    ///     (see the documentation of the UNIX `open()` syscall)
     static let append = G_IO_FLAG_APPEND /* 1 */
     /// turns on nonblocking mode, corresponds to
-    ///     `O_NONBLOCK`/`O_NDELAY` (see the documentation of the UNIX open()
+    ///     `O_NONBLOCK`/`O_NDELAY` (see the documentation of the UNIX `open()`
     ///     syscall)
     static let nonblock = G_IO_FLAG_NONBLOCK /* 2 */
     /// indicates that the io channel is readable.
@@ -111,16 +111,16 @@ public extension IOFlags {
     ///     here for compatibility reasons. Deprecated since 2.30
     static let is_writeable = G_IO_FLAG_IS_WRITEABLE /* 8 */
     /// indicates that the io channel is seekable,
-    ///     i.e. that g_io_channel_seek_position() can be used on it.
+    ///     i.e. that `g_io_channel_seek_position()` can be used on it.
     ///     This flag cannot be changed.
     static let is_seekable = G_IO_FLAG_IS_SEEKABLE /* 16 */
     /// the mask that specifies all the valid flags.
     static let mask = G_IO_FLAG_MASK /* 31 */
     /// the mask of the flags that are returned from
-    ///     g_io_channel_get_flags()
+    ///     `g_io_channel_get_flags()`
     static let get_mask = G_IO_FLAG_GET_MASK /* 31 */
     /// the mask of the flags that the user can modify
-    ///     with g_io_channel_set_flags()
+    ///     with `g_io_channel_set_flags()`
     static let set_mask = G_IO_FLAG_SET_MASK /* 3 */
 }
 
@@ -145,7 +145,7 @@ public extension KeyFileFlags {
 /// Flags specifying the level of log messages.
 /// 
 /// It is possible to change how GLib treats messages of the various
-/// levels using g_log_set_handler() and g_log_set_fatal_mask().
+/// levels using `g_log_set_handler()` and `g_log_set_fatal_mask()`.
 public typealias LogLevelFlags = GLogLevelFlags
 
 public extension LogLevelFlags {
@@ -153,21 +153,21 @@ public extension LogLevelFlags {
     static let flag_recursion = G_LOG_FLAG_RECURSION /* 1 */
     /// internal flag
     static let flag_fatal = G_LOG_FLAG_FATAL /* 2 */
-    /// log level for errors, see g_error().
-    ///     This level is also used for messages produced by g_assert().
+    /// log level for errors, see `g_error()`.
+    ///     This level is also used for messages produced by `g_assert()`.
     static let level_error = G_LOG_LEVEL_ERROR /* 4 */
     /// log level for critical warning messages, see
-    ///     g_critical().
-    ///     This level is also used for messages produced by g_return_if_fail()
-    ///     and g_return_val_if_fail().
+    ///     `g_critical()`.
+    ///     This level is also used for messages produced by `g_return_if_fail()`
+    ///     and `g_return_val_if_fail()`.
     static let level_critical = G_LOG_LEVEL_CRITICAL /* 8 */
-    /// log level for warnings, see g_warning()
+    /// log level for warnings, see `g_warning()`
     static let level_warning = G_LOG_LEVEL_WARNING /* 16 */
-    /// log level for messages, see g_message()
+    /// log level for messages, see `g_message()`
     static let level_message = G_LOG_LEVEL_MESSAGE /* 32 */
-    /// log level for informational messages, see g_info()
+    /// log level for informational messages, see `g_info()`
     static let level_info = G_LOG_LEVEL_INFO /* 64 */
-    /// log level for debug messages, see g_debug()
+    /// log level for debug messages, see `g_debug()`
     static let level_debug = G_LOG_LEVEL_DEBUG /* 128 */
     /// a mask including all log levels
     static let level_mask = G_LOG_LEVEL_MASK /* -4 */
@@ -191,8 +191,8 @@ public extension MarkupCollectType {
     ///     attribute isn't present then the pointer will be set to `nil`
     static let string = G_MARKUP_COLLECT_STRING /* 1 */
     /// as with `G_MARKUP_COLLECT_STRING`, but
-    ///     expects a parameter of type (char **) and g_strdup()s the
-    ///     returned pointer. The pointer must be freed with g_free()
+    ///     expects a parameter of type (char **) and `g_strdup()`s the
+    ///     returned pointer. The pointer must be freed with `g_free()`
     static let strdup = G_MARKUP_COLLECT_STRDUP /* 2 */
     /// expects a parameter of type (gboolean *)
     ///     and parses the attribute value as a boolean. Sets `false` if the
@@ -299,7 +299,7 @@ public extension RegexCompileFlags {
     /// Whitespace data characters in the pattern are
     ///     totally ignored except when escaped or inside a character class.
     ///     Whitespace does not include the VT character (code 11). In addition,
-    ///     characters between an unescaped "``" outside a character class and
+    ///     characters between an unescaped "#" outside a character class and
     ///     the next newline character, inclusive, are also ignored. This can
     ///     be changed within a pattern by a "(?x)" option setting.
     static let extended = G_REGEX_EXTENDED /* 8 */
@@ -399,7 +399,7 @@ public extension RegexMatchFlags {
     ///     of "a" or "b".
     static let notempty = G_REGEX_MATCH_NOTEMPTY /* 1024 */
     /// Turns on the partial matching feature, for more
-    ///     documentation on partial matching see g_match_info_is_partial_match().
+    ///     documentation on partial matching see `g_match_info_is_partial_match()`.
     static let partial = G_REGEX_MATCH_PARTIAL /* 32768 */
     /// Overrides the newline definition set when
     ///     creating a new `GRegex`, setting the '\r' character as line terminator.
@@ -437,7 +437,7 @@ public extension RegexMatchFlags {
     /// Turns on the partial matching feature. In contrast to
     ///     to `G_REGEX_MATCH_PARTIAL_SOFT`, this stops matching as soon as a partial match
     ///     is found, without continuing to search for a possible complete match. See
-    ///     g_match_info_is_partial_match() for more information. Since: 2.34
+    ///     `g_match_info_is_partial_match()` for more information. Since: 2.34
     static let partial_hard = G_REGEX_MATCH_PARTIAL_HARD /* 134217728 */
     /// Like `G_REGEX_MATCH_NOTEMPTY`, but only applied to
     ///     the start of the matched string. For anchored
@@ -445,7 +445,7 @@ public extension RegexMatchFlags {
     static let notempty_atstart = G_REGEX_MATCH_NOTEMPTY_ATSTART /* 268435456 */
 }
 
-/// Flags passed to g_spawn_sync(), g_spawn_async() and g_spawn_async_with_pipes().
+/// Flags passed to `g_spawn_sync()`, `g_spawn_async()` and `g_spawn_async_with_pipes()`.
 public typealias SpawnFlags = GSpawnFlags
 
 public extension SpawnFlags {
@@ -453,10 +453,10 @@ public extension SpawnFlags {
     static let default_ = G_SPAWN_DEFAULT /* 0 */
     /// the parent's open file descriptors will
     ///     be inherited by the child; otherwise all descriptors except stdin,
-    ///     stdout and stderr will be closed before calling exec() in the child.
+    ///     stdout and stderr will be closed before calling `exec()` in the child.
     static let leave_descriptors_open = G_SPAWN_LEAVE_DESCRIPTORS_OPEN /* 1 */
     /// the child will not be automatically reaped;
-    ///     you must use g_child_watch_add() yourself (or call waitpid() or handle
+    ///     you must use `g_child_watch_add()` yourself (or call `waitpid()` or handle
     ///     `SIGCHLD` yourself), or the child will become a zombie.
     static let do_not_reap_child = G_SPAWN_DO_NOT_REAP_CHILD /* 2 */
     /// `argv[0]` need not be an absolute path, it will be
@@ -472,7 +472,7 @@ public extension SpawnFlags {
     static let child_inherits_stdin = G_SPAWN_CHILD_INHERITS_STDIN /* 32 */
     /// the first element of `argv` is the file to
     ///     execute, while the remaining elements are the actual argument vector
-    ///     to pass to the file. Normally g_spawn_async_with_pipes() uses `argv[0]`
+    ///     to pass to the file. Normally `g_spawn_async_with_pipes()` uses `argv[0]`
     ///     as the file to execute, and passes all of `argv` to the child.
     static let file_and_argv_zero = G_SPAWN_FILE_AND_ARGV_ZERO /* 64 */
     /// if `argv[0]` is not an abolute path,
@@ -484,9 +484,9 @@ public extension SpawnFlags {
     static let cloexec_pipes = G_SPAWN_CLOEXEC_PIPES /* 256 */
 }
 
-/// Flags to pass to g_test_trap_subprocess() to control input and output.
+/// Flags to pass to `g_test_trap_subprocess()` to control input and output.
 /// 
-/// Note that in contrast with g_test_trap_fork(), the default is to
+/// Note that in contrast with `g_test_trap_fork()`, the default is to
 /// not show stdout and stderr.
 public typealias TestSubprocessFlags = GTestSubprocessFlags
 
@@ -498,12 +498,12 @@ public extension TestSubprocessFlags {
     /// If this flag is given, the child
     ///     process will inherit the parent's stdout. Otherwise, the child's
     ///     stdout will not be visible, but it will be captured to allow
-    ///     later tests with g_test_trap_assert_stdout().
+    ///     later tests with `g_test_trap_assert_stdout()`.
     static let stdout = G_TEST_SUBPROCESS_INHERIT_STDOUT /* 2 */
     /// If this flag is given, the child
     ///     process will inherit the parent's stderr. Otherwise, the child's
     ///     stderr will not be visible, but it will be captured to allow
-    ///     later tests with g_test_trap_assert_stderr().
+    ///     later tests with `g_test_trap_assert_stderr()`.
     static let stderr = G_TEST_SUBPROCESS_INHERIT_STDERR /* 4 */
 }
 
@@ -520,12 +520,12 @@ public extension TestTrapFlags {
     /// Redirect stdout of the test child to
     ///     `/dev/null` so it cannot be observed on the console during test
     ///     runs. The actual output is still captured though to allow later
-    ///     tests with g_test_trap_assert_stdout().
+    ///     tests with `g_test_trap_assert_stdout()`.
     static let silence_stdout = G_TEST_TRAP_SILENCE_STDOUT /* 128 */
     /// Redirect stderr of the test child to
     ///     `/dev/null` so it cannot be observed on the console during test
     ///     runs. The actual output is still captured though to allow later
-    ///     tests with g_test_trap_assert_stderr().
+    ///     tests with `g_test_trap_assert_stderr()`.
     static let silence_stderr = G_TEST_TRAP_SILENCE_STDERR /* 256 */
     /// If this flag is given, stdin of the
     ///     child process is shared with stdin of its parent process.
@@ -534,7 +534,7 @@ public extension TestTrapFlags {
 }
 
 /// Specifies which nodes are visited during several of the tree
-/// functions, including g_node_traverse() and g_node_find().
+/// functions, including `g_node_traverse()` and `g_node_find()`.
 public typealias TraverseFlags = GTraverseFlags
 
 public extension TraverseFlags {

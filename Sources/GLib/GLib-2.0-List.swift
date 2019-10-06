@@ -68,8 +68,8 @@ public extension ListRef {
     }
 
         /// Allocates space for one `GList` element. It is called by
-    /// g_list_append(), g_list_prepend(), g_list_insert() and
-    /// g_list_insert_sorted() and so is rarely used on its own.
+    /// `g_list_append()`, `g_list_prepend()`, `g_list_insert()` and
+    /// `g_list_insert_sorted()` and so is rarely used on its own.
     static func alloc() -> ListRef! {
         let rv = g_list_alloc()
         return rv.map { ListRef(cast($0)) }
@@ -130,8 +130,8 @@ open class List: ListProtocol {
 
 
     /// Allocates space for one `GList` element. It is called by
-    /// g_list_append(), g_list_prepend(), g_list_insert() and
-    /// g_list_insert_sorted() and so is rarely used on its own.
+    /// `g_list_append()`, `g_list_prepend()`, `g_list_insert()` and
+    /// `g_list_insert_sorted()` and so is rarely used on its own.
     public static func alloc() -> List! {
         let rv = g_list_alloc()
         return rv.map { List(cast($0)) }
@@ -153,12 +153,13 @@ public extension ListProtocol {
     /// Note that the return value is the new start of the list,
     /// if `list` was empty; make sure you store the new value.
     /// 
-    /// g_list_append() has to traverse the entire list to find the end,
+    /// `g_list_append()` has to traverse the entire list to find the end,
     /// which is inefficient when adding multiple elements. A common idiom
-    /// to avoid the inefficiency is to use g_list_prepend() and reverse
-    /// the list with g_list_reverse() when all elements have been added.
+    /// to avoid the inefficiency is to use `g_list_prepend()` and reverse
+    /// the list with `g_list_reverse()` when all elements have been added.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// // Notice that these are initialized to the empty list.
     /// GList *string_list = NULL, *number_list = NULL;
     /// 
@@ -169,7 +170,8 @@ public extension ListProtocol {
     /// // This is a list of integers.
     /// number_list = g_list_append (number_list, GINT_TO_POINTER (27));
     /// number_list = g_list_append (number_list, GINT_TO_POINTER (14));
-    /// ]|
+    /// ```
+    /// 
     func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_append(cast(_ptr), cast(data))
         return cast(rv)
@@ -181,10 +183,12 @@ public extension ListProtocol {
     /// 
     /// This function is for example used to move an element in the list.
     /// The following example moves an element to the top of the list:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// list = g_list_remove_link (list, llink);
     /// list = g_list_concat (llink, list);
-    /// ]|
+    /// ```
+    /// 
     func concat(list2: ListProtocol) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_concat(cast(_ptr), cast(list2.ptr))
         return cast(rv)
@@ -194,7 +198,7 @@ public extension ListProtocol {
     /// 
     /// Note that this is a "shallow" copy. If the list elements
     /// consist of pointers to data, the pointers are copied but
-    /// the actual data is not. See g_list_copy_deep() if you need
+    /// the actual data is not. See `g_list_copy_deep()` if you need
     /// to copy the data as well.
     func copy() -> UnsafeMutablePointer<GList>! {
         let rv = g_list_copy(cast(_ptr))
@@ -203,7 +207,7 @@ public extension ListProtocol {
 
     /// Makes a full (deep) copy of a `GList`.
     /// 
-    /// In contrast with g_list_copy(), this function uses `func` to make
+    /// In contrast with `g_list_copy()`, this function uses `func` to make
     /// a copy of each list element, in addition to copying the list
     /// container itself.
     /// 
@@ -214,21 +218,24 @@ public extension ListProtocol {
     /// `-Wcast-function-type` warning.
     /// 
     /// For instance, if `list` holds a list of GObjects, you can do:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// another_list = g_list_copy_deep (list, (GCopyFunc) g_object_ref, NULL);
-    /// ]|
+    /// ```
     /// 
     /// And, to entirely free the new list, you could do:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// g_list_free_full (another_list, g_object_unref);
-    /// ]|
+    /// ```
+    /// 
     func copyDeep(func_: @escaping CopyFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_copy_deep(cast(_ptr), func_, cast(user_data))
         return cast(rv)
     }
 
     /// Removes the node link_ from the list and frees it.
-    /// Compare this to g_list_remove_link() which removes the node
+    /// Compare this to `g_list_remove_link()` which removes the node
     /// without freeing it.
     func deleteLink(link_: ListProtocol) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_delete_link(cast(_ptr), cast(link_.ptr))
@@ -271,7 +278,7 @@ public extension ListProtocol {
     /// The freed elements are returned to the slice allocator.
     /// 
     /// If list elements contain dynamically-allocated memory, you should
-    /// either use g_list_free_full() or free them manually first.
+    /// either use `g_list_free_full()` or free them manually first.
     func free() {
         g_list_free(cast(_ptr))
     
@@ -281,7 +288,7 @@ public extension ListProtocol {
     /// previous elements in the list, so you should not call this function on an
     /// element that is currently part of a list.
     /// 
-    /// It is usually used after g_list_remove_link().
+    /// It is usually used after `g_list_remove_link()`.
     func free1() {
         g_list_free_1(cast(_ptr))
     
@@ -327,8 +334,8 @@ public extension ListProtocol {
     /// 
     /// If you are adding many new elements to a list, and the number of
     /// new elements is much larger than the length of the list, use
-    /// g_list_prepend() to add the new items and sort the list afterwards
-    /// with g_list_sort().
+    /// `g_list_prepend()` to add the new items and sort the list afterwards
+    /// with `g_list_sort()`.
     func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_insert_sorted(cast(_ptr), cast(data), func_)
         return cast(rv)
@@ -339,8 +346,8 @@ public extension ListProtocol {
     /// 
     /// If you are adding many new elements to a list, and the number of
     /// new elements is much larger than the length of the list, use
-    /// g_list_prepend() to add the new items and sort the list afterwards
-    /// with g_list_sort().
+    /// `g_list_prepend()` to add the new items and sort the list afterwards
+    /// with `g_list_sort()`.
     func insertSortedWith(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_insert_sorted_with_data(cast(_ptr), cast(data), func_, cast(user_data))
         return cast(rv)
@@ -401,16 +408,17 @@ public extension ListProtocol {
     /// Note that the return value is the new start of the list,
     /// which will have changed, so make sure you store the new value.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// // Notice that it is initialized to the empty list.
     /// GList *list = NULL;
     /// 
     /// list = g_list_prepend (list, "last");
     /// list = g_list_prepend (list, "first");
-    /// ]|
+    /// ```
     /// 
     /// Do not use this function to prepend a new element to a different
-    /// element than the start of the list. Use g_list_insert_before() instead.
+    /// element than the start of the list. Use `g_list_insert_before()` instead.
     func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_prepend(cast(_ptr), cast(data))
         return cast(rv)
@@ -426,7 +434,7 @@ public extension ListProtocol {
 
     /// Removes all list nodes with data equal to `data`.
     /// Returns the new head of the list. Contrast with
-    /// g_list_remove() which removes only the first node
+    /// `g_list_remove()` which removes only the first node
     /// matching the given data.
     func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_remove_all(cast(_ptr), cast(data))
@@ -438,13 +446,15 @@ public extension ListProtocol {
     /// that it becomes a self-contained list with one element.
     /// 
     /// This function is for example used to move an element in the list
-    /// (see the example for g_list_concat()) or to remove an element in
+    /// (see the example for `g_list_concat()`) or to remove an element in
     /// the list before freeing its data:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// list = g_list_remove_link (list, llink);
     /// free_some_data_that_may_access_the_list_again (llink->data);
     /// g_list_free (llink);
-    /// ]|
+    /// ```
+    /// 
     func removeLink(llink: ListProtocol) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_remove_link(cast(_ptr), cast(llink.ptr))
         return cast(rv)
@@ -464,7 +474,7 @@ public extension ListProtocol {
         return cast(rv)
     }
 
-    /// Like g_list_sort(), but the comparison function accepts
+    /// Like `g_list_sort()`, but the comparison function accepts
     /// a user data argument.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
         let rv = g_list_sort_with_data(cast(_ptr), compare_func, cast(user_data))

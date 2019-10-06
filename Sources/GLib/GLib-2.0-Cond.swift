@@ -20,7 +20,8 @@ import CGLib
 /// 
 /// Here is an example for using GCond to block a thread until a condition
 /// is satisfied:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   gpointer current_data = NULL;
 ///   GMutex data_mutex;
 ///   GCond data_cond;
@@ -48,28 +49,28 @@ import CGLib
 /// 
 ///     return data;
 ///   }
-/// ]|
-/// Whenever a thread calls pop_data() now, it will wait until
+/// ```
+/// Whenever a thread calls `pop_data()` now, it will wait until
 /// current_data is non-`nil`, i.e. until some other thread
-/// has called push_data().
+/// has called `push_data()`.
 /// 
 /// The example shows that use of a condition variable must always be
 /// paired with a mutex.  Without the use of a mutex, there would be a
 /// race between the check of `current_data` by the while loop in
-/// pop_data() and waiting. Specifically, another thread could set
+/// `pop_data()` and waiting. Specifically, another thread could set
 /// `current_data` after the check, and signal the cond (with nobody
 /// waiting on it) before the first thread goes to sleep. `GCond` is
 /// specifically useful for its ability to release the mutex and go
 /// to sleep atomically.
 /// 
-/// It is also important to use the g_cond_wait() and g_cond_wait_until()
+/// It is also important to use the `g_cond_wait()` and `g_cond_wait_until()`
 /// functions only inside a loop which checks for the condition to be
-/// true.  See g_cond_wait() for an explanation of why the condition may
+/// true.  See `g_cond_wait()` for an explanation of why the condition may
 /// not be true even after it returns.
 /// 
 /// If a `GCond` is allocated in static storage then it can be used
-/// without initialisation.  Otherwise, you should call g_cond_init()
-/// on it and g_cond_clear() when done.
+/// without initialisation.  Otherwise, you should call `g_cond_init()`
+/// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 public protocol CondProtocol {
@@ -97,7 +98,8 @@ public protocol CondProtocol {
 /// 
 /// Here is an example for using GCond to block a thread until a condition
 /// is satisfied:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   gpointer current_data = NULL;
 ///   GMutex data_mutex;
 ///   GCond data_cond;
@@ -125,28 +127,28 @@ public protocol CondProtocol {
 /// 
 ///     return data;
 ///   }
-/// ]|
-/// Whenever a thread calls pop_data() now, it will wait until
+/// ```
+/// Whenever a thread calls `pop_data()` now, it will wait until
 /// current_data is non-`nil`, i.e. until some other thread
-/// has called push_data().
+/// has called `push_data()`.
 /// 
 /// The example shows that use of a condition variable must always be
 /// paired with a mutex.  Without the use of a mutex, there would be a
 /// race between the check of `current_data` by the while loop in
-/// pop_data() and waiting. Specifically, another thread could set
+/// `pop_data()` and waiting. Specifically, another thread could set
 /// `current_data` after the check, and signal the cond (with nobody
 /// waiting on it) before the first thread goes to sleep. `GCond` is
 /// specifically useful for its ability to release the mutex and go
 /// to sleep atomically.
 /// 
-/// It is also important to use the g_cond_wait() and g_cond_wait_until()
+/// It is also important to use the `g_cond_wait()` and `g_cond_wait_until()`
 /// functions only inside a loop which checks for the condition to be
-/// true.  See g_cond_wait() for an explanation of why the condition may
+/// true.  See `g_cond_wait()` for an explanation of why the condition may
 /// not be true even after it returns.
 /// 
 /// If a `GCond` is allocated in static storage then it can be used
-/// without initialisation.  Otherwise, you should call g_cond_init()
-/// on it and g_cond_clear() when done.
+/// without initialisation.  Otherwise, you should call `g_cond_init()`
+/// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 public struct CondRef: CondProtocol {
@@ -214,7 +216,8 @@ public extension CondRef {
 /// 
 /// Here is an example for using GCond to block a thread until a condition
 /// is satisfied:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   gpointer current_data = NULL;
 ///   GMutex data_mutex;
 ///   GCond data_cond;
@@ -242,28 +245,28 @@ public extension CondRef {
 /// 
 ///     return data;
 ///   }
-/// ]|
-/// Whenever a thread calls pop_data() now, it will wait until
+/// ```
+/// Whenever a thread calls `pop_data()` now, it will wait until
 /// current_data is non-`nil`, i.e. until some other thread
-/// has called push_data().
+/// has called `push_data()`.
 /// 
 /// The example shows that use of a condition variable must always be
 /// paired with a mutex.  Without the use of a mutex, there would be a
 /// race between the check of `current_data` by the while loop in
-/// pop_data() and waiting. Specifically, another thread could set
+/// `pop_data()` and waiting. Specifically, another thread could set
 /// `current_data` after the check, and signal the cond (with nobody
 /// waiting on it) before the first thread goes to sleep. `GCond` is
 /// specifically useful for its ability to release the mutex and go
 /// to sleep atomically.
 /// 
-/// It is also important to use the g_cond_wait() and g_cond_wait_until()
+/// It is also important to use the `g_cond_wait()` and `g_cond_wait_until()`
 /// functions only inside a loop which checks for the condition to be
-/// true.  See g_cond_wait() for an explanation of why the condition may
+/// true.  See `g_cond_wait()` for an explanation of why the condition may
 /// not be true even after it returns.
 /// 
 /// If a `GCond` is allocated in static storage then it can be used
-/// without initialisation.  Otherwise, you should call g_cond_init()
-/// on it and g_cond_clear() when done.
+/// without initialisation.  Otherwise, you should call `g_cond_init()`
+/// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 open class Cond: CondProtocol {
@@ -335,12 +338,12 @@ public extension CondProtocol {
     
     }
 
-    /// Frees the resources allocated to a `GCond` with g_cond_init().
+    /// Frees the resources allocated to a `GCond` with `g_cond_init()`.
     /// 
     /// This function should not be used with a `GCond` that has been
     /// statically allocated.
     /// 
-    /// Calling g_cond_clear() for a `GCond` on which threads are
+    /// Calling `g_cond_clear()` for a `GCond` on which threads are
     /// blocking leads to undefined behaviour.
     func clear() {
         g_cond_clear(cast(_ptr))
@@ -353,10 +356,10 @@ public extension CondProtocol {
     /// allocated as part of a larger structure.  It is not necessary to
     /// initialise a `GCond` that has been statically allocated.
     /// 
-    /// To undo the effect of g_cond_init() when a `GCond` is no longer
-    /// needed, use g_cond_clear().
+    /// To undo the effect of `g_cond_init()` when a `GCond` is no longer
+    /// needed, use `g_cond_clear()`.
     /// 
-    /// Calling g_cond_init() on an already-initialised `GCond` leads
+    /// Calling `g_cond_init()` on an already-initialised `GCond` leads
     /// to undefined behaviour.
     func init_() {
         g_cond_init(cast(_ptr))
@@ -377,14 +380,14 @@ public extension CondProtocol {
     /// calling thread.
     /// 
     /// When using condition variables, it is possible that a spurious wakeup
-    /// may occur (ie: g_cond_wait() returns even though g_cond_signal() was
+    /// may occur (ie: `g_cond_wait()` returns even though `g_cond_signal()` was
     /// not called).  It's also possible that a stolen wakeup may occur.
-    /// This is when g_cond_signal() is called, but another thread acquires
+    /// This is when `g_cond_signal()` is called, but another thread acquires
     /// `mutex` before this thread and modifies the state of the program in
-    /// such a way that when g_cond_wait() is able to return, the expected
+    /// such a way that when `g_cond_wait()` is able to return, the expected
     /// condition is no longer met.
     /// 
-    /// For this reason, g_cond_wait() must always be used in a loop.  See
+    /// For this reason, `g_cond_wait()` must always be used in a loop.  See
     /// the documentation for `GCond` for a complete example.
     func wait(mutex: UnsafeMutablePointer<GMutex>) {
         g_cond_wait(cast(_ptr), cast(mutex))
@@ -393,7 +396,7 @@ public extension CondProtocol {
 
     /// Waits until either `cond` is signalled or `end_time` has passed.
     /// 
-    /// As with g_cond_wait() it is possible that a spurious or stolen wakeup
+    /// As with `g_cond_wait()` it is possible that a spurious or stolen wakeup
     /// could occur.  For that reason, waiting on a condition variable should
     /// always be in a loop, based on an explicitly-checked predicate.
     /// 
@@ -405,7 +408,8 @@ public extension CondProtocol {
     /// condition variable (extending the example presented in the
     /// documentation for `GCond`):
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// gpointer
     /// pop_data_timed (void)
     /// {
@@ -431,7 +435,7 @@ public extension CondProtocol {
     /// 
     ///   return data;
     /// }
-    /// ]|
+    /// ```
     /// 
     /// Notice that the end time is calculated once, before entering the
     /// loop and reused.  This is the motivation behind the use of absolute

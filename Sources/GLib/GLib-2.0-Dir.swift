@@ -68,7 +68,7 @@ public extension DirRef {
     }
 
         /// Opens a directory for reading. The names of the files in the
-    /// directory can then be retrieved using g_dir_read_name().  Note
+    /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     static func open(path: UnsafePointer<gchar>, flags: CUnsignedInt) throws -> DirRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -134,7 +134,7 @@ open class Dir: DirProtocol {
 
 
     /// Opens a directory for reading. The names of the files in the
-    /// directory can then be retrieved using g_dir_read_name().  Note
+    /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     public static func open(path: UnsafePointer<gchar>, flags: CUnsignedInt) throws -> Dir! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -180,7 +180,7 @@ public extension DirProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Resets the given directory. The next call to g_dir_read_name()
+    /// Resets the given directory. The next call to `g_dir_read_name()`
     /// will return the first entry again.
     func rewind() {
         g_dir_rewind(cast(_ptr))

@@ -194,11 +194,11 @@ public extension QueueProtocol {
     }
 
     /// Frees the memory allocated for the `GQueue`. Only call this function
-    /// if `queue` was created with g_queue_new(). If queue elements contain
+    /// if `queue` was created with `g_queue_new()`. If queue elements contain
     /// dynamically-allocated memory, they should be freed first.
     /// 
     /// If queue elements contain dynamically-allocated memory, you should
-    /// either use g_queue_free_full() or free them manually first.
+    /// either use `g_queue_free_full()` or free them manually first.
     func free() {
         g_queue_free(cast(_ptr))
     
@@ -229,7 +229,7 @@ public extension QueueProtocol {
     /// A statically-allocated `GQueue` must be initialized with this function
     /// before it can be used. Alternatively you can initialize it with
     /// `G_QUEUE_INIT`. It is not necessary to initialize queues created with
-    /// g_queue_new().
+    /// `g_queue_new()`.
     func init_() {
         g_queue_init(cast(_ptr))
     

@@ -70,8 +70,8 @@ public extension KeyFileRef {
     }
 
         /// Creates a new empty `GKeyFile` object. Use
-    /// g_key_file_load_from_file(), g_key_file_load_from_data(),
-    /// g_key_file_load_from_dirs() or g_key_file_load_from_data_dirs() to
+    /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
+    /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
     /// read an existing key file.
     init() {
         let rv = g_key_file_new()
@@ -133,8 +133,8 @@ open class KeyFile: KeyFileProtocol {
     }
 
     /// Creates a new empty `GKeyFile` object. Use
-    /// g_key_file_load_from_file(), g_key_file_load_from_data(),
-    /// g_key_file_load_from_dirs() or g_key_file_load_from_data_dirs() to
+    /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
+    /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
     /// read an existing key file.
     public convenience init() {
         let rv = g_key_file_new()
@@ -198,7 +198,7 @@ public extension KeyFileProtocol {
     /// `group_name`. If both `key` and `group_name` are `nil`, then
     /// `comment` will be read from above the first group in the file.
     /// 
-    /// Note that the returned string does not include the '``' comment markers,
+    /// Note that the returned string does not include the '#' comment markers,
     /// but does include any whitespace after them (on each line). It includes
     /// the line breaks between lines, but does not include the final line break.
     func getComment(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> String! {
@@ -251,7 +251,7 @@ public extension KeyFileProtocol {
     }
 
     /// Returns the value associated with `key` under `group_name` as a signed
-    /// 64-bit integer. This is similar to g_key_file_get_integer() but can return
+    /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
     /// 64-bit results without truncation.
     func getInt64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Int64 {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -311,11 +311,11 @@ public extension KeyFileProtocol {
     }
 
     /// Returns the actual locale which the result of
-    /// g_key_file_get_locale_string() or g_key_file_get_locale_string_list()
+    /// `g_key_file_get_locale_string()` or `g_key_file_get_locale_string_list()`
     /// came from.
     /// 
-    /// If calling g_key_file_get_locale_string() or
-    /// g_key_file_get_locale_string_list() with exactly the same `key_file`,
+    /// If calling `g_key_file_get_locale_string()` or
+    /// `g_key_file_get_locale_string_list()` with exactly the same `key_file`,
     /// `group_name`, `key` and `locale`, the result of those functions will
     /// have originally been tagged with the locale that is the result of
     /// this function.
@@ -375,7 +375,7 @@ public extension KeyFileProtocol {
     }
 
     /// Returns the string value associated with `key` under `group_name`.
-    /// Unlike g_key_file_get_value(), this function handles escape sequences
+    /// Unlike `g_key_file_get_value()`, this function handles escape sequences
     /// like \s.
     /// 
     /// In the event the key cannot be found, `nil` is returned and
@@ -407,7 +407,7 @@ public extension KeyFileProtocol {
     }
 
     /// Returns the value associated with `key` under `group_name` as an unsigned
-    /// 64-bit integer. This is similar to g_key_file_get_integer() but can return
+    /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
     /// large positive results without truncation.
     func getUint64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> UInt64 {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -419,7 +419,7 @@ public extension KeyFileProtocol {
     }
 
     /// Returns the raw value associated with `key` under `group_name`.
-    /// Use g_key_file_get_string() to retrieve an unescaped UTF-8 string.
+    /// Use `g_key_file_get_string()` to retrieve an unescaped UTF-8 string.
     /// 
     /// In the event the key cannot be found, `nil` is returned and
     /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
@@ -448,7 +448,7 @@ public extension KeyFileProtocol {
     /// this function, you must pass a `GError` pointer in `error`, and check
     /// whether it is not `nil` to see if an error occurred.
     /// 
-    /// Language bindings should use g_key_file_get_value() to test whether
+    /// Language bindings should use `g_key_file_get_value()` to test whether
     /// or not a key exists.
     func hasKey(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -482,7 +482,7 @@ public extension KeyFileProtocol {
     }
 
     /// This function looks for a key file named `file` in the paths
-    /// returned from g_get_user_data_dir() and g_get_system_data_dirs(),
+    /// returned from `g_get_user_data_dir()` and `g_get_system_data_dirs()`,
     /// loads the file into `key_file` and returns the file's full path in
     /// `full_path`.  If the file could not be loaded then an `error` is
     /// set to either a `GFileError` or `GKeyFileError`.
@@ -571,10 +571,10 @@ public extension KeyFileProtocol {
     }
 
     /// Writes the contents of `key_file` to `filename` using
-    /// g_file_set_contents().
+    /// `g_file_set_contents()`.
     /// 
     /// This function can fail for any of the reasons that
-    /// g_file_set_contents() may fail.
+    /// `g_file_set_contents()` may fail.
     func saveToFile(String_: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_key_file_save_to_file(cast(key_file_ptr), String_, &error)
@@ -605,7 +605,7 @@ public extension KeyFileProtocol {
     /// If both `key` and `group_name`  are `nil`, then `comment` will be
     /// written above the first group in the file.
     /// 
-    /// Note that this function prepends a '``' comment marker to
+    /// Note that this function prepends a '#' comment marker to
     /// each line of `comment`.
     func setComment(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, comment: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -677,7 +677,7 @@ public extension KeyFileProtocol {
     /// Associates a new string value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
     /// If `group_name` cannot be found then it is created.
-    /// Unlike g_key_file_set_value(), this function handles characters
+    /// Unlike `g_key_file_set_value()`, this function handles characters
     /// that need escaping, such as newlines.
     func setString(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, string: UnsafePointer<gchar>) {
         g_key_file_set_string(cast(key_file_ptr), group_name, key, string)
@@ -704,7 +704,7 @@ public extension KeyFileProtocol {
     /// If `key` cannot be found then it is created. If `group_name` cannot
     /// be found then it is created. To set an UTF-8 string which may contain
     /// characters that need escaping (such as newlines or spaces), use
-    /// g_key_file_set_string().
+    /// `g_key_file_set_string()`.
     func setValue(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: UnsafePointer<gchar>) {
         g_key_file_set_value(cast(key_file_ptr), group_name, key, value)
     

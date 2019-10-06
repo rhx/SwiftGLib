@@ -154,19 +154,19 @@ public extension PatternSpecProtocol {
     /// length of the string given is mandatory. The reversed string can be
     /// omitted by passing `nil`, this is more efficient if the reversed
     /// version of the string to be matched is not at hand, as
-    /// g_pattern_match() will only construct it if the compiled pattern
+    /// `g_pattern_match()` will only construct it if the compiled pattern
     /// requires reverse matches.
     /// 
     /// Note that, if the user code will (possibly) match a string against a
     /// multitude of patterns containing wildcards, chances are high that
     /// some patterns will require a reversed string. In this case, it's
     /// more efficient to provide the reversed string to avoid multiple
-    /// constructions thereof in the various calls to g_pattern_match().
+    /// constructions thereof in the various calls to `g_pattern_match()`.
     /// 
     /// Note also that the reverse of a UTF-8 encoded string can in general
-    /// not be obtained by g_strreverse(). This works only if the string
+    /// not be obtained by `g_strreverse()`. This works only if the string
     /// does not contain any multibyte characters. GLib offers the
-    /// g_utf8_strreverse() function to reverse UTF-8 encoded strings.
+    /// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
     func patternMatch(stringLength string_length: CUnsignedInt, string: UnsafePointer<gchar>, stringReversed string_reversed: UnsafePointer<gchar>) -> Bool {
         let rv = g_pattern_match(cast(_ptr), guint(string_length), string, string_reversed)
         return Bool(rv != 0)
@@ -174,7 +174,7 @@ public extension PatternSpecProtocol {
 
     /// Matches a string against a compiled pattern. If the string is to be
     /// matched against more than one pattern, consider using
-    /// g_pattern_match() instead while supplying the reversed string.
+    /// `g_pattern_match()` instead while supplying the reversed string.
     func patternMatch(string: UnsafePointer<gchar>) -> Bool {
         let rv = g_pattern_match_string(cast(_ptr), string)
         return Bool(rv != 0)

@@ -70,8 +70,8 @@ public extension SListRef {
     }
 
         /// Allocates space for one `GSList` element. It is called by the
-    /// g_slist_append(), g_slist_prepend(), g_slist_insert() and
-    /// g_slist_insert_sorted() functions and so is rarely used on its own.
+    /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
+    /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
     static func alloc() -> SListRef! {
         let rv = g_slist_alloc()
         return rv.map { SListRef(cast($0)) }
@@ -133,8 +133,8 @@ open class SList: SListProtocol {
 
 
     /// Allocates space for one `GSList` element. It is called by the
-    /// g_slist_append(), g_slist_prepend(), g_slist_insert() and
-    /// g_slist_insert_sorted() functions and so is rarely used on its own.
+    /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
+    /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
     public static func alloc() -> SList! {
         let rv = g_slist_alloc()
         return rv.map { SList(cast($0)) }
@@ -156,12 +156,13 @@ public extension SListProtocol {
     /// The return value is the new start of the list, which may
     /// have changed, so make sure you store the new value.
     /// 
-    /// Note that g_slist_append() has to traverse the entire list
+    /// Note that `g_slist_append()` has to traverse the entire list
     /// to find the end, which is inefficient when adding multiple
     /// elements. A common idiom to avoid the inefficiency is to prepend
     /// the elements and reverse the list when all elements have been added.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// // Notice that these are initialized to the empty list.
     /// GSList *list = NULL, *number_list = NULL;
     /// 
@@ -172,7 +173,8 @@ public extension SListProtocol {
     /// // This is a list of integers.
     /// number_list = g_slist_append (number_list, GINT_TO_POINTER (27));
     /// number_list = g_slist_append (number_list, GINT_TO_POINTER (14));
-    /// ]|
+    /// ```
+    /// 
     func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_append(cast(_ptr), cast(data))
         return cast(rv)
@@ -190,7 +192,7 @@ public extension SListProtocol {
     /// 
     /// Note that this is a "shallow" copy. If the list elements
     /// consist of pointers to data, the pointers are copied but
-    /// the actual data isn't. See g_slist_copy_deep() if you need
+    /// the actual data isn't. See `g_slist_copy_deep()` if you need
     /// to copy the data as well.
     func copy() -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_copy(cast(_ptr))
@@ -199,7 +201,7 @@ public extension SListProtocol {
 
     /// Makes a full (deep) copy of a `GSList`.
     /// 
-    /// In contrast with g_slist_copy(), this function uses `func` to make a copy of
+    /// In contrast with `g_slist_copy()`, this function uses `func` to make a copy of
     /// each list element, in addition to copying the list container itself.
     /// 
     /// `func`, as a `GCopyFunc`, takes two arguments, the data to be copied
@@ -209,26 +211,29 @@ public extension SListProtocol {
     /// `-Wcast-function-type` warning.
     /// 
     /// For instance, if `list` holds a list of GObjects, you can do:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// another_list = g_slist_copy_deep (list, (GCopyFunc) g_object_ref, NULL);
-    /// ]|
+    /// ```
     /// 
     /// And, to entirely free the new list, you could do:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// g_slist_free_full (another_list, g_object_unref);
-    /// ]|
+    /// ```
+    /// 
     func copyDeep(func_: @escaping CopyFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_copy_deep(cast(_ptr), func_, cast(user_data))
         return cast(rv)
     }
 
     /// Removes the node link_ from the list and frees it.
-    /// Compare this to g_slist_remove_link() which removes the node
+    /// Compare this to `g_slist_remove_link()` which removes the node
     /// without freeing it.
     /// 
     /// Removing arbitrary nodes from a singly-linked list requires time
-    /// that is proportional to the length of the list (ie. O(n)). If you
-    /// find yourself using g_slist_delete_link() frequently, you should
+    /// that is proportional to the length of the list (ie. `O(n)`). If you
+    /// find yourself using `g_slist_delete_link()` frequently, you should
     /// consider a different data structure, such as the doubly-linked
     /// `GList`.
     func deleteLink(link_: SListProtocol) -> UnsafeMutablePointer<GSList>! {
@@ -267,7 +272,7 @@ public extension SListProtocol {
     /// The freed elements are returned to the slice allocator.
     /// 
     /// If list elements contain dynamically-allocated memory,
-    /// you should either use g_slist_free_full() or free them manually
+    /// you should either use `g_slist_free_full()` or free them manually
     /// first.
     func free() {
         g_slist_free(cast(_ptr))
@@ -275,7 +280,7 @@ public extension SListProtocol {
     }
 
     /// Frees one `GSList` element.
-    /// It is usually used after g_slist_remove_link().
+    /// It is usually used after `g_slist_remove_link()`.
     func free1() {
         g_slist_free_1(cast(_ptr))
     
@@ -366,12 +371,14 @@ public extension SListProtocol {
     /// The return value is the new start of the list, which
     /// may have changed, so make sure you store the new value.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// // Notice that it is initialized to the empty list.
     /// GSList *list = NULL;
     /// list = g_slist_prepend (list, "last");
     /// list = g_slist_prepend (list, "first");
-    /// ]|
+    /// ```
+    /// 
     func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_prepend(cast(_ptr), cast(data))
         return cast(rv)
@@ -387,7 +394,7 @@ public extension SListProtocol {
 
     /// Removes all list nodes with data equal to `data`.
     /// Returns the new head of the list. Contrast with
-    /// g_slist_remove() which removes only the first node
+    /// `g_slist_remove()` which removes only the first node
     /// matching the given data.
     func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_remove_all(cast(_ptr), cast(data))
@@ -401,7 +408,7 @@ public extension SListProtocol {
     /// 
     /// Removing arbitrary nodes from a singly-linked list
     /// requires time that is proportional to the length of the list
-    /// (ie. O(n)). If you find yourself using g_slist_remove_link()
+    /// (ie. `O(n)`). If you find yourself using `g_slist_remove_link()`
     /// frequently, you should consider a different data structure,
     /// such as the doubly-linked `GList`.
     func removeLink(link_: SListProtocol) -> UnsafeMutablePointer<GSList>! {
@@ -422,7 +429,7 @@ public extension SListProtocol {
         return cast(rv)
     }
 
-    /// Like g_slist_sort(), but the sort function accepts a user data argument.
+    /// Like `g_slist_sort()`, but the sort function accepts a user data argument.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_sort_with_data(cast(_ptr), compare_func, cast(user_data))
         return cast(rv)

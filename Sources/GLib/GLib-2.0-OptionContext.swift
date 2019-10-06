@@ -165,7 +165,7 @@ public extension OptionContextProtocol {
     
     }
 
-    /// Returns the description. See g_option_context_set_description().
+    /// Returns the description. See `g_option_context_set_description()`.
     func getDescription() -> String! {
         let rv = g_option_context_get_description(cast(_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -184,14 +184,14 @@ public extension OptionContextProtocol {
     }
 
     /// Returns whether automatic `--help` generation
-    /// is turned on for `context`. See g_option_context_set_help_enabled().
+    /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
     func getHelpEnabled() -> Bool {
         let rv = g_option_context_get_help_enabled(cast(_ptr))
         return Bool(rv != 0)
     }
 
     /// Returns whether unknown options are ignored or not. See
-    /// g_option_context_set_ignore_unknown_options().
+    /// `g_option_context_set_ignore_unknown_options()`.
     func getIgnoreUnknownOptions() -> Bool {
         let rv = g_option_context_get_ignore_unknown_options(cast(_ptr))
         return Bool(rv != 0)
@@ -205,13 +205,13 @@ public extension OptionContextProtocol {
 
     /// Returns whether strict POSIX code is enabled.
     /// 
-    /// See g_option_context_set_strict_posix() for more information.
+    /// See `g_option_context_set_strict_posix()` for more information.
     func getStrictPosix() -> Bool {
         let rv = g_option_context_get_strict_posix(cast(_ptr))
         return Bool(rv != 0)
     }
 
-    /// Returns the summary. See g_option_context_set_summary().
+    /// Returns the summary. See `g_option_context_set_summary()`.
     func getSummary() -> String! {
         let rv = g_option_context_get_summary(cast(_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -219,7 +219,7 @@ public extension OptionContextProtocol {
 
     /// Parses the command line arguments, recognizing options
     /// which have been added to `context`. A side-effect of
-    /// calling this function is that g_set_prgname() will be
+    /// calling this function is that `g_set_prgname()` will be
     /// called.
     /// 
     /// If the parsing is successful, any parsed arguments are
@@ -230,7 +230,7 @@ public extension OptionContextProtocol {
     /// of an error, `argc` and `argv` are left unmodified.
     /// 
     /// If automatic `--help` support is enabled
-    /// (see g_option_context_set_help_enabled()), and the
+    /// (see `g_option_context_set_help_enabled()`), and the
     /// `argv` array contains one of the recognized help options,
     /// this function will produce help output to stdout and
     /// call `exit (0)`.
@@ -249,17 +249,17 @@ public extension OptionContextProtocol {
 
     /// Parses the command line arguments.
     /// 
-    /// This function is similar to g_option_context_parse() except that it
+    /// This function is similar to `g_option_context_parse()` except that it
     /// respects the normal memory rules when dealing with a strv instead of
     /// assuming that the passed-in array is the argv of the main function.
     /// 
     /// In particular, strings that are removed from the arguments list will
-    /// be freed using g_free().
+    /// be freed using `g_free()`.
     /// 
     /// On Windows, the strings are expected to be in UTF-8.  This is in
-    /// contrast to g_option_context_parse() which expects them to be in the
-    /// system codepage, which is how they are passed as `argv` to main().
-    /// See g_win32_get_command_line() for a solution.
+    /// contrast to `g_option_context_parse()` which expects them to be in the
+    /// system codepage, which is how they are passed as `argv` to `main()`.
+    /// See `g_win32_get_command_line()` for a solution.
     /// 
     /// This function is useful if you are trying to use `GOptionContext` with
     /// `GApplication`.
@@ -276,14 +276,14 @@ public extension OptionContextProtocol {
     /// of options. This text often includes a bug reporting address.
     /// 
     /// Note that the summary is translated (see
-    /// g_option_context_set_translate_func()).
+    /// `g_option_context_set_translate_func()`).
     func set(description: UnsafePointer<gchar>) {
         g_option_context_set_description(cast(_ptr), description)
     
     }
 
     /// Enables or disables automatic generation of `--help` output.
-    /// By default, g_option_context_parse() recognizes `--help`, `-h`,
+    /// By default, `g_option_context_parse()` recognizes `--help`, `-h`,
     /// `-?`, `--help-all` and `--help-groupname` and creates suitable
     /// output to stdout.
     func set(helpEnabled help_enabled: Bool) {
@@ -293,7 +293,7 @@ public extension OptionContextProtocol {
 
     /// Sets whether to ignore unknown options or not. If an argument is
     /// ignored, it is left in the `argv` array after parsing. By default,
-    /// g_option_context_parse() treats unknown options as error.
+    /// `g_option_context_parse()` treats unknown options as error.
     /// 
     /// This setting does not affect non-option arguments (i.e. arguments
     /// which don't start with a dash). But note that GOption cannot reliably
@@ -304,7 +304,7 @@ public extension OptionContextProtocol {
     }
 
     /// Sets a `GOptionGroup` as main group of the `context`.
-    /// This has the same effect as calling g_option_context_add_group(),
+    /// This has the same effect as calling `g_option_context_add_group()`,
     /// the only difference is that the options in the main group are
     /// treated differently when generating `--help` output.
     func setMain(group: OptionGroupProtocol) {
@@ -345,8 +345,8 @@ public extension OptionContextProtocol {
     /// of options. This is typically a summary of the program functionality.
     /// 
     /// Note that the summary is translated (see
-    /// g_option_context_set_translate_func() and
-    /// g_option_context_set_translation_domain()).
+    /// `g_option_context_set_translate_func()` and
+    /// `g_option_context_set_translation_domain()`).
     func set(summary: UnsafePointer<gchar>) {
         g_option_context_set_summary(cast(_ptr), summary)
     
@@ -357,26 +357,26 @@ public extension OptionContextProtocol {
     /// strings are not translated.
     /// 
     /// Note that option groups have their own translation functions,
-    /// this function only affects the `parameter_string` (see g_option_context_new()),
-    /// the summary (see g_option_context_set_summary()) and the description
-    /// (see g_option_context_set_description()).
+    /// this function only affects the `parameter_string` (see `g_option_context_new()`),
+    /// the summary (see `g_option_context_set_summary()`) and the description
+    /// (see `g_option_context_set_description()`).
     /// 
-    /// If you are using gettext(), you only need to set the translation
-    /// domain, see g_option_context_set_translation_domain().
+    /// If you are using `gettext()`, you only need to set the translation
+    /// domain, see `g_option_context_set_translation_domain()`.
     func setTranslateFunc(func_: @escaping TranslateFunc, data: UnsafeMutableRawPointer, destroyNotify destroy_notify: @escaping DestroyNotify) {
         g_option_context_set_translate_func(cast(_ptr), func_, cast(data), destroy_notify)
     
     }
 
-    /// A convenience function to use gettext() for translating
+    /// A convenience function to use `gettext()` for translating
     /// user-visible strings.
     func setTranslation(domain: UnsafePointer<gchar>) {
         g_option_context_set_translation_domain(cast(_ptr), domain)
     
     }
-    /// Returns the description. See g_option_context_set_description().
+    /// Returns the description. See `g_option_context_set_description()`.
     var description: String! {
-        /// Returns the description. See g_option_context_set_description().
+        /// Returns the description. See `g_option_context_set_description()`.
         get {
             let rv = g_option_context_get_description(cast(_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -385,23 +385,23 @@ public extension OptionContextProtocol {
         /// of options. This text often includes a bug reporting address.
         /// 
         /// Note that the summary is translated (see
-        /// g_option_context_set_translate_func()).
+        /// `g_option_context_set_translate_func()`).
         nonmutating set {
             g_option_context_set_description(cast(_ptr), newValue)
         }
     }
 
     /// Returns whether automatic `--help` generation
-    /// is turned on for `context`. See g_option_context_set_help_enabled().
+    /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
     var helpEnabled: Bool {
         /// Returns whether automatic `--help` generation
-        /// is turned on for `context`. See g_option_context_set_help_enabled().
+        /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
         get {
             let rv = g_option_context_get_help_enabled(cast(_ptr))
             return Bool(rv != 0)
         }
         /// Enables or disables automatic generation of `--help` output.
-        /// By default, g_option_context_parse() recognizes `--help`, `-h`,
+        /// By default, `g_option_context_parse()` recognizes `--help`, `-h`,
         /// `-?`, `--help-all` and `--help-groupname` and creates suitable
         /// output to stdout.
         nonmutating set {
@@ -410,17 +410,17 @@ public extension OptionContextProtocol {
     }
 
     /// Returns whether unknown options are ignored or not. See
-    /// g_option_context_set_ignore_unknown_options().
+    /// `g_option_context_set_ignore_unknown_options()`.
     var ignoreUnknownOptions: Bool {
         /// Returns whether unknown options are ignored or not. See
-        /// g_option_context_set_ignore_unknown_options().
+        /// `g_option_context_set_ignore_unknown_options()`.
         get {
             let rv = g_option_context_get_ignore_unknown_options(cast(_ptr))
             return Bool(rv != 0)
         }
         /// Sets whether to ignore unknown options or not. If an argument is
         /// ignored, it is left in the `argv` array after parsing. By default,
-        /// g_option_context_parse() treats unknown options as error.
+        /// `g_option_context_parse()` treats unknown options as error.
         /// 
         /// This setting does not affect non-option arguments (i.e. arguments
         /// which don't start with a dash). But note that GOption cannot reliably
@@ -438,7 +438,7 @@ public extension OptionContextProtocol {
             return cast(rv)
         }
         /// Sets a `GOptionGroup` as main group of the `context`.
-        /// This has the same effect as calling g_option_context_add_group(),
+        /// This has the same effect as calling `g_option_context_add_group()`,
         /// the only difference is that the options in the main group are
         /// treated differently when generating `--help` output.
         nonmutating set {
@@ -448,11 +448,11 @@ public extension OptionContextProtocol {
 
     /// Returns whether strict POSIX code is enabled.
     /// 
-    /// See g_option_context_set_strict_posix() for more information.
+    /// See `g_option_context_set_strict_posix()` for more information.
     var strictPosix: Bool {
         /// Returns whether strict POSIX code is enabled.
         /// 
-        /// See g_option_context_set_strict_posix() for more information.
+        /// See `g_option_context_set_strict_posix()` for more information.
         get {
             let rv = g_option_context_get_strict_posix(cast(_ptr))
             return Bool(rv != 0)
@@ -486,9 +486,9 @@ public extension OptionContextProtocol {
         }
     }
 
-    /// Returns the summary. See g_option_context_set_summary().
+    /// Returns the summary. See `g_option_context_set_summary()`.
     var summary: String! {
-        /// Returns the summary. See g_option_context_set_summary().
+        /// Returns the summary. See `g_option_context_set_summary()`.
         get {
             let rv = g_option_context_get_summary(cast(_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -497,8 +497,8 @@ public extension OptionContextProtocol {
         /// of options. This is typically a summary of the program functionality.
         /// 
         /// Note that the summary is translated (see
-        /// g_option_context_set_translate_func() and
-        /// g_option_context_set_translation_domain()).
+        /// `g_option_context_set_translate_func()` and
+        /// `g_option_context_set_translation_domain()`).
         nonmutating set {
             g_option_context_set_summary(cast(_ptr), newValue)
         }

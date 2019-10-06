@@ -185,22 +185,22 @@ public extension OptionGroupProtocol {
     }
 
     /// Associates a function with `group` which will be called
-    /// from g_option_context_parse() when an error occurs.
+    /// from `g_option_context_parse()` when an error occurs.
     /// 
     /// Note that the user data to be passed to `error_func` can be
-    /// specified when constructing the group with g_option_group_new().
+    /// specified when constructing the group with `g_option_group_new()`.
     func setErrorHook(errorFunc error_func: @escaping OptionErrorFunc) {
         g_option_group_set_error_hook(cast(option_group_ptr), error_func)
     
     }
 
     /// Associates two functions with `group` which will be called
-    /// from g_option_context_parse() before the first option is parsed
+    /// from `g_option_context_parse()` before the first option is parsed
     /// and after the last option has been parsed, respectively.
     /// 
     /// Note that the user data to be passed to `pre_parse_func` and
     /// `post_parse_func` can be specified when constructing the group
-    /// with g_option_group_new().
+    /// with `g_option_group_new()`.
     func setParseHooks(preParseFunc pre_parse_func: @escaping OptionParseFunc, postParseFunc post_parse_func: @escaping OptionParseFunc) {
         g_option_group_set_parse_hooks(cast(option_group_ptr), pre_parse_func, post_parse_func)
     
@@ -210,14 +210,14 @@ public extension OptionGroupProtocol {
     /// for `--help` output. Different groups can use different
     /// `GTranslateFuncs`. If `func` is `nil`, strings are not translated.
     /// 
-    /// If you are using gettext(), you only need to set the translation
-    /// domain, see g_option_group_set_translation_domain().
+    /// If you are using `gettext()`, you only need to set the translation
+    /// domain, see `g_option_group_set_translation_domain()`.
     func setTranslateFunc(func_: @escaping TranslateFunc, data: UnsafeMutableRawPointer, destroyNotify destroy_notify: @escaping DestroyNotify) {
         g_option_group_set_translate_func(cast(option_group_ptr), func_, cast(data), destroy_notify)
     
     }
 
-    /// A convenience function to use gettext() for translating
+    /// A convenience function to use `gettext()` for translating
     /// user-visible strings.
     func setTranslation(domain: UnsafePointer<gchar>) {
         g_option_group_set_translation_domain(cast(option_group_ptr), domain)

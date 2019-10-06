@@ -186,10 +186,10 @@ public extension AsyncQueueProtocol {
     /// holding the lock, this call will block until the lock
     /// becomes available.
     /// 
-    /// Call g_async_queue_unlock() to drop the lock again.
+    /// Call `g_async_queue_unlock()` to drop the lock again.
     /// 
     /// While holding the lock, you can only call the
-    /// g_async_queue_*_unlocked() functions on `queue`. Otherwise,
+    /// `g_async_queue_*_unlocked()` functions on `queue`. Otherwise,
     /// deadlock may occur.
     func lock() {
         g_async_queue_lock(cast(_ptr))
@@ -219,7 +219,7 @@ public extension AsyncQueueProtocol {
     }
 
     /// Pushes the `item` into the `queue`. `item` must not be `nil`.
-    /// In contrast to g_async_queue_push(), this function
+    /// In contrast to `g_async_queue_push()`, this function
     /// pushes the new item ahead of the items already in the queue,
     /// so that it will be the next one to be popped off the queue.
     func pushFront(item: UnsafeMutableRawPointer) {
@@ -228,7 +228,7 @@ public extension AsyncQueueProtocol {
     }
 
     /// Pushes the `item` into the `queue`. `item` must not be `nil`.
-    /// In contrast to g_async_queue_push_unlocked(), this function
+    /// In contrast to `g_async_queue_push_unlocked()`, this function
     /// pushes the new item ahead of the items already in the queue,
     /// so that it will be the next one to be popped off the queue.
     /// 
@@ -242,12 +242,12 @@ public extension AsyncQueueProtocol {
     /// position.
     /// 
     /// This function requires that the `queue` is sorted before pushing on
-    /// new elements, see g_async_queue_sort().
+    /// new elements, see `g_async_queue_sort()`.
     /// 
     /// This function will lock `queue` before it sorts the queue and unlock
     /// it when it is finished.
     /// 
-    /// For an example of `func` see g_async_queue_sort().
+    /// For an example of `func` see `g_async_queue_sort()`.
     func pushSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_async_queue_push_sorted(cast(_ptr), cast(data), func_, cast(user_data))
     
@@ -263,11 +263,11 @@ public extension AsyncQueueProtocol {
     /// element.
     /// 
     /// This function requires that the `queue` is sorted before pushing on
-    /// new elements, see g_async_queue_sort().
+    /// new elements, see `g_async_queue_sort()`.
     /// 
     /// This function must be called while holding the `queue`'s lock.
     /// 
-    /// For an example of `func` see g_async_queue_sort().
+    /// For an example of `func` see `g_async_queue_sort()`.
     func pushSortedUnlocked(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_async_queue_push_sorted_unlocked(cast(_ptr), cast(data), func_, cast(user_data))
     
@@ -326,7 +326,8 @@ public extension AsyncQueueProtocol {
     /// 
     /// If you were sorting a list of priority numbers to make sure the
     /// lowest priority would be at the top of the queue, you could use:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     ///  gint32 id1;
     ///  gint32 id2;
     /// 
@@ -334,7 +335,8 @@ public extension AsyncQueueProtocol {
     ///  id2 = GPOINTER_TO_INT (element2);
     /// 
     ///  return (id1 > id2 ? +1 : id1 == id2 ? 0 : -1);
-    /// ]|
+    /// ```
+    /// 
     func sort(func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_async_queue_sort(cast(_ptr), func_, cast(user_data))
     
@@ -359,8 +361,8 @@ public extension AsyncQueueProtocol {
     /// 
     /// If no data is received before `end_time`, `nil` is returned.
     /// 
-    /// To easily calculate `end_time`, a combination of g_get_real_time()
-    /// and g_time_val_add() can be used.
+    /// To easily calculate `end_time`, a combination of `g_get_real_time()`
+    /// and `g_time_val_add()` can be used.
     ///
     /// **timed_pop is deprecated:**
     /// use g_async_queue_timeout_pop().
@@ -374,8 +376,8 @@ public extension AsyncQueueProtocol {
     /// 
     /// If no data is received before `end_time`, `nil` is returned.
     /// 
-    /// To easily calculate `end_time`, a combination of g_get_real_time()
-    /// and g_time_val_add() can be used.
+    /// To easily calculate `end_time`, a combination of `g_get_real_time()`
+    /// and `g_time_val_add()` can be used.
     /// 
     /// This function must be called while holding the `queue`'s lock.
     ///
@@ -425,7 +427,7 @@ public extension AsyncQueueProtocol {
     /// Releases the queue's lock.
     /// 
     /// Calling this function when you have not acquired
-    /// the with g_async_queue_lock() leads to undefined
+    /// the with `g_async_queue_lock()` leads to undefined
     /// behaviour.
     func unlock() {
         g_async_queue_unlock(cast(_ptr))

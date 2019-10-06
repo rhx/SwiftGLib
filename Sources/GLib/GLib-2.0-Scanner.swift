@@ -175,7 +175,7 @@ public extension ScannerProtocol {
 
     /// Returns the current line in the input stream (counting
     /// from 1). This is the line of the last token parsed via
-    /// g_scanner_get_next_token().
+    /// `g_scanner_get_next_token()`.
     func curLine() -> CUnsignedInt {
         let rv = g_scanner_cur_line(cast(_ptr))
         return CUnsignedInt(rv)
@@ -183,7 +183,7 @@ public extension ScannerProtocol {
 
     /// Returns the current position in the current line (counting
     /// from 0). This is the position of the last token parsed via
-    /// g_scanner_get_next_token().
+    /// `g_scanner_get_next_token()`.
     func curPosition() -> CUnsignedInt {
         let rv = g_scanner_cur_position(cast(_ptr))
         return CUnsignedInt(rv)
@@ -220,7 +220,7 @@ public extension ScannerProtocol {
     // *** error() is not available because it has a varargs (...) parameter!
 
 
-    /// Parses the next token just like g_scanner_peek_next_token()
+    /// Parses the next token just like `g_scanner_peek_next_token()`
     /// and also removes it from the input stream. The token data is
     /// placed in the `token`, `value`, `line`, and `position` fields of
     /// the `GScanner` structure.
@@ -254,7 +254,7 @@ public extension ScannerProtocol {
     /// and `next_position` fields of the `GScanner` structure.
     /// 
     /// Note that, while the token is not removed from the input stream
-    /// (i.e. the next call to g_scanner_get_next_token() will return the
+    /// (i.e. the next call to `g_scanner_get_next_token()` will return the
     /// same token), it will not be reevaluated. This can lead to surprising
     /// results when changing scope or the scanner configuration after peeking
     /// the next token. Getting the next token after switching the scope or
@@ -310,9 +310,9 @@ public extension ScannerProtocol {
 
     /// Outputs a message through the scanner's msg_handler,
     /// resulting from an unexpected token in the input stream.
-    /// Note that you should not call g_scanner_peek_next_token()
-    /// followed by g_scanner_unexp_token() without an intermediate
-    /// call to g_scanner_get_next_token(), as g_scanner_unexp_token()
+    /// Note that you should not call `g_scanner_peek_next_token()`
+    /// followed by `g_scanner_unexp_token()` without an intermediate
+    /// call to `g_scanner_get_next_token()`, as `g_scanner_unexp_token()`
     /// evaluates the scanner's current token (not the peeked token)
     /// to construct part of the message.
     func unexpToken(expectedToken expected_token: TokenType, identifierSpec identifier_spec: UnsafePointer<gchar>, symbolSpec symbol_spec: UnsafePointer<gchar>, symbolName symbol_name: UnsafePointer<gchar>, message: UnsafePointer<gchar>, isError is_error: CInt) {
@@ -323,12 +323,12 @@ public extension ScannerProtocol {
 
     // *** warn() is not available because it has a varargs (...) parameter!
 
-    /// Parses the next token just like g_scanner_peek_next_token()
+    /// Parses the next token just like `g_scanner_peek_next_token()`
     /// and also removes it from the input stream. The token data is
     /// placed in the `token`, `value`, `line`, and `position` fields of
     /// the `GScanner` structure.
     var nextToken: GTokenType {
-        /// Parses the next token just like g_scanner_peek_next_token()
+        /// Parses the next token just like `g_scanner_peek_next_token()`
         /// and also removes it from the input stream. The token data is
         /// placed in the `token`, `value`, `line`, and `position` fields of
         /// the `GScanner` structure.

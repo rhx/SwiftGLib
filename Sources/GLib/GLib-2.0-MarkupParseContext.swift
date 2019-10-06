@@ -10,7 +10,7 @@ import CGLib
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
-/// See g_markup_parse_context_new(), `GMarkupParser`, and so
+/// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 public protocol MarkupParseContextProtocol {
     /// Untyped pointer to the underlying `GMarkupParseContext` instance.
@@ -27,7 +27,7 @@ public protocol MarkupParseContextProtocol {
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
-/// See g_markup_parse_context_new(), `GMarkupParser`, and so
+/// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 public struct MarkupParseContextRef: MarkupParseContextProtocol {
     /// Untyped pointer to the underlying `GMarkupParseContext` instance.
@@ -93,7 +93,7 @@ public extension MarkupParseContextRef {
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
-/// See g_markup_parse_context_new(), `GMarkupParser`, and so
+/// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 open class MarkupParseContext: MarkupParseContextProtocol {
     /// Untyped pointer to the underlying `GMarkupParseContext` instance.
@@ -165,7 +165,7 @@ public extension MarkupParseContextProtocol {
     var markup_parse_context_ptr: UnsafeMutablePointer<GMarkupParseContext> { return ptr.assumingMemoryBound(to: GMarkupParseContext.self) }
 
     /// Signals to the `GMarkupParseContext` that all data has been
-    /// fed into the parse context with g_markup_parse_context_parse().
+    /// fed into the parse context with `g_markup_parse_context_parse()`.
     /// 
     /// This function reports an error if the document isn't complete,
     /// for example if elements are still open.
@@ -191,7 +191,7 @@ public extension MarkupParseContextProtocol {
     /// 
     /// If called from the start_element or end_element handlers this will
     /// give the element_name as passed to those functions. For the parent
-    /// elements, see g_markup_parse_context_get_element_stack().
+    /// elements, see `g_markup_parse_context_get_element_stack()`.
     func getElement() -> String! {
         let rv = g_markup_parse_context_get_element(cast(markup_parse_context_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -201,11 +201,11 @@ public extension MarkupParseContextProtocol {
     /// 
     /// The returned `GSList` is a list of strings where the first item is
     /// the currently open tag (as would be returned by
-    /// g_markup_parse_context_get_element()) and the next item is its
+    /// `g_markup_parse_context_get_element()`) and the next item is its
     /// immediate parent.
     /// 
     /// This function is intended to be used in the start_element and
-    /// end_element handlers where g_markup_parse_context_get_element()
+    /// end_element handlers where `g_markup_parse_context_get_element()`
     /// would merely return the name of the element that is being
     /// processed.
     func getElementStack() -> UnsafePointer<GSList>! {
@@ -225,8 +225,8 @@ public extension MarkupParseContextProtocol {
     /// Returns the user_data associated with `context`.
     /// 
     /// This will either be the user_data that was provided to
-    /// g_markup_parse_context_new() or to the most recent call
-    /// of g_markup_parse_context_push().
+    /// `g_markup_parse_context_new()` or to the most recent call
+    /// of `g_markup_parse_context_push()`.
     func getUserData() -> UnsafeMutableRawPointer! {
         let rv = g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr))
         return cast(rv)
@@ -254,9 +254,9 @@ public extension MarkupParseContextProtocol {
     /// Completes the process of a temporary sub-parser redirection.
     /// 
     /// This function exists to collect the user_data allocated by a
-    /// matching call to g_markup_parse_context_push(). It must be called
+    /// matching call to `g_markup_parse_context_push()`. It must be called
     /// in the end_element handler corresponding to the start_element
-    /// handler during which g_markup_parse_context_push() was called.
+    /// handler during which `g_markup_parse_context_push()` was called.
     /// You must not call this function from the error callback -- the
     /// `user_data` is provided directly to the callback in that case.
     /// 
@@ -273,7 +273,7 @@ public extension MarkupParseContextProtocol {
     /// 
     /// This function may only be called from the start_element handler of
     /// a `GMarkupParser`. It must be matched with a corresponding call to
-    /// g_markup_parse_context_pop() in the matching end_element handler
+    /// `g_markup_parse_context_pop()` in the matching end_element handler
     /// (except in the case that the parser aborts due to an error).
     /// 
     /// All tags, text and other data between the matching tags is
@@ -284,10 +284,10 @@ public extension MarkupParseContextProtocol {
     /// 
     /// The end tag matching the start tag for which this call was made is
     /// handled by the previous parser (which is given its own user_data)
-    /// which is why g_markup_parse_context_pop() is provided to allow "one
+    /// which is why `g_markup_parse_context_pop()` is provided to allow "one
     /// last access" to the `user_data` provided to this function. In the
     /// case of error, the `user_data` provided here is passed directly to
-    /// the error callback of the subparser and g_markup_parse_context_pop()
+    /// the error callback of the subparser and `g_markup_parse_context_pop()`
     /// should not be called. In either case, if `user_data` was allocated
     /// then it ought to be freed from both of these locations.
     /// 
@@ -299,7 +299,8 @@ public extension MarkupParseContextProtocol {
     /// As an example, see the following implementation of a simple
     /// parser that counts the number of tags encountered.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// typedef struct
     /// {
     ///   gint tag_count;
@@ -336,12 +337,13 @@ public extension MarkupParseContextProtocol {
     ///   NULL,
     ///   counter_error
     /// };
-    /// ]|
+    /// ```
     /// 
     /// In order to allow this parser to be easily used as a subparser, the
     /// following interface is provided:
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// void
     /// start_counting (GMarkupParseContext *context)
     /// {
@@ -362,11 +364,12 @@ public extension MarkupParseContextProtocol {
     /// 
     ///   return result;
     /// }
-    /// ]|
+    /// ```
     /// 
     /// The subparser would then be used as follows:
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static void start_element (context, element_name, ...)
     /// {
     ///   if (strcmp (element_name, "count-these") == 0)
@@ -378,11 +381,12 @@ public extension MarkupParseContextProtocol {
     /// static void end_element (context, element_name, ...)
     /// {
     ///   if (strcmp (element_name, "count-these") == 0)
-    ///     g_print ("Counted `d` tags\n", end_counting (context));
+    ///     g_print ("Counted %d tags\n", end_counting (context));
     /// 
     ///   // else, handle other tags...
     /// }
-    /// ]|
+    /// ```
+    /// 
     func push(parser: MarkupParserProtocol, userData user_data: UnsafeMutableRawPointer) {
         g_markup_parse_context_push(cast(markup_parse_context_ptr), cast(parser.ptr), cast(user_data))
     
@@ -404,13 +408,13 @@ public extension MarkupParseContextProtocol {
     /// 
     /// If called from the start_element or end_element handlers this will
     /// give the element_name as passed to those functions. For the parent
-    /// elements, see g_markup_parse_context_get_element_stack().
+    /// elements, see `g_markup_parse_context_get_element_stack()`.
     var element: String! {
         /// Retrieves the name of the currently open element.
         /// 
         /// If called from the start_element or end_element handlers this will
         /// give the element_name as passed to those functions. For the parent
-        /// elements, see g_markup_parse_context_get_element_stack().
+        /// elements, see `g_markup_parse_context_get_element_stack()`.
         get {
             let rv = g_markup_parse_context_get_element(cast(markup_parse_context_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -421,11 +425,11 @@ public extension MarkupParseContextProtocol {
     /// 
     /// The returned `GSList` is a list of strings where the first item is
     /// the currently open tag (as would be returned by
-    /// g_markup_parse_context_get_element()) and the next item is its
+    /// `g_markup_parse_context_get_element()`) and the next item is its
     /// immediate parent.
     /// 
     /// This function is intended to be used in the start_element and
-    /// end_element handlers where g_markup_parse_context_get_element()
+    /// end_element handlers where `g_markup_parse_context_get_element()`
     /// would merely return the name of the element that is being
     /// processed.
     var elementStack: UnsafePointer<GSList>! {
@@ -433,11 +437,11 @@ public extension MarkupParseContextProtocol {
         /// 
         /// The returned `GSList` is a list of strings where the first item is
         /// the currently open tag (as would be returned by
-        /// g_markup_parse_context_get_element()) and the next item is its
+        /// `g_markup_parse_context_get_element()`) and the next item is its
         /// immediate parent.
         /// 
         /// This function is intended to be used in the start_element and
-        /// end_element handlers where g_markup_parse_context_get_element()
+        /// end_element handlers where `g_markup_parse_context_get_element()`
         /// would merely return the name of the element that is being
         /// processed.
         get {
@@ -449,14 +453,14 @@ public extension MarkupParseContextProtocol {
     /// Returns the user_data associated with `context`.
     /// 
     /// This will either be the user_data that was provided to
-    /// g_markup_parse_context_new() or to the most recent call
-    /// of g_markup_parse_context_push().
+    /// `g_markup_parse_context_new()` or to the most recent call
+    /// of `g_markup_parse_context_push()`.
     var userData: UnsafeMutableRawPointer! {
         /// Returns the user_data associated with `context`.
         /// 
         /// This will either be the user_data that was provided to
-        /// g_markup_parse_context_new() or to the most recent call
-        /// of g_markup_parse_context_push().
+        /// `g_markup_parse_context_new()` or to the most recent call
+        /// of `g_markup_parse_context_push()`.
         get {
             let rv = g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr))
             return cast(rv)

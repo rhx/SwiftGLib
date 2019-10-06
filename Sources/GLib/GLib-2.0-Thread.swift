@@ -8,13 +8,13 @@ import CGLib
 /// Alternatively, use `ThreadRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GThread` struct represents a running thread. This struct
-/// is returned by g_thread_new() or g_thread_try_new(). You can
+/// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
-/// calling g_thread_self().
+/// calling `g_thread_self()`.
 /// 
-/// GThread is refcounted, see g_thread_ref() and g_thread_unref().
+/// GThread is refcounted, see `g_thread_ref()` and `g_thread_unref()`.
 /// The thread represented by it holds a reference while it is running,
-/// and g_thread_join() consumes the reference that it is given, so
+/// and `g_thread_join()` consumes the reference that it is given, so
 /// it is normally not necessary to manage GThread references
 /// explicitly.
 /// 
@@ -33,13 +33,13 @@ public protocol ThreadProtocol {
 /// Use `ThreadRef` only as an `unowned` reference to an existing `GThread` instance.
 ///
 /// The `GThread` struct represents a running thread. This struct
-/// is returned by g_thread_new() or g_thread_try_new(). You can
+/// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
-/// calling g_thread_self().
+/// calling `g_thread_self()`.
 /// 
-/// GThread is refcounted, see g_thread_ref() and g_thread_unref().
+/// GThread is refcounted, see `g_thread_ref()` and `g_thread_unref()`.
 /// The thread represented by it holds a reference while it is running,
-/// and g_thread_join() consumes the reference that it is given, so
+/// and `g_thread_join()` consumes the reference that it is given, so
 /// it is normally not necessary to manage GThread references
 /// explicitly.
 /// 
@@ -93,29 +93,29 @@ public extension ThreadRef {
 
         /// This function creates a new thread. The new thread starts by invoking
     /// `func` with the argument data. The thread will run until `func` returns
-    /// or until g_thread_exit() is called from the new thread. The return value
+    /// or until `g_thread_exit()` is called from the new thread. The return value
     /// of `func` becomes the return value of the thread, which can be obtained
-    /// with g_thread_join().
+    /// with `g_thread_join()`.
     /// 
     /// The `name` can be useful for discriminating threads in a debugger.
     /// It is not used for other purposes and does not have to be unique.
     /// Some systems restrict the length of `name` to 16 bytes.
     /// 
     /// If the thread can not be created the program aborts. See
-    /// g_thread_try_new() if you want to attempt to deal with failures.
+    /// `g_thread_try_new()` if you want to attempt to deal with failures.
     /// 
     /// If you are using threads to offload (potentially many) short-lived tasks,
     /// `GThreadPool` may be more appropriate than manually spawning and tracking
     /// multiple `GThreads`.
     /// 
-    /// To free the struct returned by this function, use g_thread_unref().
-    /// Note that g_thread_join() implicitly unrefs the `GThread` as well.
+    /// To free the struct returned by this function, use `g_thread_unref()`.
+    /// Note that `g_thread_join()` implicitly unrefs the `GThread` as well.
     init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
         let rv = g_thread_new(name, func_, cast(data))
         self.init(cast(rv))
     }
 
-    /// This function is the same as g_thread_new() except that
+    /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
@@ -128,7 +128,7 @@ public extension ThreadRef {
         }
         self.init(cast(rv))
     }
-    /// This function is the same as g_thread_new() except that
+    /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
@@ -150,7 +150,7 @@ public extension ThreadRef {
     /// were not created by GLib (i.e. those created by other threading
     /// APIs). This may be useful for thread identification purposes
     /// (i.e. comparisons) but you must not use GLib functions (such
-    /// as g_thread_join()) on these threads.
+    /// as `g_thread_join()`) on these threads.
     static func self_() -> ThreadRef! {
         let rv = g_thread_self()
         return rv.map { ThreadRef(cast($0)) }
@@ -162,13 +162,13 @@ public extension ThreadRef {
 /// Use `Thread` as a strong reference or owner of a `GThread` instance.
 ///
 /// The `GThread` struct represents a running thread. This struct
-/// is returned by g_thread_new() or g_thread_try_new(). You can
+/// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
-/// calling g_thread_self().
+/// calling `g_thread_self()`.
 /// 
-/// GThread is refcounted, see g_thread_ref() and g_thread_unref().
+/// GThread is refcounted, see `g_thread_ref()` and `g_thread_unref()`.
 /// The thread represented by it holds a reference while it is running,
-/// and g_thread_join() consumes the reference that it is given, so
+/// and `g_thread_join()` consumes the reference that it is given, so
 /// it is normally not necessary to manage GThread references
 /// explicitly.
 /// 
@@ -223,29 +223,29 @@ open class Thread: ThreadProtocol {
 
     /// This function creates a new thread. The new thread starts by invoking
     /// `func` with the argument data. The thread will run until `func` returns
-    /// or until g_thread_exit() is called from the new thread. The return value
+    /// or until `g_thread_exit()` is called from the new thread. The return value
     /// of `func` becomes the return value of the thread, which can be obtained
-    /// with g_thread_join().
+    /// with `g_thread_join()`.
     /// 
     /// The `name` can be useful for discriminating threads in a debugger.
     /// It is not used for other purposes and does not have to be unique.
     /// Some systems restrict the length of `name` to 16 bytes.
     /// 
     /// If the thread can not be created the program aborts. See
-    /// g_thread_try_new() if you want to attempt to deal with failures.
+    /// `g_thread_try_new()` if you want to attempt to deal with failures.
     /// 
     /// If you are using threads to offload (potentially many) short-lived tasks,
     /// `GThreadPool` may be more appropriate than manually spawning and tracking
     /// multiple `GThreads`.
     /// 
-    /// To free the struct returned by this function, use g_thread_unref().
-    /// Note that g_thread_join() implicitly unrefs the `GThread` as well.
+    /// To free the struct returned by this function, use `g_thread_unref()`.
+    /// Note that `g_thread_join()` implicitly unrefs the `GThread` as well.
     public convenience init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
         let rv = g_thread_new(name, func_, cast(data))
         self.init(cast(rv))
     }
 
-    /// This function is the same as g_thread_new() except that
+    /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
@@ -259,7 +259,7 @@ open class Thread: ThreadProtocol {
         self.init(cast(rv))
     }
 
-    /// This function is the same as g_thread_new() except that
+    /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
@@ -281,7 +281,7 @@ open class Thread: ThreadProtocol {
     /// were not created by GLib (i.e. those created by other threading
     /// APIs). This may be useful for thread identification purposes
     /// (i.e. comparisons) but you must not use GLib functions (such
-    /// as g_thread_join()) on these threads.
+    /// as `g_thread_join()`) on these threads.
     public static func self_() -> Thread! {
         let rv = g_thread_self()
         return rv.map { Thread(cast($0)) }
@@ -299,21 +299,21 @@ public extension ThreadProtocol {
     var thread_ptr: UnsafeMutablePointer<GThread> { return ptr.assumingMemoryBound(to: GThread.self) }
 
     /// Waits until `thread` finishes, i.e. the function `func`, as
-    /// given to g_thread_new(), returns or g_thread_exit() is called.
-    /// If `thread` has already terminated, then g_thread_join()
+    /// given to `g_thread_new()`, returns or `g_thread_exit()` is called.
+    /// If `thread` has already terminated, then `g_thread_join()`
     /// returns immediately.
     /// 
-    /// Any thread can wait for any other thread by calling g_thread_join(),
-    /// not just its 'creator'. Calling g_thread_join() from multiple threads
+    /// Any thread can wait for any other thread by calling `g_thread_join()`,
+    /// not just its 'creator'. Calling `g_thread_join()` from multiple threads
     /// for the same `thread` leads to undefined behaviour.
     /// 
-    /// The value returned by `func` or given to g_thread_exit() is
+    /// The value returned by `func` or given to `g_thread_exit()` is
     /// returned by this function.
     /// 
-    /// g_thread_join() consumes the reference to the passed-in `thread`.
+    /// `g_thread_join()` consumes the reference to the passed-in `thread`.
     /// This will usually cause the `GThread` struct and associated resources
-    /// to be freed. Use g_thread_ref() to obtain an extra reference if you
-    /// want to keep the GThread alive beyond the g_thread_join() call.
+    /// to be freed. Use `g_thread_ref()` to obtain an extra reference if you
+    /// want to keep the GThread alive beyond the `g_thread_join()` call.
     func join() -> UnsafeMutableRawPointer! {
         let rv = g_thread_join(cast(thread_ptr))
         return cast(rv)

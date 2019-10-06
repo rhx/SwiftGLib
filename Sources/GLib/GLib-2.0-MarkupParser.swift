@@ -12,7 +12,7 @@ import CGLib
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
 /// `G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE`, and `G_MARKUP_ERROR_INVALID_CONTENT`
 /// errors are intended to be set from these callbacks. If you set an error
-/// from a callback, g_markup_parse_context_parse() will report that error
+/// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 public protocol MarkupParserProtocol {
     /// Untyped pointer to the underlying `GMarkupParser` instance.
@@ -31,7 +31,7 @@ public protocol MarkupParserProtocol {
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
 /// `G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE`, and `G_MARKUP_ERROR_INVALID_CONTENT`
 /// errors are intended to be set from these callbacks. If you set an error
-/// from a callback, g_markup_parse_context_parse() will report that error
+/// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 public struct MarkupParserRef: MarkupParserProtocol {
     /// Untyped pointer to the underlying `GMarkupParser` instance.
@@ -90,7 +90,7 @@ public extension MarkupParserRef {
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
 /// `G_MARKUP_ERROR_UNKNOWN_ATTRIBUTE`, and `G_MARKUP_ERROR_INVALID_CONTENT`
 /// errors are intended to be set from these callbacks. If you set an error
-/// from a callback, g_markup_parse_context_parse() will report that error
+/// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 open class MarkupParser: MarkupParserProtocol {
     /// Untyped pointer to the underlying `GMarkupParser` instance.

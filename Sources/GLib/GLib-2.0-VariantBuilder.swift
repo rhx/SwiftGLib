@@ -81,13 +81,13 @@ public extension VariantBuilderRef {
 
         /// Allocates and initialises a new `GVariantBuilder`.
     /// 
-    /// You should call g_variant_builder_unref() on the return value when it
+    /// You should call `g_variant_builder_unref()` on the return value when it
     /// is no longer needed.  The memory will not be automatically freed by
     /// any other call.
     /// 
     /// In most cases it is easier to place a `GVariantBuilder` directly on
     /// the stack of the calling function and initialise it with
-    /// g_variant_builder_init().
+    /// `g_variant_builder_init()`.
     init( type: VariantTypeProtocol) {
         let rv = g_variant_builder_new(cast(type.ptr))
         self.init(cast(rv))
@@ -154,13 +154,13 @@ open class VariantBuilder: VariantBuilderProtocol {
 
     /// Allocates and initialises a new `GVariantBuilder`.
     /// 
-    /// You should call g_variant_builder_unref() on the return value when it
+    /// You should call `g_variant_builder_unref()` on the return value when it
     /// is no longer needed.  The memory will not be automatically freed by
     /// any other call.
     /// 
     /// In most cases it is easier to place a `GVariantBuilder` directly on
     /// the stack of the calling function and initialise it with
-    /// g_variant_builder_init().
+    /// `g_variant_builder_init()`.
     public convenience init( type: VariantTypeProtocol) {
         let rv = g_variant_builder_new(cast(type.ptr))
         self.init(cast(rv))
@@ -194,7 +194,7 @@ public extension VariantBuilderProtocol {
     /// types or number of items in a tuple, putting more than one value into
     /// a variant, etc.
     /// 
-    /// If `value` is a floating reference (see g_variant_ref_sink()),
+    /// If `value` is a floating reference (see `g_variant_ref_sink()`),
     /// the `builder` instance takes ownership of `value`.
     func add(value: VariantProtocol) {
         g_variant_builder_add_value(cast(variant_builder_ptr), cast(value.ptr))
@@ -207,9 +207,9 @@ public extension VariantBuilderProtocol {
     /// It typically only makes sense to do this on a stack-allocated
     /// `GVariantBuilder` if you want to abort building the value part-way
     /// through.  This function need not be called if you call
-    /// g_variant_builder_end() and it also doesn't need to be called on
-    /// builders allocated with g_variant_builder_new() (see
-    /// g_variant_builder_unref() for that).
+    /// `g_variant_builder_end()` and it also doesn't need to be called on
+    /// builders allocated with `g_variant_builder_new()` (see
+    /// `g_variant_builder_unref()` for that).
     /// 
     /// This function leaves the `GVariantBuilder` structure set to all-zeros.
     /// It is valid to call this function on either an initialised
@@ -221,7 +221,7 @@ public extension VariantBuilderProtocol {
     }
 
     /// Closes the subcontainer inside the given `builder` that was opened by
-    /// the most recent call to g_variant_builder_open().
+    /// the most recent call to `g_variant_builder_open()`.
     /// 
     /// It is an error to call this function in any way that would create an
     /// inconsistent value to be constructed (ie: too few values added to the
@@ -236,10 +236,10 @@ public extension VariantBuilderProtocol {
     /// It is not permissible to use `builder` in any way after this call
     /// except for reference counting operations (in the case of a
     /// heap-allocated `GVariantBuilder`) or by reinitialising it with
-    /// g_variant_builder_init() (in the case of stack-allocated). This
+    /// `g_variant_builder_init()` (in the case of stack-allocated). This
     /// means that for the stack-allocated builders there is no need to
-    /// call g_variant_builder_clear() after the call to
-    /// g_variant_builder_end().
+    /// call `g_variant_builder_clear()` after the call to
+    /// `g_variant_builder_end()`.
     /// 
     /// It is an error to call this function in any way that would create an
     /// inconsistent value to be constructed (ie: insufficient number of
@@ -262,9 +262,9 @@ public extension VariantBuilderProtocol {
     /// constructed.
     /// 
     /// After the builder is initialised, values are added using
-    /// g_variant_builder_add_value() or g_variant_builder_add().
+    /// `g_variant_builder_add_value()` or `g_variant_builder_add()`.
     /// 
-    /// After all the child values are added, g_variant_builder_end() frees
+    /// After all the child values are added, `g_variant_builder_end()` frees
     /// the memory associated with the builder and returns the `GVariant` that
     /// was created.
     /// 
@@ -272,15 +272,15 @@ public extension VariantBuilderProtocol {
     /// On one hand this means that it is valid to pass in completely
     /// uninitialised memory.  On the other hand, this means that if you are
     /// initialising over top of an existing `GVariantBuilder` you need to
-    /// first call g_variant_builder_clear() in order to avoid leaking
+    /// first call `g_variant_builder_clear()` in order to avoid leaking
     /// memory.
     /// 
-    /// You must not call g_variant_builder_ref() or
-    /// g_variant_builder_unref() on a `GVariantBuilder` that was initialised
+    /// You must not call `g_variant_builder_ref()` or
+    /// `g_variant_builder_unref()` on a `GVariantBuilder` that was initialised
     /// with this function.  If you ever pass a reference to a
     /// `GVariantBuilder` outside of the control of your own code then you
     /// should assume that the person receiving that reference may try to use
-    /// reference counting; you should use g_variant_builder_new() instead of
+    /// reference counting; you should use `g_variant_builder_new()` instead of
     /// this function.
     func init_(type: VariantTypeProtocol) {
         g_variant_builder_init(cast(variant_builder_ptr), cast(type.ptr))
@@ -288,7 +288,7 @@ public extension VariantBuilderProtocol {
     }
 
     /// Opens a subcontainer inside the given `builder`.  When done adding
-    /// items to the subcontainer, g_variant_builder_close() must be called. `type`
+    /// items to the subcontainer, `g_variant_builder_close()` must be called. `type`
     /// is the type of the container: so to build a tuple of several values, `type`
     /// must include the tuple itself.
     /// 
@@ -297,7 +297,8 @@ public extension VariantBuilderProtocol {
     /// a value of an incorrect type).
     /// 
     /// Example of building a nested variant:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// GVariantBuilder builder;
     /// guint32 some_number = get_number ();
     /// g_autoptr (GHashTable) some_dict = get_dict ();
@@ -322,7 +323,8 @@ public extension VariantBuilderProtocol {
     /// g_variant_builder_close (&builder);
     /// 
     /// output = g_variant_builder_end (&builder);
-    /// ]|
+    /// ```
+    /// 
     func open(type: VariantTypeProtocol) {
         g_variant_builder_open(cast(variant_builder_ptr), cast(type.ptr))
     

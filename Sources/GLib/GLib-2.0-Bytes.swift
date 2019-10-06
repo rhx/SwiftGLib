@@ -19,18 +19,18 @@ import CGLib
 /// 
 /// A `GBytes` can come from many different origins that may have
 /// different procedures for freeing the memory region.  Examples are
-/// memory from g_malloc(), from memory slices, from a `GMappedFile` or
+/// memory from `g_malloc()`, from memory slices, from a `GMappedFile` or
 /// memory from other allocators.
 /// 
-/// `GBytes` work well as keys in `GHashTable`. Use g_bytes_equal() and
-/// g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full().
-/// `GBytes` can also be used as keys in a `GTree` by passing the g_bytes_compare()
-/// function to g_tree_new().
+/// `GBytes` work well as keys in `GHashTable`. Use `g_bytes_equal()` and
+/// `g_bytes_hash()` as parameters to `g_hash_table_new()` or `g_hash_table_new_full()`.
+/// `GBytes` can also be used as keys in a `GTree` by passing the `g_bytes_compare()`
+/// function to `g_tree_new()`.
 /// 
 /// The data pointed to by this bytes must not be modified. For a mutable
-/// array of bytes see `GByteArray`. Use g_bytes_unref_to_array() to create a
+/// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
-/// a mutable `GByteArray`, use the g_byte_array_free_to_bytes() function.
+/// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 public protocol BytesProtocol {
     /// Untyped pointer to the underlying `GBytes` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -55,18 +55,18 @@ public protocol BytesProtocol {
 /// 
 /// A `GBytes` can come from many different origins that may have
 /// different procedures for freeing the memory region.  Examples are
-/// memory from g_malloc(), from memory slices, from a `GMappedFile` or
+/// memory from `g_malloc()`, from memory slices, from a `GMappedFile` or
 /// memory from other allocators.
 /// 
-/// `GBytes` work well as keys in `GHashTable`. Use g_bytes_equal() and
-/// g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full().
-/// `GBytes` can also be used as keys in a `GTree` by passing the g_bytes_compare()
-/// function to g_tree_new().
+/// `GBytes` work well as keys in `GHashTable`. Use `g_bytes_equal()` and
+/// `g_bytes_hash()` as parameters to `g_hash_table_new()` or `g_hash_table_new_full()`.
+/// `GBytes` can also be used as keys in a `GTree` by passing the `g_bytes_compare()`
+/// function to `g_tree_new()`.
 /// 
 /// The data pointed to by this bytes must not be modified. For a mutable
-/// array of bytes see `GByteArray`. Use g_bytes_unref_to_array() to create a
+/// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
-/// a mutable `GByteArray`, use the g_byte_array_free_to_bytes() function.
+/// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 public struct BytesRef: BytesProtocol {
     /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
@@ -133,13 +133,13 @@ public extension BytesRef {
     /// Creates a new `GBytes` from `data`.
     /// 
     /// After this call, `data` belongs to the bytes and may no longer be
-    /// modified by the caller.  g_free() will be called on `data` when the
+    /// modified by the caller.  `g_free()` will be called on `data` when the
     /// bytes is no longer in use. Because of this `data` must have been created by
-    /// a call to g_malloc(), g_malloc0() or g_realloc() or by one of the many
-    /// functions that wrap these calls (such as g_new(), g_strdup(), etc).
+    /// a call to `g_malloc()`, `g_malloc0()` or `g_realloc()` or by one of the many
+    /// functions that wrap these calls (such as `g_new()`, `g_strdup()`, etc).
     /// 
     /// For creating `GBytes` with memory from other allocators, see
-    /// g_bytes_new_with_free_func().
+    /// `g_bytes_new_with_free_func()`.
     /// 
     /// `data` may be `nil` if `size` is 0.
     init(take data: UnsafeMutableRawPointer, size: Int) {
@@ -172,13 +172,13 @@ public extension BytesRef {
     /// Creates a new `GBytes` from `data`.
     /// 
     /// After this call, `data` belongs to the bytes and may no longer be
-    /// modified by the caller.  g_free() will be called on `data` when the
+    /// modified by the caller.  `g_free()` will be called on `data` when the
     /// bytes is no longer in use. Because of this `data` must have been created by
-    /// a call to g_malloc(), g_malloc0() or g_realloc() or by one of the many
-    /// functions that wrap these calls (such as g_new(), g_strdup(), etc).
+    /// a call to `g_malloc()`, `g_malloc0()` or `g_realloc()` or by one of the many
+    /// functions that wrap these calls (such as `g_new()`, `g_strdup()`, etc).
     /// 
     /// For creating `GBytes` with memory from other allocators, see
-    /// g_bytes_new_with_free_func().
+    /// `g_bytes_new_with_free_func()`.
     /// 
     /// `data` may be `nil` if `size` is 0.
     static func new(take data: UnsafeMutableRawPointer, size: Int) -> BytesRef! {
@@ -217,18 +217,18 @@ public extension BytesRef {
 /// 
 /// A `GBytes` can come from many different origins that may have
 /// different procedures for freeing the memory region.  Examples are
-/// memory from g_malloc(), from memory slices, from a `GMappedFile` or
+/// memory from `g_malloc()`, from memory slices, from a `GMappedFile` or
 /// memory from other allocators.
 /// 
-/// `GBytes` work well as keys in `GHashTable`. Use g_bytes_equal() and
-/// g_bytes_hash() as parameters to g_hash_table_new() or g_hash_table_new_full().
-/// `GBytes` can also be used as keys in a `GTree` by passing the g_bytes_compare()
-/// function to g_tree_new().
+/// `GBytes` work well as keys in `GHashTable`. Use `g_bytes_equal()` and
+/// `g_bytes_hash()` as parameters to `g_hash_table_new()` or `g_hash_table_new_full()`.
+/// `GBytes` can also be used as keys in a `GTree` by passing the `g_bytes_compare()`
+/// function to `g_tree_new()`.
 /// 
 /// The data pointed to by this bytes must not be modified. For a mutable
-/// array of bytes see `GByteArray`. Use g_bytes_unref_to_array() to create a
+/// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
-/// a mutable `GByteArray`, use the g_byte_array_free_to_bytes() function.
+/// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 open class Bytes: BytesProtocol {
     /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
@@ -296,13 +296,13 @@ open class Bytes: BytesProtocol {
     /// Creates a new `GBytes` from `data`.
     /// 
     /// After this call, `data` belongs to the bytes and may no longer be
-    /// modified by the caller.  g_free() will be called on `data` when the
+    /// modified by the caller.  `g_free()` will be called on `data` when the
     /// bytes is no longer in use. Because of this `data` must have been created by
-    /// a call to g_malloc(), g_malloc0() or g_realloc() or by one of the many
-    /// functions that wrap these calls (such as g_new(), g_strdup(), etc).
+    /// a call to `g_malloc()`, `g_malloc0()` or `g_realloc()` or by one of the many
+    /// functions that wrap these calls (such as `g_new()`, `g_strdup()`, etc).
     /// 
     /// For creating `GBytes` with memory from other allocators, see
-    /// g_bytes_new_with_free_func().
+    /// `g_bytes_new_with_free_func()`.
     /// 
     /// `data` may be `nil` if `size` is 0.
     public convenience init(take data: UnsafeMutableRawPointer, size: Int) {
@@ -336,13 +336,13 @@ open class Bytes: BytesProtocol {
     /// Creates a new `GBytes` from `data`.
     /// 
     /// After this call, `data` belongs to the bytes and may no longer be
-    /// modified by the caller.  g_free() will be called on `data` when the
+    /// modified by the caller.  `g_free()` will be called on `data` when the
     /// bytes is no longer in use. Because of this `data` must have been created by
-    /// a call to g_malloc(), g_malloc0() or g_realloc() or by one of the many
-    /// functions that wrap these calls (such as g_new(), g_strdup(), etc).
+    /// a call to `g_malloc()`, `g_malloc0()` or `g_realloc()` or by one of the many
+    /// functions that wrap these calls (such as `g_new()`, `g_strdup()`, etc).
     /// 
     /// For creating `GBytes` with memory from other allocators, see
-    /// g_bytes_new_with_free_func().
+    /// `g_bytes_new_with_free_func()`.
     /// 
     /// `data` may be `nil` if `size` is 0.
     public static func new(take data: UnsafeMutableRawPointer, size: Int) -> Bytes! {
@@ -392,7 +392,7 @@ public extension BytesProtocol {
     /// Compares the two `GBytes` values being pointed to and returns
     /// `true` if they are equal.
     /// 
-    /// This function can be passed to g_hash_table_new() as the `key_equal_func`
+    /// This function can be passed to `g_hash_table_new()` as the `key_equal_func`
     /// parameter, when using non-`nil` `GBytes` pointers as keys in a `GHashTable`.
     func equal(bytes2: BytesProtocol) -> Bool {
         let rv = g_bytes_equal(cast(bytes_ptr), cast(bytes2.ptr))
@@ -421,7 +421,7 @@ public extension BytesProtocol {
 
     /// Creates an integer hash code for the byte data in the `GBytes`.
     /// 
-    /// This function can be passed to g_hash_table_new() as the `key_hash_func`
+    /// This function can be passed to `g_hash_table_new()` as the `key_hash_func`
     /// parameter, when using non-`nil` `GBytes` pointers as keys in a `GHashTable`.
     func hash() -> CUnsignedInt {
         let rv = g_bytes_hash(cast(bytes_ptr))
@@ -462,7 +462,7 @@ public extension BytesProtocol {
     /// 
     /// As an optimization, the byte data is transferred to the array without copying
     /// if this was the last reference to bytes and bytes was created with
-    /// g_bytes_new(), g_bytes_new_take() or g_byte_array_free_to_bytes(). In all
+    /// `g_bytes_new()`, `g_bytes_new_take()` or `g_byte_array_free_to_bytes()`. In all
     /// other cases the data is copied.
     func unrefToArray() -> UnsafeMutablePointer<GByteArray>! {
         let rv = g_bytes_unref_to_array(cast(bytes_ptr))
@@ -473,8 +473,8 @@ public extension BytesProtocol {
     /// contents.
     /// 
     /// As an optimization, the byte data is returned without copying if this was
-    /// the last reference to bytes and bytes was created with g_bytes_new(),
-    /// g_bytes_new_take() or g_byte_array_free_to_bytes(). In all other cases the
+    /// the last reference to bytes and bytes was created with `g_bytes_new()`,
+    /// `g_bytes_new_take()` or `g_byte_array_free_to_bytes()`. In all other cases the
     /// data is copied.
     func unrefToData(size: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
         let rv = g_bytes_unref_to_data(cast(bytes_ptr), cast(size))
@@ -482,8 +482,8 @@ public extension BytesProtocol {
     }
 
     /// Computes the checksum for a binary `data`. This is a
-    /// convenience wrapper for g_checksum_new(), g_checksum_get_string()
-    /// and g_checksum_free().
+    /// convenience wrapper for `g_checksum_new()`, `g_checksum_get_string()`
+    /// and `g_checksum_free()`.
     /// 
     /// The hexadecimal string returned will be in lower case.
     func computeChecksumForBytes(checksumType checksum_type: ChecksumType) -> String! {
@@ -492,8 +492,8 @@ public extension BytesProtocol {
     }
 
     /// Computes the HMAC for a binary `data`. This is a
-    /// convenience wrapper for g_hmac_new(), g_hmac_get_string()
-    /// and g_hmac_unref().
+    /// convenience wrapper for `g_hmac_new()`, `g_hmac_get_string()`
+    /// and `g_hmac_unref()`.
     /// 
     /// The hexadecimal string returned will be in lower case.
     func computeHmacForBytes(digestType digest_type: ChecksumType, data: BytesProtocol) -> String! {

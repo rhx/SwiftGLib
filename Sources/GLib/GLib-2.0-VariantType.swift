@@ -48,8 +48,8 @@ import CGLib
 /// abstract type in other type systems.  No value can exist that has an
 /// indefinite type as its type, but values can exist that have types
 /// that are subtypes of indefinite types.  That is to say,
-/// g_variant_get_type() will never return an indefinite type, but
-/// calling g_variant_is_of_type() with an indefinite type may return
+/// `g_variant_get_type()` will never return an indefinite type, but
+/// calling `g_variant_is_of_type()` with an indefinite type may return
 /// `true`.  For example, you cannot have a value that represents "an
 /// array of no particular type", but you can have an "array of integers"
 /// which certainly matches the type of "an array of no particular type",
@@ -64,7 +64,7 @@ import CGLib
 /// that the `GtkWindow` is a `GtkBin` (since `GtkWindow` is a subclass of
 /// `GtkBin`).
 /// 
-/// ``` GVariant Type Strings
+/// ## GVariant Type Strings
 /// 
 /// A GVariant type string can be any of the following:
 /// 
@@ -81,13 +81,13 @@ import CGLib
 ///   followed by another type string, followed by the character '}'
 /// 
 /// A basic type string describes a basic type (as per
-/// g_variant_type_is_basic()) and is always a single character in length.
+/// `g_variant_type_is_basic()`) and is always a single character in length.
 /// The valid basic type strings are "b", "y", "n", "q", "i", "u", "x", "t",
 /// "h", "d", "s", "o", "g" and "?".
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
-/// "(ui(nq((y)))s)" are both valid type strings, as is
-/// "a(aa(ui)(qna{ya(yd)}))". In order to not hit memory limits, `GVariant`
+/// "(`ui(nq((y)`))s)" are both valid type strings, as is
+/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -207,8 +207,8 @@ public protocol VariantTypeProtocol {
 /// abstract type in other type systems.  No value can exist that has an
 /// indefinite type as its type, but values can exist that have types
 /// that are subtypes of indefinite types.  That is to say,
-/// g_variant_get_type() will never return an indefinite type, but
-/// calling g_variant_is_of_type() with an indefinite type may return
+/// `g_variant_get_type()` will never return an indefinite type, but
+/// calling `g_variant_is_of_type()` with an indefinite type may return
 /// `true`.  For example, you cannot have a value that represents "an
 /// array of no particular type", but you can have an "array of integers"
 /// which certainly matches the type of "an array of no particular type",
@@ -223,7 +223,7 @@ public protocol VariantTypeProtocol {
 /// that the `GtkWindow` is a `GtkBin` (since `GtkWindow` is a subclass of
 /// `GtkBin`).
 /// 
-/// ``` GVariant Type Strings
+/// ## GVariant Type Strings
 /// 
 /// A GVariant type string can be any of the following:
 /// 
@@ -240,13 +240,13 @@ public protocol VariantTypeProtocol {
 ///   followed by another type string, followed by the character '}'
 /// 
 /// A basic type string describes a basic type (as per
-/// g_variant_type_is_basic()) and is always a single character in length.
+/// `g_variant_type_is_basic()`) and is always a single character in length.
 /// The valid basic type strings are "b", "y", "n", "q", "i", "u", "x", "t",
 /// "h", "d", "s", "o", "g" and "?".
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
-/// "(ui(nq((y)))s)" are both valid type strings, as is
-/// "a(aa(ui)(qna{ya(yd)}))". In order to not hit memory limits, `GVariant`
+/// "(`ui(nq((y)`))s)" are both valid type strings, as is
+/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -360,11 +360,11 @@ public extension VariantTypeRef {
     }
 
         /// Creates a new `GVariantType` corresponding to the type string given
-    /// by `type_string`.  It is appropriate to call g_variant_type_free() on
+    /// by `type_string`.  It is appropriate to call `g_variant_type_free()` on
     /// the return value.
     /// 
     /// It is a programmer error to call this function with an invalid type
-    /// string.  Use g_variant_type_string_is_valid() if you are unsure.
+    /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
     init( type_string: UnsafePointer<gchar>) {
         let rv = g_variant_type_new(type_string)
         self.init(cast(rv))
@@ -375,7 +375,7 @@ public extension VariantTypeRef {
     /// `length` is the number of items in `items`, or -1 to indicate that
     /// `items` is `nil`-terminated.
     /// 
-    /// It is appropriate to call g_variant_type_free() on the return value.
+    /// It is appropriate to call `g_variant_type_free()` on the return value.
     init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
         self.init(cast(rv))
@@ -385,7 +385,7 @@ public extension VariantTypeRef {
     /// `length` is the number of items in `items`, or -1 to indicate that
     /// `items` is `nil`-terminated.
     /// 
-    /// It is appropriate to call g_variant_type_free() on the return value.
+    /// It is appropriate to call `g_variant_type_free()` on the return value.
     static func new(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) -> VariantTypeRef! {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
         return rv.map { VariantTypeRef(cast($0)) }
@@ -442,8 +442,8 @@ public extension VariantTypeRef {
 /// abstract type in other type systems.  No value can exist that has an
 /// indefinite type as its type, but values can exist that have types
 /// that are subtypes of indefinite types.  That is to say,
-/// g_variant_get_type() will never return an indefinite type, but
-/// calling g_variant_is_of_type() with an indefinite type may return
+/// `g_variant_get_type()` will never return an indefinite type, but
+/// calling `g_variant_is_of_type()` with an indefinite type may return
 /// `true`.  For example, you cannot have a value that represents "an
 /// array of no particular type", but you can have an "array of integers"
 /// which certainly matches the type of "an array of no particular type",
@@ -458,7 +458,7 @@ public extension VariantTypeRef {
 /// that the `GtkWindow` is a `GtkBin` (since `GtkWindow` is a subclass of
 /// `GtkBin`).
 /// 
-/// ``` GVariant Type Strings
+/// ## GVariant Type Strings
 /// 
 /// A GVariant type string can be any of the following:
 /// 
@@ -475,13 +475,13 @@ public extension VariantTypeRef {
 ///   followed by another type string, followed by the character '}'
 /// 
 /// A basic type string describes a basic type (as per
-/// g_variant_type_is_basic()) and is always a single character in length.
+/// `g_variant_type_is_basic()`) and is always a single character in length.
 /// The valid basic type strings are "b", "y", "n", "q", "i", "u", "x", "t",
 /// "h", "d", "s", "o", "g" and "?".
 /// 
 /// The above definition is recursive to arbitrary depth. "aaaaai" and
-/// "(ui(nq((y)))s)" are both valid type strings, as is
-/// "a(aa(ui)(qna{ya(yd)}))". In order to not hit memory limits, `GVariant`
+/// "(`ui(nq((y)`))s)" are both valid type strings, as is
+/// `"a(aa(ui)`(`qna{ya(yd)`}))". In order to not hit memory limits, `GVariant`
 /// imposes a limit on recursion depth of 65 nested containers. This is the
 /// limit in the D-Bus specification (64) plus one to allow a `GDBusMessage` to
 /// be nested in a top-level tuple.
@@ -596,11 +596,11 @@ open class VariantType: VariantTypeProtocol {
     }
 
     /// Creates a new `GVariantType` corresponding to the type string given
-    /// by `type_string`.  It is appropriate to call g_variant_type_free() on
+    /// by `type_string`.  It is appropriate to call `g_variant_type_free()` on
     /// the return value.
     /// 
     /// It is a programmer error to call this function with an invalid type
-    /// string.  Use g_variant_type_string_is_valid() if you are unsure.
+    /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
     public convenience init( type_string: UnsafePointer<gchar>) {
         let rv = g_variant_type_new(type_string)
         self.init(cast(rv))
@@ -611,7 +611,7 @@ open class VariantType: VariantTypeProtocol {
     /// `length` is the number of items in `items`, or -1 to indicate that
     /// `items` is `nil`-terminated.
     /// 
-    /// It is appropriate to call g_variant_type_free() on the return value.
+    /// It is appropriate to call `g_variant_type_free()` on the return value.
     public convenience init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
         self.init(cast(rv))
@@ -622,7 +622,7 @@ open class VariantType: VariantTypeProtocol {
     /// `length` is the number of items in `items`, or -1 to indicate that
     /// `items` is `nil`-terminated.
     /// 
-    /// It is appropriate to call g_variant_type_free() on the return value.
+    /// It is appropriate to call `g_variant_type_free()` on the return value.
     public static func new(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) -> VariantType! {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
         return rv.map { VariantType(cast($0)) }
@@ -645,7 +645,7 @@ public extension VariantTypeProtocol {
     var variant_type_ptr: UnsafeMutablePointer<GVariantType> { return ptr.assumingMemoryBound(to: GVariantType.self) }
 
     /// Makes a copy of a `GVariantType`.  It is appropriate to call
-    /// g_variant_type_free() on the return value.  `type` may not be `nil`.
+    /// `g_variant_type_free()` on the return value.  `type` may not be `nil`.
     func copy() -> UnsafeMutablePointer<GVariantType>! {
         let rv = g_variant_type_copy(cast(variant_type_ptr))
         return cast(rv)
@@ -653,7 +653,7 @@ public extension VariantTypeProtocol {
 
     /// Returns a newly-allocated copy of the type string corresponding to
     /// `type`.  The returned string is nul-terminated.  It is appropriate to
-    /// call g_free() on the return value.
+    /// call `g_free()` on the return value.
     func dupString() -> String! {
         let rv = g_variant_type_dup_string(cast(variant_type_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -672,7 +672,7 @@ public extension VariantTypeProtocol {
     /// Only returns `true` if the types are exactly equal.  Even if one type
     /// is an indefinite type and the other is a subtype of it, `false` will
     /// be returned if they are not exactly equal.  If you want to check for
-    /// subtypes, use g_variant_type_is_subtype_of().
+    /// subtypes, use `g_variant_type_is_subtype_of()`.
     /// 
     /// The argument types of `type1` and `type2` are only `gconstpointer` to
     /// allow use with `GHashTable` without function pointer casting.  For
@@ -694,7 +694,7 @@ public extension VariantTypeProtocol {
     /// 
     /// `nil` is returned in case of `type` being `G_VARIANT_TYPE_UNIT`.
     /// 
-    /// This call, together with g_variant_type_next() provides an iterator
+    /// This call, together with `g_variant_type_next()` provides an iterator
     /// interface over tuple and dictionary entry types.
     func first() -> UnsafePointer<GVariantType>! {
         let rv = g_variant_type_first(cast(variant_type_ptr))
@@ -702,7 +702,7 @@ public extension VariantTypeProtocol {
     }
 
     /// Frees a `GVariantType` that was allocated with
-    /// g_variant_type_copy(), g_variant_type_new() or one of the container
+    /// `g_variant_type_copy()`, `g_variant_type_new()` or one of the container
     /// type constructor functions.
     /// 
     /// In the case that `type` is `nil`, this function does nothing.
@@ -715,7 +715,7 @@ public extension VariantTypeProtocol {
 
     /// Returns the length of the type string corresponding to the given
     /// `type`.  This function must be used to determine the valid extent of
-    /// the memory region returned by g_variant_type_peek_string().
+    /// the memory region returned by `g_variant_type_peek_string()`.
     func getStringLength() -> Int {
         let rv = g_variant_type_get_string_length(cast(variant_type_ptr))
         return Int(rv)
@@ -745,7 +745,7 @@ public extension VariantTypeProtocol {
     /// 
     /// This function may only be used with a dictionary entry type.  Other
     /// than the additional restriction, this call is equivalent to
-    /// g_variant_type_first().
+    /// `g_variant_type_first()`.
     func key() -> UnsafePointer<GVariantType>! {
         let rv = g_variant_type_key(cast(variant_type_ptr))
         return cast(rv)
@@ -769,7 +769,7 @@ public extension VariantTypeProtocol {
     /// type.
     /// 
     /// `type` must be the result of a previous call to
-    /// g_variant_type_first() or g_variant_type_next().
+    /// `g_variant_type_first()` or `g_variant_type_next()`.
     /// 
     /// If called on the key type of a dictionary entry then this call
     /// returns the value type.  If called on the value type of a dictionary
@@ -783,9 +783,9 @@ public extension VariantTypeProtocol {
 
     /// Returns the type string corresponding to the given `type`.  The
     /// result is not nul-terminated; in order to determine its length you
-    /// must call g_variant_type_get_string_length().
+    /// must call `g_variant_type_get_string_length()`.
     /// 
-    /// To get a nul-terminated string, see g_variant_type_dup_string().
+    /// To get a nul-terminated string, see `g_variant_type_dup_string()`.
     func peekString() -> String! {
         let rv = g_variant_type_peek_string(cast(variant_type_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -823,13 +823,13 @@ public extension VariantTypeProtocol {
     /// 
     /// In the event that the parsing is successful, the resulting `GVariant`
     /// is returned. It is never floating, and must be freed with
-    /// g_variant_unref().
+    /// `g_variant_unref()`.
     /// 
     /// In case of any error, `nil` will be returned.  If `error` is non-`nil`
     /// then it will be set to reflect the error that occurred.
     /// 
     /// Officially, the language understood by the parser is "any string
-    /// produced by g_variant_print()".
+    /// produced by `g_variant_print()`".
     func variantParse(text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_variant_parse(cast(variant_type_ptr), text, limit, cast(endptr), &error)
@@ -911,7 +911,7 @@ public extension VariantTypeProtocol {
     /// type characters ('*', '?', or 'r').
     /// 
     /// A `GVariant` instance may not have an indefinite type, so calling
-    /// this function on the result of g_variant_get_type() will always
+    /// this function on the result of `g_variant_get_type()` will always
     /// result in `true` being returned.  Calling this function on an
     /// indefinite type like `G_VARIANT_TYPE_ARRAY`, however, will result in
     /// `false` being returned.
@@ -922,7 +922,7 @@ public extension VariantTypeProtocol {
         /// type characters ('*', '?', or 'r').
         /// 
         /// A `GVariant` instance may not have an indefinite type, so calling
-        /// this function on the result of g_variant_get_type() will always
+        /// this function on the result of `g_variant_get_type()` will always
         /// result in `true` being returned.  Calling this function on an
         /// indefinite type like `G_VARIANT_TYPE_ARRAY`, however, will result in
         /// `false` being returned.
@@ -1002,11 +1002,11 @@ public extension VariantTypeProtocol {
 
     /// Returns the length of the type string corresponding to the given
     /// `type`.  This function must be used to determine the valid extent of
-    /// the memory region returned by g_variant_type_peek_string().
+    /// the memory region returned by `g_variant_type_peek_string()`.
     var stringLength: Int {
         /// Returns the length of the type string corresponding to the given
         /// `type`.  This function must be used to determine the valid extent of
-        /// the memory region returned by g_variant_type_peek_string().
+        /// the memory region returned by `g_variant_type_peek_string()`.
         get {
             let rv = g_variant_type_get_string_length(cast(variant_type_ptr))
             return Int(rv)

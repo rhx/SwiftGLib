@@ -73,10 +73,10 @@ public extension ErrorRef {
     // *** new() is not available because it has a varargs (...) parameter!
 
 
-    /// Creates a new `GError`; unlike g_error_new(), `message` is
-    /// not a printf()-style format string. Use this function if
+    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
+    /// not a `printf()`-style format string. Use this function if
     /// `message` contains text you don't have control over,
-    /// that could include printf() escape sequences.
+    /// that could include `printf()` escape sequences.
     init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
         let rv = g_error_new_literal(domain, gint(code), message)
         self.init(cast(rv))
@@ -88,10 +88,10 @@ public extension ErrorRef {
         let rv = g_error_new_valist(domain, gint(code), format, args)
         self.init(cast(rv))
     }
-    /// Creates a new `GError`; unlike g_error_new(), `message` is
-    /// not a printf()-style format string. Use this function if
+    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
+    /// not a `printf()`-style format string. Use this function if
     /// `message` contains text you don't have control over,
-    /// that could include printf() escape sequences.
+    /// that could include `printf()` escape sequences.
     static func new(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) -> ErrorRef! {
         let rv = g_error_new_literal(domain, gint(code), message)
         return rv.map { ErrorRef(cast($0)) }
@@ -164,10 +164,10 @@ open class ErrorType: ErrorTypeProtocol {
     // *** new() is not available because it has a varargs (...) parameter!
 
 
-    /// Creates a new `GError`; unlike g_error_new(), `message` is
-    /// not a printf()-style format string. Use this function if
+    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
+    /// not a `printf()`-style format string. Use this function if
     /// `message` contains text you don't have control over,
-    /// that could include printf() escape sequences.
+    /// that could include `printf()` escape sequences.
     public convenience init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
         let rv = g_error_new_literal(domain, gint(code), message)
         self.init(cast(rv))
@@ -180,10 +180,10 @@ open class ErrorType: ErrorTypeProtocol {
         self.init(cast(rv))
     }
 
-    /// Creates a new `GError`; unlike g_error_new(), `message` is
-    /// not a printf()-style format string. Use this function if
+    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
+    /// not a `printf()`-style format string. Use this function if
     /// `message` contains text you don't have control over,
-    /// that could include printf() escape sequences.
+    /// that could include `printf()` escape sequences.
     public static func new(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) -> ErrorType! {
         let rv = g_error_new_literal(domain, gint(code), message)
         return rv.map { ErrorType(cast($0)) }
@@ -270,9 +270,9 @@ public extension ErrorTypeProtocol {
 
     /// Does nothing if `err` is `nil`; if `err` is non-`nil`, then *`err`
     /// must be `nil`. A new `GError` is created and assigned to *`err`.
-    /// Unlike g_set_error(), `message` is not a printf()-style format string.
+    /// Unlike `g_set_error()`, `message` is not a `printf()`-style format string.
     /// Use this function if `message` contains text you don't have control over,
-    /// that could include printf() escape sequences.
+    /// that could include `printf()` escape sequences.
     func setErrorLiteral(domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
         g_set_error_literal(cast(error_ptr), domain, gint(code), message)
     
@@ -286,26 +286,26 @@ public extension ErrorTypeProtocol {
     /// 
     /// The message will typically look something like one of the following:
     /// 
-    /// |[
+    /// ```
     /// unterminated string constant:
     ///   (1, 2, 3, 'abc
     ///             ^^^^
-    /// ]|
+    /// ```
     /// 
     /// or
     /// 
-    /// |[
+    /// ```
     /// unable to find a common type:
     ///   [1, 2, 3, 'str']
     ///    ^        ^^^^^
-    /// ]|
+    /// ```
     /// 
     /// The format of the message may change in a future version.
     /// 
-    /// `error` must have come from a failed attempt to g_variant_parse() and
+    /// `error` must have come from a failed attempt to `g_variant_parse()` and
     /// `source_str` must be exactly the same string that caused the error.
     /// If `source_str` was not nul-terminated when you passed it to
-    /// g_variant_parse() then you must add nul termination before using this
+    /// `g_variant_parse()` then you must add nul termination before using this
     /// function.
     func variantParseErrorPrintContext(sourceStr source_str: UnsafePointer<gchar>) -> String! {
         let rv = g_variant_parse_error_print_context(cast(error_ptr), source_str)

@@ -8,8 +8,8 @@ import CGLib
 /// Alternatively, use `HmacRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use g_hmac_new(). To free
-/// a GHmac, use g_hmac_unref().
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
 public protocol HmacProtocol {
     /// Untyped pointer to the underlying `GHmac` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,8 +23,8 @@ public protocol HmacProtocol {
 /// Use `HmacRef` only as an `unowned` reference to an existing `GHmac` instance.
 ///
 /// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use g_hmac_new(). To free
-/// a GHmac, use g_hmac_unref().
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
 public struct HmacRef: HmacProtocol {
     /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -78,8 +78,8 @@ public extension HmacRef {
 /// Use `Hmac` as a strong reference or owner of a `GHmac` instance.
 ///
 /// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use g_hmac_new(). To free
-/// a GHmac, use g_hmac_unref().
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
 open class Hmac: HmacProtocol {
     /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -141,7 +141,7 @@ public extension HmacProtocol {
     var _ptr: UnsafeMutablePointer<GHmac> { return ptr.assumingMemoryBound(to: GHmac.self) }
 
     /// Copies a `GHmac`. If `hmac` has been closed, by calling
-    /// g_hmac_get_string() or g_hmac_get_digest(), the copied
+    /// `g_hmac_get_string()` or `g_hmac_get_digest()`, the copied
     /// HMAC will be closed as well.
     func copy() -> UnsafeMutablePointer<GHmac>! {
         let rv = g_hmac_copy(cast(_ptr))
@@ -152,7 +152,7 @@ public extension HmacProtocol {
     /// into `buffer`. The size of the digest depends on the type of checksum.
     /// 
     /// Once this function has been called, the `GHmac` is closed and can
-    /// no longer be updated with g_checksum_update().
+    /// no longer be updated with `g_checksum_update()`.
     func getDigest(buffer: UnsafeMutablePointer<UInt8>, digestLen digest_len: UnsafeMutablePointer<Int>) {
         g_hmac_get_digest(cast(_ptr), cast(buffer), cast(digest_len))
     
@@ -161,7 +161,7 @@ public extension HmacProtocol {
     /// Gets the HMAC as an hexadecimal string.
     /// 
     /// Once this function has been called the `GHmac` can no longer be
-    /// updated with g_hmac_update().
+    /// updated with `g_hmac_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     func getString() -> String! {
@@ -190,8 +190,8 @@ public extension HmacProtocol {
 
     /// Feeds `data` into an existing `GHmac`.
     /// 
-    /// The HMAC must still be open, that is g_hmac_get_string() or
-    /// g_hmac_get_digest() must not have been called on `hmac`.
+    /// The HMAC must still be open, that is `g_hmac_get_string()` or
+    /// `g_hmac_get_digest()` must not have been called on `hmac`.
     func update(data: UnsafePointer<guchar>, length: gssize) {
         g_hmac_update(cast(_ptr), cast(data), length)
     
@@ -199,14 +199,14 @@ public extension HmacProtocol {
     /// Gets the HMAC as an hexadecimal string.
     /// 
     /// Once this function has been called the `GHmac` can no longer be
-    /// updated with g_hmac_update().
+    /// updated with `g_hmac_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     var string: String! {
         /// Gets the HMAC as an hexadecimal string.
         /// 
         /// Once this function has been called the `GHmac` can no longer be
-        /// updated with g_hmac_update().
+        /// updated with `g_hmac_update()`.
         /// 
         /// The hexadecimal characters will be lower case.
         get {

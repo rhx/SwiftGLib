@@ -156,7 +156,7 @@ public extension DataProtocol {
     /// not be called.
     /// 
     /// `func` can make changes to `datalist`, but the iteration will not
-    /// reflect changes made during the g_datalist_foreach() call, other
+    /// reflect changes made during the `g_datalist_foreach()` call, other
     /// than skipping over elements that are removed.
     func datalistForeach(func_: @escaping DataForeachFunc, userData user_data: UnsafeMutableRawPointer) {
         g_datalist_foreach(cast(_ptr), func_, cast(user_data))
@@ -164,20 +164,20 @@ public extension DataProtocol {
     }
 
     /// Gets a data element, using its string identifier. This is slower than
-    /// g_datalist_id_get_data() because it compares strings.
+    /// `g_datalist_id_get_data()` because it compares strings.
     func datalistGetData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
         let rv = g_datalist_get_data(cast(_ptr), key)
         return cast(rv)
     }
 
     /// Gets flags values packed in together with the datalist.
-    /// See g_datalist_set_flags().
+    /// See `g_datalist_set_flags()`.
     func datalistGetFlags() -> CUnsignedInt {
         let rv = g_datalist_get_flags(cast(_ptr))
         return CUnsignedInt(rv)
     }
 
-    /// This is a variant of g_datalist_id_get_data() which
+    /// This is a variant of `g_datalist_id_get_data()` which
     /// returns a 'duplicate' of the value. `dup_func` defines the
     /// meaning of 'duplicate' in this context, it could e.g.
     /// take a reference on a ref-counted object.
@@ -253,7 +253,7 @@ public extension DataProtocol {
     
     }
 
-    /// Turns off flag values for a data list. See g_datalist_unset_flags()
+    /// Turns off flag values for a data list. See `g_datalist_unset_flags()`
     func datalistUnset(flags: CUnsignedInt) {
         g_datalist_unset_flags(cast(_ptr), guint(flags))
     

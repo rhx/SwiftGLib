@@ -106,11 +106,11 @@ public extension TimeZoneRef {
     /// Offsets are time values to be added to the local time to get
     /// Coordinated Universal Time (UTC).
     /// 
-    /// g_time_zone_new_local() calls this function with the value of the
+    /// `g_time_zone_new_local()` calls this function with the value of the
     /// `TZ` environment variable. This function itself is independent of
     /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
     /// will be consulted to discover the correct time zone on UNIX and the
-    /// registry will be consulted or GetTimeZoneInformation() will be used
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
     /// to get the local time zone on Windows.
     /// 
     /// If intervals are not available, only time zone rules from `TZ`
@@ -127,10 +127,10 @@ public extension TimeZoneRef {
     /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
     /// for an explanation of the possible
     /// values of the `TZ` environment variable. See
-    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29`.aspx)
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
     /// for the list of time zones on Windows.
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     init( identifier: UnsafePointer<gchar>) {
         let rv = g_time_zone_new(identifier)
@@ -140,7 +140,7 @@ public extension TimeZoneRef {
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a string in the form
+    /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     init(offset seconds: Int32) {
         let rv = g_time_zone_new_offset(gint32(seconds))
@@ -150,10 +150,10 @@ public extension TimeZoneRef {
     /// zone may change between invocations to this function; for example,
     /// if the system administrator changes it.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with the value of
+    /// This is equivalent to calling `g_time_zone_new()` with the value of
     /// the `TZ` environment variable (including the possibility of `nil`).
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     static func newLocal() -> TimeZoneRef! {
         let rv = g_time_zone_new_local()
@@ -163,7 +163,7 @@ public extension TimeZoneRef {
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a string in the form
+    /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     static func new(offset seconds: Int32) -> TimeZoneRef! {
         let rv = g_time_zone_new_offset(gint32(seconds))
@@ -172,10 +172,10 @@ public extension TimeZoneRef {
 
     /// Creates a `GTimeZone` corresponding to UTC.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a value like
+    /// This is equivalent to calling `g_time_zone_new()` with a value like
     /// "Z", "UTC", "+00", etc.
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     static func newUTC() -> TimeZoneRef! {
         let rv = g_time_zone_new_utc()
@@ -273,11 +273,11 @@ open class TimeZone: TimeZoneProtocol {
     /// Offsets are time values to be added to the local time to get
     /// Coordinated Universal Time (UTC).
     /// 
-    /// g_time_zone_new_local() calls this function with the value of the
+    /// `g_time_zone_new_local()` calls this function with the value of the
     /// `TZ` environment variable. This function itself is independent of
     /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
     /// will be consulted to discover the correct time zone on UNIX and the
-    /// registry will be consulted or GetTimeZoneInformation() will be used
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
     /// to get the local time zone on Windows.
     /// 
     /// If intervals are not available, only time zone rules from `TZ`
@@ -294,10 +294,10 @@ open class TimeZone: TimeZoneProtocol {
     /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
     /// for an explanation of the possible
     /// values of the `TZ` environment variable. See
-    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29`.aspx)
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
     /// for the list of time zones on Windows.
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     public convenience init( identifier: UnsafePointer<gchar>) {
         let rv = g_time_zone_new(identifier)
@@ -307,7 +307,7 @@ open class TimeZone: TimeZoneProtocol {
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a string in the form
+    /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     public convenience init(offset seconds: Int32) {
         let rv = g_time_zone_new_offset(gint32(seconds))
@@ -318,10 +318,10 @@ open class TimeZone: TimeZoneProtocol {
     /// zone may change between invocations to this function; for example,
     /// if the system administrator changes it.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with the value of
+    /// This is equivalent to calling `g_time_zone_new()` with the value of
     /// the `TZ` environment variable (including the possibility of `nil`).
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     public static func newLocal() -> TimeZone! {
         let rv = g_time_zone_new_local()
@@ -331,7 +331,7 @@ open class TimeZone: TimeZoneProtocol {
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a string in the form
+    /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     public static func new(offset seconds: Int32) -> TimeZone! {
         let rv = g_time_zone_new_offset(gint32(seconds))
@@ -340,10 +340,10 @@ open class TimeZone: TimeZoneProtocol {
 
     /// Creates a `GTimeZone` corresponding to UTC.
     /// 
-    /// This is equivalent to calling g_time_zone_new() with a value like
+    /// This is equivalent to calling `g_time_zone_new()` with a value like
     /// "Z", "UTC", "+00", etc.
     /// 
-    /// You should release the return value by calling g_time_zone_unref()
+    /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     public static func newUTC() -> TimeZone! {
         let rv = g_time_zone_new_utc()
@@ -365,11 +365,11 @@ public extension TimeZoneProtocol {
     /// possibly adjusting `time_` if required to fit into an interval.
     /// The meaning of `time_` depends on `type`.
     /// 
-    /// This function is similar to g_time_zone_find_interval(), with the
+    /// This function is similar to `g_time_zone_find_interval()`, with the
     /// difference that it always succeeds (by making the adjustments
     /// described below).
     /// 
-    /// In any of the cases where g_time_zone_find_interval() succeeds then
+    /// In any of the cases where `g_time_zone_find_interval()` succeeds then
     /// this function returns the same value, without modifying `time_`.
     /// 
     /// This function may, however, modify `time_` in order to deal with
@@ -416,7 +416,7 @@ public extension TimeZoneProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Get the identifier of this `GTimeZone`, as passed to g_time_zone_new().
+    /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
     /// If the identifier passed at construction time was not recognised, `UTC` will
     /// be returned. If it was `nil`, the identifier of the local timezone at
     /// construction time will be returned.
@@ -458,7 +458,7 @@ public extension TimeZoneProtocol {
         g_time_zone_unref(cast(time_zone_ptr))
     
     }
-    /// Get the identifier of this `GTimeZone`, as passed to g_time_zone_new().
+    /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
     /// If the identifier passed at construction time was not recognised, `UTC` will
     /// be returned. If it was `nil`, the identifier of the local timezone at
     /// construction time will be returned.
@@ -467,7 +467,7 @@ public extension TimeZoneProtocol {
     /// construction time: if provided as a time offset, that will be returned by
     /// this function.
     var identifier: String! {
-        /// Get the identifier of this `GTimeZone`, as passed to g_time_zone_new().
+        /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
         /// If the identifier passed at construction time was not recognised, `UTC` will
         /// be returned. If it was `nil`, the identifier of the local timezone at
         /// construction time will be returned.

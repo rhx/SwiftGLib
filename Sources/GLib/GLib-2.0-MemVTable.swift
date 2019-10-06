@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `MemVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
-/// be used for all allocations in the same program; a call to g_mem_set_vtable(),
+/// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
@@ -25,7 +25,7 @@ public protocol MemVTableProtocol {
 /// Use `MemVTableRef` only as an `unowned` reference to an existing `GMemVTable` instance.
 ///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
-/// be used for all allocations in the same program; a call to g_mem_set_vtable(),
+/// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
@@ -82,7 +82,7 @@ public extension MemVTableRef {
 /// Use `MemVTable` as a strong reference or owner of a `GMemVTable` instance.
 ///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
-/// be used for all allocations in the same program; a call to g_mem_set_vtable(),
+/// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.

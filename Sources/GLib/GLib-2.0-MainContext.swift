@@ -77,7 +77,7 @@ public extension MainContextRef {
     /// Returns the global default main context. This is the main context
     /// used for main loop functions when a main loop is not explicitly
     /// specified, and corresponds to the "main" main loop. See also
-    /// g_main_context_get_thread_default().
+    /// `g_main_context_get_thread_default()`.
     static func default_() -> MainContextRef! {
         let rv = g_main_context_default()
         return rv.map { MainContextRef(cast($0)) }
@@ -86,23 +86,23 @@ public extension MainContextRef {
     /// Gets the thread-default `GMainContext` for this thread. Asynchronous
     /// operations that want to be able to be run in contexts other than
     /// the default one should call this method or
-    /// g_main_context_ref_thread_default() to get a `GMainContext` to add
+    /// `g_main_context_ref_thread_default()` to get a `GMainContext` to add
     /// their `GSources` to. (Note that even in single-threaded
     /// programs applications may sometimes want to temporarily push a
     /// non-default context, so it is not safe to assume that this will
     /// always return `nil` if you are running in the default thread.)
     /// 
     /// If you need to hold a reference on the context, use
-    /// g_main_context_ref_thread_default() instead.
+    /// `g_main_context_ref_thread_default()` instead.
     static func getThreadDefault() -> MainContextRef! {
         let rv = g_main_context_get_thread_default()
         return rv.map { MainContextRef(cast($0)) }
     }
 
     /// Gets the thread-default `GMainContext` for this thread, as with
-    /// g_main_context_get_thread_default(), but also adds a reference to
-    /// it with g_main_context_ref(). In addition, unlike
-    /// g_main_context_get_thread_default(), if the thread-default context
+    /// `g_main_context_get_thread_default()`, but also adds a reference to
+    /// it with `g_main_context_ref()`. In addition, unlike
+    /// `g_main_context_get_thread_default()`, if the thread-default context
     /// is the global default context, this will return that `GMainContext`
     /// (with a ref added to it) rather than returning `nil`.
     static func refThreadDefault() -> MainContextRef! {
@@ -173,7 +173,7 @@ open class MainContext: MainContextProtocol {
     /// Returns the global default main context. This is the main context
     /// used for main loop functions when a main loop is not explicitly
     /// specified, and corresponds to the "main" main loop. See also
-    /// g_main_context_get_thread_default().
+    /// `g_main_context_get_thread_default()`.
     public static func default_() -> MainContext! {
         let rv = g_main_context_default()
         return rv.map { MainContext(cast($0)) }
@@ -182,23 +182,23 @@ open class MainContext: MainContextProtocol {
     /// Gets the thread-default `GMainContext` for this thread. Asynchronous
     /// operations that want to be able to be run in contexts other than
     /// the default one should call this method or
-    /// g_main_context_ref_thread_default() to get a `GMainContext` to add
+    /// `g_main_context_ref_thread_default()` to get a `GMainContext` to add
     /// their `GSources` to. (Note that even in single-threaded
     /// programs applications may sometimes want to temporarily push a
     /// non-default context, so it is not safe to assume that this will
     /// always return `nil` if you are running in the default thread.)
     /// 
     /// If you need to hold a reference on the context, use
-    /// g_main_context_ref_thread_default() instead.
+    /// `g_main_context_ref_thread_default()` instead.
     public static func getThreadDefault() -> MainContext! {
         let rv = g_main_context_get_thread_default()
         return rv.map { MainContext(cast($0)) }
     }
 
     /// Gets the thread-default `GMainContext` for this thread, as with
-    /// g_main_context_get_thread_default(), but also adds a reference to
-    /// it with g_main_context_ref(). In addition, unlike
-    /// g_main_context_get_thread_default(), if the thread-default context
+    /// `g_main_context_get_thread_default()`, but also adds a reference to
+    /// it with `g_main_context_ref()`. In addition, unlike
+    /// `g_main_context_get_thread_default()`, if the thread-default context
     /// is the global default context, this will return that `GMainContext`
     /// (with a ref added to it) rather than returning `nil`.
     public static func refThreadDefault() -> MainContext! {
@@ -221,12 +221,12 @@ public extension MainContextProtocol {
     /// If some other thread is the owner of the context,
     /// returns `false` immediately. Ownership is properly
     /// recursive: the owner can require ownership again
-    /// and will release ownership when g_main_context_release()
-    /// is called as many times as g_main_context_acquire().
+    /// and will release ownership when `g_main_context_release()`
+    /// is called as many times as `g_main_context_acquire()`.
     /// 
     /// You must be the owner of a context before you
-    /// can call g_main_context_prepare(), g_main_context_query(),
-    /// g_main_context_check(), g_main_context_dispatch().
+    /// can call `g_main_context_prepare()`, `g_main_context_query()`,
+    /// `g_main_context_check()`, `g_main_context_dispatch()`.
     func acquire() -> Bool {
         let rv = g_main_context_acquire(cast(main_context_ptr))
         return Bool(rv != 0)
@@ -234,7 +234,7 @@ public extension MainContextProtocol {
 
     /// Adds a file descriptor to the set of file descriptors polled for
     /// this context. This will very seldom be used directly. Instead
-    /// a typical event source will use g_source_add_unix_fd() instead.
+    /// a typical event source will use `g_source_add_unix_fd()` instead.
     func addPoll(fd: PollFDProtocol, priority: CInt) {
         g_main_context_add_poll(cast(main_context_ptr), cast(fd.ptr), gint(priority))
     
@@ -243,7 +243,7 @@ public extension MainContextProtocol {
     /// Passes the results of polling back to the main loop.
     /// 
     /// You must have successfully acquired the context with
-    /// g_main_context_acquire() before you may call this function.
+    /// `g_main_context_acquire()` before you may call this function.
     func check(maxPriority max_priority: CInt, fds: UnsafeMutablePointer<GPollFD>, nFds n_fds: CInt) -> Bool {
         let rv = g_main_context_check(cast(main_context_ptr), gint(max_priority), cast(fds), gint(n_fds))
         return Bool(rv != 0)
@@ -252,7 +252,7 @@ public extension MainContextProtocol {
     /// Dispatches all pending sources.
     /// 
     /// You must have successfully acquired the context with
-    /// g_main_context_acquire() before you may call this function.
+    /// `g_main_context_acquire()` before you may call this function.
     func dispatch() {
         g_main_context_dispatch(cast(main_context_ptr))
     
@@ -273,7 +273,7 @@ public extension MainContextProtocol {
     /// More specifically: source IDs can be reissued after a source has been
     /// destroyed and therefore it is never valid to use this function with a
     /// source ID which may have already been removed.  An example is when
-    /// scheduling an idle to run in another thread with g_idle_add(): the
+    /// scheduling an idle to run in another thread with `g_idle_add()`: the
     /// idle may already have run and been removed by the time this function
     /// is called on its (now invalid) source ID.  This source ID may have
     /// been reissued, leading to the operation being performed against the
@@ -291,7 +291,7 @@ public extension MainContextProtocol {
         return cast(rv)
     }
 
-    /// Gets the poll function set by g_main_context_set_poll_func().
+    /// Gets the poll function set by `g_main_context_set_poll_func()`.
     func getPollFunc() -> GPollFunc! {
         let rv = g_main_context_get_poll_func(cast(main_context_ptr))
         return rv
@@ -301,19 +301,19 @@ public extension MainContextProtocol {
     /// invocation of `function`.
     /// 
     /// If `context` is `nil` then the global default main context — as
-    /// returned by g_main_context_default() — is used.
+    /// returned by `g_main_context_default()` — is used.
     /// 
     /// If `context` is owned by the current thread, `function` is called
     /// directly.  Otherwise, if `context` is the thread-default main context
-    /// of the current thread and g_main_context_acquire() succeeds, then
-    /// `function` is called and g_main_context_release() is called
+    /// of the current thread and `g_main_context_acquire()` succeeds, then
+    /// `function` is called and `g_main_context_release()` is called
     /// afterwards.
     /// 
     /// In any other case, an idle source is created to call `function` and
     /// that source is attached to `context` (presumably to be run in another
     /// thread).  The idle source is attached with `G_PRIORITY_DEFAULT`
     /// priority.  If you want a different priority, use
-    /// g_main_context_invoke_full().
+    /// `g_main_context_invoke_full()`.
     /// 
     /// Note that, as with normal idle functions, `function` should probably
     /// return `false`.  If it returns `true`, it will be continuously run in a
@@ -326,7 +326,7 @@ public extension MainContextProtocol {
     /// Invokes a function in such a way that `context` is owned during the
     /// invocation of `function`.
     /// 
-    /// This function is the same as g_main_context_invoke() except that it
+    /// This function is the same as `g_main_context_invoke()` except that it
     /// lets you specify the priority in case `function` ends up being
     /// scheduled as an idle and also lets you give a `GDestroyNotify` for `data`.
     /// 
@@ -347,7 +347,7 @@ public extension MainContextProtocol {
     /// given moment without further waiting.
     /// 
     /// Note that even when `may_block` is `true`, it is still possible for
-    /// g_main_context_iteration() to return `false`, since the wait may
+    /// `g_main_context_iteration()` to return `false`, since the wait may
     /// be interrupted for other reasons than an event source becoming ready.
     func iteration(mayBlock may_block: Bool) -> Bool {
         let rv = g_main_context_iteration(cast(main_context_ptr), gboolean(may_block ? 1 : 0))
@@ -371,7 +371,7 @@ public extension MainContextProtocol {
     /// for polling is determined by calling g_main_context_query ().
     /// 
     /// You must have successfully acquired the context with
-    /// g_main_context_acquire() before you may call this function.
+    /// `g_main_context_acquire()` before you may call this function.
     func prepare(priority: UnsafeMutablePointer<CInt>) -> Bool {
         let rv = g_main_context_prepare(cast(main_context_ptr), cast(priority))
         return Bool(rv != 0)
@@ -383,15 +383,15 @@ public extension MainContextProtocol {
     /// started in this thread to run under `context` and deliver their
     /// results to its main loop, rather than running under the global
     /// default context in the main thread. Note that calling this function
-    /// changes the context returned by g_main_context_get_thread_default(),
-    /// not the one returned by g_main_context_default(), so it does not affect
-    /// the context used by functions like g_idle_add().
+    /// changes the context returned by `g_main_context_get_thread_default()`,
+    /// not the one returned by `g_main_context_default()`, so it does not affect
+    /// the context used by functions like `g_idle_add()`.
     /// 
     /// Normally you would call this function shortly after creating a new
     /// thread, passing it a `GMainContext` which will be run by a
     /// `GMainLoop` in that thread, to set a new default context for all
     /// async operations in that thread. In this case you may not need to
-    /// ever call g_main_context_pop_thread_default(), assuming you want the
+    /// ever call `g_main_context_pop_thread_default()`, assuming you want the
     /// new `GMainContext` to be the default for the whole lifecycle of the
     /// thread.
     /// 
@@ -399,7 +399,7 @@ public extension MainContextProtocol {
     /// in the new thread isn't newly created, or if the thread life
     /// cycle is managed by a `GThreadPool`), it is always suggested to wrap
     /// the logic that needs to use the new `GMainContext` inside a
-    /// g_main_context_push_thread_default() / g_main_context_pop_thread_default()
+    /// `g_main_context_push_thread_default()` / `g_main_context_pop_thread_default()`
     /// pair, otherwise threads that are re-used will end up never explicitly
     /// releasing the `GMainContext` reference they hold.
     /// 
@@ -407,14 +407,14 @@ public extension MainContextProtocol {
     /// non-default context, or temporarily use a non-default context in
     /// the main thread. In that case, you can wrap the call to the
     /// asynchronous operation inside a
-    /// g_main_context_push_thread_default() /
-    /// g_main_context_pop_thread_default() pair, but it is up to you to
+    /// `g_main_context_push_thread_default()` /
+    /// `g_main_context_pop_thread_default()` pair, but it is up to you to
     /// ensure that no other asynchronous operations accidentally get
     /// started while the non-default context is active.
     /// 
     /// Beware that libraries that predate this function may not correctly
     /// handle being used from a thread with a thread-default context. Eg,
-    /// see g_file_supports_thread_contexts().
+    /// see `g_file_supports_thread_contexts()`.
     func pushThreadDefault() {
         g_main_context_push_thread_default(cast(main_context_ptr))
     
@@ -423,7 +423,7 @@ public extension MainContextProtocol {
     /// Determines information necessary to poll this main loop.
     /// 
     /// You must have successfully acquired the context with
-    /// g_main_context_acquire() before you may call this function.
+    /// `g_main_context_acquire()` before you may call this function.
     func query(maxPriority max_priority: CInt, timeout_: UnsafeMutablePointer<CInt>, fds: UnsafeMutablePointer<GPollFD>, nFds n_fds: CInt) -> CInt {
         let rv = g_main_context_query(cast(main_context_ptr), gint(max_priority), cast(timeout_), cast(fds), gint(n_fds))
         return CInt(rv)
@@ -436,8 +436,8 @@ public extension MainContextProtocol {
     }
 
     /// Releases ownership of a context previously acquired by this thread
-    /// with g_main_context_acquire(). If the context was acquired multiple
-    /// times, the ownership will be released only when g_main_context_release()
+    /// with `g_main_context_acquire()`. If the context was acquired multiple
+    /// times, the ownership will be released only when `g_main_context_release()`
     /// is called as many times as it was acquired.
     func release() {
         g_main_context_release(cast(main_context_ptr))
@@ -452,9 +452,9 @@ public extension MainContextProtocol {
     }
 
     /// Sets the function to use to handle polling of file descriptors. It
-    /// will be used instead of the poll() system call
+    /// will be used instead of the `poll()` system call
     /// (or GLib's replacement function, which is used where
-    /// poll() isn't available).
+    /// `poll()` isn't available).
     /// 
     /// This function could possibly be used to integrate the GLib event
     /// loop with an external event loop.
@@ -471,7 +471,7 @@ public extension MainContextProtocol {
     }
 
     /// Tries to become the owner of the specified context,
-    /// as with g_main_context_acquire(). But if another thread
+    /// as with `g_main_context_acquire()`. But if another thread
     /// is the owner, atomically drop `mutex` and wait on `cond` until
     /// that owner releases ownership or until `cond` is signaled, then
     /// try again (once) to become the owner.
@@ -483,10 +483,10 @@ public extension MainContextProtocol {
         return Bool(rv != 0)
     }
 
-    /// If `context` is currently blocking in g_main_context_iteration()
+    /// If `context` is currently blocking in `g_main_context_iteration()`
     /// waiting for a source to become ready, cause it to stop blocking
     /// and return.  Otherwise, cause the next invocation of
-    /// g_main_context_iteration() to return without blocking.
+    /// `g_main_context_iteration()` to return without blocking.
     /// 
     /// This API is useful for low-level control over `GMainContext`; for
     /// example, integrating it with main loop implementations such as
@@ -495,22 +495,25 @@ public extension MainContextProtocol {
     /// Another related use for this function is when implementing a main
     /// loop with a termination condition, computed from multiple threads:
     /// 
-    /// |[<!-- language="C" -->
-    ///   `define` NUM_TASKS 10
+    /// (C Language Example):
+    /// ```C
+    ///   #define NUM_TASKS 10
     ///   static volatile gint tasks_remaining = NUM_TASKS;
     ///   ...
     ///  
     ///   while (g_atomic_int_get (&tasks_remaining) != 0)
     ///     g_main_context_iteration (NULL, TRUE);
-    /// ]|
+    /// ```
     ///  
     /// Then in a thread:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     ///   perform_work();
     /// 
     ///   if (g_atomic_int_dec_and_test (&tasks_remaining))
     ///     g_main_context_wakeup (NULL);
-    /// ]|
+    /// ```
+    /// 
     func wakeup() {
         g_main_context_wakeup(cast(main_context_ptr))
     
@@ -530,17 +533,17 @@ public extension MainContextProtocol {
         }
     }
 
-    /// Gets the poll function set by g_main_context_set_poll_func().
+    /// Gets the poll function set by `g_main_context_set_poll_func()`.
     var pollFunc: GPollFunc! {
-        /// Gets the poll function set by g_main_context_set_poll_func().
+        /// Gets the poll function set by `g_main_context_set_poll_func()`.
         get {
             let rv = g_main_context_get_poll_func(cast(main_context_ptr))
             return rv
         }
         /// Sets the function to use to handle polling of file descriptors. It
-        /// will be used instead of the poll() system call
+        /// will be used instead of the `poll()` system call
         /// (or GLib's replacement function, which is used where
-        /// poll() isn't available).
+        /// `poll()` isn't available).
         /// 
         /// This function could possibly be used to integrate the GLib event
         /// loop with an external event loop.

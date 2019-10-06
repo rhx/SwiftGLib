@@ -2,16 +2,18 @@ import CGLib
 
 public let ANALYZER_ANALYZING = G_ANALYZER_ANALYZING /* gint 1 */
 
-/// A good size for a buffer to be passed into g_ascii_dtostr().
+/// A good size for a buffer to be passed into `g_ascii_dtostr()`.
 /// It is guaranteed to be enough for all output of that function
 /// on systems with 64bit IEEE-compatible doubles.
 /// 
 /// The typical usage would be something like:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   char buf[G_ASCII_DTOSTR_BUF_SIZE];
 /// 
-///   fprintf (out, "value=`s`\n", g_ascii_dtostr (buf, sizeof (buf), value));
-/// ]|
+///   fprintf (out, "value=%s\n", g_ascii_dtostr (buf, sizeof (buf), value));
+/// ```
+/// 
 public let ASCII_DTOSTR_BUF_SIZE: CInt = 39 /* G_ASCII_DTOSTR_BUF_SIZE */
 
 /// Specifies one of the possible types of byte order.
@@ -34,7 +36,7 @@ public let CSET_DIGITS = G_CSET_DIGITS /* utf8 123456789 */
 public let CSET_a_2_z = G_CSET_a_2_z /* utf8 5 */
 
 /// A bitmask that restricts the possible flags passed to
-/// g_datalist_set_flags(). Passing a flags value where
+/// `g_datalist_set_flags()`. Passing a flags value where
 /// flags & ~G_DATALIST_FLAGS_MASK != 0 is an error.
 public let DATALIST_FLAGS_MASK = G_DATALIST_FLAGS_MASK /* gint 3 */
 
@@ -63,13 +65,15 @@ public let E = G_E /* gdouble 12 */
 /// include the percent-sign, such that you can add precision and length
 /// modifiers between percent-sign and conversion specifier.
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// gint16 in;
 /// gint32 out;
-/// sscanf ("42", "``" G_GINT16_FORMAT, &in)
+/// sscanf ("42", "%" G_GINT16_FORMAT, &in)
 /// out = in * 1000;
-/// g_print ("``" G_GINT32_FORMAT, out);
-/// ]|
+/// g_print ("%" G_GINT32_FORMAT, out);
+/// ```
+/// 
 public let GINT16_FORMAT = G_GINT16_FORMAT /* utf8 13 */
 
 /// The platform dependent length modifier for conversion specifiers
@@ -79,10 +83,12 @@ public let GINT16_FORMAT = G_GINT16_FORMAT /* utf8 13 */
 /// and conversion specifier and append a conversion specifier.
 /// 
 /// The following example prints "0x7b";
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// gint16 value = 123;
-/// g_print ("```" G_GINT16_MODIFIER "x", value);
-/// ]|
+/// g_print ("%#" G_GINT16_MODIFIER "x", value);
+/// ```
+/// 
 public let GINT16_MODIFIER = G_GINT16_MODIFIER /* utf8 14 */
 
 /// This is the platform dependent conversion specifier for scanning
@@ -99,9 +105,9 @@ public let GINT32_MODIFIER = G_GINT32_MODIFIER /* utf8 16 */
 /// 
 /// Some platforms do not support scanning and printing 64-bit integers,
 /// even though the types are supported. On such platforms `G_GINT64_FORMAT`
-/// is not defined. Note that scanf() may not support 64-bit integers, even
-/// if `G_GINT64_FORMAT` is defined. Due to its weak error handling, scanf()
-/// is not recommended for parsing anyway; consider using g_ascii_strtoull()
+/// is not defined. Note that `scanf()` may not support 64-bit integers, even
+/// if `G_GINT64_FORMAT` is defined. Due to its weak error handling, `scanf()`
+/// is not recommended for parsing anyway; consider using `g_ascii_strtoull()`
 /// instead.
 public let GINT64_FORMAT = G_GINT64_FORMAT /* utf8 17 */
 
@@ -168,9 +174,9 @@ public let GUINT32_FORMAT = G_GUINT32_FORMAT /* utf8 28 */
 /// 
 /// Some platforms do not support scanning and printing 64-bit integers,
 /// even though the types are supported. On such platforms `G_GUINT64_FORMAT`
-/// is not defined.  Note that scanf() may not support 64-bit integers, even
-/// if `G_GINT64_FORMAT` is defined. Due to its weak error handling, scanf()
-/// is not recommended for parsing anyway; consider using g_ascii_strtoull()
+/// is not defined.  Note that `scanf()` may not support 64-bit integers, even
+/// if `G_GINT64_FORMAT` is defined. Due to its weak error handling, `scanf()`
+/// is not recommended for parsing anyway; consider using `g_ascii_strtoull()`
 /// instead.
 public let GUINT64_FORMAT = G_GUINT64_FORMAT /* utf8 29 */
 
@@ -347,9 +353,9 @@ public let LOG_2_BASE_10 = G_LOG_2_BASE_10 /* gdouble 66 */
 /// environment variable.
 /// 
 /// For example, GTK+ uses this in its `Makefile.am`:
-/// |[
+/// ```
 /// AM_CPPFLAGS = -DG_LOG_DOMAIN=\"Gtk\"
-/// ]|
+/// ```
 /// 
 /// Applications can choose to leave it as the default `nil` (or `""`)
 /// domain. However, defining the domain offers the same advantages as
@@ -444,7 +450,7 @@ public let PDP_ENDIAN = G_PDP_ENDIAN /* gint 3412 */
 /// The value of pi (ratio of circle's circumference to its diameter).
 public let PI = G_PI /* gdouble 88 */
 
-/// A format specifier that can be used in printf()-style format strings
+/// A format specifier that can be used in `printf()`-style format strings
 /// when printing a `GPid`.
 public let PID_FORMAT = G_PID_FORMAT /* utf8 89 */
 
@@ -454,21 +460,21 @@ public let PI_2 = G_PI_2 /* gdouble 90 */
 /// Pi divided by 4.
 public let PI_4 = G_PI_4 /* gdouble 91 */
 
-/// A format specifier that can be used in printf()-style format strings
+/// A format specifier that can be used in `printf()`-style format strings
 /// when printing the `fd` member of a `GPollFD`.
 public let POLLFD_FORMAT = G_POLLFD_FORMAT /* utf8 92 */
 
 /// Use this for default priority event sources.
 /// 
 /// In GLib this priority is used when adding timeout functions
-/// with g_timeout_add(). In GDK this priority is used for events
+/// with `g_timeout_add()`. In GDK this priority is used for events
 /// from the X server.
 public let PRIORITY_DEFAULT = G_PRIORITY_DEFAULT /* gint 0 */
 
 /// Use this for default priority idle functions.
 /// 
 /// In GLib this priority is used when adding idle functions with
-/// g_idle_add().
+/// `g_idle_add()`.
 public let PRIORITY_DEFAULT_IDLE = G_PRIORITY_DEFAULT_IDLE /* gint 200 */
 
 /// Use this for high priority event sources.
@@ -516,7 +522,7 @@ public let SOURCE_REMOVE = G_SOURCE_REMOVE /* gboolean 105 */
 /// The square root of two.
 public let SQRT2 = G_SQRT2 /* gdouble 106 */
 
-/// The standard delimiters, used in g_strdelimit().
+/// The standard delimiters, used in `g_strdelimit()`.
 public let STR_DELIMITERS = G_STR_DELIMITERS /* utf8 107 */
 
 public let SYSDEF_AF_INET = GLIB_SYSDEF_AF_INET /* gint 2 */
@@ -532,26 +538,26 @@ public let SYSDEF_MSG_OOB = GLIB_SYSDEF_MSG_OOB /* gint 1 */
 public let SYSDEF_MSG_PEEK = GLIB_SYSDEF_MSG_PEEK /* gint 2 */
 
 /// Creates a unique temporary directory for each unit test and uses
-/// g_set_user_dirs() to set XDG directories to point into subdirectories of it
+/// `g_set_user_dirs()` to set XDG directories to point into subdirectories of it
 /// for the duration of the unit test. The directory tree is cleaned up after the
 /// test finishes successfully. Note that this doesn’t take effect until
-/// g_test_run() is called, so calls to (for example) g_get_user_home_dir() will
-/// return the system-wide value when made in a test program’s main() function.
+/// `g_test_run()` is called, so calls to (for example) `g_get_user_home_dir()` will
+/// return the system-wide value when made in a test program’s `main()` function.
 /// 
 /// The following functions will return subdirectories of the temporary directory
 /// when this option is used. The specific subdirectory paths in use are not
 /// guaranteed to be stable API — always use a getter function to retrieve them.
 /// 
-///  - g_get_home_dir()
-///  - g_get_user_cache_dir()
-///  - g_get_system_config_dirs()
-///  - g_get_user_config_dir()
-///  - g_get_system_data_dirs()
-///  - g_get_user_data_dir()
-///  - g_get_user_runtime_dir()
+///  - `g_get_home_dir()`
+///  - `g_get_user_cache_dir()`
+///  - `g_get_system_config_dirs()`
+///  - `g_get_user_config_dir()`
+///  - `g_get_system_data_dirs()`
+///  - `g_get_user_data_dir()`
+///  - `g_get_user_runtime_dir()`
 /// 
 /// The subdirectories may not be created by the test harness; as with normal
-/// calls to functions like g_get_user_cache_dir(), the caller must be prepared
+/// calls to functions like `g_get_user_cache_dir()`, the caller must be prepared
 /// to create the directory if it doesn’t exist.
 public let TEST_OPTION_ISOLATE_DIRS = G_TEST_OPTION_ISOLATE_DIRS /* utf8 114 */
 
@@ -576,7 +582,7 @@ public let TIME_SPAN_SECOND: Int64 = 1000000 /* G_TIME_SPAN_SECOND */
 /// This is as defined by Unicode 6.1.
 public let UNICHAR_MAX_DECOMPOSITION_LENGTH = G_UNICHAR_MAX_DECOMPOSITION_LENGTH /* gint 18 */
 
-/// Generic delimiters characters as defined in RFC 3986. Includes ":/?``[]``".
+/// Generic delimiters characters as defined in RFC 3986. Includes ":/?#[]@".
 public let URI_RESERVED_CHARS_GENERIC_DELIMITERS = G_URI_RESERVED_CHARS_GENERIC_DELIMITERS /* utf8 121 */
 
 /// Subcomponent delimiter characters as defined in RFC 3986. Includes "!$&'()*+,;=".

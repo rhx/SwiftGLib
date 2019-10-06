@@ -7,10 +7,10 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `StatBuf`.
 /// Alternatively, use `StatBufRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A type corresponding to the appropriate struct type for the stat()
+/// A type corresponding to the appropriate struct type for the `stat()`
 /// system call, depending on the platform and/or compiler being used.
 /// 
-/// See g_stat() for more information.
+/// See `g_stat()` for more information.
 public protocol StatBufProtocol {
     /// Untyped pointer to the underlying `GStatBuf` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,10 +23,10 @@ public protocol StatBufProtocol {
 /// It exposes methods that can operate on this data type through `StatBufProtocol` conformance.
 /// Use `StatBufRef` only as an `unowned` reference to an existing `GStatBuf` instance.
 ///
-/// A type corresponding to the appropriate struct type for the stat()
+/// A type corresponding to the appropriate struct type for the `stat()`
 /// system call, depending on the platform and/or compiler being used.
 /// 
-/// See g_stat() for more information.
+/// See `g_stat()` for more information.
 public struct StatBufRef: StatBufProtocol {
     /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -79,10 +79,10 @@ public extension StatBufRef {
 /// It provides the methods that can operate on this data type through `StatBufProtocol` conformance.
 /// Use `StatBuf` as a strong reference or owner of a `GStatBuf` instance.
 ///
-/// A type corresponding to the appropriate struct type for the stat()
+/// A type corresponding to the appropriate struct type for the `stat()`
 /// system call, depending on the platform and/or compiler being used.
 /// 
-/// See g_stat() for more information.
+/// See `g_stat()` for more information.
 open class StatBuf: StatBufProtocol {
     /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

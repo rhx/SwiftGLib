@@ -10,11 +10,11 @@ import CGLib
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from g_date_new(), it will be safe
+/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
-/// initialized with g_date_clear(). g_date_clear() makes the date invalid
+/// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
 /// but sane. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
@@ -33,11 +33,11 @@ public protocol DateProtocol {
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from g_date_new(), it will be safe
+/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
-/// initialized with g_date_clear(). g_date_clear() makes the date invalid
+/// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
 /// but sane. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
@@ -89,14 +89,14 @@ public extension DateRef {
 
         /// Allocates a `GDate` and initializes
     /// it to a sane state. The new date will
-    /// be cleared (as if you'd called g_date_clear()) but invalid (it won't
-    /// represent an existing day). Free the return value with g_date_free().
+    /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
+    /// represent an existing day). Free the return value with `g_date_free()`.
     init() {
         let rv = g_date_new()
         self.init(cast(rv))
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     init(dmy day: DateDay, month: DateMonth, year: DateYear) {
@@ -104,14 +104,14 @@ public extension DateRef {
         self.init(cast(rv))
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     init(julian julian_day: UInt32) {
         let rv = g_date_new_julian(guint32(julian_day))
         self.init(cast(rv))
     }
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     static func new(dmy day: DateDay, month: DateMonth, year: DateYear) -> DateRef! {
@@ -119,7 +119,7 @@ public extension DateRef {
         return rv.map { DateRef(cast($0)) }
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     static func new(julian julian_day: UInt32) -> DateRef! {
@@ -135,11 +135,11 @@ public extension DateRef {
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from g_date_new(), it will be safe
+/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
-/// initialized with g_date_clear(). g_date_clear() makes the date invalid
+/// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
 /// but sane. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
@@ -192,14 +192,14 @@ open class Date: DateProtocol {
 
     /// Allocates a `GDate` and initializes
     /// it to a sane state. The new date will
-    /// be cleared (as if you'd called g_date_clear()) but invalid (it won't
-    /// represent an existing day). Free the return value with g_date_free().
+    /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
+    /// represent an existing day). Free the return value with `g_date_free()`.
     public convenience init() {
         let rv = g_date_new()
         self.init(cast(rv))
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     public convenience init(dmy day: DateDay, month: DateMonth, year: DateYear) {
@@ -207,7 +207,7 @@ open class Date: DateProtocol {
         self.init(cast(rv))
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     public convenience init(julian julian_day: UInt32) {
@@ -215,7 +215,7 @@ open class Date: DateProtocol {
         self.init(cast(rv))
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     public static func new(dmy day: DateDay, month: DateMonth, year: DateYear) -> Date! {
@@ -223,7 +223,7 @@ open class Date: DateProtocol {
         return rv.map { Date(cast($0)) }
     }
 
-    /// Like g_date_new(), but also sets the value of the date. Assuming the
+    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     public static func new(julian julian_day: UInt32) -> Date! {
@@ -282,13 +282,13 @@ public extension DateProtocol {
     /// Initializes one or more `GDate` structs to a sane but invalid
     /// state. The cleared dates will not represent an existing date, but will
     /// not contain garbage. Useful to init a date declared on the stack.
-    /// Validity can be tested with g_date_valid().
+    /// Validity can be tested with `g_date_valid()`.
     func clear(nDates n_dates: CUnsignedInt) {
         g_date_clear(cast(date_ptr), guint(n_dates))
     
     }
 
-    /// qsort()-style comparison function for dates.
+    /// `qsort()`-style comparison function for dates.
     /// Both dates must be valid.
     func compare(rhs: DateProtocol) -> CInt {
         let rv = g_date_compare(cast(date_ptr), cast(rhs.ptr))
@@ -296,7 +296,7 @@ public extension DateProtocol {
     }
 
     /// Copies a GDate to a newly-allocated GDate. If the input was invalid
-    /// (as determined by g_date_valid()), the invalid state will be copied
+    /// (as determined by `g_date_valid()`), the invalid state will be copied
     /// as is into the new object.
     func copy() -> UnsafeMutablePointer<GDate>! {
         let rv = g_date_copy(cast(date_ptr))
@@ -311,7 +311,7 @@ public extension DateProtocol {
         return CInt(rv)
     }
 
-    /// Frees a `GDate` returned from g_date_new().
+    /// Frees a `GDate` returned from `g_date_new()`.
     func free() {
         g_date_free(cast(date_ptr))
     
@@ -396,7 +396,7 @@ public extension DateProtocol {
 
     /// Sets the value of a `GDate` from a day, month, and year.
     /// The day-month-year triplet must be valid; if you aren't
-    /// sure it is, call g_date_valid_dmy() to check before you
+    /// sure it is, call `g_date_valid_dmy()` to check before you
     /// set it.
     func setDmy(day: DateDay, month: DateMonth, y: DateYear) {
         g_date_set_dmy(cast(date_ptr), day, month, y)
@@ -419,7 +419,7 @@ public extension DateProtocol {
     /// Parses a user-inputted string `str`, and try to figure out what date it
     /// represents, taking the [current locale][setlocale] into account. If the
     /// string is successfully parsed, the date will be valid after the call.
-    /// Otherwise, it will be invalid. You should check using g_date_valid()
+    /// Otherwise, it will be invalid. You should check using `g_date_valid()`
     /// to see whether the parsing succeeded.
     /// 
     /// This function is not appropriate for file formats and the like; it
@@ -447,12 +447,14 @@ public extension DateProtocol {
     /// the user's current timezone.
     /// 
     /// To set the value of a date to the current day, you could write:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     ///  time_t now = time (NULL);
     ///  if (now == (time_t) -1)
     ///    // handle the error
     ///  g_date_set_time_t (date, now);
-    /// ]|
+    /// ```
+    /// 
     func setTimeT(timet: CLong) {
         g_date_set_time_t(cast(date_ptr), timet)
     
@@ -514,8 +516,8 @@ public extension DateProtocol {
     }
 
     /// Returns `true` if the `GDate` represents an existing day. The date must not
-    /// contain garbage; it should have been initialized with g_date_clear()
-    /// if it wasn't allocated by one of the g_date_new() variants.
+    /// contain garbage; it should have been initialized with `g_date_clear()`
+    /// if it wasn't allocated by one of the `g_date_new()` variants.
     func valid() -> Bool {
         let rv = g_date_valid(cast(date_ptr))
         return Bool(rv != 0)
@@ -523,16 +525,16 @@ public extension DateProtocol {
 
     /// Generates a printed representation of the date, in a
     /// [locale][setlocale]-specific way.
-    /// Works just like the platform's C library strftime() function,
+    /// Works just like the platform's C library `strftime()` function,
     /// but only accepts date-related formats; time-related formats
-    /// give undefined results. Date must be valid. Unlike strftime()
+    /// give undefined results. Date must be valid. Unlike `strftime()`
     /// (which uses the locale encoding), works on a UTF-8 format
     /// string and stores a UTF-8 result.
     /// 
     /// This function does not provide any conversion specifiers in
     /// addition to those implemented by the platform's C library.
-    /// For example, don't expect that using g_date_strftime() would
-    /// make the \`F` provided by the C99 strftime() work on Windows
+    /// For example, don't expect that using `g_date_strftime()` would
+    /// make the \`F` provided by the C99 `strftime()` work on Windows
     /// where the C library only complies to C89.
     func strftime(s: UnsafeMutablePointer<gchar>, slen: Int, format: UnsafePointer<gchar>) -> Int {
         let rv = g_date_strftime(s, gsize(slen), format, cast(date_ptr))
@@ -541,16 +543,16 @@ public extension DateProtocol {
 
     /// Generates a printed representation of the date, in a
     /// [locale][setlocale]-specific way.
-    /// Works just like the platform's C library strftime() function,
+    /// Works just like the platform's C library `strftime()` function,
     /// but only accepts date-related formats; time-related formats
-    /// give undefined results. Date must be valid. Unlike strftime()
+    /// give undefined results. Date must be valid. Unlike `strftime()`
     /// (which uses the locale encoding), works on a UTF-8 format
     /// string and stores a UTF-8 result.
     /// 
     /// This function does not provide any conversion specifiers in
     /// addition to those implemented by the platform's C library.
-    /// For example, don't expect that using g_date_strftime() would
-    /// make the \`F` provided by the C99 strftime() work on Windows
+    /// For example, don't expect that using `g_date_strftime()` would
+    /// make the \`F` provided by the C99 `strftime()` work on Windows
     /// where the C library only complies to C89.
     func dateStrftime(s: UnsafeMutablePointer<gchar>, slen: Int, format: UnsafePointer<gchar>) -> Int {
         let rv = g_date_strftime(s, gsize(slen), format, cast(date_ptr))

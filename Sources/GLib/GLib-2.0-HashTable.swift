@@ -71,7 +71,7 @@ public extension HashTableRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GHashTable` like g_hash_table_new() with a reference
+        /// Creates a new `GHashTable` like `g_hash_table_new()` with a reference
     /// count of 1 and allows to specify functions to free the memory
     /// allocated for the key and value that get called when removing the
     /// entry from the `GHashTable`.
@@ -80,8 +80,8 @@ public extension HashTableRef {
     /// recursively remove further items from the hash table. This is only
     /// permissible if the application still holds a reference to the hash table.
     /// This means that you may need to ensure that the hash table is empty by
-    /// calling g_hash_table_remove_all() before releasing the last reference using
-    /// g_hash_table_unref().
+    /// calling `g_hash_table_remove_all()` before releasing the last reference using
+    /// `g_hash_table_unref()`.
     static func new(full hash_func: @escaping HashFunc, keyEqualFunc key_equal_func: @escaping EqualFunc, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> HashTableRef! {
         let rv = g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func)
         return rv.map { HashTableRef(cast($0)) }
@@ -143,7 +143,7 @@ open class HashTable: HashTableProtocol {
     }
 
 
-    /// Creates a new `GHashTable` like g_hash_table_new() with a reference
+    /// Creates a new `GHashTable` like `g_hash_table_new()` with a reference
     /// count of 1 and allows to specify functions to free the memory
     /// allocated for the key and value that get called when removing the
     /// entry from the `GHashTable`.
@@ -152,8 +152,8 @@ open class HashTable: HashTableProtocol {
     /// recursively remove further items from the hash table. This is only
     /// permissible if the application still holds a reference to the hash table.
     /// This means that you may need to ensure that the hash table is empty by
-    /// calling g_hash_table_remove_all() before releasing the last reference using
-    /// g_hash_table_unref().
+    /// calling `g_hash_table_remove_all()` before releasing the last reference using
+    /// `g_hash_table_unref()`.
     public static func new(full hash_func: @escaping HashFunc, keyEqualFunc key_equal_func: @escaping EqualFunc, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> HashTable! {
         let rv = g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func)
         return rv.map { HashTable(cast($0)) }
@@ -171,7 +171,7 @@ public extension HashTableProtocol {
     var hash_table_ptr: UnsafeMutablePointer<GHashTable> { return ptr.assumingMemoryBound(to: GHashTable.self) }
 
     /// This is a convenience function for using a `GHashTable` as a set.  It
-    /// is equivalent to calling g_hash_table_replace() with `key` as both the
+    /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
     /// key and the value.
     /// 
     /// When a hash table only ever contains keys that have themselves as the
@@ -195,7 +195,7 @@ public extension HashTableProtocol {
     /// Destroys all keys and values in the `GHashTable` and decrements its
     /// reference count by 1. If keys and/or values are dynamically allocated,
     /// you should either free them first or create the `GHashTable` with destroy
-    /// notifiers using g_hash_table_new_full(). In the latter case the destroy
+    /// notifiers using `g_hash_table_new_full()`. In the latter case the destroy
     /// functions you supplied will be called on all keys and values during the
     /// destruction phase.
     func destroy() {
@@ -210,12 +210,12 @@ public extension HashTableProtocol {
     /// add/remove items).
     /// 
     /// Note, that hash tables are really only optimized for forward
-    /// lookups, i.e. g_hash_table_lookup(). So code that frequently issues
-    /// g_hash_table_find() or g_hash_table_foreach() (e.g. in the order of
+    /// lookups, i.e. `g_hash_table_lookup()`. So code that frequently issues
+    /// `g_hash_table_find()` or `g_hash_table_foreach()` (e.g. in the order of
     /// once per every entry in a hash table) should probably be reworked
     /// to use additional or different data structures for reverse lookups
-    /// (keep in mind that an O(n) find/foreach operation issued for all n
-    /// values in a hash table ends up needing O(n*n) operations).
+    /// (keep in mind that an `O(n)` find/foreach operation issued for all n
+    /// values in a hash table ends up needing `O(n*n)` operations).
     func find(predicate: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
         let rv = g_hash_table_find(cast(hash_table_ptr), predicate, cast(user_data))
         return cast(rv)
@@ -226,10 +226,10 @@ public extension HashTableProtocol {
     /// pair, and the given `user_data` parameter.  The hash table may not
     /// be modified while iterating over it (you can't add/remove
     /// items). To remove all items matching a predicate, use
-    /// g_hash_table_foreach_remove().
+    /// `g_hash_table_foreach_remove()`.
     /// 
-    /// See g_hash_table_find() for performance caveats for linear
-    /// order searches in contrast to g_hash_table_lookup().
+    /// See `g_hash_table_find()` for performance caveats for linear
+    /// order searches in contrast to `g_hash_table_lookup()`.
     func foreach(func_: @escaping HFunc, userData user_data: UnsafeMutableRawPointer) {
         g_hash_table_foreach(cast(hash_table_ptr), func_, cast(user_data))
     
@@ -284,9 +284,9 @@ public extension HashTableProtocol {
     /// To iterate over the entries in a `GHashTable` more efficiently, use a
     /// `GHashTableIter`.
     /// 
-    /// You should always free the return result with g_free().  In the
+    /// You should always free the return result with `g_free()`.  In the
     /// above-mentioned case of a string-keyed hash table, it may be
-    /// appropriate to use g_strfreev() if you call g_hash_table_steal_all()
+    /// appropriate to use `g_strfreev()` if you call `g_hash_table_steal_all()`
     /// first to transfer ownership of the keys.
     func getKeysAsArray(length: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
         let rv = g_hash_table_get_keys_as_array(cast(hash_table_ptr), cast(length))
@@ -324,7 +324,7 @@ public extension HashTableProtocol {
     /// Looks up a key in a `GHashTable`. Note that this function cannot
     /// distinguish between a key that is not present and one which is present
     /// and has the value `nil`. If you need this distinction, use
-    /// g_hash_table_lookup_extended().
+    /// `g_hash_table_lookup_extended()`.
     func lookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
         let rv = g_hash_table_lookup(cast(hash_table_ptr), cast(key))
         return cast(rv)
@@ -333,7 +333,7 @@ public extension HashTableProtocol {
     /// Looks up a key in the `GHashTable`, returning the original key and the
     /// associated value and a `gboolean` which is `true` if the key was found. This
     /// is useful if you need to free the memory allocated for the original key,
-    /// for example before calling g_hash_table_remove().
+    /// for example before calling `g_hash_table_remove()`.
     /// 
     /// You can actually pass `nil` for `lookup_key` to test
     /// whether the `nil` key exists, provided the hash and equal functions
@@ -352,7 +352,7 @@ public extension HashTableProtocol {
 
     /// Removes a key and its associated value from a `GHashTable`.
     /// 
-    /// If the `GHashTable` was created using g_hash_table_new_full(), the
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`, the
     /// key and value are freed using the supplied destroy functions, otherwise
     /// you have to make sure that any dynamically allocated values are freed
     /// yourself.
@@ -363,7 +363,7 @@ public extension HashTableProtocol {
 
     /// Removes all keys and their associated values from a `GHashTable`.
     /// 
-    /// If the `GHashTable` was created using g_hash_table_new_full(),
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`,
     /// the keys and values are freed using the supplied destroy functions,
     /// otherwise you have to make sure that any dynamically allocated
     /// values are freed yourself.
@@ -373,7 +373,7 @@ public extension HashTableProtocol {
     }
 
     /// Inserts a new key and value into a `GHashTable` similar to
-    /// g_hash_table_insert(). The difference is that if the key
+    /// `g_hash_table_insert()`. The difference is that if the key
     /// already exists in the `GHashTable`, it gets replaced by the
     /// new key. If you supplied a `value_destroy_func` when creating
     /// the `GHashTable`, the old value is freed using that function.
@@ -414,7 +414,7 @@ public extension HashTableProtocol {
     /// 
     /// If found, the stolen key and value are removed from the hash table without
     /// calling the key and value destroy functions, and ownership is transferred to
-    /// the caller of this method; as with g_hash_table_steal().
+    /// the caller of this method; as with `g_hash_table_steal()`.
     /// 
     /// You can pass `nil` for `lookup_key`, provided the hash and equal functions
     /// of `hash_table` are `nil`-safe.
@@ -433,7 +433,7 @@ public extension HashTableProtocol {
     }
 
     /// This is a convenience function for using a `GHashTable` as a set.  It
-    /// is equivalent to calling g_hash_table_replace() with `key` as both the
+    /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
     /// key and the value.
     /// 
     /// When a hash table only ever contains keys that have themselves as the
@@ -457,7 +457,7 @@ public extension HashTableProtocol {
     /// Destroys all keys and values in the `GHashTable` and decrements its
     /// reference count by 1. If keys and/or values are dynamically allocated,
     /// you should either free them first or create the `GHashTable` with destroy
-    /// notifiers using g_hash_table_new_full(). In the latter case the destroy
+    /// notifiers using `g_hash_table_new_full()`. In the latter case the destroy
     /// functions you supplied will be called on all keys and values during the
     /// destruction phase.
     func hashTableDestroy() {
@@ -485,7 +485,7 @@ public extension HashTableProtocol {
     /// Looks up a key in a `GHashTable`. Note that this function cannot
     /// distinguish between a key that is not present and one which is present
     /// and has the value `nil`. If you need this distinction, use
-    /// g_hash_table_lookup_extended().
+    /// `g_hash_table_lookup_extended()`.
     func hashTableLookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
         let rv = g_hash_table_lookup(cast(hash_table_ptr), cast(key))
         return cast(rv)
@@ -494,7 +494,7 @@ public extension HashTableProtocol {
     /// Looks up a key in the `GHashTable`, returning the original key and the
     /// associated value and a `gboolean` which is `true` if the key was found. This
     /// is useful if you need to free the memory allocated for the original key,
-    /// for example before calling g_hash_table_remove().
+    /// for example before calling `g_hash_table_remove()`.
     /// 
     /// You can actually pass `nil` for `lookup_key` to test
     /// whether the `nil` key exists, provided the hash and equal functions
@@ -506,7 +506,7 @@ public extension HashTableProtocol {
 
     /// Removes a key and its associated value from a `GHashTable`.
     /// 
-    /// If the `GHashTable` was created using g_hash_table_new_full(), the
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`, the
     /// key and value are freed using the supplied destroy functions, otherwise
     /// you have to make sure that any dynamically allocated values are freed
     /// yourself.
@@ -517,7 +517,7 @@ public extension HashTableProtocol {
 
     /// Removes all keys and their associated values from a `GHashTable`.
     /// 
-    /// If the `GHashTable` was created using g_hash_table_new_full(),
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`,
     /// the keys and values are freed using the supplied destroy functions,
     /// otherwise you have to make sure that any dynamically allocated
     /// values are freed yourself.
@@ -527,7 +527,7 @@ public extension HashTableProtocol {
     }
 
     /// Inserts a new key and value into a `GHashTable` similar to
-    /// g_hash_table_insert(). The difference is that if the key
+    /// `g_hash_table_insert()`. The difference is that if the key
     /// already exists in the `GHashTable`, it gets replaced by the
     /// new key. If you supplied a `value_destroy_func` when creating
     /// the `GHashTable`, the old value is freed using that function.
@@ -568,7 +568,7 @@ public extension HashTableProtocol {
     /// 
     /// If found, the stolen key and value are removed from the hash table without
     /// calling the key and value destroy functions, and ownership is transferred to
-    /// the caller of this method; as with g_hash_table_steal().
+    /// the caller of this method; as with `g_hash_table_steal()`.
     /// 
     /// You can pass `nil` for `lookup_key`, provided the hash and equal functions
     /// of `hash_table` are `nil`-safe.

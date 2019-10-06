@@ -12,20 +12,20 @@ import CGLib
 /// 
 /// For idle sources, the prepare and check functions always return `true`
 /// to indicate that the source is always ready to be processed. The prepare
-/// function also returns a timeout value of 0 to ensure that the poll() call
+/// function also returns a timeout value of 0 to ensure that the `poll()` call
 /// doesn't block (since that would be time wasted which could have been spent
 /// running the idle function).
 /// 
 /// For timeout sources, the prepare and check functions both return `true`
 /// if the timeout interval has expired. The prepare function also returns
-/// a timeout value to ensure that the poll() call doesn't block too long
+/// a timeout value to ensure that the `poll()` call doesn't block too long
 /// and miss the next timeout.
 /// 
 /// For file descriptor sources, the prepare function typically returns `false`,
-/// since it must wait until poll() has been called before it knows whether
+/// since it must wait until `poll()` has been called before it knows whether
 /// any events need to be processed. It sets the returned timeout to -1 to
-/// indicate that it doesn't mind how long the poll() call blocks. In the
-/// check function, it tests the results of the poll() call to see if the
+/// indicate that it doesn't mind how long the `poll()` call blocks. In the
+/// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 public protocol SourceFuncsProtocol {
     /// Untyped pointer to the underlying `GSourceFuncs` instance.
@@ -44,20 +44,20 @@ public protocol SourceFuncsProtocol {
 /// 
 /// For idle sources, the prepare and check functions always return `true`
 /// to indicate that the source is always ready to be processed. The prepare
-/// function also returns a timeout value of 0 to ensure that the poll() call
+/// function also returns a timeout value of 0 to ensure that the `poll()` call
 /// doesn't block (since that would be time wasted which could have been spent
 /// running the idle function).
 /// 
 /// For timeout sources, the prepare and check functions both return `true`
 /// if the timeout interval has expired. The prepare function also returns
-/// a timeout value to ensure that the poll() call doesn't block too long
+/// a timeout value to ensure that the `poll()` call doesn't block too long
 /// and miss the next timeout.
 /// 
 /// For file descriptor sources, the prepare function typically returns `false`,
-/// since it must wait until poll() has been called before it knows whether
+/// since it must wait until `poll()` has been called before it knows whether
 /// any events need to be processed. It sets the returned timeout to -1 to
-/// indicate that it doesn't mind how long the poll() call blocks. In the
-/// check function, it tests the results of the poll() call to see if the
+/// indicate that it doesn't mind how long the `poll()` call blocks. In the
+/// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 public struct SourceFuncsRef: SourceFuncsProtocol {
     /// Untyped pointer to the underlying `GSourceFuncs` instance.
@@ -116,20 +116,20 @@ public extension SourceFuncsRef {
 /// 
 /// For idle sources, the prepare and check functions always return `true`
 /// to indicate that the source is always ready to be processed. The prepare
-/// function also returns a timeout value of 0 to ensure that the poll() call
+/// function also returns a timeout value of 0 to ensure that the `poll()` call
 /// doesn't block (since that would be time wasted which could have been spent
 /// running the idle function).
 /// 
 /// For timeout sources, the prepare and check functions both return `true`
 /// if the timeout interval has expired. The prepare function also returns
-/// a timeout value to ensure that the poll() call doesn't block too long
+/// a timeout value to ensure that the `poll()` call doesn't block too long
 /// and miss the next timeout.
 /// 
 /// For file descriptor sources, the prepare function typically returns `false`,
-/// since it must wait until poll() has been called before it knows whether
+/// since it must wait until `poll()` has been called before it knows whether
 /// any events need to be processed. It sets the returned timeout to -1 to
-/// indicate that it doesn't mind how long the poll() call blocks. In the
-/// check function, it tests the results of the poll() call to see if the
+/// indicate that it doesn't mind how long the `poll()` call blocks. In the
+/// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 open class SourceFuncs: SourceFuncsProtocol {
     /// Untyped pointer to the underlying `GSourceFuncs` instance.

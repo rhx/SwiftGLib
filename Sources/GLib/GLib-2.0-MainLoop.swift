@@ -153,11 +153,11 @@ public extension MainLoopProtocol {
         return cast(rv)
     }
 
-    /// Stops a `GMainLoop` from running. Any calls to g_main_loop_run()
+    /// Stops a `GMainLoop` from running. Any calls to `g_main_loop_run()`
     /// for the loop will return.
     /// 
     /// Note that sources that have already been dispatched when
-    /// g_main_loop_quit() is called will still be executed.
+    /// `g_main_loop_quit()` is called will still be executed.
     func quit() {
         g_main_loop_quit(cast(main_loop_ptr))
     
@@ -169,7 +169,7 @@ public extension MainLoopProtocol {
         return cast(rv)
     }
 
-    /// Runs a main loop until g_main_loop_quit() is called on the loop.
+    /// Runs a main loop until `g_main_loop_quit()` is called on the loop.
     /// If this is called for the thread of the loop's `GMainContext`,
     /// it will process events from the loop, otherwise it will
     /// simply wait.
@@ -193,9 +193,9 @@ public extension MainLoopProtocol {
         }
     }
 
-    /// Checks to see if the main loop is currently being run via g_main_loop_run().
+    /// Checks to see if the main loop is currently being run via `g_main_loop_run()`.
     var isRunning: Bool {
-        /// Checks to see if the main loop is currently being run via g_main_loop_run().
+        /// Checks to see if the main loop is currently being run via `g_main_loop_run()`.
         get {
             let rv = g_main_loop_is_running(cast(main_loop_ptr))
             return Bool(rv != 0)

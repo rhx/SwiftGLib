@@ -142,19 +142,19 @@ public extension VariantIterProtocol {
     /// the new iterator from the current position of the old iterator but
     /// the two copies are independent past that point.
     /// 
-    /// Use g_variant_iter_free() to free the return value when you no longer
+    /// Use `g_variant_iter_free()` to free the return value when you no longer
     /// need it.
     /// 
     /// A reference is taken to the container that `iter` is iterating over
-    /// and will be releated only when g_variant_iter_free() is called.
+    /// and will be releated only when `g_variant_iter_free()` is called.
     func copy() -> UnsafeMutablePointer<GVariantIter>! {
         let rv = g_variant_iter_copy(cast(_ptr))
         return cast(rv)
     }
 
     /// Frees a heap-allocated `GVariantIter`.  Only call this function on
-    /// iterators that were returned by g_variant_iter_new() or
-    /// g_variant_iter_copy().
+    /// iterators that were returned by `g_variant_iter_new()` or
+    /// `g_variant_iter_copy()`.
     func free() {
         g_variant_iter_free(cast(_ptr))
     
@@ -192,11 +192,12 @@ public extension VariantIterProtocol {
     /// Gets the next item in the container.  If no more items remain then
     /// `nil` is returned.
     /// 
-    /// Use g_variant_unref() to drop your reference on the return value when
+    /// Use `g_variant_unref()` to drop your reference on the return value when
     /// you no longer need it.
     /// 
-    /// Here is an example for iterating with g_variant_iter_next_value():
-    /// |[<!-- language="C" -->
+    /// Here is an example for iterating with `g_variant_iter_next_value()`:
+    /// (C Language Example):
+    /// ```C
     ///   // recursively iterate a container
     ///   void
     ///   iterate_container_recursive (GVariant *container)
@@ -207,7 +208,7 @@ public extension VariantIterProtocol {
     ///     g_variant_iter_init (&iter, container);
     ///     while ((child = g_variant_iter_next_value (&iter)))
     ///       {
-    ///         g_print ("type '`s`'\n", g_variant_get_type_string (child));
+    ///         g_print ("type '%s'\n", g_variant_get_type_string (child));
     /// 
     ///         if (g_variant_is_container (child))
     ///           iterate_container_recursive (child);
@@ -215,7 +216,8 @@ public extension VariantIterProtocol {
     ///         g_variant_unref (child);
     ///       }
     ///   }
-    /// ]|
+    /// ```
+    /// 
     func nextValue() -> UnsafeMutablePointer<GVariant>! {
         let rv = g_variant_iter_next_value(cast(_ptr))
         return cast(rv)

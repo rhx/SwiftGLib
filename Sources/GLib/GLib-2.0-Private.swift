@@ -9,8 +9,8 @@ import CGLib
 ///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
-/// pthread_setspecific()/pthread_getspecific() APIs on POSIX and to
-/// TlsSetValue()/TlsGetValue() on Windows.
+/// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
+/// `TlsSetValue()``/TlsGetValue()` on Windows.
 /// 
 /// If you don't already know why you might want this functionality,
 /// then you probably don't need it.
@@ -20,7 +20,7 @@ import CGLib
 /// `GPrivate` after it has been used. As such, it is only ever acceptable
 /// to use `GPrivate` in static scope, and even then sparingly so.
 /// 
-/// See G_PRIVATE_INIT() for a couple of examples.
+/// See `G_PRIVATE_INIT()` for a couple of examples.
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
@@ -38,8 +38,8 @@ public protocol PrivateProtocol {
 ///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
-/// pthread_setspecific()/pthread_getspecific() APIs on POSIX and to
-/// TlsSetValue()/TlsGetValue() on Windows.
+/// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
+/// `TlsSetValue()``/TlsGetValue()` on Windows.
 /// 
 /// If you don't already know why you might want this functionality,
 /// then you probably don't need it.
@@ -49,7 +49,7 @@ public protocol PrivateProtocol {
 /// `GPrivate` after it has been used. As such, it is only ever acceptable
 /// to use `GPrivate` in static scope, and even then sparingly so.
 /// 
-/// See G_PRIVATE_INIT() for a couple of examples.
+/// See `G_PRIVATE_INIT()` for a couple of examples.
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
@@ -107,8 +107,8 @@ public extension PrivateRef {
 ///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
-/// pthread_setspecific()/pthread_getspecific() APIs on POSIX and to
-/// TlsSetValue()/TlsGetValue() on Windows.
+/// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
+/// `TlsSetValue()``/TlsGetValue()` on Windows.
 /// 
 /// If you don't already know why you might want this functionality,
 /// then you probably don't need it.
@@ -118,7 +118,7 @@ public extension PrivateRef {
 /// `GPrivate` after it has been used. As such, it is only ever acceptable
 /// to use `GPrivate` in static scope, and even then sparingly so.
 /// 
-/// See G_PRIVATE_INIT() for a couple of examples.
+/// See `G_PRIVATE_INIT()` for a couple of examples.
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
@@ -195,7 +195,7 @@ public extension PrivateProtocol {
     /// Sets the thread local variable `key` to have the value `value` in the
     /// current thread.
     /// 
-    /// This function differs from g_private_set() in the following way: if
+    /// This function differs from `g_private_set()` in the following way: if
     /// the previous value was non-`nil` then the `GDestroyNotify` handler for
     /// `key` is run on it.
     func replace(value: UnsafeMutableRawPointer) {
@@ -206,7 +206,7 @@ public extension PrivateProtocol {
     /// Sets the thread local variable `key` to have the value `value` in the
     /// current thread.
     /// 
-    /// This function differs from g_private_replace() in the following way:
+    /// This function differs from `g_private_replace()` in the following way:
     /// the `GDestroyNotify` for `key` is not called on the old value.
     func set(value: UnsafeMutableRawPointer) {
         g_private_set(cast(_ptr), cast(value))

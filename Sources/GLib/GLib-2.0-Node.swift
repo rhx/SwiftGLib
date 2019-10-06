@@ -158,7 +158,7 @@ public extension NodeProtocol {
     }
 
     /// Recursively copies a `GNode` (but does not deep-copy the data inside the
-    /// nodes, see g_node_copy_deep() if you need that).
+    /// nodes, see `g_node_copy_deep()` if you need that).
     func copy() -> UnsafeMutablePointer<GNode>! {
         let rv = g_node_copy(cast(_ptr))
         return cast(rv)

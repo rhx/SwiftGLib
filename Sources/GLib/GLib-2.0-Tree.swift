@@ -71,7 +71,7 @@ public extension TreeRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GTree` like g_tree_new() and allows to specify functions
+        /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
     static func new(full key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> TreeRef! {
@@ -80,7 +80,7 @@ public extension TreeRef {
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
-    /// See g_tree_new() for more details.
+    /// See `g_tree_new()` for more details.
     static func newWith(data key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer) -> TreeRef! {
         let rv = g_tree_new_with_data(key_compare_func, cast(key_compare_data))
         return rv.map { TreeRef(cast($0)) }
@@ -142,7 +142,7 @@ open class Tree: TreeProtocol {
     }
 
 
-    /// Creates a new `GTree` like g_tree_new() and allows to specify functions
+    /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
     public static func new(full key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> Tree! {
@@ -151,7 +151,7 @@ open class Tree: TreeProtocol {
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
-    /// See g_tree_new() for more details.
+    /// See `g_tree_new()` for more details.
     public static func newWith(data key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer) -> Tree! {
         let rv = g_tree_new_with_data(key_compare_func, cast(key_compare_data))
         return rv.map { Tree(cast($0)) }
@@ -171,7 +171,7 @@ public extension TreeProtocol {
     /// Removes all keys and values from the `GTree` and decreases its
     /// reference count by one. If keys and/or values are dynamically
     /// allocated, you should either free them first or create the `GTree`
-    /// using g_tree_new_full(). In the latter case the destroy functions
+    /// using `g_tree_new_full()`. In the latter case the destroy functions
     /// you supplied will be called on all keys and values before destroying
     /// the `GTree`.
     func destroy() {
@@ -219,7 +219,7 @@ public extension TreeProtocol {
 
     /// Gets the value corresponding to the given key. Since a `GTree` is
     /// automatically balanced as key/value pairs are added, key lookup
-    /// is O(log n) (where n is the number of key/value pairs in the tree).
+    /// is `O(log n)` (where n is the number of key/value pairs in the tree).
     func lookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
         let rv = g_tree_lookup(cast(_ptr), cast(key))
         return cast(rv)
@@ -228,7 +228,7 @@ public extension TreeProtocol {
     /// Looks up a key in the `GTree`, returning the original key and the
     /// associated value. This is useful if you need to free the memory
     /// allocated for the original key, for example before calling
-    /// g_tree_remove().
+    /// `g_tree_remove()`.
     func lookupExtended(lookupKey lookup_key: gconstpointer, origKey orig_key: UnsafeMutablePointer<UnsafeMutableRawPointer>, value: UnsafeMutablePointer<UnsafeMutableRawPointer>) -> Bool {
         let rv = g_tree_lookup_extended(cast(_ptr), cast(lookup_key), cast(orig_key), cast(value))
         return Bool(rv != 0)
@@ -250,7 +250,7 @@ public extension TreeProtocol {
 
     /// Removes a key/value pair from a `GTree`.
     /// 
-    /// If the `GTree` was created using g_tree_new_full(), the key and value
+    /// If the `GTree` was created using `g_tree_new_full()`, the key and value
     /// are freed using the supplied destroy functions, otherwise you have to
     /// make sure that any dynamically allocated values are freed yourself.
     /// If the key does not exist in the `GTree`, the function does nothing.
@@ -259,7 +259,7 @@ public extension TreeProtocol {
         return Bool(rv != 0)
     }
 
-    /// Inserts a new key and value into a `GTree` similar to g_tree_insert().
+    /// Inserts a new key and value into a `GTree` similar to `g_tree_insert()`.
     /// The difference is that if the key already exists in the `GTree`, it gets
     /// replaced by the new key. If you supplied a `value_destroy_func` when
     /// creating the `GTree`, the old value is freed using that function. If you
@@ -278,7 +278,7 @@ public extension TreeProtocol {
     /// The `search_func` is called with a pointer to the key of a key/value
     /// pair in the tree, and the passed in `user_data`. If `search_func` returns
     /// 0 for a key/value pair, then the corresponding value is returned as
-    /// the result of g_tree_search(). If `search_func` returns -1, searching
+    /// the result of `g_tree_search()`. If `search_func` returns -1, searching
     /// will proceed among the key/value pairs that have a smaller key; if
     /// `search_func` returns 1, searching will proceed among the key/value
     /// pairs that have a larger key.

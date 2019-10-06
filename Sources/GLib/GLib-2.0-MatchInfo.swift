@@ -140,10 +140,10 @@ public extension MatchInfoProtocol {
     /// Returns a new string containing the text in `string_to_expand` with
     /// references and escape sequences expanded. References refer to the last
     /// match done with `string` against `regex` and have the same syntax used by
-    /// g_regex_replace().
+    /// `g_regex_replace()`.
     /// 
     /// The `string_to_expand` must be UTF-8 encoded even if `G_REGEX_RAW` was
-    /// passed to g_regex_new().
+    /// passed to `g_regex_new()`.
     /// 
     /// The backreferences are extracted from the string passed to the match
     /// function, so you cannot call this function after freeing the string.
@@ -152,7 +152,7 @@ public extension MatchInfoProtocol {
     /// contain references. For instance "foo\n" does not refer to an actual
     /// pattern and '\n' merely will be replaced with \n character,
     /// while to expand "\0" (whole match) one needs the result of a match.
-    /// Use g_regex_check_replacement() to find out whether `string_to_expand`
+    /// Use `g_regex_check_replacement()` to find out whether `string_to_expand`
     /// contains references.
     func expandReferences(stringToExpand string_to_expand: UnsafePointer<gchar>) throws -> String! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -172,7 +172,7 @@ public extension MatchInfoProtocol {
     /// string is returned.
     /// 
     /// If the match was obtained using the DFA algorithm, that is using
-    /// g_regex_match_all() or g_regex_match_all_full(), the retrieved
+    /// `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// string is not that of a set of parentheses but that of a matched
     /// substring. Substrings are matched in reverse order of length, so
     /// 0 is the longest match.
@@ -193,7 +193,7 @@ public extension MatchInfoProtocol {
     /// "b" against "(a)?b") then an empty string is inserted.
     /// 
     /// If the last match was obtained using the DFA algorithm, that is using
-    /// g_regex_match_all() or g_regex_match_all_full(), the retrieved
+    /// `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// strings are not that matched by sets of parentheses but that of the
     /// matched substring. Substrings are matched in reverse order of length,
     /// so the first one is the longest match.
@@ -237,7 +237,7 @@ public extension MatchInfoProtocol {
     /// and `end_pos` are set to -1 and `true` is returned.
     /// 
     /// If the match was obtained using the DFA algorithm, that is using
-    /// g_regex_match_all() or g_regex_match_all_full(), the retrieved
+    /// `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// position is not that of a set of parentheses but that of a matched
     /// substring. Substrings are matched in reverse order of length, so
     /// 0 is the longest match.
@@ -246,7 +246,7 @@ public extension MatchInfoProtocol {
         return Bool(rv != 0)
     }
 
-    /// If `match_info` is not `nil`, calls g_match_info_unref(); otherwise does
+    /// If `match_info` is not `nil`, calls `g_match_info_unref()`; otherwise does
     /// nothing.
     func free() {
         g_match_info_free(cast(match_info_ptr))
@@ -258,7 +258,7 @@ public extension MatchInfoProtocol {
     /// has no substrings in it and 0 is returned if the match failed.
     /// 
     /// If the last match was obtained using the DFA algorithm, that is
-    /// using g_regex_match_all() or g_regex_match_all_full(), the retrieved
+    /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
     func getMatchCount() -> CInt {
@@ -267,7 +267,7 @@ public extension MatchInfoProtocol {
     }
 
     /// Returns `GRegex` object used in `match_info`. It belongs to Glib
-    /// and must not be freed. Use g_regex_ref() if you need to keep it
+    /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
     func getRegex() -> UnsafeMutablePointer<GRegex>! {
         let rv = g_match_info_get_regex(cast(match_info_ptr))
@@ -275,7 +275,7 @@ public extension MatchInfoProtocol {
     }
 
     /// Returns the string searched with `match_info`. This is the
-    /// string passed to g_regex_match() or g_regex_replace() so
+    /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
     func getString() -> String! {
         let rv = g_match_info_get_string(cast(match_info_ptr))
@@ -289,7 +289,7 @@ public extension MatchInfoProtocol {
     }
 
     /// Scans for the next match using the same parameters of the previous
-    /// call to g_regex_match_full() or g_regex_match() that returned
+    /// call to `g_regex_match_full()` or `g_regex_match()` that returned
     /// `match_info`.
     /// 
     /// The match is done on the string passed to the match function, so you
@@ -323,7 +323,7 @@ public extension MatchInfoProtocol {
     /// Consider, for example, an application where a human is required to
     /// type in data for a field with specific formatting requirements. An
     /// example might be a date in the form ddmmmyy, defined by the pattern
-    /// "^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\d\d$".
+    /// `"^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)`\d\d$".
     /// If the application sees the user’s keystrokes one by one, and can
     /// check that what has been typed so far is potentially valid, it is
     /// able to raise an error as soon as a mistake is made.
@@ -331,10 +331,10 @@ public extension MatchInfoProtocol {
     /// GRegex supports the concept of partial matching by means of the
     /// `G_REGEX_MATCH_PARTIAL_SOFT` and `G_REGEX_MATCH_PARTIAL_HARD` flags.
     /// When they are used, the return code for
-    /// g_regex_match() or g_regex_match_full() is, as usual, `true`
+    /// `g_regex_match()` or `g_regex_match_full()` is, as usual, `true`
     /// for a complete match, `false` otherwise. But, when these functions
     /// return `false`, you can check if the match was partial calling
-    /// g_match_info_is_partial_match().
+    /// `g_match_info_is_partial_match()`.
     /// 
     /// The difference between `G_REGEX_MATCH_PARTIAL_SOFT` and
     /// `G_REGEX_MATCH_PARTIAL_HARD` is that when a partial match is encountered
@@ -347,7 +347,7 @@ public extension MatchInfoProtocol {
     /// There were formerly some restrictions on the pattern for partial matching.
     /// The restrictions no longer apply.
     /// 
-    /// See pcrepartial(3) for more information on partial matching.
+    /// See `pcrepartial(3)` for more information on partial matching.
     var isPartialMatch: Bool {
         /// Usually if the string passed to g_regex_match*() matches as far as
         /// it goes, but is too short to match the entire pattern, `false` is
@@ -357,7 +357,7 @@ public extension MatchInfoProtocol {
         /// Consider, for example, an application where a human is required to
         /// type in data for a field with specific formatting requirements. An
         /// example might be a date in the form ddmmmyy, defined by the pattern
-        /// "^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\d\d$".
+        /// `"^\d?\d(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)`\d\d$".
         /// If the application sees the user’s keystrokes one by one, and can
         /// check that what has been typed so far is potentially valid, it is
         /// able to raise an error as soon as a mistake is made.
@@ -365,10 +365,10 @@ public extension MatchInfoProtocol {
         /// GRegex supports the concept of partial matching by means of the
         /// `G_REGEX_MATCH_PARTIAL_SOFT` and `G_REGEX_MATCH_PARTIAL_HARD` flags.
         /// When they are used, the return code for
-        /// g_regex_match() or g_regex_match_full() is, as usual, `true`
+        /// `g_regex_match()` or `g_regex_match_full()` is, as usual, `true`
         /// for a complete match, `false` otherwise. But, when these functions
         /// return `false`, you can check if the match was partial calling
-        /// g_match_info_is_partial_match().
+        /// `g_match_info_is_partial_match()`.
         /// 
         /// The difference between `G_REGEX_MATCH_PARTIAL_SOFT` and
         /// `G_REGEX_MATCH_PARTIAL_HARD` is that when a partial match is encountered
@@ -381,7 +381,7 @@ public extension MatchInfoProtocol {
         /// There were formerly some restrictions on the pattern for partial matching.
         /// The restrictions no longer apply.
         /// 
-        /// See pcrepartial(3) for more information on partial matching.
+        /// See `pcrepartial(3)` for more information on partial matching.
         get {
             let rv = g_match_info_is_partial_match(cast(match_info_ptr))
             return Bool(rv != 0)
@@ -393,7 +393,7 @@ public extension MatchInfoProtocol {
     /// has no substrings in it and 0 is returned if the match failed.
     /// 
     /// If the last match was obtained using the DFA algorithm, that is
-    /// using g_regex_match_all() or g_regex_match_all_full(), the retrieved
+    /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
     var matchCount: CInt {
@@ -402,7 +402,7 @@ public extension MatchInfoProtocol {
         /// has no substrings in it and 0 is returned if the match failed.
         /// 
         /// If the last match was obtained using the DFA algorithm, that is
-        /// using g_regex_match_all() or g_regex_match_all_full(), the retrieved
+        /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
         /// count is not that of the number of capturing parentheses but that of
         /// the number of matched substrings.
         get {
@@ -412,11 +412,11 @@ public extension MatchInfoProtocol {
     }
 
     /// Returns `GRegex` object used in `match_info`. It belongs to Glib
-    /// and must not be freed. Use g_regex_ref() if you need to keep it
+    /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
     var regex: UnsafeMutablePointer<GRegex>! {
         /// Returns `GRegex` object used in `match_info`. It belongs to Glib
-        /// and must not be freed. Use g_regex_ref() if you need to keep it
+        /// and must not be freed. Use `g_regex_ref()` if you need to keep it
         /// after you free `match_info` object.
         get {
             let rv = g_match_info_get_regex(cast(match_info_ptr))
@@ -425,11 +425,11 @@ public extension MatchInfoProtocol {
     }
 
     /// Returns the string searched with `match_info`. This is the
-    /// string passed to g_regex_match() or g_regex_replace() so
+    /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
     var string: String! {
         /// Returns the string searched with `match_info`. This is the
-        /// string passed to g_regex_match() or g_regex_replace() so
+        /// string passed to `g_regex_match()` or `g_regex_replace()` so
         /// you may not free it before calling this function.
         get {
             let rv = g_match_info_get_string(cast(match_info_ptr))

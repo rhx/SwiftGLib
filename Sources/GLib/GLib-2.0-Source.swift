@@ -75,7 +75,7 @@ public extension SourceRef {
     /// `sizeof (GSource)`.
     /// 
     /// The source will not initially be associated with any `GMainContext`
-    /// and must be added to one with g_source_attach() before it will be
+    /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
         let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
@@ -142,7 +142,7 @@ open class Source: SourceProtocol {
     /// `sizeof (GSource)`.
     /// 
     /// The source will not initially be associated with any `GMainContext`
-    /// and must be added to one with g_source_attach() before it will be
+    /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     public convenience init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
         let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
@@ -170,7 +170,7 @@ public extension SourceProtocol {
     /// its own prepare/check functions indicate that it is ready.)
     /// 
     /// If you don't need `child_source` to do anything on its own when it
-    /// triggers, you can call g_source_set_dummy_callback() on it to set a
+    /// triggers, you can call `g_source_set_dummy_callback()` on it to set a
     /// callback that does nothing (except return `true` if appropriate).
     /// 
     /// `source` will hold a reference on `child_source` while `child_source`
@@ -184,7 +184,7 @@ public extension SourceProtocol {
     }
 
     /// Adds a file descriptor to the set of file descriptors polled for
-    /// this source. This is usually combined with g_source_new() to add an
+    /// this source. This is usually combined with `g_source_new()` to add an
     /// event source. The event source's check function will typically test
     /// the `revents` field in the `GPollFD` struct and return `true` if events need
     /// to be processed.
@@ -194,7 +194,7 @@ public extension SourceProtocol {
     /// 
     /// Using this API forces the linear scanning of event sources on each
     /// main loop iteration.  Newly-written event sources should try to use
-    /// g_source_add_unix_fd() instead of this API.
+    /// `g_source_add_unix_fd()` instead of this API.
     func addPoll(fd: PollFDProtocol) {
         g_source_add_poll(cast(source_ptr), cast(fd.ptr))
     
@@ -203,8 +203,8 @@ public extension SourceProtocol {
     /// Monitors `fd` for the IO events in `events`.
     /// 
     /// The tag returned by this function can be used to remove or modify the
-    /// monitoring of the fd using g_source_remove_unix_fd() or
-    /// g_source_modify_unix_fd().
+    /// monitoring of the fd using `g_source_remove_unix_fd()` or
+    /// `g_source_modify_unix_fd()`.
     /// 
     /// It is not necessary to remove the fd before destroying the source; it
     /// will be cleaned up automatically.
@@ -219,7 +219,7 @@ public extension SourceProtocol {
     }
 
     /// Adds a `GSource` to a `context` so that it will be executed within
-    /// that context. Remove it by calling g_source_destroy().
+    /// that context. Remove it by calling `g_source_destroy()`.
     func attach(context: MainContextProtocol) -> CUnsignedInt {
         let rv = g_source_attach(cast(source_ptr), cast(context.ptr))
         return CUnsignedInt(rv)
@@ -230,15 +230,15 @@ public extension SourceProtocol {
     /// context. It is safe to call this on sources which have already been
     /// removed from their context.
     /// 
-    /// This does not unref the `GSource`: if you still hold a reference, use
-    /// g_source_unref() to drop it.
+    /// This does not unref the `GSource:` if you still hold a reference, use
+    /// `g_source_unref()` to drop it.
     func destroy() {
         g_source_destroy(cast(source_ptr))
     
     }
 
     /// Checks whether a source is allowed to be called recursively.
-    /// see g_source_set_can_recurse().
+    /// see `g_source_set_can_recurse()`.
     func getCanRecurse() -> Bool {
         let rv = g_source_get_can_recurse(cast(source_ptr))
         return Bool(rv != 0)
@@ -250,7 +250,7 @@ public extension SourceProtocol {
     /// that the `GMainContext` it was attached to still exists (in which
     /// case it will return that `GMainContext`). In particular, you can
     /// always call this function on the source returned from
-    /// g_main_current_source(). But calling this function on a source
+    /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
     func getContext() -> UnsafeMutablePointer<GMainContext>! {
         let rv = g_source_get_context(cast(source_ptr))
@@ -258,7 +258,7 @@ public extension SourceProtocol {
     }
 
     /// This function ignores `source` and is otherwise the same as
-    /// g_get_current_time().
+    /// `g_get_current_time()`.
     ///
     /// **get_current_time is deprecated:**
     /// use g_source_get_time() instead
@@ -270,19 +270,19 @@ public extension SourceProtocol {
     /// Returns the numeric ID for a particular source. The ID of a source
     /// is a positive integer which is unique within a particular main loop
     /// context. The reverse
-    /// mapping from ID to source is done by g_main_context_find_source_by_id().
+    /// mapping from ID to source is done by `g_main_context_find_source_by_id()`.
     /// 
     /// You can only call this function while the source is associated to a
-    /// `GMainContext` instance; calling this function before g_source_attach()
-    /// or after g_source_destroy() yields undefined behavior. The ID returned
-    /// is unique within the `GMainContext` instance passed to g_source_attach().
+    /// `GMainContext` instance; calling this function before `g_source_attach()`
+    /// or after `g_source_destroy()` yields undefined behavior. The ID returned
+    /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
     func getID() -> CUnsignedInt {
         let rv = g_source_get_id(cast(source_ptr))
         return CUnsignedInt(rv)
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
-    /// name may be `NULL` if it has never been set with g_source_set_name().
+    /// name may be `NULL` if it has never been set with `g_source_set_name()`.
     func getName() -> String! {
         let rv = g_source_get_name(cast(source_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -295,7 +295,7 @@ public extension SourceProtocol {
     }
 
     /// Gets the "ready time" of `source`, as set by
-    /// g_source_set_ready_time().
+    /// `g_source_set_ready_time()`.
     /// 
     /// Any time before the current monotonic time (including 0) is an
     /// indication that the source will fire immediately.
@@ -305,12 +305,12 @@ public extension SourceProtocol {
     }
 
     /// Gets the time to be used when checking this source. The advantage of
-    /// calling this function over calling g_get_monotonic_time() directly is
+    /// calling this function over calling `g_get_monotonic_time()` directly is
     /// that when checking multiple sources, GLib can cache a single value
     /// instead of having to repeatedly get the system monotonic time.
     /// 
     /// The time here is the system monotonic time, if available, or some
-    /// other reasonable alternative otherwise.  See g_get_monotonic_time().
+    /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
     func getTime() -> Int64 {
         let rv = g_source_get_time(cast(source_ptr))
         return Int64(rv)
@@ -318,10 +318,10 @@ public extension SourceProtocol {
 
     /// Updates the event mask to watch for the fd identified by `tag`.
     /// 
-    /// `tag` is the tag returned from g_source_add_unix_fd().
+    /// `tag` is the tag returned from `g_source_add_unix_fd()`.
     /// 
     /// If you want to remove a fd, don't set its event mask to zero.
-    /// Instead, call g_source_remove_unix_fd().
+    /// Instead, call `g_source_remove_unix_fd()`.
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
@@ -372,7 +372,7 @@ public extension SourceProtocol {
     
     }
 
-    /// Reverses the effect of a previous call to g_source_add_unix_fd().
+    /// Reverses the effect of a previous call to `g_source_add_unix_fd()`.
     /// 
     /// You only need to call this if you want to remove an fd from being
     /// watched while keeping the same source around.  In the normal case you
@@ -392,14 +392,14 @@ public extension SourceProtocol {
     /// 
     /// The exact type of `func` depends on the type of source; ie. you
     /// should not count on `func` being called with `data` as its first
-    /// parameter. Cast `func` with G_SOURCE_FUNC() to avoid warnings about
+    /// parameter. Cast `func` with `G_SOURCE_FUNC()` to avoid warnings about
     /// incompatible function types.
     /// 
     /// See [memory management of sources][mainloop-memory-management] for details
     /// on how to handle memory management of `data`.
     /// 
     /// Typically, you won't use this function. Instead use functions specific
-    /// to the type of source you are using, such as g_idle_add() or g_timeout_add().
+    /// to the type of source you are using, such as `g_idle_add()` or `g_timeout_add()`.
     /// 
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
@@ -411,7 +411,7 @@ public extension SourceProtocol {
 
     /// Sets the callback function storing the data as a refcounted callback
     /// "object". This is used internally. Note that calling
-    /// g_source_set_callback_indirect() assumes
+    /// `g_source_set_callback_indirect()` assumes
     /// an initial reference count on `callback_data`, and thus
     /// `callback_funcs`->unref will eventually be called once more
     /// than `callback_funcs`->ref.
@@ -453,7 +453,7 @@ public extension SourceProtocol {
     /// to include details like the event type in the source name.
     /// 
     /// Use caution if changing the name while another thread may be
-    /// accessing it with g_source_get_name(); that function does not copy
+    /// accessing it with `g_source_get_name()`; that function does not copy
     /// the value, and changing the value will free it while the other thread
     /// may be attempting to use it.
     func set(name: UnsafePointer<CChar>) {
@@ -492,7 +492,7 @@ public extension SourceProtocol {
     /// then the order of dispatch is undefined.
     /// 
     /// It is a no-op to call this function on a `GSource` which has already been
-    /// destroyed with g_source_destroy().
+    /// destroyed with `g_source_destroy()`.
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
@@ -509,10 +509,10 @@ public extension SourceProtocol {
     
     }
     /// Checks whether a source is allowed to be called recursively.
-    /// see g_source_set_can_recurse().
+    /// see `g_source_set_can_recurse()`.
     var canRecurse: Bool {
         /// Checks whether a source is allowed to be called recursively.
-        /// see g_source_set_can_recurse().
+        /// see `g_source_set_can_recurse()`.
         get {
             let rv = g_source_get_can_recurse(cast(source_ptr))
             return Bool(rv != 0)
@@ -532,7 +532,7 @@ public extension SourceProtocol {
     /// that the `GMainContext` it was attached to still exists (in which
     /// case it will return that `GMainContext`). In particular, you can
     /// always call this function on the source returned from
-    /// g_main_current_source(). But calling this function on a source
+    /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
     var context: UnsafeMutablePointer<GMainContext>! {
         /// Gets the `GMainContext` with which the source is associated.
@@ -541,7 +541,7 @@ public extension SourceProtocol {
         /// that the `GMainContext` it was attached to still exists (in which
         /// case it will return that `GMainContext`). In particular, you can
         /// always call this function on the source returned from
-        /// g_main_current_source(). But calling this function on a source
+        /// `g_main_current_source()`. But calling this function on a source
         /// whose `GMainContext` has been destroyed is an error.
         get {
             let rv = g_source_get_context(cast(source_ptr))
@@ -552,22 +552,22 @@ public extension SourceProtocol {
     /// Returns the numeric ID for a particular source. The ID of a source
     /// is a positive integer which is unique within a particular main loop
     /// context. The reverse
-    /// mapping from ID to source is done by g_main_context_find_source_by_id().
+    /// mapping from ID to source is done by `g_main_context_find_source_by_id()`.
     /// 
     /// You can only call this function while the source is associated to a
-    /// `GMainContext` instance; calling this function before g_source_attach()
-    /// or after g_source_destroy() yields undefined behavior. The ID returned
-    /// is unique within the `GMainContext` instance passed to g_source_attach().
+    /// `GMainContext` instance; calling this function before `g_source_attach()`
+    /// or after `g_source_destroy()` yields undefined behavior. The ID returned
+    /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
     var id: CUnsignedInt {
         /// Returns the numeric ID for a particular source. The ID of a source
         /// is a positive integer which is unique within a particular main loop
         /// context. The reverse
-        /// mapping from ID to source is done by g_main_context_find_source_by_id().
+        /// mapping from ID to source is done by `g_main_context_find_source_by_id()`.
         /// 
         /// You can only call this function while the source is associated to a
-        /// `GMainContext` instance; calling this function before g_source_attach()
-        /// or after g_source_destroy() yields undefined behavior. The ID returned
-        /// is unique within the `GMainContext` instance passed to g_source_attach().
+        /// `GMainContext` instance; calling this function before `g_source_attach()`
+        /// or after `g_source_destroy()` yields undefined behavior. The ID returned
+        /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
         get {
             let rv = g_source_get_id(cast(source_ptr))
             return CUnsignedInt(rv)
@@ -580,7 +580,8 @@ public extension SourceProtocol {
     /// from within idle handlers, but may have freed the object
     /// before the dispatch of your idle handler.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static gboolean
     /// idle_callback (gpointer data)
     /// {
@@ -610,7 +611,7 @@ public extension SourceProtocol {
     ///    
     ///   G_OBJECT_CLASS (parent_class)->finalize (object);
     /// }
-    /// ]|
+    /// ```
     /// 
     /// This will fail in a multi-threaded application if the
     /// widget is destroyed before the idle handler fires due
@@ -618,7 +619,8 @@ public extension SourceProtocol {
     /// this particular problem, is to check to if the source
     /// has already been destroy within the callback.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static gboolean
     /// idle_callback (gpointer data)
     /// {
@@ -633,7 +635,7 @@ public extension SourceProtocol {
     ///   
     ///   return FALSE;
     /// }
-    /// ]|
+    /// ```
     /// 
     /// Calls to this function from a thread other than the one acquired by the
     /// `GMainContext` the `GSource` is attached to are typically redundant, as the
@@ -647,7 +649,8 @@ public extension SourceProtocol {
         /// from within idle handlers, but may have freed the object
         /// before the dispatch of your idle handler.
         /// 
-        /// |[<!-- language="C" -->
+        /// (C Language Example):
+        /// ```C
         /// static gboolean
         /// idle_callback (gpointer data)
         /// {
@@ -677,7 +680,7 @@ public extension SourceProtocol {
         ///    
         ///   G_OBJECT_CLASS (parent_class)->finalize (object);
         /// }
-        /// ]|
+        /// ```
         /// 
         /// This will fail in a multi-threaded application if the
         /// widget is destroyed before the idle handler fires due
@@ -685,7 +688,8 @@ public extension SourceProtocol {
         /// this particular problem, is to check to if the source
         /// has already been destroy within the callback.
         /// 
-        /// |[<!-- language="C" -->
+        /// (C Language Example):
+        /// ```C
         /// static gboolean
         /// idle_callback (gpointer data)
         /// {
@@ -700,7 +704,7 @@ public extension SourceProtocol {
         ///   
         ///   return FALSE;
         /// }
-        /// ]|
+        /// ```
         /// 
         /// Calls to this function from a thread other than the one acquired by the
         /// `GMainContext` the `GSource` is attached to are typically redundant, as the
@@ -714,10 +718,10 @@ public extension SourceProtocol {
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
-    /// name may be `NULL` if it has never been set with g_source_set_name().
+    /// name may be `NULL` if it has never been set with `g_source_set_name()`.
     var name: String! {
         /// Gets a name for the source, used in debugging and profiling.  The
-        /// name may be `NULL` if it has never been set with g_source_set_name().
+        /// name may be `NULL` if it has never been set with `g_source_set_name()`.
         get {
             let rv = g_source_get_name(cast(source_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -735,7 +739,7 @@ public extension SourceProtocol {
         /// to include details like the event type in the source name.
         /// 
         /// Use caution if changing the name while another thread may be
-        /// accessing it with g_source_get_name(); that function does not copy
+        /// accessing it with `g_source_get_name()`; that function does not copy
         /// the value, and changing the value will free it while the other thread
         /// may be attempting to use it.
         nonmutating set {
@@ -764,13 +768,13 @@ public extension SourceProtocol {
     }
 
     /// Gets the "ready time" of `source`, as set by
-    /// g_source_set_ready_time().
+    /// `g_source_set_ready_time()`.
     /// 
     /// Any time before the current monotonic time (including 0) is an
     /// indication that the source will fire immediately.
     var readyTime: Int64 {
         /// Gets the "ready time" of `source`, as set by
-        /// g_source_set_ready_time().
+        /// `g_source_set_ready_time()`.
         /// 
         /// Any time before the current monotonic time (including 0) is an
         /// indication that the source will fire immediately.
@@ -796,7 +800,7 @@ public extension SourceProtocol {
         /// then the order of dispatch is undefined.
         /// 
         /// It is a no-op to call this function on a `GSource` which has already been
-        /// destroyed with g_source_destroy().
+        /// destroyed with `g_source_destroy()`.
         /// 
         /// This API is only intended to be used by implementations of `GSource`.
         /// Do not call this API on a `GSource` that you did not create.
@@ -806,20 +810,20 @@ public extension SourceProtocol {
     }
 
     /// Gets the time to be used when checking this source. The advantage of
-    /// calling this function over calling g_get_monotonic_time() directly is
+    /// calling this function over calling `g_get_monotonic_time()` directly is
     /// that when checking multiple sources, GLib can cache a single value
     /// instead of having to repeatedly get the system monotonic time.
     /// 
     /// The time here is the system monotonic time, if available, or some
-    /// other reasonable alternative otherwise.  See g_get_monotonic_time().
+    /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
     var time: Int64 {
         /// Gets the time to be used when checking this source. The advantage of
-        /// calling this function over calling g_get_monotonic_time() directly is
+        /// calling this function over calling `g_get_monotonic_time()` directly is
         /// that when checking multiple sources, GLib can cache a single value
         /// instead of having to repeatedly get the system monotonic time.
         /// 
         /// The time here is the system monotonic time, if available, or some
-        /// other reasonable alternative otherwise.  See g_get_monotonic_time().
+        /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
         get {
             let rv = g_source_get_time(cast(source_ptr))
             return Int64(rv)

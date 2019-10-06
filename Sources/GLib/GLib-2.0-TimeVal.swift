@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `TimeValRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the gettimeofday()
+/// Similar to the struct timeval returned by the `gettimeofday()`
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -29,7 +29,7 @@ public protocol TimeValProtocol {
 /// Use `TimeValRef` only as an `unowned` reference to an existing `GTimeVal` instance.
 ///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the gettimeofday()
+/// Similar to the struct timeval returned by the `gettimeofday()`
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -90,7 +90,7 @@ public extension TimeValRef {
 /// Use `TimeVal` as a strong reference or owner of a `GTimeVal` instance.
 ///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the gettimeofday()
+/// Similar to the struct timeval returned by the `gettimeofday()`
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -187,7 +187,7 @@ public extension TimeValProtocol {
     /// [Date and Time Formats](http://www.w3.org/TR/NOTE-datetime-19980827).
     /// Both of these documents are profiles of ISO 8601.
     /// 
-    /// Use g_date_time_format() or g_strdup_printf() if a different
+    /// Use `g_date_time_format()` or `g_strdup_printf()` if a different
     /// variation of ISO 8601 format is required.
     /// 
     /// If `time_` represents a date which is too large to fit into a `struct tm`,
@@ -195,13 +195,13 @@ public extension TimeValProtocol {
     /// `GTimeVal` stores the number of seconds as a `glong`, on 32-bit systems it
     /// is subject to the year 2038 problem. Accordingly, since GLib 2.62, this
     /// function has been deprecated. Equivalent functionality is available using:
-    /// |[
+    /// ```
     /// GDateTime *dt = g_date_time_new_from_unix_utc (time_val);
     /// iso8601_string = g_date_time_format_iso8601 (dt);
     /// g_date_time_unref (dt);
-    /// ]|
+    /// ```
     /// 
-    /// The return value of g_time_val_to_iso8601() has been nullable since GLib
+    /// The return value of `g_time_val_to_iso8601()` has been nullable since GLib
     /// 2.54; before then, GLib would crash under the same conditions.
     ///
     /// **to_iso8601 is deprecated:**
@@ -224,11 +224,12 @@ public extension TimeValProtocol {
     /// 
     /// This function was deprecated, along with `GTimeVal` itself, in GLib 2.62.
     /// Equivalent functionality is available using code like:
-    /// |[
+    /// ```
     /// GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
     /// gint64 time_val = g_date_time_to_unix (dt);
     /// g_date_time_unref (dt);
-    /// ]|
+    /// ```
+    /// 
     ///
     /// **from_iso8601 is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
@@ -238,9 +239,9 @@ public extension TimeValProtocol {
         return Bool(rv != 0)
     }
 
-    /// Equivalent to the UNIX gettimeofday() function, but portable.
+    /// Equivalent to the UNIX `gettimeofday()` function, but portable.
     /// 
-    /// You may find g_get_real_time() to be more convenient.
+    /// You may find `g_get_real_time()` to be more convenient.
     ///
     /// **get_current_time is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use g_get_real_time()
@@ -262,11 +263,12 @@ public extension TimeValProtocol {
     /// 
     /// This function was deprecated, along with `GTimeVal` itself, in GLib 2.62.
     /// Equivalent functionality is available using code like:
-    /// |[
+    /// ```
     /// GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
     /// gint64 time_val = g_date_time_to_unix (dt);
     /// g_date_time_unref (dt);
-    /// ]|
+    /// ```
+    /// 
     ///
     /// **time_val_from_iso8601 is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use

@@ -156,7 +156,7 @@ public extension StringTypeProtocol {
     /// 
     /// If `len` is negative, `val` must be nul-terminated and `len`
     /// is considered to request the entire string length. This
-    /// makes g_string_append_len() equivalent to g_string_append().
+    /// makes `g_string_append_len()` equivalent to `g_string_append()`.
     func appendLen(val: UnsafePointer<gchar>, len: gssize) -> UnsafeMutablePointer<GString>! {
         let rv = g_string_append_len(cast(gstring_ptr), val, len)
         return cast(rv)
@@ -181,7 +181,7 @@ public extension StringTypeProtocol {
     }
 
     /// Appends a formatted string onto the end of a `GString`.
-    /// This function is similar to g_string_append_printf()
+    /// This function is similar to `g_string_append_printf()`
     /// except that the arguments to the format string are passed
     /// as a va_list.
     func appendVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) {
@@ -203,7 +203,7 @@ public extension StringTypeProtocol {
 
     /// Copies the bytes from a string into a `GString`,
     /// destroying any previous contents. It is rather like
-    /// the standard strcpy() function, except that you do not
+    /// the standard `strcpy()` function, except that you do not
     /// have to worry about having enough space to copy the string.
     func assign(rval: UnsafePointer<gchar>) -> UnsafeMutablePointer<GString>! {
         let rv = g_string_assign(cast(gstring_ptr), rval)
@@ -238,7 +238,7 @@ public extension StringTypeProtocol {
     /// Frees the memory allocated for the `GString`.
     /// If `free_segment` is `true` it also frees the character data.  If
     /// it's `false`, the caller gains ownership of the buffer and must
-    /// free it after use with g_free().
+    /// free it after use with `g_free()`.
     func free(freeSegment free_segment: Bool) -> String! {
         let rv = g_string_free(cast(gstring_ptr), gboolean(free_segment ? 1 : 0))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -333,7 +333,7 @@ public extension StringTypeProtocol {
     /// 
     /// If `len` is negative, `val` must be nul-terminated and `len`
     /// is considered to request the entire string length. This
-    /// makes g_string_prepend_len() equivalent to g_string_prepend().
+    /// makes `g_string_prepend_len()` equivalent to `g_string_prepend()`.
     func prependLen(val: UnsafePointer<gchar>, len: gssize) -> UnsafeMutablePointer<GString>! {
         let rv = g_string_prepend_len(cast(gstring_ptr), val, len)
         return cast(rv)
@@ -378,7 +378,7 @@ public extension StringTypeProtocol {
     }
 
     /// Writes a formatted string into a `GString`.
-    /// This function is similar to g_string_printf() except that
+    /// This function is similar to `g_string_printf()` except that
     /// the arguments to the format string are passed as a va_list.
     func vprintf(format: UnsafePointer<gchar>, args: CVaListPointer) {
         g_string_vprintf(cast(gstring_ptr), format, args)

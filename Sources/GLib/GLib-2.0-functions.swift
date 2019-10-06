@@ -1,6 +1,6 @@
 import CGLib
 
-/// A wrapper for the POSIX access() function. This function is used to
+/// A wrapper for the POSIX `access()` function. This function is used to
 /// test a pathname for one or several of read, write or execute
 /// permissions, or just existence.
 /// 
@@ -11,7 +11,7 @@ import CGLib
 /// Windows. Software that needs to handle file permissions on Windows
 /// more exactly should use the Win32 API.
 /// 
-/// See your C library manual for more details about access().
+/// See your C library manual for more details about `access()`.
 public func access(String_: UnsafePointer<gchar>, mode: CInt) -> CInt {
     let rv = g_access(String_, mode)
     return rv
@@ -21,7 +21,7 @@ public func access(String_: UnsafePointer<gchar>, mode: CInt) -> CInt {
 
 
 /// Determines the numeric value of a character as a decimal digit.
-/// Differs from g_unichar_digit_value() because it takes a char, so
+/// Differs from `g_unichar_digit_value()` because it takes a char, so
 /// there's no worry about sign extension if characters are signed.
 public func asciiDigitValue(c: gchar) -> CInt {
     let rv = g_ascii_digit_value(c)
@@ -35,7 +35,7 @@ public func asciiDigitValue(c: gchar) -> CInt {
 /// decimal point.
 /// 
 /// This function generates enough precision that converting
-/// the string back using g_ascii_strtod() gives the same machine-number
+/// the string back using `g_ascii_strtod()` gives the same machine-number
 /// (on machines with IEEE compatible 64bit doubles). It is
 /// guaranteed that the size of the resulting string will never
 /// be larger than `G_ASCII_DTOSTR_BUF_SIZE` bytes, including the terminating
@@ -50,13 +50,13 @@ public func asciiDtostr(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CIn
 
 /// Converts a `gdouble` to a string, using the '.' as
 /// decimal point. To format the number you pass in
-/// a printf()-style format string. Allowed conversion
+/// a `printf()`-style format string. Allowed conversion
 /// specifiers are 'e', 'E', 'f', 'F', 'g' and 'G'.
 /// 
 /// The returned buffer is guaranteed to be nul-terminated.
 /// 
 /// If you just want to want to serialize the value into a
-/// string, use g_ascii_dtostr().
+/// string, use `g_ascii_dtostr()`.
 public func asciiFormatd(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CInt, format: UnsafePointer<gchar>, d: gdouble) -> String! {
     let rv = g_ascii_formatd(buffer, gint(buf_len), format, d)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -67,7 +67,7 @@ public func asciiFormatd(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CI
 
 /// Compare two strings, ignoring the case of ASCII characters.
 /// 
-/// Unlike the BSD strcasecmp() function, this only recognizes standard
+/// Unlike the BSD `strcasecmp()` function, this only recognizes standard
 /// ASCII letters and ignores the locale, treating all non-ASCII
 /// bytes as if they are not letters.
 /// 
@@ -115,7 +115,7 @@ public func asciiStrdown(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// `G_NUMBER_PARSER_ERROR_INVALID`. If the parsed number is out of
 /// bounds - `G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS`.
 /// 
-/// See g_ascii_strtoll() if you have more complex needs such as
+/// See `g_ascii_strtoll()` if you have more complex needs such as
 /// parsing a string which starts with a number, but then has other
 /// characters.
 public func asciiStringToSigned(str: UnsafePointer<gchar>, base: CUnsignedInt, min: Int64, max: Int64, outNum out_num: UnsafeMutablePointer<Int64>) throws -> Bool {
@@ -149,7 +149,7 @@ public func asciiStringToSigned(str: UnsafePointer<gchar>, base: CUnsignedInt, m
 /// `G_NUMBER_PARSER_ERROR_INVALID`. If the parsed number is out of
 /// bounds - `G_NUMBER_PARSER_ERROR_OUT_OF_BOUNDS`.
 /// 
-/// See g_ascii_strtoull() if you have more complex needs such as
+/// See `g_ascii_strtoull()` if you have more complex needs such as
 /// parsing a string which starts with a number, but then has other
 /// characters.
 public func asciiStringToUnsigned(str: UnsafePointer<gchar>, base: CUnsignedInt, min: UInt64, max: UInt64, outNum out_num: UnsafeMutablePointer<UInt64>) throws -> Bool {
@@ -167,11 +167,11 @@ public func asciiStringToUnsigned(str: UnsafePointer<gchar>, base: CUnsignedInt,
 /// Compare `s1` and `s2`, ignoring the case of ASCII characters and any
 /// characters after the first `n` in each string.
 /// 
-/// Unlike the BSD strcasecmp() function, this only recognizes standard
+/// Unlike the BSD `strcasecmp()` function, this only recognizes standard
 /// ASCII letters and ignores the locale, treating all non-ASCII
 /// characters as if they are not letters.
 /// 
-/// The same warning as in g_ascii_strcasecmp() applies: Use this
+/// The same warning as in `g_ascii_strcasecmp()` applies: Use this
 /// function only on strings known to be in encodings where bytes
 /// corresponding to ASCII letters always represent themselves.
 public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>, n: Int) -> CInt {
@@ -184,7 +184,7 @@ public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>,
 
 /// Converts a string to a `gdouble` value.
 /// 
-/// This function behaves like the standard strtod() function
+/// This function behaves like the standard `strtod()` function
 /// does in the C locale. It does this without actually changing
 /// the current locale, since that would not be thread-safe.
 /// A limitation of the implementation is that this function
@@ -193,17 +193,17 @@ public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>,
 /// This function is typically used when reading configuration
 /// files or other non-user input that should be locale independent.
 /// To handle input from the user you should normally use the
-/// locale-sensitive system strtod() function.
+/// locale-sensitive system `strtod()` function.
 /// 
 /// To convert from a `gdouble` to a string in a locale-insensitive
-/// way, use g_ascii_dtostr().
+/// way, use `g_ascii_dtostr()`.
 /// 
 /// If the correct value would cause overflow, plus or minus `HUGE_VAL`
 /// is returned (according to the sign of the value), and `ERANGE` is
 /// stored in `errno`. If the correct value would cause underflow,
 /// zero is returned and `ERANGE` is stored in `errno`.
 /// 
-/// This function resets `errno` before calling strtod() so that
+/// This function resets `errno` before calling `strtod()` so that
 /// you can reliably detect overflow and underflow.
 public func asciiStrtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> gdouble {
     let rv = g_ascii_strtod(cast(nptr), cast(endptr))
@@ -214,7 +214,7 @@ public func asciiStrtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer
 
 
 /// Converts a string to a `gint64` value.
-/// This function behaves like the standard strtoll() function
+/// This function behaves like the standard `strtoll()` function
 /// does in the C locale. It does this without actually
 /// changing the current locale, since that would not be
 /// thread-safe.
@@ -222,7 +222,7 @@ public func asciiStrtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer
 /// This function is typically used when reading configuration
 /// files or other non-user input that should be locale independent.
 /// To handle input from the user you should normally use the
-/// locale-sensitive system strtoll() function.
+/// locale-sensitive system `strtoll()` function.
 /// 
 /// If the correct value would cause overflow, `G_MAXINT64` or `G_MININT64`
 /// is returned, and `ERANGE` is stored in `errno`.
@@ -239,7 +239,7 @@ public func asciiStrtoll(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointe
 
 
 /// Converts a string to a `guint64` value.
-/// This function behaves like the standard strtoull() function
+/// This function behaves like the standard `strtoull()` function
 /// does in the C locale. It does this without actually
 /// changing the current locale, since that would not be
 /// thread-safe.
@@ -252,7 +252,7 @@ public func asciiStrtoll(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointe
 /// This function is typically used when reading configuration
 /// files or other non-user input that should be locale independent.
 /// To handle input from the user you should normally use the
-/// locale-sensitive system strtoull() function.
+/// locale-sensitive system `strtoull()` function.
 /// 
 /// If the correct value would cause overflow, `G_MAXUINT64`
 /// is returned, and `ERANGE` is stored in `errno`.
@@ -279,7 +279,7 @@ public func asciiStrup(str: UnsafePointer<gchar>, len: gssize) -> String! {
 
 /// Convert a character to ASCII lower case.
 /// 
-/// Unlike the standard C library tolower() function, this only
+/// Unlike the standard C library `tolower()` function, this only
 /// recognizes standard ASCII letters and ignores the locale, returning
 /// all non-ASCII characters unchanged, even if they are lower case
 /// letters in a particular character set. Also unlike the standard
@@ -296,7 +296,7 @@ public func asciiTolower(c: gchar) -> gchar {
 
 /// Convert a character to ASCII upper case.
 /// 
-/// Unlike the standard C library toupper() function, this only
+/// Unlike the standard C library `toupper()` function, this only
 /// recognizes standard ASCII letters and ignores the locale, returning
 /// all non-ASCII characters unchanged, even if they are upper case
 /// letters in a particular character set. Also unlike the standard
@@ -312,7 +312,7 @@ public func asciiToupper(c: gchar) -> gchar {
 
 
 /// Determines the numeric value of a character as a hexidecimal
-/// digit. Differs from g_unichar_xdigit_value() because it takes
+/// digit. Differs from `g_unichar_xdigit_value()` because it takes
 /// a char, so there's no worry about sign extension if characters
 /// are signed.
 public func asciiXdigitValue(c: gchar) -> CInt {
@@ -355,8 +355,8 @@ public func assertionMessageError(domain: UnsafePointer<CChar>, file: UnsafePoin
 
 
 
-/// Internal function used to print messages from the public g_assert() and
-/// g_assert_not_reached() macros.
+/// Internal function used to print messages from the public `g_assert()` and
+/// `g_assert_not_reached()` macros.
 public func assertionMessageExpr(domain: UnsafePointer<CChar>, file: UnsafePointer<CChar>, line: CInt, func_: UnsafePointer<CChar>, expr: UnsafePointer<CChar>) {
     g_assertion_message_expr(domain, file, line, func_, expr)
 
@@ -367,23 +367,23 @@ public func assertionMessageExpr(domain: UnsafePointer<CChar>, file: UnsafePoint
 
 /// Specifies a function to be called at normal program termination.
 /// 
-/// Since GLib 2.8.2, on Windows g_atexit() actually is a preprocessor
-/// macro that maps to a call to the atexit() function in the C
-/// library. This means that in case the code that calls g_atexit(),
-/// i.e. atexit(), is in a DLL, the function will be called when the
+/// Since GLib 2.8.2, on Windows `g_atexit()` actually is a preprocessor
+/// macro that maps to a call to the `atexit()` function in the C
+/// library. This means that in case the code that calls `g_atexit()`,
+/// i.e. `atexit()`, is in a DLL, the function will be called when the
 /// DLL is detached from the program. This typically makes more sense
 /// than that the function is called when the GLib DLL is detached,
-/// which happened earlier when g_atexit() was a function in the GLib
+/// which happened earlier when `g_atexit()` was a function in the GLib
 /// DLL.
 /// 
-/// The behaviour of atexit() in the context of dynamically loaded
+/// The behaviour of `atexit()` in the context of dynamically loaded
 /// modules is not formally specified and varies wildly.
 /// 
-/// On POSIX systems, calling g_atexit() (or atexit()) in a dynamically
+/// On POSIX systems, calling `g_atexit()` (or `atexit()`) in a dynamically
 /// loaded module which is unloaded before the program terminates might
 /// well cause a crash at program exit.
 /// 
-/// Some POSIX systems implement atexit() like Windows, and have each
+/// Some POSIX systems implement `atexit()` like Windows, and have each
 /// dynamically loaded module maintain an own atexit chain that is
 /// called when the module is unloaded.
 /// 
@@ -393,7 +393,7 @@ public func assertionMessageExpr(domain: UnsafePointer<CChar>, file: UnsafePoint
 /// resided. This is presumably the most robust approach.
 /// 
 /// As can be seen from the above, for portability it's best to avoid
-/// calling g_atexit() (or atexit()) except in the main executable of a
+/// calling `g_atexit()` (or `atexit()`) except in the main executable of a
 /// program.
 ///
 /// **atexit is deprecated:**
@@ -414,7 +414,7 @@ public func assertionMessageExpr(domain: UnsafePointer<CChar>, file: UnsafePoint
 /// This call acts as a full compiler and hardware memory barrier.
 /// 
 /// Before version 2.30, this function did not return a value
-/// (but g_atomic_int_exchange_and_add() did, and had the same meaning).
+/// (but `g_atomic_int_exchange_and_add()` did, and had the same meaning).
 public func atomicIntAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> CInt {
     let rv = g_atomic_int_add(cast(atomic), gint(val))
     return CInt(rv)
@@ -469,7 +469,7 @@ public func atomicIntDecAndTest(atomic: UnsafeMutablePointer<CInt>) -> Bool {
 
 
 
-/// This function existed before g_atomic_int_add() returned the prior
+/// This function existed before `g_atomic_int_add()` returned the prior
 /// value of the integer (which it now does).  It is retained only for
 /// compatibility reasons.  Don't use this function in new code.
 ///
@@ -821,7 +821,7 @@ public func base64Encode(data: UnsafePointer<guchar>, len: Int) -> String! {
 
 
 
-/// Flush the status from a sequence of calls to g_base64_encode_step().
+/// Flush the status from a sequence of calls to `g_base64_encode_step()`.
 /// 
 /// The output buffer must be large enough to fit all the data that will
 /// be written to it. It will need up to 4 bytes, or up to 5 bytes if
@@ -841,7 +841,7 @@ public func base64EncodeClose(breakLines break_lines: Bool, out: UnsafeMutablePo
 /// data in chunks to avoid having to have the full encoded data in memory.
 /// 
 /// When all of the data has been converted you must call
-/// g_base64_encode_close() to flush the saved state.
+/// `g_base64_encode_close()` to flush the saved state.
 /// 
 /// The output buffer must be large enough to fit all the data that will
 /// be written to it. Due to the way base64 encodes you will need
@@ -881,7 +881,7 @@ public func base64EncodeStep(in_: UnsafePointer<guchar>, len: Int, breakLines br
 
 
 /// Sets the indicated `lock_bit` in `address`.  If the bit is already
-/// set, this call will block until g_bit_unlock() unsets the
+/// set, this call will block until `g_bit_unlock()` unsets the
 /// corresponding bit.
 /// 
 /// Attempting to lock on two different bits within the same integer is
@@ -903,7 +903,7 @@ public func bitLock(address: UnsafeMutablePointer<CInt>, lockBit lock_bit: CInt)
 
 /// Find the position of the first bit set in `mask`, searching
 /// from (but not including) `nth_bit` upwards. Bits are numbered
-/// from 0 (least significant) to sizeof(`gulong`) * 8 - 1 (31 or 63,
+/// from 0 (least significant) to `sizeof(#gulong)` * 8 - 1 (31 or 63,
 /// usually). To start searching from the 0th bit, set `nth_bit` to -1.
 public func bitNthLsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
     let rv = g_bit_nth_lsf(gulong(mask), gint(nth_bit))
@@ -915,7 +915,7 @@ public func bitNthLsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
 
 /// Find the position of the first bit set in `mask`, searching
 /// from (but not including) `nth_bit` downwards. Bits are numbered
-/// from 0 (least significant) to sizeof(`gulong`) * 8 - 1 (31 or 63,
+/// from 0 (least significant) to `sizeof(#gulong)` * 8 - 1 (31 or 63,
 /// usually). To start searching from the last bit, set `nth_bit` to
 /// -1 or GLIB_SIZEOF_LONG * 8.
 public func bitNthMsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
@@ -957,7 +957,7 @@ public func bitTrylock(address: UnsafeMutablePointer<CInt>, lockBit lock_bit: CI
 
 
 /// Clears the indicated `lock_bit` in `address`.  If another thread is
-/// currently blocked in g_bit_lock() on this same bit then it will be
+/// currently blocked in `g_bit_lock()` on this same bit then it will be
 /// woken up.
 /// 
 /// This function accesses `address` atomically.  All other accesses to
@@ -986,7 +986,7 @@ public func bookmarkFileErrorQuark() -> GQuark {
 
 
 
-/// Behaves exactly like g_build_filename(), but takes the path elements
+/// Behaves exactly like `g_build_filename()`, but takes the path elements
 /// as a va_list. This function is mainly meant for language bindings.
 public func buildFilenameValist(firstElement first_element: UnsafePointer<gchar>, args: UnsafeMutablePointer<CVaListPointer>) -> String! {
     let rv = g_build_filename_valist(first_element, cast(args))
@@ -996,7 +996,7 @@ public func buildFilenameValist(firstElement first_element: UnsafePointer<gchar>
 
 
 
-/// Behaves exactly like g_build_filename(), but takes the path elements
+/// Behaves exactly like `g_build_filename()`, but takes the path elements
 /// as a string array, instead of varargs. This function is mainly
 /// meant for language bindings.
 public func buildFilenamev(args: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> String! {
@@ -1014,7 +1014,7 @@ public func buildFilenamev(args: UnsafeMutablePointer<UnsafeMutablePointer<gchar
 
 
 
-/// Behaves exactly like g_build_path(), but takes the path elements
+/// Behaves exactly like `g_build_path()`, but takes the path elements
 /// as a string array, instead of varargs. This function is mainly
 /// meant for language bindings.
 public func buildPathv(separator: UnsafePointer<gchar>, args: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> String! {
@@ -1043,7 +1043,7 @@ public func byteArrayFree(array: ByteArrayProtocol, freeSegment free_segment: Bo
 /// than one, the `GByteArray` wrapper is preserved but the size of `array`
 /// will be set to zero.
 /// 
-/// This is identical to using g_bytes_new_take() and g_byte_array_free()
+/// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
 /// together.
 public func byteArrayFreeToBytes(array: ByteArrayProtocol) -> UnsafeMutablePointer<GBytes>! {
     let rv = g_byte_array_free_to_bytes(cast(array.ptr))
@@ -1063,7 +1063,7 @@ public func byteArrayNew() -> UnsafeMutablePointer<GByteArray>! {
 
 
 /// Create byte array containing the data. The data will be owned by the array
-/// and will be freed with g_free(), i.e. it could be allocated using g_strdup().
+/// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
 public func byteArrayNewTake(data: UnsafeMutablePointer<UInt8>, len: Int) -> UnsafeMutablePointer<GByteArray>! {
     let rv = g_byte_array_new_take(cast(data), gsize(len))
     return cast(rv)
@@ -1092,7 +1092,7 @@ public func byteArrayUnref(array: ByteArrayProtocol) {
 /// If `filename` is an absolute path, `relative_to` is ignored. Otherwise,
 /// `relative_to` will be prepended to `filename` to make it absolute. `relative_to`
 /// must be an absolute path, or `nil`. If `relative_to` is `nil`, it'll fallback
-/// to g_get_current_dir().
+/// to `g_get_current_dir()`.
 /// 
 /// This function never fails, and will canonicalize file paths even if they don't
 /// exist.
@@ -1106,10 +1106,10 @@ public func canonicalizeFilename(String_: UnsafePointer<gchar>, relativeTo relat
 
 
 
-/// A wrapper for the POSIX chdir() function. The function changes the
+/// A wrapper for the POSIX `chdir()` function. The function changes the
 /// current directory of the process to `path`.
 /// 
-/// See your C library manual for more details about chdir().
+/// See your C library manual for more details about `chdir()`.
 public func chdir(path: UnsafePointer<gchar>) -> CInt {
     let rv = g_chdir(path)
     return rv
@@ -1128,9 +1128,9 @@ public func chdir(path: UnsafePointer<gchar>) -> CInt {
 /// 
 /// Compatibility is defined by two things: first the version
 /// of the running library is newer than the version
-/// `required_major`.required_minor.`required_micro`. Second
+/// `required_major.required_minor`.`required_micro`. Second
 /// the running library must be binary compatible with the
-/// version `required_major`.required_minor.`required_micro`
+/// version `required_major.required_minor`.`required_micro`
 /// (same major version.)
 public func checkVersion(requiredMajor required_major: CUnsignedInt, requiredMinor required_minor: CUnsignedInt, requiredMicro required_micro: CUnsignedInt) -> String! {
     let rv = glib_check_version(guint(required_major), guint(required_minor), guint(required_micro))
@@ -1152,22 +1152,22 @@ public func checksumTypeGetLength(checksumType checksum_type: ChecksumType) -> g
 /// Sets a function to be called when the child indicated by `pid`
 /// exits, at a default priority, `G_PRIORITY_DEFAULT`.
 /// 
-/// If you obtain `pid` from g_spawn_async() or g_spawn_async_with_pipes()
+/// If you obtain `pid` from `g_spawn_async()` or `g_spawn_async_with_pipes()`
 /// you will need to pass `G_SPAWN_DO_NOT_REAP_CHILD` as flag to
 /// the spawn function for the child watching to work.
 /// 
 /// Note that on platforms where `GPid` must be explicitly closed
-/// (see g_spawn_close_pid()) `pid` must not be closed while the
+/// (see `g_spawn_close_pid()`) `pid` must not be closed while the
 /// source is still active. Typically, you will want to call
-/// g_spawn_close_pid() in the callback function for the source.
+/// `g_spawn_close_pid()` in the callback function for the source.
 /// 
 /// GLib supports only a single callback per process id.
 /// On POSIX platforms, the same restrictions mentioned for
-/// g_child_watch_source_new() apply to this function.
+/// `g_child_watch_source_new()` apply to this function.
 /// 
 /// This internally creates a main loop source using
-/// g_child_watch_source_new() and attaches it to the main loop context
-/// using g_source_attach(). You can do these steps manually if you
+/// `g_child_watch_source_new()` and attaches it to the main loop context
+/// using `g_source_attach()`. You can do these steps manually if you
 /// need greater control.
 public func childWatchAdd(pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = g_child_watch_add(pid, function, cast(data))
@@ -1180,26 +1180,26 @@ public func childWatchAdd(pid: Pid, function: @escaping ChildWatchFunc, data: Un
 /// Sets a function to be called when the child indicated by `pid`
 /// exits, at the priority `priority`.
 /// 
-/// If you obtain `pid` from g_spawn_async() or g_spawn_async_with_pipes()
+/// If you obtain `pid` from `g_spawn_async()` or `g_spawn_async_with_pipes()`
 /// you will need to pass `G_SPAWN_DO_NOT_REAP_CHILD` as flag to
 /// the spawn function for the child watching to work.
 /// 
-/// In many programs, you will want to call g_spawn_check_exit_status()
+/// In many programs, you will want to call `g_spawn_check_exit_status()`
 /// in the callback to determine whether or not the child exited
 /// successfully.
 /// 
 /// Also, note that on platforms where `GPid` must be explicitly closed
-/// (see g_spawn_close_pid()) `pid` must not be closed while the source
-/// is still active.  Typically, you should invoke g_spawn_close_pid()
+/// (see `g_spawn_close_pid()`) `pid` must not be closed while the source
+/// is still active.  Typically, you should invoke `g_spawn_close_pid()`
 /// in the callback function for the source.
 /// 
 /// GLib supports only a single callback per process id.
 /// On POSIX platforms, the same restrictions mentioned for
-/// g_child_watch_source_new() apply to this function.
+/// `g_child_watch_source_new()` apply to this function.
 /// 
 /// This internally creates a main loop source using
-/// g_child_watch_source_new() and attaches it to the main loop context
-/// using g_source_attach(). You can do these steps manually if you
+/// `g_child_watch_source_new()` and attaches it to the main loop context
+/// using `g_source_attach()`. You can do these steps manually if you
 /// need greater control.
 public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_child_watch_add_full(gint(priority), pid, function, cast(data), notify)
@@ -1212,16 +1212,16 @@ public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping Chil
 /// Creates a new child_watch source.
 /// 
 /// The source will not initially be associated with any `GMainContext`
-/// and must be added to one with g_source_attach() before it will be
+/// and must be added to one with `g_source_attach()` before it will be
 /// executed.
 /// 
 /// Note that child watch sources can only be used in conjunction with
 /// `g_spawn...` when the `G_SPAWN_DO_NOT_REAP_CHILD` flag is used.
 /// 
 /// Note that on platforms where `GPid` must be explicitly closed
-/// (see g_spawn_close_pid()) `pid` must not be closed while the
+/// (see `g_spawn_close_pid()`) `pid` must not be closed while the
 /// source is still active. Typically, you will want to call
-/// g_spawn_close_pid() in the callback function for the source.
+/// `g_spawn_close_pid()` in the callback function for the source.
 /// 
 /// On POSIX platforms, the following restrictions apply to this API
 /// due to limitations in POSIX process interfaces:
@@ -1231,7 +1231,7 @@ public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping Chil
 /// * the application must not call `waitpid` with a non-positive
 ///   first argument, for instance in another thread
 /// * the application must not wait for `pid` to exit by any other
-///   mechanism, including `waitpid(pid, ...)` or a second child-watch
+///   mechanism, including ``waitpid(pid, ...)`` or a second child-watch
 ///   source for the same `pid`
 /// * the application must not ignore SIGCHILD
 /// 
@@ -1250,7 +1250,7 @@ public func childWatchSourceNew(pid: Pid) -> UnsafeMutablePointer<GSource>! {
 
 
 /// If `err` or *`err` is `nil`, does nothing. Otherwise,
-/// calls g_error_free() on *`err` and sets *`err` to `nil`.
+/// calls `g_error_free()` on *`err` and sets *`err` to `nil`.
 public func clearError() throws {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     g_clear_error(&error)
@@ -1268,7 +1268,7 @@ public func clearError() throws {
 /// `tag_ptr` must be a valid pointer to the variable holding the handler.
 /// 
 /// If the ID is zero then this function does nothing.
-/// Otherwise, clear_func() is called with the ID as a parameter, and the tag is
+/// Otherwise, `clear_func()` is called with the ID as a parameter, and the tag is
 /// set to zero.
 /// 
 /// A macro is also included that allows this function to be used without
@@ -1303,7 +1303,7 @@ public func clearPointer(pp: UnsafeMutablePointer<UnsafeMutableRawPointer>, dest
 
 
 
-/// This wraps the close() call; in case of error, `errno` will be
+/// This wraps the `close()` call; in case of error, `errno` will be
 /// preserved, but the error will also be stored as a `GError` in `error`.
 /// 
 /// Besides using `GError`, there is another major reason to prefer this
@@ -1323,8 +1323,8 @@ public func close(fd: CInt) throws -> Bool {
 
 
 /// Computes the checksum for a binary `data`. This is a
-/// convenience wrapper for g_checksum_new(), g_checksum_get_string()
-/// and g_checksum_free().
+/// convenience wrapper for `g_checksum_new()`, `g_checksum_get_string()`
+/// and `g_checksum_free()`.
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeChecksumForBytes(checksumType checksum_type: ChecksumType, data: BytesProtocol) -> String! {
@@ -1336,8 +1336,8 @@ public func computeChecksumForBytes(checksumType checksum_type: ChecksumType, da
 
 
 /// Computes the checksum for a binary `data` of `length`. This is a
-/// convenience wrapper for g_checksum_new(), g_checksum_get_string()
-/// and g_checksum_free().
+/// convenience wrapper for `g_checksum_new()`, `g_checksum_get_string()`
+/// and `g_checksum_free()`.
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeChecksumForData(checksumType checksum_type: ChecksumType, data: UnsafePointer<guchar>, length: Int) -> String! {
@@ -1360,8 +1360,8 @@ public func computeChecksumForString(checksumType checksum_type: ChecksumType, s
 
 
 /// Computes the HMAC for a binary `data`. This is a
-/// convenience wrapper for g_hmac_new(), g_hmac_get_string()
-/// and g_hmac_unref().
+/// convenience wrapper for `g_hmac_new()`, `g_hmac_get_string()`
+/// and `g_hmac_unref()`.
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeHmacForBytes(digestType digest_type: ChecksumType, key: BytesProtocol, data: BytesProtocol) -> String! {
@@ -1373,8 +1373,8 @@ public func computeHmacForBytes(digestType digest_type: ChecksumType, key: Bytes
 
 
 /// Computes the HMAC for a binary `data` of `length`. This is a
-/// convenience wrapper for g_hmac_new(), g_hmac_get_string()
-/// and g_hmac_unref().
+/// convenience wrapper for `g_hmac_new()`, `g_hmac_get_string()`
+/// and `g_hmac_unref()`.
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeHmacForData(digestType digest_type: ChecksumType, key: UnsafePointer<guchar>, keyLen key_len: Int, data: UnsafePointer<guchar>, length: Int) -> String! {
@@ -1398,18 +1398,18 @@ public func computeHmacForString(digestType digest_type: ChecksumType, key: Unsa
 
 /// Converts a string from one character set to another.
 /// 
-/// Note that you should use g_iconv() for streaming conversions.
+/// Note that you should use `g_iconv()` for streaming conversions.
 /// Despite the fact that `bytes_read` can return information about partial
 /// characters, the g_convert_... functions are not generally suitable
 /// for streaming. If the underlying converter maintains internal state,
-/// then this won't be preserved across successive calls to g_convert(),
-/// g_convert_with_iconv() or g_convert_with_fallback(). (An example of
+/// then this won't be preserved across successive calls to `g_convert()`,
+/// `g_convert_with_iconv()` or `g_convert_with_fallback()`. (An example of
 /// this is the GNU C converter for CP1255 which does not emit a base
 /// character until it knows that the next character is not a mark that
 /// could combine with the base character.)
 /// 
 /// Using extensions such as "//TRANSLIT" may not work (or may not work
-/// well) on many platforms.  Consider using g_str_to_ascii() instead.
+/// well) on many platforms.  Consider using `g_str_to_ascii()` instead.
 public func convert(str: UnsafePointer<gchar>, len: gssize, toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_convert(cast(str), len, to_codeset, from_codeset, cast(bytes_read), cast(bytes_written), &error)
@@ -1435,15 +1435,15 @@ public func convertErrorQuark() -> GQuark {
 /// in the output. Note that it is not guaranteed that the specification
 /// for the fallback sequences in `fallback` will be honored. Some
 /// systems may do an approximate conversion from `from_codeset`
-/// to `to_codeset` in their iconv() functions,
+/// to `to_codeset` in their `iconv()` functions,
 /// in which case GLib will simply return that approximate conversion.
 /// 
-/// Note that you should use g_iconv() for streaming conversions.
+/// Note that you should use `g_iconv()` for streaming conversions.
 /// Despite the fact that `bytes_read` can return information about partial
 /// characters, the g_convert_... functions are not generally suitable
 /// for streaming. If the underlying converter maintains internal state,
-/// then this won't be preserved across successive calls to g_convert(),
-/// g_convert_with_iconv() or g_convert_with_fallback(). (An example of
+/// then this won't be preserved across successive calls to `g_convert()`,
+/// `g_convert_with_iconv()` or `g_convert_with_fallback()`. (An example of
 /// this is the GNU C converter for CP1255 which does not emit a base
 /// character until it knows that the next character is not a mark that
 /// could combine with the base character.)
@@ -1461,23 +1461,23 @@ public func convertWithFallback(str: UnsafePointer<gchar>, len: gssize, toCodese
 
 /// Converts a string from one character set to another.
 /// 
-/// Note that you should use g_iconv() for streaming conversions.
+/// Note that you should use `g_iconv()` for streaming conversions.
 /// Despite the fact that `bytes_read` can return information about partial
 /// characters, the g_convert_... functions are not generally suitable
 /// for streaming. If the underlying converter maintains internal state,
-/// then this won't be preserved across successive calls to g_convert(),
-/// g_convert_with_iconv() or g_convert_with_fallback(). (An example of
+/// then this won't be preserved across successive calls to `g_convert()`,
+/// `g_convert_with_iconv()` or `g_convert_with_fallback()`. (An example of
 /// this is the GNU C converter for CP1255 which does not emit a base
 /// character until it knows that the next character is not a mark that
 /// could combine with the base character.)
 /// 
 /// Characters which are valid in the input character set, but which have no
 /// representation in the output character set will result in a
-/// `G_CONVERT_ERROR_ILLEGAL_SEQUENCE` error. This is in contrast to the iconv()
+/// `G_CONVERT_ERROR_ILLEGAL_SEQUENCE` error. This is in contrast to the `iconv()`
 /// specification, which leaves this behaviour implementation defined. Note that
 /// this is the same error code as is returned for an invalid byte sequence in
 /// the input character set. To get defined behaviour for conversion of
-/// unrepresentable characters, use g_convert_with_fallback().
+/// unrepresentable characters, use `g_convert_with_fallback()`.
 public func convertWithIconv(str: UnsafePointer<gchar>, len: gssize, converter: IConv, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_convert_with_iconv(cast(str), len, cast(converter.ptr), cast(bytes_read), cast(bytes_written), &error)
@@ -1509,7 +1509,7 @@ public func datalistClear(datalist: DataProtocol) {
 /// not be called.
 /// 
 /// `func` can make changes to `datalist`, but the iteration will not
-/// reflect changes made during the g_datalist_foreach() call, other
+/// reflect changes made during the `g_datalist_foreach()` call, other
 /// than skipping over elements that are removed.
 public func datalistForeach(datalist: DataProtocol, func_: @escaping DataForeachFunc, userData user_data: UnsafeMutableRawPointer) {
     g_datalist_foreach(cast(datalist.ptr), func_, cast(user_data))
@@ -1520,7 +1520,7 @@ public func datalistForeach(datalist: DataProtocol, func_: @escaping DataForeach
 
 
 /// Gets a data element, using its string identifier. This is slower than
-/// g_datalist_id_get_data() because it compares strings.
+/// `g_datalist_id_get_data()` because it compares strings.
 public func datalistGetData(datalist: DataProtocol, key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
     let rv = g_datalist_get_data(cast(datalist.ptr), key)
     return cast(rv)
@@ -1530,7 +1530,7 @@ public func datalistGetData(datalist: DataProtocol, key: UnsafePointer<gchar>) -
 
 
 /// Gets flags values packed in together with the datalist.
-/// See g_datalist_set_flags().
+/// See `g_datalist_set_flags()`.
 public func datalistGetFlags(datalist: DataProtocol) -> CUnsignedInt {
     let rv = g_datalist_get_flags(cast(datalist.ptr))
     return CUnsignedInt(rv)
@@ -1539,7 +1539,7 @@ public func datalistGetFlags(datalist: DataProtocol) -> CUnsignedInt {
 
 
 
-/// This is a variant of g_datalist_id_get_data() which
+/// This is a variant of `g_datalist_id_get_data()` which
 /// returns a 'duplicate' of the value. `dup_func` defines the
 /// meaning of 'duplicate' in this context, it could e.g.
 /// take a reference on a ref-counted object.
@@ -1636,7 +1636,7 @@ public func datalistSetFlags(datalist: DataProtocol, flags: CUnsignedInt) {
 
 
 
-/// Turns off flag values for a data list. See g_datalist_unset_flags()
+/// Turns off flag values for a data list. See `g_datalist_unset_flags()`
 public func datalistUnsetFlags(datalist: DataProtocol, flags: CUnsignedInt) {
     g_datalist_unset_flags(cast(datalist.ptr), guint(flags))
 
@@ -1661,7 +1661,7 @@ public func datasetDestroy(datasetLocation dataset_location: gconstpointer) {
 /// during invocation of this function, it should not be called.
 /// 
 /// `func` can make changes to the dataset, but the iteration will not
-/// reflect changes made during the g_dataset_foreach() call, other
+/// reflect changes made during the `g_dataset_foreach()` call, other
 /// than skipping over elements that are removed.
 public func datasetForeach(datasetLocation dataset_location: gconstpointer, func_: @escaping DataForeachFunc, userData user_data: UnsafeMutableRawPointer) {
     g_dataset_foreach(cast(dataset_location), func_, cast(user_data))
@@ -1758,16 +1758,16 @@ public func dateIsLeap(year: DateYear) -> Bool {
 
 /// Generates a printed representation of the date, in a
 /// [locale][setlocale]-specific way.
-/// Works just like the platform's C library strftime() function,
+/// Works just like the platform's C library `strftime()` function,
 /// but only accepts date-related formats; time-related formats
-/// give undefined results. Date must be valid. Unlike strftime()
+/// give undefined results. Date must be valid. Unlike `strftime()`
 /// (which uses the locale encoding), works on a UTF-8 format
 /// string and stores a UTF-8 result.
 /// 
 /// This function does not provide any conversion specifiers in
 /// addition to those implemented by the platform's C library.
-/// For example, don't expect that using g_date_strftime() would
-/// make the \`F` provided by the C99 strftime() work on Windows
+/// For example, don't expect that using `g_date_strftime()` would
+/// make the \`F` provided by the C99 `strftime()` work on Windows
 /// where the C library only complies to C89.
 public func dateStrftime(s: UnsafeMutablePointer<gchar>, slen: Int, format: UnsafePointer<gchar>, date: DateProtocol) -> Int {
     let rv = g_date_strftime(s, gsize(slen), format, cast(date.ptr))
@@ -1869,10 +1869,10 @@ public func dateValid(year: DateYear) -> Bool {
 
 
 
-/// This is a variant of g_dgettext() that allows specifying a locale
-/// category instead of always using `LC_MESSAGES`. See g_dgettext() for
+/// This is a variant of `g_dgettext()` that allows specifying a locale
+/// category instead of always using `LC_MESSAGES`. See `g_dgettext()` for
 /// more information about how this functions differs from calling
-/// dcgettext() directly.
+/// `dcgettext()` directly.
 public func dcgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>, category: CInt) -> String! {
     let rv = g_dcgettext(domain, msgid, gint(category))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1881,25 +1881,25 @@ public func dcgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>,
 
 
 
-/// This function is a wrapper of dgettext() which does not translate
-/// the message if the default domain as set with textdomain() has no
+/// This function is a wrapper of `dgettext()` which does not translate
+/// the message if the default domain as set with `textdomain()` has no
 /// translations for the current locale.
 /// 
-/// The advantage of using this function over dgettext() proper is that
+/// The advantage of using this function over `dgettext()` proper is that
 /// libraries using this function (like GTK+) will not use translations
 /// if the application using the library does not have translations for
 /// the current locale.  This results in a consistent English-only
 /// interface instead of one having partial translations.  For this
-/// feature to work, the call to textdomain() and setlocale() should
-/// precede any g_dgettext() invocations.  For GTK+, it means calling
-/// textdomain() before gtk_init or its variants.
+/// feature to work, the call to `textdomain()` and `setlocale()` should
+/// precede any `g_dgettext()` invocations.  For GTK+, it means calling
+/// `textdomain()` before gtk_init or its variants.
 /// 
 /// This function disables translations if and only if upon its first
 /// call all the following conditions hold:
 /// 
 /// - `domain` is not `nil`
 /// 
-/// - textdomain() has been called to set a default text domain
+/// - `textdomain()` has been called to set a default text domain
 /// 
 /// - there is no translations available for the default text domain
 ///   and the current locale
@@ -1909,10 +1909,10 @@ public func dcgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>,
 /// 
 /// Note that this behavior may not be desired for example if an application
 /// has its untranslated messages in a language other than English. In those
-/// cases the application should call textdomain() after initializing GTK+.
+/// cases the application should call `textdomain()` after initializing GTK+.
 /// 
 /// Applications should normally not use this function directly,
-/// but use the _() macro for translations.
+/// but use the `_()` macro for translations.
 public func dgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) -> String! {
     let rv = g_dgettext(domain, msgid)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1922,15 +1922,15 @@ public func dgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) 
 
 
 /// Creates a subdirectory in the preferred directory for temporary
-/// files (as returned by g_get_tmp_dir()).
+/// files (as returned by `g_get_tmp_dir()`).
 /// 
 /// `tmpl` should be a string in the GLib file name encoding containing
-/// a sequence of six 'X' characters, as the parameter to g_mkstemp().
+/// a sequence of six 'X' characters, as the parameter to `g_mkstemp()`.
 /// However, unlike these functions, the template should only be a
 /// basename, no directory components are allowed. If template is
 /// `nil`, a default template is used.
 /// 
-/// Note that in contrast to g_mkdtemp() (and mkdtemp()) `tmpl` is not
+/// Note that in contrast to `g_mkdtemp()` (and `mkdtemp()`) `tmpl` is not
 /// modified, and might thus be a read-only literal string.
 public func dirMakeTmp(tmpl: UnsafePointer<gchar>) throws -> String! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -1945,7 +1945,7 @@ public func dirMakeTmp(tmpl: UnsafePointer<gchar>) throws -> String! {
 
 
 /// Compares two `gpointer` arguments and returns `true` if they are equal.
-/// It can be passed to g_hash_table_new() as the `key_equal_func`
+/// It can be passed to `g_hash_table_new()` as the `key_equal_func`
 /// parameter, when using opaque pointers compared by pointer value as
 /// keys in a `GHashTable`.
 /// 
@@ -1960,7 +1960,7 @@ public func directEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 
 
 /// Converts a gpointer to a hash value.
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using opaque pointers compared by pointer value as keys in a
 /// `GHashTable`.
 /// 
@@ -1974,11 +1974,11 @@ public func directHash(v: gconstpointer) -> CUnsignedInt {
 
 
 
-/// This function is a wrapper of dngettext() which does not translate
-/// the message if the default domain as set with textdomain() has no
+/// This function is a wrapper of `dngettext()` which does not translate
+/// the message if the default domain as set with `textdomain()` has no
 /// translations for the current locale.
 /// 
-/// See g_dgettext() for details of how this differs from dngettext()
+/// See `g_dgettext()` for details of how this differs from `dngettext()`
 /// proper.
 public func dngettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>, msgidPlural msgid_plural: UnsafePointer<gchar>, n: CUnsignedLong) -> String! {
     let rv = g_dngettext(domain, msgid, msgid_plural, gulong(n))
@@ -1990,7 +1990,7 @@ public func dngettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>,
 
 /// Compares the two `gdouble` values being pointed to and returns
 /// `true` if they are equal.
-/// It can be passed to g_hash_table_new() as the `key_equal_func`
+/// It can be passed to `g_hash_table_new()` as the `key_equal_func`
 /// parameter, when using non-`nil` pointers to doubles as keys in a
 /// `GHashTable`.
 public func doubleEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
@@ -2002,8 +2002,8 @@ public func doubleEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 
 
 /// Converts a pointer to a `gdouble` to a hash value.
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` pointers to doubles as keys in a `GHashTable`.
 public func doubleHash(v: gconstpointer) -> CUnsignedInt {
     let rv = g_double_hash(cast(v))
@@ -2013,7 +2013,7 @@ public func doubleHash(v: gconstpointer) -> CUnsignedInt {
 
 
 
-/// This function is a variant of g_dgettext() which supports
+/// This function is a variant of `g_dgettext()` which supports
 /// a disambiguating message context. GNU gettext uses the
 /// '\004' character to separate the message context and
 /// message id in `msgctxtid`.
@@ -2021,11 +2021,11 @@ public func doubleHash(v: gconstpointer) -> CUnsignedInt {
 /// trying to use the deprecated convention of using "|" as a separation
 /// character.
 /// 
-/// This uses g_dgettext() internally. See that functions for differences
-/// with dgettext() proper.
+/// This uses `g_dgettext()` internally. See that functions for differences
+/// with `dgettext()` proper.
 /// 
 /// Applications should normally not use this function directly,
-/// but use the C_() macro for translations with context.
+/// but use the `C_()` macro for translations with context.
 public func dpgettext(domain: UnsafePointer<gchar>, msgctxtid: UnsafePointer<gchar>, msgidoffset: Int) -> String! {
     let rv = g_dpgettext(domain, msgctxtid, gsize(msgidoffset))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2034,15 +2034,15 @@ public func dpgettext(domain: UnsafePointer<gchar>, msgctxtid: UnsafePointer<gch
 
 
 
-/// This function is a variant of g_dgettext() which supports
+/// This function is a variant of `g_dgettext()` which supports
 /// a disambiguating message context. GNU gettext uses the
 /// '\004' character to separate the message context and
 /// message id in `msgctxtid`.
 /// 
-/// This uses g_dgettext() internally. See that functions for differences
-/// with dgettext() proper.
+/// This uses `g_dgettext()` internally. See that functions for differences
+/// with `dgettext()` proper.
 /// 
-/// This function differs from C_() in that it is not a macro and
+/// This function differs from `C_()` in that it is not a macro and
 /// thus you may use non-string-literals as context and msgid arguments.
 public func dpgettext2(domain: UnsafePointer<gchar>, context: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) -> String! {
     let rv = g_dpgettext2(domain, context, msgid)
@@ -2089,7 +2089,7 @@ public func environUnsetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gcha
 /// 
 /// Normally a `GFileError` value goes into a `GError` returned
 /// from a function that manipulates files. So you would use
-/// g_file_error_from_errno() when constructing a `GError`.
+/// `g_file_error_from_errno()` when constructing a `GError`.
 public func fileErrorFromErrno(errNo err_no: CInt) -> GFileError {
     let rv = g_file_error_from_errno(gint(err_no))
     return rv
@@ -2129,19 +2129,19 @@ public func fileGetContents(String_: UnsafePointer<gchar>, contents: UnsafeMutab
 
 
 /// Opens a file for writing in the preferred directory for temporary
-/// files (as returned by g_get_tmp_dir()).
+/// files (as returned by `g_get_tmp_dir()`).
 /// 
 /// `tmpl` should be a string in the GLib file name encoding containing
-/// a sequence of six 'X' characters, as the parameter to g_mkstemp().
+/// a sequence of six 'X' characters, as the parameter to `g_mkstemp()`.
 /// However, unlike these functions, the template should only be a
 /// basename, no directory components are allowed. If template is
 /// `nil`, a default template is used.
 /// 
-/// Note that in contrast to g_mkstemp() (and mkstemp()) `tmpl` is not
+/// Note that in contrast to `g_mkstemp()` (and `mkstemp()`) `tmpl` is not
 /// modified, and might thus be a read-only literal string.
 /// 
 /// Upon success, and if `name_used` is non-`nil`, the actual name used
-/// is returned in `name_used`. This string should be freed with g_free()
+/// is returned in `name_used`. This string should be freed with `g_free()`
 /// when not needed any longer. The returned name is in the GLib file
 /// name encoding.
 public func fileOpenTmp(tmpl: UnsafePointer<gchar>, nameUsed name_used: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> CInt {
@@ -2157,8 +2157,8 @@ public func fileOpenTmp(tmpl: UnsafePointer<gchar>, nameUsed name_used: UnsafeMu
 
 
 /// Reads the contents of the symbolic link `filename` like the POSIX
-/// readlink() function.  The returned string is in the encoding used
-/// for filenames. Use g_filename_to_utf8() to convert it to UTF-8.
+/// `readlink()` function.  The returned string is in the encoding used
+/// for filenames. Use `g_filename_to_utf8()` to convert it to UTF-8.
 public func fileReadLink(String_: UnsafePointer<gchar>) throws -> String! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_file_read_link(String_, &error)
@@ -2183,7 +2183,7 @@ public func fileReadLink(String_: UnsafePointer<gchar>) throws -> String! {
 ///   the link itself will be replaced, not the linked file.
 /// 
 /// - On UNIX, if `filename` already exists and is non-empty, and if the system
-///   supports it (via a journalling filesystem or equivalent), the fsync()
+///   supports it (via a journalling filesystem or equivalent), the `fsync()`
 ///   call (or equivalent) will be used to ensure atomic replacement: `filename`
 ///   will contain either its old contents or `contents`, even in the face of
 ///   system power loss, the disk being unsafely removed, etc.
@@ -2227,29 +2227,30 @@ public func fileSetContents(String_: UnsafePointer<gchar>, contents: UnsafePoint
 /// more than one test at a time.
 /// 
 /// Apart from `G_FILE_TEST_IS_SYMLINK` all tests follow symbolic links,
-/// so for a symbolic link to a regular file g_file_test() will return
+/// so for a symbolic link to a regular file `g_file_test()` will return
 /// `true` for both `G_FILE_TEST_IS_SYMLINK` and `G_FILE_TEST_IS_REGULAR`.
 /// 
-/// Note, that for a dangling symbolic link g_file_test() will return
+/// Note, that for a dangling symbolic link `g_file_test()` will return
 /// `true` for `G_FILE_TEST_IS_SYMLINK` and `false` for all other flags.
 /// 
-/// You should never use g_file_test() to test whether it is safe
+/// You should never use `g_file_test()` to test whether it is safe
 /// to perform an operation, because there is always the possibility
 /// of the condition changing before you actually perform the operation.
 /// For example, you might think you could use `G_FILE_TEST_IS_SYMLINK`
 /// to know whether it is safe to write to a file without being
 /// tricked into writing into a different location. It doesn't work!
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///  // DON'T DO THIS
 ///  if (!g_file_test (filename, G_FILE_TEST_IS_SYMLINK))
 ///    {
 ///      fd = g_open (filename, O_WRONLY);
 ///      // write to fd
 ///    }
-/// ]|
+/// ```
 /// 
 /// Another thing to note is that `G_FILE_TEST_EXISTS` and
-/// `G_FILE_TEST_IS_EXECUTABLE` are implemented using the access()
+/// `G_FILE_TEST_IS_EXECUTABLE` are implemented using the `access()`
 /// system call. This usually doesn't matter, but if your program
 /// is setuid or setgid it means that these tests will give you
 /// the answer for the real user ID and group ID, rather than the
@@ -2282,7 +2283,7 @@ public func fileTest(String_: UnsafePointer<gchar>, test: FileTest) -> Bool {
 /// You must pass the whole absolute pathname to this functions so that
 /// translation of well known locations can be done.
 /// 
-/// This function is preferred over g_filename_display_name() if you know the
+/// This function is preferred over `g_filename_display_name()` if you know the
 /// whole path, as it allows translation.
 public func filenameDisplayBasename(String_: UnsafePointer<gchar>) -> String! {
     let rv = g_filename_display_basename(String_)
@@ -2295,7 +2296,7 @@ public func filenameDisplayBasename(String_: UnsafePointer<gchar>) -> String! {
 /// Converts a filename into a valid UTF-8 string. The conversion is
 /// not necessarily reversible, so you should keep the original around
 /// and use the return value of this function only for display purposes.
-/// Unlike g_filename_to_utf8(), the result is guaranteed to be non-`nil`
+/// Unlike `g_filename_to_utf8()`, the result is guaranteed to be non-`nil`
 /// even if the filename actually isn't in the GLib file name encoding.
 /// 
 /// If GLib cannot make sense of the encoding of `filename`, as a last resort it
@@ -2305,7 +2306,7 @@ public func filenameDisplayBasename(String_: UnsafePointer<gchar>) -> String! {
 /// encoding.
 /// 
 /// If you know the whole pathname of the file you should use
-/// g_filename_display_basename(), since that allows location-based
+/// `g_filename_display_basename()`, since that allows location-based
 /// translation of filenames.
 public func filenameDisplayName(String_: UnsafePointer<gchar>) -> String! {
     let rv = g_filename_display_name(String_)
@@ -2375,7 +2376,7 @@ public func filenameToURI(String_: UnsafePointer<gchar>, hostname: UnsafePointer
 /// in error `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`.
 /// If the source encoding is not UTF-8 and the conversion output contains a
 /// nul character, the error `G_CONVERT_ERROR_EMBEDDED_NUL` is set and the
-/// function returns `nil`. Use g_convert() to produce output that
+/// function returns `nil`. Use `g_convert()` to produce output that
 /// may contain embedded nul characters.
 public func filenameToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> String! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -2390,7 +2391,7 @@ public func filenameToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytes
 
 
 /// Locates the first executable named `program` in the user's path, in the
-/// same way that execvp() would locate it. Returns an allocated string
+/// same way that `execvp()` would locate it. Returns an allocated string
 /// with the absolute path name, or `nil` if the program is not found in
 /// the path. If `program` is already an absolute path, returns a copy of
 /// `program` if `program` exists and is executable, and `nil` otherwise.
@@ -2399,7 +2400,7 @@ public func filenameToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytes
 /// with the suffixes .exe, .cmd, .bat and .com, and the suffixes in
 /// the `PATHEXT` environment variable.
 /// 
-/// On Windows, it looks for the file in the same way as CreateProcess()
+/// On Windows, it looks for the file in the same way as `CreateProcess()`
 /// would. This means first in the directory where the executing
 /// program was loaded from, then in the current directory, then in the
 /// Windows 32-bit system directory, then in the Windows directory, and
@@ -2423,9 +2424,9 @@ public func findProgramInPath(program: UnsafePointer<gchar>) -> String! {
 /// 
 /// The prefix units base is 1000 (i.e. 1 kB is 1000 bytes).
 /// 
-/// This string should be freed with g_free() when not needed any longer.
+/// This string should be freed with `g_free()` when not needed any longer.
 /// 
-/// See g_format_size_full() for more options about how the size might be
+/// See `g_format_size_full()` for more options about how the size might be
 /// formatted.
 public func format(size: UInt64) -> String! {
     let rv = g_format_size(guint64(size))
@@ -2443,7 +2444,7 @@ public func format(size: UInt64) -> String! {
 /// 
 /// The prefix units base is 1024 (i.e. 1 KB is 1024 bytes).
 /// 
-/// This string should be freed with g_free() when not needed any longer.
+/// This string should be freed with `g_free()` when not needed any longer.
 ///
 /// **format_size_for_display is deprecated:**
 /// This function is broken due to its use of SI
@@ -2458,7 +2459,7 @@ public func format(size: UInt64) -> String! {
 
 /// Formats a size.
 /// 
-/// This function is similar to g_format_size() but allows for flags
+/// This function is similar to `g_format_size()` but allows for flags
 /// that modify the output. See `GFormatSizeFlags`.
 public func formatSizeFull(size: UInt64, flags: FormatSizeFlags) -> String! {
     let rv = g_format_size_full(guint64(size), flags)
@@ -2488,11 +2489,11 @@ public func free(mem: UnsafeMutableRawPointer) {
 
 
 /// Gets a human-readable name for the application, as set by
-/// g_set_application_name(). This name should be localized if
+/// `g_set_application_name()`. This name should be localized if
 /// possible, and is intended for display to the user.  Contrast with
-/// g_get_prgname(), which gets a non-localized name. If
-/// g_set_application_name() has not been called, returns the result of
-/// g_get_prgname() (which may be `nil` if g_set_prgname() has also not
+/// `g_get_prgname()`, which gets a non-localized name. If
+/// `g_set_application_name()` has not been called, returns the result of
+/// `g_get_prgname()` (which may be `nil` if `g_set_prgname()` has also not
 /// been called).
 public func getApplicationName() -> String! {
     let rv = g_get_application_name()
@@ -2503,9 +2504,9 @@ public func getApplicationName() -> String! {
 
 
 /// Obtains the character set for the [current locale][setlocale]; you
-/// might use this character set as an argument to g_convert(), to convert
+/// might use this character set as an argument to `g_convert()`, to convert
 /// from the current locale's encoding to some other encoding. (Frequently
-/// g_locale_to_utf8() and g_locale_from_utf8() are nice shortcuts, though.)
+/// `g_locale_to_utf8()` and `g_locale_from_utf8()` are nice shortcuts, though.)
 /// 
 /// On Windows the character set returned by this function is the
 /// so-called system default ANSI code-page. That is the character set
@@ -2513,12 +2514,12 @@ public func getApplicationName() -> String! {
 /// handle file names. It might be different from the character set
 /// used by the C library's current locale.
 /// 
-/// On Linux, the character set is found by consulting nl_langinfo() if
+/// On Linux, the character set is found by consulting `nl_langinfo()` if
 /// available. If not, the environment variables `LC_ALL`, `LC_CTYPE`, `LANG`
 /// and `CHARSET` are queried in order.
 /// 
 /// The return value is `true` if the locale's encoding is UTF-8, in that
-/// case you can perhaps avoid calling g_convert().
+/// case you can perhaps avoid calling `g_convert()`.
 /// 
 /// The string returned in `charset` is not allocated, and should not be
 /// freed.
@@ -2542,7 +2543,7 @@ public func getCodeset() -> String! {
 /// Obtains the character set used by the console attached to the process,
 /// which is suitable for printing output to the terminal.
 /// 
-/// Usually this matches the result returned by g_get_charset(), but in
+/// Usually this matches the result returned by `g_get_charset()`, but in
 /// environments where the locale's character set does not match the encoding
 /// of the console this function tries to guess a more suitable value instead.
 /// 
@@ -2552,7 +2553,7 @@ public func getCodeset() -> String! {
 /// console attached) UTF-8 is assumed.
 /// 
 /// The return value is `true` if the locale's encoding is UTF-8, in that
-/// case you can perhaps avoid calling g_convert().
+/// case you can perhaps avoid calling `g_convert()`.
 /// 
 /// The string returned in `charset` is not allocated, and should not be
 /// freed.
@@ -2582,9 +2583,9 @@ public func getCurrentDir() -> String! {
 
 
 
-/// Equivalent to the UNIX gettimeofday() function, but portable.
+/// Equivalent to the UNIX `gettimeofday()` function, but portable.
 /// 
-/// You may find g_get_real_time() to be more convenient.
+/// You may find `g_get_real_time()` to be more convenient.
 ///
 /// **get_current_time is deprecated:**
 /// #GTimeVal is not year-2038-safe. Use g_get_real_time()
@@ -2606,7 +2607,7 @@ public func getCurrentDir() -> String! {
 /// except portable.
 /// 
 /// The return value is freshly allocated and it should be freed with
-/// g_strfreev() when it is no longer needed.
+/// `g_strfreev()` when it is no longer needed.
 public func getEnviron() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
     let rv = g_get_environ()
     return cast(rv)
@@ -2618,7 +2619,7 @@ public func getEnviron() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
 /// Determines the preferred character sets used for filenames.
 /// The first character set from the `charsets` is the filename encoding, the
 /// subsequent character sets are used when trying to generate a displayable
-/// representation of a filename, see g_filename_display_name().
+/// representation of a filename, see `g_filename_display_name()`.
 /// 
 /// On Unix, the character sets are determined by consulting the
 /// environment variables `G_FILENAME_ENCODING` and `G_BROKEN_FILENAMES`.
@@ -2725,7 +2726,7 @@ public func getLanguageNames() -> UnsafePointer<UnsafePointer<gchar>>! {
 /// `category_name`, and `LANG` to find the list of locales specified by the
 /// user.
 /// 
-/// g_get_language_names() returns g_get_language_names_with_category("LC_MESSAGES").
+/// `g_get_language_names()` returns `g_get_language_names_with_category("LC_MESSAGES")`.
 public func getLanguageNamesWithCategory(categoryName category_name: UnsafePointer<gchar>) -> UnsafePointer<UnsafePointer<gchar>>! {
     let rv = g_get_language_names_with_category(category_name)
     return cast(rv)
@@ -2743,7 +2744,7 @@ public func getLanguageNamesWithCategory(categoryName category_name: UnsafePoint
 /// is "fr_BE", "fr".
 /// 
 /// If you need the list of variants for the current locale,
-/// use g_get_language_names().
+/// use `g_get_language_names()`.
 public func getLocaleVariants(locale: UnsafePointer<gchar>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
     let rv = g_get_locale_variants(locale)
     return cast(rv)
@@ -2760,7 +2761,7 @@ public func getLocaleVariants(locale: UnsafePointer<gchar>) -> UnsafeMutablePoin
 /// suspended.
 /// 
 /// We try to use the clock that corresponds as closely as possible to
-/// the passage of time as measured by system calls such as poll() but it
+/// the passage of time as measured by system calls such as `poll()` but it
 /// may not always be possible to do this.
 public func getMonotonicTime() -> Int64 {
     let rv = g_get_monotonic_time()
@@ -2772,7 +2773,7 @@ public func getMonotonicTime() -> Int64 {
 
 /// Determine the approximate number of threads that the system will
 /// schedule simultaneously for this process.  This is intended to be
-/// used as a parameter to g_thread_pool_new() for CPU bound tasks and
+/// used as a parameter to `g_thread_pool_new()` for CPU bound tasks and
 /// similar cases.
 public func getNumProcessors() -> CUnsignedInt {
     let rv = g_get_num_processors()
@@ -2783,12 +2784,12 @@ public func getNumProcessors() -> CUnsignedInt {
 
 
 /// Gets the name of the program. This name should not be localized,
-/// in contrast to g_get_application_name().
+/// in contrast to `g_get_application_name()`.
 /// 
 /// If you are using `GApplication` the program name is set in
-/// g_application_run(). In case of GDK or GTK+ it is set in
-/// gdk_init(), which is called by gtk_init() and the
-/// `GtkApplication`::startup handler. The program name is found by
+/// `g_application_run()`. In case of GDK or GTK+ it is set in
+/// `gdk_init()`, which is called by `gtk_init()` and the
+/// `GtkApplication::startup` handler. The program name is found by
 /// taking the last component of `argv`[0].
 public func getPrgname() -> String! {
     let rv = g_get_prgname()
@@ -2813,12 +2814,12 @@ public func getRealName() -> String! {
 
 /// Queries the system wall-clock time.
 /// 
-/// This call is functionally equivalent to g_get_current_time() except
+/// This call is functionally equivalent to `g_get_current_time()` except
 /// that the return value is often more convenient than dealing with a
 /// `GTimeVal`.
 /// 
 /// You should only use this call if you are actually interested in the real
-/// wall-clock time.  g_get_monotonic_time() is probably more useful for
+/// wall-clock time.  `g_get_monotonic_time()` is probably more useful for
 /// measuring intervals.
 public func getRealTime() -> Int64 {
     let rv = g_get_real_time()
@@ -2926,7 +2927,7 @@ public func getTmpDir() -> String! {
 /// If `XDG_CACHE_HOME` is undefined, the directory that serves as a common
 /// repository for temporary Internet files is used instead. A typical path is
 /// `C:\Documents and Settings\username\Local Settings\Temporary Internet Files`.
-/// See the [documentation for `CSIDL_INTERNET_CACHE`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29`.aspx`csidl_internet_cache`).
+/// See the [documentation for `CSIDL_INTERNET_CACHE`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_internet_cache`).
 public func getUserCacheDir() -> String! {
     let rv = g_get_user_cache_dir()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2946,9 +2947,9 @@ public func getUserCacheDir() -> String! {
 /// On Windows it follows XDG Base Directory Specification if `XDG_CONFIG_HOME` is defined.
 /// If `XDG_CONFIG_HOME` is undefined, the folder to use for local (as opposed
 /// to roaming) application data is used instead. See the
-/// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29`.aspx`csidl_local_appdata`).
+/// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_local_appdata`).
 /// Note that in this case on Windows it will be  the same
-/// as what g_get_user_data_dir() returns.
+/// as what `g_get_user_data_dir()` returns.
 public func getUserConfigDir() -> String! {
     let rv = g_get_user_config_dir()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2968,9 +2969,9 @@ public func getUserConfigDir() -> String! {
 /// On Windows it follows XDG Base Directory Specification if `XDG_DATA_HOME`
 /// is defined. If `XDG_DATA_HOME` is undefined, the folder to use for local (as
 /// opposed to roaming) application data is used instead. See the
-/// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29`.aspx`csidl_local_appdata`).
+/// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_local_appdata`).
 /// Note that in this case on Windows it will be the same
-/// as what g_get_user_config_dir() returns.
+/// as what `g_get_user_config_dir()` returns.
 public func getUserDataDir() -> String! {
     let rv = g_get_user_data_dir()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -3000,7 +3001,7 @@ public func getUserName() -> String! {
 /// This is the directory
 /// specified in the `XDG_RUNTIME_DIR` environment variable.
 /// In the case that this variable is not set, we return the value of
-/// g_get_user_cache_dir(), after verifying that it exists.
+/// `g_get_user_cache_dir()`, after verifying that it exists.
 public func getUserRuntimeDir() -> String! {
     let rv = g_get_user_runtime_dir()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -3043,7 +3044,7 @@ public func getenv(variable: UnsafePointer<gchar>) -> String! {
 
 
 /// This is a convenience function for using a `GHashTable` as a set.  It
-/// is equivalent to calling g_hash_table_replace() with `key` as both the
+/// is equivalent to calling `g_hash_table_replace()` with `key` as both the
 /// key and the value.
 /// 
 /// When a hash table only ever contains keys that have themselves as the
@@ -3073,7 +3074,7 @@ public func hashTableContains(hashTable hash_table: HashTableProtocol, key: gcon
 /// Destroys all keys and values in the `GHashTable` and decrements its
 /// reference count by 1. If keys and/or values are dynamically allocated,
 /// you should either free them first or create the `GHashTable` with destroy
-/// notifiers using g_hash_table_new_full(). In the latter case the destroy
+/// notifiers using `g_hash_table_new_full()`. In the latter case the destroy
 /// functions you supplied will be called on all keys and values during the
 /// destruction phase.
 public func hashTableDestroy(hashTable hash_table: HashTableProtocol) {
@@ -3107,7 +3108,7 @@ public func hashTableInsert(hashTable hash_table: HashTableProtocol, key: Unsafe
 /// Looks up a key in a `GHashTable`. Note that this function cannot
 /// distinguish between a key that is not present and one which is present
 /// and has the value `nil`. If you need this distinction, use
-/// g_hash_table_lookup_extended().
+/// `g_hash_table_lookup_extended()`.
 public func hashTableLookup(hashTable hash_table: HashTableProtocol, key: gconstpointer) -> UnsafeMutableRawPointer! {
     let rv = g_hash_table_lookup(cast(hash_table.ptr), cast(key))
     return cast(rv)
@@ -3119,7 +3120,7 @@ public func hashTableLookup(hashTable hash_table: HashTableProtocol, key: gconst
 /// Looks up a key in the `GHashTable`, returning the original key and the
 /// associated value and a `gboolean` which is `true` if the key was found. This
 /// is useful if you need to free the memory allocated for the original key,
-/// for example before calling g_hash_table_remove().
+/// for example before calling `g_hash_table_remove()`.
 /// 
 /// You can actually pass `nil` for `lookup_key` to test
 /// whether the `nil` key exists, provided the hash and equal functions
@@ -3134,7 +3135,7 @@ public func hashTableLookupExtended(hashTable hash_table: HashTableProtocol, loo
 
 /// Removes a key and its associated value from a `GHashTable`.
 /// 
-/// If the `GHashTable` was created using g_hash_table_new_full(), the
+/// If the `GHashTable` was created using `g_hash_table_new_full()`, the
 /// key and value are freed using the supplied destroy functions, otherwise
 /// you have to make sure that any dynamically allocated values are freed
 /// yourself.
@@ -3148,7 +3149,7 @@ public func hashTableRemove(hashTable hash_table: HashTableProtocol, key: gconst
 
 /// Removes all keys and their associated values from a `GHashTable`.
 /// 
-/// If the `GHashTable` was created using g_hash_table_new_full(),
+/// If the `GHashTable` was created using `g_hash_table_new_full()`,
 /// the keys and values are freed using the supplied destroy functions,
 /// otherwise you have to make sure that any dynamically allocated
 /// values are freed yourself.
@@ -3161,7 +3162,7 @@ public func hashTableRemoveAll(hashTable hash_table: HashTableProtocol) {
 
 
 /// Inserts a new key and value into a `GHashTable` similar to
-/// g_hash_table_insert(). The difference is that if the key
+/// `g_hash_table_insert()`. The difference is that if the key
 /// already exists in the `GHashTable`, it gets replaced by the
 /// new key. If you supplied a `value_destroy_func` when creating
 /// the `GHashTable`, the old value is freed using that function.
@@ -3214,7 +3215,7 @@ public func hashTableStealAll(hashTable hash_table: HashTableProtocol) {
 /// 
 /// If found, the stolen key and value are removed from the hash table without
 /// calling the key and value destroy functions, and ownership is transferred to
-/// the caller of this method; as with g_hash_table_steal().
+/// the caller of this method; as with `g_hash_table_steal()`.
 /// 
 /// You can pass `nil` for `lookup_key`, provided the hash and equal functions
 /// of `hash_table` are `nil`-safe.
@@ -3248,7 +3249,7 @@ public func hookDestroy(hookList hook_list: HookListProtocol, hookID hook_id: CU
 
 
 /// Removes one `GHook` from a `GHookList`, marking it
-/// inactive and calling g_hook_unref() on it.
+/// inactive and calling `g_hook_unref()` on it.
 public func hookDestroyLink(hookList hook_list: HookListProtocol, hook: HookProtocol) {
     g_hook_destroy_link(cast(hook_list.ptr), cast(hook.ptr))
 
@@ -3287,7 +3288,7 @@ public func hookPrepend(hookList hook_list: HookListProtocol, hook: HookProtocol
 
 /// Decrements the reference count of a `GHook`.
 /// If the reference count falls to 0, the `GHook` is removed
-/// from the `GHookList` and g_hook_free() is called to free it.
+/// from the `GHookList` and `g_hook_free()` is called to free it.
 public func hookUnref(hookList hook_list: HookListProtocol, hook: HookProtocol) {
     g_hook_unref(cast(hook_list.ptr), cast(hook.ptr))
 
@@ -3298,12 +3299,12 @@ public func hookUnref(hookList hook_list: HookListProtocol, hook: HookProtocol) 
 
 /// Tests if `hostname` contains segments with an ASCII-compatible
 /// encoding of an Internationalized Domain Name. If this returns
-/// `true`, you should decode the hostname with g_hostname_to_unicode()
+/// `true`, you should decode the hostname with `g_hostname_to_unicode()`
 /// before displaying it to the user.
 /// 
 /// Note that a hostname might contain a mix of encoded and unencoded
-/// segments, and so it is possible for g_hostname_is_non_ascii() and
-/// g_hostname_is_ascii_encoded() to both return `true` for a name.
+/// segments, and so it is possible for `g_hostname_is_non_ascii()` and
+/// `g_hostname_is_ascii_encoded()` to both return `true` for a name.
 public func hostnameIsAsciiEncoded(hostname: UnsafePointer<gchar>) -> Bool {
     let rv = g_hostname_is_ascii_encoded(hostname)
     return Bool(rv != 0)
@@ -3323,12 +3324,12 @@ public func hostnameIsIpAddress(hostname: UnsafePointer<gchar>) -> Bool {
 
 
 /// Tests if `hostname` contains Unicode characters. If this returns
-/// `true`, you need to encode the hostname with g_hostname_to_ascii()
+/// `true`, you need to encode the hostname with `g_hostname_to_ascii()`
 /// before using it in non-IDN-aware contexts.
 /// 
 /// Note that a hostname might contain a mix of encoded and unencoded
-/// segments, and so it is possible for g_hostname_is_non_ascii() and
-/// g_hostname_is_ascii_encoded() to both return `true` for a name.
+/// segments, and so it is possible for `g_hostname_is_non_ascii()` and
+/// `g_hostname_is_ascii_encoded()` to both return `true` for a name.
 public func hostnameIsNonAscii(hostname: UnsafePointer<gchar>) -> Bool {
     let rv = g_hostname_is_non_ascii(hostname)
     return Bool(rv != 0)
@@ -3363,14 +3364,14 @@ public func hostnameToUnicode(hostname: UnsafePointer<gchar>) -> String! {
 
 
 
-/// Same as the standard UNIX routine iconv(), but
+/// Same as the standard UNIX routine `iconv()`, but
 /// may be implemented via libiconv on UNIX flavors that lack
 /// a native implementation.
 /// 
-/// GLib provides g_convert() and g_locale_to_utf8() which are likely
+/// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
 /// more convenient than the raw iconv wrappers.
 /// 
-/// Note that the behaviour of iconv() for characters which are valid in the
+/// Note that the behaviour of `iconv()` for characters which are valid in the
 /// input character set, but which have no representation in the output character
 /// set, is implementation defined. This function may return success (with a
 /// positive number of non-reversible conversions as replacement characters were
@@ -3384,11 +3385,11 @@ public func iconv(converter: IConv, inbuf: UnsafeMutablePointer<UnsafeMutablePoi
 
 
 
-/// Same as the standard UNIX routine iconv_open(), but
+/// Same as the standard UNIX routine `iconv_open()`, but
 /// may be implemented via libiconv on UNIX flavors that lack
 /// a native implementation.
 /// 
-/// GLib provides g_convert() and g_locale_to_utf8() which are likely
+/// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
 /// more convenient than the raw iconv wrappers.
 public func iconvOpen(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>) -> GIConv? {
     let rv = g_iconv_open(to_codeset, from_codeset)
@@ -3407,8 +3408,8 @@ public func iconvOpen(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset fr
 /// See [memory management of sources][mainloop-memory-management] for details
 /// on how to handle the return value and memory management of `data`.
 /// 
-/// This internally creates a main loop source using g_idle_source_new()
-/// and attaches it to the global `GMainContext` using g_source_attach(), so
+/// This internally creates a main loop source using `g_idle_source_new()`
+/// and attaches it to the global `GMainContext` using `g_source_attach()`, so
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
@@ -3427,8 +3428,8 @@ public func idleAdd(function: @escaping SourceFunc, data: UnsafeMutableRawPointe
 /// See [memory management of sources][mainloop-memory-management] for details
 /// on how to handle the return value and memory management of `data`.
 /// 
-/// This internally creates a main loop source using g_idle_source_new()
-/// and attaches it to the global `GMainContext` using g_source_attach(), so
+/// This internally creates a main loop source using `g_idle_source_new()`
+/// and attaches it to the global `GMainContext` using `g_source_attach()`, so
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
@@ -3452,7 +3453,7 @@ public func idleRemoveBy(data: UnsafeMutableRawPointer) -> Bool {
 /// Creates a new idle source.
 /// 
 /// The source will not initially be associated with any `GMainContext`
-/// and must be added to one with g_source_attach() before it will be
+/// and must be added to one with `g_source_attach()` before it will be
 /// executed. Note that the default priority for idle sources is
 /// `G_PRIORITY_DEFAULT_IDLE`, as compared to other sources which
 /// have a default priority of `G_PRIORITY_DEFAULT`.
@@ -3466,7 +3467,7 @@ public func idleSourceNew() -> UnsafeMutablePointer<GSource>! {
 
 /// Compares the two `gint64` values being pointed to and returns
 /// `true` if they are equal.
-/// It can be passed to g_hash_table_new() as the `key_equal_func`
+/// It can be passed to `g_hash_table_new()` as the `key_equal_func`
 /// parameter, when using non-`nil` pointers to 64-bit integers as keys in a
 /// `GHashTable`.
 public func int64Equal(v1: gconstpointer, v2: gconstpointer) -> Bool {
@@ -3479,7 +3480,7 @@ public func int64Equal(v1: gconstpointer, v2: gconstpointer) -> Bool {
 
 /// Converts a pointer to a `gint64` to a hash value.
 /// 
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` pointers to 64-bit integer values as keys in a
 /// `GHashTable`.
 public func int64Hash(v: gconstpointer) -> CUnsignedInt {
@@ -3492,13 +3493,13 @@ public func int64Hash(v: gconstpointer) -> CUnsignedInt {
 
 /// Compares the two `gint` values being pointed to and returns
 /// `true` if they are equal.
-/// It can be passed to g_hash_table_new() as the `key_equal_func`
+/// It can be passed to `g_hash_table_new()` as the `key_equal_func`
 /// parameter, when using non-`nil` pointers to integers as keys in a
 /// `GHashTable`.
 /// 
 /// Note that this function acts on pointers to `gint`, not on `gint`
 /// directly: if your hash table's keys are of the form
-/// `GINT_TO_POINTER (n)`, use g_direct_equal() instead.
+/// `GINT_TO_POINTER (n)`, use `g_direct_equal()` instead.
 public func intEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
     let rv = g_int_equal(cast(v1), cast(v2))
     return Bool(rv != 0)
@@ -3508,12 +3509,12 @@ public func intEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 
 
 /// Converts a pointer to a `gint` to a hash value.
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` pointers to integer values as keys in a `GHashTable`.
 /// 
 /// Note that this function acts on pointers to `gint`, not on `gint`
 /// directly: if your hash table's keys are of the form
-/// `GINT_TO_POINTER (n)`, use g_direct_hash() instead.
+/// `GINT_TO_POINTER (n)`, use `g_direct_hash()` instead.
 public func intHash(v: gconstpointer) -> CUnsignedInt {
     let rv = g_int_hash(cast(v))
     return CUnsignedInt(rv)
@@ -3524,7 +3525,7 @@ public func intHash(v: gconstpointer) -> CUnsignedInt {
 
 /// Returns a canonical representation for `string`. Interned strings
 /// can be compared for equality by comparing the pointers, instead of
-/// using strcmp(). g_intern_static_string() does not copy the string,
+/// using `strcmp()`. `g_intern_static_string()` does not copy the string,
 /// therefore `string` must not be freed or modified.
 /// 
 /// This function must not be used before library constructors have finished
@@ -3540,7 +3541,7 @@ public func internStatic(string: UnsafePointer<gchar>) -> String! {
 
 /// Returns a canonical representation for `string`. Interned strings
 /// can be compared for equality by comparing the pointers, instead of
-/// using strcmp().
+/// using `strcmp()`.
 /// 
 /// This function must not be used before library constructors have finished
 /// running. In particular, this means it cannot be used to initialize global
@@ -3566,8 +3567,8 @@ public func ioAddWatch(channel: IOChannelProtocol, condition: IOCondition, func_
 /// Adds the `GIOChannel` into the default main loop context
 /// with the given priority.
 /// 
-/// This internally creates a main loop source using g_io_create_watch()
-/// and attaches it to the main loop context with g_source_attach().
+/// This internally creates a main loop source using `g_io_create_watch()`
+/// and attaches it to the main loop context with `g_source_attach()`.
 /// You can do these steps manually if you need greater control.
 public func ioAddWatchFull(channel: IOChannelProtocol, priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_io_add_watch_full(cast(channel.ptr), gint(priority), condition, func_, cast(user_data), notify)
@@ -3598,7 +3599,7 @@ public func ioChannelErrorQuark() -> GQuark {
 /// given `channel`. For example, if condition is `G_IO_IN`, the source will
 /// be dispatched when there's data available for reading.
 /// 
-/// g_io_add_watch() is a simpler interface to this same functionality, for
+/// `g_io_add_watch()` is a simpler interface to this same functionality, for
 /// the case where you want to add the source to the default main loop context
 /// at the default priority.
 /// 
@@ -3624,11 +3625,11 @@ public func keyFileErrorQuark() -> GQuark {
 /// Gets the names of all variables set in the environment.
 /// 
 /// Programs that want to be portable to Windows should typically use
-/// this function and g_getenv() instead of using the environ array
+/// this function and `g_getenv()` instead of using the environ array
 /// from the C library directly. On Windows, the strings in the environ
 /// array are in system codepage encoding, while in most of the typical
 /// use cases for environment variables in GLib-using programs you want
-/// the UTF-8 encoding that this function and g_getenv() provide.
+/// the UTF-8 encoding that this function and `g_getenv()` provide.
 public func listenv() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
     let rv = g_listenv()
     return cast(rv)
@@ -3644,7 +3645,7 @@ public func listenv() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
 /// 
 /// The input string shall not contain nul characters even if the `len`
 /// argument is positive. A nul character found inside the string will result
-/// in error `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`. Use g_convert() to convert
+/// in error `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`. Use `g_convert()` to convert
 /// input that may contain embedded nul characters.
 public func localeFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3667,7 +3668,7 @@ public func localeFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesR
 /// function returns `nil`.
 /// If the source encoding is UTF-8, an embedded nul character is treated with
 /// the `G_CONVERT_ERROR_ILLEGAL_SEQUENCE` error for backward compatibility with
-/// earlier versions of this library. Use g_convert() to produce output that
+/// earlier versions of this library. Use `g_convert()` to produce output that
 /// may contain embedded nul characters.
 public func localeToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> String! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -3688,11 +3689,11 @@ public func localeToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRe
 
 
 
-/// The default log handler set up by GLib; g_log_set_default_handler()
+/// The default log handler set up by GLib; `g_log_set_default_handler()`
 /// allows to install an alternate default log handler.
 /// This is used if no log handler has been set for the particular log
 /// domain and log level combination. It outputs the message to stderr
-/// or stdout and if the log level is fatal it calls G_BREAKPOINT(). It automatically
+/// or stdout and if the log level is fatal it calls `G_BREAKPOINT()`. It automatically
 /// prints a new-line character after the message, so one does not need to be
 /// manually included in `message`.
 /// 
@@ -3745,8 +3746,8 @@ public func logRemoveHandler(logDomain log_domain: UnsafePointer<gchar>, handler
 /// Libraries should not call this function, as it affects all messages logged
 /// by a process, including those from other libraries.
 /// 
-/// Structured log messages (using g_log_structured() and
-/// g_log_structured_array()) are fatal only if the default log writer is used;
+/// Structured log messages (using `g_log_structured()` and
+/// `g_log_structured_array()`) are fatal only if the default log writer is used;
 /// otherwise it is up to the writer function to determine which log messages
 /// are fatal. See [Using Structured Logging][using-structured-logging].
 public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelFlags {
@@ -3760,7 +3761,7 @@ public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelF
 /// Installs a default log handler which is used if no
 /// log handler has been set for the particular log domain
 /// and log level combination. By default, GLib uses
-/// g_log_default_handler() as default log handler.
+/// `g_log_default_handler()` as default log handler.
 /// 
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging][using-structured-logging].
@@ -3775,10 +3776,10 @@ public func logSetDefaultHandler(logFunc log_func: @escaping LogFunc, userData u
 /// Sets the log levels which are fatal in the given domain.
 /// `G_LOG_LEVEL_ERROR` is always fatal.
 /// 
-/// This has no effect on structured log messages (using g_log_structured() or
-/// g_log_structured_array()). To change the fatal behaviour for specific log
+/// This has no effect on structured log messages (using `g_log_structured()` or
+/// `g_log_structured_array()`). To change the fatal behaviour for specific log
 /// messages, programs must install a custom log writer function using
-/// g_log_set_writer_func(). See
+/// `g_log_set_writer_func()`. See
 /// [Using Structured Logging][using-structured-logging].
 /// 
 /// This function is mostly intended to be used with
@@ -3807,22 +3808,26 @@ public func logSetFatalMask(logDomain log_domain: UnsafePointer<gchar>, fatalMas
 /// 
 /// Here is an example for adding a log handler for all warning messages
 /// in the default domain:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// g_log_set_handler (NULL, G_LOG_LEVEL_WARNING | G_LOG_FLAG_FATAL
 ///                    | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
-/// ]|
+/// ```
 /// 
 /// This example adds a log handler for all critical messages from GTK+:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// g_log_set_handler ("Gtk", G_LOG_LEVEL_CRITICAL | G_LOG_FLAG_FATAL
 ///                    | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
-/// ]|
+/// ```
 /// 
 /// This example adds a log handler for all messages from GLib:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// g_log_set_handler ("GLib", G_LOG_LEVEL_MASK | G_LOG_FLAG_FATAL
 ///                    | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
-/// ]|
+/// ```
+/// 
 public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = g_log_set_handler(log_domain, log_levels, log_func, cast(user_data))
     return CUnsignedInt(rv)
@@ -3831,7 +3836,7 @@ public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels 
 
 
 
-/// Like g_log_set_handler(), but takes a destroy notify for the `user_data`.
+/// Like `g_log_set_handler()`, but takes a destroy notify for the `user_data`.
 /// 
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging][using-structured-logging].
@@ -3845,7 +3850,7 @@ public func logSetHandlerFull(logDomain log_domain: UnsafePointer<gchar>, logLev
 
 /// Set a writer function which will be called to format and write out each log
 /// message. Each program should set a writer function, or the default writer
-/// (g_log_writer_default()) will be used.
+/// (`g_log_writer_default()`) will be used.
 /// 
 /// Libraries **must not** call this function — only programs are allowed to
 /// install a writer function, as there must be a single, central point where
@@ -3868,11 +3873,11 @@ public func logSetWriterFunc(func_: @escaping LogWriterFunc, userData user_data:
 
 
 /// Log a message with structured data. The message will be passed through to the
-/// log writer set by the application using g_log_set_writer_func(). If the
+/// log writer set by the application using `g_log_set_writer_func()`. If the
 /// message is fatal (i.e. its log level is `G_LOG_LEVEL_ERROR`), the program will
 /// be aborted at the end of this function.
 /// 
-/// See g_log_structured() for more documentation.
+/// See `g_log_structured()` for more documentation.
 /// 
 /// This assumes that `log_level` is already present in `fields` (typically as the
 /// `PRIORITY` field).
@@ -3902,9 +3907,9 @@ public func logStructuredArray(logLevel log_level: LogLevelFlags, fields: Unsafe
 /// supported. In this case the message is handled as binary and will be forwarded
 /// to the log writer as such. The size of the array should not be higher than
 /// `G_MAXSSIZE`. Otherwise it will be truncated to this size. For other types
-/// g_variant_print() will be used to convert the value into a string.
+/// `g_variant_print()` will be used to convert the value into a string.
 /// 
-/// For more details on its usage and about the parameters, see g_log_structured().
+/// For more details on its usage and about the parameters, see `g_log_structured()`.
 public func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, fields: VariantProtocol) {
     g_log_variant(log_domain, log_level, cast(fields.ptr))
 
@@ -3923,9 +3928,9 @@ public func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_
 /// (documented) platform-specific log writing policies.
 /// 
 /// This is suitable for use as a `GLogWriterFunc`, and is the default writer used
-/// if no other is set using g_log_set_writer_func().
+/// if no other is set using `g_log_set_writer_func()`.
 /// 
-/// As with g_log_default_handler(), this function drops debug and informational
+/// As with `g_log_default_handler()`, this function drops debug and informational
 /// messages unless their log domain (or `all`) is listed in the space-separated
 /// `G_MESSAGES_DEBUG` environment variable.
 public func logWriterDefault(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int, userData user_data: UnsafeMutableRawPointer) -> GLogWriterOutput {
@@ -3939,7 +3944,7 @@ public func logWriterDefault(logLevel log_level: LogLevelFlags, fields: UnsafePo
 /// Format a structured log message as a string suitable for outputting to the
 /// terminal (or elsewhere). This will include the values of all fields it knows
 /// how to interpret, which includes `MESSAGE` and `GLIB_DOMAIN` (see the
-/// documentation for g_log_structured()). It does not include values from
+/// documentation for `g_log_structured()`). It does not include values from
 /// unknown fields.
 /// 
 /// The returned string does **not** have a trailing new-line character. It is
@@ -3959,9 +3964,11 @@ public func logWriterFormatFields(logLevel log_level: LogLevelFlags, fields: Uns
 /// 
 /// Invalid file descriptors are accepted and return `false`, which allows for
 /// the following construct without needing any additional error handling:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   is_journald = g_log_writer_is_journald (fileno (stderr));
-/// ]|
+/// ```
+/// 
 public func logWriterIsJournald(outputFd output_fd: CInt) -> Bool {
     let rv = g_log_writer_is_journald(gint(output_fd))
     return Bool(rv != 0)
@@ -4020,16 +4027,16 @@ public func logWriterSupportsColor(outputFd output_fd: CInt) -> Bool {
 
 /// Logs an error or debugging message.
 /// 
-/// If the log level has been set as fatal, G_BREAKPOINT() is called
-/// to terminate the program. See the documentation for G_BREAKPOINT() for
+/// If the log level has been set as fatal, `G_BREAKPOINT()` is called
+/// to terminate the program. See the documentation for `G_BREAKPOINT()` for
 /// details of the debugging options this provides.
 /// 
-/// If g_log_default_handler() is used as the log handler function, a new-line
-/// character will automatically be appended to ``..., and need not be entered
+/// If `g_log_default_handler()` is used as the log handler function, a new-line
+/// character will automatically be appended to @..., and need not be entered
 /// manually.
 /// 
 /// If [structured logging is enabled][using-structured-logging] this will
-/// output via the structured log writer function (see g_log_set_writer_func()).
+/// output via the structured log writer function (see `g_log_set_writer_func()`).
 public func logv(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, format: UnsafePointer<gchar>, args: CVaListPointer) {
     g_logv(log_domain, log_level, format, args)
 
@@ -4041,7 +4048,7 @@ public func logv(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level:
 /// Returns the global default main context. This is the main context
 /// used for main loop functions when a main loop is not explicitly
 /// specified, and corresponds to the "main" main loop. See also
-/// g_main_context_get_thread_default().
+/// `g_main_context_get_thread_default()`.
 public func mainContextDefault() -> UnsafeMutablePointer<GMainContext>! {
     let rv = g_main_context_default()
     return cast(rv)
@@ -4053,14 +4060,14 @@ public func mainContextDefault() -> UnsafeMutablePointer<GMainContext>! {
 /// Gets the thread-default `GMainContext` for this thread. Asynchronous
 /// operations that want to be able to be run in contexts other than
 /// the default one should call this method or
-/// g_main_context_ref_thread_default() to get a `GMainContext` to add
+/// `g_main_context_ref_thread_default()` to get a `GMainContext` to add
 /// their `GSources` to. (Note that even in single-threaded
 /// programs applications may sometimes want to temporarily push a
 /// non-default context, so it is not safe to assume that this will
 /// always return `nil` if you are running in the default thread.)
 /// 
 /// If you need to hold a reference on the context, use
-/// g_main_context_ref_thread_default() instead.
+/// `g_main_context_ref_thread_default()` instead.
 public func mainContextGetThreadDefault() -> UnsafeMutablePointer<GMainContext>! {
     let rv = g_main_context_get_thread_default()
     return cast(rv)
@@ -4070,9 +4077,9 @@ public func mainContextGetThreadDefault() -> UnsafeMutablePointer<GMainContext>!
 
 
 /// Gets the thread-default `GMainContext` for this thread, as with
-/// g_main_context_get_thread_default(), but also adds a reference to
-/// it with g_main_context_ref(). In addition, unlike
-/// g_main_context_get_thread_default(), if the thread-default context
+/// `g_main_context_get_thread_default()`, but also adds a reference to
+/// it with `g_main_context_ref()`. In addition, unlike
+/// `g_main_context_get_thread_default()`, if the thread-default context
 /// is the global default context, this will return that `GMainContext`
 /// (with a ref added to it) rather than returning `nil`.
 public func mainContextRefThreadDefault() -> UnsafeMutablePointer<GMainContext>! {
@@ -4093,17 +4100,18 @@ public func mainCurrentSource() -> UnsafeMutablePointer<GSource>! {
 
 
 /// Returns the depth of the stack of calls to
-/// g_main_context_dispatch() on any `GMainContext` in the current thread.
+/// `g_main_context_dispatch()` on any `GMainContext` in the current thread.
 ///  That is, when called from the toplevel, it gives 0. When
-/// called from within a callback from g_main_context_iteration()
-/// (or g_main_loop_run(), etc.) it returns 1. When called from within
-/// a callback to a recursive call to g_main_context_iteration(),
+/// called from within a callback from `g_main_context_iteration()`
+/// (or `g_main_loop_run()`, etc.) it returns 1. When called from within
+/// a callback to a recursive call to `g_main_context_iteration()`,
 /// it returns 2. And so forth.
 /// 
 /// This function is useful in a situation like the following:
 /// Imagine an extremely simple "garbage collected" system.
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// static GList *free_list;
 /// 
 /// gpointer
@@ -4131,16 +4139,17 @@ public func mainCurrentSource() -> UnsafeMutablePointer<GSource>! {
 ///    g_main_context_iteration (NULL, TRUE);
 ///    free_allocated_memory();
 ///   }
-/// ]|
+/// ```
 /// 
 /// This works from an application, however, if you want to do the same
 /// thing from a library, it gets more difficult, since you no longer
 /// control the main loop. You might think you can simply use an idle
-/// function to make the call to free_allocated_memory(), but that
+/// function to make the call to `free_allocated_memory()`, but that
 /// doesn't work, since the idle function could be called from a
-/// recursive callback. This can be fixed by using g_main_depth()
+/// recursive callback. This can be fixed by using `g_main_depth()`
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// gpointer
 /// allocate_memory (gsize size)
 /// {
@@ -4171,21 +4180,21 @@ public func mainCurrentSource() -> UnsafeMutablePointer<GSource>! {
 ///       l = next;
 ///     }
 ///   }
-/// ]|
+/// ```
 /// 
-/// There is a temptation to use g_main_depth() to solve
+/// There is a temptation to use `g_main_depth()` to solve
 /// problems with reentrancy. For instance, while waiting for data
 /// to be received from the network in response to a menu item,
 /// the menu item might be selected again. It might seem that
 /// one could make the menu item's callback return immediately
-/// and do nothing if g_main_depth() returns a value greater than 1.
+/// and do nothing if `g_main_depth()` returns a value greater than 1.
 /// However, this should be avoided since the user then sees selecting
 /// the menu item do nothing. Furthermore, you'll find yourself adding
 /// these checks all over your code, since there are doubtless many,
 /// many things that the user could do. Instead, you can use the
 /// following techniques:
 /// 
-/// 1. Use gtk_widget_set_sensitive() or modal dialogs to prevent
+/// 1. Use `gtk_widget_set_sensitive()` or modal dialogs to prevent
 ///    the user from interacting with elements while the main
 ///    loop is recursing.
 /// 
@@ -4221,7 +4230,7 @@ public func malloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 
 
 
-/// This function is similar to g_malloc0(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_malloc0()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func malloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_malloc0_n(gsize(n_blocks), gsize(n_block_bytes))
@@ -4231,7 +4240,7 @@ public func malloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> U
 
 
 
-/// This function is similar to g_malloc(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_malloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func mallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_malloc_n(gsize(n_blocks), gsize(n_block_bytes))
@@ -4287,7 +4296,7 @@ public func markupEscape(text: UnsafePointer<gchar>, length: gssize) -> String! 
 
 /// Formats the data in `args` according to `format`, escaping
 /// all string and character arguments in the fashion
-/// of g_markup_escape_text(). See g_markup_printf_escaped().
+/// of `g_markup_escape_text()`. See `g_markup_printf_escaped()`.
 public func markupVprintfEscaped(format: UnsafePointer<CChar>, args: CVaListPointer) -> String! {
     let rv = g_markup_vprintf_escaped(format, args)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4296,9 +4305,9 @@ public func markupVprintfEscaped(format: UnsafePointer<CChar>, args: CVaListPoin
 
 
 
-/// Checks whether the allocator used by g_malloc() is the system's
+/// Checks whether the allocator used by `g_malloc()` is the system's
 /// malloc implementation. If it returns `true` memory allocated with
-/// malloc() can be used interchangeable with memory allocated using g_malloc().
+/// `malloc()` can be used interchangeable with memory allocated using `g_malloc()`.
 /// This function is useful for avoiding an extra copy of allocated memory returned
 /// by a non-GLib-based API.
 ///
@@ -4363,12 +4372,12 @@ public func mkdirWithParents(pathname: UnsafePointer<gchar>, mode: CInt) -> CInt
 
 
 
-/// Creates a temporary directory. See the mkdtemp() documentation
+/// Creates a temporary directory. See the `mkdtemp()` documentation
 /// on most UNIX-like systems.
 /// 
 /// The parameter is a string that should follow the rules for
-/// mkdtemp() templates, i.e. contain the string "XXXXXX".
-/// g_mkdtemp() is slightly more flexible than mkdtemp() in that the
+/// `mkdtemp()` templates, i.e. contain the string "XXXXXX".
+/// `g_mkdtemp()` is slightly more flexible than `mkdtemp()` in that the
 /// sequence does not have to occur at the very end of the template.
 /// The X string will be modified to form the name of a directory that
 /// didn't exist.
@@ -4376,8 +4385,8 @@ public func mkdirWithParents(pathname: UnsafePointer<gchar>, mode: CInt) -> CInt
 /// on Windows it should be in UTF-8.
 /// 
 /// If you are going to be creating a temporary directory inside the
-/// directory returned by g_get_tmp_dir(), you might want to use
-/// g_dir_make_tmp() instead.
+/// directory returned by `g_get_tmp_dir()`, you might want to use
+/// `g_dir_make_tmp()` instead.
 public func mkdtemp(tmpl: UnsafeMutablePointer<gchar>) -> String! {
     let rv = g_mkdtemp(tmpl)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4386,12 +4395,12 @@ public func mkdtemp(tmpl: UnsafeMutablePointer<gchar>) -> String! {
 
 
 
-/// Creates a temporary directory. See the mkdtemp() documentation
+/// Creates a temporary directory. See the `mkdtemp()` documentation
 /// on most UNIX-like systems.
 /// 
 /// The parameter is a string that should follow the rules for
-/// mkdtemp() templates, i.e. contain the string "XXXXXX".
-/// g_mkdtemp_full() is slightly more flexible than mkdtemp() in that the
+/// `mkdtemp()` templates, i.e. contain the string "XXXXXX".
+/// `g_mkdtemp_full()` is slightly more flexible than `mkdtemp()` in that the
 /// sequence does not have to occur at the very end of the template
 /// and you can pass a `mode`. The X string will be modified to form
 /// the name of a directory that didn't exist. The string should be
@@ -4399,8 +4408,8 @@ public func mkdtemp(tmpl: UnsafeMutablePointer<gchar>) -> String! {
 /// should be in UTF-8.
 /// 
 /// If you are going to be creating a temporary directory inside the
-/// directory returned by g_get_tmp_dir(), you might want to use
-/// g_dir_make_tmp() instead.
+/// directory returned by `g_get_tmp_dir()`, you might want to use
+/// `g_dir_make_tmp()` instead.
 public func mkdtempFull(tmpl: UnsafeMutablePointer<gchar>, mode: CInt) -> String! {
     let rv = g_mkdtemp_full(tmpl, gint(mode))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -4409,12 +4418,12 @@ public func mkdtempFull(tmpl: UnsafeMutablePointer<gchar>, mode: CInt) -> String
 
 
 
-/// Opens a temporary file. See the mkstemp() documentation
+/// Opens a temporary file. See the `mkstemp()` documentation
 /// on most UNIX-like systems.
 /// 
 /// The parameter is a string that should follow the rules for
-/// mkstemp() templates, i.e. contain the string "XXXXXX".
-/// g_mkstemp() is slightly more flexible than mkstemp() in that the
+/// `mkstemp()` templates, i.e. contain the string "XXXXXX".
+/// `g_mkstemp()` is slightly more flexible than `mkstemp()` in that the
 /// sequence does not have to occur at the very end of the template.
 /// The X string will be modified to form the name of a file that
 /// didn't exist. The string should be in the GLib file name encoding.
@@ -4427,12 +4436,12 @@ public func mkstemp(tmpl: UnsafeMutablePointer<gchar>) -> CInt {
 
 
 
-/// Opens a temporary file. See the mkstemp() documentation
+/// Opens a temporary file. See the `mkstemp()` documentation
 /// on most UNIX-like systems.
 /// 
 /// The parameter is a string that should follow the rules for
-/// mkstemp() templates, i.e. contain the string "XXXXXX".
-/// g_mkstemp_full() is slightly more flexible than mkstemp()
+/// `mkstemp()` templates, i.e. contain the string "XXXXXX".
+/// `g_mkstemp_full()` is slightly more flexible than `mkstemp()`
 /// in that the sequence does not have to occur at the very end of the
 /// template and you can pass a `mode` and additional `flags`. The X
 /// string will be modified to form the name of a file that didn't exist.
@@ -4467,10 +4476,11 @@ public func numberParserErrorQuark() -> GQuark {
 /// `[E]xit, [H]alt, show [S]tack trace or [P]roceed`.
 /// This function is intended to be used for debugging use only.
 /// The following example shows how it can be used together with
-/// the g_log() functions.
+/// the `g_log()` functions.
 /// 
-/// |[<!-- language="C" -->
-/// `include` <glib.h>
+/// (C Language Example):
+/// ```C
+/// #include <glib.h>
 /// 
 /// static void
 /// log_handler (const gchar   *log_domain,
@@ -4493,12 +4503,12 @@ public func numberParserErrorQuark() -> GQuark {
 ///                      log_handler,
 ///                      NULL);
 ///   ...
-/// ]|
+/// ```
 /// 
 /// If "[E]xit" is selected, the application terminates with a call
-/// to _exit(0).
+/// to `_exit(0)`.
 /// 
-/// If "[S]tack" trace is selected, g_on_error_stack_trace() is called.
+/// If "[S]tack" trace is selected, `g_on_error_stack_trace()` is called.
 /// This invokes gdb, which attaches to the current process and shows
 /// a stack trace. The prompt is then shown again.
 /// 
@@ -4508,7 +4518,7 @@ public func numberParserErrorQuark() -> GQuark {
 /// 
 /// On Windows consider using the `G_DEBUGGER` environment
 /// variable (see [Running GLib Applications](glib-running.html)) and
-/// calling g_on_error_stack_trace() instead.
+/// calling `g_on_error_stack_trace()` instead.
 public func onErrorQuery(prgName prg_name: UnsafePointer<gchar>) {
     g_on_error_query(prg_name)
 
@@ -4518,15 +4528,15 @@ public func onErrorQuery(prgName prg_name: UnsafePointer<gchar>) {
 
 
 /// Invokes gdb, which attaches to the current process and shows a
-/// stack trace. Called by g_on_error_query() when the "[S]tack trace"
+/// stack trace. Called by `g_on_error_query()` when the "[S]tack trace"
 /// option is selected. You can get the current process's program name
-/// with g_get_prgname(), assuming that you have called gtk_init() or
-/// gdk_init().
+/// with `g_get_prgname()`, assuming that you have called `gtk_init()` or
+/// `gdk_init()`.
 /// 
 /// This function may cause different actions on non-UNIX platforms.
 /// 
 /// When running on Windows, this function is *not* called by
-/// g_on_error_query(). If called directly, it will raise an
+/// `g_on_error_query()`. If called directly, it will raise an
 /// exception, which will crash the program. If the `G_DEBUGGER` environment
 /// variable is set, a debugger will be invoked to attach and
 /// handle that exception (see [Running GLib Applications](glib-running.html)).
@@ -4542,13 +4552,14 @@ public func onErrorStackTrace(prgName prg_name: UnsafePointer<gchar>) {
 /// section. The argument `location` must point to a static
 /// 0-initialized variable that will be set to a value other than 0 at
 /// the end of the initialization section. In combination with
-/// g_once_init_leave() and the unique address `value_location`, it can
+/// `g_once_init_leave()` and the unique address `value_location`, it can
 /// be ensured that an initialization section will be executed only once
 /// during a program's life time, and that concurrent threads are
 /// blocked until initialization completed. To be used in constructs
 /// like this:
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   static gsize initialization_value = 0;
 /// 
 ///   if (g_once_init_enter (&initialization_value))
@@ -4559,7 +4570,8 @@ public func onErrorStackTrace(prgName prg_name: UnsafePointer<gchar>) {
 ///     }
 /// 
 ///   // use initialization_value here
-/// ]|
+/// ```
+/// 
 public func onceInitEnter(location: UnsafeMutableRawPointer) -> Bool {
     let rv = g_once_init_enter(cast(location))
     return Bool(rv != 0)
@@ -4568,10 +4580,10 @@ public func onceInitEnter(location: UnsafeMutableRawPointer) -> Bool {
 
 
 
-/// Counterpart to g_once_init_enter(). Expects a location of a static
+/// Counterpart to `g_once_init_enter()`. Expects a location of a static
 /// 0-initialized initialization variable, and an initialization value
 /// other than 0. Sets the variable to the initialization value, and
-/// releases concurrent threads blocking in g_once_init_enter() on this
+/// releases concurrent threads blocking in `g_once_init_enter()` on this
 /// initialization variable.
 public func onceInitLeave(location: UnsafeMutableRawPointer, result: Int) {
     g_once_init_leave(cast(location), gsize(result))
@@ -4658,7 +4670,7 @@ public func pathGetDirname(fileName file_name: UnsafePointer<gchar>) -> String! 
 /// File names relative the current directory on some specific drive,
 /// such as "D:foo/bar", are not interpreted as absolute by this
 /// function, but they obviously are not relative to the normal current
-/// directory as returned by getcwd() or g_get_current_dir()
+/// directory as returned by `getcwd()` or `g_get_current_dir()`
 /// either. Such paths should be avoided, or need to be handled using
 /// Windows-specific code.
 public func pathIsAbsolute(fileName file_name: UnsafePointer<gchar>) -> Bool {
@@ -4684,19 +4696,19 @@ public func pathSkipRoot(fileName file_name: UnsafePointer<gchar>) -> String! {
 /// length of the string given is mandatory. The reversed string can be
 /// omitted by passing `nil`, this is more efficient if the reversed
 /// version of the string to be matched is not at hand, as
-/// g_pattern_match() will only construct it if the compiled pattern
+/// `g_pattern_match()` will only construct it if the compiled pattern
 /// requires reverse matches.
 /// 
 /// Note that, if the user code will (possibly) match a string against a
 /// multitude of patterns containing wildcards, chances are high that
 /// some patterns will require a reversed string. In this case, it's
 /// more efficient to provide the reversed string to avoid multiple
-/// constructions thereof in the various calls to g_pattern_match().
+/// constructions thereof in the various calls to `g_pattern_match()`.
 /// 
 /// Note also that the reverse of a UTF-8 encoded string can in general
-/// not be obtained by g_strreverse(). This works only if the string
+/// not be obtained by `g_strreverse()`. This works only if the string
 /// does not contain any multibyte characters. GLib offers the
-/// g_utf8_strreverse() function to reverse UTF-8 encoded strings.
+/// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
 public func patternMatch(pspec: PatternSpecProtocol, stringLength string_length: CUnsignedInt, string: UnsafePointer<gchar>, stringReversed string_reversed: UnsafePointer<gchar>) -> Bool {
     let rv = g_pattern_match(cast(pspec.ptr), guint(string_length), string, string_reversed)
     return Bool(rv != 0)
@@ -4707,8 +4719,8 @@ public func patternMatch(pspec: PatternSpecProtocol, stringLength string_length:
 
 /// Matches a string against a pattern given as a string. If this
 /// function is to be called in a loop, it's more efficient to compile
-/// the pattern once with g_pattern_spec_new() and call
-/// g_pattern_match_string() repeatedly.
+/// the pattern once with `g_pattern_spec_new()` and call
+/// `g_pattern_match_string()` repeatedly.
 public func patternMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointer<gchar>) -> Bool {
     let rv = g_pattern_match_simple(pattern, string)
     return Bool(rv != 0)
@@ -4719,7 +4731,7 @@ public func patternMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePoin
 
 /// Matches a string against a compiled pattern. If the string is to be
 /// matched against more than one pattern, consider using
-/// g_pattern_match() instead while supplying the reversed string.
+/// `g_pattern_match()` instead while supplying the reversed string.
 public func patternMatchString(pspec: PatternSpecProtocol, string: UnsafePointer<gchar>) -> Bool {
     let rv = g_pattern_match_string(cast(pspec.ptr), string)
     return Bool(rv != 0)
@@ -4767,8 +4779,8 @@ public func pointerBitUnlock(address: UnsafeMutableRawPointer, lockBit lock_bit:
 
 
 
-/// Polls `fds`, as with the poll() system call, but portably. (On
-/// systems that don't have poll(), it is emulated using select().)
+/// Polls `fds`, as with the `poll()` system call, but portably. (On
+/// systems that don't have `poll()`, it is emulated using `select()`.)
 /// This is used internally by `GMainContext`, but it can be called
 /// directly if you need to block until a file descriptor is ready, but
 /// don't want to run the full main loop.
@@ -4781,9 +4793,9 @@ public func pointerBitUnlock(address: UnsafeMutableRawPointer, lockBit lock_bit:
 /// 
 /// On POSIX systems, the file descriptors in `fds` can be any sort of
 /// file descriptor, but the situation is much more complicated on
-/// Windows. If you need to use g_poll() in code that has to run on
+/// Windows. If you need to use `g_poll()` in code that has to run on
 /// Windows, the easiest solution is to construct all of your
-/// `GPollFDs` with g_io_channel_win32_make_pollfd().
+/// `GPollFDs` with `g_io_channel_win32_make_pollfd()`.
 public func poll(fds: PollFDProtocol, nfds: CUnsignedInt, timeout: CInt) -> CInt {
     let rv = g_poll(cast(fds.ptr), guint(nfds), gint(timeout))
     return CInt(rv)
@@ -4821,7 +4833,7 @@ public func poll(fds: PollFDProtocol, nfds: CUnsignedInt, timeout: CInt) -> CInt
 
 
 /// Calculates the maximum space needed to store the output
-/// of the sprintf() function.
+/// of the `sprintf()` function.
 public func printfStringUpperBound(format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
     let rv = g_printf_string_upper_bound(format, args)
     return Int(rv)
@@ -4859,7 +4871,7 @@ public func propagateError(dest: ErrorTypeProtocol, src: ErrorTypeProtocol) {
 /// multiple times in `haystack`, the index of the first instance is returned.
 /// 
 /// This does pointer comparisons only. If you want to use more complex equality
-/// checks, such as string comparisons, use g_ptr_array_find_with_equal_func().
+/// checks, such as string comparisons, use `g_ptr_array_find_with_equal_func()`.
 public func ptrArrayFind(haystack: PtrArrayProtocol, needle: gconstpointer, index_: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
     let rv = g_ptr_array_find(cast(haystack.ptr), cast(needle), cast(index_))
     return Bool(rv != 0)
@@ -4885,7 +4897,7 @@ public func ptrArrayFindWithEqualFunc(haystack: PtrArrayProtocol, needle: gconst
 
 
 
-/// This is just like the standard C qsort() function, but
+/// This is just like the standard C `qsort()` function, but
 /// the comparison routine accepts a user data argument.
 /// 
 /// This is guaranteed to be a stable sort since version 2.32.
@@ -4901,7 +4913,7 @@ public func qsortWithData(pbase: gconstpointer, totalElems total_elems: CInt, si
 /// string does not currently have an associated `GQuark`, a new `GQuark`
 /// is created, linked to the given string.
 /// 
-/// Note that this function is identical to g_quark_from_string() except
+/// Note that this function is identical to `g_quark_from_string()` except
 /// that if a new `GQuark` is created the string itself is used rather
 /// than a copy. This saves memory, but can only be used if the string
 /// will continue to exist until the program terminates. It can be used
@@ -4949,7 +4961,7 @@ public func quarkToString(quark: Quark) -> String! {
 /// `nil` or it has no associated `GQuark`.
 /// 
 /// If you want the GQuark to be created if it doesn't already exist,
-/// use g_quark_from_string() or g_quark_from_static_string().
+/// use `g_quark_from_string()` or `g_quark_from_static_string()`.
 /// 
 /// This function must not be used before library constructors have finished
 /// running.
@@ -4971,7 +4983,7 @@ public func randomDouble() -> gdouble {
 
 
 /// Returns a random `gdouble` equally distributed over the range
-/// [`begin`..`end`).
+/// [`begin.`.`end`).
 public func randomDoubleRange(begin: gdouble, end: gdouble) -> gdouble {
     let rv = g_random_double_range(begin, end)
     return rv
@@ -4991,7 +5003,7 @@ public func randomInt() -> UInt32 {
 
 
 /// Returns a random `gint32` equally distributed over the range
-/// [`begin`..`end`-1].
+/// [`begin.`.`end`-1].
 public func randomIntRange(begin: Int32, end: Int32) -> Int32 {
     let rv = g_random_int_range(gint32(begin), gint32(end))
     return Int32(rv)
@@ -5111,7 +5123,7 @@ public func realloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> Unsafe
 
 
 
-/// This function is similar to g_realloc(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_realloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func reallocN(mem: UnsafeMutableRawPointer, nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes))
@@ -5223,7 +5235,7 @@ public func refStringRelease(str: UnsafeMutablePointer<CChar>) {
 
 
 /// Checks whether `replacement` is a valid replacement string
-/// (see g_regex_replace()), i.e. that all escape sequences in
+/// (see `g_regex_replace()`), i.e. that all escape sequences in
 /// it are valid.
 /// 
 /// If `has_references` is not `nil` then `replacement` is checked
@@ -5281,14 +5293,14 @@ public func regexEscape(string: UnsafePointer<gchar>, length: CInt) -> String! {
 
 /// Scans for a match in `string` for `pattern`.
 /// 
-/// This function is equivalent to g_regex_match() but it does not
-/// require to compile the pattern with g_regex_new(), avoiding some
+/// This function is equivalent to `g_regex_match()` but it does not
+/// require to compile the pattern with `g_regex_new()`, avoiding some
 /// lines of code when you need just to do a match without extracting
 /// substrings, capture counts, and so on.
 /// 
 /// If this function is to be called on the same `pattern` more than
 /// once, it's more efficient to compile the pattern once with
-/// g_regex_new() and then use g_regex_match().
+/// `g_regex_new()` and then use `g_regex_match()`.
 public func regexMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) -> Bool {
     let rv = g_regex_match_simple(pattern, string, compile_options, match_options)
     return Bool(rv != 0)
@@ -5303,14 +5315,14 @@ public func regexMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointe
 /// If the pattern does not match anywhere in the string, then the
 /// whole string is returned as the first token.
 /// 
-/// This function is equivalent to g_regex_split() but it does
-/// not require to compile the pattern with g_regex_new(), avoiding
+/// This function is equivalent to `g_regex_split()` but it does
+/// not require to compile the pattern with `g_regex_new()`, avoiding
 /// some lines of code when you need just to do a split without
 /// extracting substrings, capture counts, and so on.
 /// 
 /// If this function is to be called on the same `pattern` more than
 /// once, it's more efficient to compile the pattern once with
-/// g_regex_new() and then use g_regex_split().
+/// `g_regex_new()` and then use `g_regex_split()`.
 /// 
 /// As a special case, the result of splitting the empty string ""
 /// is an empty vector, not a vector containing a single string.
@@ -5332,12 +5344,12 @@ public func regexSplitSimple(pattern: UnsafePointer<gchar>, string: UnsafePointe
 
 
 
-/// Resets the cache used for g_get_user_special_dir(), so
+/// Resets the cache used for `g_get_user_special_dir()`, so
 /// that the latest on-disk version is used. Call this only
 /// if you just changed the data on disk yourself.
 /// 
 /// Due to thread safety issues this may cause leaking of strings
-/// that were previously returned from g_get_user_special_dir()
+/// that were previously returned from `g_get_user_special_dir()`
 /// that can't be freed. We ensure to only leak the data for
 /// the directories that actually changed value though.
 public func reloadUserSpecialDirsCache() {
@@ -5348,8 +5360,8 @@ public func reloadUserSpecialDirsCache() {
 
 
 
-/// Internal function used to print messages from the public g_return_if_fail()
-/// and g_return_val_if_fail() macros.
+/// Internal function used to print messages from the public `g_return_if_fail()`
+/// and `g_return_val_if_fail()` macros.
 public func returnIfFailWarning(logDomain log_domain: UnsafePointer<CChar>, prettyFunction pretty_function: UnsafePointer<CChar>, expression: UnsafePointer<CChar>) {
     g_return_if_fail_warning(log_domain, pretty_function, expression)
 
@@ -5358,10 +5370,10 @@ public func returnIfFailWarning(logDomain log_domain: UnsafePointer<CChar>, pret
 
 
 
-/// A wrapper for the POSIX rmdir() function. The rmdir() function
+/// A wrapper for the POSIX `rmdir()` function. The `rmdir()` function
 /// deletes a directory from the filesystem.
 /// 
-/// See your C library manual for more details about how rmdir() works
+/// See your C library manual for more details about how `rmdir()` works
 /// on your system.
 public func rmdir(String_: UnsafePointer<gchar>) -> CInt {
     let rv = g_rmdir(String_)
@@ -5479,9 +5491,9 @@ public func sequenceSwap(a: SequenceIterProtocol, b: SequenceIterProtocol) {
 
 /// Sets a human-readable name for the application. This name should be
 /// localized if possible, and is intended for display to the user.
-/// Contrast with g_set_prgname(), which sets a non-localized name.
-/// g_set_prgname() will be called automatically by gtk_init(),
-/// but g_set_application_name() will not.
+/// Contrast with `g_set_prgname()`, which sets a non-localized name.
+/// `g_set_prgname()` will be called automatically by `gtk_init()`,
+/// but `g_set_application_name()` will not.
 /// 
 /// Note that for thread safety reasons, this function can only
 /// be called once.
@@ -5505,9 +5517,9 @@ public func set(applicationName application_name: UnsafePointer<gchar>) {
 
 /// Does nothing if `err` is `nil`; if `err` is non-`nil`, then *`err`
 /// must be `nil`. A new `GError` is created and assigned to *`err`.
-/// Unlike g_set_error(), `message` is not a printf()-style format string.
+/// Unlike `g_set_error()`, `message` is not a `printf()`-style format string.
 /// Use this function if `message` contains text you don't have control over,
-/// that could include printf() escape sequences.
+/// that could include `printf()` escape sequences.
 public func setErrorLiteral(err: ErrorTypeProtocol, domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
     g_set_error_literal(cast(err.ptr), domain, gint(code), message)
 
@@ -5517,12 +5529,12 @@ public func setErrorLiteral(err: ErrorTypeProtocol, domain: Quark, code: CInt, m
 
 
 /// Sets the name of the program. This name should not be localized,
-/// in contrast to g_set_application_name().
+/// in contrast to `g_set_application_name()`.
 /// 
 /// If you are using `GApplication` the program name is set in
-/// g_application_run(). In case of GDK or GTK+ it is set in
-/// gdk_init(), which is called by gtk_init() and the
-/// `GtkApplication`::startup handler. The program name is found by
+/// `g_application_run()`. In case of GDK or GTK+ it is set in
+/// `gdk_init()`, which is called by `gtk_init()` and the
+/// `GtkApplication::startup` handler. The program name is found by
 /// taking the last component of `argv`[0].
 /// 
 /// Note that for thread-safety reasons this function can only be called once.
@@ -5536,7 +5548,7 @@ public func set(prgname: UnsafePointer<gchar>) {
 
 /// Sets the print handler.
 /// 
-/// Any messages passed to g_print() will be output via
+/// Any messages passed to `g_print()` will be output via
 /// the new handler. The default handler simply outputs
 /// the message to stdout. By providing your own handler
 /// you can redirect the output, to a GTK+ widget or a
@@ -5551,7 +5563,7 @@ public func setPrintHandler(func_: @escaping PrintFunc) -> GPrintFunc! {
 
 /// Sets the handler for printing error messages.
 /// 
-/// Any messages passed to g_printerr() will be output via
+/// Any messages passed to `g_printerr()` will be output via
 /// the new handler. The default handler simply outputs the
 /// message to stderr. By providing your own handler you can
 /// redirect the output, to a GTK+ widget or a log file for
@@ -5573,16 +5585,16 @@ public func setPrinterrHandler(func_: @escaping PrintFunc) -> GPrintFunc! {
 /// 
 /// You should be mindful of the fact that environment variable handling
 /// in UNIX is not thread-safe, and your program may crash if one thread
-/// calls g_setenv() while another thread is calling getenv(). (And note
-/// that many functions, such as gettext(), call getenv() internally.)
+/// calls `g_setenv()` while another thread is calling `getenv()`. (And note
+/// that many functions, such as `gettext()`, call `getenv()` internally.)
 /// This function is only safe to use at the very start of your program,
 /// before creating any other threads (or creating objects that create
 /// worker threads of their own).
 /// 
 /// If you need to set up the environment for a child process, you can
-/// use g_get_environ() to get an environment array, modify that with
-/// g_environ_setenv() and g_environ_unsetenv(), and then pass that
-/// array directly to execvpe(), g_spawn_async(), or the like.
+/// use `g_get_environ()` to get an environment array, modify that with
+/// `g_environ_setenv()` and `g_environ_unsetenv()`, and then pass that
+/// array directly to `execvpe()`, `g_spawn_async()`, or the like.
 public func setenv(variable: UnsafePointer<gchar>, value: UnsafePointer<gchar>, overwrite: Bool) -> Bool {
     let rv = g_setenv(variable, value, gboolean(overwrite ? 1 : 0))
     return Bool(rv != 0)
@@ -5607,7 +5619,7 @@ public func shellErrorQuark() -> GQuark {
 /// contains none of the unsupported shell expansions. If the input
 /// does contain such expansions, they are passed through
 /// literally. Possible errors are those from the `G_SHELL_ERROR`
-/// domain. Free the returned vector with g_strfreev().
+/// domain. Free the returned vector with `g_strfreev()`.
 public func shellParseArgv(commandLine command_line: UnsafePointer<gchar>, argcp: UnsafeMutablePointer<CInt>, argvp: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_shell_parse_argv(command_line, cast(argcp), cast(argvp), &error)
@@ -5623,7 +5635,7 @@ public func shellParseArgv(commandLine command_line: UnsafePointer<gchar>, argcp
 /// Quotes a string so that the shell (/bin/sh) will interpret the
 /// quoted string to mean `unquoted_string`. If you pass a filename to
 /// the shell, for example, you should first quote it with this
-/// function.  The return value must be freed with g_free(). The
+/// function.  The return value must be freed with `g_free()`. The
 /// quoting style used is undefined (single or double quotes may be
 /// used).
 public func shellQuote(unquotedString unquoted_string: UnsafePointer<gchar>) -> String! {
@@ -5641,12 +5653,12 @@ public func shellQuote(unquotedString unquoted_string: UnsafePointer<gchar>) -> 
 /// would produce (the variables, backticks, etc. will be passed
 /// through literally instead of being expanded). This function is
 /// guaranteed to succeed if applied to the result of
-/// g_shell_quote(). If it fails, it returns `nil` and sets the
+/// `g_shell_quote()`. If it fails, it returns `nil` and sets the
 /// error. The `quoted_string` need not actually contain quoted or
-/// escaped text; g_shell_unquote() simply goes through the string and
+/// escaped text; `g_shell_unquote()` simply goes through the string and
 /// unquotes/unescapes anything that the shell would. Both single and
 /// double quotes are handled, as are escapes including escaped
-/// newlines. The return value must be freed with g_free(). Possible
+/// newlines. The return value must be freed with `g_free()`. Possible
 /// errors are in the `G_SHELL_ERROR` domain.
 /// 
 /// Shell quoting rules are a bit strange. Single quotes preserve the
@@ -5671,7 +5683,7 @@ public func shellUnquote(quotedString quoted_string: UnsafePointer<gchar>) throw
 /// The block address handed out can be expected to be aligned
 /// to at least 1 * sizeof (void*),
 /// though in general slices are 2 * sizeof (void*) bytes aligned,
-/// if a malloc() fallback implementation is used instead,
+/// if a `malloc()` fallback implementation is used instead,
 /// the alignment may be reduced in a libc dependent fashion.
 /// Note that the underlying slice allocation mechanism can
 /// be changed with the [`G_SLICE=always-malloc`][G_SLICE]
@@ -5684,7 +5696,7 @@ public func sliceAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 
 
 
-/// Allocates a block of memory via g_slice_alloc() and initializes
+/// Allocates a block of memory via `g_slice_alloc()` and initializes
 /// the returned memory to 0. Note that the underlying slice allocation
 /// mechanism can be changed with the [`G_SLICE=always-malloc`][G_SLICE]
 /// environment variable.
@@ -5710,8 +5722,8 @@ public func sliceCopy(blockSize block_size: Int, memBlock mem_block: gconstpoint
 
 /// Frees a block of memory.
 /// 
-/// The memory must have been allocated via g_slice_alloc() or
-/// g_slice_alloc0() and the `block_size` has to match the size
+/// The memory must have been allocated via `g_slice_alloc()` or
+/// `g_slice_alloc0()` and the `block_size` has to match the size
 /// specified upon allocation. Note that the exact release behaviour
 /// can be changed with the [`G_DEBUG=gc-friendly`][G_DEBUG] environment
 /// variable, also see [`G_SLICE`][G_SLICE] for related debugging options.
@@ -5728,7 +5740,7 @@ public func sliceFree1(blockSize block_size: Int, memBlock mem_block: UnsafeMuta
 /// Frees a linked list of memory blocks of structure type `type`.
 /// 
 /// The memory blocks must be equal-sized, allocated via
-/// g_slice_alloc() or g_slice_alloc0() and linked together by a
+/// `g_slice_alloc()` or `g_slice_alloc0()` and linked together by a
 /// `next` pointer (similar to `GSList`). The offset of the `next`
 /// field in each block is passed as third argument.
 /// Note that the exact release behaviour can be changed with the
@@ -5776,20 +5788,20 @@ public func sliceSetConfig(ckey: SliceConfig, value: Int64) {
 
 
 /// Removes the source with the given ID from the default main context. You must
-/// use g_source_destroy() for sources added to a non-default main context.
+/// use `g_source_destroy()` for sources added to a non-default main context.
 /// 
-/// The ID of a `GSource` is given by g_source_get_id(), or will be
-/// returned by the functions g_source_attach(), g_idle_add(),
-/// g_idle_add_full(), g_timeout_add(), g_timeout_add_full(),
-/// g_child_watch_add(), g_child_watch_add_full(), g_io_add_watch(), and
-/// g_io_add_watch_full().
+/// The ID of a `GSource` is given by `g_source_get_id()`, or will be
+/// returned by the functions `g_source_attach()`, `g_idle_add()`,
+/// `g_idle_add_full()`, `g_timeout_add()`, `g_timeout_add_full()`,
+/// `g_child_watch_add()`, `g_child_watch_add_full()`, `g_io_add_watch()`, and
+/// `g_io_add_watch_full()`.
 /// 
 /// It is a programmer error to attempt to remove a non-existent source.
 /// 
 /// More specifically: source IDs can be reissued after a source has been
 /// destroyed and therefore it is never valid to use this function with a
 /// source ID which may have already been removed.  An example is when
-/// scheduling an idle to run in another thread with g_idle_add(): the
+/// scheduling an idle to run in another thread with `g_idle_add()`: the
 /// idle may already have run and been removed by the time this function
 /// is called on its (now invalid) source ID.  This source ID may have
 /// been reissued, leading to the operation being performed against the
@@ -5827,7 +5839,7 @@ public func sourceRemoveBy(userData user_data: UnsafeMutableRawPointer) -> Bool 
 /// Sets the name of a source using its ID.
 /// 
 /// This is a convenience utility to set source names from the return
-/// value of g_idle_add(), g_timeout_add(), etc.
+/// value of `g_idle_add()`, `g_timeout_add()`, etc.
 /// 
 /// It is a programmer error to attempt to set the name of a non-existent
 /// source.
@@ -5835,7 +5847,7 @@ public func sourceRemoveBy(userData user_data: UnsafeMutableRawPointer) -> Bool 
 /// More specifically: source IDs can be reissued after a source has been
 /// destroyed and therefore it is never valid to use this function with a
 /// source ID which may have already been removed.  An example is when
-/// scheduling an idle to run in another thread with g_idle_add(): the
+/// scheduling an idle to run in another thread with `g_idle_add()`: the
 /// idle may already have run and been removed by the time this function
 /// is called on its (now invalid) source ID.  This source ID may have
 /// been reissued, leading to the operation being performed against the
@@ -5862,10 +5874,10 @@ public func spacedPrimesClosest(num: CUnsignedInt) -> CUnsignedInt {
 
 
 
-/// See g_spawn_async_with_pipes() for a full description; this function
-/// simply calls the g_spawn_async_with_pipes() without any pipes.
+/// See `g_spawn_async_with_pipes()` for a full description; this function
+/// simply calls the `g_spawn_async_with_pipes()` without any pipes.
 /// 
-/// You should call g_spawn_close_pid() on the returned child process
+/// You should call `g_spawn_close_pid()` on the returned child process
 /// reference when you don't need it any more.
 /// 
 /// If you are writing a GTK+ application, and the program you are spawning is a
@@ -5888,7 +5900,7 @@ public func spawnAsync(workingDirectory working_directory: UnsafePointer<gchar>,
 
 
 
-/// IDentical to g_spawn_async_with_pipes() but instead of
+/// IDentical to `g_spawn_async_with_pipes()` but instead of
 /// creating pipes for the stdin/stdout/stderr, you can pass existing
 /// file descriptors into this function through the `stdin_fd`,
 /// `stdout_fd` and `stderr_fd` parameters. The following `flags`
@@ -5944,27 +5956,27 @@ public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<
 /// the system codepage passed in these arguments will be correctly
 /// available in the spawned program only if it uses wide character API
 /// to retrieve its command line. For C programs built with Microsoft's
-/// tools it is enough to make the program have a wmain() instead of
-/// main(). wmain() has a wide character argument vector as parameter.
+/// tools it is enough to make the program have a `wmain()` instead of
+/// `main()`. `wmain()` has a wide character argument vector as parameter.
 /// 
-/// At least currently, mingw doesn't support wmain(), so if you use
+/// At least currently, mingw doesn't support `wmain()`, so if you use
 /// mingw to develop the spawned program, it should call
-/// g_win32_get_command_line() to get arguments in UTF-8.
+/// `g_win32_get_command_line()` to get arguments in UTF-8.
 /// 
-/// On Windows the low-level child process creation API CreateProcess()
+/// On Windows the low-level child process creation API `CreateProcess()`
 /// doesn't use argument vectors, but a command line. The C runtime
-/// library's spawn*() family of functions (which g_spawn_async_with_pipes()
+/// library's spawn*() family of functions (which `g_spawn_async_with_pipes()`
 /// eventually calls) paste the argument vector elements together into
 /// a command line, and the C runtime startup code does a corresponding
 /// reconstruction of an argument vector from the command line, to be
-/// passed to main(). Complications arise when you have argument vector
+/// passed to `main()`. Complications arise when you have argument vector
 /// elements that contain spaces or double quotes. The `spawn*()` functions
 /// don't do any quoting or escaping, but on the other hand the startup
 /// code does do unquoting and unescaping in order to enable receiving
 /// arguments with embedded spaces or double quotes. To work around this
-/// asymmetry, g_spawn_async_with_pipes() will do quoting and escaping on
+/// asymmetry, `g_spawn_async_with_pipes()` will do quoting and escaping on
 /// argument vector elements that need it before calling the C runtime
-/// spawn() function.
+/// `spawn()` function.
 /// 
 /// The returned `child_pid` on Windows is a handle to the child
 /// process, not its identifier. Process handles and process
@@ -5977,19 +5989,19 @@ public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<
 /// `flags` should be the bitwise OR of any flags you want to affect the
 /// function's behaviour. The `G_SPAWN_DO_NOT_REAP_CHILD` means that the
 /// child will not automatically be reaped; you must use a child watch
-/// (g_child_watch_add()) to be notified about the death of the child process,
+/// (`g_child_watch_add()`) to be notified about the death of the child process,
 /// otherwise it will stay around as a zombie process until this process exits.
-/// Eventually you must call g_spawn_close_pid() on the `child_pid`, in order to
+/// Eventually you must call `g_spawn_close_pid()` on the `child_pid`, in order to
 /// free resources which may be associated with the child process. (On Unix,
-/// using a child watch is equivalent to calling waitpid() or handling
-/// the `SIGCHLD` signal manually. On Windows, calling g_spawn_close_pid()
-/// is equivalent to calling CloseHandle() on the process handle returned
-/// in `child_pid`). See g_child_watch_add().
+/// using a child watch is equivalent to calling `waitpid()` or handling
+/// the `SIGCHLD` signal manually. On Windows, calling `g_spawn_close_pid()`
+/// is equivalent to calling `CloseHandle()` on the process handle returned
+/// in `child_pid`). See `g_child_watch_add()`.
 /// 
 /// Open UNIX file descriptors marked as `FD_CLOEXEC` will be automatically
 /// closed in the child process. `G_SPAWN_LEAVE_DESCRIPTORS_OPEN` means that
 /// other open file descriptors will be inherited by the child; otherwise all
-/// descriptors except stdin/stdout/stderr will be closed before calling exec()
+/// descriptors except stdin/stdout/stderr will be closed before calling `exec()`
 /// in the child. `G_SPAWN_SEARCH_PATH` means that `argv`[0] need not be an
 /// absolute path, it will be looked for in the `PATH` environment
 /// variable. `G_SPAWN_SEARCH_PATH_FROM_ENVP` means need not be an
@@ -6007,37 +6019,37 @@ public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<
 /// `/dev/null`). If you use this flag, `standard_input` must be `nil`.
 /// `G_SPAWN_FILE_AND_ARGV_ZERO` means that the first element of `argv` is
 /// the file to execute, while the remaining elements are the actual
-/// argument vector to pass to the file. Normally g_spawn_async_with_pipes()
+/// argument vector to pass to the file. Normally `g_spawn_async_with_pipes()`
 /// uses `argv`[0] as the file to execute, and passes all of `argv` to the child.
 /// 
 /// `child_setup` and `user_data` are a function and user data. On POSIX
 /// platforms, the function is called in the child after GLib has
 /// performed all the setup it plans to perform (including creating
-/// pipes, closing file descriptors, etc.) but before calling exec().
-/// That is, `child_setup` is called just before calling exec() in the
+/// pipes, closing file descriptors, etc.) but before calling `exec()`.
+/// That is, `child_setup` is called just before calling `exec()` in the
 /// child. Obviously actions taken in this function will only affect
 /// the child, not the parent.
 /// 
-/// On Windows, there is no separate fork() and exec() functionality.
+/// On Windows, there is no separate `fork()` and `exec()` functionality.
 /// Child processes are created and run with a single API call,
-/// CreateProcess(). There is no sensible thing `child_setup`
+/// `CreateProcess()`. There is no sensible thing `child_setup`
 /// could be used for on Windows so it is ignored and not called.
 /// 
 /// If non-`nil`, `child_pid` will on Unix be filled with the child's
 /// process ID. You can use the process ID to send signals to the child,
-/// or to use g_child_watch_add() (or waitpid()) if you specified the
+/// or to use `g_child_watch_add()` (or `waitpid()`) if you specified the
 /// `G_SPAWN_DO_NOT_REAP_CHILD` flag. On Windows, `child_pid` will be
 /// filled with a handle to the child process only if you specified the
 /// `G_SPAWN_DO_NOT_REAP_CHILD` flag. You can then access the child
 /// process using the Win32 API, for example wait for its termination
 /// with the WaitFor*() functions, or examine its exit code with
-/// GetExitCodeProcess(). You should close the handle with CloseHandle()
-/// or g_spawn_close_pid() when you no longer need it.
+/// `GetExitCodeProcess()`. You should close the handle with `CloseHandle()`
+/// or `g_spawn_close_pid()` when you no longer need it.
 /// 
 /// If non-`nil`, the `standard_input`, `standard_output`, `standard_error`
 /// locations will be filled with file descriptors for writing to the child's
 /// standard input or reading from its standard output or standard error.
-/// The caller of g_spawn_async_with_pipes() must close these file descriptors
+/// The caller of `g_spawn_async_with_pipes()` must close these file descriptors
 /// when they are no longer in use. If these parameters are `nil`, the
 /// corresponding pipe won't be created.
 /// 
@@ -6063,10 +6075,10 @@ public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<
 /// and `standard_error` will not be filled with valid values.
 /// 
 /// If `child_pid` is not `nil` and an error does not occur then the returned
-/// process reference must be closed using g_spawn_close_pid().
+/// process reference must be closed using `g_spawn_close_pid()`.
 /// 
 /// On modern UNIX platforms, GLib can use an efficient process launching
-/// codepath driven internally by posix_spawn(). This has the advantage of
+/// codepath driven internally by `posix_spawn()`. This has the advantage of
 /// avoiding the fork-time performance costs of cloning the parent process
 /// address space, and avoiding associated memory overcommit checks that are
 /// not relevant in the context of immediately executing a distinct process.
@@ -6099,10 +6111,10 @@ public func spawnAsyncWithPipes(workingDirectory working_directory: UnsafePointe
 /// Set `error` if `exit_status` indicates the child exited abnormally
 /// (e.g. with a nonzero exit code, or via a fatal signal).
 /// 
-/// The g_spawn_sync() and g_child_watch_add() family of APIs return an
+/// The `g_spawn_sync()` and `g_child_watch_add()` family of APIs return an
 /// exit status for subprocesses encoded in a platform-specific way.
-/// On Unix, this is guaranteed to be in the same format waitpid() returns,
-/// and on Windows it is guaranteed to be the result of GetExitCodeProcess().
+/// On Unix, this is guaranteed to be in the same format `waitpid()` returns,
+/// and on Windows it is guaranteed to be the result of `GetExitCodeProcess()`.
 /// 
 /// Prior to the introduction of this function in GLib 2.34, interpreting
 /// `exit_status` required use of platform-specific APIs, which is problematic
@@ -6116,7 +6128,7 @@ public func spawnAsyncWithPipes(workingDirectory working_directory: UnsafePointe
 /// 
 /// The `domain` and `code` of `error` have special semantics in the case
 /// where the process has an "exit code", as opposed to being killed by
-/// a signal. On Unix, this happens if WIFEXITED() would be true of
+/// a signal. On Unix, this happens if `WIFEXITED()` would be true of
 /// `exit_status`. On Windows, it is always the case.
 /// 
 /// The special semantics are that the actual exit code will be the
@@ -6129,7 +6141,7 @@ public func spawnAsyncWithPipes(workingDirectory working_directory: UnsafePointe
 /// 
 /// This function just offers convenience; you can of course also check
 /// the available platform via a macro such as `G_OS_UNIX`, and use
-/// WIFEXITED() and WEXITSTATUS() on `exit_status` directly. Do not attempt
+/// `WIFEXITED()` and `WEXITSTATUS()` on `exit_status` directly. Do not attempt
 /// to scan or parse the error message string; it may be translated and/or
 /// change in future versions of GLib.
 public func spawnCheck(exitStatus exit_status: CInt) throws -> Bool {
@@ -6145,7 +6157,7 @@ public func spawnCheck(exitStatus exit_status: CInt) throws -> Bool {
 
 
 /// On some platforms, notably Windows, the `GPid` type represents a resource
-/// which must be closed to prevent resource leaking. g_spawn_close_pid()
+/// which must be closed to prevent resource leaking. `g_spawn_close_pid()`
 /// is provided for this purpose. It should be used on all platforms, even
 /// though it doesn't do anything under UNIX.
 public func spawnClose(pid: Pid) {
@@ -6156,15 +6168,15 @@ public func spawnClose(pid: Pid) {
 
 
 
-/// A simple version of g_spawn_async() that parses a command line with
-/// g_shell_parse_argv() and passes it to g_spawn_async(). Runs a
-/// command line in the background. Unlike g_spawn_async(), the
+/// A simple version of `g_spawn_async()` that parses a command line with
+/// `g_shell_parse_argv()` and passes it to `g_spawn_async()`. Runs a
+/// command line in the background. Unlike `g_spawn_async()`, the
 /// `G_SPAWN_SEARCH_PATH` flag is enabled, other flags are not. Note
 /// that `G_SPAWN_SEARCH_PATH` can have security implications, so
-/// consider using g_spawn_async() directly if appropriate. Possible
-/// errors are those from g_shell_parse_argv() and g_spawn_async().
+/// consider using `g_spawn_async()` directly if appropriate. Possible
+/// errors are those from `g_shell_parse_argv()` and `g_spawn_async()`.
 /// 
-/// The same concerns on Windows apply as for g_spawn_command_line_sync().
+/// The same concerns on Windows apply as for `g_spawn_command_line_sync()`.
 public func spawnCommandLineAsync(commandLine command_line: UnsafePointer<gchar>) throws -> Bool {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_spawn_command_line_async(command_line, &error)
@@ -6177,20 +6189,20 @@ public func spawnCommandLineAsync(commandLine command_line: UnsafePointer<gchar>
 
 
 
-/// A simple version of g_spawn_sync() with little-used parameters
+/// A simple version of `g_spawn_sync()` with little-used parameters
 /// removed, taking a command line instead of an argument vector.  See
-/// g_spawn_sync() for full details. `command_line` will be parsed by
-/// g_shell_parse_argv(). Unlike g_spawn_sync(), the `G_SPAWN_SEARCH_PATH` flag
+/// `g_spawn_sync()` for full details. `command_line` will be parsed by
+/// `g_shell_parse_argv()`. Unlike `g_spawn_sync()`, the `G_SPAWN_SEARCH_PATH` flag
 /// is enabled. Note that `G_SPAWN_SEARCH_PATH` can have security
-/// implications, so consider using g_spawn_sync() directly if
-/// appropriate. Possible errors are those from g_spawn_sync() and those
-/// from g_shell_parse_argv().
+/// implications, so consider using `g_spawn_sync()` directly if
+/// appropriate. Possible errors are those from `g_spawn_sync()` and those
+/// from `g_shell_parse_argv()`.
 /// 
 /// If `exit_status` is non-`nil`, the platform-specific exit status of
 /// the child is stored there; see the documentation of
-/// g_spawn_check_exit_status() for how to use and interpret this.
+/// `g_spawn_check_exit_status()` for how to use and interpret this.
 /// 
-/// On Windows, please note the implications of g_shell_parse_argv()
+/// On Windows, please note the implications of `g_shell_parse_argv()`
 /// parsing `command_line`. Parsing is done according to Unix shell rules, not
 /// Windows command interpreter rules.
 /// Space is a separator, and backslashes are
@@ -6235,15 +6247,15 @@ public func spawnExitErrorQuark() -> GQuark {
 /// 
 /// If `exit_status` is non-`nil`, the platform-specific exit status of
 /// the child is stored there; see the documentation of
-/// g_spawn_check_exit_status() for how to use and interpret this.
+/// `g_spawn_check_exit_status()` for how to use and interpret this.
 /// Note that it is invalid to pass `G_SPAWN_DO_NOT_REAP_CHILD` in
 /// `flags`, and on POSIX platforms, the same restrictions as for
-/// g_child_watch_source_new() apply.
+/// `g_child_watch_source_new()` apply.
 /// 
 /// If an error occurs, no data is returned in `standard_output`,
 /// `standard_error`, or `exit_status`.
 /// 
-/// This function calls g_spawn_async_with_pipes() internally; see that
+/// This function calls `g_spawn_async_with_pipes()` internally; see that
 /// function for full details on the other parameters and details on
 /// how these functions work on Windows.
 public func spawnSync(workingDirectory working_directory: UnsafePointer<gchar>, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: SpawnFlags, childSetup child_setup: @escaping SpawnChildSetupFunc, userData user_data: UnsafeMutableRawPointer, standardOutput standard_output: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, standardError standard_error: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, exitStatus exit_status: UnsafeMutablePointer<CInt>) throws -> Bool {
@@ -6278,13 +6290,13 @@ public func stpcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<CChar>)
 
 
 /// Compares two strings for byte-by-byte equality and returns `true`
-/// if they are equal. It can be passed to g_hash_table_new() as the
+/// if they are equal. It can be passed to `g_hash_table_new()` as the
 /// `key_equal_func` parameter, when using non-`nil` strings as keys in a
 /// `GHashTable`.
 /// 
 /// This function is typically used for hash table comparisons, but can be used
 /// for general purpose comparisons of non-`nil` strings. For a `nil`-safe string
-/// comparison function, see g_strcmp0().
+/// comparison function, see `g_strcmp0()`.
 public func strEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
     let rv = g_str_equal(cast(v1), cast(v2))
     return Bool(rv != 0)
@@ -6319,7 +6331,7 @@ public func strHasSuffix(str: UnsafePointer<gchar>, suffix: UnsafePointer<gchar>
 /// the string, is updated: `hash = hash * 33 + c`. This function
 /// uses the signed value of each byte.
 /// 
-/// It can be passed to g_hash_table_new() as the `hash_func` parameter,
+/// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` strings as keys in a `GHashTable`.
 /// 
 /// Note that this function may not be a perfect fit for all use cases.
@@ -6346,7 +6358,7 @@ public func strIsAscii(str: UnsafePointer<gchar>) -> Bool {
 /// Checks if a search conducted for `search_term` should match
 /// `potential_hit`.
 /// 
-/// This function calls g_str_tokenize_and_fold() on both
+/// This function calls `g_str_tokenize_and_fold()` on both
 /// `search_term` and `potential_hit`.  ASCII alternates are never taken
 /// for `search_term` but will be taken for `potential_hit` according to
 /// the value of `accept_alternates`.
@@ -6355,9 +6367,9 @@ public func strIsAscii(str: UnsafePointer<gchar>) -> Bool {
 /// folded token from `potential_hit`.
 /// 
 /// Depending on how you're performing the search, it will typically be
-/// faster to call g_str_tokenize_and_fold() on each string in
+/// faster to call `g_str_tokenize_and_fold()` on each string in
 /// your corpus and build an index on the returned folded tokens, then
-/// call g_str_tokenize_and_fold() on the search term and
+/// call `g_str_tokenize_and_fold()` on the search term and
 /// perform lookups into that index.
 /// 
 /// As some examples, searching for ‘fred’ would match the potential hit
@@ -6404,7 +6416,7 @@ public func strToAscii(str: UnsafePointer<gchar>, fromLocale from_locale: Unsafe
 /// A token is a non-empty sequence of alphanumeric characters in the
 /// source string, separated by non-alphanumeric characters.  An
 /// "alphanumeric" character for this purpose is one that matches
-/// g_unichar_isalnum() or g_unichar_ismark().
+/// `g_unichar_isalnum()` or `g_unichar_ismark()`.
 /// 
 /// Each token is then (Unicode) normalised and case-folded.  If
 /// `ascii_alternates` is non-`nil` and some of the returned tokens
@@ -6426,16 +6438,19 @@ public func strTokenizeAndFold(string: UnsafePointer<gchar>, translitLocale tran
 /// replaces the character with `substitutor`. Modifies `string` in place,
 /// and return `string` itself, not a copy. The return value is to allow
 /// nesting such as
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   g_ascii_strup (g_strcanon (str, "abc", '?'))
-/// ]|
+/// ```
 /// 
-/// In order to modify a copy, you may use `g_strdup()`:
-/// |[<!-- language="C" -->
+/// In order to modify a copy, you may use ``g_strdup()``:
+/// (C Language Example):
+/// ```C
 ///   reformatted = g_strcanon (g_strdup (const_str), "abc", '?');
 ///   ...
 ///   g_free (reformatted);
-/// ]|
+/// ```
+/// 
 public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars: UnsafePointer<gchar>, substitutor: gchar) -> String! {
     let rv = g_strcanon(string, valid_chars, substitutor)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6445,7 +6460,7 @@ public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars
 
 
 /// A case-insensitive string comparison, corresponding to the standard
-/// strcasecmp() function on platforms which support it.
+/// `strcasecmp()` function on platforms which support it.
 ///
 /// **strcasecmp is deprecated:**
 /// See g_strncasecmp() for a discussion of why this
@@ -6466,7 +6481,7 @@ public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars
 /// 
 /// The pointer to `string` is returned to allow the nesting of functions.
 /// 
-/// Also see g_strchug() and g_strstrip().
+/// Also see `g_strchug()` and `g_strstrip()`.
 public func strchomp(string: UnsafeMutablePointer<gchar>) -> String! {
     let rv = g_strchomp(string)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6484,7 +6499,7 @@ public func strchomp(string: UnsafeMutablePointer<gchar>) -> String! {
 /// 
 /// The pointer to `string` is returned to allow the nesting of functions.
 /// 
-/// Also see g_strchomp() and g_strstrip().
+/// Also see `g_strchomp()` and `g_strstrip()`.
 public func strchug(string: UnsafeMutablePointer<gchar>) -> String! {
     let rv = g_strchug(string)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6493,7 +6508,7 @@ public func strchug(string: UnsafeMutablePointer<gchar>) -> String! {
 
 
 
-/// Compares `str1` and `str2` like strcmp(). Handles `nil`
+/// Compares `str1` and `str2` like `strcmp()`. Handles `nil`
 /// gracefully by sorting it before non-`nil` strings.
 /// Comparing two `nil` pointers returns 0.
 public func strcmp0(str1: UnsafePointer<CChar>, str2: UnsafePointer<CChar>) -> CInt {
@@ -6506,7 +6521,7 @@ public func strcmp0(str1: UnsafePointer<CChar>, str2: UnsafePointer<CChar>) -> C
 
 /// Replaces all escaped characters with their one byte equivalent.
 /// 
-/// This function does the reverse conversion of g_strescape().
+/// This function does the reverse conversion of `g_strescape()`.
 public func strcompress(source: UnsafePointer<gchar>) -> String! {
     let rv = g_strcompress(source)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6527,16 +6542,19 @@ public func strcompress(source: UnsafePointer<gchar>) -> String! {
 /// changed to the `new_delimiter` character. Modifies `string` in place,
 /// and returns `string` itself, not a copy. The return value is to
 /// allow nesting such as
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   g_ascii_strup (g_strdelimit (str, "abc", '?'))
-/// ]|
+/// ```
 /// 
-/// In order to modify a copy, you may use `g_strdup()`:
-/// |[<!-- language="C" -->
+/// In order to modify a copy, you may use ``g_strdup()``:
+/// (C Language Example):
+/// ```C
 ///   reformatted = g_strdelimit (g_strdup (const_str), "abc", '?');
 ///   ...
 ///   g_free (reformatted);
-/// ]|
+/// ```
+/// 
 public func strdelimit(string: UnsafeMutablePointer<gchar>, delimiters: UnsafePointer<gchar>, newDelimiter new_delimiter: gchar) -> String! {
     let rv = g_strdelimit(string, delimiters, new_delimiter)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6560,7 +6578,7 @@ public func strdelimit(string: UnsafeMutablePointer<gchar>, delimiters: UnsafePo
 
 
 /// Duplicates a string. If `str` is `nil` it returns `nil`.
-/// The returned string should be freed with g_free()
+/// The returned string should be freed with `g_free()`
 /// when no longer needed.
 public func strdup(str: UnsafePointer<gchar>) -> String! {
     let rv = g_strdup(str)
@@ -6577,12 +6595,12 @@ public func strdup(str: UnsafePointer<gchar>) -> String! {
 
 
 
-/// Similar to the standard C vsprintf() function but safer, since it
+/// Similar to the standard C `vsprintf()` function but safer, since it
 /// calculates the maximum space required and allocates memory to hold
-/// the result. The returned string should be freed with g_free() when
+/// the result. The returned string should be freed with `g_free()` when
 /// no longer needed.
 /// 
-/// See also g_vasprintf(), which offers the same functionality, but
+/// See also `g_vasprintf()`, which offers the same functionality, but
 /// additionally returns the length of the allocated string.
 public func strdupVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> String! {
     let rv = g_strdup_vprintf(format, args)
@@ -6594,8 +6612,8 @@ public func strdupVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) ->
 
 /// Copies `nil`-terminated array of strings. The copy is a deep copy;
 /// the new array should be freed by first freeing each string, then
-/// the array itself. g_strfreev() does this for you. If called
-/// on a `nil` value, g_strdupv() simply returns `nil`.
+/// the array itself. `g_strfreev()` does this for you. If called
+/// on a `nil` value, `g_strdupv()` simply returns `nil`.
 public func strdupv(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
     let rv = g_strdupv(cast(str_array))
     return cast(rv)
@@ -6605,7 +6623,7 @@ public func strdupv(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointe
 
 
 /// Returns a string corresponding to the given error code, e.g. "no
-/// such process". Unlike strerror(), this always returns a string in
+/// such process". Unlike `strerror()`, this always returns a string in
 /// UTF-8 encoding, and the pointer is guaranteed to remain valid for
 /// the lifetime of the process.
 /// 
@@ -6614,14 +6632,15 @@ public func strdupv(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointe
 /// The value of `errno` will not be changed by this function. However, it may
 /// be changed by intermediate function calls, so you should save its value
 /// as soon as the call returns:
-/// |[
+/// ```
 ///   int saved_errno;
 /// 
 ///   ret = read (blah);
 ///   saved_errno = errno;
 /// 
 ///   g_strerror (saved_errno);
-/// ]|
+/// ```
+/// 
 public func strerror(errnum: CInt) -> String! {
     let rv = g_strerror(gint(errnum))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6637,7 +6656,7 @@ public func strerror(errnum: CInt) -> String! {
 /// replaced with a '\' followed by their octal representation.
 /// Characters supplied in `exceptions` are not escaped.
 /// 
-/// g_strcompress() does the reverse conversion.
+/// `g_strcompress()` does the reverse conversion.
 public func strescape(source: UnsafePointer<gchar>, exceptions: UnsafePointer<gchar>) -> String! {
     let rv = g_strescape(source, exceptions)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6694,7 +6713,7 @@ public func stringSizedNew(dflSize dfl_size: Int) -> UnsafeMutablePointer<GStrin
 
 
 
-/// An auxiliary function for gettext() support (see Q_()).
+/// An auxiliary function for `gettext()` support (see `Q_()`).
 public func stripContext(msgid: UnsafePointer<gchar>, msgval: UnsafePointer<gchar>) -> String! {
     let rv = g_strip_context(msgid, msgval)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6712,7 +6731,7 @@ public func stripContext(msgid: UnsafePointer<gchar>, msgval: UnsafePointer<gcha
 
 /// Joins a number of strings together to form one long string, with the
 /// optional `separator` inserted between each of them. The returned string
-/// should be freed with g_free().
+/// should be freed with `g_free()`.
 /// 
 /// If `str_array` has no items, the return value will be an
 /// empty string. If `str_array` contains a single item, `separator` will not
@@ -6725,19 +6744,19 @@ public func strjoinv(separator: UnsafePointer<gchar>, strArray str_array: Unsafe
 
 
 
-/// Portability wrapper that calls strlcat() on systems which have it,
+/// Portability wrapper that calls `strlcat()` on systems which have it,
 /// and emulates it otherwise. Appends nul-terminated `src` string to `dest`,
 /// guaranteeing nul-termination for `dest`. The total size of `dest` won't
 /// exceed `dest_size`.
 /// 
-/// At most `dest_size` - 1 characters will be copied. Unlike strncat(),
+/// At most `dest_size` - 1 characters will be copied. Unlike `strncat()`,
 /// `dest_size` is the full size of dest, not the space left over. This
 /// function does not allocate memory. It always nul-terminates (unless
 /// `dest_size` == 0 or there were no nul characters in the `dest_size`
 /// characters of dest to start with).
 /// 
-/// Caveat: this is supposedly a more secure alternative to strcat() or
-/// strncat(), but for real security g_strconcat() is harder to mess up.
+/// Caveat: this is supposedly a more secure alternative to `strcat()` or
+/// `strncat()`, but for real security `g_strconcat()` is harder to mess up.
 public func strlcat(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>, destSize dest_size: Int) -> Int {
     let rv = g_strlcat(dest, src, gsize(dest_size))
     return Int(rv)
@@ -6746,19 +6765,19 @@ public func strlcat(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>
 
 
 
-/// Portability wrapper that calls strlcpy() on systems which have it,
-/// and emulates strlcpy() otherwise. Copies `src` to `dest`; `dest` is
+/// Portability wrapper that calls `strlcpy()` on systems which have it,
+/// and emulates `strlcpy()` otherwise. Copies `src` to `dest`; `dest` is
 /// guaranteed to be nul-terminated; `src` must be nul-terminated;
 /// `dest_size` is the buffer size, not the number of bytes to copy.
 /// 
 /// At most `dest_size` - 1 characters will be copied. Always nul-terminates
 /// (unless `dest_size` is 0). This function does not allocate memory. Unlike
-/// strncpy(), this function doesn't pad `dest` (so it's often faster). It
+/// `strncpy()`, this function doesn't pad `dest` (so it's often faster). It
 /// returns the size of the attempted result, strlen (src), so if
 /// `retval` >= `dest_size`, truncation occurred.
 /// 
-/// Caveat: strlcpy() is supposedly more secure than strcpy() or strncpy(),
-/// but if you really want to avoid screwups, g_strdup() is an even better
+/// Caveat: `strlcpy()` is supposedly more secure than `strcpy()` or `strncpy()`,
+/// but if you really want to avoid screwups, `g_strdup()` is an even better
 /// idea.
 public func strlcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>, destSize dest_size: Int) -> Int {
     let rv = g_strlcpy(dest, src, gsize(dest_size))
@@ -6769,8 +6788,8 @@ public func strlcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>
 
 
 /// A case-insensitive string comparison, corresponding to the standard
-/// strncasecmp() function on platforms which support it. It is similar
-/// to g_strcasecmp() except it only compares the first `n` characters of
+/// `strncasecmp()` function on platforms which support it. It is similar
+/// to `g_strcasecmp()` except it only compares the first `n` characters of
 /// the strings.
 ///
 /// **strncasecmp is deprecated:**
@@ -6803,7 +6822,7 @@ public func strlcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>
 /// needed.
 /// 
 /// To copy a number of characters from a UTF-8 encoded string,
-/// use g_utf8_strncpy() instead.
+/// use `g_utf8_strncpy()` instead.
 public func strndup(str: UnsafePointer<gchar>, n: Int) -> String! {
     let rv = g_strndup(str, gsize(n))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6825,9 +6844,9 @@ public func strnfill(length: Int, fillChar fill_char: gchar) -> String! {
 /// Reverses all of the bytes in a string. For example,
 /// `g_strreverse ("abcdef")` will result in "fedcba".
 /// 
-/// Note that g_strreverse() doesn't work on UTF-8 strings
+/// Note that `g_strreverse()` doesn't work on UTF-8 strings
 /// containing multibyte characters. For that purpose, use
-/// g_utf8_strreverse().
+/// `g_utf8_strreverse()`.
 public func strreverse(string: UnsafeMutablePointer<gchar>) -> String! {
     let rv = g_strreverse(string)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6858,9 +6877,9 @@ public func strrstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len:
 
 
 /// Returns a string describing the given signal, e.g. "Segmentation fault".
-/// You should use this function in preference to strsignal(), because it
+/// You should use this function in preference to `strsignal()`, because it
 /// returns a string in UTF-8 encoding, and since not all platforms support
-/// the strsignal() function.
+/// the `strsignal()` function.
 public func strsignal(signum: CInt) -> String! {
     let rv = g_strsignal(gint(signum))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -6873,7 +6892,7 @@ public func strsignal(signum: CInt) -> String! {
 /// `delimiter`. If `max_tokens` is reached, the remainder of `string` is
 /// appended to the last token.
 /// 
-/// As an example, the result of g_strsplit (":a:bc::d:", ":", -1) is a
+/// As an example, the result of g_strsplit (":a:bc`d:`", ":", -1) is a
 /// `nil`-terminated vector containing the six strings "", "a", "bc", "", "d"
 /// and "".
 /// 
@@ -6882,7 +6901,7 @@ public func strsignal(signum: CInt) -> String! {
 /// special case is that being able to represent a empty vector is typically
 /// more useful than consistent handling of empty elements. If you do need
 /// to represent empty elements, you'll need to check for the empty string
-/// before calling g_strsplit().
+/// before calling `g_strsplit()`.
 public func strsplit(string: UnsafePointer<gchar>, delimiter: UnsafePointer<gchar>, maxTokens max_tokens: CInt) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
     let rv = g_strsplit(string, delimiter, gint(max_tokens))
     return cast(rv)
@@ -6908,7 +6927,7 @@ public func strsplit(string: UnsafePointer<gchar>, delimiter: UnsafePointer<gcha
 /// special case is that being able to represent a empty vector is typically
 /// more useful than consistent handling of empty elements. If you do need
 /// to represent empty elements, you'll need to check for the empty string
-/// before calling g_strsplit_set().
+/// before calling `g_strsplit_set()`.
 /// 
 /// Note that this function works on bytes not characters, so it can't be used
 /// to delimit UTF-8 strings for anything but ASCII characters.
@@ -6932,12 +6951,12 @@ public func strstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len: 
 
 
 /// Converts a string to a `gdouble` value.
-/// It calls the standard strtod() function to handle the conversion, but
+/// It calls the standard `strtod()` function to handle the conversion, but
 /// if the string is not completely converted it attempts the conversion
-/// again with g_ascii_strtod(), and returns the best match.
+/// again with `g_ascii_strtod()`, and returns the best match.
 /// 
 /// This function should seldom be used. The normal situation when reading
-/// numbers not for human consumption is to use g_ascii_strtod(). Only when
+/// numbers not for human consumption is to use `g_ascii_strtod()`. Only when
 /// you know that you must expect both locale formatted and C formatted numbers
 /// should you use this. Make sure that you don't pass strings such as comma
 /// separated lists of values, since the commas may be interpreted as a decimal
@@ -6974,8 +6993,8 @@ public func strvContains(strv: UnsafePointer<UnsafePointer<gchar>>, str: UnsafeP
 
 
 /// Checks if `strv1` and `strv2` contain exactly the same elements in exactly the
-/// same order. Elements are compared using g_str_equal(). To match independently
-/// of order, sort the arrays first (using g_qsort_with_data() or similar).
+/// same order. Elements are compared using `g_str_equal()`. To match independently
+/// of order, sort the arrays first (using `g_qsort_with_data()` or similar).
 /// 
 /// Two empty arrays are considered equal. Neither `strv1` not `strv2` may be
 /// `nil`.
@@ -7005,7 +7024,7 @@ public func strvLength(strArray str_array: UnsafeMutablePointer<UnsafeMutablePoi
 
 
 
-/// Create a new test case, similar to g_test_create_case(). However
+/// Create a new test case, similar to `g_test_create_case()`. However
 /// the test is assumed to use no fixture, and test suites are automatically
 /// created on the fly and added to the root fixture, based on the
 /// slash-separated portions of `testpath`. The `test_data` argument
@@ -7013,7 +7032,7 @@ public func strvLength(strArray str_array: UnsafeMutablePointer<UnsafeMutablePoi
 /// 
 /// If `testpath` includes the component "subprocess" anywhere in it,
 /// the test will be skipped by default, and only run if explicitly
-/// required via the `-p` command-line option or g_test_trap_subprocess().
+/// required via the `-p` command-line option or `g_test_trap_subprocess()`.
 /// 
 /// No component of `testpath` may start with a dot (`.`) if the
 /// `G_TEST_OPTION_ISOLATE_DIRS` option is being used; and it is recommended to
@@ -7026,7 +7045,7 @@ public func testAddDataFunc(testpath: UnsafePointer<CChar>, testData test_data: 
 
 
 
-/// Create a new test case, as with g_test_add_data_func(), but freeing
+/// Create a new test case, as with `g_test_add_data_func()`, but freeing
 /// `test_data` after the test run is complete.
 public func testAddDataFuncFull(testpath: UnsafePointer<CChar>, testData test_data: UnsafeMutableRawPointer, testFunc test_func: @escaping TestDataFunc, dataFreeFunc data_free_func: @escaping DestroyNotify) {
     g_test_add_data_func_full(testpath, cast(test_data), test_func, data_free_func)
@@ -7036,14 +7055,14 @@ public func testAddDataFuncFull(testpath: UnsafePointer<CChar>, testData test_da
 
 
 
-/// Create a new test case, similar to g_test_create_case(). However
+/// Create a new test case, similar to `g_test_create_case()`. However
 /// the test is assumed to use no fixture, and test suites are automatically
 /// created on the fly and added to the root fixture, based on the
 /// slash-separated portions of `testpath`.
 /// 
 /// If `testpath` includes the component "subprocess" anywhere in it,
 /// the test will be skipped by default, and only run if explicitly
-/// required via the `-p` command-line option or g_test_trap_subprocess().
+/// required via the `-p` command-line option or `g_test_trap_subprocess()`.
 /// 
 /// No component of `testpath` may start with a dot (`.`) if the
 /// `G_TEST_OPTION_ISOLATE_DIRS` option is being used; and it is recommended to
@@ -7074,7 +7093,7 @@ public func testAssertExpectedMessagesInternal(domain: UnsafePointer<CChar>, fil
 
 /// This function adds a message to test reports that
 /// associates a bug URI with a test case.
-/// Bug URIs are constructed from a base URI set with g_test_bug_base()
+/// Bug URIs are constructed from a base URI set with `g_test_bug_base()`
 /// and `bug_uri_snippet`.
 public func testBug(bugURISnippet bug_uri_snippet: UnsafePointer<CChar>) {
     g_test_bug(bug_uri_snippet)
@@ -7087,7 +7106,7 @@ public func testBug(bugURISnippet bug_uri_snippet: UnsafePointer<CChar>) {
 /// Specify the base URI for bug reports.
 /// 
 /// The base URI is used to construct bug report messages for
-/// g_test_message() when g_test_bug() is called.
+/// `g_test_message()` when `g_test_bug()` is called.
 /// Calling this function outside of a test case sets the
 /// default base URI for all test cases. Calling it from within
 /// a test case changes the base URI for the scope of the test
@@ -7111,7 +7130,7 @@ public func testBugBase(uriPattern uri_pattern: UnsafePointer<CChar>) {
 
 
 /// Create a new `GTestCase`, named `test_name`, this API is fairly
-/// low level, calling g_test_add() or g_test_add_func() is preferable.
+/// low level, calling `g_test_add()` or `g_test_add_func()` is preferable.
 /// When this test is executed, a fixture structure of size `data_size`
 /// will be automatically allocated and filled with zeros. Then `data_setup` is
 /// called to initialize the fixture. After fixture setup, the actual test
@@ -7121,7 +7140,7 @@ public func testBugBase(uriPattern uri_pattern: UnsafePointer<CChar>) {
 /// 
 /// Splitting up a test run into fixture setup, test function and
 /// fixture teardown is most useful if the same fixture is used for
-/// multiple tests. In this cases, g_test_create_case() will be
+/// multiple tests. In this cases, `g_test_create_case()` will be
 /// called with the same fixture, but varying `test_name` and
 /// `data_test` arguments.
 public func testCreateCase(testName test_name: UnsafePointer<CChar>, dataSize data_size: Int, testData test_data: gconstpointer, dataSetup data_setup: @escaping TestFixtureFunc, dataTest data_test: @escaping TestFixtureFunc, dataTeardown data_teardown: @escaping TestFixtureFunc) -> UnsafeMutablePointer<GTestCase>! {
@@ -7146,20 +7165,21 @@ public func testCreateSuite(suiteName suite_name: UnsafePointer<CChar>) -> Unsaf
 /// message is logged, it will not be printed, and the test case will
 /// not abort.
 /// 
-/// This API may only be used with the old logging API (g_log() without
+/// This API may only be used with the old logging API (`g_log()` without
 /// `G_LOG_USE_STRUCTURED` defined). It will not work with the structured logging
 /// API. See [Testing for Messages][testing-for-messages].
 /// 
-/// Use g_test_assert_expected_messages() to assert that all
+/// Use `g_test_assert_expected_messages()` to assert that all
 /// previously-expected messages have been seen and suppressed.
 /// 
 /// You can call this multiple times in a row, if multiple messages are
 /// expected as a result of a single call. (The messages must appear in
-/// the same order as the calls to g_test_expect_message().)
+/// the same order as the calls to `g_test_expect_message()`.)
 /// 
 /// For example:
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   // g_main_context_push_thread_default() should fail if the
 ///   // context is already owned by another thread.
 ///   g_test_expect_message (G_LOG_DOMAIN,
@@ -7167,14 +7187,14 @@ public func testCreateSuite(suiteName suite_name: UnsafePointer<CChar>) -> Unsaf
 ///                          "assertion*acquired_context*failed");
 ///   g_main_context_push_thread_default (bad_context);
 ///   g_test_assert_expected_messages ();
-/// ]|
+/// ```
 /// 
-/// Note that you cannot use this to test g_error() messages, since
-/// g_error() intentionally never returns even if the program doesn't
-/// abort; use g_test_trap_subprocess() in this case.
+/// Note that you cannot use this to test `g_error()` messages, since
+/// `g_error()` intentionally never returns even if the program doesn't
+/// abort; use `g_test_trap_subprocess()` in this case.
 /// 
 /// If messages at `G_LOG_LEVEL_DEBUG` are emitted, but not explicitly
-/// expected via g_test_expect_message() then they will be ignored.
+/// expected via `g_test_expect_message()` then they will be ignored.
 public func testExpectMessage(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, pattern: UnsafePointer<gchar>) {
     g_test_expect_message(log_domain, log_level, pattern)
 
@@ -7205,8 +7225,8 @@ public func testFail() {
 
 
 /// Returns whether a test has already failed. This will
-/// be the case when g_test_fail(), g_test_incomplete()
-/// or g_test_skip() have been called, but also if an
+/// be the case when `g_test_fail()`, `g_test_incomplete()`
+/// or `g_test_skip()` have been called, but also if an
 /// assertion has failed.
 /// 
 /// This can be useful to return early from a test if
@@ -7225,7 +7245,7 @@ public func testFailed() -> Bool {
 /// Gets the pathname of the directory containing test files of the type
 /// specified by `file_type`.
 /// 
-/// This is approximately the same as calling g_test_build_filename("."),
+/// This is approximately the same as calling `g_test_build_filename(".")`,
 /// but you don't need to free the return value.
 public func testGetDir(fileType file_type: TestFileType) -> String! {
     let rv = g_test_get_dir(file_type)
@@ -7293,9 +7313,9 @@ public func testIncomplete(msg: UnsafePointer<gchar>) {
 /// This handler has no effect on g_error messages.
 /// 
 /// This handler also has no effect on structured log messages (using
-/// g_log_structured() or g_log_structured_array()). To change the fatal
+/// `g_log_structured()` or `g_log_structured_array()`). To change the fatal
 /// behaviour for specific log messages, programs must install a custom log
-/// writer function using g_log_set_writer_func().See
+/// writer function using `g_log_set_writer_func()`.See
 /// [Using Structured Logging][using-structured-logging].
 public func testLogSetFatalHandler(logFunc log_func: @escaping TestLogFatalFunc, userData user_data: UnsafeMutableRawPointer) {
     g_test_log_set_fatal_handler(log_func, cast(user_data))
@@ -7338,8 +7358,8 @@ public func testLogTypeName(logType log_type: TestLogType) -> String! {
 /// during the next test case teardown phase. This is most useful
 /// to auto destruct allocated test resources at the end of a test run.
 /// Resources are released in reverse queue order, that means enqueueing
-/// callback A before callback B will cause B() to be called before
-/// A() during teardown.
+/// callback A before callback B will cause `B()` to be called before
+/// `A()` during teardown.
 public func testQueueDestroy(destroyFunc destroy_func: @escaping DestroyNotify, destroyData destroy_data: UnsafeMutableRawPointer) {
     g_test_queue_destroy(destroy_func, cast(destroy_data))
 
@@ -7348,9 +7368,9 @@ public func testQueueDestroy(destroyFunc destroy_func: @escaping DestroyNotify, 
 
 
 
-/// Enqueue a pointer to be released with g_free() during the next
-/// teardown phase. This is equivalent to calling g_test_queue_destroy()
-/// with a destroy callback of g_free().
+/// Enqueue a pointer to be released with `g_free()` during the next
+/// teardown phase. This is equivalent to calling `g_test_queue_destroy()`
+/// with a destroy callback of `g_free()`.
 public func testQueueFree(gfreePointer gfree_pointer: UnsafeMutableRawPointer) {
     g_test_queue_free(cast(gfree_pointer))
 
@@ -7360,7 +7380,7 @@ public func testQueueFree(gfreePointer gfree_pointer: UnsafeMutableRawPointer) {
 
 
 /// Get a reproducible random floating point number,
-/// see g_test_rand_int() for details on test case random numbers.
+/// see `g_test_rand_int()` for details on test case random numbers.
 public func testRandDouble() -> CDouble {
     let rv = g_test_rand_double()
     return rv
@@ -7370,7 +7390,7 @@ public func testRandDouble() -> CDouble {
 
 
 /// Get a reproducible random floating pointer number out of a specified range,
-/// see g_test_rand_int() for details on test case random numbers.
+/// see `g_test_rand_int()` for details on test case random numbers.
 public func testRandDoubleRange(rangeStart range_start: gdouble, rangeEnd range_end: gdouble) -> CDouble {
     let rv = g_test_rand_double_range(range_start, range_end)
     return rv
@@ -7397,7 +7417,7 @@ public func testRandInt() -> Int32 {
 
 
 /// Get a reproducible random integer number out of a specified range,
-/// see g_test_rand_int() for details on test case random numbers.
+/// see `g_test_rand_int()` for details on test case random numbers.
 public func testRandIntRange(begin: Int32, end: Int32) -> Int32 {
     let rv = g_test_rand_int_range(gint32(begin), gint32(end))
     return Int32(rv)
@@ -7407,10 +7427,10 @@ public func testRandIntRange(begin: Int32, end: Int32) -> Int32 {
 
 
 /// Runs all tests under the toplevel suite which can be retrieved
-/// with g_test_get_root(). Similar to g_test_run_suite(), the test
+/// with `g_test_get_root()`. Similar to `g_test_run_suite()`, the test
 /// cases to be run are filtered according to test path arguments
-/// (`-p testpath` and `-s testpath`) as parsed by g_test_init().
-/// g_test_run_suite() or g_test_run() may only be called once in a
+/// (`-p testpath` and `-s testpath`) as parsed by `g_test_init()`.
+/// `g_test_run_suite()` or `g_test_run()` may only be called once in a
 /// program.
 /// 
 /// In general, the tests and sub-suites within each suite are run in
@@ -7419,7 +7439,7 @@ public func testRandIntRange(begin: Int32, end: Int32) -> Int32 {
 /// functions which caused them to create multiple suites with the same
 /// name, meaning that if you created tests "/foo/simple",
 /// "/bar/simple", and "/foo/using-bar" in that order, they would get
-/// run in that order (since g_test_run() would run the first "/foo"
+/// run in that order (since `g_test_run()` would run the first "/foo"
 /// suite, then the "/bar" suite, then the second "/foo" suite). As of
 /// 2.36, this bug is fixed, and adding the tests in that order would
 /// result in a running order of "/foo/simple", "/foo/using-bar",
@@ -7433,7 +7453,7 @@ public func testRandIntRange(begin: Int32, end: Int32) -> Int32 {
 /// However, you should never make the actual result of a test depend
 /// on the order that tests are run in. If you need to ensure that some
 /// particular code runs before or after a given test case, use
-/// g_test_add(), which lets you specify setup and teardown functions.
+/// `g_test_add()`, which lets you specify setup and teardown functions.
 /// 
 /// If all tests are skipped or marked as incomplete (expected failures),
 /// this function will return 0 if producing TAP output, or 77 (treated
@@ -7449,10 +7469,10 @@ public func testRun() -> CInt {
 /// Execute the tests within `suite` and all nested `GTestSuites`.
 /// The test suites to be executed are filtered according to
 /// test path arguments (`-p testpath` and `-s testpath`) as parsed by
-/// g_test_init(). See the g_test_run() documentation for more
+/// `g_test_init()`. See the `g_test_run()` documentation for more
 /// information on the order that tests are run in.
 /// 
-/// g_test_run_suite() or g_test_run() may only be called once
+/// `g_test_run_suite()` or `g_test_run()` may only be called once
 /// in a program.
 public func testRun(suite: TestSuiteProtocol) -> CInt {
     let rv = g_test_run_suite(cast(suite.ptr))
@@ -7462,19 +7482,19 @@ public func testRun(suite: TestSuiteProtocol) -> CInt {
 
 
 
-/// Changes the behaviour of g_assert_cmpstr(), g_assert_cmpint(),
-/// g_assert_cmpuint(), g_assert_cmphex(), g_assert_cmpfloat(),
-/// g_assert_true(), g_assert_false(), g_assert_null(), g_assert_no_error(),
-/// g_assert_error(), g_test_assert_expected_messages() and the various
+/// Changes the behaviour of `g_assert_cmpstr()`, `g_assert_cmpint()`,
+/// `g_assert_cmpuint()`, `g_assert_cmphex()`, `g_assert_cmpfloat()`,
+/// `g_assert_true()`, `g_assert_false()`, `g_assert_null()`, `g_assert_no_error()`,
+/// `g_assert_error()`, `g_test_assert_expected_messages()` and the various
 /// g_test_trap_assert_*() macros to not abort to program, but instead
-/// call g_test_fail() and continue. (This also changes the behavior of
-/// g_test_fail() so that it will not cause the test program to abort
+/// call `g_test_fail()` and continue. (This also changes the behavior of
+/// `g_test_fail()` so that it will not cause the test program to abort
 /// after completing the failed test.)
 /// 
-/// Note that the g_assert_not_reached() and g_assert() are not
+/// Note that the `g_assert_not_reached()` and `g_assert()` are not
 /// affected by this.
 /// 
-/// This function can only be called after g_test_init().
+/// This function can only be called after `g_test_init()`.
 public func testSetNonfatalAssertions() {
     g_test_set_nonfatal_assertions()
 
@@ -7499,8 +7519,8 @@ public func testSkip(msg: UnsafePointer<gchar>) {
 
 
 
-/// Returns `true` (after g_test_init() has been called) if the test
-/// program is running under g_test_trap_subprocess().
+/// Returns `true` (after `g_test_init()` has been called) if the test
+/// program is running under `g_test_trap_subprocess()`.
 public func testSubprocess() -> Bool {
     let rv = g_test_subprocess()
     return Bool(rv != 0)
@@ -7517,7 +7537,8 @@ public func testSubprocess() -> Bool {
 /// This should be called at the top of a test function.
 /// 
 /// For example:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 /// static void
 /// test_array_sort (void)
 /// {
@@ -7526,7 +7547,8 @@ public func testSubprocess() -> Bool {
 /// 
 ///   …
 /// }
-/// ]|
+/// ```
+/// 
 public func test(summary: UnsafePointer<CChar>) {
     g_test_summary(summary)
 
@@ -7535,7 +7557,7 @@ public func test(summary: UnsafePointer<CChar>) {
 
 
 
-/// Get the time since the last start of the timer with g_test_timer_start().
+/// Get the time since the last start of the timer with `g_test_timer_start()`.
 public func testTimerElapsed() -> CDouble {
     let rv = g_test_timer_elapsed()
     return rv
@@ -7544,7 +7566,7 @@ public func testTimerElapsed() -> CDouble {
 
 
 
-/// Report the last result of g_test_timer_elapsed().
+/// Report the last result of `g_test_timer_elapsed()`.
 public func testTimerLast() -> CDouble {
     let rv = g_test_timer_last()
     return rv
@@ -7553,7 +7575,7 @@ public func testTimerLast() -> CDouble {
 
 
 
-/// Start a timing test. Call g_test_timer_elapsed() when the task is supposed
+/// Start a timing test. Call `g_test_timer_elapsed()` when the task is supposed
 /// to be done. Call this function again to restart the timer.
 public func testTimerStart() {
     g_test_timer_start()
@@ -7584,7 +7606,8 @@ public func testTrapAssertions(domain: UnsafePointer<CChar>, file: UnsafePointer
 /// The forking parent process then asserts successful child program
 /// termination and validates child program outputs.
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   static void
 ///   test_fork_patterns (void)
 ///   {
@@ -7598,7 +7621,8 @@ public func testTrapAssertions(domain: UnsafePointer<CChar>, file: UnsafePointer
 ///     g_test_trap_assert_stdout ("*somagic17*");
 ///     g_test_trap_assert_stderr ("*semagic43*");
 ///   }
-/// ]|
+/// ```
+/// 
 ///
 /// **test_trap_fork is deprecated:**
 /// This function is implemented only on Unix platforms,
@@ -7612,7 +7636,7 @@ public func testTrapAssertions(domain: UnsafePointer<CChar>, file: UnsafePointer
 
 
 
-/// Check the result of the last g_test_trap_subprocess() call.
+/// Check the result of the last `g_test_trap_subprocess()` call.
 public func testTrapHasPassed() -> Bool {
     let rv = g_test_trap_has_passed()
     return Bool(rv != 0)
@@ -7621,7 +7645,7 @@ public func testTrapHasPassed() -> Bool {
 
 
 
-/// Check the result of the last g_test_trap_subprocess() call.
+/// Check the result of the last `g_test_trap_subprocess()` call.
 public func testTrapReachedTimeout() -> Bool {
     let rv = g_test_trap_reached_timeout()
     return Bool(rv != 0)
@@ -7635,7 +7659,7 @@ public func testTrapReachedTimeout() -> Bool {
 /// might abort.
 /// 
 /// If `test_path` is `nil` then the same test is re-run in a subprocess.
-/// You can use g_test_subprocess() to determine whether the test is in
+/// You can use `g_test_subprocess()` to determine whether the test is in
 /// a subprocess or not.
 /// 
 /// `test_path` can also be the name of the parent test, followed by
@@ -7650,22 +7674,23 @@ public func testTrapReachedTimeout() -> Bool {
 /// The subprocess behavior can be configured with the
 /// `GTestSubprocessFlags` flags.
 /// 
-/// You can use methods such as g_test_trap_assert_passed(),
-/// g_test_trap_assert_failed(), and g_test_trap_assert_stderr() to
+/// You can use methods such as `g_test_trap_assert_passed()`,
+/// `g_test_trap_assert_failed()`, and `g_test_trap_assert_stderr()` to
 /// check the results of the subprocess. (But note that
-/// g_test_trap_assert_stdout() and g_test_trap_assert_stderr()
+/// `g_test_trap_assert_stdout()` and `g_test_trap_assert_stderr()`
 /// cannot be used if `test_flags` specifies that the child should
 /// inherit the parent stdout/stderr.)
 /// 
 /// If your `main ()` needs to behave differently in
-/// the subprocess, you can call g_test_subprocess() (after calling
-/// g_test_init()) to see whether you are in a subprocess.
+/// the subprocess, you can call `g_test_subprocess()` (after calling
+/// `g_test_init()`) to see whether you are in a subprocess.
 /// 
 /// The following example tests that calling
-/// `my_object_new(1000000)` will abort with an error
+/// ``my_object_new(1000000)`` will abort with an error
 /// message.
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   static void
 ///   test_create_large_object (void)
 ///   {
@@ -7690,7 +7715,8 @@ public func testTrapReachedTimeout() -> Bool {
 ///                      test_create_large_object);
 ///     return g_test_run ();
 ///   }
-/// ]|
+/// ```
+/// 
 public func testTrapSubprocess(testPath test_path: UnsafePointer<CChar>, usecTimeout usec_timeout: UInt64, testFlags test_flags: TestSubprocessFlags) {
     g_test_trap_subprocess(test_path, guint64(usec_timeout), test_flags)
 
@@ -7709,15 +7735,15 @@ public func threadErrorQuark() -> GQuark {
 
 /// Terminates the current thread.
 /// 
-/// If another thread is waiting for us using g_thread_join() then the
+/// If another thread is waiting for us using `g_thread_join()` then the
 /// waiting thread will be woken up and get `retval` as the return value
-/// of g_thread_join().
+/// of `g_thread_join()`.
 /// 
-/// Calling g_thread_exit() with a parameter `retval` is equivalent to
-/// returning `retval` from the function `func`, as given to g_thread_new().
+/// Calling `g_thread_exit()` with a parameter `retval` is equivalent to
+/// returning `retval` from the function `func`, as given to `g_thread_new()`.
 /// 
-/// You must only call g_thread_exit() from a thread that you created
-/// yourself with g_thread_new() or related APIs. You must not call
+/// You must only call `g_thread_exit()` from a thread that you created
+/// yourself with `g_thread_new()` or related APIs. You must not call
 /// this function from a thread created with another threading library
 /// or or from within a `GThreadPool`.
 public func threadExit(retval: UnsafeMutableRawPointer) {
@@ -7763,7 +7789,7 @@ public func threadPoolGetNumUnusedThreads() -> CUnsignedInt {
 /// This function will set the maximum `interval` that a thread
 /// waiting in the pool for new tasks can be idle for before
 /// being stopped. This function is similar to calling
-/// g_thread_pool_stop_unused_threads() on a regular timeout,
+/// `g_thread_pool_stop_unused_threads()` on a regular timeout,
 /// except this is done on a per thread basis.
 /// 
 /// By setting `interval` to 0, idle threads will not be stopped.
@@ -7792,7 +7818,7 @@ public func threadPoolSetMaxUnusedThreads(maxThreads max_threads: CInt) {
 
 /// Stops all currently unused threads. This does not change the
 /// maximal number of unused threads. This function can be used to
-/// regularly stop all unused threads e.g. from g_timeout_add().
+/// regularly stop all unused threads e.g. from `g_timeout_add()`.
 public func threadPoolStopUnusedThreads() {
     g_thread_pool_stop_unused_threads()
 
@@ -7809,7 +7835,7 @@ public func threadPoolStopUnusedThreads() {
 /// were not created by GLib (i.e. those created by other threading
 /// APIs). This may be useful for thread identification purposes
 /// (i.e. comparisons) but you must not use GLib functions (such
-/// as g_thread_join()) on these threads.
+/// as `g_thread_join()`) on these threads.
 public func threadSelf() -> UnsafeMutablePointer<GThread>! {
     let rv = g_thread_self()
     return cast(rv)
@@ -7842,11 +7868,12 @@ public func threadYield() {
 /// 
 /// This function was deprecated, along with `GTimeVal` itself, in GLib 2.62.
 /// Equivalent functionality is available using code like:
-/// |[
+/// ```
 /// GDateTime *dt = g_date_time_new_from_iso8601 (iso8601_string, NULL);
 /// gint64 time_val = g_date_time_to_unix (dt);
 /// g_date_time_unref (dt);
-/// ]|
+/// ```
+/// 
 ///
 /// **time_val_from_iso8601 is deprecated:**
 /// #GTimeVal is not year-2038-safe. Use
@@ -7876,17 +7903,17 @@ public func threadYield() {
 /// 
 /// If you want to have a timer in the "seconds" range and do not care
 /// about the exact time of the first call of the timer, use the
-/// g_timeout_add_seconds() function; this function allows for more
+/// `g_timeout_add_seconds()` function; this function allows for more
 /// optimizations and more efficient system power usage.
 /// 
-/// This internally creates a main loop source using g_timeout_source_new()
-/// and attaches it to the global `GMainContext` using g_source_attach(), so
+/// This internally creates a main loop source using `g_timeout_source_new()`
+/// and attaches it to the global `GMainContext` using `g_source_attach()`, so
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
-/// time.  See g_get_monotonic_time().
+/// time.  See `g_get_monotonic_time()`.
 public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = g_timeout_add(guint(interval), function, cast(data))
     return CUnsignedInt(rv)
@@ -7911,14 +7938,14 @@ public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, d
 /// See [memory management of sources][mainloop-memory-management] for details
 /// on how to handle the return value and memory management of `data`.
 /// 
-/// This internally creates a main loop source using g_timeout_source_new()
-/// and attaches it to the global `GMainContext` using g_source_attach(), so
+/// This internally creates a main loop source using `g_timeout_source_new()`
+/// and attaches it to the global `GMainContext` using `g_source_attach()`, so
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock time.
-/// See g_get_monotonic_time().
+/// See `g_get_monotonic_time()`.
 public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_timeout_add_full(gint(priority), guint(interval), function, cast(data), notify)
     return CUnsignedInt(rv)
@@ -7933,19 +7960,19 @@ public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @es
 /// and the function will not be called again.
 /// 
 /// This internally creates a main loop source using
-/// g_timeout_source_new_seconds() and attaches it to the main loop context
-/// using g_source_attach(). You can do these steps manually if you need
-/// greater control. Also see g_timeout_add_seconds_full().
+/// `g_timeout_source_new_seconds()` and attaches it to the main loop context
+/// using `g_source_attach()`. You can do these steps manually if you need
+/// greater control. Also see `g_timeout_add_seconds_full()`.
 /// 
 /// Note that the first call of the timer may not be precise for timeouts
 /// of one second. If you need finer precision and have such a timeout,
-/// you may want to use g_timeout_add() instead.
+/// you may want to use `g_timeout_add()` instead.
 /// 
 /// See [memory management of sources][mainloop-memory-management] for details
 /// on how to handle the return value and memory management of `data`.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
-/// time.  See g_get_monotonic_time().
+/// time.  See `g_get_monotonic_time()`.
 public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = g_timeout_add_seconds(guint(interval), function, cast(data))
     return CUnsignedInt(rv)
@@ -7959,7 +7986,7 @@ public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping Source
 /// point the timeout is automatically destroyed and the function will
 /// not be called again.
 /// 
-/// Unlike g_timeout_add(), this function operates at whole second granularity.
+/// Unlike `g_timeout_add()`, this function operates at whole second granularity.
 /// The initial starting point of the timer is determined by the implementation
 /// and the implementation is expected to group multiple timers together so that
 /// they fire all at the same time.
@@ -7975,21 +8002,21 @@ public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping Source
 /// See [memory management of sources][mainloop-memory-management] for details
 /// on how to handle the return value and memory management of `data`.
 /// 
-/// If you want timing more precise than whole seconds, use g_timeout_add()
+/// If you want timing more precise than whole seconds, use `g_timeout_add()`
 /// instead.
 /// 
 /// The grouping of timers to fire at the same time results in a more power
 /// and CPU efficient behavior so if your timer is in multiples of seconds
 /// and you don't require the first timer exactly one second from now, the
-/// use of g_timeout_add_seconds() is preferred over g_timeout_add().
+/// use of `g_timeout_add_seconds()` is preferred over `g_timeout_add()`.
 /// 
 /// This internally creates a main loop source using
-/// g_timeout_source_new_seconds() and attaches it to the main loop context
-/// using g_source_attach(). You can do these steps manually if you need
+/// `g_timeout_source_new_seconds()` and attaches it to the main loop context
+/// using `g_source_attach()`. You can do these steps manually if you need
 /// greater control.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
-/// time.  See g_get_monotonic_time().
+/// time.  See `g_get_monotonic_time()`.
 public func timeoutAddSecondsFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_timeout_add_seconds_full(gint(priority), guint(interval), function, cast(data), notify)
     return CUnsignedInt(rv)
@@ -8001,11 +8028,11 @@ public func timeoutAddSecondsFull(priority: CInt, interval: CUnsignedInt, functi
 /// Creates a new timeout source.
 /// 
 /// The source will not initially be associated with any `GMainContext`
-/// and must be added to one with g_source_attach() before it will be
+/// and must be added to one with `g_source_attach()` before it will be
 /// executed.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
-/// time.  See g_get_monotonic_time().
+/// time.  See `g_get_monotonic_time()`.
 public func timeoutSourceNew(interval: CUnsignedInt) -> UnsafeMutablePointer<GSource>! {
     let rv = g_timeout_source_new(guint(interval))
     return cast(rv)
@@ -8017,14 +8044,14 @@ public func timeoutSourceNew(interval: CUnsignedInt) -> UnsafeMutablePointer<GSo
 /// Creates a new timeout source.
 /// 
 /// The source will not initially be associated with any `GMainContext`
-/// and must be added to one with g_source_attach() before it will be
+/// and must be added to one with `g_source_attach()` before it will be
 /// executed.
 /// 
 /// The scheduling granularity/accuracy of this timeout source will be
 /// in seconds.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock time.
-/// See g_get_monotonic_time().
+/// See `g_get_monotonic_time()`.
 public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePointer<GSource>! {
     let rv = g_timeout_source_new_seconds(guint(interval))
     return cast(rv)
@@ -8035,7 +8062,7 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 
 /// Returns the height of a `GTrashStack`.
 /// 
-/// Note that execution of this function is of O(N) complexity
+/// Note that execution of this function is of `O(N)` complexity
 /// where N denotes the number of items on the stack.
 ///
 /// **trash_stack_height is deprecated:**
@@ -8086,7 +8113,7 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 
 
 /// Attempts to allocate `n_bytes`, and returns `nil` on failure.
-/// Contrast with g_malloc(), which aborts the program on failure.
+/// Contrast with `g_malloc()`, which aborts the program on failure.
 public func tryMalloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_malloc(gsize(n_bytes))
     return cast(rv)
@@ -8096,7 +8123,7 @@ public func tryMalloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 
 
 /// Attempts to allocate `n_bytes`, initialized to 0's, and returns `nil` on
-/// failure. Contrast with g_malloc0(), which aborts the program on failure.
+/// failure. Contrast with `g_malloc0()`, which aborts the program on failure.
 public func tryMalloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_malloc0(gsize(n_bytes))
     return cast(rv)
@@ -8105,7 +8132,7 @@ public func tryMalloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 
 
 
-/// This function is similar to g_try_malloc0(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_try_malloc0()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryMalloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_malloc0_n(gsize(n_blocks), gsize(n_block_bytes))
@@ -8115,7 +8142,7 @@ public func tryMalloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -
 
 
 
-/// This function is similar to g_try_malloc(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_try_malloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryMallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_malloc_n(gsize(n_blocks), gsize(n_block_bytes))
@@ -8126,10 +8153,10 @@ public func tryMallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) ->
 
 
 /// Attempts to realloc `mem` to a new size, `n_bytes`, and returns `nil`
-/// on failure. Contrast with g_realloc(), which aborts the program
+/// on failure. Contrast with `g_realloc()`, which aborts the program
 /// on failure.
 /// 
-/// If `mem` is `nil`, behaves the same as g_try_malloc().
+/// If `mem` is `nil`, behaves the same as `g_try_malloc()`.
 public func tryRealloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_realloc(cast(mem), gsize(n_bytes))
     return cast(rv)
@@ -8138,7 +8165,7 @@ public func tryRealloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> Uns
 
 
 
-/// This function is similar to g_try_realloc(), allocating (`n_blocks` * `n_block_bytes`) bytes,
+/// This function is similar to `g_try_realloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryReallocN(mem: UnsafeMutableRawPointer, nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
     let rv = g_try_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes))
@@ -8178,10 +8205,10 @@ public func ucs4ToUTF8(str: UnsafePointer<gunichar>, len: CLong, itemsRead items
 
 /// Determines the break type of `c`. `c` should be a Unicode character
 /// (to derive a character from UTF-8 encoded text, use
-/// g_utf8_get_char()). The break type is used to find word and line
+/// `g_utf8_get_char()`). The break type is used to find word and line
 /// breaks ("text boundaries"), Pango implements the Unicode boundary
 /// resolution algorithms and normally you would use a function such
-/// as pango_break() instead of caring about break types yourself.
+/// as `pango_break()` instead of caring about break types yourself.
 public func unicharBreakType(c: gunichar) -> GUnicodeBreakType {
     let rv = g_unichar_break_type(c)
     return rv
@@ -8203,7 +8230,7 @@ public func unicharCombiningClass(uc: gunichar) -> CInt {
 /// Unicode canonical composition algorithm.
 /// 
 /// This function includes algorithmic Hangul Jamo composition,
-/// but it is not exactly the inverse of g_unichar_decompose().
+/// but it is not exactly the inverse of `g_unichar_decompose()`.
 /// No composition can have either of `a` or `b` equal to zero.
 /// To be precise, this function composes if and only if
 /// there exists a Primary Composite P which is canonically
@@ -8241,7 +8268,7 @@ public func unicharCompose(a: gunichar, b: gunichar, ch: UnsafeMutablePointer<gu
 /// further, but `a` may itself decompose.  To get the full
 /// canonical decomposition for `ch`, one would need to
 /// recursively call this function on `a`.  Or use
-/// g_unichar_fully_decompose().
+/// `g_unichar_fully_decompose()`.
 /// 
 /// See
 /// [UAX`15`](http://unicode.org/reports/tr15/)
@@ -8313,7 +8340,7 @@ public func unicharGetMirrorChar(ch: gunichar, mirroredCh mirrored_ch: UnsafeMut
 /// valid Unicode character; if you pass in invalid character, the
 /// result is undefined.
 /// 
-/// This function is equivalent to pango_script_for_unichar() and the
+/// This function is equivalent to `pango_script_for_unichar()` and the
 /// two are interchangeable.
 public func unicharGetScript(ch: gunichar) -> GUnicodeScript {
     let rv = g_unichar_get_script(ch)
@@ -8325,7 +8352,7 @@ public func unicharGetScript(ch: gunichar) -> GUnicodeScript {
 
 /// Determines whether a character is alphanumeric.
 /// Given some UTF-8 text, obtain a character value
-/// with g_utf8_get_char().
+/// with `g_utf8_get_char()`.
 public func unicharIsalnum(c: gunichar) -> Bool {
     let rv = g_unichar_isalnum(c)
     return Bool(rv != 0)
@@ -8336,7 +8363,7 @@ public func unicharIsalnum(c: gunichar) -> Bool {
 
 /// Determines whether a character is alphabetic (i.e. a letter).
 /// Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIsalpha(c: gunichar) -> Bool {
     let rv = g_unichar_isalpha(c)
     return Bool(rv != 0)
@@ -8347,7 +8374,7 @@ public func unicharIsalpha(c: gunichar) -> Bool {
 
 /// Determines whether a character is a control character.
 /// Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIscntrl(c: gunichar) -> Bool {
     let rv = g_unichar_iscntrl(c)
     return Bool(rv != 0)
@@ -8368,7 +8395,7 @@ public func unicharIsdefined(c: gunichar) -> Bool {
 
 /// Determines whether a character is numeric (i.e. a digit).  This
 /// covers ASCII 0-9 and also digits in other languages/scripts.  Given
-/// some UTF-8 text, obtain a character value with g_utf8_get_char().
+/// some UTF-8 text, obtain a character value with `g_utf8_get_char()`.
 public func unicharIsdigit(c: gunichar) -> Bool {
     let rv = g_unichar_isdigit(c)
     return Bool(rv != 0)
@@ -8379,9 +8406,9 @@ public func unicharIsdigit(c: gunichar) -> Bool {
 
 /// Determines whether a character is printable and not a space
 /// (returns `false` for control characters, format characters, and
-/// spaces). g_unichar_isprint() is similar, but returns `true` for
+/// spaces). `g_unichar_isprint()` is similar, but returns `true` for
 /// spaces. Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIsgraph(c: gunichar) -> Bool {
     let rv = g_unichar_isgraph(c)
     return Bool(rv != 0)
@@ -8392,7 +8419,7 @@ public func unicharIsgraph(c: gunichar) -> Bool {
 
 /// Determines whether a character is a lowercase letter.
 /// Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIslower(c: gunichar) -> Bool {
     let rv = g_unichar_islower(c)
     return Bool(rv != 0)
@@ -8404,7 +8431,7 @@ public func unicharIslower(c: gunichar) -> Bool {
 /// Determines whether a character is a mark (non-spacing mark,
 /// combining mark, or enclosing mark in Unicode speak).
 /// Given some UTF-8 text, obtain a character value
-/// with g_utf8_get_char().
+/// with `g_utf8_get_char()`.
 /// 
 /// Note: in most cases where isalpha characters are allowed,
 /// ismark characters should be allowed to as they are essential
@@ -8419,9 +8446,9 @@ public func unicharIsmark(c: gunichar) -> Bool {
 
 
 /// Determines whether a character is printable.
-/// Unlike g_unichar_isgraph(), returns `true` for spaces.
+/// Unlike `g_unichar_isgraph()`, returns `true` for spaces.
 /// Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIsprint(c: gunichar) -> Bool {
     let rv = g_unichar_isprint(c)
     return Bool(rv != 0)
@@ -8432,7 +8459,7 @@ public func unicharIsprint(c: gunichar) -> Bool {
 
 /// Determines whether a character is punctuation or a symbol.
 /// Given some UTF-8 text, obtain a character value with
-/// g_utf8_get_char().
+/// `g_utf8_get_char()`.
 public func unicharIspunct(c: gunichar) -> Bool {
     let rv = g_unichar_ispunct(c)
     return Bool(rv != 0)
@@ -8443,7 +8470,7 @@ public func unicharIspunct(c: gunichar) -> Bool {
 
 /// Determines whether a character is a space, tab, or line separator
 /// (newline, carriage return, etc.).  Given some UTF-8 text, obtain a
-/// character value with g_utf8_get_char().
+/// character value with `g_utf8_get_char()`.
 /// 
 /// (Note: don't use this to do word breaking; you have to use
 /// Pango or equivalent to get word breaking right, the algorithm
@@ -8491,14 +8518,14 @@ public func unicharIswide(c: gunichar) -> Bool {
 
 /// Determines if a character is typically rendered in a double-width
 /// cell under legacy East Asian locales.  If a character is wide according to
-/// g_unichar_iswide(), then it is also reported wide with this function, but
+/// `g_unichar_iswide()`, then it is also reported wide with this function, but
 /// the converse is not necessarily true. See the
 /// [Unicode Standard Annex `11`](http://www.unicode.org/reports/tr11/)
 /// for details.
 /// 
-/// If a character passes the g_unichar_iswide() test then it will also pass
+/// If a character passes the `g_unichar_iswide()` test then it will also pass
 /// this test, but not the other way around.  Note that some characters may
-/// pass both this test and g_unichar_iszerowidth().
+/// pass both this test and `g_unichar_iszerowidth()`.
 public func unicharIswideCjk(c: gunichar) -> Bool {
     let rv = g_unichar_iswide_cjk(c)
     return Bool(rv != 0)
@@ -8521,8 +8548,8 @@ public func unicharIsxdigit(c: gunichar) -> Bool {
 /// (e.g., combining accents), format characters, zero-width
 /// space, but not U+00AD SOFT HYPHEN.
 /// 
-/// A typical use of this function is with one of g_unichar_iswide() or
-/// g_unichar_iswide_cjk() to determine the number of cells a string occupies
+/// A typical use of this function is with one of `g_unichar_iswide()` or
+/// `g_unichar_iswide_cjk()` to determine the number of cells a string occupies
 /// when displayed on a grid display (terminals).  However, note that not all
 /// terminals support zero-width rendering of zero-width marks.
 public func unicharIszerowidth(c: gunichar) -> Bool {
@@ -8675,7 +8702,7 @@ public func unixErrorQuark() -> GQuark {
 /// when it happens again.  If `function` returns `false` then the watch
 /// will be cancelled.
 /// 
-/// The return value of this function can be passed to g_source_remove()
+/// The return value of this function can be passed to `g_source_remove()`
 /// to cancel the watch at any time that it exists.
 /// 
 /// The source will never close the fd -- you must do it yourself.
@@ -8690,7 +8717,7 @@ public func unixFdAdd(fd: CInt, condition: IOCondition, function: @escaping Unix
 /// Sets a function to be called when the IO condition, as specified by
 /// `condition` becomes true for `fd`.
 /// 
-/// This is the same as g_unix_fd_add(), except that it allows you to
+/// This is the same as `g_unix_fd_add()`, except that it allows you to
 /// specify a non-default priority and a provide a `GDestroyNotify` for
 /// `user_data`.
 public func unixFdAddFull(priority: CInt, fd: CInt, condition: IOCondition, function: @escaping UnixFDSourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
@@ -8713,14 +8740,14 @@ public func unixFdSourceNew(fd: CInt, condition: IOCondition) -> UnsafeMutablePo
 
 
 
-/// Similar to the UNIX pipe() call, but on modern systems like Linux
-/// uses the pipe2() system call, which atomically creates a pipe with
+/// Similar to the UNIX `pipe()` call, but on modern systems like Linux
+/// uses the `pipe2()` system call, which atomically creates a pipe with
 /// the configured flags. The only supported flag currently is
 /// `FD_CLOEXEC`. If for example you want to configure `O_NONBLOCK`, that
-/// must still be done separately with fcntl().
+/// must still be done separately with `fcntl()`.
 /// 
 /// This function does not take `O_CLOEXEC`, it takes `FD_CLOEXEC` as if
-/// for fcntl(); these are different on Linux/glibc.
+/// for `fcntl()`; these are different on Linux/glibc.
 public func unixOpenPipe(fds: UnsafeMutablePointer<CInt>, flags: CInt) throws -> Bool {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_unix_open_pipe(cast(fds), gint(flags), &error)
@@ -8748,9 +8775,9 @@ public func unixSetFdNonblocking(fd: CInt, nonblock: Bool) throws -> Bool {
 
 
 
-/// A convenience function for g_unix_signal_source_new(), which
+/// A convenience function for `g_unix_signal_source_new()`, which
 /// attaches to the default `GMainContext`.  You can remove the watch
-/// using g_source_remove().
+/// using `g_source_remove()`.
 public func unixSignalAdd(signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = g_unix_signal_add(gint(signum), handler, cast(user_data))
     return CUnsignedInt(rv)
@@ -8759,9 +8786,9 @@ public func unixSignalAdd(signum: CInt, handler: @escaping SourceFunc, userData 
 
 
 
-/// A convenience function for g_unix_signal_source_new(), which
+/// A convenience function for `g_unix_signal_source_new()`, which
 /// attaches to the default `GMainContext`.  You can remove the watch
-/// using g_source_remove().
+/// using `g_source_remove()`.
 public func unixSignalAddFull(priority: CInt, signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
     let rv = g_unix_signal_add_full(gint(priority), gint(signum), handler, cast(user_data), notify)
     return CUnsignedInt(rv)
@@ -8777,21 +8804,21 @@ public func unixSignalAddFull(priority: CInt, signum: CInt, handler: @escaping S
 /// 
 /// Note that unlike the UNIX default, all sources which have created a
 /// watch will be dispatched, regardless of which underlying thread
-/// invoked g_unix_signal_source_new().
+/// invoked `g_unix_signal_source_new()`.
 /// 
 /// For example, an effective use of this function is to handle `SIGTERM`
 /// cleanly; flushing any outstanding files, and then calling
 /// g_main_loop_quit ().  It is not safe to do any of this a regular
-/// UNIX signal handler; your handler may be invoked while malloc() or
+/// UNIX signal handler; your handler may be invoked while `malloc()` or
 /// another library function is running, causing reentrancy if you
 /// attempt to use it from the handler.  None of the GLib/GObject API
 /// is safe against this kind of reentrancy.
 /// 
 /// The interaction of this source when combined with native UNIX
-/// functions like sigprocmask() is not defined.
+/// functions like `sigprocmask()` is not defined.
 /// 
 /// The source will not initially be associated with any `GMainContext`
-/// and must be added to one with g_source_attach() before it will be
+/// and must be added to one with `g_source_attach()` before it will be
 /// executed.
 public func unixSignalSourceNew(signum: CInt) -> UnsafeMutablePointer<GSource>! {
     let rv = g_unix_signal_source_new(gint(signum))
@@ -8801,12 +8828,12 @@ public func unixSignalSourceNew(signum: CInt) -> UnsafeMutablePointer<GSource>! 
 
 
 
-/// A wrapper for the POSIX unlink() function. The unlink() function
+/// A wrapper for the POSIX `unlink()` function. The `unlink()` function
 /// deletes a name from the filesystem. If this was the last link to the
 /// file and no processes have it opened, the diskspace occupied by the
 /// file is freed.
 /// 
-/// See your C library manual for more details about unlink(). Note
+/// See your C library manual for more details about `unlink()`. Note
 /// that on Windows, it is in general not possible to delete files that
 /// are open to some process, or mapped into memory.
 public func unlink(String_: UnsafePointer<gchar>) -> CInt {
@@ -8824,16 +8851,16 @@ public func unlink(String_: UnsafePointer<gchar>) -> CInt {
 /// 
 /// You should be mindful of the fact that environment variable handling
 /// in UNIX is not thread-safe, and your program may crash if one thread
-/// calls g_unsetenv() while another thread is calling getenv(). (And note
-/// that many functions, such as gettext(), call getenv() internally.) This
+/// calls `g_unsetenv()` while another thread is calling `getenv()`. (And note
+/// that many functions, such as `gettext()`, call `getenv()` internally.) This
 /// function is only safe to use at the very start of your program, before
 /// creating any other threads (or creating objects that create worker
 /// threads of their own).
 /// 
 /// If you need to set up the environment for a child process, you can
-/// use g_get_environ() to get an environment array, modify that with
-/// g_environ_setenv() and g_environ_unsetenv(), and then pass that
-/// array directly to execvpe(), g_spawn_async(), or the like.
+/// use `g_get_environ()` to get an environment array, modify that with
+/// `g_environ_setenv()` and `g_environ_unsetenv()`, and then pass that
+/// array directly to `execvpe()`, `g_spawn_async()`, or the like.
 public func unsetenv(variable: UnsafePointer<gchar>) {
     g_unsetenv(variable)
 
@@ -8870,9 +8897,9 @@ public func uriListExtractURIs(uriList uri_list: UnsafePointer<gchar>) -> Unsafe
 
 
 /// Gets the scheme portion of a URI string. RFC 3986 decodes the scheme as:
-/// |[
-/// URI = scheme ":" hier-part [ "?" query ] [ "``" fragment ]
-/// ]|
+/// ```
+/// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+/// ```
 /// Common schemes include "file", "http", "svn+ssh", etc.
 public func uriParseScheme(uri: UnsafePointer<CChar>) -> String! {
     let rv = g_uri_parse_scheme(uri)
@@ -8915,7 +8942,7 @@ public func uriUnescapeString(escapedString escaped_string: UnsafePointer<CChar>
 /// Pauses the current thread for the given number of microseconds.
 /// 
 /// There are 1 million microseconds per second (represented by the
-/// `G_USEC_PER_SEC` macro). g_usleep() may have limited precision,
+/// `G_USEC_PER_SEC` macro). `g_usleep()` may have limited precision,
 /// depending on hardware and operating system; don't rely on the exact
 /// length of the sleep.
 public func usleep(microseconds: CUnsignedLong) {
@@ -8945,7 +8972,7 @@ public func utf16ToUCS4(str: UnsafePointer<gunichar2>, len: CLong, itemsRead ite
 /// 
 /// Note that the input is expected to be already in native endianness,
 /// an initial byte-order-mark character is not handled specially.
-/// g_convert() can be used to convert a byte buffer of UTF-16 data of
+/// `g_convert()` can be used to convert a byte buffer of UTF-16 data of
 /// ambiguous endianess.
 /// 
 /// Further note that this function does not validate the result
@@ -8968,9 +8995,9 @@ public func utf16ToUTF8(str: UnsafePointer<gunichar2>, len: CLong, itemsRead ite
 /// Converts a string into a form that is independent of case. The
 /// result will not correspond to any particular case, but can be
 /// compared for equality or ordered with the results of calling
-/// g_utf8_casefold() on other strings.
+/// `g_utf8_casefold()` on other strings.
 /// 
-/// Note that calling g_utf8_casefold() followed by g_utf8_collate() is
+/// Note that calling `g_utf8_casefold()` followed by `g_utf8_collate()` is
 /// only an approximation to the correct linguistic case insensitive
 /// ordering, though it is a fairly good one. Getting this exactly
 /// right would require a more sophisticated collation function that
@@ -8987,8 +9014,8 @@ public func utf8Casefold(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// Compares two strings for ordering using the linguistically
 /// correct rules for the [current locale][setlocale].
 /// When sorting a large number of strings, it will be significantly
-/// faster to obtain collation keys with g_utf8_collate_key() and
-/// compare the keys with strcmp() when sorting instead of sorting
+/// faster to obtain collation keys with `g_utf8_collate_key()` and
+/// compare the keys with `strcmp()` when sorting instead of sorting
 /// the original strings.
 public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) -> CInt {
     let rv = g_utf8_collate(str1, str2)
@@ -9000,11 +9027,11 @@ public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) 
 
 /// Converts a string into a collation key that can be compared
 /// with other collation keys produced by the same function using
-/// strcmp().
+/// `strcmp()`.
 /// 
 /// The results of comparing the collation keys of two strings
-/// with strcmp() will always be the same as comparing the two
-/// original keys with g_utf8_collate().
+/// with `strcmp()` will always be the same as comparing the two
+/// original keys with `g_utf8_collate()`.
 /// 
 /// Note that this function depends on the [current locale][setlocale].
 public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
@@ -9016,7 +9043,7 @@ public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
 
 
 /// Converts a string into a collation key that can be compared
-/// with other collation keys produced by the same function using strcmp().
+/// with other collation keys produced by the same function using `strcmp()`.
 /// 
 /// In order to sort filenames correctly, this function treats the dot '.'
 /// as a special case. Most dictionary orderings seem to consider it
@@ -9071,7 +9098,7 @@ public func utf8FindPrevChar(str: UnsafePointer<gchar>, p: UnsafePointer<gchar>)
 /// 
 /// If `p` does not point to a valid UTF-8 encoded character, results
 /// are undefined. If you are not sure that the bytes are complete
-/// valid Unicode characters, you should use g_utf8_get_char_validated()
+/// valid Unicode characters, you should use `g_utf8_get_char_validated()`
 /// instead.
 public func utf8GetChar(p: UnsafePointer<gchar>) -> gunichar {
     let rv = g_utf8_get_char(p)
@@ -9086,7 +9113,7 @@ public func utf8GetChar(p: UnsafePointer<gchar>) -> gunichar {
 /// such as characters that are out of the range of Unicode, and for
 /// overlong encodings of valid characters.
 /// 
-/// Note that g_utf8_get_char_validated() returns (gunichar)-2 if
+/// Note that `g_utf8_get_char_validated()` returns (gunichar)-2 if
 /// `max_len` is positive and any of the bytes in the first UTF-8 character
 /// sequence are nul.
 public func utf8GetCharValidated(p: UnsafePointer<gchar>, maxLen max_len: gssize) -> gunichar {
@@ -9119,7 +9146,7 @@ public func utf8MakeValid(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// is represented as a base character and combining
 /// accent or as a single precomposed character. The
 /// string has to be valid UTF-8, otherwise `nil` is
-/// returned. You should generally call g_utf8_normalize()
+/// returned. You should generally call `g_utf8_normalize()`
 /// before comparing two Unicode strings.
 /// 
 /// The normalization mode `G_NORMALIZE_DEFAULT` only
@@ -9157,7 +9184,7 @@ public func utf8Normalize(str: UnsafePointer<gchar>, len: gssize, mode: Normaliz
 /// 
 /// Note that this function doesn't abort when reaching the end of `str`.
 /// Therefore you should be sure that `offset` is within string boundaries
-/// before calling that function. Call g_utf8_strlen() when unsure.
+/// before calling that function. Call `g_utf8_strlen()` when unsure.
 /// This limitation exists as this function is called frequently during
 /// text rendering and therefore has to be as fast as possible.
 public func utf8OffsetToPointer(str: UnsafePointer<gchar>, offset: CLong) -> String! {
@@ -9186,7 +9213,7 @@ public func utf8PointerToOffset(str: UnsafePointer<gchar>, pos: UnsafePointer<gc
 /// `p` does not have to be at the beginning of a UTF-8 character. No check
 /// is made to see if the character found is actually valid other than
 /// it starts with an appropriate byte. If `p` might be the first
-/// character of the string, you must use g_utf8_find_prev_char() instead.
+/// character of the string, you must use `g_utf8_find_prev_char()` instead.
 public func utf8PrevChar(p: UnsafePointer<gchar>) -> String! {
     let rv = g_utf8_prev_char(p)
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -9229,9 +9256,9 @@ public func utf8Strlen(p: UnsafePointer<gchar>, max: gssize) -> CLong {
 
 
 
-/// Like the standard C strncpy() function, but copies a given number
+/// Like the standard C `strncpy()` function, but copies a given number
 /// of characters instead of a given number of bytes. The `src` string
-/// must be valid UTF-8 encoded text. (Use g_utf8_validate() on all
+/// must be valid UTF-8 encoded text. (Use `g_utf8_validate()` on all
 /// text before trying to use UTF-8 utility functions with it.)
 /// 
 /// Note you must ensure `dest` is at least 4 * `n` to fit the
@@ -9256,7 +9283,7 @@ public func utf8Strrchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> St
 
 
 /// Reverses a UTF-8 string. `str` must be valid UTF-8 encoded text.
-/// (Use g_utf8_validate() on all text before trying to use UTF-8
+/// (Use `g_utf8_validate()` on all text before trying to use UTF-8
 /// utility functions with it.)
 /// 
 /// This function is intended for programmatic uses of reversed strings.
@@ -9265,8 +9292,8 @@ public func utf8Strrchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> St
 /// characters which might need special handling when reversing a string
 /// for display purposes.
 /// 
-/// Note that unlike g_strreverse(), this function returns
-/// newly-allocated memory, which should be freed with g_free() when
+/// Note that unlike `g_strreverse()`, this function returns
+/// newly-allocated memory, which should be freed with `g_free()` when
 /// no longer needed.
 public func utf8Strreverse(str: UnsafePointer<gchar>, len: gssize) -> String! {
     let rv = g_utf8_strreverse(str, len)
@@ -9316,7 +9343,7 @@ public func utf8ToUCS4(str: UnsafePointer<gchar>, len: CLong, itemsRead items_re
 
 /// Convert a string from UTF-8 to a 32-bit fixed width
 /// representation as UCS-4, assuming valid UTF-8 input.
-/// This function is roughly twice as fast as g_utf8_to_ucs4()
+/// This function is roughly twice as fast as `g_utf8_to_ucs4()`
 /// but does no error checking on the input. A trailing 0 character
 /// will be added to the string after the converted text.
 public func utf8ToUCS4Fast(str: UnsafePointer<gchar>, len: CLong, itemsWritten items_written: UnsafeMutablePointer<CLong>) -> UnsafeMutablePointer<gunichar>! {
@@ -9349,12 +9376,12 @@ public func utf8ToUTF16(str: UnsafePointer<gchar>, len: CLong, itemsRead items_r
 /// character if some bytes were invalid, or the end of the text
 /// being validated otherwise).
 /// 
-/// Note that g_utf8_validate() returns `false` if `max_len` is
+/// Note that `g_utf8_validate()` returns `false` if `max_len` is
 /// positive and any of the `max_len` bytes are nul.
 /// 
 /// Returns `true` if all of `str` was valid. Many GLib and GTK+
 /// routines require valid UTF-8 as input; so data read from a file
-/// or the network should be checked with g_utf8_validate() before
+/// or the network should be checked with `g_utf8_validate()` before
 /// doing anything else with it.
 public func utf8Validate(str: UnsafePointer<gchar>, maxLen max_len: gssize, end: UnsafePointer<UnsafePointer<gchar>>) -> Bool {
     let rv = g_utf8_validate(cast(str), max_len, cast(end))
@@ -9366,7 +9393,7 @@ public func utf8Validate(str: UnsafePointer<gchar>, maxLen max_len: gssize, end:
 
 /// Validates UTF-8 encoded text.
 /// 
-/// As with g_utf8_validate(), but `max_len` must be set, and hence this function
+/// As with `g_utf8_validate()`, but `max_len` must be set, and hence this function
 /// will always return `false` if any of the bytes of `str` are nul.
 public func utf8ValidateLen(str: UnsafePointer<gchar>, maxLen max_len: Int, end: UnsafePointer<UnsafePointer<gchar>>) -> Bool {
     let rv = g_utf8_validate_len(cast(str), gsize(max_len), cast(end))
@@ -9411,7 +9438,7 @@ public func variantGetGtype() -> GType {
 
 /// Determines if a given string is a valid D-Bus object path.  You
 /// should ensure that a string is a valid D-Bus object path before
-/// passing it to g_variant_new_object_path().
+/// passing it to `g_variant_new_object_path()`.
 /// 
 /// A valid object path starts with `/` followed by zero or more
 /// sequences of characters separated by `/` characters.  Each sequence
@@ -9427,7 +9454,7 @@ public func variantIsObjectPath(string: UnsafePointer<gchar>) -> Bool {
 
 /// Determines if a given string is a valid D-Bus type signature.  You
 /// should ensure that a string is a valid D-Bus type signature before
-/// passing it to g_variant_new_signature().
+/// passing it to `g_variant_new_signature()`.
 /// 
 /// D-Bus type signatures consist of zero or more definite `GVariantType`
 /// strings in sequence.
@@ -9463,13 +9490,13 @@ public func variantIsSignature(string: UnsafePointer<gchar>) -> Bool {
 /// 
 /// In the event that the parsing is successful, the resulting `GVariant`
 /// is returned. It is never floating, and must be freed with
-/// g_variant_unref().
+/// `g_variant_unref()`.
 /// 
 /// In case of any error, `nil` will be returned.  If `error` is non-`nil`
 /// then it will be set to reflect the error that occurred.
 /// 
 /// Officially, the language understood by the parser is "any string
-/// produced by g_variant_print()".
+/// produced by `g_variant_print()`".
 public func variantParse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
@@ -9490,26 +9517,26 @@ public func variantParse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, 
 /// 
 /// The message will typically look something like one of the following:
 /// 
-/// |[
+/// ```
 /// unterminated string constant:
 ///   (1, 2, 3, 'abc
 ///             ^^^^
-/// ]|
+/// ```
 /// 
 /// or
 /// 
-/// |[
+/// ```
 /// unable to find a common type:
 ///   [1, 2, 3, 'str']
 ///    ^        ^^^^^
-/// ]|
+/// ```
 /// 
 /// The format of the message may change in a future version.
 /// 
-/// `error` must have come from a failed attempt to g_variant_parse() and
+/// `error` must have come from a failed attempt to `g_variant_parse()` and
 /// `source_str` must be exactly the same string that caused the error.
 /// If `source_str` was not nul-terminated when you passed it to
-/// g_variant_parse() then you must add nul termination before using this
+/// `g_variant_parse()` then you must add nul termination before using this
 /// function.
 public func variantParseErrorPrintContext(error: ErrorTypeProtocol, sourceStr source_str: UnsafePointer<gchar>) -> String! {
     let rv = g_variant_parse_error_print_context(cast(error.ptr), source_str)
@@ -9527,7 +9554,7 @@ public func variantParseErrorQuark() -> GQuark {
 
 
 
-/// Same as g_variant_error_quark().
+/// Same as `g_variant_error_quark()`.
 ///
 /// **variant_parser_get_error_quark is deprecated:**
 /// Use g_variant_parse_error_quark() instead.
@@ -9556,7 +9583,7 @@ public func variantTypeStringGetDepth_(typeString type_string: UnsafePointer<gch
 
 
 /// Checks if `type_string` is a valid GVariant type string.  This call is
-/// equivalent to calling g_variant_type_string_scan() and confirming
+/// equivalent to calling `g_variant_type_string_scan()` and confirming
 /// that the following character is a nul terminator.
 public func variantTypeStringIsValid(typeString type_string: UnsafePointer<gchar>) -> Bool {
     let rv = g_variant_type_string_is_valid(type_string)
@@ -9578,7 +9605,7 @@ public func variantTypeStringIsValid(typeString type_string: UnsafePointer<gchar
 /// string does not end before `limit` then `false` is returned.
 /// 
 /// For the simple case of checking if a string is a valid type string,
-/// see g_variant_type_string_is_valid().
+/// see `g_variant_type_string_is_valid()`.
 public func variantTypeStringScan(string: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) -> Bool {
     let rv = g_variant_type_string_scan(string, limit, cast(endptr))
     return Bool(rv != 0)
@@ -9587,9 +9614,9 @@ public func variantTypeStringScan(string: UnsafePointer<gchar>, limit: UnsafePoi
 
 
 
-/// An implementation of the GNU vasprintf() function which supports
+/// An implementation of the GNU `vasprintf()` function which supports
 /// positional parameters, as specified in the Single Unix Specification.
-/// This function is similar to g_vsprintf(), except that it allocates a
+/// This function is similar to `g_vsprintf()`, except that it allocates a
 /// string to hold the output, instead of putting the output in a buffer
 /// you allocate in advance.
 /// 
@@ -9602,7 +9629,7 @@ public func vasprintf(string: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>,
 
 
 
-/// An implementation of the standard fprintf() function which supports
+/// An implementation of the standard `fprintf()` function which supports
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
@@ -9614,7 +9641,7 @@ public func vfprintf(file: UnsafeMutablePointer<FILE>, format: UnsafePointer<gch
 
 
 
-/// An implementation of the standard vprintf() function which supports
+/// An implementation of the standard `vprintf()` function which supports
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
@@ -9626,20 +9653,20 @@ public func vprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt 
 
 
 
-/// A safer form of the standard vsprintf() function. The output is guaranteed
+/// A safer form of the standard `vsprintf()` function. The output is guaranteed
 /// to not exceed `n` characters (including the terminating nul character), so
 /// it is easy to ensure that a buffer overflow cannot occur.
 /// 
-/// See also g_strdup_vprintf().
+/// See also `g_strdup_vprintf()`.
 /// 
 /// In versions of GLib prior to 1.2.3, this function may return -1 if the
 /// output was truncated, and the truncated string may not be nul-terminated.
 /// In versions prior to 1.3.12, this function returns the length of the output
 /// string.
 /// 
-/// The return value of g_vsnprintf() conforms to the vsnprintf() function
+/// The return value of `g_vsnprintf()` conforms to the `vsnprintf()` function
 /// as standardized in ISO C99. Note that this is different from traditional
-/// vsnprintf(), which returns the length of the output string.
+/// `vsnprintf()`, which returns the length of the output string.
 /// 
 /// The format string may contain positional parameters, as specified in
 /// the Single Unix Specification.
@@ -9651,7 +9678,7 @@ public func vsnprintf(string: UnsafeMutablePointer<gchar>, n: CUnsignedLong, for
 
 
 
-/// An implementation of the standard vsprintf() function which supports
+/// An implementation of the standard `vsprintf()` function which supports
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
@@ -9663,8 +9690,8 @@ public func vsprintf(string: UnsafeMutablePointer<gchar>, format: UnsafePointer<
 
 
 
-/// Internal function used to print messages from the public g_warn_if_reached()
-/// and g_warn_if_fail() macros.
+/// Internal function used to print messages from the public `g_warn_if_reached()`
+/// and `g_warn_if_fail()` macros.
 public func warnMessage(domain: UnsafePointer<CChar>, file: UnsafePointer<CChar>, line: CInt, func_: UnsafePointer<CChar>, warnexpr: UnsafePointer<CChar>) {
     g_warn_message(domain, file, line, func_, warnexpr)
 

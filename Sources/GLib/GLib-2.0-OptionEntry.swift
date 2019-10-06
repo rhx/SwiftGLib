@@ -8,8 +8,8 @@ import CGLib
 /// Alternatively, use `OptionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with g_option_context_add_main_entries()
-/// or g_option_group_add_entries().
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
 public protocol OptionEntryProtocol {
     /// Untyped pointer to the underlying `GOptionEntry` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -23,8 +23,8 @@ public protocol OptionEntryProtocol {
 /// Use `OptionEntryRef` only as an `unowned` reference to an existing `GOptionEntry` instance.
 ///
 /// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with g_option_context_add_main_entries()
-/// or g_option_group_add_entries().
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
 public struct OptionEntryRef: OptionEntryProtocol {
     /// Untyped pointer to the underlying `GOptionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -78,8 +78,8 @@ public extension OptionEntryRef {
 /// Use `OptionEntry` as a strong reference or owner of a `GOptionEntry` instance.
 ///
 /// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with g_option_context_add_main_entries()
-/// or g_option_group_add_entries().
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
 open class OptionEntry: OptionEntryProtocol {
     /// Untyped pointer to the underlying `GOptionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -14,16 +14,17 @@ import CGLib
 /// The difference to a mutex is that a reader-writer lock discriminates
 /// between read-only ('reader') and full ('writer') access. While only
 /// one thread at a time is allowed write access (by holding the 'writer'
-/// lock via g_rw_lock_writer_lock()), multiple threads can gain
+/// lock via `g_rw_lock_writer_lock()`), multiple threads can gain
 /// simultaneous read-only access (by holding the 'reader' lock via
-/// g_rw_lock_reader_lock()).
+/// `g_rw_lock_reader_lock()`).
 /// 
 /// It is unspecified whether readers or writers have priority in acquiring the
 /// lock when a reader already holds the lock and a writer is queued to acquire
 /// it.
 /// 
 /// Here is an example for an array with access functions:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GRWLock lock;
 ///   GPtrArray *array;
 /// 
@@ -57,17 +58,18 @@ import CGLib
 /// 
 ///     g_rw_lock_writer_unlock (&lock);
 ///   }
-///  ]|
+///  
+/// ```
 /// This example shows an array which can be accessed by many readers
-/// (the my_array_get() function) simultaneously, whereas the writers
-/// (the my_array_set() function) will only be allowed one at a time
+/// (the `my_array_get()` function) simultaneously, whereas the writers
+/// (the `my_array_set()` function) will only be allowed one at a time
 /// and only if no readers currently access the array. This is because
 /// of the potentially dangerous resizing of the array. Using these
 /// functions is fully multi-thread safe now.
 /// 
 /// If a `GRWLock` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rw_lock_init() on it and g_rw_lock_clear() when done.
+/// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 public protocol RWLockProtocol {
@@ -89,16 +91,17 @@ public protocol RWLockProtocol {
 /// The difference to a mutex is that a reader-writer lock discriminates
 /// between read-only ('reader') and full ('writer') access. While only
 /// one thread at a time is allowed write access (by holding the 'writer'
-/// lock via g_rw_lock_writer_lock()), multiple threads can gain
+/// lock via `g_rw_lock_writer_lock()`), multiple threads can gain
 /// simultaneous read-only access (by holding the 'reader' lock via
-/// g_rw_lock_reader_lock()).
+/// `g_rw_lock_reader_lock()`).
 /// 
 /// It is unspecified whether readers or writers have priority in acquiring the
 /// lock when a reader already holds the lock and a writer is queued to acquire
 /// it.
 /// 
 /// Here is an example for an array with access functions:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GRWLock lock;
 ///   GPtrArray *array;
 /// 
@@ -132,17 +135,18 @@ public protocol RWLockProtocol {
 /// 
 ///     g_rw_lock_writer_unlock (&lock);
 ///   }
-///  ]|
+///  
+/// ```
 /// This example shows an array which can be accessed by many readers
-/// (the my_array_get() function) simultaneously, whereas the writers
-/// (the my_array_set() function) will only be allowed one at a time
+/// (the `my_array_get()` function) simultaneously, whereas the writers
+/// (the `my_array_set()` function) will only be allowed one at a time
 /// and only if no readers currently access the array. This is because
 /// of the potentially dangerous resizing of the array. Using these
 /// functions is fully multi-thread safe now.
 /// 
 /// If a `GRWLock` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rw_lock_init() on it and g_rw_lock_clear() when done.
+/// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 public struct RWLockRef: RWLockProtocol {
@@ -204,16 +208,17 @@ public extension RWLockRef {
 /// The difference to a mutex is that a reader-writer lock discriminates
 /// between read-only ('reader') and full ('writer') access. While only
 /// one thread at a time is allowed write access (by holding the 'writer'
-/// lock via g_rw_lock_writer_lock()), multiple threads can gain
+/// lock via `g_rw_lock_writer_lock()`), multiple threads can gain
 /// simultaneous read-only access (by holding the 'reader' lock via
-/// g_rw_lock_reader_lock()).
+/// `g_rw_lock_reader_lock()`).
 /// 
 /// It is unspecified whether readers or writers have priority in acquiring the
 /// lock when a reader already holds the lock and a writer is queued to acquire
 /// it.
 /// 
 /// Here is an example for an array with access functions:
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GRWLock lock;
 ///   GPtrArray *array;
 /// 
@@ -247,17 +252,18 @@ public extension RWLockRef {
 /// 
 ///     g_rw_lock_writer_unlock (&lock);
 ///   }
-///  ]|
+///  
+/// ```
 /// This example shows an array which can be accessed by many readers
-/// (the my_array_get() function) simultaneously, whereas the writers
-/// (the my_array_set() function) will only be allowed one at a time
+/// (the `my_array_get()` function) simultaneously, whereas the writers
+/// (the `my_array_set()` function) will only be allowed one at a time
 /// and only if no readers currently access the array. This is because
 /// of the potentially dangerous resizing of the array. Using these
 /// functions is fully multi-thread safe now.
 /// 
 /// If a `GRWLock` is allocated in static storage then it can be used
 /// without initialisation.  Otherwise, you should call
-/// g_rw_lock_init() on it and g_rw_lock_clear() when done.
+/// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 open class RWLock: RWLockProtocol {
@@ -320,12 +326,12 @@ public extension RWLockProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRWLock` instance.
     var _ptr: UnsafeMutablePointer<GRWLock> { return ptr.assumingMemoryBound(to: GRWLock.self) }
 
-    /// Frees the resources allocated to a lock with g_rw_lock_init().
+    /// Frees the resources allocated to a lock with `g_rw_lock_init()`.
     /// 
     /// This function should not be used with a `GRWLock` that has been
     /// statically allocated.
     /// 
-    /// Calling g_rw_lock_clear() when any thread holds the lock
+    /// Calling `g_rw_lock_clear()` when any thread holds the lock
     /// leads to undefined behaviour.
     /// 
     /// Sine: 2.32
@@ -341,7 +347,8 @@ public extension RWLockProtocol {
     /// necessary to initialise a reader-writer lock that has been statically
     /// allocated.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     ///   typedef struct {
     ///     GRWLock l;
     ///     ...
@@ -351,12 +358,12 @@ public extension RWLockProtocol {
     /// 
     /// b = g_new (Blob, 1);
     /// g_rw_lock_init (&b->l);
-    /// ]|
+    /// ```
     /// 
-    /// To undo the effect of g_rw_lock_init() when a lock is no longer
-    /// needed, use g_rw_lock_clear().
+    /// To undo the effect of `g_rw_lock_init()` when a lock is no longer
+    /// needed, use `g_rw_lock_clear()`.
     /// 
-    /// Calling g_rw_lock_init() on an already initialized `GRWLock` leads
+    /// Calling `g_rw_lock_init()` on an already initialized `GRWLock` leads
     /// to undefined behaviour.
     func init_() {
         g_rw_lock_init(cast(_ptr))
@@ -387,7 +394,7 @@ public extension RWLockProtocol {
 
     /// Release a read lock on `rw_lock`.
     /// 
-    /// Calling g_rw_lock_reader_unlock() on a lock that is not held
+    /// Calling `g_rw_lock_reader_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
     func readerUnlock() {
         g_rw_lock_reader_unlock(cast(_ptr))
@@ -412,7 +419,7 @@ public extension RWLockProtocol {
 
     /// Release a write lock on `rw_lock`.
     /// 
-    /// Calling g_rw_lock_writer_unlock() on a lock that is not held
+    /// Calling `g_rw_lock_writer_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
     func writerUnlock() {
         g_rw_lock_writer_unlock(cast(_ptr))

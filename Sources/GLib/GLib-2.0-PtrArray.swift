@@ -72,7 +72,7 @@ public extension PtrArrayRef {
     /// you are going to add many pointers to the array. Note however that
     /// the size of the array is still 0. It also set `element_free_func`
     /// for freeing each element when the array is destroyed either via
-    /// g_ptr_array_unref(), when g_ptr_array_free() is called with
+    /// `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     static func new(full reserved_size: CUnsignedInt, elementFreeFunc element_free_func: @escaping DestroyNotify) -> PtrArrayRef! {
         let rv = g_ptr_array_new_full(guint(reserved_size), element_free_func)
@@ -81,7 +81,7 @@ public extension PtrArrayRef {
 
     /// Creates a new `GPtrArray` with a reference count of 1 and use
     /// `element_free_func` for freeing each element when the array is destroyed
-    /// either via g_ptr_array_unref(), when g_ptr_array_free() is called with
+    /// either via `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     static func newWith(freeFunc element_free_func: @escaping DestroyNotify) -> PtrArrayRef! {
         let rv = g_ptr_array_new_with_free_func(element_free_func)
@@ -156,7 +156,7 @@ open class PtrArray: PtrArrayProtocol {
     /// you are going to add many pointers to the array. Note however that
     /// the size of the array is still 0. It also set `element_free_func`
     /// for freeing each element when the array is destroyed either via
-    /// g_ptr_array_unref(), when g_ptr_array_free() is called with
+    /// `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     public static func new(full reserved_size: CUnsignedInt, elementFreeFunc element_free_func: @escaping DestroyNotify) -> PtrArray! {
         let rv = g_ptr_array_new_full(guint(reserved_size), element_free_func)
@@ -165,7 +165,7 @@ open class PtrArray: PtrArrayProtocol {
 
     /// Creates a new `GPtrArray` with a reference count of 1 and use
     /// `element_free_func` for freeing each element when the array is destroyed
-    /// either via g_ptr_array_unref(), when g_ptr_array_free() is called with
+    /// either via `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     public static func newWith(freeFunc element_free_func: @escaping DestroyNotify) -> PtrArray! {
         let rv = g_ptr_array_new_with_free_func(element_free_func)
@@ -238,7 +238,7 @@ public extension PtrArrayProtocol {
     /// ownership of each element from `array` to `array_to_extend` and modifying
     /// `array_to_extend` in-place. `array` is then freed.
     /// 
-    /// As with g_ptr_array_free(), `array` will be destroyed if its reference count
+    /// As with `g_ptr_array_free()`, `array` will be destroyed if its reference count
     /// is 1. If its reference count is higher, it will be decremented and the
     /// length of `array` set to zero.
     func extendAndSteal(array: PtrArrayProtocol) {
@@ -252,7 +252,7 @@ public extension PtrArrayProtocol {
     /// multiple times in `haystack`, the index of the first instance is returned.
     /// 
     /// This does pointer comparisons only. If you want to use more complex equality
-    /// checks, such as string comparisons, use g_ptr_array_find_with_equal_func().
+    /// checks, such as string comparisons, use `g_ptr_array_find_with_equal_func()`.
     func find(needle: gconstpointer, index_: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
         let rv = g_ptr_array_find(cast(ptr_array_ptr), cast(needle), cast(index_))
         return Bool(rv != 0)
@@ -291,7 +291,7 @@ public extension PtrArrayProtocol {
     /// function has been set for `array`.
     /// 
     /// This function is not thread-safe. If using a `GPtrArray` from multiple
-    /// threads, use only the atomic g_ptr_array_ref() and g_ptr_array_unref()
+    /// threads, use only the atomic `g_ptr_array_ref()` and `g_ptr_array_unref()`
     /// functions.
     func free(freeSeg free_seg: Bool) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
         let rv = g_ptr_array_free(cast(ptr_array_ptr), gboolean(free_seg ? 1 : 0))
@@ -327,7 +327,7 @@ public extension PtrArrayProtocol {
     /// Removes the first occurrence of the given pointer from the pointer
     /// array. The last element in the array is used to fill in the space,
     /// so this function does not preserve the order of the array. But it
-    /// is faster than g_ptr_array_remove(). If `array` has a non-`nil`
+    /// is faster than `g_ptr_array_remove()`. If `array` has a non-`nil`
     /// `GDestroyNotify` function it is called for the removed element.
     /// 
     /// It returns `true` if the pointer was removed, or `false` if the
@@ -350,7 +350,7 @@ public extension PtrArrayProtocol {
     /// Removes the pointer at the given index from the pointer array.
     /// The last element in the array is used to fill in the space, so
     /// this function does not preserve the order of the array. But it
-    /// is faster than g_ptr_array_remove_index(). If `array` has a non-`nil`
+    /// is faster than `g_ptr_array_remove_index()`. If `array` has a non-`nil`
     /// `GDestroyNotify` function it is called for the removed element. If so, the
     /// return value from this function will potentially point to freed memory
     /// (depending on the `GDestroyNotify` implementation).
@@ -369,7 +369,7 @@ public extension PtrArrayProtocol {
     }
 
     /// Sets a function for freeing each element when `array` is destroyed
-    /// either via g_ptr_array_unref(), when g_ptr_array_free() is called
+    /// either via `g_ptr_array_unref()`, when `g_ptr_array_free()` is called
     /// with `free_segment` set to `true` or when removing elements.
     func setFreeFunc(elementFreeFunc element_free_func: @escaping DestroyNotify) {
         g_ptr_array_set_free_func(cast(ptr_array_ptr), element_free_func)
@@ -385,12 +385,12 @@ public extension PtrArrayProtocol {
     
     }
 
-    /// Sorts the array, using `compare_func` which should be a qsort()-style
+    /// Sorts the array, using `compare_func` which should be a `qsort()`-style
     /// comparison function (returns less than zero for first arg is less
     /// than second arg, zero for equal, greater than zero if irst arg is
     /// greater than second arg).
     /// 
-    /// Note that the comparison function for g_ptr_array_sort() doesn't
+    /// Note that the comparison function for `g_ptr_array_sort()` doesn't
     /// take the pointers from the array as arguments, it takes pointers to
     /// the pointers in the array.
     /// 
@@ -400,10 +400,10 @@ public extension PtrArrayProtocol {
     
     }
 
-    /// Like g_ptr_array_sort(), but the comparison function has an extra
+    /// Like `g_ptr_array_sort()`, but the comparison function has an extra
     /// user data argument.
     /// 
-    /// Note that the comparison function for g_ptr_array_sort_with_data()
+    /// Note that the comparison function for `g_ptr_array_sort_with_data()`
     /// doesn't take the pointers from the array as arguments, it takes
     /// pointers to the pointers in the array.
     /// 
@@ -425,7 +425,7 @@ public extension PtrArrayProtocol {
     /// Removes the pointer at the given index from the pointer array.
     /// The last element in the array is used to fill in the space, so
     /// this function does not preserve the order of the array. But it
-    /// is faster than g_ptr_array_steal_index(). The `GDestroyNotify` for `array` is
+    /// is faster than `g_ptr_array_steal_index()`. The `GDestroyNotify` for `array` is
     /// *not* called on the removed element; ownership is transferred to the caller
     /// of this function.
     func stealIndexFast(index_: CUnsignedInt) -> UnsafeMutableRawPointer! {
@@ -435,7 +435,7 @@ public extension PtrArrayProtocol {
 
     /// Atomically decrements the reference count of `array` by one. If the
     /// reference count drops to 0, the effect is the same as calling
-    /// g_ptr_array_free() with `free_segment` set to `true`. This function
+    /// `g_ptr_array_free()` with `free_segment` set to `true`. This function
     /// is thread-safe and may be called from any thread.
     func unref() {
         g_ptr_array_unref(cast(ptr_array_ptr))
@@ -448,7 +448,7 @@ public extension PtrArrayProtocol {
     /// multiple times in `haystack`, the index of the first instance is returned.
     /// 
     /// This does pointer comparisons only. If you want to use more complex equality
-    /// checks, such as string comparisons, use g_ptr_array_find_with_equal_func().
+    /// checks, such as string comparisons, use `g_ptr_array_find_with_equal_func()`.
     func ptrArrayFind(needle: gconstpointer, index_: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
         let rv = g_ptr_array_find(cast(ptr_array_ptr), cast(needle), cast(index_))
         return Bool(rv != 0)

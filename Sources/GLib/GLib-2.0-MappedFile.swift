@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `MappedFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// The `GMappedFile` represents a file mapping created with
-/// g_mapped_file_new(). It has only private members and should
+/// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 public protocol MappedFileProtocol {
     /// Untyped pointer to the underlying `GMappedFile` instance.
@@ -23,7 +23,7 @@ public protocol MappedFileProtocol {
 /// Use `MappedFileRef` only as an `unowned` reference to an existing `GMappedFile` instance.
 ///
 /// The `GMappedFile` represents a file mapping created with
-/// g_mapped_file_new(). It has only private members and should
+/// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 public struct MappedFileRef: MappedFileProtocol {
     /// Untyped pointer to the underlying `GMappedFile` instance.
@@ -71,7 +71,7 @@ public extension MappedFileRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Maps a file into memory. On UNIX, this is using the mmap() function.
+        /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -81,7 +81,7 @@ public extension MappedFileRef {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     /// 
     /// If `filename` is the name of an empty, regular file, the function
     /// will successfully return an empty `GMappedFile`. In other cases of
@@ -96,7 +96,7 @@ public extension MappedFileRef {
         self.init(cast(rv))
     }
 
-    /// Maps a file into memory. On UNIX, this is using the mmap() function.
+    /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -106,7 +106,7 @@ public extension MappedFileRef {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     init(fd: CInt, writable: Bool) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
@@ -115,7 +115,7 @@ public extension MappedFileRef {
         }
         self.init(cast(rv))
     }
-    /// Maps a file into memory. On UNIX, this is using the mmap() function.
+    /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -125,7 +125,7 @@ public extension MappedFileRef {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     static func newFrom(fd: CInt, writable: Bool) throws -> MappedFileRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
@@ -141,7 +141,7 @@ public extension MappedFileRef {
 /// Use `MappedFile` as a strong reference or owner of a `GMappedFile` instance.
 ///
 /// The `GMappedFile` represents a file mapping created with
-/// g_mapped_file_new(). It has only private members and should
+/// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 open class MappedFile: MappedFileProtocol {
     /// Untyped pointer to the underlying `GMappedFile` instance.
@@ -190,7 +190,7 @@ open class MappedFile: MappedFileProtocol {
         self.init(UnsafeMutablePointer<GMappedFile>(opaquePointer))
     }
 
-    /// Maps a file into memory. On UNIX, this is using the mmap() function.
+    /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -200,7 +200,7 @@ open class MappedFile: MappedFileProtocol {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     /// 
     /// If `filename` is the name of an empty, regular file, the function
     /// will successfully return an empty `GMappedFile`. In other cases of
@@ -215,7 +215,7 @@ open class MappedFile: MappedFileProtocol {
         self.init(cast(rv))
     }
 
-    /// Maps a file into memory. On UNIX, this is using the mmap() function.
+    /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -225,7 +225,7 @@ open class MappedFile: MappedFileProtocol {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     public convenience init(fd: CInt, writable: Bool) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
@@ -235,7 +235,7 @@ open class MappedFile: MappedFileProtocol {
         self.init(cast(rv))
     }
 
-    /// Maps a file into memory. On UNIX, this is using the mmap() function.
+    /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
     /// If `writable` is `true`, the mapped buffer may be modified, otherwise
     /// it is an error to modify the mapped buffer. Modifications to the buffer
@@ -245,7 +245,7 @@ open class MappedFile: MappedFileProtocol {
     /// Note that modifications of the underlying file might affect the contents
     /// of the `GMappedFile`. Therefore, mapping should only be used if the file
     /// will not be modified, or if all modifications of the file are done
-    /// atomically (e.g. using g_file_set_contents()).
+    /// atomically (e.g. using `g_file_set_contents()`).
     public static func newFrom(fd: CInt, writable: Bool) throws -> MappedFile! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
@@ -267,7 +267,7 @@ public extension MappedFileProtocol {
     var mapped_file_ptr: UnsafeMutablePointer<GMappedFile> { return ptr.assumingMemoryBound(to: GMappedFile.self) }
 
     /// This call existed before `GMappedFile` had refcounting and is currently
-    /// exactly the same as g_mapped_file_unref().
+    /// exactly the same as `g_mapped_file_unref()`.
     ///
     /// **free is deprecated:**
     /// Use g_mapped_file_unref() instead.

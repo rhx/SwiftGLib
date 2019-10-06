@@ -68,7 +68,7 @@ public extension ByteArrayRef {
     }
 
         /// Create byte array containing the data. The data will be owned by the array
-    /// and will be freed with g_free(), i.e. it could be allocated using g_strdup().
+    /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
     static func new(take data: UnsafeMutablePointer<UInt8>, len: Int) -> ByteArrayRef! {
         let rv = g_byte_array_new_take(cast(data), gsize(len))
         return rv.map { ByteArrayRef(cast($0)) }
@@ -138,7 +138,7 @@ open class ByteArray: ByteArrayProtocol {
 
 
     /// Create byte array containing the data. The data will be owned by the array
-    /// and will be freed with g_free(), i.e. it could be allocated using g_strdup().
+    /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
     public static func new(take data: UnsafeMutablePointer<UInt8>, len: Int) -> ByteArray! {
         let rv = g_byte_array_new_take(cast(data), gsize(len))
         return rv.map { ByteArray(cast($0)) }
@@ -186,7 +186,7 @@ public extension ByteArrayProtocol {
     /// than one, the `GByteArray` wrapper is preserved but the size of `array`
     /// will be set to zero.
     /// 
-    /// This is identical to using g_bytes_new_take() and g_byte_array_free()
+    /// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
     /// together.
     func freeToBytes() -> UnsafeMutablePointer<GBytes>! {
         let rv = g_byte_array_free_to_bytes(cast(byte_array_ptr))
@@ -217,7 +217,7 @@ public extension ByteArrayProtocol {
     /// Removes the byte at the given index from a `GByteArray`. The last
     /// element in the array is used to fill in the space, so this function
     /// does not preserve the order of the `GByteArray`. But it is faster
-    /// than g_byte_array_remove_index().
+    /// than `g_byte_array_remove_index()`.
     func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
         let rv = g_byte_array_remove_index_fast(cast(byte_array_ptr), guint(index_))
         return cast(rv)
@@ -237,7 +237,7 @@ public extension ByteArrayProtocol {
     }
 
     /// Sorts a byte array, using `compare_func` which should be a
-    /// qsort()-style comparison function (returns less than zero for first
+    /// `qsort()`-style comparison function (returns less than zero for first
     /// arg is less than second arg, zero for equal, greater than zero if
     /// first arg is greater than second arg).
     /// 
@@ -251,7 +251,7 @@ public extension ByteArrayProtocol {
     
     }
 
-    /// Like g_byte_array_sort(), but the comparison function takes an extra
+    /// Like `g_byte_array_sort()`, but the comparison function takes an extra
     /// user data argument.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_byte_array_sort_with_data(cast(byte_array_ptr), compare_func, cast(user_data))
@@ -282,7 +282,7 @@ public extension ByteArrayProtocol {
     /// than one, the `GByteArray` wrapper is preserved but the size of `array`
     /// will be set to zero.
     /// 
-    /// This is identical to using g_bytes_new_take() and g_byte_array_free()
+    /// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
     /// together.
     func byteArrayFreeToBytes() -> UnsafeMutablePointer<GBytes>! {
         let rv = g_byte_array_free_to_bytes(cast(byte_array_ptr))

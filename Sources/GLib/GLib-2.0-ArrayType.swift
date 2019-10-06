@@ -166,8 +166,9 @@ public extension ArrayTypeProtocol {
     /// search, so the `array` must absolutely be sorted to return a correct
     /// result (if not, the function may produce false-negative).
     /// 
-    /// This example defines a comparison function and search an element in a `GArray`:
-    /// |[<!-- language="C" -->
+    /// This example defines a comparison function and search an element in a `GArray:`
+    /// (C Language Example):
+    /// ```C
     /// static gint*
     /// cmpint (gconstpointer a, gconstpointer b)
     /// {
@@ -181,7 +182,8 @@ public extension ArrayTypeProtocol {
     /// guint matched_index;
     /// gboolean result = g_array_binary_search (garray, &i, cmpint, &matched_index);
     /// ...
-    /// ]|
+    /// ```
+    /// 
     func binarySearch(target: gconstpointer, compareFunc compare_func: @escaping CompareFunc, outMatchIndex out_match_index: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
         let rv = g_array_binary_search(cast(array_ptr), cast(target), compare_func, cast(out_match_index))
         return Bool(rv != 0)
@@ -206,7 +208,7 @@ public extension ArrayTypeProtocol {
     /// function has been set for `array`.
     /// 
     /// This function is not thread-safe. If using a `GArray` from multiple
-    /// threads, use only the atomic g_array_ref() and g_array_unref()
+    /// threads, use only the atomic `g_array_ref()` and `g_array_unref()`
     /// functions.
     func free(freeSegment free_segment: Bool) -> String! {
         let rv = g_array_free(cast(array_ptr), gboolean(free_segment ? 1 : 0))
@@ -238,7 +240,7 @@ public extension ArrayTypeProtocol {
     /// `data` may be `nil` if (and only if) `len` is zero. If `len` is zero, this
     /// function is a no-op.
     /// 
-    /// This operation is slower than g_array_append_vals() since the
+    /// This operation is slower than `g_array_append_vals()` since the
     /// existing elements in the array have to be moved to make space for
     /// the new elements.
     func prependVals(data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
@@ -263,7 +265,7 @@ public extension ArrayTypeProtocol {
     /// Removes the element at the given index from a `GArray`. The last
     /// element in the array is used to fill in the space, so this function
     /// does not preserve the order of the `GArray`. But it is faster than
-    /// g_array_remove_index().
+    /// `g_array_remove_index()`.
     func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
         let rv = g_array_remove_index_fast(cast(array_ptr), guint(index_))
         return cast(rv)
@@ -298,7 +300,7 @@ public extension ArrayTypeProtocol {
         return cast(rv)
     }
 
-    /// Sorts a `GArray` using `compare_func` which should be a qsort()-style
+    /// Sorts a `GArray` using `compare_func` which should be a `qsort()`-style
     /// comparison function (returns less than zero for first arg is less
     /// than second arg, zero for equal, greater zero if first arg is
     /// greater than second arg).
@@ -309,7 +311,7 @@ public extension ArrayTypeProtocol {
     
     }
 
-    /// Like g_array_sort(), but the comparison function receives an extra
+    /// Like `g_array_sort()`, but the comparison function receives an extra
     /// user data argument.
     /// 
     /// This is guaranteed to be a stable sort since version 2.32.

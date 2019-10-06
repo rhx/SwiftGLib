@@ -48,7 +48,7 @@ import CGLib
 /// `G_REGEX_MATCH_NEWLINE_CR`, `G_REGEX_MATCH_NEWLINE_LF` and
 /// `G_REGEX_MATCH_NEWLINE_CRLF` match options. These settings are also
 /// relevant when compiling a pattern if `G_REGEX_EXTENDED` is set, and an
-/// unescaped "``" outside a character class is encountered. This indicates
+/// unescaped "#" outside a character class is encountered. This indicates
 /// a comment that lasts until after the next newline.
 /// 
 /// When setting the `G_REGEX_JAVASCRIPT_COMPAT` flag, pattern syntax and pattern
@@ -61,7 +61,7 @@ import CGLib
 /// '\U' always matches 'U' instead of being an error in the pattern. Finally,
 /// pattern matching is modified so that back references to an unset subpattern
 /// group produces a match with the empty string instead of an error. See
-/// pcreapi(3) for more information.
+/// `pcreapi(3)` for more information.
 /// 
 /// Creating and manipulating the same `GRegex` structure from different
 /// threads is not a problem as `GRegex` does not modify its internal
@@ -125,7 +125,7 @@ public protocol RegexProtocol {
 /// `G_REGEX_MATCH_NEWLINE_CR`, `G_REGEX_MATCH_NEWLINE_LF` and
 /// `G_REGEX_MATCH_NEWLINE_CRLF` match options. These settings are also
 /// relevant when compiling a pattern if `G_REGEX_EXTENDED` is set, and an
-/// unescaped "``" outside a character class is encountered. This indicates
+/// unescaped "#" outside a character class is encountered. This indicates
 /// a comment that lasts until after the next newline.
 /// 
 /// When setting the `G_REGEX_JAVASCRIPT_COMPAT` flag, pattern syntax and pattern
@@ -138,7 +138,7 @@ public protocol RegexProtocol {
 /// '\U' always matches 'U' instead of being an error in the pattern. Finally,
 /// pattern matching is modified so that back references to an unset subpattern
 /// group produces a match with the empty string instead of an error. See
-/// pcreapi(3) for more information.
+/// `pcreapi(3)` for more information.
 /// 
 /// Creating and manipulating the same `GRegex` structure from different
 /// threads is not a problem as `GRegex` does not modify its internal
@@ -252,7 +252,7 @@ public extension RegexRef {
 /// `G_REGEX_MATCH_NEWLINE_CR`, `G_REGEX_MATCH_NEWLINE_LF` and
 /// `G_REGEX_MATCH_NEWLINE_CRLF` match options. These settings are also
 /// relevant when compiling a pattern if `G_REGEX_EXTENDED` is set, and an
-/// unescaped "``" outside a character class is encountered. This indicates
+/// unescaped "#" outside a character class is encountered. This indicates
 /// a comment that lasts until after the next newline.
 /// 
 /// When setting the `G_REGEX_JAVASCRIPT_COMPAT` flag, pattern syntax and pattern
@@ -265,7 +265,7 @@ public extension RegexRef {
 /// '\U' always matches 'U' instead of being an error in the pattern. Finally,
 /// pattern matching is modified so that back references to an unset subpattern
 /// group produces a match with the empty string instead of an error. See
-/// pcreapi(3) for more information.
+/// `pcreapi(3)` for more information.
 /// 
 /// Creating and manipulating the same `GRegex` structure from different
 /// threads is not a problem as `GRegex` does not modify its internal
@@ -391,7 +391,7 @@ public extension RegexProtocol {
     }
 
     /// Gets the pattern string associated with `regex`, i.e. a copy of
-    /// the string passed to g_regex_new().
+    /// the string passed to `g_regex_new()`.
     func getPattern() -> String! {
         let rv = g_regex_get_pattern(cast(regex_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -416,9 +416,10 @@ public extension RegexProtocol {
     /// i.e. you must free it regardless if regular expression actually matched.
     /// 
     /// To retrieve all the non-overlapping matches of the pattern in
-    /// string you can use g_match_info_next().
+    /// string you can use `g_match_info_next()`.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static void
     /// print_uppercase_words (const gchar *string)
     /// {
@@ -431,17 +432,17 @@ public extension RegexProtocol {
     ///   while (g_match_info_matches (match_info))
     ///     {
     ///       gchar *word = g_match_info_fetch (match_info, 0);
-    ///       g_print ("Found: `s`\n", word);
+    ///       g_print ("Found: %s\n", word);
     ///       g_free (word);
     ///       g_match_info_next (match_info, NULL);
     ///     }
     ///   g_match_info_free (match_info);
     ///   g_regex_unref (regex);
     /// }
-    /// ]|
+    /// ```
     /// 
     /// `string` is not copied and is used in `GMatchInfo` internally. If
-    /// you use any `GMatchInfo` method (except g_match_info_free()) after
+    /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func match(string: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) -> Bool {
         let rv = g_regex_match(cast(regex_ptr), string, match_options, cast(match_info.ptr))
@@ -451,7 +452,7 @@ public extension RegexProtocol {
     /// Using the standard algorithm for regular expression matching only
     /// the longest match in the string is retrieved. This function uses
     /// a different algorithm so it can retrieve all the possible matches.
-    /// For more documentation see g_regex_match_all_full().
+    /// For more documentation see `g_regex_match_all_full()`.
     /// 
     /// A `GMatchInfo` structure, used to get information on the match, is
     /// stored in `match_info` if not `nil`. Note that if `match_info` is
@@ -460,7 +461,7 @@ public extension RegexProtocol {
     /// matched.
     /// 
     /// `string` is not copied and is used in `GMatchInfo` internally. If
-    /// you use any `GMatchInfo` method (except g_match_info_free()) after
+    /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func matchAll(string: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) -> Bool {
         let rv = g_regex_match_all(cast(regex_ptr), string, match_options, cast(match_info.ptr))
@@ -481,9 +482,9 @@ public extension RegexProtocol {
     /// "<a> <b>" and "<a>".
     /// 
     /// The number of matched strings is retrieved using
-    /// g_match_info_get_match_count(). To obtain the matched strings and
-    /// their position you can use, respectively, g_match_info_fetch() and
-    /// g_match_info_fetch_pos(). Note that the strings are returned in
+    /// `g_match_info_get_match_count()`. To obtain the matched strings and
+    /// their position you can use, respectively, `g_match_info_fetch()` and
+    /// `g_match_info_fetch_pos()`. Note that the strings are returned in
     /// reverse order of length; that is, the longest matching string is
     /// given first.
     /// 
@@ -503,7 +504,7 @@ public extension RegexProtocol {
     /// matched.
     /// 
     /// `string` is not copied and is used in `GMatchInfo` internally. If
-    /// you use any `GMatchInfo` method (except g_match_info_free()) after
+    /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func matchAllFull(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -532,13 +533,14 @@ public extension RegexProtocol {
     /// matched.
     /// 
     /// `string` is not copied and is used in `GMatchInfo` internally. If
-    /// you use any `GMatchInfo` method (except g_match_info_free()) after
+    /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     /// 
     /// To retrieve all the non-overlapping matches of the pattern in
-    /// string you can use g_match_info_next().
+    /// string you can use `g_match_info_next()`.
     /// 
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static void
     /// print_uppercase_words (const gchar *string)
     /// {
@@ -552,7 +554,7 @@ public extension RegexProtocol {
     ///   while (g_match_info_matches (match_info))
     ///     {
     ///       gchar *word = g_match_info_fetch (match_info, 0);
-    ///       g_print ("Found: `s`\n", word);
+    ///       g_print ("Found: %s\n", word);
     ///       g_free (word);
     ///       g_match_info_next (match_info, &error);
     ///     }
@@ -560,11 +562,12 @@ public extension RegexProtocol {
     ///   g_regex_unref (regex);
     ///   if (error != NULL)
     ///     {
-    ///       g_printerr ("Error while matching: `s`\n", error->message);
+    ///       g_printerr ("Error while matching: %s\n", error->message);
     ///       g_error_free (error);
     ///     }
     /// }
-    /// ]|
+    /// ```
+    /// 
     func matchFull(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_regex_match_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, cast(match_info.ptr), &error)
@@ -597,11 +600,11 @@ public extension RegexProtocol {
     /// - \U: Convert to upper case till \E
     /// - \E: End case modification
     /// 
-    /// If you do not need to use backreferences use g_regex_replace_literal().
+    /// If you do not need to use backreferences use `g_regex_replace_literal()`.
     /// 
     /// The `replacement` string must be UTF-8 encoded even if `G_REGEX_RAW` was
-    /// passed to g_regex_new(). If you want to use not UTF-8 encoded stings
-    /// you can use g_regex_replace_literal().
+    /// passed to `g_regex_new()`. If you want to use not UTF-8 encoded stings
+    /// you can use `g_regex_replace_literal()`.
     /// 
     /// Setting `start_position` differs from just passing over a shortened
     /// string and setting `G_REGEX_MATCH_NOTBOL` in the case of a pattern that
@@ -622,9 +625,10 @@ public extension RegexProtocol {
     /// string and setting `G_REGEX_MATCH_NOTBOL` in the case of a pattern
     /// that begins with any kind of lookbehind assertion, such as "\b".
     /// 
-    /// The following example uses g_regex_replace_eval() to replace multiple
+    /// The following example uses `g_regex_replace_eval()` to replace multiple
     /// strings at once:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// static gboolean
     /// eval_cb (const GMatchInfo *info,
     ///          GString          *res,
@@ -659,7 +663,8 @@ public extension RegexProtocol {
     /// g_hash_table_destroy (h);
     /// 
     /// ...
-    /// ]|
+    /// ```
+    /// 
     func replaceEval(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, eval: @escaping RegexEvalCallback, userData user_data: UnsafeMutableRawPointer) throws -> String! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_regex_replace_eval(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, eval, cast(user_data), &error)
@@ -671,7 +676,7 @@ public extension RegexProtocol {
 
     /// Replaces all occurrences of the pattern in `regex` with the
     /// replacement text. `replacement` is replaced literally, to
-    /// include backreferences use g_regex_replace().
+    /// include backreferences use `g_regex_replace()`.
     /// 
     /// Setting `start_position` differs from just passing over a
     /// shortened string and setting `G_REGEX_MATCH_NOTBOL` in the
@@ -815,10 +820,10 @@ public extension RegexProtocol {
     }
 
     /// Gets the pattern string associated with `regex`, i.e. a copy of
-    /// the string passed to g_regex_new().
+    /// the string passed to `g_regex_new()`.
     var pattern: String! {
         /// Gets the pattern string associated with `regex`, i.e. a copy of
-        /// the string passed to g_regex_new().
+        /// the string passed to `g_regex_new()`.
         get {
             let rv = g_regex_get_pattern(cast(regex_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }

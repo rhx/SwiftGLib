@@ -175,7 +175,7 @@ public extension RandProtocol {
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
-    /// the range [`begin`..`end`).
+    /// the range [`begin.`.`end`).
     func doubleRange(begin: gdouble, end: gdouble) -> gdouble {
         let rv = g_rand_double_range(cast(_ptr), begin, end)
         return rv
@@ -195,7 +195,7 @@ public extension RandProtocol {
     }
 
     /// Returns the next random `gint32` from `rand_` equally distributed over
-    /// the range [`begin`..`end`-1].
+    /// the range [`begin.`.`end`-1].
     func intRange(begin: Int32, end: Int32) -> Int32 {
         let rv = g_rand_int_range(cast(_ptr), gint32(begin), gint32(end))
         return Int32(rv)

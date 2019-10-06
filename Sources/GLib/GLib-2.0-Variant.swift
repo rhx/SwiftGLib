@@ -24,9 +24,10 @@ import CGLib
 /// For instance, if you want to create a `GVariant` holding an integer value you
 /// can use:
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GVariant *v = g_variant_new ("u", 40);
-/// ]|
+/// ```
 /// 
 /// The string "u" in the first argument tells `GVariant` that the data passed to
 /// the constructor (40) is going to be an unsigned integer.
@@ -43,9 +44,9 @@ import CGLib
 /// can never change other than by the `GVariant` itself being
 /// destroyed.  A `GVariant` cannot contain a pointer.
 /// 
-/// `GVariant` is reference counted using g_variant_ref() and
-/// g_variant_unref().  `GVariant` also has floating reference counts --
-/// see g_variant_ref_sink().
+/// `GVariant` is reference counted using `g_variant_ref()` and
+/// `g_variant_unref()`.  `GVariant` also has floating reference counts --
+/// see `g_variant_ref_sink()`.
 /// 
 /// `GVariant` is completely threadsafe.  A `GVariant` instance can be
 /// concurrently accessed in any way from any number of threads without
@@ -75,7 +76,7 @@ import CGLib
 /// A `GVariant`'s size is limited mainly by any lower level operating
 /// system constraints, such as the number of bits in `gsize`.  For
 /// example, it is reasonable to have a 2GB file mapped into memory
-/// with `GMappedFile`, and call g_variant_new_from_data() on it.
+/// with `GMappedFile`, and call `g_variant_new_from_data()` on it.
 /// 
 /// For convenience to C programmers, `GVariant` features powerful
 /// varargs-based value construction and destruction.  This feature is
@@ -85,7 +86,7 @@ import CGLib
 /// values.  `GVariant` includes a printer for this language and a parser
 /// with type inferencing.
 /// 
-/// ``` Memory Use
+/// ## Memory Use
 /// 
 /// `GVariant` tries to be quite efficient with respect to memory use.
 /// This section gives a rough idea of how much memory is used by the
@@ -97,7 +98,7 @@ import CGLib
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ``` Serialised Data Memory
+/// ## Serialised Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
 /// serialised form.  This is what would be sent over the network or
@@ -156,7 +157,7 @@ import CGLib
 /// bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 /// dictionary.
 /// 
-/// ``` Type Information Cache
+/// ## Type Information Cache
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
@@ -202,20 +203,20 @@ import CGLib
 /// different types of values in it and that only one type information
 /// structure is required for many different values of the same type.
 /// 
-/// ``` Buffer Management Memory
+/// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
 /// with the various different possible sources of serialised data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
-/// `GVariant`.  This may involve a g_free() or a g_slice_free() or
-/// even g_mapped_file_unref().
+/// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
+/// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
 /// serialised data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
-/// ``` GVariant structure
+/// ## GVariant structure
 /// 
 /// The size of a `GVariant` structure is 6 * (void *).  On 32-bit
 /// systems, that's 24 bytes.
@@ -231,19 +232,19 @@ import CGLib
 /// 
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
-/// as they are in use (ie: until you call g_variant_unref()).  The
+/// as they are in use (ie: until you call `g_variant_unref()`).  The
 /// type information is shared.  The serialised data and the buffer
 /// management structure for that serialised data is shared by the
 /// child.
 /// 
-/// ``` Summary
+/// ## Summary
 /// 
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
 /// for the serialised data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
-/// malloc overhead.  If we were to use g_variant_get_child_value() to
+/// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
 /// would use more memory for the serialised data and buffer
@@ -278,9 +279,10 @@ public protocol VariantProtocol {
 /// For instance, if you want to create a `GVariant` holding an integer value you
 /// can use:
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GVariant *v = g_variant_new ("u", 40);
-/// ]|
+/// ```
 /// 
 /// The string "u" in the first argument tells `GVariant` that the data passed to
 /// the constructor (40) is going to be an unsigned integer.
@@ -297,9 +299,9 @@ public protocol VariantProtocol {
 /// can never change other than by the `GVariant` itself being
 /// destroyed.  A `GVariant` cannot contain a pointer.
 /// 
-/// `GVariant` is reference counted using g_variant_ref() and
-/// g_variant_unref().  `GVariant` also has floating reference counts --
-/// see g_variant_ref_sink().
+/// `GVariant` is reference counted using `g_variant_ref()` and
+/// `g_variant_unref()`.  `GVariant` also has floating reference counts --
+/// see `g_variant_ref_sink()`.
 /// 
 /// `GVariant` is completely threadsafe.  A `GVariant` instance can be
 /// concurrently accessed in any way from any number of threads without
@@ -329,7 +331,7 @@ public protocol VariantProtocol {
 /// A `GVariant`'s size is limited mainly by any lower level operating
 /// system constraints, such as the number of bits in `gsize`.  For
 /// example, it is reasonable to have a 2GB file mapped into memory
-/// with `GMappedFile`, and call g_variant_new_from_data() on it.
+/// with `GMappedFile`, and call `g_variant_new_from_data()` on it.
 /// 
 /// For convenience to C programmers, `GVariant` features powerful
 /// varargs-based value construction and destruction.  This feature is
@@ -339,7 +341,7 @@ public protocol VariantProtocol {
 /// values.  `GVariant` includes a printer for this language and a parser
 /// with type inferencing.
 /// 
-/// ``` Memory Use
+/// ## Memory Use
 /// 
 /// `GVariant` tries to be quite efficient with respect to memory use.
 /// This section gives a rough idea of how much memory is used by the
@@ -351,7 +353,7 @@ public protocol VariantProtocol {
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ``` Serialised Data Memory
+/// ## Serialised Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
 /// serialised form.  This is what would be sent over the network or
@@ -410,7 +412,7 @@ public protocol VariantProtocol {
 /// bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 /// dictionary.
 /// 
-/// ``` Type Information Cache
+/// ## Type Information Cache
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
@@ -456,20 +458,20 @@ public protocol VariantProtocol {
 /// different types of values in it and that only one type information
 /// structure is required for many different values of the same type.
 /// 
-/// ``` Buffer Management Memory
+/// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
 /// with the various different possible sources of serialised data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
-/// `GVariant`.  This may involve a g_free() or a g_slice_free() or
-/// even g_mapped_file_unref().
+/// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
+/// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
 /// serialised data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
-/// ``` GVariant structure
+/// ## GVariant structure
 /// 
 /// The size of a `GVariant` structure is 6 * (void *).  On 32-bit
 /// systems, that's 24 bytes.
@@ -485,19 +487,19 @@ public protocol VariantProtocol {
 /// 
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
-/// as they are in use (ie: until you call g_variant_unref()).  The
+/// as they are in use (ie: until you call `g_variant_unref()`).  The
 /// type information is shared.  The serialised data and the buffer
 /// management structure for that serialised data is shared by the
 /// child.
 /// 
-/// ``` Summary
+/// ## Summary
 /// 
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
 /// for the serialised data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
-/// malloc overhead.  If we were to use g_variant_get_child_value() to
+/// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
 /// would use more memory for the serialised data and buffer
@@ -566,8 +568,8 @@ public extension VariantRef {
     /// All items in the array must have the same type, which must be the
     /// same as `child_type`, if given.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     init(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
         let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
         self.init(cast(rv))
@@ -586,7 +588,7 @@ public extension VariantRef {
     }
 
     /// Creates an array-of-bytes `GVariant` with the contents of `string`.
-    /// This function is just like g_variant_new_string() except that the
+    /// This function is just like `g_variant_new_string()` except that the
     /// string need not be valid UTF-8.
     /// 
     /// The nul terminator character at the end of the string is stored in
@@ -619,7 +621,7 @@ public extension VariantRef {
     /// 
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
-    /// you might say sizeof(gint32). This value isn't used except for the purpose
+    /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
     /// of a double-check that the form of the serialised data matches the caller's
     /// expectation.
     /// 
@@ -662,7 +664,7 @@ public extension VariantRef {
     /// 
     /// If `data` was not stored in this machine's native endianness, any multi-byte
     /// numeric values in the returned variant will also be in non-native
-    /// endianness. g_variant_byteswap() can be used to recover the original values.
+    /// endianness. `g_variant_byteswap()` can be used to recover the original values.
     /// 
     /// `notify` will be called with `user_data` when `data` is no longer
     /// needed.  The exact time of this call is unspecified and might even be
@@ -713,7 +715,7 @@ public extension VariantRef {
     /// If they are both non-`nil` then `child_type` must be the type
     /// of `child`.
     /// 
-    /// If `child` is a floating reference (see g_variant_ref_sink()), the new
+    /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     init(maybe child_type: VariantTypeProtocol, child: VariantProtocol) {
         let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
@@ -722,7 +724,7 @@ public extension VariantRef {
 
     /// Creates a D-Bus object path `GVariant` with the contents of `string`.
     /// `string` must be a valid D-Bus object path.  Use
-    /// g_variant_is_object_path() if you're not sure.
+    /// `g_variant_is_object_path()` if you're not sure.
     init(objectPath object_path: UnsafePointer<gchar>) {
         let rv = g_variant_new_object_path(object_path)
         self.init(cast(rv))
@@ -732,7 +734,7 @@ public extension VariantRef {
     /// strings.
     /// 
     /// Each string must be a valid `GVariant` object path; see
-    /// g_variant_is_object_path().
+    /// `g_variant_is_object_path()`.
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     init(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
@@ -746,7 +748,7 @@ public extension VariantRef {
 
     /// Parses `format` and returns the result.
     /// 
-    /// This is the version of g_variant_new_parsed() intended to be used
+    /// This is the version of `g_variant_new_parsed()` intended to be used
     /// from libraries.
     /// 
     /// The return value will be floating if it was a newly created GVariant
@@ -760,11 +762,11 @@ public extension VariantRef {
     /// the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     init(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) {
         let rv = g_variant_new_parsed_va(format, cast(app))
         self.init(cast(rv))
@@ -776,7 +778,7 @@ public extension VariantRef {
 
     /// Creates a D-Bus type signature `GVariant` with the contents of
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
-    /// g_variant_is_signature() if you're not sure.
+    /// `g_variant_is_signature()` if you're not sure.
     init(signature: UnsafePointer<gchar>) {
         let rv = g_variant_new_signature(signature)
         self.init(cast(rv))
@@ -785,7 +787,7 @@ public extension VariantRef {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use g_variant_new() with `ms` as the
+    /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string][gvariant-format-strings-maybe-types].
     init(string: UnsafePointer<gchar>) {
         let rv = g_variant_new_string(string)
@@ -804,9 +806,9 @@ public extension VariantRef {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use this with g_variant_new_maybe().
+    /// potentially-`nil` strings, use this with `g_variant_new_maybe()`.
     /// 
-    /// This function consumes `string`.  g_free() will be called on `string`
+    /// This function consumes `string`.  `g_free()` will be called on `string`
     /// when it is no longer required.
     /// 
     /// You must not modify or access `string` in any other way after passing
@@ -823,8 +825,8 @@ public extension VariantRef {
     /// 
     /// If `n_children` is 0 then the unit tuple is constructed.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     init(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
         let rv = g_variant_new_tuple(cast(children), gsize(n_children))
         self.init(cast(rv))
@@ -849,10 +851,10 @@ public extension VariantRef {
     }
 
     /// This function is intended to be used by libraries based on
-    /// `GVariant` that want to provide g_variant_new()-like functionality
+    /// `GVariant` that want to provide `g_variant_new()`-like functionality
     /// to their users.
     /// 
-    /// The API is more general than g_variant_new() to allow a wider range
+    /// The API is more general than `g_variant_new()` to allow a wider range
     /// of possible uses.
     /// 
     /// `format_string` must still point to a valid format string, but it only
@@ -869,21 +871,21 @@ public extension VariantRef {
     /// See the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// These two generalisations allow mixing of multiple calls to
-    /// g_variant_new_va() and g_variant_get_va() within a single actual
+    /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
     /// varargs call by the user.
     /// 
     /// The return value will be floating if it was a newly created GVariant
     /// instance (for example, if the format string was "(ii)").  In the case
     /// that the format_string was '*', '?', 'r', or a format starting with
-    /// '``' then the collected `GVariant` pointer will be returned unmodified,
+    /// '@' then the collected `GVariant` pointer will be returned unmodified,
     /// without adding any additional references.
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     init(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) {
         let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
         self.init(cast(rv))
@@ -901,8 +903,8 @@ public extension VariantRef {
     /// All items in the array must have the same type, which must be the
     /// same as `child_type`, if given.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     static func new(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> VariantRef! {
         let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
         return rv.map { VariantRef(cast($0)) }
@@ -921,7 +923,7 @@ public extension VariantRef {
     }
 
     /// Creates an array-of-bytes `GVariant` with the contents of `string`.
-    /// This function is just like g_variant_new_string() except that the
+    /// This function is just like `g_variant_new_string()` except that the
     /// string need not be valid UTF-8.
     /// 
     /// The nul terminator character at the end of the string is stored in
@@ -954,7 +956,7 @@ public extension VariantRef {
     /// 
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
-    /// you might say sizeof(gint32). This value isn't used except for the purpose
+    /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
     /// of a double-check that the form of the serialised data matches the caller's
     /// expectation.
     /// 
@@ -997,7 +999,7 @@ public extension VariantRef {
     /// 
     /// If `data` was not stored in this machine's native endianness, any multi-byte
     /// numeric values in the returned variant will also be in non-native
-    /// endianness. g_variant_byteswap() can be used to recover the original values.
+    /// endianness. `g_variant_byteswap()` can be used to recover the original values.
     /// 
     /// `notify` will be called with `user_data` when `data` is no longer
     /// needed.  The exact time of this call is unspecified and might even be
@@ -1048,7 +1050,7 @@ public extension VariantRef {
     /// If they are both non-`nil` then `child_type` must be the type
     /// of `child`.
     /// 
-    /// If `child` is a floating reference (see g_variant_ref_sink()), the new
+    /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     static func new(maybe child_type: VariantTypeProtocol, child: VariantProtocol) -> VariantRef! {
         let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
@@ -1057,7 +1059,7 @@ public extension VariantRef {
 
     /// Creates a D-Bus object path `GVariant` with the contents of `string`.
     /// `string` must be a valid D-Bus object path.  Use
-    /// g_variant_is_object_path() if you're not sure.
+    /// `g_variant_is_object_path()` if you're not sure.
     static func new(objectPath object_path: UnsafePointer<gchar>) -> VariantRef! {
         let rv = g_variant_new_object_path(object_path)
         return rv.map { VariantRef(cast($0)) }
@@ -1067,7 +1069,7 @@ public extension VariantRef {
     /// strings.
     /// 
     /// Each string must be a valid `GVariant` object path; see
-    /// g_variant_is_object_path().
+    /// `g_variant_is_object_path()`.
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     static func new(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> VariantRef! {
@@ -1081,7 +1083,7 @@ public extension VariantRef {
 
     /// Parses `format` and returns the result.
     /// 
-    /// This is the version of g_variant_new_parsed() intended to be used
+    /// This is the version of `g_variant_new_parsed()` intended to be used
     /// from libraries.
     /// 
     /// The return value will be floating if it was a newly created GVariant
@@ -1095,11 +1097,11 @@ public extension VariantRef {
     /// the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     static func newParsedVa(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) -> VariantRef! {
         let rv = g_variant_new_parsed_va(format, cast(app))
         return rv.map { VariantRef(cast($0)) }
@@ -1111,7 +1113,7 @@ public extension VariantRef {
 
     /// Creates a D-Bus type signature `GVariant` with the contents of
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
-    /// g_variant_is_signature() if you're not sure.
+    /// `g_variant_is_signature()` if you're not sure.
     static func new(signature: UnsafePointer<gchar>) -> VariantRef! {
         let rv = g_variant_new_signature(signature)
         return rv.map { VariantRef(cast($0)) }
@@ -1120,7 +1122,7 @@ public extension VariantRef {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use g_variant_new() with `ms` as the
+    /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string][gvariant-format-strings-maybe-types].
     static func new(string: UnsafePointer<gchar>) -> VariantRef! {
         let rv = g_variant_new_string(string)
@@ -1139,9 +1141,9 @@ public extension VariantRef {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use this with g_variant_new_maybe().
+    /// potentially-`nil` strings, use this with `g_variant_new_maybe()`.
     /// 
-    /// This function consumes `string`.  g_free() will be called on `string`
+    /// This function consumes `string`.  `g_free()` will be called on `string`
     /// when it is no longer required.
     /// 
     /// You must not modify or access `string` in any other way after passing
@@ -1158,8 +1160,8 @@ public extension VariantRef {
     /// 
     /// If `n_children` is 0 then the unit tuple is constructed.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     static func new(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> VariantRef! {
         let rv = g_variant_new_tuple(cast(children), gsize(n_children))
         return rv.map { VariantRef(cast($0)) }
@@ -1184,10 +1186,10 @@ public extension VariantRef {
     }
 
     /// This function is intended to be used by libraries based on
-    /// `GVariant` that want to provide g_variant_new()-like functionality
+    /// `GVariant` that want to provide `g_variant_new()`-like functionality
     /// to their users.
     /// 
-    /// The API is more general than g_variant_new() to allow a wider range
+    /// The API is more general than `g_variant_new()` to allow a wider range
     /// of possible uses.
     /// 
     /// `format_string` must still point to a valid format string, but it only
@@ -1204,21 +1206,21 @@ public extension VariantRef {
     /// See the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// These two generalisations allow mixing of multiple calls to
-    /// g_variant_new_va() and g_variant_get_va() within a single actual
+    /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
     /// varargs call by the user.
     /// 
     /// The return value will be floating if it was a newly created GVariant
     /// instance (for example, if the format string was "(ii)").  In the case
     /// that the format_string was '*', '?', 'r', or a format starting with
-    /// '``' then the collected `GVariant` pointer will be returned unmodified,
+    /// '@' then the collected `GVariant` pointer will be returned unmodified,
     /// without adding any additional references.
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     static func new(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) -> VariantRef! {
         let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
         return rv.map { VariantRef(cast($0)) }
@@ -1248,13 +1250,13 @@ public extension VariantRef {
     /// 
     /// In the event that the parsing is successful, the resulting `GVariant`
     /// is returned. It is never floating, and must be freed with
-    /// g_variant_unref().
+    /// `g_variant_unref()`.
     /// 
     /// In case of any error, `nil` will be returned.  If `error` is non-`nil`
     /// then it will be set to reflect the error that occurred.
     /// 
     /// Officially, the language understood by the parser is "any string
-    /// produced by g_variant_print()".
+    /// produced by `g_variant_print()`".
     static func parse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> VariantRef! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
@@ -1286,9 +1288,10 @@ public extension VariantRef {
 /// For instance, if you want to create a `GVariant` holding an integer value you
 /// can use:
 /// 
-/// |[<!-- language="C" -->
+/// (C Language Example):
+/// ```C
 ///   GVariant *v = g_variant_new ("u", 40);
-/// ]|
+/// ```
 /// 
 /// The string "u" in the first argument tells `GVariant` that the data passed to
 /// the constructor (40) is going to be an unsigned integer.
@@ -1305,9 +1308,9 @@ public extension VariantRef {
 /// can never change other than by the `GVariant` itself being
 /// destroyed.  A `GVariant` cannot contain a pointer.
 /// 
-/// `GVariant` is reference counted using g_variant_ref() and
-/// g_variant_unref().  `GVariant` also has floating reference counts --
-/// see g_variant_ref_sink().
+/// `GVariant` is reference counted using `g_variant_ref()` and
+/// `g_variant_unref()`.  `GVariant` also has floating reference counts --
+/// see `g_variant_ref_sink()`.
 /// 
 /// `GVariant` is completely threadsafe.  A `GVariant` instance can be
 /// concurrently accessed in any way from any number of threads without
@@ -1337,7 +1340,7 @@ public extension VariantRef {
 /// A `GVariant`'s size is limited mainly by any lower level operating
 /// system constraints, such as the number of bits in `gsize`.  For
 /// example, it is reasonable to have a 2GB file mapped into memory
-/// with `GMappedFile`, and call g_variant_new_from_data() on it.
+/// with `GMappedFile`, and call `g_variant_new_from_data()` on it.
 /// 
 /// For convenience to C programmers, `GVariant` features powerful
 /// varargs-based value construction and destruction.  This feature is
@@ -1347,7 +1350,7 @@ public extension VariantRef {
 /// values.  `GVariant` includes a printer for this language and a parser
 /// with type inferencing.
 /// 
-/// ``` Memory Use
+/// ## Memory Use
 /// 
 /// `GVariant` tries to be quite efficient with respect to memory use.
 /// This section gives a rough idea of how much memory is used by the
@@ -1359,7 +1362,7 @@ public extension VariantRef {
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ``` Serialised Data Memory
+/// ## Serialised Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
 /// serialised form.  This is what would be sent over the network or
@@ -1418,7 +1421,7 @@ public extension VariantRef {
 /// bytes. 14 + 2 + 11 + 2 = 29 bytes to encode the entire two-item
 /// dictionary.
 /// 
-/// ``` Type Information Cache
+/// ## Type Information Cache
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
@@ -1464,20 +1467,20 @@ public extension VariantRef {
 /// different types of values in it and that only one type information
 /// structure is required for many different values of the same type.
 /// 
-/// ``` Buffer Management Memory
+/// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
 /// with the various different possible sources of serialised data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
-/// `GVariant`.  This may involve a g_free() or a g_slice_free() or
-/// even g_mapped_file_unref().
+/// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
+/// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
 /// serialised data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
-/// ``` GVariant structure
+/// ## GVariant structure
 /// 
 /// The size of a `GVariant` structure is 6 * (void *).  On 32-bit
 /// systems, that's 24 bytes.
@@ -1493,19 +1496,19 @@ public extension VariantRef {
 /// 
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
-/// as they are in use (ie: until you call g_variant_unref()).  The
+/// as they are in use (ie: until you call `g_variant_unref()`).  The
 /// type information is shared.  The serialised data and the buffer
 /// management structure for that serialised data is shared by the
 /// child.
 /// 
-/// ``` Summary
+/// ## Summary
 /// 
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
 /// for the serialised data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
-/// malloc overhead.  If we were to use g_variant_get_child_value() to
+/// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
 /// would use more memory for the serialised data and buffer
@@ -1575,8 +1578,8 @@ open class Variant: VariantProtocol {
     /// All items in the array must have the same type, which must be the
     /// same as `child_type`, if given.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public convenience init(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
         let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
         self.init(cast(rv))
@@ -1595,7 +1598,7 @@ open class Variant: VariantProtocol {
     }
 
     /// Creates an array-of-bytes `GVariant` with the contents of `string`.
-    /// This function is just like g_variant_new_string() except that the
+    /// This function is just like `g_variant_new_string()` except that the
     /// string need not be valid UTF-8.
     /// 
     /// The nul terminator character at the end of the string is stored in
@@ -1628,7 +1631,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
-    /// you might say sizeof(gint32). This value isn't used except for the purpose
+    /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
     /// of a double-check that the form of the serialised data matches the caller's
     /// expectation.
     /// 
@@ -1671,7 +1674,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `data` was not stored in this machine's native endianness, any multi-byte
     /// numeric values in the returned variant will also be in non-native
-    /// endianness. g_variant_byteswap() can be used to recover the original values.
+    /// endianness. `g_variant_byteswap()` can be used to recover the original values.
     /// 
     /// `notify` will be called with `user_data` when `data` is no longer
     /// needed.  The exact time of this call is unspecified and might even be
@@ -1722,7 +1725,7 @@ open class Variant: VariantProtocol {
     /// If they are both non-`nil` then `child_type` must be the type
     /// of `child`.
     /// 
-    /// If `child` is a floating reference (see g_variant_ref_sink()), the new
+    /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     public convenience init(maybe child_type: VariantTypeProtocol, child: VariantProtocol) {
         let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
@@ -1731,7 +1734,7 @@ open class Variant: VariantProtocol {
 
     /// Creates a D-Bus object path `GVariant` with the contents of `string`.
     /// `string` must be a valid D-Bus object path.  Use
-    /// g_variant_is_object_path() if you're not sure.
+    /// `g_variant_is_object_path()` if you're not sure.
     public convenience init(objectPath object_path: UnsafePointer<gchar>) {
         let rv = g_variant_new_object_path(object_path)
         self.init(cast(rv))
@@ -1741,7 +1744,7 @@ open class Variant: VariantProtocol {
     /// strings.
     /// 
     /// Each string must be a valid `GVariant` object path; see
-    /// g_variant_is_object_path().
+    /// `g_variant_is_object_path()`.
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public convenience init(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
@@ -1755,7 +1758,7 @@ open class Variant: VariantProtocol {
 
     /// Parses `format` and returns the result.
     /// 
-    /// This is the version of g_variant_new_parsed() intended to be used
+    /// This is the version of `g_variant_new_parsed()` intended to be used
     /// from libraries.
     /// 
     /// The return value will be floating if it was a newly created GVariant
@@ -1769,11 +1772,11 @@ open class Variant: VariantProtocol {
     /// the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     public convenience init(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) {
         let rv = g_variant_new_parsed_va(format, cast(app))
         self.init(cast(rv))
@@ -1785,7 +1788,7 @@ open class Variant: VariantProtocol {
 
     /// Creates a D-Bus type signature `GVariant` with the contents of
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
-    /// g_variant_is_signature() if you're not sure.
+    /// `g_variant_is_signature()` if you're not sure.
     public convenience init(signature: UnsafePointer<gchar>) {
         let rv = g_variant_new_signature(signature)
         self.init(cast(rv))
@@ -1794,7 +1797,7 @@ open class Variant: VariantProtocol {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use g_variant_new() with `ms` as the
+    /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string][gvariant-format-strings-maybe-types].
     public convenience init(string: UnsafePointer<gchar>) {
         let rv = g_variant_new_string(string)
@@ -1813,9 +1816,9 @@ open class Variant: VariantProtocol {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use this with g_variant_new_maybe().
+    /// potentially-`nil` strings, use this with `g_variant_new_maybe()`.
     /// 
-    /// This function consumes `string`.  g_free() will be called on `string`
+    /// This function consumes `string`.  `g_free()` will be called on `string`
     /// when it is no longer required.
     /// 
     /// You must not modify or access `string` in any other way after passing
@@ -1832,8 +1835,8 @@ open class Variant: VariantProtocol {
     /// 
     /// If `n_children` is 0 then the unit tuple is constructed.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public convenience init(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
         let rv = g_variant_new_tuple(cast(children), gsize(n_children))
         self.init(cast(rv))
@@ -1858,10 +1861,10 @@ open class Variant: VariantProtocol {
     }
 
     /// This function is intended to be used by libraries based on
-    /// `GVariant` that want to provide g_variant_new()-like functionality
+    /// `GVariant` that want to provide `g_variant_new()`-like functionality
     /// to their users.
     /// 
-    /// The API is more general than g_variant_new() to allow a wider range
+    /// The API is more general than `g_variant_new()` to allow a wider range
     /// of possible uses.
     /// 
     /// `format_string` must still point to a valid format string, but it only
@@ -1878,21 +1881,21 @@ open class Variant: VariantProtocol {
     /// See the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// These two generalisations allow mixing of multiple calls to
-    /// g_variant_new_va() and g_variant_get_va() within a single actual
+    /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
     /// varargs call by the user.
     /// 
     /// The return value will be floating if it was a newly created GVariant
     /// instance (for example, if the format string was "(ii)").  In the case
     /// that the format_string was '*', '?', 'r', or a format starting with
-    /// '``' then the collected `GVariant` pointer will be returned unmodified,
+    /// '@' then the collected `GVariant` pointer will be returned unmodified,
     /// without adding any additional references.
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     public convenience init(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) {
         let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
         self.init(cast(rv))
@@ -1911,8 +1914,8 @@ open class Variant: VariantProtocol {
     /// All items in the array must have the same type, which must be the
     /// same as `child_type`, if given.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public static func new(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> Variant! {
         let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
         return rv.map { Variant(cast($0)) }
@@ -1931,7 +1934,7 @@ open class Variant: VariantProtocol {
     }
 
     /// Creates an array-of-bytes `GVariant` with the contents of `string`.
-    /// This function is just like g_variant_new_string() except that the
+    /// This function is just like `g_variant_new_string()` except that the
     /// string need not be valid UTF-8.
     /// 
     /// The nul terminator character at the end of the string is stored in
@@ -1964,7 +1967,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
-    /// you might say sizeof(gint32). This value isn't used except for the purpose
+    /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
     /// of a double-check that the form of the serialised data matches the caller's
     /// expectation.
     /// 
@@ -2007,7 +2010,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `data` was not stored in this machine's native endianness, any multi-byte
     /// numeric values in the returned variant will also be in non-native
-    /// endianness. g_variant_byteswap() can be used to recover the original values.
+    /// endianness. `g_variant_byteswap()` can be used to recover the original values.
     /// 
     /// `notify` will be called with `user_data` when `data` is no longer
     /// needed.  The exact time of this call is unspecified and might even be
@@ -2058,7 +2061,7 @@ open class Variant: VariantProtocol {
     /// If they are both non-`nil` then `child_type` must be the type
     /// of `child`.
     /// 
-    /// If `child` is a floating reference (see g_variant_ref_sink()), the new
+    /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     public static func new(maybe child_type: VariantTypeProtocol, child: VariantProtocol) -> Variant! {
         let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
@@ -2067,7 +2070,7 @@ open class Variant: VariantProtocol {
 
     /// Creates a D-Bus object path `GVariant` with the contents of `string`.
     /// `string` must be a valid D-Bus object path.  Use
-    /// g_variant_is_object_path() if you're not sure.
+    /// `g_variant_is_object_path()` if you're not sure.
     public static func new(objectPath object_path: UnsafePointer<gchar>) -> Variant! {
         let rv = g_variant_new_object_path(object_path)
         return rv.map { Variant(cast($0)) }
@@ -2077,7 +2080,7 @@ open class Variant: VariantProtocol {
     /// strings.
     /// 
     /// Each string must be a valid `GVariant` object path; see
-    /// g_variant_is_object_path().
+    /// `g_variant_is_object_path()`.
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public static func new(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> Variant! {
@@ -2091,7 +2094,7 @@ open class Variant: VariantProtocol {
 
     /// Parses `format` and returns the result.
     /// 
-    /// This is the version of g_variant_new_parsed() intended to be used
+    /// This is the version of `g_variant_new_parsed()` intended to be used
     /// from libraries.
     /// 
     /// The return value will be floating if it was a newly created GVariant
@@ -2105,11 +2108,11 @@ open class Variant: VariantProtocol {
     /// the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     public static func newParsedVa(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) -> Variant! {
         let rv = g_variant_new_parsed_va(format, cast(app))
         return rv.map { Variant(cast($0)) }
@@ -2121,7 +2124,7 @@ open class Variant: VariantProtocol {
 
     /// Creates a D-Bus type signature `GVariant` with the contents of
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
-    /// g_variant_is_signature() if you're not sure.
+    /// `g_variant_is_signature()` if you're not sure.
     public static func new(signature: UnsafePointer<gchar>) -> Variant! {
         let rv = g_variant_new_signature(signature)
         return rv.map { Variant(cast($0)) }
@@ -2130,7 +2133,7 @@ open class Variant: VariantProtocol {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use g_variant_new() with `ms` as the
+    /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string][gvariant-format-strings-maybe-types].
     public static func new(string: UnsafePointer<gchar>) -> Variant! {
         let rv = g_variant_new_string(string)
@@ -2149,9 +2152,9 @@ open class Variant: VariantProtocol {
     /// Creates a string `GVariant` with the contents of `string`.
     /// 
     /// `string` must be valid UTF-8, and must not be `nil`. To encode
-    /// potentially-`nil` strings, use this with g_variant_new_maybe().
+    /// potentially-`nil` strings, use this with `g_variant_new_maybe()`.
     /// 
-    /// This function consumes `string`.  g_free() will be called on `string`
+    /// This function consumes `string`.  `g_free()` will be called on `string`
     /// when it is no longer required.
     /// 
     /// You must not modify or access `string` in any other way after passing
@@ -2168,8 +2171,8 @@ open class Variant: VariantProtocol {
     /// 
     /// If `n_children` is 0 then the unit tuple is constructed.
     /// 
-    /// If the `children` are floating references (see g_variant_ref_sink()), the
-    /// new instance takes ownership of them as if via g_variant_ref_sink().
+    /// If the `children` are floating references (see `g_variant_ref_sink()`), the
+    /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public static func new(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> Variant! {
         let rv = g_variant_new_tuple(cast(children), gsize(n_children))
         return rv.map { Variant(cast($0)) }
@@ -2194,10 +2197,10 @@ open class Variant: VariantProtocol {
     }
 
     /// This function is intended to be used by libraries based on
-    /// `GVariant` that want to provide g_variant_new()-like functionality
+    /// `GVariant` that want to provide `g_variant_new()`-like functionality
     /// to their users.
     /// 
-    /// The API is more general than g_variant_new() to allow a wider range
+    /// The API is more general than `g_variant_new()` to allow a wider range
     /// of possible uses.
     /// 
     /// `format_string` must still point to a valid format string, but it only
@@ -2214,21 +2217,21 @@ open class Variant: VariantProtocol {
     /// See the [GVariant varargs documentation][gvariant-varargs].
     /// 
     /// These two generalisations allow mixing of multiple calls to
-    /// g_variant_new_va() and g_variant_get_va() within a single actual
+    /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
     /// varargs call by the user.
     /// 
     /// The return value will be floating if it was a newly created GVariant
     /// instance (for example, if the format string was "(ii)").  In the case
     /// that the format_string was '*', '?', 'r', or a format starting with
-    /// '``' then the collected `GVariant` pointer will be returned unmodified,
+    /// '@' then the collected `GVariant` pointer will be returned unmodified,
     /// without adding any additional references.
     /// 
     /// In order to behave correctly in all cases it is necessary for the
-    /// calling function to g_variant_ref_sink() the return result before
+    /// calling function to `g_variant_ref_sink()` the return result before
     /// returning control to the user that originally provided the pointer.
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
-    /// or by passing it to another g_variant_new() call.
+    /// or by passing it to another `g_variant_new()` call.
     public static func new(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) -> Variant! {
         let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
         return rv.map { Variant(cast($0)) }
@@ -2258,13 +2261,13 @@ open class Variant: VariantProtocol {
     /// 
     /// In the event that the parsing is successful, the resulting `GVariant`
     /// is returned. It is never floating, and must be freed with
-    /// g_variant_unref().
+    /// `g_variant_unref()`.
     /// 
     /// In case of any error, `nil` will be returned.  If `error` is non-`nil`
     /// then it will be set to reflect the error that occurred.
     /// 
     /// Officially, the language understood by the parser is "any string
-    /// produced by g_variant_print()".
+    /// produced by `g_variant_print()`".
     public static func parse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> Variant! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
@@ -2301,20 +2304,20 @@ public extension VariantProtocol {
         return cast(rv)
     }
 
-    /// Checks if calling g_variant_get() with `format_string` on `value` would
+    /// Checks if calling `g_variant_get()` with `format_string` on `value` would
     /// be valid from a type-compatibility standpoint.  `format_string` is
     /// assumed to be a valid format string (from a syntactic standpoint).
     /// 
     /// If `copy_only` is `true` then this function additionally checks that it
-    /// would be safe to call g_variant_unref() on `value` immediately after
-    /// the call to g_variant_get() without invalidating the result.  This is
+    /// would be safe to call `g_variant_unref()` on `value` immediately after
+    /// the call to `g_variant_get()` without invalidating the result.  This is
     /// only possible if deep copies are made (ie: there are no pointers to
     /// the data inside of the soon-to-be-freed `GVariant` instance).  If this
-    /// check fails then a g_critical() is printed and `false` is returned.
+    /// check fails then a `g_critical()` is printed and `false` is returned.
     /// 
     /// This function is meant to be used by functions that wish to provide
     /// varargs accessors to `GVariant` values of uncertain values (eg:
-    /// g_variant_lookup() or g_menu_model_get_item_attribute()).
+    /// `g_variant_lookup()` or `g_menu_model_get_item_attribute()`).
     func check(formatString format_string: UnsafePointer<gchar>, copyOnly copy_only: Bool) -> Bool {
         let rv = g_variant_check_format_string(cast(variant_ptr), format_string, gboolean(copy_only ? 1 : 0))
         return Bool(rv != 0)
@@ -2343,17 +2346,17 @@ public extension VariantProtocol {
     /// well-behaved when it comes to comparison of doubles; in particular,
     /// the handling of incomparable values (ie: NaN) is undefined.
     /// 
-    /// If you only require an equality comparison, g_variant_equal() is more
+    /// If you only require an equality comparison, `g_variant_equal()` is more
     /// general.
     func compare(two: VariantProtocol) -> CInt {
         let rv = g_variant_compare(cast(variant_ptr), cast(two.ptr))
         return CInt(rv)
     }
 
-    /// Similar to g_variant_get_bytestring() except that instead of
+    /// Similar to `g_variant_get_bytestring()` except that instead of
     /// returning a constant string, the string is duplicated.
     /// 
-    /// The return value must be freed using g_free().
+    /// The return value must be freed using `g_free()`.
     func dupBytestring(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<gchar>! {
         let rv = g_variant_dup_bytestring(cast(variant_ptr), cast(length))
         return cast(rv)
@@ -2361,7 +2364,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of array of bytes `GVariant`.  This call
     /// makes a deep copy; the return result should be released with
-    /// g_strfreev().
+    /// `g_strfreev()`.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result is
     /// stored there.  In any case, the resulting array will be
@@ -2376,7 +2379,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of object paths `GVariant`.  This call
     /// makes a deep copy; the return result should be released with
-    /// g_strfreev().
+    /// `g_strfreev()`.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result
     /// is stored there.  In any case, the resulting array will be
@@ -2389,12 +2392,12 @@ public extension VariantProtocol {
         return cast(rv)
     }
 
-    /// Similar to g_variant_get_string() except that instead of returning
+    /// Similar to `g_variant_get_string()` except that instead of returning
     /// a constant string, the string is duplicated.
     /// 
     /// The string will always be UTF-8 encoded.
     /// 
-    /// The return value must be freed using g_free().
+    /// The return value must be freed using `g_free()`.
     func dupString(length: UnsafeMutablePointer<Int>) -> String! {
         let rv = g_variant_dup_string(cast(variant_ptr), cast(length))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -2402,7 +2405,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of strings `GVariant`.  This call
     /// makes a deep copy; the return result should be released with
-    /// g_strfreev().
+    /// `g_strfreev()`.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result
     /// is stored there.  In any case, the resulting array will be
@@ -2457,7 +2460,7 @@ public extension VariantProtocol {
     /// the last byte then the returned string is the string, up to the first
     /// such nul character.
     /// 
-    /// g_variant_get_fixed_array() should be used instead if the array contains
+    /// `g_variant_get_fixed_array()` should be used instead if the array contains
     /// arbitrary data that could not be nul-terminated or could contain nul bytes.
     /// 
     /// It is an error to call this function with a `value` that is not an
@@ -2471,7 +2474,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of array of bytes `GVariant`.  This call
     /// makes a shallow copy; the return result should be released with
-    /// g_free(), but the individual strings must not be modified.
+    /// `g_free()`, but the individual strings must not be modified.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result is
     /// stored there.  In any case, the resulting array will be
@@ -2494,17 +2497,17 @@ public extension VariantProtocol {
     /// `GVariant`.
     /// 
     /// It is an error if `index_` is greater than the number of child items
-    /// in the container.  See g_variant_n_children().
+    /// in the container.  See `g_variant_n_children()`.
     /// 
     /// The returned value is never floating.  You should free it with
-    /// g_variant_unref() when you're done with it.
+    /// `g_variant_unref()` when you're done with it.
     /// 
     /// There may be implementation specific restrictions on deeply nested values,
     /// which would result in the unit tuple being returned as the child value,
     /// instead of further nested children. `GVariant` is guaranteed to handle
     /// nesting up to at least 64 levels.
     /// 
-    /// This function is O(1).
+    /// This function is `O(1)`.
     func getChildValue(index_: Int) -> UnsafeMutablePointer<GVariant>! {
         let rv = g_variant_get_child_value(cast(variant_ptr), gsize(index_))
         return cast(rv)
@@ -2522,8 +2525,8 @@ public extension VariantProtocol {
     /// then `nil` is never returned.
     /// 
     /// In the case that `value` is already in serialised form, this function
-    /// is O(1).  If the value is not already in serialised form,
-    /// serialisation occurs implicitly and is approximately O(n) in the size
+    /// is `O(1)`.  If the value is not already in serialised form,
+    /// serialisation occurs implicitly and is approximately `O(n)` in the size
     /// of the result.
     /// 
     /// To deserialise the data returned by this function, in addition to the
@@ -2542,7 +2545,7 @@ public extension VariantProtocol {
 
     /// Returns a pointer to the serialised form of a `GVariant` instance.
     /// The semantics of this function are exactly the same as
-    /// g_variant_get_data(), except that the returned `GBytes` holds
+    /// `g_variant_get_data()`, except that the returned `GBytes` holds
     /// a reference to the variant data.
     func getDataAsBytes() -> UnsafeMutablePointer<GBytes>! {
         let rv = g_variant_get_data_as_bytes(cast(variant_ptr))
@@ -2572,13 +2575,13 @@ public extension VariantProtocol {
     /// as an array of the given C type, with `element_size` set to the size
     /// the appropriate type:
     /// - `G_VARIANT_TYPE_INT16` (etc.): `gint16` (etc.)
-    /// - `G_VARIANT_TYPE_BOOLEAN`: `guchar` (not `gboolean`!)
-    /// - `G_VARIANT_TYPE_BYTE`: `guint8`
-    /// - `G_VARIANT_TYPE_HANDLE`: `guint32`
-    /// - `G_VARIANT_TYPE_DOUBLE`: `gdouble`
+    /// - `G_VARIANT_TYPE_BOOLEAN:` `guchar` (not `gboolean`!)
+    /// - `G_VARIANT_TYPE_BYTE:` `guint8`
+    /// - `G_VARIANT_TYPE_HANDLE:` `guint32`
+    /// - `G_VARIANT_TYPE_DOUBLE:` `gdouble`
     /// 
     /// For example, if calling this function for an array of 32-bit integers,
-    /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
+    /// you might say ``sizeof(gint32)``. This value isn't used except for the purpose
     /// of a double-check that the form of the serialised data matches the caller's
     /// expectation.
     /// 
@@ -2656,7 +2659,7 @@ public extension VariantProtocol {
     /// If `value` is already in normal form, a new reference will be returned
     /// (which will be floating if `value` is floating). If it is not in normal form,
     /// the newly created `GVariant` will be returned with a single non-floating
-    /// reference. Typically, g_variant_take_ref() should be called on the return
+    /// reference. Typically, `g_variant_take_ref()` should be called on the return
     /// value from this function to guarantee ownership of a single non-floating
     /// reference to it.
     func getNormalForm() -> UnsafeMutablePointer<GVariant>! {
@@ -2666,7 +2669,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of object paths `GVariant`.  This call
     /// makes a shallow copy; the return result should be released with
-    /// g_free(), but the individual strings must not be modified.
+    /// `g_free()`, but the individual strings must not be modified.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result
     /// is stored there.  In any case, the resulting array will be
@@ -2680,15 +2683,15 @@ public extension VariantProtocol {
     }
 
     /// Determines the number of bytes that would be required to store `value`
-    /// with g_variant_store().
+    /// with `g_variant_store()`.
     /// 
     /// If `value` has a fixed-sized type then this function always returned
     /// that fixed size.
     /// 
     /// In the case that `value` is already in serialised form or the size has
     /// already been calculated (ie: this function has been called before)
-    /// then this function is O(1).  Otherwise, the size is calculated, an
-    /// operation which is approximately O(n) in the number of values
+    /// then this function is `O(1)`.  Otherwise, the size is calculated, an
+    /// operation which is approximately `O(n)` in the number of values
     /// involved.
     func getSize() -> Int {
         let rv = g_variant_get_size(cast(variant_ptr))
@@ -2703,7 +2706,7 @@ public extension VariantProtocol {
     /// 
     /// If `length` is non-`nil` then the length of the string (in bytes) is
     /// returned there.  For trusted values, this information is already
-    /// known.  For untrusted values, a strlen() will be performed.
+    /// known.  For untrusted values, a `strlen()` will be performed.
     /// 
     /// It is an error to call this function with a `value` of any type
     /// other than those three.
@@ -2716,7 +2719,7 @@ public extension VariantProtocol {
 
     /// Gets the contents of an array of strings `GVariant`.  This call
     /// makes a shallow copy; the return result should be released with
-    /// g_free(), but the individual strings must not be modified.
+    /// `g_free()`, but the individual strings must not be modified.
     /// 
     /// If `length` is non-`nil` then the number of elements in the result
     /// is stored there.  In any case, the resulting array will be
@@ -2739,7 +2742,7 @@ public extension VariantProtocol {
     }
 
     /// Returns the type string of `value`.  Unlike the result of calling
-    /// g_variant_type_peek_string(), this string is nul-terminated.  This
+    /// `g_variant_type_peek_string()`, this string is nul-terminated.  This
     /// string belongs to `GVariant` and must not be freed.
     func getTypeString() -> String! {
         let rv = g_variant_get_type_string(cast(variant_ptr))
@@ -2774,10 +2777,10 @@ public extension VariantProtocol {
     }
 
     /// This function is intended to be used by libraries based on `GVariant`
-    /// that want to provide g_variant_get()-like functionality to their
+    /// that want to provide `g_variant_get()`-like functionality to their
     /// users.
     /// 
-    /// The API is more general than g_variant_get() to allow a wider range
+    /// The API is more general than `g_variant_get()` to allow a wider range
     /// of possible uses.
     /// 
     /// `format_string` must still point to a valid format string, but it only
@@ -2790,7 +2793,7 @@ public extension VariantProtocol {
     /// pointing to the argument following the last.
     /// 
     /// These two generalisations allow mixing of multiple calls to
-    /// g_variant_new_va() and g_variant_get_va() within a single actual
+    /// `g_variant_new_va()` and `g_variant_get_va()` within a single actual
     /// varargs call by the user.
     /// 
     /// `format_string` determines the C types that are used for unpacking
@@ -2832,11 +2835,11 @@ public extension VariantProtocol {
     /// Creates a heap-allocated `GVariantIter` for iterating over the items
     /// in `value`.
     /// 
-    /// Use g_variant_iter_free() to free the return value when you no longer
+    /// Use `g_variant_iter_free()` to free the return value when you no longer
     /// need it.
     /// 
     /// A reference is taken to `value` and will be released only when
-    /// g_variant_iter_free() is called.
+    /// `g_variant_iter_free()` is called.
     func iterNew() -> UnsafeMutablePointer<GVariantIter>! {
         let rv = g_variant_iter_new(cast(variant_ptr))
         return cast(rv)
@@ -2882,13 +2885,13 @@ public extension VariantProtocol {
     /// array.  For tuples it is the number of tuple items (which depends
     /// only on the type).  For dictionary entries, it is always 2
     /// 
-    /// This function is O(1).
+    /// This function is `O(1)`.
     func nChildren() -> Int {
         let rv = g_variant_n_children(cast(variant_ptr))
         return Int(rv)
     }
 
-    /// Pretty-prints `value` in the format understood by g_variant_parse().
+    /// Pretty-prints `value` in the format understood by `g_variant_parse()`.
     /// 
     /// The format is described [here][gvariant-text].
     /// 
@@ -2899,7 +2902,7 @@ public extension VariantProtocol {
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
-    /// Behaves as g_variant_print(), but operates on a `GString`.
+    /// Behaves as `g_variant_print()`, but operates on a `GString`.
     /// 
     /// If `string` is non-`nil` then it is appended to and returned.  Else,
     /// a new empty `GString` is allocated and it is returned.
@@ -2918,9 +2921,9 @@ public extension VariantProtocol {
     /// names starting with `g_variant_new_` return floating
     /// references.
     /// 
-    /// Calling g_variant_ref_sink() on a `GVariant` with a floating reference
+    /// Calling `g_variant_ref_sink()` on a `GVariant` with a floating reference
     /// will convert the floating reference into a full reference.  Calling
-    /// g_variant_ref_sink() on a non-floating `GVariant` results in an
+    /// `g_variant_ref_sink()` on a non-floating `GVariant` results in an
     /// additional normal reference being added.
     /// 
     /// In other words, if the `value` is floating, then this call "assumes
@@ -2929,7 +2932,7 @@ public extension VariantProtocol {
     /// new normal reference increasing the reference count by one.
     /// 
     /// All calls that result in a `GVariant` instance being inserted into a
-    /// container will call g_variant_ref_sink() on the instance.  This means
+    /// container will call `g_variant_ref_sink()` on the instance.  This means
     /// that if the value was just created (and has only its floating
     /// reference) then the container will assume sole ownership of the value
     /// at that point and the caller will not need to unreference it.  This
@@ -2942,17 +2945,17 @@ public extension VariantProtocol {
     }
 
     /// Stores the serialised form of `value` at `data`.  `data` should be
-    /// large enough.  See g_variant_get_size().
+    /// large enough.  See `g_variant_get_size()`.
     /// 
     /// The stored data is in machine native byte order but may not be in
     /// fully-normalised form if read from an untrusted source.  See
-    /// g_variant_get_normal_form() for a solution.
+    /// `g_variant_get_normal_form()` for a solution.
     /// 
-    /// As with g_variant_get_data(), to be able to deserialise the
+    /// As with `g_variant_get_data()`, to be able to deserialise the
     /// serialised variant successfully, its type and (if the destination
     /// machine might be different) its endianness must also be available.
     /// 
-    /// This function is approximately O(n) in the size of `data`.
+    /// This function is approximately `O(n)` in the size of `data`.
     func store(data: UnsafeMutableRawPointer) {
         g_variant_store(cast(variant_ptr), cast(data))
     
@@ -2960,7 +2963,7 @@ public extension VariantProtocol {
 
     /// If `value` is floating, sink it.  Otherwise, do nothing.
     /// 
-    /// Typically you want to use g_variant_ref_sink() in order to
+    /// Typically you want to use `g_variant_ref_sink()` in order to
     /// automatically do the correct thing with respect to floating or
     /// non-floating references, but there is one specific scenario where
     /// this function is helpful.
@@ -2983,10 +2986,10 @@ public extension VariantProtocol {
     /// that has been converted to a full reference.
     /// 
     /// This function has an odd interaction when combined with
-    /// g_variant_ref_sink() running at the same time in another thread on
-    /// the same `GVariant` instance.  If g_variant_ref_sink() runs first then
+    /// `g_variant_ref_sink()` running at the same time in another thread on
+    /// the same `GVariant` instance.  If `g_variant_ref_sink()` runs first then
     /// the result will be that the floating reference is converted to a hard
-    /// reference.  If g_variant_take_ref() runs first then the result will
+    /// reference.  If `g_variant_take_ref()` runs first then the result will
     /// be that the floating reference is converted to a hard reference and
     /// an additional reference on top of that one is added.  It is best to
     /// avoid this situation.
@@ -3013,9 +3016,9 @@ public extension VariantProtocol {
     /// supported. In this case the message is handled as binary and will be forwarded
     /// to the log writer as such. The size of the array should not be higher than
     /// `G_MAXSSIZE`. Otherwise it will be truncated to this size. For other types
-    /// g_variant_print() will be used to convert the value into a string.
+    /// `g_variant_print()` will be used to convert the value into a string.
     /// 
-    /// For more details on its usage and about the parameters, see g_log_structured().
+    /// For more details on its usage and about the parameters, see `g_log_structured()`.
     func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags) {
         g_log_variant(log_domain, log_level, cast(variant_ptr))
     
@@ -3061,7 +3064,7 @@ public extension VariantProtocol {
     /// the last byte then the returned string is the string, up to the first
     /// such nul character.
     /// 
-    /// g_variant_get_fixed_array() should be used instead if the array contains
+    /// `g_variant_get_fixed_array()` should be used instead if the array contains
     /// arbitrary data that could not be nul-terminated or could contain nul bytes.
     /// 
     /// It is an error to call this function with a `value` that is not an
@@ -3080,7 +3083,7 @@ public extension VariantProtocol {
         /// the last byte then the returned string is the string, up to the first
         /// such nul character.
         /// 
-        /// g_variant_get_fixed_array() should be used instead if the array contains
+        /// `g_variant_get_fixed_array()` should be used instead if the array contains
         /// arbitrary data that could not be nul-terminated or could contain nul bytes.
         /// 
         /// It is an error to call this function with a `value` that is not an
@@ -3105,8 +3108,8 @@ public extension VariantProtocol {
     /// then `nil` is never returned.
     /// 
     /// In the case that `value` is already in serialised form, this function
-    /// is O(1).  If the value is not already in serialised form,
-    /// serialisation occurs implicitly and is approximately O(n) in the size
+    /// is `O(1)`.  If the value is not already in serialised form,
+    /// serialisation occurs implicitly and is approximately `O(n)` in the size
     /// of the result.
     /// 
     /// To deserialise the data returned by this function, in addition to the
@@ -3131,8 +3134,8 @@ public extension VariantProtocol {
         /// then `nil` is never returned.
         /// 
         /// In the case that `value` is already in serialised form, this function
-        /// is O(1).  If the value is not already in serialised form,
-        /// serialisation occurs implicitly and is approximately O(n) in the size
+        /// is `O(1)`.  If the value is not already in serialised form,
+        /// serialisation occurs implicitly and is approximately `O(n)` in the size
         /// of the result.
         /// 
         /// To deserialise the data returned by this function, in addition to the
@@ -3152,12 +3155,12 @@ public extension VariantProtocol {
 
     /// Returns a pointer to the serialised form of a `GVariant` instance.
     /// The semantics of this function are exactly the same as
-    /// g_variant_get_data(), except that the returned `GBytes` holds
+    /// `g_variant_get_data()`, except that the returned `GBytes` holds
     /// a reference to the variant data.
     var dataAsBytes: UnsafeMutablePointer<GBytes>! {
         /// Returns a pointer to the serialised form of a `GVariant` instance.
         /// The semantics of this function are exactly the same as
-        /// g_variant_get_data(), except that the returned `GBytes` holds
+        /// `g_variant_get_data()`, except that the returned `GBytes` holds
         /// a reference to the variant data.
         get {
             let rv = g_variant_get_data_as_bytes(cast(variant_ptr))
@@ -3261,20 +3264,20 @@ public extension VariantProtocol {
     /// 
     /// This function should only ever be used to assert that a given variant
     /// is or is not floating, or for debug purposes. To acquire a reference
-    /// to a variant that might be floating, always use g_variant_ref_sink()
-    /// or g_variant_take_ref().
+    /// to a variant that might be floating, always use `g_variant_ref_sink()`
+    /// or `g_variant_take_ref()`.
     /// 
-    /// See g_variant_ref_sink() for more information about floating reference
+    /// See `g_variant_ref_sink()` for more information about floating reference
     /// counts.
     var isFloating: Bool {
         /// Checks whether `value` has a floating reference count.
         /// 
         /// This function should only ever be used to assert that a given variant
         /// is or is not floating, or for debug purposes. To acquire a reference
-        /// to a variant that might be floating, always use g_variant_ref_sink()
-        /// or g_variant_take_ref().
+        /// to a variant that might be floating, always use `g_variant_ref_sink()`
+        /// or `g_variant_take_ref()`.
         /// 
-        /// See g_variant_ref_sink() for more information about floating reference
+        /// See `g_variant_ref_sink()` for more information about floating reference
         /// counts.
         get {
             let rv = g_variant_is_floating(cast(variant_ptr))
@@ -3286,7 +3289,7 @@ public extension VariantProtocol {
     /// 
     /// The main reason to do this is to detect if a given chunk of
     /// serialised data is in normal form: load the data into a `GVariant`
-    /// using g_variant_new_from_data() and then use this function to
+    /// using `g_variant_new_from_data()` and then use this function to
     /// check.
     /// 
     /// If `value` is found to be in normal form then it will be marked as
@@ -3300,7 +3303,7 @@ public extension VariantProtocol {
         /// 
         /// The main reason to do this is to detect if a given chunk of
         /// serialised data is in normal form: load the data into a `GVariant`
-        /// using g_variant_new_from_data() and then use this function to
+        /// using `g_variant_new_from_data()` and then use this function to
         /// check.
         /// 
         /// If `value` is found to be in normal form then it will be marked as
@@ -3346,7 +3349,7 @@ public extension VariantProtocol {
     /// If `value` is already in normal form, a new reference will be returned
     /// (which will be floating if `value` is floating). If it is not in normal form,
     /// the newly created `GVariant` will be returned with a single non-floating
-    /// reference. Typically, g_variant_take_ref() should be called on the return
+    /// reference. Typically, `g_variant_take_ref()` should be called on the return
     /// value from this function to guarantee ownership of a single non-floating
     /// reference to it.
     var normalForm: UnsafeMutablePointer<GVariant>! {
@@ -3370,7 +3373,7 @@ public extension VariantProtocol {
         /// If `value` is already in normal form, a new reference will be returned
         /// (which will be floating if `value` is floating). If it is not in normal form,
         /// the newly created `GVariant` will be returned with a single non-floating
-        /// reference. Typically, g_variant_take_ref() should be called on the return
+        /// reference. Typically, `g_variant_take_ref()` should be called on the return
         /// value from this function to guarantee ownership of a single non-floating
         /// reference to it.
         get {
@@ -3380,27 +3383,27 @@ public extension VariantProtocol {
     }
 
     /// Determines the number of bytes that would be required to store `value`
-    /// with g_variant_store().
+    /// with `g_variant_store()`.
     /// 
     /// If `value` has a fixed-sized type then this function always returned
     /// that fixed size.
     /// 
     /// In the case that `value` is already in serialised form or the size has
     /// already been calculated (ie: this function has been called before)
-    /// then this function is O(1).  Otherwise, the size is calculated, an
-    /// operation which is approximately O(n) in the number of values
+    /// then this function is `O(1)`.  Otherwise, the size is calculated, an
+    /// operation which is approximately `O(n)` in the number of values
     /// involved.
     var size: Int {
         /// Determines the number of bytes that would be required to store `value`
-        /// with g_variant_store().
+        /// with `g_variant_store()`.
         /// 
         /// If `value` has a fixed-sized type then this function always returned
         /// that fixed size.
         /// 
         /// In the case that `value` is already in serialised form or the size has
         /// already been calculated (ie: this function has been called before)
-        /// then this function is O(1).  Otherwise, the size is calculated, an
-        /// operation which is approximately O(n) in the number of values
+        /// then this function is `O(1)`.  Otherwise, the size is calculated, an
+        /// operation which is approximately `O(n)` in the number of values
         /// involved.
         get {
             let rv = g_variant_get_size(cast(variant_ptr))
@@ -3424,11 +3427,11 @@ public extension VariantProtocol {
     }
 
     /// Returns the type string of `value`.  Unlike the result of calling
-    /// g_variant_type_peek_string(), this string is nul-terminated.  This
+    /// `g_variant_type_peek_string()`, this string is nul-terminated.  This
     /// string belongs to `GVariant` and must not be freed.
     var typeString: String! {
         /// Returns the type string of `value`.  Unlike the result of calling
-        /// g_variant_type_peek_string(), this string is nul-terminated.  This
+        /// `g_variant_type_peek_string()`, this string is nul-terminated.  This
         /// string belongs to `GVariant` and must not be freed.
         get {
             let rv = g_variant_get_type_string(cast(variant_ptr))

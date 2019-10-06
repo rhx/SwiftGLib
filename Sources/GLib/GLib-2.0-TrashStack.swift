@@ -139,7 +139,7 @@ public extension TrashStackProtocol {
 
     /// Returns the height of a `GTrashStack`.
     /// 
-    /// Note that execution of this function is of O(N) complexity
+    /// Note that execution of this function is of `O(N)` complexity
     /// where N denotes the number of items on the stack.
     ///
     /// **height is deprecated:**
@@ -179,7 +179,7 @@ public extension TrashStackProtocol {
 
     /// Returns the height of a `GTrashStack`.
     /// 
-    /// Note that execution of this function is of O(N) complexity
+    /// Note that execution of this function is of `O(N)` complexity
     /// where N denotes the number of items on the stack.
     ///
     /// **trash_stack_height is deprecated:**

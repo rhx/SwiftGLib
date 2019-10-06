@@ -8,7 +8,7 @@ import CGLib
 /// Alternatively, use `LogFieldRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Structure representing a single field in a structured log entry. See
-/// g_log_structured() for details.
+/// `g_log_structured()` for details.
 /// 
 /// Log fields may contain arbitrary values, including binary with embedded nul
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and
@@ -27,7 +27,7 @@ public protocol LogFieldProtocol {
 /// Use `LogFieldRef` only as an `unowned` reference to an existing `GLogField` instance.
 ///
 /// Structure representing a single field in a structured log entry. See
-/// g_log_structured() for details.
+/// `g_log_structured()` for details.
 /// 
 /// Log fields may contain arbitrary values, including binary with embedded nul
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and
@@ -86,7 +86,7 @@ public extension LogFieldRef {
 /// Use `LogField` as a strong reference or owner of a `GLogField` instance.
 ///
 /// Structure representing a single field in a structured log entry. See
-/// g_log_structured() for details.
+/// `g_log_structured()` for details.
 /// 
 /// Log fields may contain arbitrary values, including binary with embedded nul
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and

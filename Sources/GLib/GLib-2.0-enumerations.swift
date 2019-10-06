@@ -297,7 +297,7 @@ public extension IOChannelError {
 }
 
 /// `GIOError` is only used by the deprecated functions
-/// g_io_channel_read(), g_io_channel_write(), and g_io_channel_seek().
+/// `g_io_channel_read()`, `g_io_channel_write()`, and `g_io_channel_seek()`.
 public typealias IOError = GIOError
 
 public extension IOError {
@@ -481,7 +481,7 @@ public typealias OptionError = GOptionError
 public extension OptionError {
     /// An option was not known to the parser.
     ///  This error will only be reported, if the parser hasn't been instructed
-    ///  to ignore unknown options, see g_option_context_set_ignore_unknown_options().
+    ///  to ignore unknown options, see `g_option_context_set_ignore_unknown_options()`.
     static let unknown_option = G_OPTION_ERROR_UNKNOWN_OPTION /* 0 */
     /// A value couldn't be parsed.
     static let bad_value = G_OPTION_ERROR_BAD_VALUE /* 1 */
@@ -653,7 +653,7 @@ public extension RegexError {
 }
 
 /// An enumeration specifying the base position for a
-/// g_io_channel_seek_position() operation.
+/// `g_io_channel_seek_position()` operation.
 public typealias SeekType = GSeekType
 
 public extension SeekType {
@@ -698,39 +698,39 @@ public extension SpawnError {
     static let read = G_SPAWN_ERROR_READ /* 1 */
     /// Changing to working directory failed.
     static let chdir = G_SPAWN_ERROR_CHDIR /* 2 */
-    /// execv() returned `EACCES`
+    /// `execv()` returned `EACCES`
     static let acces = G_SPAWN_ERROR_ACCES /* 3 */
-    /// execv() returned `EPERM`
+    /// `execv()` returned `EPERM`
     static let perm = G_SPAWN_ERROR_PERM /* 4 */
-    /// execv() returned `E2BIG`
+    /// `execv()` returned `E2BIG`
     static let too_big = G_SPAWN_ERROR_TOO_BIG /* 5 */
     /// deprecated alias for `G_SPAWN_ERROR_TOO_BIG` (deprecated since GLib 2.32)
     static let _2big = G_SPAWN_ERROR_2BIG /* 5 */
-    /// execv() returned `ENOEXEC`
+    /// `execv()` returned `ENOEXEC`
     static let noexec = G_SPAWN_ERROR_NOEXEC /* 6 */
-    /// execv() returned `ENAMETOOLONG`
+    /// `execv()` returned `ENAMETOOLONG`
     static let nametoolong = G_SPAWN_ERROR_NAMETOOLONG /* 7 */
-    /// execv() returned `ENOENT`
+    /// `execv()` returned `ENOENT`
     static let noent = G_SPAWN_ERROR_NOENT /* 8 */
-    /// execv() returned `ENOMEM`
+    /// `execv()` returned `ENOMEM`
     static let nomem = G_SPAWN_ERROR_NOMEM /* 9 */
-    /// execv() returned `ENOTDIR`
+    /// `execv()` returned `ENOTDIR`
     static let notdir = G_SPAWN_ERROR_NOTDIR /* 10 */
-    /// execv() returned `ELOOP`
+    /// `execv()` returned `ELOOP`
     static let loop = G_SPAWN_ERROR_LOOP /* 11 */
-    /// execv() returned `ETXTBUSY`
+    /// `execv()` returned `ETXTBUSY`
     static let txtbusy = G_SPAWN_ERROR_TXTBUSY /* 12 */
-    /// execv() returned `EIO`
+    /// `execv()` returned `EIO`
     static let io = G_SPAWN_ERROR_IO /* 13 */
-    /// execv() returned `ENFILE`
+    /// `execv()` returned `ENFILE`
     static let nfile = G_SPAWN_ERROR_NFILE /* 14 */
-    /// execv() returned `EMFILE`
+    /// `execv()` returned `EMFILE`
     static let mfile = G_SPAWN_ERROR_MFILE /* 15 */
-    /// execv() returned `EINVAL`
+    /// `execv()` returned `EINVAL`
     static let inval = G_SPAWN_ERROR_INVAL /* 16 */
-    /// execv() returned `EISDIR`
+    /// `execv()` returned `EISDIR`
     static let isdir = G_SPAWN_ERROR_ISDIR /* 17 */
-    /// execv() returned `ELIBBAD`
+    /// `execv()` returned `ELIBBAD`
     static let libbad = G_SPAWN_ERROR_LIBBAD /* 18 */
     /// Some other fatal failure,
     ///   `error->message` should explain.
@@ -738,7 +738,7 @@ public extension SpawnError {
 }
 
 /// The type of file to return the filename for, when used with
-/// g_test_build_filename().
+/// `g_test_build_filename()`.
 /// 
 /// These two options correspond rather directly to the 'dist' and
 /// 'built' terminology that automake uses and are explicitly used to
@@ -817,7 +817,7 @@ public extension TimeType {
 }
 
 /// The possible types of token returned from each
-/// g_scanner_get_next_token() call.
+/// `g_scanner_get_next_token()` call.
 public typealias TokenType = GTokenType
 
 public extension TokenType {
@@ -869,8 +869,8 @@ public extension TokenType {
     static let comment_multi = G_TOKEN_COMMENT_MULTI /* 269 */
 }
 
-/// Specifies the type of traveral performed by g_tree_traverse(),
-/// g_node_traverse() and g_node_find(). The different orders are
+/// Specifies the type of traveral performed by `g_tree_traverse()`,
+/// `g_node_traverse()` and `g_node_find()`. The different orders are
 /// illustrated here:
 /// - In order: A, B, C, D, E, F, G, H, I
 ///   ![](Sorted_binary_tree_inorder.svg)
@@ -1005,11 +1005,11 @@ public extension UnicodeBreakType {
 /// 
 /// Note that new types may be added in the future. Applications
 /// should be ready to handle unknown values.
-/// See [Unicode Standard Annex `24`: Script names](http://www.unicode.org/reports/tr24/).
+/// See [Unicode Standard Annex `24:` Script names](http://www.unicode.org/reports/tr24/).
 public typealias UnicodeScript = GUnicodeScript
 
 public extension UnicodeScript {
-    /// a value never returned from g_unichar_get_script()
+    /// a value never returned from `g_unichar_get_script()`
     static let invalid_code = G_UNICODE_SCRIPT_INVALID_CODE /* -1 */
     /// a character used by multiple different scripts
     static let common = G_UNICODE_SCRIPT_COMMON /* 0 */
@@ -1389,7 +1389,7 @@ public extension UnicodeType {
 }
 
 /// These are logical ids for special directories which are defined
-/// depending on the platform used. You should use g_get_user_special_dir()
+/// depending on the platform used. You should use `g_get_user_special_dir()`
 /// to retrieve the full path associated to the logical id.
 /// 
 /// The `GUserDirectory` enumeration can be extended at later date. Not

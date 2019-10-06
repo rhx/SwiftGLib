@@ -7,7 +7,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `IConv`.
 /// Alternatively, use `IConvRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GIConv struct wraps an iconv() conversion descriptor. It contains
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 public protocol IConvProtocol {
     /// Untyped pointer to the underlying `GIConv` instance.
@@ -21,7 +21,7 @@ public protocol IConvProtocol {
 /// It exposes methods that can operate on this data type through `IConvProtocol` conformance.
 /// Use `IConvRef` only as an `unowned` reference to an existing `GIConv` instance.
 ///
-/// The GIConv struct wraps an iconv() conversion descriptor. It contains
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 public struct IConvRef: IConvProtocol {
     /// Untyped pointer to the underlying `GIConv` instance.
@@ -69,11 +69,11 @@ public extension IConvRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Same as the standard UNIX routine iconv_open(), but
+        /// Same as the standard UNIX routine `iconv_open()`, but
     /// may be implemented via libiconv on UNIX flavors that lack
     /// a native implementation.
     /// 
-    /// GLib provides g_convert() and g_locale_to_utf8() which are likely
+    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
     /// more convenient than the raw iconv wrappers.
     static func open(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>) -> IConvRef! {
         let rv = g_iconv_open(to_codeset, from_codeset)
@@ -85,7 +85,7 @@ public extension IConvRef {
 /// It provides the methods that can operate on this data type through `IConvProtocol` conformance.
 /// Use `IConv` as a strong reference or owner of a `GIConv` instance.
 ///
-/// The GIConv struct wraps an iconv() conversion descriptor. It contains
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 open class IConv: IConvProtocol {
     /// Untyped pointer to the underlying `GIConv` instance.
@@ -135,11 +135,11 @@ open class IConv: IConvProtocol {
     }
 
 
-    /// Same as the standard UNIX routine iconv_open(), but
+    /// Same as the standard UNIX routine `iconv_open()`, but
     /// may be implemented via libiconv on UNIX flavors that lack
     /// a native implementation.
     /// 
-    /// GLib provides g_convert() and g_locale_to_utf8() which are likely
+    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
     /// more convenient than the raw iconv wrappers.
     public static func open(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>) -> IConv! {
         let rv = g_iconv_open(to_codeset, from_codeset)
@@ -161,13 +161,13 @@ public extension IConvProtocol {
     // *** gIconv() causes a syntax error and is therefore not available!
 
 
-    /// Same as the standard UNIX routine iconv_close(), but
+    /// Same as the standard UNIX routine `iconv_close()`, but
     /// may be implemented via libiconv on UNIX flavors that lack
     /// a native implementation. Should be called to clean up
-    /// the conversion descriptor from g_iconv_open() when
+    /// the conversion descriptor from `g_iconv_open()` when
     /// you are done converting things.
     /// 
-    /// GLib provides g_convert() and g_locale_to_utf8() which are likely
+    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
     /// more convenient than the raw iconv wrappers.
     func close() -> CInt {
         let rv = g_iconv_close(cast(_ptr))
@@ -176,23 +176,23 @@ public extension IConvProtocol {
 
     /// Converts a string from one character set to another.
     /// 
-    /// Note that you should use g_iconv() for streaming conversions.
+    /// Note that you should use `g_iconv()` for streaming conversions.
     /// Despite the fact that `bytes_read` can return information about partial
     /// characters, the g_convert_... functions are not generally suitable
     /// for streaming. If the underlying converter maintains internal state,
-    /// then this won't be preserved across successive calls to g_convert(),
-    /// g_convert_with_iconv() or g_convert_with_fallback(). (An example of
+    /// then this won't be preserved across successive calls to `g_convert()`,
+    /// `g_convert_with_iconv()` or `g_convert_with_fallback()`. (An example of
     /// this is the GNU C converter for CP1255 which does not emit a base
     /// character until it knows that the next character is not a mark that
     /// could combine with the base character.)
     /// 
     /// Characters which are valid in the input character set, but which have no
     /// representation in the output character set will result in a
-    /// `G_CONVERT_ERROR_ILLEGAL_SEQUENCE` error. This is in contrast to the iconv()
+    /// `G_CONVERT_ERROR_ILLEGAL_SEQUENCE` error. This is in contrast to the `iconv()`
     /// specification, which leaves this behaviour implementation defined. Note that
     /// this is the same error code as is returned for an invalid byte sequence in
     /// the input character set. To get defined behaviour for conversion of
-    /// unrepresentable characters, use g_convert_with_fallback().
+    /// unrepresentable characters, use `g_convert_with_fallback()`.
     func convertWithIconv(str: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_convert_with_iconv(cast(str), len, cast(_ptr), cast(bytes_read), cast(bytes_written), &error)
@@ -202,14 +202,14 @@ public extension IConvProtocol {
         return cast(rv)
     }
 
-    /// Same as the standard UNIX routine iconv(), but
+    /// Same as the standard UNIX routine `iconv()`, but
     /// may be implemented via libiconv on UNIX flavors that lack
     /// a native implementation.
     /// 
-    /// GLib provides g_convert() and g_locale_to_utf8() which are likely
+    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
     /// more convenient than the raw iconv wrappers.
     /// 
-    /// Note that the behaviour of iconv() for characters which are valid in the
+    /// Note that the behaviour of `iconv()` for characters which are valid in the
     /// input character set, but which have no representation in the output character
     /// set, is implementation defined. This function may return success (with a
     /// positive number of non-reversible conversions as replacement characters were

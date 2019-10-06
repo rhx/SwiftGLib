@@ -10,7 +10,7 @@ import CGLib
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
-/// with g_hash_table_iter_init().
+/// with `g_hash_table_iter_init()`.
 public protocol HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -26,7 +26,7 @@ public protocol HashTableIterProtocol {
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
-/// with g_hash_table_iter_init().
+/// with `g_hash_table_iter_init()`.
 public struct HashTableIterRef: HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -82,7 +82,7 @@ public extension HashTableIterRef {
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
-/// with g_hash_table_iter_init().
+/// with `g_hash_table_iter_init()`.
 open class HashTableIter: HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -152,7 +152,8 @@ public extension HashTableIterProtocol {
     /// Initializes a key/value pair iterator and associates it with
     /// `hash_table`. Modifying the hash table after calling this function
     /// invalidates the returned iterator.
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// GHashTableIter iter;
     /// gpointer key, value;
     /// 
@@ -161,7 +162,8 @@ public extension HashTableIterProtocol {
     ///   {
     ///     // do something with key and value
     ///   }
-    /// ]|
+    /// ```
+    /// 
     func init_(hashTable hash_table: HashTableProtocol) {
         g_hash_table_iter_init(cast(_ptr), cast(hash_table.ptr))
     
@@ -177,22 +179,24 @@ public extension HashTableIterProtocol {
 
     /// Removes the key/value pair currently pointed to by the iterator
     /// from its associated `GHashTable`. Can only be called after
-    /// g_hash_table_iter_next() returned `true`, and cannot be called
+    /// `g_hash_table_iter_next()` returned `true`, and cannot be called
     /// more than once for the same key/value pair.
     /// 
-    /// If the `GHashTable` was created using g_hash_table_new_full(),
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`,
     /// the key and value are freed using the supplied destroy functions,
     /// otherwise you have to make sure that any dynamically allocated
     /// values are freed yourself.
     /// 
     /// It is safe to continue iterating the `GHashTable` afterward:
-    /// |[<!-- language="C" -->
+    /// (C Language Example):
+    /// ```C
     /// while (g_hash_table_iter_next (&iter, &key, &value))
     ///   {
     ///     if (condition)
     ///       g_hash_table_iter_remove (&iter);
     ///   }
-    /// ]|
+    /// ```
+    /// 
     func remove() {
         g_hash_table_iter_remove(cast(_ptr))
     
@@ -200,7 +204,7 @@ public extension HashTableIterProtocol {
 
     /// Replaces the value currently pointed to by the iterator
     /// from its associated `GHashTable`. Can only be called after
-    /// g_hash_table_iter_next() returned `true`.
+    /// `g_hash_table_iter_next()` returned `true`.
     /// 
     /// If you supplied a `value_destroy_func` when creating the
     /// `GHashTable`, the old value is freed using that function.
@@ -212,7 +216,7 @@ public extension HashTableIterProtocol {
     /// Removes the key/value pair currently pointed to by the
     /// iterator from its associated `GHashTable`, without calling
     /// the key and value destroy functions. Can only be called
-    /// after g_hash_table_iter_next() returned `true`, and cannot
+    /// after `g_hash_table_iter_next()` returned `true`, and cannot
     /// be called more than once for the same key/value pair.
     func steal() {
         g_hash_table_iter_steal(cast(_ptr))

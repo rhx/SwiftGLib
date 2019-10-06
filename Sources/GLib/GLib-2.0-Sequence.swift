@@ -177,8 +177,8 @@ public extension SequenceProtocol {
         return cast(rv)
     }
 
-    /// Returns the length of `seq`. Note that this method is O(h) where `h' is the
-    /// height of the tree. It is thus more efficient to use g_sequence_is_empty()
+    /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
+    /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
     func getLength() -> CInt {
         let rv = g_sequence_get_length(cast(_ptr))
@@ -196,13 +196,13 @@ public extension SequenceProtocol {
     /// 
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
-    /// g_sequence_sort() or g_sequence_sort_iter().
+    /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
     func insertSorted(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
         let rv = g_sequence_insert_sorted(cast(_ptr), cast(data), cmp_func, cast(cmp_data))
         return cast(rv)
     }
 
-    /// Like g_sequence_insert_sorted(), but uses
+    /// Like `g_sequence_insert_sorted()`, but uses
     /// a `GSequenceIterCompareFunc` instead of a `GCompareDataFunc` as
     /// the compare function.
     /// 
@@ -213,7 +213,7 @@ public extension SequenceProtocol {
     /// 
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
-    /// g_sequence_sort() or g_sequence_sort_iter().
+    /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
     func insertSortedIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
         let rv = g_sequence_insert_sorted_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data))
         return cast(rv)
@@ -222,8 +222,8 @@ public extension SequenceProtocol {
     /// Returns an iterator pointing to the position of the first item found
     /// equal to `data` according to `cmp_func` and `cmp_data`. If more than one
     /// item is equal, it is not guaranteed that it is the first which is
-    /// returned. In that case, you can use g_sequence_iter_next() and
-    /// g_sequence_iter_prev() to get others.
+    /// returned. In that case, you can use `g_sequence_iter_next()` and
+    /// `g_sequence_iter_prev()` to get others.
     /// 
     /// `cmp_func` is called with two items of the `seq`, and `cmp_data`.
     /// It should return 0 if the items are equal, a negative value if
@@ -237,7 +237,7 @@ public extension SequenceProtocol {
         return cast(rv)
     }
 
-    /// Like g_sequence_lookup(), but uses a `GSequenceIterCompareFunc`
+    /// Like `g_sequence_lookup()`, but uses a `GSequenceIterCompareFunc`
     /// instead of a `GCompareDataFunc` as the compare function.
     /// 
     /// `iter_cmp` is called with two iterators pointing into `seq`.
@@ -267,7 +267,7 @@ public extension SequenceProtocol {
     /// the second item comes before the first.
     /// 
     /// If you are simply searching for an existing element of the sequence,
-    /// consider using g_sequence_lookup().
+    /// consider using `g_sequence_lookup()`.
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
@@ -276,7 +276,7 @@ public extension SequenceProtocol {
         return cast(rv)
     }
 
-    /// Like g_sequence_search(), but uses a `GSequenceIterCompareFunc`
+    /// Like `g_sequence_search()`, but uses a `GSequenceIterCompareFunc`
     /// instead of a `GCompareDataFunc` as the compare function.
     /// 
     /// `iter_cmp` is called with two iterators pointing into `seq`.
@@ -285,7 +285,7 @@ public extension SequenceProtocol {
     /// value if the second iterator comes before the first.
     /// 
     /// If you are simply searching for an existing element of the sequence,
-    /// consider using g_sequence_lookup_iter().
+    /// consider using `g_sequence_lookup_iter()`.
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
@@ -305,7 +305,7 @@ public extension SequenceProtocol {
     
     }
 
-    /// Like g_sequence_sort(), but uses a `GSequenceIterCompareFunc` instead
+    /// Like `g_sequence_sort()`, but uses a `GSequenceIterCompareFunc` instead
     /// of a `GCompareDataFunc` as the compare function
     /// 
     /// `cmp_func` is called with two iterators pointing into `seq`. It should
@@ -337,26 +337,26 @@ public extension SequenceProtocol {
     /// Returns `true` if the sequence contains zero items.
     /// 
     /// This function is functionally identical to checking the result of
-    /// g_sequence_get_length() being equal to zero. However this function is
-    /// implemented in O(1) running time.
+    /// `g_sequence_get_length()` being equal to zero. However this function is
+    /// implemented in `O(1)` running time.
     var isEmpty: Bool {
         /// Returns `true` if the sequence contains zero items.
         /// 
         /// This function is functionally identical to checking the result of
-        /// g_sequence_get_length() being equal to zero. However this function is
-        /// implemented in O(1) running time.
+        /// `g_sequence_get_length()` being equal to zero. However this function is
+        /// implemented in `O(1)` running time.
         get {
             let rv = g_sequence_is_empty(cast(_ptr))
             return Bool(rv != 0)
         }
     }
 
-    /// Returns the length of `seq`. Note that this method is O(h) where `h' is the
-    /// height of the tree. It is thus more efficient to use g_sequence_is_empty()
+    /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
+    /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
     var length: CInt {
-        /// Returns the length of `seq`. Note that this method is O(h) where `h' is the
-        /// height of the tree. It is thus more efficient to use g_sequence_is_empty()
+        /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
+        /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
         /// when comparing the length to zero.
         get {
             let rv = g_sequence_get_length(cast(_ptr))

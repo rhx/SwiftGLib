@@ -95,7 +95,7 @@ public extension DateTimeRef {
     /// to be out of range, but in the case that they are, the function will
     /// return `nil`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
@@ -120,8 +120,8 @@ public extension DateTimeRef {
     /// 
     /// <time> is in the form:
     /// 
-    /// - `hh:mm:ss(.sss)` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
-    /// - `hhmmss(.sss)` - Same as above without dividers.
+    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
     /// 
@@ -135,7 +135,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `text` is not a valid ISO 8601
     /// formatted string.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
@@ -152,7 +152,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_local is deprecated:**
@@ -171,7 +171,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_utc is deprecated:**
@@ -191,7 +191,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(unixLocal t: Int64) {
         let rv = g_date_time_new_from_unix_local(gint64(t))
@@ -206,7 +206,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(unixUTC t: Int64) {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
@@ -216,8 +216,8 @@ public extension DateTimeRef {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// the local time zone.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         self.init(cast(rv))
@@ -231,7 +231,7 @@ public extension DateTimeRef {
     /// truly insane values (or unless GLib is still being used after the
     /// year 9999).
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(now tz: TimeZoneProtocol) {
         let rv = g_date_time_new_now(cast(tz.ptr))
@@ -241,8 +241,8 @@ public extension DateTimeRef {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// UTC.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         self.init(cast(rv))
@@ -265,8 +265,8 @@ public extension DateTimeRef {
     /// 
     /// <time> is in the form:
     /// 
-    /// - `hh:mm:ss(.sss)` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
-    /// - `hhmmss(.sss)` - Same as above without dividers.
+    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
     /// 
@@ -280,7 +280,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `text` is not a valid ISO 8601
     /// formatted string.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) -> DateTimeRef! {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
@@ -297,7 +297,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_local is deprecated:**
@@ -316,7 +316,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_utc is deprecated:**
@@ -336,7 +336,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(unixLocal t: Int64) -> DateTimeRef! {
         let rv = g_date_time_new_from_unix_local(gint64(t))
@@ -351,7 +351,7 @@ public extension DateTimeRef {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(unixUTC t: Int64) -> DateTimeRef! {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
@@ -361,8 +361,8 @@ public extension DateTimeRef {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// the local time zone.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     static func new(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTimeRef! {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         return rv.map { DateTimeRef(cast($0)) }
@@ -376,7 +376,7 @@ public extension DateTimeRef {
     /// truly insane values (or unless GLib is still being used after the
     /// year 9999).
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func new(now tz: TimeZoneProtocol) -> DateTimeRef! {
         let rv = g_date_time_new_now(cast(tz.ptr))
@@ -386,8 +386,8 @@ public extension DateTimeRef {
     /// Creates a `GDateTime` corresponding to this exact instant in the local
     /// time zone.
     /// 
-    /// This is equivalent to calling g_date_time_new_now() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This is equivalent to calling `g_date_time_new_now()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     static func newNowLocal() -> DateTimeRef! {
         let rv = g_date_time_new_now_local()
         return rv.map { DateTimeRef(cast($0)) }
@@ -395,8 +395,8 @@ public extension DateTimeRef {
 
     /// Creates a `GDateTime` corresponding to this exact instant in UTC.
     /// 
-    /// This is equivalent to calling g_date_time_new_now() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This is equivalent to calling `g_date_time_new_now()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     static func newNowUTC() -> DateTimeRef! {
         let rv = g_date_time_new_now_utc()
         return rv.map { DateTimeRef(cast($0)) }
@@ -405,8 +405,8 @@ public extension DateTimeRef {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// UTC.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     static func new(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTimeRef! {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         return rv.map { DateTimeRef(cast($0)) }
@@ -492,7 +492,7 @@ open class DateTime: DateTimeProtocol {
     /// to be out of range, but in the case that they are, the function will
     /// return `nil`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public convenience init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
@@ -517,8 +517,8 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// <time> is in the form:
     /// 
-    /// - `hh:mm:ss(.sss)` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
-    /// - `hhmmss(.sss)` - Same as above without dividers.
+    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
     /// 
@@ -532,7 +532,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `text` is not a valid ISO 8601
     /// formatted string.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public convenience init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
@@ -549,7 +549,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_local is deprecated:**
@@ -568,7 +568,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_utc is deprecated:**
@@ -588,7 +588,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public convenience init(unixLocal t: Int64) {
         let rv = g_date_time_new_from_unix_local(gint64(t))
@@ -603,7 +603,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public convenience init(unixUTC t: Int64) {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
@@ -613,8 +613,8 @@ open class DateTime: DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// the local time zone.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     public convenience init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         self.init(cast(rv))
@@ -628,7 +628,7 @@ open class DateTime: DateTimeProtocol {
     /// truly insane values (or unless GLib is still being used after the
     /// year 9999).
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public convenience init(now tz: TimeZoneProtocol) {
         let rv = g_date_time_new_now(cast(tz.ptr))
@@ -638,8 +638,8 @@ open class DateTime: DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// UTC.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     public convenience init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         self.init(cast(rv))
@@ -663,8 +663,8 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// <time> is in the form:
     /// 
-    /// - `hh:mm:ss(.sss)` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
-    /// - `hhmmss(.sss)` - Same as above without dividers.
+    /// - ``hh:mm:ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
+    /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
     /// <tz> is an optional timezone suffix of the form:
     /// 
@@ -678,7 +678,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `text` is not a valid ISO 8601
     /// formatted string.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) -> DateTime! {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
@@ -695,7 +695,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_local is deprecated:**
@@ -714,7 +714,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `tv` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     ///
     /// **new_from_timeval_utc is deprecated:**
@@ -734,7 +734,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(unixLocal t: Int64) -> DateTime! {
         let rv = g_date_time_new_from_unix_local(gint64(t))
@@ -749,7 +749,7 @@ open class DateTime: DateTimeProtocol {
     /// This call can fail (returning `nil`) if `t` represents a time outside
     /// of the supported range of `GDateTime`.
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(unixUTC t: Int64) -> DateTime! {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
@@ -759,8 +759,8 @@ open class DateTime: DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// the local time zone.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     public static func new(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTime! {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         return rv.map { DateTime(cast($0)) }
@@ -774,7 +774,7 @@ open class DateTime: DateTimeProtocol {
     /// truly insane values (or unless GLib is still being used after the
     /// year 9999).
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func new(now tz: TimeZoneProtocol) -> DateTime! {
         let rv = g_date_time_new_now(cast(tz.ptr))
@@ -784,8 +784,8 @@ open class DateTime: DateTimeProtocol {
     /// Creates a `GDateTime` corresponding to this exact instant in the local
     /// time zone.
     /// 
-    /// This is equivalent to calling g_date_time_new_now() with the time
-    /// zone returned by g_time_zone_new_local().
+    /// This is equivalent to calling `g_date_time_new_now()` with the time
+    /// zone returned by `g_time_zone_new_local()`.
     public static func newNowLocal() -> DateTime! {
         let rv = g_date_time_new_now_local()
         return rv.map { DateTime(cast($0)) }
@@ -793,8 +793,8 @@ open class DateTime: DateTimeProtocol {
 
     /// Creates a `GDateTime` corresponding to this exact instant in UTC.
     /// 
-    /// This is equivalent to calling g_date_time_new_now() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This is equivalent to calling `g_date_time_new_now()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     public static func newNowUTC() -> DateTime! {
         let rv = g_date_time_new_now_utc()
         return rv.map { DateTime(cast($0)) }
@@ -803,8 +803,8 @@ open class DateTime: DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the given date and time in
     /// UTC.
     /// 
-    /// This call is equivalent to calling g_date_time_new() with the time
-    /// zone returned by g_time_zone_new_utc().
+    /// This call is equivalent to calling `g_date_time_new()` with the time
+    /// zone returned by `g_time_zone_new_utc()`.
     public static func new(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTime! {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
         return rv.map { DateTime(cast($0)) }
@@ -884,7 +884,7 @@ public extension DateTimeProtocol {
     /// Creates a copy of `datetime` and adds the specified number of years to the
     /// copy. Add negative values to subtract years.
     /// 
-    /// As with g_date_time_add_months(), if the resulting date would be 29th
+    /// As with `g_date_time_add_months()`, if the resulting date would be 29th
     /// February on a non-leap year, the day will be clamped to 28th February.
     func add(years: CInt) -> UnsafeMutablePointer<GDateTime>! {
         let rv = g_date_time_add_years(cast(date_time_ptr), gint(years))
@@ -902,76 +902,76 @@ public extension DateTimeProtocol {
     /// Creates a newly allocated string representing the requested `format`.
     /// 
     /// The format strings understood by this function are a subset of the
-    /// strftime() format language as specified by C99.  The \`D`, \`U` and \`W`
+    /// `strftime()` format language as specified by C99.  The \`D`, \`U` and \`W`
     /// conversions are not supported, nor is the 'E' modifier.  The GNU
     /// extensions \`k`, \`l`, \`s` and \`P` are supported, however, as are the
     /// '0', '_' and '-' modifiers.
     /// 
-    /// In contrast to strftime(), this function always produces a UTF-8
+    /// In contrast to `strftime()`, this function always produces a UTF-8
     /// string, regardless of the current locale.  Note that the rendering of
-    /// many formats is locale-dependent and may not match the strftime()
+    /// many formats is locale-dependent and may not match the `strftime()`
     /// output exactly.
     /// 
     /// The following format specifiers are supported:
     /// 
-    /// - \`a`: the abbreviated weekday name according to the current locale
-    /// - \`A`: the full weekday name according to the current locale
-    /// - \`b`: the abbreviated month name according to the current locale
-    /// - \`B`: the full month name according to the current locale
-    /// - \`c`: the preferred date and time representation for the current locale
-    /// - \`C`: the century number (year/100) as a 2-digit integer (00-99)
-    /// - \`d`: the day of the month as a decimal number (range 01 to 31)
-    /// - \`e`: the day of the month as a decimal number (range  1 to 31)
-    /// - \`F`: equivalent to ``Y`-`m`-`d`` (the ISO 8601 date format)
-    /// - \`g`: the last two digits of the ISO 8601 week-based year as a
+    /// - \`a:` the abbreviated weekday name according to the current locale
+    /// - \`A:` the full weekday name according to the current locale
+    /// - \`b:` the abbreviated month name according to the current locale
+    /// - \`B:` the full month name according to the current locale
+    /// - \`c:` the preferred date and time representation for the current locale
+    /// - \`C:` the century number (year/100) as a 2-digit integer (00-99)
+    /// - \`d:` the day of the month as a decimal number (range 01 to 31)
+    /// - \`e:` the day of the month as a decimal number (range  1 to 31)
+    /// - \`F:` equivalent to ``Y`-`m`-`d`` (the ISO 8601 date format)
+    /// - \`g:` the last two digits of the ISO 8601 week-based year as a
     ///   decimal number (00-99). This works well with \`V` and \`u`.
-    /// - \`G`: the ISO 8601 week-based year as a decimal number. This works
+    /// - \`G:` the ISO 8601 week-based year as a decimal number. This works
     ///   well with \`V` and \`u`.
-    /// - \`h`: equivalent to \`b`
-    /// - \`H`: the hour as a decimal number using a 24-hour clock (range 00 to 23)
-    /// - \`I`: the hour as a decimal number using a 12-hour clock (range 01 to 12)
-    /// - \`j`: the day of the year as a decimal number (range 001 to 366)
-    /// - \`k`: the hour (24-hour clock) as a decimal number (range 0 to 23);
+    /// - \`h:` equivalent to \`b`
+    /// - \`H:` the hour as a decimal number using a 24-hour clock (range 00 to 23)
+    /// - \`I:` the hour as a decimal number using a 12-hour clock (range 01 to 12)
+    /// - \`j:` the day of the year as a decimal number (range 001 to 366)
+    /// - \`k:` the hour (24-hour clock) as a decimal number (range 0 to 23);
     ///   single digits are preceded by a blank
-    /// - \`l`: the hour (12-hour clock) as a decimal number (range 1 to 12);
+    /// - \`l:` the hour (12-hour clock) as a decimal number (range 1 to 12);
     ///   single digits are preceded by a blank
-    /// - \`m`: the month as a decimal number (range 01 to 12)
-    /// - \`M`: the minute as a decimal number (range 00 to 59)
-    /// - \`p`: either "AM" or "PM" according to the given time value, or the
+    /// - \`m:` the month as a decimal number (range 01 to 12)
+    /// - \`M:` the minute as a decimal number (range 00 to 59)
+    /// - \`p:` either "AM" or "PM" according to the given time value, or the
     ///   corresponding  strings for the current locale.  Noon is treated as
     ///   "PM" and midnight as "AM".
-    /// - \`P`: like \`p` but lowercase: "am" or "pm" or a corresponding string for
+    /// - \`P:` like \`p` but lowercase: "am" or "pm" or a corresponding string for
     ///   the current locale
-    /// - \`r`: the time in a.m. or p.m. notation
-    /// - \`R`: the time in 24-hour notation (\`H`:\`M`)
-    /// - \`s`: the number of seconds since the Epoch, that is, since 1970-01-01
+    /// - \`r:` the time in a.m. or p.m. notation
+    /// - \`R:` the time in 24-hour notation (\`H:`\`M`)
+    /// - \`s:` the number of seconds since the Epoch, that is, since 1970-01-01
     ///   00:00:00 UTC
-    /// - \`S`: the second as a decimal number (range 00 to 60)
-    /// - \`t`: a tab character
-    /// - \`T`: the time in 24-hour notation with seconds (\`H`:\`M`:\`S`)
-    /// - \`u`: the ISO 8601 standard day of the week as a decimal, range 1 to 7,
+    /// - \`S:` the second as a decimal number (range 00 to 60)
+    /// - \`t:` a tab character
+    /// - \`T:` the time in 24-hour notation with seconds (\`H:`\`M:`\`S`)
+    /// - \`u:` the ISO 8601 standard day of the week as a decimal, range 1 to 7,
     ///    Monday being 1. This works well with \`G` and \`V`.
-    /// - \`V`: the ISO 8601 standard week number of the current year as a decimal
+    /// - \`V:` the ISO 8601 standard week number of the current year as a decimal
     ///   number, range 01 to 53, where week 1 is the first week that has at
-    ///   least 4 days in the new year. See g_date_time_get_week_of_year().
+    ///   least 4 days in the new year. See `g_date_time_get_week_of_year()`.
     ///   This works well with \`G` and \`u`.
-    /// - \`w`: the day of the week as a decimal, range 0 to 6, Sunday being 0.
+    /// - \`w:` the day of the week as a decimal, range 0 to 6, Sunday being 0.
     ///   This is not the ISO 8601 standard format -- use \`u` instead.
-    /// - \`x`: the preferred date representation for the current locale without
+    /// - \`x:` the preferred date representation for the current locale without
     ///   the time
-    /// - \`X`: the preferred time representation for the current locale without
+    /// - \`X:` the preferred time representation for the current locale without
     ///   the date
-    /// - \`y`: the year as a decimal number without the century
-    /// - \`Y`: the year as a decimal number including the century
-    /// - \`z`: the time zone as an offset from UTC (+hhmm)
-    /// - \``:z: the time zone as an offset from UTC (+hh:mm).
-    ///   This is a gnulib strftime() extension. Since: 2.38
-    /// - \``::z: the time zone as an offset from UTC (+hh:mm:ss). This is a
-    ///   gnulib strftime() extension. Since: 2.38
-    /// - \``:::z: the time zone as an offset from UTC, with : to necessary
-    ///   precision (e.g., -04, +05:30). This is a gnulib strftime() extension. Since: 2.38
-    /// - \`Z`: the time zone or name or abbreviation
-    /// - \``\``: a literal \`` character
+    /// - \`y:` the year as a decimal number without the century
+    /// - \`Y:` the year as a decimal number including the century
+    /// - \`z:` the time zone as an offset from UTC (+hhmm)
+    /// - \`:z:` the time zone as an offset from UTC (+hh:mm).
+    ///   This is a gnulib `strftime()` extension. Since: 2.38
+    /// - \`::z:` the time zone as an offset from UTC (+hh:mm:ss). This is a
+    ///   gnulib `strftime()` extension. Since: 2.38
+    /// - \`:::z:` the time zone as an offset from UTC, with : to necessary
+    ///   precision (e.g., -04, +05:30). This is a gnulib `strftime()` extension. Since: 2.38
+    /// - \`Z:` the time zone or name or abbreviation
+    /// - \``\`:` a literal \% character
     /// 
     /// Some conversion specifications can be modified by preceding the
     /// conversion specifier by one or more modifier characters. The
@@ -991,8 +991,8 @@ public extension DateTimeProtocol {
     /// name is used without a day number (e.g., standalone). It is required in
     /// some languages (Baltic, Slavic, Greek, and more) due to their grammatical
     /// rules. For other languages there is no difference. \`OB` is a GNU and BSD
-    /// strftime() extension expected to be added to the future POSIX specification,
-    /// \`Ob` and \`Oh` are GNU strftime() extensions. Since: 2.56
+    /// `strftime()` extension expected to be added to the future POSIX specification,
+    /// \`Ob` and \`Oh` are GNU `strftime()` extensions. Since: 2.56
     func format(format: UnsafePointer<gchar>) -> String! {
         let rv = g_date_time_format(cast(date_time_ptr), format)
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -1098,12 +1098,12 @@ public extension DateTimeProtocol {
     /// Returns the ISO 8601 week-numbering year in which the week containing
     /// `datetime` falls.
     /// 
-    /// This function, taken together with g_date_time_get_week_of_year() and
-    /// g_date_time_get_day_of_week() can be used to determine the full ISO
+    /// This function, taken together with `g_date_time_get_week_of_year()` and
+    /// `g_date_time_get_day_of_week()` can be used to determine the full ISO
     /// week date on which `datetime` falls.
     /// 
     /// This is usually equal to the normal Gregorian year (as returned by
-    /// g_date_time_get_year()), except as detailed below:
+    /// `g_date_time_get_year()`), except as detailed below:
     /// 
     /// For Thursday, the week-numbering year is always equal to the usual
     /// calendar year.  For other days, the number is such that every day
@@ -1172,8 +1172,8 @@ public extension DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the same instant in time as
     /// `datetime`, but in the local time zone.
     /// 
-    /// This call is equivalent to calling g_date_time_to_timezone() with the
-    /// time zone returned by g_time_zone_new_local().
+    /// This call is equivalent to calling `g_date_time_to_timezone()` with the
+    /// time zone returned by `g_time_zone_new_local()`.
     func toLocal() -> UnsafeMutablePointer<GDateTime>! {
         let rv = g_date_time_to_local(cast(date_time_ptr))
         return cast(rv)
@@ -1208,7 +1208,7 @@ public extension DateTimeProtocol {
     /// example, converting 0001-01-01 00:00:00 UTC to a time zone west of
     /// Greenwich will fail (due to the year 0 being out of range).
     /// 
-    /// You should release the return value by calling g_date_time_unref()
+    /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     func toTimezone(tz: TimeZoneProtocol) -> UnsafeMutablePointer<GDateTime>! {
         let rv = g_date_time_to_timezone(cast(date_time_ptr), cast(tz.ptr))
@@ -1228,8 +1228,8 @@ public extension DateTimeProtocol {
     /// Creates a new `GDateTime` corresponding to the same instant in time as
     /// `datetime`, but in UTC.
     /// 
-    /// This call is equivalent to calling g_date_time_to_timezone() with the
-    /// time zone returned by g_time_zone_new_utc().
+    /// This call is equivalent to calling `g_date_time_to_timezone()` with the
+    /// time zone returned by `g_time_zone_new_utc()`.
     func toUTC() -> UnsafeMutablePointer<GDateTime>! {
         let rv = g_date_time_to_utc(cast(date_time_ptr))
         return cast(rv)
@@ -1399,12 +1399,12 @@ public extension DateTimeProtocol {
     /// Returns the ISO 8601 week-numbering year in which the week containing
     /// `datetime` falls.
     /// 
-    /// This function, taken together with g_date_time_get_week_of_year() and
-    /// g_date_time_get_day_of_week() can be used to determine the full ISO
+    /// This function, taken together with `g_date_time_get_week_of_year()` and
+    /// `g_date_time_get_day_of_week()` can be used to determine the full ISO
     /// week date on which `datetime` falls.
     /// 
     /// This is usually equal to the normal Gregorian year (as returned by
-    /// g_date_time_get_year()), except as detailed below:
+    /// `g_date_time_get_year()`), except as detailed below:
     /// 
     /// For Thursday, the week-numbering year is always equal to the usual
     /// calendar year.  For other days, the number is such that every day
@@ -1431,12 +1431,12 @@ public extension DateTimeProtocol {
         /// Returns the ISO 8601 week-numbering year in which the week containing
         /// `datetime` falls.
         /// 
-        /// This function, taken together with g_date_time_get_week_of_year() and
-        /// g_date_time_get_day_of_week() can be used to determine the full ISO
+        /// This function, taken together with `g_date_time_get_week_of_year()` and
+        /// `g_date_time_get_day_of_week()` can be used to determine the full ISO
         /// week date on which `datetime` falls.
         /// 
         /// This is usually equal to the normal Gregorian year (as returned by
-        /// g_date_time_get_year()), except as detailed below:
+        /// `g_date_time_get_year()`), except as detailed below:
         /// 
         /// For Thursday, the week-numbering year is always equal to the usual
         /// calendar year.  For other days, the number is such that every day

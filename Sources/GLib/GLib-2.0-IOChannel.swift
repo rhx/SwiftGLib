@@ -73,7 +73,7 @@ public extension IOChannelRef {
 
         /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
-    /// so there is no need to call g_io_channel_close() (though doing
+    /// so there is no need to call `g_io_channel_close()` (though doing
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
@@ -93,12 +93,12 @@ public extension IOChannelRef {
     /// The default encoding for `GIOChannel` is UTF-8. If your application
     /// is reading output from a command using via pipe, you may need to set
     /// the encoding to the encoding of the current locale (see
-    /// g_get_charset()) with the g_io_channel_set_encoding() function.
+    /// `g_get_charset()`) with the `g_io_channel_set_encoding()` function.
     /// By default, the fd passed will not be closed when the final reference
     /// to the `GIOChannel` data structure is dropped.
     /// 
     /// If you want to read raw binary data without interpretation, then
-    /// call the g_io_channel_set_encoding() function with `nil` for the
+    /// call the `g_io_channel_set_encoding()` function with `nil` for the
     /// encoding argument.
     /// 
     /// This function is available in GLib on Windows, too, but you should
@@ -113,7 +113,7 @@ public extension IOChannelRef {
     }
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
-    /// so there is no need to call g_io_channel_close() (though doing
+    /// so there is no need to call `g_io_channel_close()` (though doing
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     static func new(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws -> IOChannelRef! {
@@ -133,12 +133,12 @@ public extension IOChannelRef {
     /// The default encoding for `GIOChannel` is UTF-8. If your application
     /// is reading output from a command using via pipe, you may need to set
     /// the encoding to the encoding of the current locale (see
-    /// g_get_charset()) with the g_io_channel_set_encoding() function.
+    /// `g_get_charset()`) with the `g_io_channel_set_encoding()` function.
     /// By default, the fd passed will not be closed when the final reference
     /// to the `GIOChannel` data structure is dropped.
     /// 
     /// If you want to read raw binary data without interpretation, then
-    /// call the g_io_channel_set_encoding() function with `nil` for the
+    /// call the `g_io_channel_set_encoding()` function with `nil` for the
     /// encoding argument.
     /// 
     /// This function is available in GLib on Windows, too, but you should
@@ -209,7 +209,7 @@ open class IOChannel: IOChannelProtocol {
 
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
-    /// so there is no need to call g_io_channel_close() (though doing
+    /// so there is no need to call `g_io_channel_close()` (though doing
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     public convenience init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
@@ -229,12 +229,12 @@ open class IOChannel: IOChannelProtocol {
     /// The default encoding for `GIOChannel` is UTF-8. If your application
     /// is reading output from a command using via pipe, you may need to set
     /// the encoding to the encoding of the current locale (see
-    /// g_get_charset()) with the g_io_channel_set_encoding() function.
+    /// `g_get_charset()`) with the `g_io_channel_set_encoding()` function.
     /// By default, the fd passed will not be closed when the final reference
     /// to the `GIOChannel` data structure is dropped.
     /// 
     /// If you want to read raw binary data without interpretation, then
-    /// call the g_io_channel_set_encoding() function with `nil` for the
+    /// call the `g_io_channel_set_encoding()` function with `nil` for the
     /// encoding argument.
     /// 
     /// This function is available in GLib on Windows, too, but you should
@@ -250,7 +250,7 @@ open class IOChannel: IOChannelProtocol {
 
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
-    /// so there is no need to call g_io_channel_close() (though doing
+    /// so there is no need to call `g_io_channel_close()` (though doing
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     public static func new(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws -> IOChannel! {
@@ -270,12 +270,12 @@ open class IOChannel: IOChannelProtocol {
     /// The default encoding for `GIOChannel` is UTF-8. If your application
     /// is reading output from a command using via pipe, you may need to set
     /// the encoding to the encoding of the current locale (see
-    /// g_get_charset()) with the g_io_channel_set_encoding() function.
+    /// `g_get_charset()`) with the `g_io_channel_set_encoding()` function.
     /// By default, the fd passed will not be closed when the final reference
     /// to the `GIOChannel` data structure is dropped.
     /// 
     /// If you want to read raw binary data without interpretation, then
-    /// call the g_io_channel_set_encoding() function with `nil` for the
+    /// call the `g_io_channel_set_encoding()` function with `nil` for the
     /// encoding argument.
     /// 
     /// This function is available in GLib on Windows, too, but you should
@@ -302,7 +302,7 @@ public extension IOChannelProtocol {
 
     /// Close an IO channel. Any pending data to be written will be
     /// flushed, ignoring errors. The channel will not be freed until the
-    /// last reference is dropped using g_io_channel_unref().
+    /// last reference is dropped using `g_io_channel_unref()`.
     ///
     /// **close is deprecated:**
     /// Use g_io_channel_shutdown() instead.
@@ -364,8 +364,8 @@ public extension IOChannelProtocol {
     /// The values of the flags `G_IO_FLAG_IS_READABLE` and `G_IO_FLAG_IS_WRITABLE`
     /// are cached for internal use by the channel when it is created.
     /// If they should change at some later point (e.g. partial shutdown
-    /// of a socket with the UNIX shutdown() function), the user
-    /// should immediately call g_io_channel_get_flags() to update
+    /// of a socket with the UNIX `shutdown()` function), the user
+    /// should immediately call `g_io_channel_get_flags()` to update
     /// the internal values of these flags.
     func getFlags() -> GIOFlags {
         let rv = g_io_channel_get_flags(cast(io_channel_ptr))
@@ -399,7 +399,7 @@ public extension IOChannelProtocol {
         return rv
     }
 
-    /// Replacement for g_io_channel_read() with the new API.
+    /// Replacement for `g_io_channel_read()` with the new API.
     func readChars(buf: UnsafeMutablePointer<gchar>, count: Int, bytesRead bytes_read: UnsafeMutablePointer<Int>) throws -> GIOStatus {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_io_channel_read_chars(cast(io_channel_ptr), cast(buf), gsize(count), cast(bytes_read), &error)
@@ -409,7 +409,7 @@ public extension IOChannelProtocol {
         return rv
     }
 
-    /// Reads a line, including the terminating character(s),
+    /// Reads a line, including the terminating `character(s)`,
     /// from a `GIOChannel` into a newly-allocated string.
     /// `str_return` will contain allocated memory if the return
     /// is `G_IO_STATUS_NORMAL`.
@@ -460,7 +460,7 @@ public extension IOChannelProtocol {
     }
 
     /// Sets the current position in the `GIOChannel`, similar to the standard
-    /// library function fseek().
+    /// library function `fseek()`.
     ///
     /// **seek is deprecated:**
     /// Use g_io_channel_seek_position() instead.
@@ -469,7 +469,7 @@ public extension IOChannelProtocol {
         return rv
     }
 
-    /// Replacement for g_io_channel_seek() with the new API.
+    /// Replacement for `g_io_channel_seek()` with the new API.
     func seekPosition(offset: Int64, type: SeekType) throws -> GIOStatus {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_io_channel_seek_position(cast(io_channel_ptr), gint64(offset), type, &error)
@@ -534,25 +534,25 @@ public extension IOChannelProtocol {
     /// - The channel is write-only.
     /// 
     /// - The channel is a file, and the file pointer was just repositioned
-    ///   by a call to g_io_channel_seek_position(). (This flushes all the
+    ///   by a call to `g_io_channel_seek_position()`. (This flushes all the
     ///   internal buffers.)
     /// 
     /// - The current encoding is `nil` or UTF-8.
     /// 
     /// - One of the (new API) read functions has just returned `G_IO_STATUS_EOF`
-    ///   (or, in the case of g_io_channel_read_to_end(), `G_IO_STATUS_NORMAL`).
+    ///   (or, in the case of `g_io_channel_read_to_end()`, `G_IO_STATUS_NORMAL`).
     /// 
-    /// -  One of the functions g_io_channel_read_chars() or
-    ///    g_io_channel_read_unichar() has returned `G_IO_STATUS_AGAIN` or
+    /// -  One of the functions `g_io_channel_read_chars()` or
+    ///    `g_io_channel_read_unichar()` has returned `G_IO_STATUS_AGAIN` or
     ///    `G_IO_STATUS_ERROR`. This may be useful in the case of
     ///    `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`.
-    ///    Returning one of these statuses from g_io_channel_read_line(),
-    ///    g_io_channel_read_line_string(), or g_io_channel_read_to_end()
+    ///    Returning one of these statuses from `g_io_channel_read_line()`,
+    ///    `g_io_channel_read_line_string()`, or `g_io_channel_read_to_end()`
     ///    does not guarantee that the encoding can be changed.
     /// 
     /// Channels which do not meet one of the above conditions cannot call
-    /// g_io_channel_seek_position() with an offset of `G_SEEK_CUR`, and, if
-    /// they are "seekable", cannot call g_io_channel_write_chars() after
+    /// `g_io_channel_seek_position()` with an offset of `G_SEEK_CUR`, and, if
+    /// they are "seekable", cannot call `g_io_channel_write_chars()` after
     /// calling one of the API "read" functions.
     func set(encoding: UnsafePointer<gchar>) throws -> GIOStatus {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
@@ -582,7 +582,7 @@ public extension IOChannelProtocol {
 
     /// Close an IO channel. Any pending data to be written will be
     /// flushed if `flush` is `true`. The channel will not be freed until the
-    /// last reference is dropped using g_io_channel_unref().
+    /// last reference is dropped using `g_io_channel_unref()`.
     func shutdown(flush: Bool) throws -> GIOStatus {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_io_channel_shutdown(cast(io_channel_ptr), gboolean(flush ? 1 : 0), &error)
@@ -616,7 +616,7 @@ public extension IOChannelProtocol {
         return rv
     }
 
-    /// Replacement for g_io_channel_write() with the new API.
+    /// Replacement for `g_io_channel_write()` with the new API.
     /// 
     /// On seekable channels with encodings other than `nil` or UTF-8, generic
     /// mixing of reading and writing is not allowed. A call to g_io_channel_write_chars ()
@@ -652,8 +652,8 @@ public extension IOChannelProtocol {
     /// Adds the `GIOChannel` into the default main loop context
     /// with the given priority.
     /// 
-    /// This internally creates a main loop source using g_io_create_watch()
-    /// and attaches it to the main loop context with g_source_attach().
+    /// This internally creates a main loop source using `g_io_create_watch()`
+    /// and attaches it to the main loop context with `g_source_attach()`.
     /// You can do these steps manually if you need greater control.
     func ioAddWatchFull(priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
         let rv = g_io_add_watch_full(cast(io_channel_ptr), gint(priority), condition, func_, cast(user_data), notify)
@@ -664,7 +664,7 @@ public extension IOChannelProtocol {
     /// given `channel`. For example, if condition is `G_IO_IN`, the source will
     /// be dispatched when there's data available for reading.
     /// 
-    /// g_io_add_watch() is a simpler interface to this same functionality, for
+    /// `g_io_add_watch()` is a simpler interface to this same functionality, for
     /// the case where you want to add the source to the default main loop context
     /// at the default priority.
     /// 
@@ -775,8 +775,8 @@ public extension IOChannelProtocol {
     /// The values of the flags `G_IO_FLAG_IS_READABLE` and `G_IO_FLAG_IS_WRITABLE`
     /// are cached for internal use by the channel when it is created.
     /// If they should change at some later point (e.g. partial shutdown
-    /// of a socket with the UNIX shutdown() function), the user
-    /// should immediately call g_io_channel_get_flags() to update
+    /// of a socket with the UNIX `shutdown()` function), the user
+    /// should immediately call `g_io_channel_get_flags()` to update
     /// the internal values of these flags.
     var flags: GIOFlags {
         /// Gets the current flags for a `GIOChannel`, including read-only
@@ -785,8 +785,8 @@ public extension IOChannelProtocol {
         /// The values of the flags `G_IO_FLAG_IS_READABLE` and `G_IO_FLAG_IS_WRITABLE`
         /// are cached for internal use by the channel when it is created.
         /// If they should change at some later point (e.g. partial shutdown
-        /// of a socket with the UNIX shutdown() function), the user
-        /// should immediately call g_io_channel_get_flags() to update
+        /// of a socket with the UNIX `shutdown()` function), the user
+        /// should immediately call `g_io_channel_get_flags()` to update
         /// the internal values of these flags.
         get {
             let rv = g_io_channel_get_flags(cast(io_channel_ptr))

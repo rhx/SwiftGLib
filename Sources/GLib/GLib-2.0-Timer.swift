@@ -135,7 +135,7 @@ public extension TimerProtocol {
     var _ptr: UnsafeMutablePointer<GTimer> { return ptr.assumingMemoryBound(to: GTimer.self) }
 
     /// Resumes a timer that has previously been stopped with
-    /// g_timer_stop(). g_timer_stop() must be called before using this
+    /// `g_timer_stop()`. `g_timer_stop()` must be called before using this
     /// function.
     func continue_() {
         g_timer_continue(cast(_ptr))
@@ -159,24 +159,24 @@ public extension TimerProtocol {
         return rv
     }
 
-    /// This function is useless; it's fine to call g_timer_start() on an
-    /// already-started timer to reset the start time, so g_timer_reset()
+    /// This function is useless; it's fine to call `g_timer_start()` on an
+    /// already-started timer to reset the start time, so `g_timer_reset()`
     /// serves no purpose.
     func reset() {
         g_timer_reset(cast(_ptr))
     
     }
 
-    /// Marks a start time, so that future calls to g_timer_elapsed() will
-    /// report the time since g_timer_start() was called. g_timer_new()
+    /// Marks a start time, so that future calls to `g_timer_elapsed()` will
+    /// report the time since `g_timer_start()` was called. `g_timer_new()`
     /// automatically marks the start time, so no need to call
-    /// g_timer_start() immediately after creating the timer.
+    /// `g_timer_start()` immediately after creating the timer.
     func start() {
         g_timer_start(cast(_ptr))
     
     }
 
-    /// Marks an end time, so calls to g_timer_elapsed() will return the
+    /// Marks an end time, so calls to `g_timer_elapsed()` will return the
     /// difference between this end time and the start time.
     func stop() {
         g_timer_stop(cast(_ptr))

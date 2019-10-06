@@ -148,9 +148,9 @@ public extension BookmarkFileProtocol {
     /// time the application registered this bookmark.
     /// 
     /// If `name` is `nil`, the name of the application will be the
-    /// same returned by g_get_application_name(); if `exec` is `nil`, the
+    /// same returned by `g_get_application_name()`; if `exec` is `nil`, the
     /// command line will be a composition of the program name as
-    /// returned by g_get_prgname() and the "\`u`" modifier, which will be
+    /// returned by `g_get_prgname()` and the "\`u`" modifier, which will be
     /// expanded to the bookmark's URI.
     /// 
     /// This function will automatically take care of updating the
@@ -193,7 +193,7 @@ public extension BookmarkFileProtocol {
     }
 
     /// Gets the registration information of `app_name` for the bookmark for
-    /// `uri`.  See g_bookmark_file_set_app_info() for more information about
+    /// `uri`.  See `g_bookmark_file_set_app_info()` for more information about
     /// the returned data.
     /// 
     /// The string returned in `app_exec` must be freed.
@@ -402,7 +402,7 @@ public extension BookmarkFileProtocol {
     }
 
     /// This function looks for a desktop bookmark file named `file` in the
-    /// paths returned from g_get_user_data_dir() and g_get_system_data_dirs(),
+    /// paths returned from `g_get_user_data_dir()` and `g_get_system_data_dirs()`,
     /// loads the file into `bookmark` and returns the file's full path in
     /// `full_path`.  If the file could not be loaded then `error` is
     /// set to either a `GFileError` or `GBookmarkFileError`.
@@ -497,8 +497,8 @@ public extension BookmarkFileProtocol {
     /// applications that have registered a bookmark for `uri` inside
     /// `bookmark`.
     /// 
-    /// You should rarely use this function; use g_bookmark_file_add_application()
-    /// and g_bookmark_file_remove_application() instead.
+    /// You should rarely use this function; use `g_bookmark_file_add_application()`
+    /// and `g_bookmark_file_remove_application()` instead.
     /// 
     /// `name` can be any UTF-8 encoded string used to identify an
     /// application.
@@ -506,7 +506,7 @@ public extension BookmarkFileProtocol {
     /// be expanded as the local file name retrieved from the bookmark's
     /// URI; "\`u`", which will be expanded as the bookmark's URI.
     /// The expansion is done automatically when retrieving the stored
-    /// command line using the g_bookmark_file_get_app_info() function.
+    /// command line using the `g_bookmark_file_get_app_info()` function.
     /// `count` is the number of times the application has registered the
     /// bookmark; if is < 0, the current registration count will be increased
     /// by one, if is 0, the application with `name` will be removed from
@@ -582,7 +582,7 @@ public extension BookmarkFileProtocol {
     /// The "modified" time should only be set when the bookmark's meta-data
     /// was actually changed.  Every function of `GBookmarkFile` that
     /// modifies a bookmark also changes the modification time, except for
-    /// g_bookmark_file_set_visited().
+    /// `g_bookmark_file_set_visited()`.
     func setModified(uri: UnsafePointer<gchar>, modified: CLong) {
         g_bookmark_file_set_modified(cast(_ptr), uri, modified)
     
@@ -604,9 +604,9 @@ public extension BookmarkFileProtocol {
     /// If no bookmark for `uri` is found then it is created.
     /// 
     /// The "visited" time should only be set if the bookmark was launched,
-    /// either using the command line retrieved by g_bookmark_file_get_app_info()
+    /// either using the command line retrieved by `g_bookmark_file_get_app_info()`
     /// or by the default application for the bookmark's MIME type, retrieved
-    /// using g_bookmark_file_get_mime_type().  Changing the "visited" time
+    /// using `g_bookmark_file_get_mime_type()`.  Changing the "visited" time
     /// does not affect the "modified" time.
     func setVisited(uri: UnsafePointer<gchar>, visited: CLong) {
         g_bookmark_file_set_visited(cast(_ptr), uri, visited)
@@ -624,7 +624,7 @@ public extension BookmarkFileProtocol {
     }
 
     /// This function outputs `bookmark` into a file.  The write process is
-    /// guaranteed to be atomic by using g_file_set_contents() internally.
+    /// guaranteed to be atomic by using `g_file_set_contents()` internally.
     func toFile(String_: UnsafePointer<gchar>) throws -> Bool {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_bookmark_file_to_file(cast(_ptr), String_, &error)

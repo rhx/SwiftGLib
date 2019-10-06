@@ -138,7 +138,7 @@ public extension StringChunkProtocol {
     var _ptr: UnsafeMutablePointer<GStringChunk> { return ptr.assumingMemoryBound(to: GStringChunk.self) }
 
     /// Frees all strings contained within the `GStringChunk`.
-    /// After calling g_string_chunk_clear() it is not safe to
+    /// After calling `g_string_chunk_clear()` it is not safe to
     /// access any of the strings which were contained within it.
     func clear() {
         g_string_chunk_clear(cast(_ptr))
@@ -146,7 +146,7 @@ public extension StringChunkProtocol {
     }
 
     /// Frees all memory allocated by the `GStringChunk`.
-    /// After calling g_string_chunk_free() it is not safe to
+    /// After calling `g_string_chunk_free()` it is not safe to
     /// access any of the strings which were contained within it.
     func free() {
         g_string_chunk_free(cast(_ptr))
@@ -159,10 +159,10 @@ public extension StringChunkProtocol {
     /// can be changed, if necessary, though you should not
     /// change anything after the end of the string.
     /// 
-    /// Unlike g_string_chunk_insert_const(), this function
+    /// Unlike `g_string_chunk_insert_const()`, this function
     /// does not check for duplicates. Also strings added
-    /// with g_string_chunk_insert() will not be searched
-    /// by g_string_chunk_insert_const() when looking for
+    /// with `g_string_chunk_insert()` will not be searched
+    /// by `g_string_chunk_insert_const()` when looking for
     /// duplicates.
     func insert(string: UnsafePointer<gchar>) -> String! {
         let rv = g_string_chunk_insert(cast(_ptr), string)
@@ -171,7 +171,7 @@ public extension StringChunkProtocol {
 
     /// Adds a copy of `string` to the `GStringChunk`, unless the same
     /// string has already been added to the `GStringChunk` with
-    /// g_string_chunk_insert_const().
+    /// `g_string_chunk_insert_const()`.
     /// 
     /// This function is useful if you need to copy a large number
     /// of strings but do not want to waste space storing duplicates.
@@ -179,8 +179,8 @@ public extension StringChunkProtocol {
     /// the same string, and so any changes made to the strings
     /// should be done very carefully.
     /// 
-    /// Note that g_string_chunk_insert_const() will not return a
-    /// pointer to a string added with g_string_chunk_insert(), even
+    /// Note that `g_string_chunk_insert_const()` will not return a
+    /// pointer to a string added with `g_string_chunk_insert()`, even
     /// if they do match.
     func insertConst(string: UnsafePointer<gchar>) -> String! {
         let rv = g_string_chunk_insert_const(cast(_ptr), string)

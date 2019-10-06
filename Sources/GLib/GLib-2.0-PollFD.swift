@@ -137,8 +137,8 @@ public extension PollFDProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollFD` instance.
     var pollfd_ptr: UnsafeMutablePointer<GPollFD> { return ptr.assumingMemoryBound(to: GPollFD.self) }
 
-    /// Polls `fds`, as with the poll() system call, but portably. (On
-    /// systems that don't have poll(), it is emulated using select().)
+    /// Polls `fds`, as with the `poll()` system call, but portably. (On
+    /// systems that don't have `poll()`, it is emulated using `select()`.)
     /// This is used internally by `GMainContext`, but it can be called
     /// directly if you need to block until a file descriptor is ready, but
     /// don't want to run the full main loop.
@@ -151,9 +151,9 @@ public extension PollFDProtocol {
     /// 
     /// On POSIX systems, the file descriptors in `fds` can be any sort of
     /// file descriptor, but the situation is much more complicated on
-    /// Windows. If you need to use g_poll() in code that has to run on
+    /// Windows. If you need to use `g_poll()` in code that has to run on
     /// Windows, the easiest solution is to construct all of your
-    /// `GPollFDs` with g_io_channel_win32_make_pollfd().
+    /// `GPollFDs` with `g_io_channel_win32_make_pollfd()`.
     func poll(nfds: CUnsignedInt, timeout: CInt) -> CInt {
         let rv = g_poll(cast(pollfd_ptr), guint(nfds), gint(timeout))
         return CInt(rv)
