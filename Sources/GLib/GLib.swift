@@ -10,6 +10,7 @@ import CGLib
 /// Opaque type. See RecMutexLocker for details.
 public struct GRecMutexLocker {}
 
+#if !os(Linux) || swift(<5.1)
 /// Logging function
 ///
 /// - Parameters:
@@ -38,6 +39,42 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .lev
         g_logv(domain, level, "%s", va_list)
     }
 }
+#else
+/// Logging function
+///
+/// - Parameters:
+///   - message: log message
+///   - level: log level (defaults to `level_debug`)
+public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
+    var buffer = message
+    if message.index(of: "%") != nil {
+        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : $0) }
+    }
+    withUnsafeMutableBytes(of: &buffer) {
+        guard let buffer = $0.baseAddress else { return }
+        let msg = buffer.assumingMemoryBound(to: CChar.self)
+        g_logv(nil, level, msg, CVaListPointer(_fromUnsafeMutablePointer: buffer))
+    }
+}
+
+/// Logging function
+///
+/// - Parameters:
+///   - domain: the domain this logging function occurs in
+///   - message: log message
+///   - level: log level (defaults to `level_debug`)
+public func g_log(domain: String, _ message: String, level: LogLevelFlags = .level_debug) {
+    var buffer = message
+    if message.index(of: "%") != nil {
+        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : $0) }
+    }
+    withUnsafeMutableBytes(of: &buffer) {
+        guard let buffer = $0.baseAddress else { return }
+        let msg = buffer.assumingMemoryBound(to: CChar.self)
+        g_logv(domain, level, msg, CVaListPointer(_fromUnsafeMutablePointer: buffer))
+    }
+}
+#endif
 
 /// Log a warning message
 ///

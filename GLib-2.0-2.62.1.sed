@@ -1,1 +1,2 @@
-GLib-2.0-2.62.0.sed
+s|^public let GNUC_PRETTY_FUNCTION|// deprecated GNUC_PRETTY_FUNCTION|
+s|^public let GNUC_FUNCTION|// deprecated GNUC_FUNCTION|
