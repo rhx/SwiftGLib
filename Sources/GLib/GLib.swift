@@ -10,7 +10,7 @@ import CGLib
 /// Opaque type. See RecMutexLocker for details.
 public struct GRecMutexLocker {}
 
-#if !os(Linux)
+#if os(Linux)
 /// Logging function
 ///
 /// - Parameters:
@@ -48,7 +48,7 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .lev
 public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
     var buffer = message
     if message.index(of: "%") != nil {
-        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : $0) }
+        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
     }
     withUnsafeMutableBytes(of: &buffer) {
         guard let buffer = $0.baseAddress else { return }
@@ -66,7 +66,7 @@ public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
 public func g_log(domain: String, _ message: String, level: LogLevelFlags = .level_debug) {
     var buffer = message
     if message.index(of: "%") != nil {
-        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : $0) }
+        buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
     }
     withUnsafeMutableBytes(of: &buffer) {
         guard let buffer = $0.baseAddress else { return }

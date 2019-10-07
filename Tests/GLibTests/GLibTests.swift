@@ -178,15 +178,9 @@ class GLibTests: XCTestCase {
                 guard let domain = $0, $1 == .level_message,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
-                #if os(Linux)
-                resultPtr.pointee =
-                    strcmp(domain, "testDomainLevel") == 0 &&
-                    strcmp(message, "%%s") == 0
-                #else
                 resultPtr.pointee =
                     strcmp(domain, "testDomainLevel") == 0 &&
                     strcmp(message, "%s") == 0
-                #endif
             }, gpointer($0))
         }
         g_log(domain: "testDomainLevel", "%s", level: .level_message)
