@@ -10,7 +10,7 @@ import CGLib
 /// Opaque type. See RecMutexLocker for details.
 public struct GRecMutexLocker {}
 
-#if os(Linux)
+#if !os(Linux)
 /// Logging function
 ///
 /// - Parameters:
