@@ -11,7 +11,9 @@ fi
 [ -e "$BUILD_DIR/build.db" ] || ./build.sh
 rm -rf .docs.old
 mv docs .docs.old 2>/dev/null
+[ -e .build ] || ln -s "$BUILD_DIR" .build
 sourcekitten doc --spm-module $Mod -- --build-path "$BUILD_DIR"		\
 	$CCFLAGS $LINKFLAGS > "$BUILD_DIR/$Mod-doc.json"
 jazzy --sourcekitten-sourcefile "$BUILD_DIR/$Mod-doc.json" --clean	\
       --module-version $JAZZY_VER --module $Mod $JAZZY_ARGS "$@"
+rm -f .build 2>/dev/null
