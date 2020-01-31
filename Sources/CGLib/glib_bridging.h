@@ -268,3 +268,12 @@ typedef struct _GObjectNotifyQueue
     guint16               n_pspecs;
     guint16               freeze_count;
 } GObjectNotifyQueue;
+
+#ifndef __G_DESKTOP_APP_INFO_H__
+struct _GDesktopAppInfoClass {};
+typedef struct _GDesktopAppInfo        GDesktopAppInfo;
+typedef struct _GDesktopAppInfoClass   GDesktopAppInfoClass;
+typedef void (*GDesktopAppLaunchCallback) (GDesktopAppInfo  *appinfo,
+                                           GPid              pid,
+                                           gpointer          user_data);
+#endif
