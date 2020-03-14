@@ -31,6 +31,7 @@ struct _GTree {};
 struct _GVariant {};
 struct _GVariantType {};
 struct GMainContextPusher {};
+struct GMemoryMonitor {};
 struct GMutexLocker {};
 struct GSequenceIter {};
 struct GTestCase {};
