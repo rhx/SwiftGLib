@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2016, 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2016, 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -20,8 +20,9 @@ public func g_log(_ message: String, level: LogLevelFlags = .level_debug) {
     message.utf8CString.withUnsafeBufferPointer {
         guard let base = $0.baseAddress else { return }
         let varargs = [OpaquePointer(base)]
-        let va_list = getVaList(varargs)
-        g_logv(nil, level, "%s", va_list)
+        withVaList(varargs) {
+            g_logv(nil, level, "%s", $0)
+        }
     }
 }
 
@@ -35,8 +36,9 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .lev
     message.utf8CString.withUnsafeBufferPointer {
         guard let base = $0.baseAddress else { return }
         let varargs = [OpaquePointer(base)]
-        let va_list = getVaList(varargs)
-        g_logv(domain, level, "%s", va_list)
+        withVaList(varargs) {
+            g_logv(domain, level, "%s", $0)
+        }
     }
 }
 #else
