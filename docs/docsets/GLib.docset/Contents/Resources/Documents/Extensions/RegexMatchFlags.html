@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RegexMatchFlags</h1>
               <div class="declaration">
                 <div class="language">
@@ -3467,10 +3491,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The pattern is forced to be <q>anchored</q>, that is,
+                        <p>The pattern is forced to be &ldquo;anchored&rdquo;, that is,
     it is constrained to match only at the first matching point in the
     string that is being searched. This effect can also be achieved by
-    appropriate constructs in the pattern itself such as the <q>^</q>
+    appropriate constructs in the pattern itself such as the &ldquo;^&rdquo;
     metacharacter.</p>
 
                       </div>
@@ -3506,7 +3530,7 @@
     not match before it. Setting this without <code>G_REGEX_MULTILINE</code> (at
     compile time) causes circumflex never to match. This option affects
     only the behaviour of the circumflex metacharacter, it does not
-    affect <q>\A</q>.</p>
+    affect &ldquo;\A&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -3541,7 +3565,7 @@
     it nor (except in multiline mode) a newline immediately before it.
     Setting this without <code>G_REGEX_MULTILINE</code> (at compile time) causes
     dollar never to match. This option affects only the behaviour of
-    the dollar metacharacter, it does not affect <q>\Z</q> or <q>\z</q>.</p>
+    the dollar metacharacter, it does not affect &ldquo;\Z&rdquo; or &ldquo;\z&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -3574,11 +3598,11 @@
                         <p>An empty string is not considered to be a valid
     match if this option is set. If there are alternatives in the pattern,
     they are tried. If all the alternatives match the empty string, the
-    entire match fails. For example, if the pattern <q>a?b?</q> is applied to
-    a string not beginning with <q>a</q> or <q>b</q>, it matches the empty string
+    entire match fails. For example, if the pattern &ldquo;a?b?&rdquo; is applied to
+    a string not beginning with &ldquo;a&rdquo; or &ldquo;b&rdquo;, it matches the empty string
     at the start of the string. With this flag set, this match is not
     valid, so GRegex searches further into the string for occurrences
-    of <q>a</q> or <q>b</q>.</p>
+    of &ldquo;a&rdquo; or &ldquo;b&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -3799,9 +3823,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Overrides the newline definition for <q>\R</q> set when
+                        <p>Overrides the newline definition for &ldquo;\R&rdquo; set when
     creating a new <code>GRegex</code>; only &lsquo;\r&rsquo;, &lsquo;\n&rsquo;, or &lsquo;\r\n&rsquo; character sequences
-    are recognized as a newline by <q>\R</q>. Since: 2.34</p>
+    are recognized as a newline by &ldquo;\R&rdquo;. Since: 2.34</p>
 
                       </div>
                       <div class="declaration">
@@ -3831,9 +3855,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Overrides the newline definition for <q>\R</q> set when
+                        <p>Overrides the newline definition for &ldquo;\R&rdquo; set when
     creating a new <code>GRegex</code>; any Unicode newline character or character sequence
-    are recognized as a newline by <q>\R</q>. These are &lsquo;\r&rsquo;, &lsquo;\n&rsquo; and &lsquo;\rn&rsquo;, and the
+    are recognized as a newline by &ldquo;\R&rdquo;. These are &lsquo;\r&rsquo;, &lsquo;\n&rsquo; and &lsquo;\rn&rsquo;, and the
     single characters U+000B LINE TABULATION, U+000C FORM FEED (FF),
     U+0085 NEXT LINE (NEL), U+2028 LINE SEPARATOR and
     U+2029 PARAGRAPH SEPARATOR. Since: 2.34</p>
@@ -3931,7 +3955,7 @@
                       <div class="abstract">
                         <p>Like <code>G_REGEX_MATCH_NOTEMPTY</code>, but only applied to
     the start of the matched string. For anchored
-    patterns this can only happen for pattern containing <q>\K</q>. Since: 2.34</p>
+    patterns this can only happen for pattern containing &ldquo;\K&rdquo;. Since: 2.34</p>
 
                       </div>
                       <div class="declaration">
@@ -3956,8 +3980,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

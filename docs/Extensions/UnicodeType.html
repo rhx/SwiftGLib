@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>UnicodeType</h1>
               <div class="declaration">
                 <div class="language">
@@ -3467,7 +3491,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Other, Control</q> (Cc)</p>
+                        <p>General category &ldquo;Other, Control&rdquo; (Cc)</p>
 
                       </div>
                       <div class="declaration">
@@ -3497,7 +3521,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Other, Format</q> (Cf)</p>
+                        <p>General category &ldquo;Other, Format&rdquo; (Cf)</p>
 
                       </div>
                       <div class="declaration">
@@ -3527,7 +3551,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Other, Not Assigned</q> (Cn)</p>
+                        <p>General category &ldquo;Other, Not Assigned&rdquo; (Cn)</p>
 
                       </div>
                       <div class="declaration">
@@ -3557,7 +3581,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Other, Private Use</q> (Co)</p>
+                        <p>General category &ldquo;Other, Private Use&rdquo; (Co)</p>
 
                       </div>
                       <div class="declaration">
@@ -3587,7 +3611,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Other, Surrogate</q> (Cs)</p>
+                        <p>General category &ldquo;Other, Surrogate&rdquo; (Cs)</p>
 
                       </div>
                       <div class="declaration">
@@ -3617,7 +3641,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Letter, Lowercase</q> (Ll)</p>
+                        <p>General category &ldquo;Letter, Lowercase&rdquo; (Ll)</p>
 
                       </div>
                       <div class="declaration">
@@ -3647,7 +3671,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Letter, Modifier</q> (Lm)</p>
+                        <p>General category &ldquo;Letter, Modifier&rdquo; (Lm)</p>
 
                       </div>
                       <div class="declaration">
@@ -3677,7 +3701,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Letter, Other</q> (Lo)</p>
+                        <p>General category &ldquo;Letter, Other&rdquo; (Lo)</p>
 
                       </div>
                       <div class="declaration">
@@ -3707,7 +3731,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Letter, Titlecase</q> (Lt)</p>
+                        <p>General category &ldquo;Letter, Titlecase&rdquo; (Lt)</p>
 
                       </div>
                       <div class="declaration">
@@ -3737,7 +3761,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Letter, Uppercase</q> (Lu)</p>
+                        <p>General category &ldquo;Letter, Uppercase&rdquo; (Lu)</p>
 
                       </div>
                       <div class="declaration">
@@ -3767,7 +3791,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Mark, Spacing</q> (Mc)</p>
+                        <p>General category &ldquo;Mark, Spacing&rdquo; (Mc)</p>
 
                       </div>
                       <div class="declaration">
@@ -3797,7 +3821,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Mark, Enclosing</q> (Me)</p>
+                        <p>General category &ldquo;Mark, Enclosing&rdquo; (Me)</p>
 
                       </div>
                       <div class="declaration">
@@ -3827,7 +3851,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Mark, Nonspacing</q> (Mn)</p>
+                        <p>General category &ldquo;Mark, Nonspacing&rdquo; (Mn)</p>
 
                       </div>
                       <div class="declaration">
@@ -3857,7 +3881,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Number, Decimal Digit</q> (Nd)</p>
+                        <p>General category &ldquo;Number, Decimal Digit&rdquo; (Nd)</p>
 
                       </div>
                       <div class="declaration">
@@ -3887,7 +3911,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Number, Letter</q> (Nl)</p>
+                        <p>General category &ldquo;Number, Letter&rdquo; (Nl)</p>
 
                       </div>
                       <div class="declaration">
@@ -3917,7 +3941,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Number, Other</q> (No)</p>
+                        <p>General category &ldquo;Number, Other&rdquo; (No)</p>
 
                       </div>
                       <div class="declaration">
@@ -3947,7 +3971,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Connector</q> (Pc)</p>
+                        <p>General category &ldquo;Punctuation, Connector&rdquo; (Pc)</p>
 
                       </div>
                       <div class="declaration">
@@ -3977,7 +4001,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Dash</q> (Pd)</p>
+                        <p>General category &ldquo;Punctuation, Dash&rdquo; (Pd)</p>
 
                       </div>
                       <div class="declaration">
@@ -4007,7 +4031,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Close</q> (Pe)</p>
+                        <p>General category &ldquo;Punctuation, Close&rdquo; (Pe)</p>
 
                       </div>
                       <div class="declaration">
@@ -4037,7 +4061,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Final quote</q> (Pf)</p>
+                        <p>General category &ldquo;Punctuation, Final quote&rdquo; (Pf)</p>
 
                       </div>
                       <div class="declaration">
@@ -4067,7 +4091,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Initial quote</q> (Pi)</p>
+                        <p>General category &ldquo;Punctuation, Initial quote&rdquo; (Pi)</p>
 
                       </div>
                       <div class="declaration">
@@ -4097,7 +4121,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Other</q> (Po)</p>
+                        <p>General category &ldquo;Punctuation, Other&rdquo; (Po)</p>
 
                       </div>
                       <div class="declaration">
@@ -4127,7 +4151,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Punctuation, Open</q> (Ps)</p>
+                        <p>General category &ldquo;Punctuation, Open&rdquo; (Ps)</p>
 
                       </div>
                       <div class="declaration">
@@ -4157,7 +4181,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Symbol, Currency</q> (Sc)</p>
+                        <p>General category &ldquo;Symbol, Currency&rdquo; (Sc)</p>
 
                       </div>
                       <div class="declaration">
@@ -4187,7 +4211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Symbol, Modifier</q> (Sk)</p>
+                        <p>General category &ldquo;Symbol, Modifier&rdquo; (Sk)</p>
 
                       </div>
                       <div class="declaration">
@@ -4217,7 +4241,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Symbol, Math</q> (Sm)</p>
+                        <p>General category &ldquo;Symbol, Math&rdquo; (Sm)</p>
 
                       </div>
                       <div class="declaration">
@@ -4247,7 +4271,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Symbol, Other</q> (So)</p>
+                        <p>General category &ldquo;Symbol, Other&rdquo; (So)</p>
 
                       </div>
                       <div class="declaration">
@@ -4277,7 +4301,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Separator, Line</q> (Zl)</p>
+                        <p>General category &ldquo;Separator, Line&rdquo; (Zl)</p>
 
                       </div>
                       <div class="declaration">
@@ -4307,7 +4331,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Separator, Paragraph</q> (Zp)</p>
+                        <p>General category &ldquo;Separator, Paragraph&rdquo; (Zp)</p>
 
                       </div>
                       <div class="declaration">
@@ -4337,7 +4361,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>General category <q>Separator, Space</q> (Zs)</p>
+                        <p>General category &ldquo;Separator, Space&rdquo; (Zs)</p>
 
                       </div>
                       <div class="declaration">
@@ -4362,8 +4386,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

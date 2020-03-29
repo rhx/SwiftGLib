@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>MatchInfoProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3535,9 +3559,11 @@ matches.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3568,9 +3594,9 @@ passed to <code>g_regex_new()</code>.</p>
 function, so you cannot call this function after freeing the string.</p>
 
 <p><code>match_info</code> may be <code>nil</code> in which case <code>string_to_expand</code> must not
-contain references. For instance <q>foo\n</q> does not refer to an actual
+contain references. For instance &ldquo;foo\n&rdquo; does not refer to an actual
 pattern and &lsquo;\n&rsquo; merely will be replaced with \n character,
-while to expand <q>\0</q> (whole match) one needs the result of a match.
+while to expand &ldquo;\0&rdquo; (whole match) one needs the result of a match.
 Use <code>g_regex_check_replacement()</code> to find out whether <code>string_to_expand</code>
 contains references.</p>
 
@@ -3584,7 +3610,7 @@ contains references.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L157-L164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L204-L211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3610,7 +3636,7 @@ parentheses. 0 is the full text of the match, 1 is the first paren
 set, 2 the second, and so on.</p>
 
 <p>If <code>match_num</code> is a valid sub pattern but it didn&rsquo;t match anything
-(e.g. sub pattern 1, matching <q>b</q> against <q>(a)?b</q>) then an empty
+(e.g. sub pattern 1, matching &ldquo;b&rdquo; against &ldquo;(a)?b&rdquo;) then an empty
 string is returned.</p>
 
 <p>If the match was obtained using the DFA algorithm, that is using
@@ -3632,7 +3658,7 @@ so you cannot call this function after freeing the string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L182-L185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L229-L232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3659,7 +3685,7 @@ the returned array is the match number 0, i.e. the entire matched
 text.</p>
 
 <p>If a sub pattern didn&rsquo;t match anything (e.g. sub pattern 1, matching
-<q>b</q> against <q>(a)?b</q>) then an empty string is inserted.</p>
+&ldquo;b&rdquo; against &ldquo;(a)?b&rdquo;) then an empty string is inserted.</p>
 
 <p>If the last match was obtained using the DFA algorithm, that is using
 <code>g_regex_match_all()</code> or <code>g_regex_match_all_full()</code>, the retrieved
@@ -3680,7 +3706,7 @@ so you cannot call this function after freeing the string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L203-L206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L250-L253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3704,7 +3730,7 @@ so you cannot call this function after freeing the string.</p>
                         <p>Retrieves the text matching the capturing parentheses named <code>name</code>.</p>
 
 <p>If <code>name</code> is a valid sub pattern name but it didn&rsquo;t match anything
-(e.g. sub pattern <q>X</q>, matching <q>b</q> against <q>(?P<X>a)?b</q>)
+(e.g. sub pattern &ldquo;X&rdquo;, matching &ldquo;b&rdquo; against &ldquo;(?P<X>a)?b&rdquo;)
 then an empty string is returned.</p>
 
 <p>The string is fetched from the string passed to the match function,
@@ -3720,7 +3746,7 @@ so you cannot call this function after freeing the string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L216-L219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L263-L266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3744,7 +3770,7 @@ so you cannot call this function after freeing the string.</p>
                         <p>Retrieves the position in bytes of the capturing parentheses named <code>name</code>.</p>
 
 <p>If <code>name</code> is a valid sub pattern name but it didn&rsquo;t match anything
-(e.g. sub pattern <q>X</q>, matching <q>b</q> against <q>(?P<X>a)?b</q>)
+(e.g. sub pattern &ldquo;X&rdquo;, matching &ldquo;b&rdquo; against &ldquo;(?P<X>a)?b&rdquo;)
 then <code>start_pos</code> and <code>end_pos</code> are set to -1 and <code>true</code> is returned.</p>
 
                       </div>
@@ -3757,7 +3783,7 @@ then <code>start_pos</code> and <code>end_pos</code> are set to -1 and <code>tru
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L226-L229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L273-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3783,7 +3809,7 @@ parentheses. 0 is the full text of the match, 1 is the first
 paren set, 2 the second, and so on.</p>
 
 <p>If <code>match_num</code> is a valid sub pattern but it didn&rsquo;t match anything
-(e.g. sub pattern 1, matching <q>b</q> against <q>(a)?b</q>) then <code>start_pos</code>
+(e.g. sub pattern 1, matching &ldquo;b&rdquo; against &ldquo;(a)?b&rdquo;) then <code>start_pos</code>
 and <code>end_pos</code> are set to -1 and <code>true</code> is returned.</p>
 
 <p>If the match was obtained using the DFA algorithm, that is using
@@ -3802,7 +3828,7 @@ substring. Substrings are matched in reverse order of length, so
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L244-L247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L291-L294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3836,7 +3862,7 @@ nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L251-L254">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L298-L301">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3876,7 +3902,7 @@ the number of matched substrings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L264-L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L311-L314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3911,7 +3937,7 @@ after you free <code>match_info</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L272-L275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L319-L322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3946,7 +3972,7 @@ you may not free it before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L280-L283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L327-L330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3979,7 +4005,7 @@ you may not free it before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L286-L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L333-L336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4017,7 +4043,7 @@ cannot free it before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L297-L304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L344-L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4050,7 +4076,7 @@ cannot free it before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L307-L310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L354-L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4084,7 +4110,7 @@ to zero, it frees all the memory associated with the match_info structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L314-L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L361-L364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4149,7 +4175,7 @@ The restrictions no longer apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L351-L389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L398-L436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4189,7 +4215,7 @@ the number of matched substrings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L399-L412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L446-L459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4224,7 +4250,7 @@ after you free <code>match_info</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L417-L425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L464-L472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4259,7 +4285,7 @@ you may not free it before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L430-L438">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L477-L485">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4272,8 +4298,8 @@ you may not free it before calling this function.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

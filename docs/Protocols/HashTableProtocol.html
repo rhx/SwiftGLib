@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>HashTableProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3536,9 +3560,11 @@ following functions.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3561,6 +3587,10 @@ following functions.</p>
 is equivalent to calling <code>g_hash_table_replace()</code> with <code>key</code> as both the
 key and the value.</p>
 
+<p>In particular, this means that if <code>key</code> already exists in the hash table, then
+the old copy of <code>key</code> in the hash table is freed and <code>key</code> replaces it in the
+table.</p>
+
 <p>When a hash table only ever contains keys that have themselves as the
 corresponding value it is able to be stored more efficiently.  See
 the discussion in the section description.</p>
@@ -3579,7 +3609,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L184-L187">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L235-L238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3612,7 +3642,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L190-L193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L241-L244">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3650,7 +3680,7 @@ destruction phase.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L201-L204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L252-L255">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3695,7 +3725,7 @@ values in a hash table ends up needing <code>O(n*n)</code> operations).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L219-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L270-L273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3723,6 +3753,9 @@ be modified while iterating over it (you can&rsquo;t add/remove
 items). To remove all items matching a predicate, use
 <code>g_hash_table_foreach_remove()</code>.</p>
 
+<p>The order in which <code>g_hash_table_foreach()</code> iterates over the keys/values in
+the hash table is not defined.</p>
+
 <p>See <code>g_hash_table_find()</code> for performance caveats for linear
 order searches in contrast to <code>g_hash_table_lookup()</code>.</p>
 
@@ -3736,7 +3769,7 @@ order searches in contrast to <code>g_hash_table_lookup()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L233-L236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L287-L290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3776,7 +3809,7 @@ key/value pairs in the hash table.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L246-L249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L300-L303">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3815,7 +3848,7 @@ key/value pairs in the hash table.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L258-L261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L312-L315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3853,7 +3886,7 @@ To iterate over the entries in a <code>GHashTable</code> more efficiently, use a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L269-L272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L323-L326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3902,7 +3935,7 @@ first to transfer ownership of the keys.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L291-L294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L345-L348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3940,7 +3973,7 @@ To iterate over the entries in a <code>GHashTable</code> more efficiently, use a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L356-L359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3984,7 +4017,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L319-L322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L373-L376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4020,7 +4053,7 @@ and has the value <code>nil</code>. If you need this distinction, use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L328-L331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L382-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4060,7 +4093,7 @@ of <code>hash_table</code> are <code>nil</code>-safe.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L341-L344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L395-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4094,7 +4127,7 @@ This function is MT-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L348-L351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L402-L405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4132,7 +4165,7 @@ yourself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L359-L362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4170,7 +4203,7 @@ values are freed yourself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4213,7 +4246,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L386-L389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L440-L443">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4246,7 +4279,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L392-L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L446-L449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4280,7 +4313,7 @@ calling the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L399-L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L453-L456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4314,7 +4347,7 @@ without calling the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L406-L409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L460-L463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4356,7 +4389,7 @@ of <code>hash_table</code> are <code>nil</code>-safe.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L421-L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L475-L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4392,7 +4425,7 @@ This function is MT-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L430-L433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L484-L487">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4417,6 +4450,10 @@ This function is MT-safe and may be called from any thread.</p>
 is equivalent to calling <code>g_hash_table_replace()</code> with <code>key</code> as both the
 key and the value.</p>
 
+<p>In particular, this means that if <code>key</code> already exists in the hash table, then
+the old copy of <code>key</code> in the hash table is freed and <code>key</code> replaces it in the
+table.</p>
+
 <p>When a hash table only ever contains keys that have themselves as the
 corresponding value it is able to be stored more efficiently.  See
 the discussion in the section description.</p>
@@ -4435,7 +4472,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L446-L449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L504-L507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4468,7 +4505,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L452-L455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L510-L513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4506,7 +4543,7 @@ destruction phase.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L463-L466">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L521-L524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4550,7 +4587,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L480-L483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L538-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4586,7 +4623,7 @@ and has the value <code>nil</code>. If you need this distinction, use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L489-L492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L547-L550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4626,7 +4663,7 @@ of <code>hash_table</code> are <code>nil</code>-safe.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L502-L505">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L560-L563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4664,7 +4701,7 @@ yourself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L513-L516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L571-L574">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4702,7 +4739,7 @@ values are freed yourself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L524-L527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L582-L585">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4745,7 +4782,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L540-L543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L598-L601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4778,7 +4815,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L546-L549">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L604-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4812,7 +4849,7 @@ calling the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L553-L556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L611-L614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4846,7 +4883,7 @@ without calling the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L560-L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L618-L621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4888,7 +4925,7 @@ of <code>hash_table</code> are <code>nil</code>-safe.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L575-L578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L633-L636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4924,7 +4961,7 @@ This function is MT-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L584-L587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L642-L645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4962,7 +4999,7 @@ To iterate over the entries in a <code>GHashTable</code> more efficiently, use a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L594-L605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L652-L663">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5000,7 +5037,7 @@ To iterate over the entries in a <code>GHashTable</code> more efficiently, use a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L613-L624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L671-L682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5013,8 +5050,8 @@ To iterate over the entries in a <code>GHashTable</code> more efficiently, use a
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

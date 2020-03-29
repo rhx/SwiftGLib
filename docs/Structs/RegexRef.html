@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RegexRef</h1>
               <div class="declaration">
                 <div class="language">
@@ -3457,41 +3481,41 @@ Perl regular expression.</p>
 <p>Some functions accept a <code>start_position</code> argument, setting it differs
 from just passing over a shortened string and setting <code>G_REGEX_MATCH_NOTBOL</code>
 in the case of a pattern that begins with any kind of lookbehind assertion.
-For example, consider the pattern <q>\Biss\B</q> which finds occurrences of <q>iss</q>
-in the middle of words. (<q>\B</q> matches only if the current position in the
-subject is not a word boundary.) When applied to the string <q>Mississipi</q>
-from the fourth byte, namely <q>issipi</q>, it does not match, because <q>\B</q> is
+For example, consider the pattern &ldquo;\Biss\B&rdquo; which finds occurrences of &ldquo;iss&rdquo;
+in the middle of words. (&ldquo;\B&rdquo; matches only if the current position in the
+subject is not a word boundary.) When applied to the string &ldquo;Mississipi&rdquo;
+from the fourth byte, namely &ldquo;issipi&rdquo;, it does not match, because &ldquo;\B&rdquo; is
 always false at the start of the subject, which is deemed to be a word
 boundary. However, if the entire string is passed , but with
-<code>start_position</code> set to 4, it finds the second occurrence of <q>iss</q> because
+<code>start_position</code> set to 4, it finds the second occurrence of &ldquo;iss&rdquo; because
 it is able to look behind the starting point to discover that it is
 preceded by a letter.</p>
 
 <p>Note that, unless you set the <code>G_REGEX_RAW</code> flag, all the strings passed
 to these functions must be encoded in UTF-8. The lengths and the positions
 inside the strings are in bytes and not in characters, so, for instance,
-<q>\xc3\xa0</q> (i.e. <q>à</q>) is two bytes long but it is treated as a
+&ldquo;\xc3\xa0&rdquo; (i.e. &ldquo;à&rdquo;) is two bytes long but it is treated as a
 single character. If you set <code>G_REGEX_RAW</code> the strings can be non-valid
-UTF-8 strings and a byte is treated as a character, so <q>\xc3\xa0</q> is two
+UTF-8 strings and a byte is treated as a character, so &ldquo;\xc3\xa0&rdquo; is two
 bytes and two characters long.</p>
 
-<p>When matching a pattern, <q>\n</q> matches only against a <q>\n</q> character in
-the string, and <q>\r</q> matches only a <q>\r</q> character. To match any newline
-sequence use <q>\R</q>. This particular group matches either the two-character
-sequence CR + LF (<q>\r\n</q>), or one of the single characters LF (linefeed,
-U+000A, <q>\n</q>), VT vertical tab, U+000B, <q>\v</q>), FF (formfeed, U+000C, <q>\f</q>),
-CR (carriage return, U+000D, <q>\r</q>), NEL (next line, U+0085), LS (line
+<p>When matching a pattern, &ldquo;\n&rdquo; matches only against a &ldquo;\n&rdquo; character in
+the string, and &ldquo;\r&rdquo; matches only a &ldquo;\r&rdquo; character. To match any newline
+sequence use &ldquo;\R&rdquo;. This particular group matches either the two-character
+sequence CR + LF (&ldquo;\r\n&rdquo;), or one of the single characters LF (linefeed,
+U+000A, &ldquo;\n&rdquo;), VT vertical tab, U+000B, &ldquo;\v&rdquo;), FF (formfeed, U+000C, &ldquo;\f&rdquo;),
+CR (carriage return, U+000D, &ldquo;\r&rdquo;), NEL (next line, U+0085), LS (line
 separator, U+2028), or PS (paragraph separator, U+2029).</p>
 
 <p>The behaviour of the dot, circumflex, and dollar metacharacters are
 affected by newline characters, the default is to recognize any newline
-character (the same characters recognized by <q>\R</q>). This can be changed
+character (the same characters recognized by &ldquo;\R&rdquo;). This can be changed
 with <code>G_REGEX_NEWLINE_CR</code>, <code>G_REGEX_NEWLINE_LF</code> and <code>G_REGEX_NEWLINE_CRLF</code>
 compile options, and with <code>G_REGEX_MATCH_NEWLINE_ANY</code>,
 <code>G_REGEX_MATCH_NEWLINE_CR</code>, <code>G_REGEX_MATCH_NEWLINE_LF</code> and
 <code>G_REGEX_MATCH_NEWLINE_CRLF</code> match options. These settings are also
 relevant when compiling a pattern if <code>G_REGEX_EXTENDED</code> is set, and an
-unescaped <q>#</q> outside a character class is encountered. This indicates
+unescaped &ldquo;#&rdquo; outside a character class is encountered. This indicates
 a comment that lasts until after the next newline.</p>
 
 <p>When setting the <code>G_REGEX_JAVASCRIPT_COMPAT</code> flag, pattern syntax and pattern
@@ -3560,9 +3584,11 @@ For type-safe access, use the generated, typed pointer <code>regex_ptr</code> pr
               <div class="task-name-container">
                 <a name="/Regex%20Record"></a>
                 <a name="//apple_ref/swift/Section/Regex Record" class="dashAnchor"></a>
-                <a href="#/Regex%20Record">
-                  <h3 class="section-name">Regex Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Regex%20Record"></a>
+                  <h3 class="section-name"><p>Regex Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3821,8 +3847,8 @@ For type-safe access, use the generated, typed pointer <code>regex_ptr</code> pr
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

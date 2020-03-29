@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>DateTimeRef</h1>
               <div class="declaration">
                 <div class="language">
@@ -3497,9 +3521,11 @@ For type-safe access, use the generated, typed pointer <code>date_time_ptr</code
               <div class="task-name-container">
                 <a name="/DateTime%20Record"></a>
                 <a name="//apple_ref/swift/Section/DateTime Record" class="dashAnchor"></a>
-                <a href="#/DateTime%20Record">
-                  <h3 class="section-name">DateTime Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/DateTime%20Record"></a>
+                  <h3 class="section-name"><p>DateTime Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3730,7 +3756,7 @@ For type-safe access, use the generated, typed pointer <code>date_time_ptr</code
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="err">`</span><span class="kt">GDateTime</span><span class="err">`</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">date</span> <span class="n">and</span> <span class="n">time</span> <span class="k">in</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="p">`</span><span class="nv">GDateTime</span><span class="p">`</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">date</span> <span class="n">and</span> <span class="n">time</span> <span class="k">in</span>
 </code></pre>
 
 <p>the time zone <code>tz</code>.</p>
@@ -3791,9 +3817,17 @@ when you are done with it.</p>
                       <div class="abstract">
                         <p>Creates a <code>GDateTime</code> corresponding to the given
 <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 formatted string</a>
-<code>text</code>. ISO 8601 strings of the form <date><sep><time><tz> are supported.</p>
+<code>text</code>. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+some extensions from <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> as
+mentioned below.</p>
 
-<p><sep> is the separator and can be either &lsquo;T&rsquo;, &lsquo;t&rsquo; or &lsquo; &rsquo;.</p>
+<p>Note that as <code>GDateTime</code> &ldquo;is oblivious to leap seconds&rdquo;, leap seconds information
+in an ISO-8601 string will be ignored, so a <code>23:59:60</code> time would be parsed as
+<code>23:59:59</code>.</p>
+
+<p><sep> is the separator and can be either &lsquo;T&rsquo;, &lsquo;t&rsquo; or &lsquo; &rsquo;. The latter two
+separators are an extension from
+<a href="https://tools.ietf.org/html/rfc3339%60section%60-5.6">RFC 3339</a>.</p>
 
 <p><date> is in the form:</p>
 
@@ -3841,7 +3875,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L140-L143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L148-L151">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3882,13 +3916,13 @@ when you are done with it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="n">timevalLocal</span> <span class="nv">tv</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L161-L164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L169-L172">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3927,13 +3961,13 @@ when you are done with it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="n">timevalUTC</span> <span class="nv">tv</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L180-L183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L188-L191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3973,7 +4007,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L196-L199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L204-L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4012,7 +4046,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L211-L214">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L219-L222">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4046,7 +4080,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L221-L224">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L229-L232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4085,7 +4119,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L236-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L244-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4119,7 +4153,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L246-L249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L254-L257">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4139,9 +4173,17 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                       <div class="abstract">
                         <p>Creates a <code>GDateTime</code> corresponding to the given
 <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 formatted string</a>
-<code>text</code>. ISO 8601 strings of the form <date><sep><time><tz> are supported.</p>
+<code>text</code>. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+some extensions from <a href="https://tools.ietf.org/html/rfc3339">RFC 3339</a> as
+mentioned below.</p>
 
-<p><sep> is the separator and can be either &lsquo;T&rsquo;, &lsquo;t&rsquo; or &lsquo; &rsquo;.</p>
+<p>Note that as <code>GDateTime</code> &ldquo;is oblivious to leap seconds&rdquo;, leap seconds information
+in an ISO-8601 string will be ignored, so a <code>23:59:60</code> time would be parsed as
+<code>23:59:59</code>.</p>
+
+<p><sep> is the separator and can be either &lsquo;T&rsquo;, &lsquo;t&rsquo; or &lsquo; &rsquo;. The latter two
+separators are an extension from
+<a href="https://tools.ietf.org/html/rfc3339%60section%60-5.6">RFC 3339</a>.</p>
 
 <p><date> is in the form:</p>
 
@@ -4189,7 +4231,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L301-L304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4230,13 +4272,13 @@ when you are done with it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newFrom</span><span class="p">(</span><span class="n">timevalLocal</span> <span class="nv">tv</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DateTimeRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L306-L309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L322-L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4275,13 +4317,13 @@ when you are done with it.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newFrom</span><span class="p">(</span><span class="n">timevalUTC</span> <span class="nv">tv</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">DateTimeRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L325-L328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L341-L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4321,7 +4363,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L341-L344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L357-L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4360,7 +4402,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L356-L359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L372-L375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4394,7 +4436,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L366-L369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L382-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4433,7 +4475,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L381-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L397-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4467,7 +4509,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L391-L394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L407-L410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4500,7 +4542,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L416-L419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4534,7 +4576,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L410-L413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L426-L429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4547,8 +4589,8 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

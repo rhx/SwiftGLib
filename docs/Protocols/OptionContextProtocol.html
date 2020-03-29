@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>OptionContextProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3536,9 +3560,11 @@ fields and should not be directly accessed.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3571,7 +3597,7 @@ ownership of the <code>group</code> and thus the <code>group</code> should not b
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L146-L149">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L193-L196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3579,9 +3605,9 @@ ownership of the <code>group</code> and thus the <code>group</code> should not b
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainyAA0b5EntryD0_p_SPys4Int8VGtF"></a>
+                    <a name="/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainySPySo13_GOptionEntryVG_SPys4Int8VGtF"></a>
                     <a name="//apple_ref/swift/Method/addMain(entries:translationDomain:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainyAA0b5EntryD0_p_SPys4Int8VGtF">addMain(entries:translationDomain:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainySPySo13_GOptionEntryVG_SPys4Int8VGtF">addMain(entries:translationDomain:)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3600,12 +3626,12 @@ exist, adds the <code>entries</code> to it and sets the translation domain.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addMain</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt"><a href="../Protocols/OptionEntryProtocol.html">OptionEntryProtocol</a></span><span class="p">,</span> <span class="n">translationDomain</span> <span class="nv">translation_domain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addMain</span><span class="p">(</span><span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">GOptionEntry</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">translationDomain</span> <span class="nv">translation_domain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L153-L156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L200-L203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3642,7 +3668,7 @@ added to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L163-L166">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L210-L213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3675,7 +3701,7 @@ added to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L169-L172">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L216-L219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3714,7 +3740,7 @@ To obtain the help text for an option group, call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L181-L184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L228-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3748,7 +3774,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L188-L191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L235-L238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3782,7 +3808,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L195-L198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L242-L245">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3815,7 +3841,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L201-L204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L248-L251">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3850,7 +3876,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L209-L212">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L256-L259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3883,7 +3909,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L215-L218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L262-L265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3936,7 +3962,7 @@ arguments.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L241-L248">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L288-L295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3984,7 +4010,7 @@ See <code>g_win32_get_command_line()</code> for a solution.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L266-L273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L313-L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4021,7 +4047,7 @@ of options. This text often includes a bug reporting address.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L280-L283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L327-L330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4057,7 +4083,7 @@ output to stdout.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L289-L292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4096,7 +4122,7 @@ determine whether a non-option belongs to a preceding unknown option.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L301-L304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L348-L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4132,7 +4158,7 @@ treated differently when generating <code>--help</code> output.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L310-L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L357-L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4164,14 +4190,14 @@ are treated as non-options and are not attempted to be parsed.</p>
 <p>If strict POSIX mode is disabled then parsing is done in the GNU way
 where option arguments can be freely mixed with non-options.</p>
 
-<p>As an example, consider <q>ls foo -l</q>.  With GNU style parsing, this
-will list <q>foo</q> in long mode.  In strict POSIX style, this will list
-the files named <q>foo</q> and <q>-l</q>.</p>
+<p>As an example, consider &ldquo;ls foo -l&rdquo;.  With GNU style parsing, this
+will list &ldquo;foo&rdquo; in long mode.  In strict POSIX style, this will list
+the files named &ldquo;foo&rdquo; and &ldquo;-l&rdquo;.</p>
 
-<p>It may be useful to force strict POSIX mode when creating <q>verb
-style</q> command line tools.  For example, the <q>gsettings</q> command line
-tool supports the global option <q>&ndash;schemadir</q> as well as many
-subcommands (<q>get</q>, <q>set</q>, etc.) which each have their own set of
+<p>It may be useful to force strict POSIX mode when creating &ldquo;verb
+style&rdquo; command line tools.  For example, the &ldquo;gsettings&rdquo; command line
+tool supports the global option &ldquo;&ndash;schemadir&rdquo; as well as many
+subcommands (&ldquo;get&rdquo;, &ldquo;set&rdquo;, etc.) which each have their own set of
 arguments.  Using strict POSIX mode will allow parsing the global
 options up to the verb name while leaving the remaining options to be
 parsed by the relevant subcommand (which can be determined by
@@ -4188,7 +4214,7 @@ parsing).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L339-L342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L386-L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4226,7 +4252,7 @@ of options. This is typically a summary of the program functionality.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L350-L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L397-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4269,7 +4295,7 @@ domain, see <code>g_option_context_set_translation_domain()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L366-L369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4303,7 +4329,7 @@ user-visible strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L373-L376">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L420-L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4336,7 +4362,7 @@ user-visible strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L378-L392">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L425-L439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4370,7 +4396,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L396-L410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L443-L457">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4404,7 +4430,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L414-L431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L461-L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4437,7 +4463,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L434-L447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L481-L494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4472,7 +4498,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L452-L487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L499-L534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4505,7 +4531,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L490-L505">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L537-L552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4518,8 +4544,8 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

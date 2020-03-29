@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>IOChannelProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3536,9 +3560,11 @@ functions.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3569,13 +3595,13 @@ Use g_io_channel_shutdown() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">close</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L309-L312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L356-L359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3608,7 +3634,7 @@ Use g_io_channel_shutdown() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L315-L322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L362-L369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3643,7 +3669,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L327-L330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L374-L377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3676,7 +3702,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L333-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L380-L383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3709,7 +3735,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L339-L342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L386-L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3745,7 +3771,7 @@ by g_io_channel_new_file (), and <code>false</code> for all other channels.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L348-L351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L395-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3780,7 +3806,7 @@ makes the channel safe for binary data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L356-L359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L403-L406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3821,7 +3847,7 @@ the internal values of these flags.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L417-L420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3856,7 +3882,7 @@ indicates autodetection.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L378-L381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L425-L428">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3893,7 +3919,7 @@ programmer (unless you are creating a new type of <code>GIOChannel</code>).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L388-L391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L435-L438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3924,13 +3950,13 @@ Use g_io_channel_read_chars() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">read</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">bytesRead</span> <span class="nv">bytes_read</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L397-L400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L444-L447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3963,7 +3989,7 @@ Use g_io_channel_read_chars() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L403-L410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L450-L457">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3999,7 +4025,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L416-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L463-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4032,7 +4058,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L426-L433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L473-L480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4065,7 +4091,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L436-L443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L483-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4099,7 +4125,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L447-L454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L494-L501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4132,7 +4158,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L457-L460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L504-L507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4164,13 +4190,13 @@ Use g_io_channel_seek_position() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">seek</span><span class="p">(</span><span class="nv">offset</span><span class="p">:</span> <span class="kt">Int64</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:4GLib8SeekTypea">SeekType</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L467-L470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L514-L517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4203,7 +4229,7 @@ Use g_io_channel_seek_position() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L473-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L520-L527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4236,7 +4262,7 @@ Use g_io_channel_seek_position() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L483-L486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L530-L533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4287,7 +4313,7 @@ maintaining old code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L507-L510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L554-L557">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4325,7 +4351,7 @@ can cause problems when the final reference to the <code>GIOChannel</code> is dr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L518-L521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L565-L568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4375,8 +4401,8 @@ does not guarantee that the encoding can be changed.</p></li>
 
 <p>Channels which do not meet one of the above conditions cannot call
 <code>g_io_channel_seek_position()</code> with an offset of <code>G_SEEK_CUR</code>, and, if
-they are <q>seekable</q>, cannot call <code>g_io_channel_write_chars()</code> after
-calling one of the API <q>read</q> functions.</p>
+they are &ldquo;seekable&rdquo;, cannot call <code>g_io_channel_write_chars()</code> after
+calling one of the API &ldquo;read&rdquo; functions.</p>
 
                       </div>
                       <div class="declaration">
@@ -4388,7 +4414,7 @@ calling one of the API <q>read</q> functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L557-L564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L604-L611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4421,7 +4447,7 @@ calling one of the API <q>read</q> functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L567-L574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L614-L621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4455,7 +4481,7 @@ where in the file a line break occurs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L578-L581">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L625-L628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4490,7 +4516,7 @@ last reference is dropped using <code>g_io_channel_unref()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L586-L593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L633-L640">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4526,7 +4552,7 @@ the <code>GIOChannel</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L599-L602">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L646-L649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4559,7 +4585,7 @@ the <code>GIOChannel</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L605-L608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L652-L655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4590,13 +4616,13 @@ Use g_io_channel_write_chars() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">bytesWritten</span> <span class="nv">bytes_written</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L614-L617">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L661-L664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4634,7 +4660,7 @@ cases described in the documentation for g_io_channel_set_encoding ().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L625-L632">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L672-L679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4668,7 +4694,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L636-L643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L683-L690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4702,7 +4728,7 @@ with the default priority.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L647-L650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L694-L697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4740,7 +4766,7 @@ You can do these steps manually if you need greater control.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L658-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L705-L708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4765,6 +4791,9 @@ You can do these steps manually if you need greater control.</p>
 given <code>channel</code>. For example, if condition is <code>G_IO_IN</code>, the source will
 be dispatched when there&rsquo;s data available for reading.</p>
 
+<p>The callback function invoked by the <code>GSource</code> should be added with
+<code>g_source_set_callback()</code>, but it has type <code>GIOFunc</code> (not <code>GSourceFunc</code>).</p>
+
 <p><code>g_io_add_watch()</code> is a simpler interface to this same functionality, for
 the case where you want to add the source to the default main loop context
 at the default priority.</p>
@@ -4783,7 +4812,7 @@ implementation and unavoidable.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L674-L677">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L724-L727">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4818,7 +4847,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L681-L689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L731-L739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4851,7 +4880,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L692-L702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L742-L752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4884,7 +4913,7 @@ the <code>GIOChannel</code>. Only the flags <code>G_IO_IN</code> and <code>G_IO_
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L705-L733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L755-L783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4920,7 +4949,7 @@ by g_io_channel_new_file (), and <code>false</code> for all other channels.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L739-L757">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L789-L807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4955,7 +4984,7 @@ makes the channel safe for binary data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L762-L770">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L812-L820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4996,7 +5025,7 @@ the internal values of these flags.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L781-L795">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L831-L845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5009,8 +5038,8 @@ the internal values of these flags.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>TimeZoneRef</h1>
               <div class="declaration">
                 <div class="language">
@@ -3497,9 +3521,11 @@ For type-safe access, use the generated, typed pointer <code>time_zone_ptr</code
               <div class="task-name-container">
                 <a name="/TimeZone%20Record"></a>
                 <a name="//apple_ref/swift/Section/TimeZone Record" class="dashAnchor"></a>
-                <a href="#/TimeZone%20Record">
-                  <h3 class="section-name">TimeZone Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TimeZone%20Record"></a>
+                  <h3 class="section-name"><p>TimeZone Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3730,7 +3756,7 @@ For type-safe access, use the generated, typed pointer <code>time_zone_ptr</code
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="err">`</span><span class="kt">GTimeZone</span><span class="err">`</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="err">`</span><span class="n">identifier</span><span class="err">`</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="p">`</span><span class="nv">GTimeZone</span><span class="p">`</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="p">`</span><span class="nv">identifier</span><span class="p">`</span><span class="o">.</span>
 </code></pre>
 
 <p><code>identifier</code> can either be an RFC3339/ISO 8601 time offset or
@@ -3738,7 +3764,7 @@ something that would pass as a valid value for the <code>TZ</code> environment
 variable (including <code>nil</code>).</p>
 
 <p>In Windows, <code>identifier</code> can also be the unlocalized name of a time
-zone for standard time, for example <q>Pacific Standard Time</q>.</p>
+zone for standard time, for example &ldquo;Pacific Standard Time&rdquo;.</p>
 
 <p>Valid RFC3339 time offsets are <code>&quot;Z&quot;</code> (for UTC) or
 <code>&quot;±hh:mm&quot;</code>.  ISO 8601 additionally specifies
@@ -3747,8 +3773,9 @@ time values to be added to Coordinated Universal Time (UTC) to get
 the local time.</p>
 
 <p>In UNIX, the <code>TZ</code> environment variable typically corresponds
-to the name of a file in the zoneinfo database, or string in
-<q>std offset [dst [offset],start[/time],end[/time]]</q> (POSIX) format.
+to the name of a file in the zoneinfo database, an absolute path to a file
+somewhere else, or a string in
+&ldquo;std offset [dst [offset],start[/time],end[/time]]&rdquo; (POSIX) format.
 There  are  no spaces in the specification. The name of standard
 and daylight savings time zone must be three or more alphabetic
 characters. Offsets are time values to be added to local time to
@@ -3761,7 +3788,7 @@ with n between 0 and 365) or <code>&quot;Mm.w.d&quot;</code> (day d
 0 is a Sunday).  Times are in local wall clock time, the default is
 02:00:00.</p>
 
-<p>In Windows, the <q>tzn[+|–]hh[:mm[:ss]](#dzn)</q> format is used, but also
+<p>In Windows, the &ldquo;tzn[+|–]hh<a href="#dzn">:mm[:ss]</a>&rdquo; format is used, but also
 accepts POSIX format.  The Windows format uses US rules for all time
 zones; daylight savings time is 60 minutes behind the standard time
 with date and time of change taken from Pacific Standard Time.
@@ -3805,7 +3832,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L135-L138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L136-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3839,7 +3866,7 @@ in seconds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L145-L148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L146-L149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3877,7 +3904,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L158-L161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L159-L162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3911,7 +3938,7 @@ in seconds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L168-L171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L169-L172">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3932,7 +3959,7 @@ in seconds.</p>
                         <p>Creates a <code>GTimeZone</code> corresponding to UTC.</p>
 
 <p>This is equivalent to calling <code>g_time_zone_new()</code> with a value like
-<q>Z</q>, <q>UTC</q>, <q>+00</q>, etc.</p>
+&ldquo;Z&rdquo;, &ldquo;UTC&rdquo;, &ldquo;+00&rdquo;, etc.</p>
 
 <p>You should release the return value by calling <code>g_time_zone_unref()</code>
 when you are done with it.</p>
@@ -3947,7 +3974,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L180-L183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L181-L184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3960,8 +3987,8 @@ when you are done with it.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>Classes</h1>
             <p>The following classes are available globally.</p>
 
@@ -3449,11 +3473,65 @@
           <div class="section-content">
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/Error%20Record"></a>
+                <a name="//apple_ref/swift/Section/Error Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Error%20Record"></a>
+                  <h3 class="section-name"><p>Error Record</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib9ErrorTypeC"></a>
+                    <a name="//apple_ref/swift/Class/ErrorType" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib9ErrorTypeC">ErrorType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>ErrorType</code> type acts as an owner of an underlying <code>GError</code> instance.
+It provides the methods that can operate on this data type through <code><a href="Protocols/ErrorTypeProtocol.html">ErrorTypeProtocol</a></code> conformance.
+Use <code>ErrorType</code> as a strong reference or owner of a <code>GError</code> instance.</p>
+
+<p>The <code>GError</code> structure contains information about
+an error that has occurred.</p>
+
+                        <a href="Classes/ErrorType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">ErrorType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ErrorTypeProtocol.html">ErrorTypeProtocol</a></span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ErrorType</span><span class="p">:</span> <span class="kt">CustomStringConvertible</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ErrorType</span><span class="p">:</span> <span class="kt">CustomDebugStringConvertible</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">ErrorType</span><span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ErrorType.swift#L114-L238">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Array%20Record"></a>
                 <a name="//apple_ref/swift/Section/Array Record" class="dashAnchor"></a>
-                <a href="#/Array%20Record">
-                  <h3 class="section-name">Array Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Array%20Record"></a>
+                  <h3 class="section-name"><p>Array Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3486,7 +3564,7 @@ Use <code>ArrayType</code> as a strong reference or owner of a <code>GArray</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ArrayType.swift#L85-L142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ArrayType.swift#L85-L189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3497,9 +3575,11 @@ Use <code>ArrayType</code> as a strong reference or owner of a <code>GArray</cod
               <div class="task-name-container">
                 <a name="/AsyncQueue%20Record"></a>
                 <a name="//apple_ref/swift/Section/AsyncQueue Record" class="dashAnchor"></a>
-                <a href="#/AsyncQueue%20Record">
-                  <h3 class="section-name">AsyncQueue Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/AsyncQueue%20Record"></a>
+                  <h3 class="section-name"><p>AsyncQueue Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3534,7 +3614,7 @@ g_async_queue_* functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L90-L146">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-AsyncQueue.swift#L90-L193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3545,9 +3625,11 @@ g_async_queue_* functions.</p>
               <div class="task-name-container">
                 <a name="/BookmarkFile%20Record"></a>
                 <a name="//apple_ref/swift/Section/BookmarkFile Record" class="dashAnchor"></a>
-                <a href="#/BookmarkFile%20Record">
-                  <h3 class="section-name">BookmarkFile Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/BookmarkFile%20Record"></a>
+                  <h3 class="section-name"><p>BookmarkFile Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3581,7 +3663,7 @@ private data and should not be directly accessed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3592,9 +3674,11 @@ private data and should not be directly accessed.</p>
               <div class="task-name-container">
                 <a name="/ByteArray%20Record"></a>
                 <a name="//apple_ref/swift/Section/ByteArray Record" class="dashAnchor"></a>
-                <a href="#/ByteArray%20Record">
-                  <h3 class="section-name">ByteArray Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ByteArray%20Record"></a>
+                  <h3 class="section-name"><p>ByteArray Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3627,7 +3711,7 @@ Use <code>ByteArray</code> as a strong reference or owner of a <code>GByteArray<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L92-L156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L92-L203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3638,9 +3722,11 @@ Use <code>ByteArray</code> as a strong reference or owner of a <code>GByteArray<
               <div class="task-name-container">
                 <a name="/Bytes%20Record"></a>
                 <a name="//apple_ref/swift/Section/Bytes Record" class="dashAnchor"></a>
-                <a href="#/Bytes%20Record">
-                  <h3 class="section-name">Bytes Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Bytes%20Record"></a>
+                  <h3 class="section-name"><p>Bytes Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3696,7 +3782,7 @@ a mutable <code>GByteArray</code>, use the <code>g_byte_array_free_to_bytes()</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Bytes.swift#L232-L367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Bytes.swift#L232-L414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3707,9 +3793,11 @@ a mutable <code>GByteArray</code>, use the <code>g_byte_array_free_to_bytes()</c
               <div class="task-name-container">
                 <a name="/Checksum%20Record"></a>
                 <a name="//apple_ref/swift/Section/Checksum Record" class="dashAnchor"></a>
-                <a href="#/Checksum%20Record">
-                  <h3 class="section-name">Checksum Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Checksum%20Record"></a>
+                  <h3 class="section-name"><p>Checksum Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3744,7 +3832,7 @@ a GChecksum, use <code>g_checksum_free()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Checksum.swift#L100-L166">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Checksum.swift#L100-L213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3755,9 +3843,11 @@ a GChecksum, use <code>g_checksum_free()</code>.</p>
               <div class="task-name-container">
                 <a name="/Cond%20Record"></a>
                 <a name="//apple_ref/swift/Section/Cond Record" class="dashAnchor"></a>
-                <a href="#/Cond%20Record">
-                  <h3 class="section-name">Cond Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Cond%20Record"></a>
+                  <h3 class="section-name"><p>Cond Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3855,7 +3945,7 @@ on it and <code>g_cond_clear()</code> when done.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L272-L321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Cond.swift#L272-L368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3866,9 +3956,11 @@ on it and <code>g_cond_clear()</code> when done.</p>
               <div class="task-name-container">
                 <a name="/Data%20Record"></a>
                 <a name="//apple_ref/swift/Section/Data Record" class="dashAnchor"></a>
-                <a href="#/Data%20Record">
-                  <h3 class="section-name">Data Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Data%20Record"></a>
+                  <h3 class="section-name"><p>Data Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3903,7 +3995,7 @@ accessed via the following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Data.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Data.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3914,9 +4006,11 @@ accessed via the following functions.</p>
               <div class="task-name-container">
                 <a name="/Date%20Record"></a>
                 <a name="//apple_ref/swift/Section/Date Record" class="dashAnchor"></a>
-                <a href="#/Date%20Record">
-                  <h3 class="section-name">Date Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Date%20Record"></a>
+                  <h3 class="section-name"><p>Date Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3944,7 +4038,7 @@ to mutate but invalid and thus not safe for calendrical computations.</p>
 
 <p>If it&rsquo;s declared on the stack, it will contain garbage so must be
 initialized with <code>g_date_clear()</code>. <code>g_date_clear()</code> makes the date invalid
-but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s <q>empty.</q> A date
+but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s &ldquo;empty.&rdquo; A date
 becomes valid after you set it to a Julian day or you set a day, month,
 and year.</p>
 
@@ -3959,7 +4053,7 @@ and year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L146-L234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L146-L281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3970,9 +4064,11 @@ and year.</p>
               <div class="task-name-container">
                 <a name="/DateTime%20Record"></a>
                 <a name="//apple_ref/swift/Section/DateTime Record" class="dashAnchor"></a>
-                <a href="#/DateTime%20Record">
-                  <h3 class="section-name">DateTime Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/DateTime%20Record"></a>
+                  <h3 class="section-name"><p>DateTime Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4006,7 +4102,7 @@ cannot be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L422-L813">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L438-L892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4017,9 +4113,11 @@ cannot be accessed directly.</p>
               <div class="task-name-container">
                 <a name="/DebugKey%20Record"></a>
                 <a name="//apple_ref/swift/Section/DebugKey Record" class="dashAnchor"></a>
-                <a href="#/DebugKey%20Record">
-                  <h3 class="section-name">DebugKey Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/DebugKey%20Record"></a>
+                  <h3 class="section-name"><p>DebugKey Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4053,7 +4151,7 @@ Used in <code>g_parse_debug_string()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DebugKey.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DebugKey.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4064,9 +4162,11 @@ Used in <code>g_parse_debug_string()</code>.</p>
               <div class="task-name-container">
                 <a name="/Dir%20Record"></a>
                 <a name="//apple_ref/swift/Section/Dir Record" class="dashAnchor"></a>
-                <a href="#/Dir%20Record">
-                  <h3 class="section-name">Dir Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Dir%20Record"></a>
+                  <h3 class="section-name"><p>Dir Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4099,54 +4199,7 @@ Use <code>Dir</code> as a strong reference or owner of a <code>GDir</code> insta
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Dir.swift#L88-L148">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Error%20Record"></a>
-                <a name="//apple_ref/swift/Section/Error Record" class="dashAnchor"></a>
-                <a href="#/Error%20Record">
-                  <h3 class="section-name">Error Record</h3>
-                </a>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib9ErrorTypeC"></a>
-                    <a name="//apple_ref/swift/Class/ErrorType" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib9ErrorTypeC">ErrorType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>ErrorType</code> type acts as an owner of an underlying <code>GError</code> instance.
-It provides the methods that can operate on this data type through <code><a href="Protocols/ErrorTypeProtocol.html">ErrorTypeProtocol</a></code> conformance.
-Use <code>ErrorType</code> as a strong reference or owner of a <code>GError</code> instance.</p>
-
-<p>The <code>GError</code> structure contains information about
-an error that has occurred.</p>
-
-                        <a href="Classes/ErrorType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">ErrorType</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ErrorTypeProtocol.html">ErrorTypeProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ErrorType.swift#L114-L199">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Dir.swift#L88-L195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4157,9 +4210,11 @@ an error that has occurred.</p>
               <div class="task-name-container">
                 <a name="/HashTable%20Record"></a>
                 <a name="//apple_ref/swift/Section/HashTable Record" class="dashAnchor"></a>
-                <a href="#/HashTable%20Record">
-                  <h3 class="section-name">HashTable Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/HashTable%20Record"></a>
+                  <h3 class="section-name"><p>HashTable Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4194,7 +4249,7 @@ following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L98-L162">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTable.swift#L98-L209">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4205,9 +4260,11 @@ following functions.</p>
               <div class="task-name-container">
                 <a name="/HashTableIter%20Record"></a>
                 <a name="//apple_ref/swift/Section/HashTableIter Record" class="dashAnchor"></a>
-                <a href="#/HashTableIter%20Record">
-                  <h3 class="section-name">HashTableIter Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/HashTableIter%20Record"></a>
+                  <h3 class="section-name"><p>HashTableIter Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4232,6 +4289,9 @@ to iterate over the elements of a <code>GHashTable</code>. GHashTableIter
 structures are typically allocated on the stack and then initialized
 with <code>g_hash_table_iter_init()</code>.</p>
 
+<p>The iteration order of a <code>GHashTableIter</code> over the keys/values in a hash
+table is not defined.</p>
+
                         <a href="Classes/HashTableIter.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -4243,7 +4303,7 @@ with <code>g_hash_table_iter_init()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTableIter.swift#L86-L135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HashTableIter.swift#L95-L191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4254,9 +4314,11 @@ with <code>g_hash_table_iter_init()</code>.</p>
               <div class="task-name-container">
                 <a name="/Hmac%20Record"></a>
                 <a name="//apple_ref/swift/Section/Hmac Record" class="dashAnchor"></a>
-                <a href="#/Hmac%20Record">
-                  <h3 class="section-name">Hmac Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Hmac%20Record"></a>
+                  <h3 class="section-name"><p>Hmac Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4291,7 +4353,7 @@ a GHmac, use <code>g_hmac_unref()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Hmac.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Hmac.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4302,9 +4364,11 @@ a GHmac, use <code>g_hmac_unref()</code>.</p>
               <div class="task-name-container">
                 <a name="/Hook%20Record"></a>
                 <a name="//apple_ref/swift/Section/Hook Record" class="dashAnchor"></a>
-                <a href="#/Hook%20Record">
-                  <h3 class="section-name">Hook Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Hook%20Record"></a>
+                  <h3 class="section-name"><p>Hook Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4337,7 +4401,7 @@ Use <code>Hook</code> as a strong reference or owner of a <code>GHook</code> ins
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Hook.swift#L137-L246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Hook.swift#L137-L293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4348,9 +4412,11 @@ Use <code>Hook</code> as a strong reference or owner of a <code>GHook</code> ins
               <div class="task-name-container">
                 <a name="/HookList%20Record"></a>
                 <a name="//apple_ref/swift/Section/HookList Record" class="dashAnchor"></a>
-                <a href="#/HookList%20Record">
-                  <h3 class="section-name">HookList Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/HookList%20Record"></a>
+                  <h3 class="section-name"><p>HookList Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4383,7 +4449,7 @@ Use <code>HookList</code> as a strong reference or owner of a <code>GHookList</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HookList.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-HookList.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4394,9 +4460,11 @@ Use <code>HookList</code> as a strong reference or owner of a <code>GHookList</c
               <div class="task-name-container">
                 <a name="/IConv%20Record"></a>
                 <a name="//apple_ref/swift/Section/IConv Record" class="dashAnchor"></a>
-                <a href="#/IConv%20Record">
-                  <h3 class="section-name">IConv Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/IConv%20Record"></a>
+                  <h3 class="section-name"><p>IConv Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4430,7 +4498,7 @@ private data and should only be accessed using the following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IConv.swift#L90-L149">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IConv.swift#L90-L196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4441,9 +4509,11 @@ private data and should only be accessed using the following functions.</p>
               <div class="task-name-container">
                 <a name="/IOChannel%20Record"></a>
                 <a name="//apple_ref/swift/Section/IOChannel Record" class="dashAnchor"></a>
-                <a href="#/IOChannel%20Record">
-                  <h3 class="section-name">IOChannel Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/IOChannel%20Record"></a>
+                  <h3 class="section-name"><p>IOChannel Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4478,7 +4548,7 @@ functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L163-L292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L163-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4489,9 +4559,11 @@ functions.</p>
               <div class="task-name-container">
                 <a name="/IOFuncs%20Record"></a>
                 <a name="//apple_ref/swift/Section/IOFuncs Record" class="dashAnchor"></a>
-                <a href="#/IOFuncs%20Record">
-                  <h3 class="section-name">IOFuncs Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/IOFuncs%20Record"></a>
+                  <h3 class="section-name"><p>IOFuncs Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4525,7 +4597,7 @@ in a generic way.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOFuncs.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOFuncs.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4536,9 +4608,11 @@ in a generic way.</p>
               <div class="task-name-container">
                 <a name="/KeyFile%20Record"></a>
                 <a name="//apple_ref/swift/Section/KeyFile Record" class="dashAnchor"></a>
-                <a href="#/KeyFile%20Record">
-                  <h3 class="section-name">KeyFile Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/KeyFile%20Record"></a>
+                  <h3 class="section-name"><p>KeyFile Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4572,7 +4646,7 @@ and should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L88-L145">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L88-L192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4583,9 +4657,11 @@ and should not be accessed directly.</p>
               <div class="task-name-container">
                 <a name="/List%20Record"></a>
                 <a name="//apple_ref/swift/Section/List Record" class="dashAnchor"></a>
-                <a href="#/List%20Record">
-                  <h3 class="section-name">List Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/List%20Record"></a>
+                  <h3 class="section-name"><p>List Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4618,7 +4694,7 @@ Use <code>List</code> as a strong reference or owner of a <code>GList</code> ins
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L84-L140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-List.swift#L84-L187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4629,9 +4705,11 @@ Use <code>List</code> as a strong reference or owner of a <code>GList</code> ins
               <div class="task-name-container">
                 <a name="/LogField%20Record"></a>
                 <a name="//apple_ref/swift/Section/LogField Record" class="dashAnchor"></a>
-                <a href="#/LogField%20Record">
-                  <h3 class="section-name">LogField Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/LogField%20Record"></a>
+                  <h3 class="section-name"><p>LogField Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4670,7 +4748,7 @@ value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-LogField.swift#L95-L144">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-LogField.swift#L95-L191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4681,9 +4759,11 @@ value.</p>
               <div class="task-name-container">
                 <a name="/MainContext%20Record"></a>
                 <a name="//apple_ref/swift/Section/MainContext Record" class="dashAnchor"></a>
-                <a href="#/MainContext%20Record">
-                  <h3 class="section-name">MainContext Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MainContext%20Record"></a>
+                  <h3 class="section-name"><p>MainContext Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4717,7 +4797,7 @@ type representing a set of sources to be handled in a main loop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L120-L209">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainContext.swift#L120-L256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4728,9 +4808,11 @@ type representing a set of sources to be handled in a main loop.</p>
               <div class="task-name-container">
                 <a name="/MainLoop%20Record"></a>
                 <a name="//apple_ref/swift/Section/MainLoop Record" class="dashAnchor"></a>
-                <a href="#/MainLoop%20Record">
-                  <h3 class="section-name">MainLoop Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MainLoop%20Record"></a>
+                  <h3 class="section-name"><p>MainLoop Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4764,7 +4846,7 @@ representing the main event loop of a GLib or GTK+ application.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainLoop.swift#L85-L139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MainLoop.swift#L85-L186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4775,9 +4857,11 @@ representing the main event loop of a GLib or GTK+ application.</p>
               <div class="task-name-container">
                 <a name="/MappedFile%20Record"></a>
                 <a name="//apple_ref/swift/Section/MappedFile Record" class="dashAnchor"></a>
-                <a href="#/MappedFile%20Record">
-                  <h3 class="section-name">MappedFile Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MappedFile%20Record"></a>
+                  <h3 class="section-name"><p>MappedFile Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4812,7 +4896,7 @@ not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MappedFile.swift#L146-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MappedFile.swift#L146-L305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4823,9 +4907,11 @@ not be accessed directly.</p>
               <div class="task-name-container">
                 <a name="/MarkupParseContext%20Record"></a>
                 <a name="//apple_ref/swift/Section/MarkupParseContext Record" class="dashAnchor"></a>
-                <a href="#/MarkupParseContext%20Record">
-                  <h3 class="section-name">MarkupParseContext Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MarkupParseContext%20Record"></a>
+                  <h3 class="section-name"><p>MarkupParseContext Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4862,7 +4948,7 @@ on for more details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L98-L156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParseContext.swift#L98-L203">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4873,9 +4959,11 @@ on for more details.</p>
               <div class="task-name-container">
                 <a name="/MarkupParser%20Record"></a>
                 <a name="//apple_ref/swift/Section/MarkupParser Record" class="dashAnchor"></a>
-                <a href="#/MarkupParser%20Record">
-                  <h3 class="section-name">MarkupParser Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MarkupParser%20Record"></a>
+                  <h3 class="section-name"><p>MarkupParser Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4914,7 +5002,7 @@ back to its caller.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParser.swift#L95-L144">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MarkupParser.swift#L95-L191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4925,9 +5013,11 @@ back to its caller.</p>
               <div class="task-name-container">
                 <a name="/MatchInfo%20Record"></a>
                 <a name="//apple_ref/swift/Section/MatchInfo Record" class="dashAnchor"></a>
-                <a href="#/MatchInfo%20Record">
-                  <h3 class="section-name">MatchInfo Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MatchInfo%20Record"></a>
+                  <h3 class="section-name"><p>MatchInfo Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -4961,7 +5051,7 @@ matches.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MatchInfo.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4972,9 +5062,11 @@ matches.</p>
               <div class="task-name-container">
                 <a name="/MemVTable%20Record"></a>
                 <a name="//apple_ref/swift/Section/MemVTable Record" class="dashAnchor"></a>
-                <a href="#/MemVTable%20Record">
-                  <h3 class="section-name">MemVTable Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/MemVTable%20Record"></a>
+                  <h3 class="section-name"><p>MemVTable Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5011,7 +5103,7 @@ if it exists, should be prior to any use of GLib.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MemVTable.swift#L89-L138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-MemVTable.swift#L89-L185">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5022,9 +5114,11 @@ if it exists, should be prior to any use of GLib.</p>
               <div class="task-name-container">
                 <a name="/Node%20Record"></a>
                 <a name="//apple_ref/swift/Section/Node Record" class="dashAnchor"></a>
-                <a href="#/Node%20Record">
-                  <h3 class="section-name">Node Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Node%20Record"></a>
+                  <h3 class="section-name"><p>Node Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5057,7 +5151,7 @@ Use <code>Node</code> as a strong reference or owner of a <code>GNode</code> ins
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Node.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Node.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5068,9 +5162,11 @@ Use <code>Node</code> as a strong reference or owner of a <code>GNode</code> ins
               <div class="task-name-container">
                 <a name="/Once%20Record"></a>
                 <a name="//apple_ref/swift/Section/Once Record" class="dashAnchor"></a>
-                <a href="#/Once%20Record">
-                  <h3 class="section-name">Once Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Once%20Record"></a>
+                  <h3 class="section-name"><p>Once Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5105,7 +5201,7 @@ struct.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Once.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Once.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5116,9 +5212,11 @@ struct.</p>
               <div class="task-name-container">
                 <a name="/OptionContext%20Record"></a>
                 <a name="//apple_ref/swift/Section/OptionContext Record" class="dashAnchor"></a>
-                <a href="#/OptionContext%20Record">
-                  <h3 class="section-name">OptionContext Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/OptionContext%20Record"></a>
+                  <h3 class="section-name"><p>OptionContext Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5153,7 +5251,7 @@ fields and should not be directly accessed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5164,9 +5262,11 @@ fields and should not be directly accessed.</p>
               <div class="task-name-container">
                 <a name="/OptionEntry%20Record"></a>
                 <a name="//apple_ref/swift/Section/OptionEntry Record" class="dashAnchor"></a>
-                <a href="#/OptionEntry%20Record">
-                  <h3 class="section-name">OptionEntry Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/OptionEntry%20Record"></a>
+                  <h3 class="section-name"><p>OptionEntry Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5201,7 +5301,7 @@ or <code>g_option_group_add_entries()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionEntry.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionEntry.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5212,9 +5312,11 @@ or <code>g_option_group_add_entries()</code>.</p>
               <div class="task-name-container">
                 <a name="/OptionGroup%20Record"></a>
                 <a name="//apple_ref/swift/Section/OptionGroup Record" class="dashAnchor"></a>
-                <a href="#/OptionGroup%20Record">
-                  <h3 class="section-name">OptionGroup Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/OptionGroup%20Record"></a>
+                  <h3 class="section-name"><p>OptionGroup Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5253,7 +5355,7 @@ the application can then add to its <code>GOptionContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionGroup.swift#L100-L154">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionGroup.swift#L100-L201">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5264,9 +5366,11 @@ the application can then add to its <code>GOptionContext</code>.</p>
               <div class="task-name-container">
                 <a name="/PatternSpec%20Record"></a>
                 <a name="//apple_ref/swift/Section/PatternSpec Record" class="dashAnchor"></a>
-                <a href="#/PatternSpec%20Record">
-                  <h3 class="section-name">PatternSpec Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/PatternSpec%20Record"></a>
+                  <h3 class="section-name"><p>PatternSpec Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5300,7 +5404,7 @@ structure is opaque and its fields cannot be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PatternSpec.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PatternSpec.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5311,9 +5415,11 @@ structure is opaque and its fields cannot be accessed directly.</p>
               <div class="task-name-container">
                 <a name="/PollFD%20Record"></a>
                 <a name="//apple_ref/swift/Section/PollFD Record" class="dashAnchor"></a>
-                <a href="#/PollFD%20Record">
-                  <h3 class="section-name">PollFD Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/PollFD%20Record"></a>
+                  <h3 class="section-name"><p>PollFD Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5347,7 +5453,7 @@ occurred.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PollFD.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PollFD.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5358,9 +5464,11 @@ occurred.</p>
               <div class="task-name-container">
                 <a name="/Private%20Record"></a>
                 <a name="//apple_ref/swift/Section/Private Record" class="dashAnchor"></a>
-                <a href="#/Private%20Record">
-                  <h3 class="section-name">Private Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Private%20Record"></a>
+                  <h3 class="section-name"><p>Private Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5409,7 +5517,7 @@ be accessed via the g_private_ functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Private.swift#L125-L174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Private.swift#L125-L221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5420,9 +5528,11 @@ be accessed via the g_private_ functions.</p>
               <div class="task-name-container">
                 <a name="/PtrArray%20Record"></a>
                 <a name="//apple_ref/swift/Section/PtrArray Record" class="dashAnchor"></a>
-                <a href="#/PtrArray%20Record">
-                  <h3 class="section-name">PtrArray Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/PtrArray%20Record"></a>
+                  <h3 class="section-name"><p>PtrArray Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5455,7 +5565,7 @@ Use <code>PtrArray</code> as a strong reference or owner of a <code>GPtrArray</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L106-L184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L106-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5466,9 +5576,11 @@ Use <code>PtrArray</code> as a strong reference or owner of a <code>GPtrArray</c
               <div class="task-name-container">
                 <a name="/Queue%20Record"></a>
                 <a name="//apple_ref/swift/Section/Queue Record" class="dashAnchor"></a>
-                <a href="#/Queue%20Record">
-                  <h3 class="section-name">Queue Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Queue%20Record"></a>
+                  <h3 class="section-name"><p>Queue Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5502,7 +5614,7 @@ Use <code>Queue</code> as a strong reference or owner of a <code>GQueue</code> i
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5513,9 +5625,11 @@ Use <code>Queue</code> as a strong reference or owner of a <code>GQueue</code> i
               <div class="task-name-container">
                 <a name="/RWLock%20Record"></a>
                 <a name="//apple_ref/swift/Section/RWLock Record" class="dashAnchor"></a>
-                <a href="#/RWLock%20Record">
-                  <h3 class="section-name">RWLock Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/RWLock%20Record"></a>
+                  <h3 class="section-name"><p>RWLock Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5612,7 +5726,7 @@ without initialisation.  Otherwise, you should call
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L269-L318">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RWLock.swift#L269-L365">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5623,9 +5737,11 @@ without initialisation.  Otherwise, you should call
               <div class="task-name-container">
                 <a name="/Rand%20Record"></a>
                 <a name="//apple_ref/swift/Section/Rand Record" class="dashAnchor"></a>
-                <a href="#/Rand%20Record">
-                  <h3 class="section-name">Rand Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Rand%20Record"></a>
+                  <h3 class="section-name"><p>Rand Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5659,7 +5775,7 @@ accessed through the g_rand_* functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Rand.swift#L91-L151">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Rand.swift#L91-L198">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5670,9 +5786,11 @@ accessed through the g_rand_* functions.</p>
               <div class="task-name-container">
                 <a name="/RecMutex%20Record"></a>
                 <a name="//apple_ref/swift/Section/RecMutex Record" class="dashAnchor"></a>
-                <a href="#/RecMutex%20Record">
-                  <h3 class="section-name">RecMutex Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/RecMutex%20Record"></a>
+                  <h3 class="section-name"><p>RecMutex Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5716,7 +5834,7 @@ g_rec_mutex_ functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L110-L159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-RecMutex.swift#L110-L206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5727,9 +5845,11 @@ g_rec_mutex_ functions.</p>
               <div class="task-name-container">
                 <a name="/Regex%20Record"></a>
                 <a name="//apple_ref/swift/Section/Regex Record" class="dashAnchor"></a>
-                <a href="#/Regex%20Record">
-                  <h3 class="section-name">Regex Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Regex%20Record"></a>
+                  <h3 class="section-name"><p>Regex Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5756,41 +5876,41 @@ Perl regular expression.</p>
 <p>Some functions accept a <code>start_position</code> argument, setting it differs
 from just passing over a shortened string and setting <code>G_REGEX_MATCH_NOTBOL</code>
 in the case of a pattern that begins with any kind of lookbehind assertion.
-For example, consider the pattern <q>\Biss\B</q> which finds occurrences of <q>iss</q>
-in the middle of words. (<q>\B</q> matches only if the current position in the
-subject is not a word boundary.) When applied to the string <q>Mississipi</q>
-from the fourth byte, namely <q>issipi</q>, it does not match, because <q>\B</q> is
+For example, consider the pattern &ldquo;\Biss\B&rdquo; which finds occurrences of &ldquo;iss&rdquo;
+in the middle of words. (&ldquo;\B&rdquo; matches only if the current position in the
+subject is not a word boundary.) When applied to the string &ldquo;Mississipi&rdquo;
+from the fourth byte, namely &ldquo;issipi&rdquo;, it does not match, because &ldquo;\B&rdquo; is
 always false at the start of the subject, which is deemed to be a word
 boundary. However, if the entire string is passed , but with
-<code>start_position</code> set to 4, it finds the second occurrence of <q>iss</q> because
+<code>start_position</code> set to 4, it finds the second occurrence of &ldquo;iss&rdquo; because
 it is able to look behind the starting point to discover that it is
 preceded by a letter.</p>
 
 <p>Note that, unless you set the <code>G_REGEX_RAW</code> flag, all the strings passed
 to these functions must be encoded in UTF-8. The lengths and the positions
 inside the strings are in bytes and not in characters, so, for instance,
-<q>\xc3\xa0</q> (i.e. <q>à</q>) is two bytes long but it is treated as a
+&ldquo;\xc3\xa0&rdquo; (i.e. &ldquo;à&rdquo;) is two bytes long but it is treated as a
 single character. If you set <code>G_REGEX_RAW</code> the strings can be non-valid
-UTF-8 strings and a byte is treated as a character, so <q>\xc3\xa0</q> is two
+UTF-8 strings and a byte is treated as a character, so &ldquo;\xc3\xa0&rdquo; is two
 bytes and two characters long.</p>
 
-<p>When matching a pattern, <q>\n</q> matches only against a <q>\n</q> character in
-the string, and <q>\r</q> matches only a <q>\r</q> character. To match any newline
-sequence use <q>\R</q>. This particular group matches either the two-character
-sequence CR + LF (<q>\r\n</q>), or one of the single characters LF (linefeed,
-U+000A, <q>\n</q>), VT vertical tab, U+000B, <q>\v</q>), FF (formfeed, U+000C, <q>\f</q>),
-CR (carriage return, U+000D, <q>\r</q>), NEL (next line, U+0085), LS (line
+<p>When matching a pattern, &ldquo;\n&rdquo; matches only against a &ldquo;\n&rdquo; character in
+the string, and &ldquo;\r&rdquo; matches only a &ldquo;\r&rdquo; character. To match any newline
+sequence use &ldquo;\R&rdquo;. This particular group matches either the two-character
+sequence CR + LF (&ldquo;\r\n&rdquo;), or one of the single characters LF (linefeed,
+U+000A, &ldquo;\n&rdquo;), VT vertical tab, U+000B, &ldquo;\v&rdquo;), FF (formfeed, U+000C, &ldquo;\f&rdquo;),
+CR (carriage return, U+000D, &ldquo;\r&rdquo;), NEL (next line, U+0085), LS (line
 separator, U+2028), or PS (paragraph separator, U+2029).</p>
 
 <p>The behaviour of the dot, circumflex, and dollar metacharacters are
 affected by newline characters, the default is to recognize any newline
-character (the same characters recognized by <q>\R</q>). This can be changed
+character (the same characters recognized by &ldquo;\R&rdquo;). This can be changed
 with <code>G_REGEX_NEWLINE_CR</code>, <code>G_REGEX_NEWLINE_LF</code> and <code>G_REGEX_NEWLINE_CRLF</code>
 compile options, and with <code>G_REGEX_MATCH_NEWLINE_ANY</code>,
 <code>G_REGEX_MATCH_NEWLINE_CR</code>, <code>G_REGEX_MATCH_NEWLINE_LF</code> and
 <code>G_REGEX_MATCH_NEWLINE_CRLF</code> match options. These settings are also
 relevant when compiling a pattern if <code>G_REGEX_EXTENDED</code> is set, and an
-unescaped <q>#</q> outside a character class is encountered. This indicates
+unescaped &ldquo;#&rdquo; outside a character class is encountered. This indicates
 a comment that lasts until after the next newline.</p>
 
 <p>When setting the <code>G_REGEX_JAVASCRIPT_COMPAT</code> flag, pattern syntax and pattern
@@ -5826,7 +5946,7 @@ library written by Philip Hazel.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L279-L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L279-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5837,9 +5957,11 @@ library written by Philip Hazel.</p>
               <div class="task-name-container">
                 <a name="/SList%20Record"></a>
                 <a name="//apple_ref/swift/Section/SList Record" class="dashAnchor"></a>
-                <a href="#/SList%20Record">
-                  <h3 class="section-name">SList Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SList%20Record"></a>
+                  <h3 class="section-name"><p>SList Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5873,7 +5995,7 @@ list.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L87-L143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L87-L190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5884,9 +6006,11 @@ list.</p>
               <div class="task-name-container">
                 <a name="/Scanner%20Record"></a>
                 <a name="//apple_ref/swift/Section/Scanner Record" class="dashAnchor"></a>
-                <a href="#/Scanner%20Record">
-                  <h3 class="section-name">Scanner Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Scanner%20Record"></a>
+                  <h3 class="section-name"><p>Scanner Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5932,7 +6056,7 @@ is declared by <code>GScannerMsgFunc</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Scanner.swift#L116-L165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Scanner.swift#L116-L212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5943,9 +6067,11 @@ is declared by <code>GScannerMsgFunc</code>.</p>
               <div class="task-name-container">
                 <a name="/ScannerConfig%20Record"></a>
                 <a name="//apple_ref/swift/Section/ScannerConfig Record" class="dashAnchor"></a>
-                <a href="#/ScannerConfig%20Record">
-                  <h3 class="section-name">ScannerConfig Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ScannerConfig%20Record"></a>
+                  <h3 class="section-name"><p>ScannerConfig Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -5980,7 +6106,7 @@ parsing of the next unpeeked token.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ScannerConfig.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ScannerConfig.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5991,9 +6117,11 @@ parsing of the next unpeeked token.</p>
               <div class="task-name-container">
                 <a name="/Sequence%20Record"></a>
                 <a name="//apple_ref/swift/Section/Sequence Record" class="dashAnchor"></a>
-                <a href="#/Sequence%20Record">
-                  <h3 class="section-name">Sequence Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Sequence%20Record"></a>
+                  <h3 class="section-name"><p>Sequence Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6027,7 +6155,7 @@ Use <code>Sequence</code> as a strong reference or owner of a <code>GSequence</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Sequence.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Sequence.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6038,9 +6166,11 @@ Use <code>Sequence</code> as a strong reference or owner of a <code>GSequence</c
               <div class="task-name-container">
                 <a name="/SequenceIter%20Record"></a>
                 <a name="//apple_ref/swift/Section/SequenceIter Record" class="dashAnchor"></a>
-                <a href="#/SequenceIter%20Record">
-                  <h3 class="section-name">SequenceIter Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SequenceIter%20Record"></a>
+                  <h3 class="section-name"><p>SequenceIter Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6074,7 +6204,7 @@ iterator pointing into a <code>GSequence</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SequenceIter.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SequenceIter.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6085,9 +6215,11 @@ iterator pointing into a <code>GSequence</code>.</p>
               <div class="task-name-container">
                 <a name="/Source%20Record"></a>
                 <a name="//apple_ref/swift/Section/Source Record" class="dashAnchor"></a>
-                <a href="#/Source%20Record">
-                  <h3 class="section-name">Source Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Source%20Record"></a>
+                  <h3 class="section-name"><p>Source Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6121,7 +6253,7 @@ representing an event source.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L92-L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L92-L200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6132,9 +6264,11 @@ representing an event source.</p>
               <div class="task-name-container">
                 <a name="/SourceCallbackFuncs%20Record"></a>
                 <a name="//apple_ref/swift/Section/SourceCallbackFuncs Record" class="dashAnchor"></a>
-                <a href="#/SourceCallbackFuncs%20Record">
-                  <h3 class="section-name">SourceCallbackFuncs Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SourceCallbackFuncs%20Record"></a>
+                  <h3 class="section-name"><p>SourceCallbackFuncs Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6168,7 +6302,7 @@ functions for managing callback objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourceCallbackFuncs.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourceCallbackFuncs.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6179,9 +6313,11 @@ functions for managing callback objects.</p>
               <div class="task-name-container">
                 <a name="/SourceFuncs%20Record"></a>
                 <a name="//apple_ref/swift/Section/SourceFuncs Record" class="dashAnchor"></a>
-                <a href="#/SourceFuncs%20Record">
-                  <h3 class="section-name">SourceFuncs Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SourceFuncs%20Record"></a>
+                  <h3 class="section-name"><p>SourceFuncs Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6233,7 +6369,7 @@ required condition has been met, and returns <code>true</code> if so.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourceFuncs.swift#L134-L183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourceFuncs.swift#L134-L230">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6244,9 +6380,11 @@ required condition has been met, and returns <code>true</code> if so.</p>
               <div class="task-name-container">
                 <a name="/SourcePrivate%20Record"></a>
                 <a name="//apple_ref/swift/Section/SourcePrivate Record" class="dashAnchor"></a>
-                <a href="#/SourcePrivate%20Record">
-                  <h3 class="section-name">SourcePrivate Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/SourcePrivate%20Record"></a>
+                  <h3 class="section-name"><p>SourcePrivate Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6277,7 +6415,7 @@ Use <code>SourcePrivate</code> as a strong reference or owner of a <code>GSource
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourcePrivate.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SourcePrivate.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6288,9 +6426,11 @@ Use <code>SourcePrivate</code> as a strong reference or owner of a <code>GSource
               <div class="task-name-container">
                 <a name="/StatBuf%20Record"></a>
                 <a name="//apple_ref/swift/Section/StatBuf Record" class="dashAnchor"></a>
-                <a href="#/StatBuf%20Record">
-                  <h3 class="section-name">StatBuf Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/StatBuf%20Record"></a>
+                  <h3 class="section-name"><p>StatBuf Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6326,7 +6466,7 @@ system call, depending on the platform and/or compiler being used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StatBuf.swift#L86-L135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StatBuf.swift#L86-L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6337,9 +6477,11 @@ system call, depending on the platform and/or compiler being used.</p>
               <div class="task-name-container">
                 <a name="/StringChunk%20Record"></a>
                 <a name="//apple_ref/swift/Section/StringChunk Record" class="dashAnchor"></a>
-                <a href="#/StringChunk%20Record">
-                  <h3 class="section-name">StringChunk Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/StringChunk%20Record"></a>
+                  <h3 class="section-name"><p>StringChunk Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6373,7 +6515,7 @@ It should only be accessed by using the following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StringChunk.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StringChunk.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6384,9 +6526,11 @@ It should only be accessed by using the following functions.</p>
               <div class="task-name-container">
                 <a name="/String%20Record"></a>
                 <a name="//apple_ref/swift/Section/String Record" class="dashAnchor"></a>
-                <a href="#/String%20Record">
-                  <h3 class="section-name">String Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/String%20Record"></a>
+                  <h3 class="section-name"><p>String Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6419,7 +6563,7 @@ Use <code>StringType</code> as a strong reference or owner of a <code>GString</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StringType.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StringType.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6430,9 +6574,11 @@ Use <code>StringType</code> as a strong reference or owner of a <code>GString</c
               <div class="task-name-container">
                 <a name="/TestCase%20Record"></a>
                 <a name="//apple_ref/swift/Section/TestCase Record" class="dashAnchor"></a>
-                <a href="#/TestCase%20Record">
-                  <h3 class="section-name">TestCase Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TestCase%20Record"></a>
+                  <h3 class="section-name"><p>TestCase Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6465,7 +6611,7 @@ Use <code>TestCase</code> as a strong reference or owner of a <code>GTestCase</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestCase.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestCase.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6476,9 +6622,11 @@ Use <code>TestCase</code> as a strong reference or owner of a <code>GTestCase</c
               <div class="task-name-container">
                 <a name="/TestConfig%20Record"></a>
                 <a name="//apple_ref/swift/Section/TestConfig Record" class="dashAnchor"></a>
-                <a href="#/TestConfig%20Record">
-                  <h3 class="section-name">TestConfig Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TestConfig%20Record"></a>
+                  <h3 class="section-name"><p>TestConfig Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6509,7 +6657,7 @@ Use <code>TestConfig</code> as a strong reference or owner of a <code>GTestConfi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestConfig.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestConfig.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6520,9 +6668,11 @@ Use <code>TestConfig</code> as a strong reference or owner of a <code>GTestConfi
               <div class="task-name-container">
                 <a name="/TestLogBuffer%20Record"></a>
                 <a name="//apple_ref/swift/Section/TestLogBuffer Record" class="dashAnchor"></a>
-                <a href="#/TestLogBuffer%20Record">
-                  <h3 class="section-name">TestLogBuffer Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TestLogBuffer%20Record"></a>
+                  <h3 class="section-name"><p>TestLogBuffer Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6553,7 +6703,7 @@ Use <code>TestLogBuffer</code> as a strong reference or owner of a <code>GTestLo
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestLogBuffer.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestLogBuffer.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6564,9 +6714,11 @@ Use <code>TestLogBuffer</code> as a strong reference or owner of a <code>GTestLo
               <div class="task-name-container">
                 <a name="/TestLogMsg%20Record"></a>
                 <a name="//apple_ref/swift/Section/TestLogMsg Record" class="dashAnchor"></a>
-                <a href="#/TestLogMsg%20Record">
-                  <h3 class="section-name">TestLogMsg Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TestLogMsg%20Record"></a>
+                  <h3 class="section-name"><p>TestLogMsg Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6597,7 +6749,7 @@ Use <code>TestLogMsg</code> as a strong reference or owner of a <code>GTestLogMs
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestLogMsg.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestLogMsg.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6608,9 +6760,11 @@ Use <code>TestLogMsg</code> as a strong reference or owner of a <code>GTestLogMs
               <div class="task-name-container">
                 <a name="/TestSuite%20Record"></a>
                 <a name="//apple_ref/swift/Section/TestSuite Record" class="dashAnchor"></a>
-                <a href="#/TestSuite%20Record">
-                  <h3 class="section-name">TestSuite Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TestSuite%20Record"></a>
+                  <h3 class="section-name"><p>TestSuite Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6643,7 +6797,7 @@ Use <code>TestSuite</code> as a strong reference or owner of a <code>GTestSuite<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestSuite.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TestSuite.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6654,9 +6808,11 @@ Use <code>TestSuite</code> as a strong reference or owner of a <code>GTestSuite<
               <div class="task-name-container">
                 <a name="/Thread%20Record"></a>
                 <a name="//apple_ref/swift/Section/Thread Record" class="dashAnchor"></a>
-                <a href="#/Thread%20Record">
-                  <h3 class="section-name">Thread Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Thread%20Record"></a>
+                  <h3 class="section-name"><p>Thread Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6701,7 +6857,7 @@ accessed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Thread.swift#L177-L290">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Thread.swift#L185-L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6712,9 +6868,11 @@ accessed.</p>
               <div class="task-name-container">
                 <a name="/ThreadPool%20Record"></a>
                 <a name="//apple_ref/swift/Section/ThreadPool Record" class="dashAnchor"></a>
-                <a href="#/ThreadPool%20Record">
-                  <h3 class="section-name">ThreadPool Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ThreadPool%20Record"></a>
+                  <h3 class="section-name"><p>ThreadPool Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6749,7 +6907,7 @@ so you must not copy this struct.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ThreadPool.swift#L83-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ThreadPool.swift#L83-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6760,9 +6918,11 @@ so you must not copy this struct.</p>
               <div class="task-name-container">
                 <a name="/TimeVal%20Record"></a>
                 <a name="//apple_ref/swift/Section/TimeVal Record" class="dashAnchor"></a>
-                <a href="#/TimeVal%20Record">
-                  <h3 class="section-name">TimeVal Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TimeVal%20Record"></a>
+                  <h3 class="section-name"><p>TimeVal Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6803,7 +6963,7 @@ problem.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L101-L150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeVal.swift#L101-L197">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6814,9 +6974,11 @@ problem.</p>
               <div class="task-name-container">
                 <a name="/TimeZone%20Record"></a>
                 <a name="//apple_ref/swift/Section/TimeZone Record" class="dashAnchor"></a>
-                <a href="#/TimeZone%20Record">
-                  <h3 class="section-name">TimeZone Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TimeZone%20Record"></a>
+                  <h3 class="section-name"><p>TimeZone Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6850,7 +7012,7 @@ directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L192-L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TimeZone.swift#L193-L402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6861,9 +7023,11 @@ directly.</p>
               <div class="task-name-container">
                 <a name="/Timer%20Record"></a>
                 <a name="//apple_ref/swift/Section/Timer Record" class="dashAnchor"></a>
-                <a href="#/Timer%20Record">
-                  <h3 class="section-name">Timer Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Timer%20Record"></a>
+                  <h3 class="section-name"><p>Timer Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6896,7 +7060,7 @@ Use <code>Timer</code> as a strong reference or owner of a <code>GTimer</code> i
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Timer.swift#L77-L126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Timer.swift#L77-L173">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6907,9 +7071,11 @@ Use <code>Timer</code> as a strong reference or owner of a <code>GTimer</code> i
               <div class="task-name-container">
                 <a name="/TrashStack%20Record"></a>
                 <a name="//apple_ref/swift/Section/TrashStack Record" class="dashAnchor"></a>
-                <a href="#/TrashStack%20Record">
-                  <h3 class="section-name">TrashStack Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/TrashStack%20Record"></a>
+                  <h3 class="section-name"><p>TrashStack Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6943,7 +7109,7 @@ is cast to a GTrashStack*.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TrashStack.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-TrashStack.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6954,9 +7120,11 @@ is cast to a GTrashStack*.</p>
               <div class="task-name-container">
                 <a name="/Tree%20Record"></a>
                 <a name="//apple_ref/swift/Section/Tree Record" class="dashAnchor"></a>
-                <a href="#/Tree%20Record">
-                  <h3 class="section-name">Tree Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Tree%20Record"></a>
+                  <h3 class="section-name"><p>Tree Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -6991,7 +7159,7 @@ accessed only by using the following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L97-L160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L97-L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7002,9 +7170,11 @@ accessed only by using the following functions.</p>
               <div class="task-name-container">
                 <a name="/Variant%20Record"></a>
                 <a name="//apple_ref/swift/Section/Variant Record" class="dashAnchor"></a>
-                <a href="#/Variant%20Record">
-                  <h3 class="section-name">Variant Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Variant%20Record"></a>
+                  <h3 class="section-name"><p>Variant Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -7045,7 +7215,7 @@ can use:</p>
 <pre class="highlight plaintext"><code>  GVariant *v = g_variant_new ("u", 40);
 </code></pre>
 
-<p>The string <q>u</q> in the first argument tells <code>GVariant</code> that the data passed to
+<p>The string &ldquo;u&rdquo; in the first argument tells <code>GVariant</code> that the data passed to
 the constructor (40) is going to be an unsigned integer.</p>
 
 <p>More advanced examples of <code>GVariant</code> in use can be found in documentation for
@@ -7121,7 +7291,7 @@ endianness, or of the length or type of the top-level variant.</p>
 
 <p>The amount of memory required to store a boolean is 1 byte. 16,
 32 and 64 bit integers and double precision floating point numbers
-use their <q>natural</q> size.  Strings (including object path and
+use their &ldquo;natural&rdquo; size.  Strings (including object path and
 signature strings) are stored with a nul terminator, and as such
 use the length of the string plus 1 byte.</p>
 
@@ -7151,7 +7321,7 @@ item inside the variant.</p>
 In the case that the dictionary is empty, 0 bytes are required for
 the serialisation.</p>
 
-<p>If we add an item <q>width</q> that maps to the int32 value of 500 then
+<p>If we add an item &ldquo;width&rdquo; that maps to the int32 value of 500 then
 we will use 4 byte to store the int32 (so 6 for the variant
 containing it) and 6 bytes for the string.  The variant must be
 aligned to 8 after the 6 bytes of the string, so that&rsquo;s 2 extra
@@ -7159,7 +7329,7 @@ bytes.  6 (string) + 2 (padding) + 6 (variant) is 14 bytes used
 for the dictionary entry.  An additional 1 byte is added to the
 array as a framing offset making a total of 15 bytes.</p>
 
-<p>If we add another entry, <q>title</q> that maps to a nullable string
+<p>If we add another entry, &ldquo;title&rdquo; that maps to a nullable string
 that happens to have a value of null, then we use 0 bytes for the
 null value (and 3 bytes for the variant to contain it along with
 its type string) plus 6 bytes for the string.  Again, we need 2
@@ -7177,8 +7347,8 @@ information structure is kept in the type information cache.  The
 type information structure is required for rapid deserialisation.</p>
 
 <p>Continuing with the above example, if a <code>GVariant</code> exists with the
-type <q>a{sv}</q> then a type information struct will exist for
-<q>a{sv}</q>, <q>{sv}</q>, <q>s</q>, and <q>v</q>.  Multiple uses of the same type
+type &ldquo;a{sv}&rdquo; then a type information struct will exist for
+&ldquo;a{sv}&rdquo;, &ldquo;{sv}&rdquo;, &ldquo;s&rdquo;, and &ldquo;v&rdquo;.  Multiple uses of the same type
 will share the same type information.  Additionally, all
 single-digit types are stored in read-only static memory and do
 not contribute to the writable memory footprint of a program using
@@ -7192,7 +7362,7 @@ are multiple element types: tuples and dictionary entries.</p>
 
 <p>Array type info structures are 6 * sizeof (void *), plus the
 memory required to store the type string itself.  This means that
-on 32-bit systems, the cache entry for <q>a{sv}</q> would require 30
+on 32-bit systems, the cache entry for &ldquo;a{sv}&rdquo; would require 30
 bytes of memory (plus malloc overhead).</p>
 
 <p>Tuple type info structures are 6 * sizeof (void *), plus 4 *
@@ -7201,9 +7371,9 @@ required to store the type string itself.  A 2-item tuple, for
 example, would have a type information structure that consumed
 writable memory in the size of 14 * sizeof (void *) (plus type
 string)  This means that on 32-bit systems, the cache entry for
-<q>{sv}</q> would require 61 bytes of memory (plus malloc overhead).</p>
+&ldquo;{sv}&rdquo; would require 61 bytes of memory (plus malloc overhead).</p>
 
-<p>This means that in total, for our <q>a{sv}</q> example, 91 bytes of
+<p>This means that in total, for our &ldquo;a{sv}&rdquo; example, 91 bytes of
 type information would be allocated.</p>
 
 <p>The type information cache, additionally, uses a <code>GHashTable</code> to
@@ -7272,7 +7442,7 @@ be shared.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1517-L2280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1529-L2351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7283,9 +7453,11 @@ be shared.</p>
               <div class="task-name-container">
                 <a name="/VariantBuilder%20Record"></a>
                 <a name="//apple_ref/swift/Section/VariantBuilder Record" class="dashAnchor"></a>
-                <a href="#/VariantBuilder%20Record">
-                  <h3 class="section-name">VariantBuilder Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VariantBuilder%20Record"></a>
+                  <h3 class="section-name"><p>VariantBuilder Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -7324,7 +7496,7 @@ access it from more than one thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L108-L170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantBuilder.swift#L108-L217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7335,9 +7507,11 @@ access it from more than one thread.</p>
               <div class="task-name-container">
                 <a name="/VariantDict%20Record"></a>
                 <a name="//apple_ref/swift/Section/VariantDict Record" class="dashAnchor"></a>
-                <a href="#/VariantDict%20Record">
-                  <h3 class="section-name">VariantDict Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VariantDict%20Record"></a>
+                  <h3 class="section-name"><p>VariantDict Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -7388,7 +7562,7 @@ you expose it as part of an API.  For most other uses, the
 stack-allocated form will be more convenient.</p>
 
 <p>Consider the following two examples that do the same thing in each
-style: take an existing dictionary and look up the <q>count</q> uint32
+style: take an existing dictionary and look up the &ldquo;count&rdquo; uint32
 key, adding 1 to it if it is found, or returning an error if the
 key is not found.  Each returns the new dictionary as a floating
 <code>GVariant</code>.</p>
@@ -7456,7 +7630,7 @@ key is not found.  Each returns the new dictionary as a floating
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L364-L427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantDict.swift#L364-L474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7467,9 +7641,11 @@ key is not found.  Each returns the new dictionary as a floating
               <div class="task-name-container">
                 <a name="/VariantIter%20Record"></a>
                 <a name="//apple_ref/swift/Section/VariantIter Record" class="dashAnchor"></a>
-                <a href="#/VariantIter%20Record">
-                  <h3 class="section-name">VariantIter Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VariantIter%20Record"></a>
+                  <h3 class="section-name"><p>VariantIter Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -7503,7 +7679,7 @@ using the following functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantIter.swift#L80-L129">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantIter.swift#L80-L176">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -7514,9 +7690,11 @@ using the following functions.</p>
               <div class="task-name-container">
                 <a name="/VariantType%20Record"></a>
                 <a name="//apple_ref/swift/Section/VariantType Record" class="dashAnchor"></a>
-                <a href="#/VariantType%20Record">
-                  <h3 class="section-name">VariantType Record</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/VariantType%20Record"></a>
+                  <h3 class="section-name"><p>VariantType Record</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -7544,28 +7722,28 @@ therefore, provides a significant amount of
 information that is useful when working with GVariant.</p>
 
 <p>The first major change with respect to the D-Bus type system is the
-introduction of maybe (or <q>nullable</q>) types.  Any type in GVariant can be
-converted to a maybe type, in which case, <q>nothing</q> (or <q>null</q>) becomes a
+introduction of maybe (or &ldquo;nullable&rdquo;) types.  Any type in GVariant can be
+converted to a maybe type, in which case, &ldquo;nothing&rdquo; (or &ldquo;null&rdquo;) becomes a
 valid value.  Maybe types have been added by introducing the
-character <q>m</q> to type strings.</p>
+character &ldquo;m&rdquo; to type strings.</p>
 
 <p>The second major change is that the GVariant type system supports the
-concept of <q>indefinite types</q> &ndash; types that are less specific than
+concept of &ldquo;indefinite types&rdquo; &ndash; types that are less specific than
 the normal types found in D-Bus.  For example, it is possible to speak
-of <q>an array of any type</q> in GVariant, where the D-Bus type system
-would require you to speak of <q>an array of integers</q> or <q>an array of
-strings</q>.  Indefinite types have been added by introducing the
-characters <q>*</q>, <q>?</q> and <q>r</q> to type strings.</p>
+of &ldquo;an array of any type&rdquo; in GVariant, where the D-Bus type system
+would require you to speak of &ldquo;an array of integers&rdquo; or &ldquo;an array of
+strings&rdquo;.  Indefinite types have been added by introducing the
+characters &ldquo;*&rdquo;, &ldquo;?&rdquo; and &ldquo;r&rdquo; to type strings.</p>
 
 <p>Finally, all arbitrary restrictions relating to the complexity of
 types are lifted along with the restriction that dictionary entries
 may only appear nested inside of arrays.</p>
 
-<p>Just as in D-Bus, GVariant types are described with strings (<q>type
-strings</q>).  Subject to the differences mentioned above, these strings
+<p>Just as in D-Bus, GVariant types are described with strings (&ldquo;type
+strings&rdquo;).  Subject to the differences mentioned above, these strings
 are of the same form as those found in DBus.  Note, however: D-Bus
 always works in terms of messages and therefore individual type
-strings appear nowhere in its interface.  Instead, <q>signatures</q>
+strings appear nowhere in its interface.  Instead, &ldquo;signatures&rdquo;
 are a concatenation of the strings of the type of each argument in a
 message.  GVariant deals with single values directly so GVariant type
 strings always describe the type of exactly one value.  This means
@@ -7579,11 +7757,11 @@ indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
 <code>g_variant_get_type()</code> will never return an indefinite type, but
 calling <code>g_variant_is_of_type()</code> with an indefinite type may return
-<code>true</code>.  For example, you cannot have a value that represents <q>an
-array of no particular type</q>, but you can have an <q>array of integers</q>
-which certainly matches the type of <q>an array of no particular type</q>,
-since <q>array of integers</q> is a subtype of <q>array of no particular
-type</q>.</p>
+<code>true</code>.  For example, you cannot have a value that represents &ldquo;an
+array of no particular type&rdquo;, but you can have an &ldquo;array of integers&rdquo;
+which certainly matches the type of &ldquo;an array of no particular type&rdquo;,
+since &ldquo;array of integers&rdquo; is a subtype of &ldquo;array of no particular
+type&rdquo;.</p>
 
 <p>This is similar to how instances of abstract classes may not
 directly exist in other type systems, but instances of their
@@ -7598,7 +7776,7 @@ that the <code>GtkWindow</code> is a <code>GtkBin</code> (since <code>GtkWindow<
 
 <ul>
 <li><p>any basic type string (listed below)</p></li>
-<li><p><q>v</q>, <q>r</q> or <q>*</q></p></li>
+<li><p>&ldquo;v&rdquo;, &ldquo;r&rdquo; or &ldquo;*&rdquo;</p></li>
 <li><p>one of the characters &lsquo;a&rsquo; or &lsquo;m&rsquo;, followed by another type string</p></li>
 <li><p>the character &lsquo;(&rsquo;, followed by a concatenation of zero or more other
 type strings, followed by the character &lsquo;)&rsquo;</p></li>
@@ -7608,11 +7786,11 @@ followed by another type string, followed by the character &lsquo;}&rsquo;</p></
 
 <p>A basic type string describes a basic type (as per
 <code>g_variant_type_is_basic()</code>) and is always a single character in length.
-The valid basic type strings are <q>b</q>, <q>y</q>, <q>n</q>, <q>q</q>, <q>i</q>, <q>u</q>, <q>x</q>, <q>t</q>,
-<q>h</q>, <q>d</q>, <q>s</q>, <q>o</q>, <q>g</q> and <q>?</q>.</p>
+The valid basic type strings are &ldquo;b&rdquo;, &ldquo;y&rdquo;, &ldquo;n&rdquo;, &ldquo;q&rdquo;, &ldquo;i&rdquo;, &ldquo;u&rdquo;, &ldquo;x&rdquo;, &ldquo;t&rdquo;,
+&ldquo;h&rdquo;, &ldquo;d&rdquo;, &ldquo;s&rdquo;, &ldquo;o&rdquo;, &ldquo;g&rdquo; and &ldquo;?&rdquo;.</p>
 
-<p>The above definition is recursive to arbitrary depth. <q>aaaaai</q> and
-<q>(`ui(nq((y)`))s)</q> are both valid type strings, as is
+<p>The above definition is recursive to arbitrary depth. &ldquo;aaaaai&rdquo; and
+&ldquo;(<code>ui(nq((y)</code>))s)&rdquo; are both valid type strings, as is
 <code>&quot;a(aa(ui)</code>(qna{<code>ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
 imposes a limit on recursion depth of 65 nested containers. This is the
 limit in the D-Bus specification (64) plus one to allow a <code>GDBusMessage</code> to
@@ -7644,20 +7822,20 @@ is a supertype of any of the basic types.</li>
 <li><code>v</code>: the type string of <code>G_VARIANT_TYPE_VARIANT</code>; a container type that
 contain any other type of value.</li>
 <li><code>a</code>: used as a prefix on another type string to mean an array of that
-type; the type string <q>ai</q>, for example, is the type of an array of
+type; the type string &quot;ai&rdquo;, for example, is the type of an array of
 signed 32-bit integers.</li>
-<li><code>m</code>: used as a prefix on another type string to mean a <q>maybe</q>, or
-<q>nullable</q>, version of that type; the type string <q>ms</q>, for example,
+<li><code>m</code>: used as a prefix on another type string to mean a &ldquo;maybe&rdquo;, or
+&ldquo;nullable&rdquo;, version of that type; the type string &ldquo;ms&rdquo;, for example,
 is the type of a value that maybe contains a string, or maybe contains
 nothing.</li>
 <li><code>()</code>: used to enclose zero or more other concatenated type strings to
-create a tuple type; the type string <q>(is)</q>, for example, is the type of
+create a tuple type; the type string &ldquo;(is)&rdquo;, for example, is the type of
 a pair of an integer and a string.</li>
 <li><code>r</code>: the type string of <code>G_VARIANT_TYPE_TUPLE</code>; an indefinite type that is
 a supertype of any tuple type, regardless of the number of items.</li>
 <li><code>{}</code>: used to enclose a basic type string concatenated with another type
 string to create a dictionary entry type, which usually appears inside of
-an array to form a dictionary; the type string <q>a{sd}</q>, for example, is
+an array to form a dictionary; the type string &ldquo;a{sd}&rdquo;, for example, is
 the type of a dictionary that maps strings to double precision floating
 point values.</li>
 </ul>
@@ -7670,22 +7848,22 @@ point values.</li>
 <li><code>*</code>: the type string of <code>G_VARIANT_TYPE_ANY</code>; the indefinite type that is
 a supertype of all types.  Note that, as with all type strings, this
 character represents exactly one type. It cannot be used inside of tuples
-to mean <q>any number of items</q>.</li>
+to mean &ldquo;any number of items&rdquo;.</li>
 </ul>
 
 <p>Any type string of a container that contains an indefinite type is,
-itself, an indefinite type. For example, the type string <q>a*</q>
+itself, an indefinite type. For example, the type string &ldquo;a*&rdquo;
 (corresponding to <code>G_VARIANT_TYPE_ARRAY</code>) is an indefinite type
-that is a supertype of every array type. <q>(*s)</q> is a supertype
+that is a supertype of every array type. &ldquo;(*s)&rdquo; is a supertype
 of all tuples that contain exactly two items where the second
 item is a string.</p>
 
-<p><q>a{?*}</q> is an indefinite type that is a supertype of all arrays
+<p>&ldquo;a{?<em>}&rdquo; is an indefinite type that is a supertype of all arrays
 containing dictionary entries where the key is any basic type and
 the value is any type at all.  This is, by definition, a dictionary,
 so this type string corresponds to <code>G_VARIANT_TYPE_DICTIONARY</code>. Note
 that, due to the restriction that the key of a dictionary entry must
-be a basic type, <q>{**}</q> is not a valid type string.</p>
+be a basic type, &ldquo;{</em>*}&rdquo; is not a valid type string.</p>
 
                         <a href="Classes/VariantType.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7698,15 +7876,11 @@ be a basic type, <q>{**}</q> is not a valid type string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L551-L636">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L551-L683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -7739,10 +7913,6 @@ GString pointer and frees its content upon release</p>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -7783,8 +7953,8 @@ is retained until no longer required</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

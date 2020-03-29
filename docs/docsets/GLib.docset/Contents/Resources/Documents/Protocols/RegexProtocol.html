@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RegexProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3458,41 +3482,41 @@ Perl regular expression.</p>
 <p>Some functions accept a <code>start_position</code> argument, setting it differs
 from just passing over a shortened string and setting <code>G_REGEX_MATCH_NOTBOL</code>
 in the case of a pattern that begins with any kind of lookbehind assertion.
-For example, consider the pattern <q>\Biss\B</q> which finds occurrences of <q>iss</q>
-in the middle of words. (<q>\B</q> matches only if the current position in the
-subject is not a word boundary.) When applied to the string <q>Mississipi</q>
-from the fourth byte, namely <q>issipi</q>, it does not match, because <q>\B</q> is
+For example, consider the pattern &ldquo;\Biss\B&rdquo; which finds occurrences of &ldquo;iss&rdquo;
+in the middle of words. (&ldquo;\B&rdquo; matches only if the current position in the
+subject is not a word boundary.) When applied to the string &ldquo;Mississipi&rdquo;
+from the fourth byte, namely &ldquo;issipi&rdquo;, it does not match, because &ldquo;\B&rdquo; is
 always false at the start of the subject, which is deemed to be a word
 boundary. However, if the entire string is passed , but with
-<code>start_position</code> set to 4, it finds the second occurrence of <q>iss</q> because
+<code>start_position</code> set to 4, it finds the second occurrence of &ldquo;iss&rdquo; because
 it is able to look behind the starting point to discover that it is
 preceded by a letter.</p>
 
 <p>Note that, unless you set the <code>G_REGEX_RAW</code> flag, all the strings passed
 to these functions must be encoded in UTF-8. The lengths and the positions
 inside the strings are in bytes and not in characters, so, for instance,
-<q>\xc3\xa0</q> (i.e. <q>à</q>) is two bytes long but it is treated as a
+&ldquo;\xc3\xa0&rdquo; (i.e. &ldquo;à&rdquo;) is two bytes long but it is treated as a
 single character. If you set <code>G_REGEX_RAW</code> the strings can be non-valid
-UTF-8 strings and a byte is treated as a character, so <q>\xc3\xa0</q> is two
+UTF-8 strings and a byte is treated as a character, so &ldquo;\xc3\xa0&rdquo; is two
 bytes and two characters long.</p>
 
-<p>When matching a pattern, <q>\n</q> matches only against a <q>\n</q> character in
-the string, and <q>\r</q> matches only a <q>\r</q> character. To match any newline
-sequence use <q>\R</q>. This particular group matches either the two-character
-sequence CR + LF (<q>\r\n</q>), or one of the single characters LF (linefeed,
-U+000A, <q>\n</q>), VT vertical tab, U+000B, <q>\v</q>), FF (formfeed, U+000C, <q>\f</q>),
-CR (carriage return, U+000D, <q>\r</q>), NEL (next line, U+0085), LS (line
+<p>When matching a pattern, &ldquo;\n&rdquo; matches only against a &ldquo;\n&rdquo; character in
+the string, and &ldquo;\r&rdquo; matches only a &ldquo;\r&rdquo; character. To match any newline
+sequence use &ldquo;\R&rdquo;. This particular group matches either the two-character
+sequence CR + LF (&ldquo;\r\n&rdquo;), or one of the single characters LF (linefeed,
+U+000A, &ldquo;\n&rdquo;), VT vertical tab, U+000B, &ldquo;\v&rdquo;), FF (formfeed, U+000C, &ldquo;\f&rdquo;),
+CR (carriage return, U+000D, &ldquo;\r&rdquo;), NEL (next line, U+0085), LS (line
 separator, U+2028), or PS (paragraph separator, U+2029).</p>
 
 <p>The behaviour of the dot, circumflex, and dollar metacharacters are
 affected by newline characters, the default is to recognize any newline
-character (the same characters recognized by <q>\R</q>). This can be changed
+character (the same characters recognized by &ldquo;\R&rdquo;). This can be changed
 with <code>G_REGEX_NEWLINE_CR</code>, <code>G_REGEX_NEWLINE_LF</code> and <code>G_REGEX_NEWLINE_CRLF</code>
 compile options, and with <code>G_REGEX_MATCH_NEWLINE_ANY</code>,
 <code>G_REGEX_MATCH_NEWLINE_CR</code>, <code>G_REGEX_MATCH_NEWLINE_LF</code> and
 <code>G_REGEX_MATCH_NEWLINE_CRLF</code> match options. These settings are also
 relevant when compiling a pattern if <code>G_REGEX_EXTENDED</code> is set, and an
-unescaped <q>#</q> outside a character class is encountered. This indicates
+unescaped &ldquo;#&rdquo; outside a character class is encountered. This indicates
 a comment that lasts until after the next newline.</p>
 
 <p>When setting the <code>G_REGEX_JAVASCRIPT_COMPAT</code> flag, pattern syntax and pattern
@@ -3598,9 +3622,11 @@ library written by Philip Hazel.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3631,7 +3657,7 @@ library written by Philip Hazel.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L350-L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L397-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3668,7 +3694,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L360-L363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L407-L410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3701,7 +3727,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L366-L369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3734,7 +3760,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L372-L375">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L419-L422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3769,7 +3795,7 @@ back references.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L380-L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L427-L430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3804,7 +3830,7 @@ the partial matching facilities.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L388-L391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L435-L438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3838,7 +3864,7 @@ the string passed to <code>g_regex_new()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L395-L398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L442-L445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3871,7 +3897,7 @@ the string passed to <code>g_regex_new()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L401-L404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L448-L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3943,7 +3969,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L447-L450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L494-L497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3989,7 +4015,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L466-L469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L513-L516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4013,15 +4039,15 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         <p>Using the standard algorithm for regular expression matching only
 the longest match in the <code>string</code> is retrieved, it is not possible
 to obtain all the available matches. For instance matching
-<q><a> <b> <c></q> against the pattern <q><.*></q>
-you get <q><a> <b> <c></q>.</p>
+&ldquo;<a> <b> <c>&rdquo; against the pattern &ldquo;&lt;.*&gt;&rdquo;
+you get &ldquo;<a> <b> <c>&rdquo;.</p>
 
 <p>This function uses a different algorithm (called DFA, i.e. deterministic
 finite automaton), so it can retrieve all the possible matches, all
 starting at the same point in the string. For instance matching
-<q><a> <b> <c></q> against the pattern <q><.*>;</q>
-you would obtain three matches: <q><a> <b> <c></q>,
-<q><a> <b></q> and <q><a></q>.</p>
+&ldquo;<a> <b> <c>&rdquo; against the pattern &ldquo;&lt;.*&gt;;&rdquo;
+you would obtain three matches: &ldquo;<a> <b> <c>&rdquo;,
+&ldquo;<a> <b>&rdquo; and &ldquo;<a>&rdquo;.</p>
 
 <p>The number of matched strings is retrieved using
 <code>g_match_info_get_match_count()</code>. To obtain the matched strings and
@@ -4035,7 +4061,7 @@ is not able to capture substrings, so backreferences do not work.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
 string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the case of a pattern
-that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
+that begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
 
 <p>Unless <code>G_REGEX_RAW</code> is specified in the options, <code>string</code> must be valid UTF-8.</p>
 
@@ -4059,7 +4085,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L509-L516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L556-L563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4087,7 +4113,7 @@ flexibility in reusing <code>GRegex</code> structures.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
 string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the case of a pattern
-that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
+that begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
 
 <p>Unless <code>G_REGEX_RAW</code> is specified in the options, <code>string</code> must be valid UTF-8.</p>
 
@@ -4142,7 +4168,7 @@ print_uppercase_words (const gchar *string)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L571-L578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L618-L625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4175,7 +4201,7 @@ print_uppercase_words (const gchar *string)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L581-L584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L628-L631">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4223,7 +4249,7 @@ you can use <code>g_regex_replace_literal()</code>.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
 string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the case of a pattern that
-begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
+begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -4235,7 +4261,7 @@ begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L612-L619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L659-L666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4261,7 +4287,7 @@ begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
 string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the case of a pattern
-that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
+that begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
 
 <p>The following example uses <code>g_regex_replace_eval()</code> to replace multiple
 strings at once:
@@ -4312,7 +4338,7 @@ g_hash_table_destroy (h);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L668-L675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L715-L722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4340,7 +4366,7 @@ include backreferences use <code>g_regex_replace()</code>.</p>
 <p>Setting <code>start_position</code> differs from just passing over a
 shortened string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the
 case of a pattern that begins with any kind of lookbehind
-assertion, such as <q>\b</q>.</p>
+assertion, such as &ldquo;\b&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -4352,7 +4378,7 @@ assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L685-L692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L732-L739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4381,15 +4407,15 @@ token.</p>
 
 <p>As a special case, the result of splitting the empty string &ldquo;&rdquo; is an
 empty vector, not a vector containing a single string. The reason for
-this special case is that being able to represent a empty vector is
+this special case is that being able to represent an empty vector is
 typically more useful than consistent handling of empty elements. If
 you do need to represent empty elements, you&rsquo;ll need to check for the
 empty string before calling this function.</p>
 
 <p>A pattern that can match empty strings splits <code>string</code> into separate
 characters wherever it matches the empty string between characters.
-For example splitting <q>ab c</q> using as a separator <q>\s*</q>, you will get
-<q>a</q>, <q>b</q> and <q>c</q>.</p>
+For example splitting &ldquo;ab c&rdquo; using as a separator &ldquo;\s*&rdquo;, you will get
+&ldquo;a&rdquo;, &ldquo;b&rdquo; and &ldquo;c&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -4401,7 +4427,7 @@ For example splitting <q>ab c</q> using as a separator <q>\s*</q>, you will get
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L711-L714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L758-L761">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4430,19 +4456,19 @@ token.</p>
 
 <p>As a special case, the result of splitting the empty string &ldquo;&rdquo; is an
 empty vector, not a vector containing a single string. The reason for
-this special case is that being able to represent a empty vector is
+this special case is that being able to represent an empty vector is
 typically more useful than consistent handling of empty elements. If
 you do need to represent empty elements, you&rsquo;ll need to check for the
 empty string before calling this function.</p>
 
 <p>A pattern that can match empty strings splits <code>string</code> into separate
 characters wherever it matches the empty string between characters.
-For example splitting <q>ab c</q> using as a separator <q>\s*</q>, you will get
-<q>a</q>, <q>b</q> and <q>c</q>.</p>
+For example splitting &ldquo;ab c&rdquo; using as a separator &ldquo;\s*&rdquo;, you will get
+&ldquo;a&rdquo;, &ldquo;b&rdquo; and &ldquo;c&rdquo;.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
 string and setting <code>G_REGEX_MATCH_NOTBOL</code> in the case of a pattern
-that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
+that begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
 
                       </div>
                       <div class="declaration">
@@ -4454,7 +4480,7 @@ that begins with any kind of lookbehind assertion, such as <q>\b</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L737-L744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L784-L791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4488,7 +4514,7 @@ to zero, it frees all the memory associated with the regex structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L748-L751">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L795-L798">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4521,7 +4547,7 @@ to zero, it frees all the memory associated with the regex structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L753-L759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L800-L806">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4558,7 +4584,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L766-L776">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L813-L823">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4591,7 +4617,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L779-L785">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L826-L832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4624,7 +4650,7 @@ top-level within the compiled pattern.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L788-L794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L835-L841">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4659,7 +4685,7 @@ back references.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L799-L807">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L846-L854">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4694,7 +4720,7 @@ the partial matching facilities.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L812-L820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L859-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4728,7 +4754,7 @@ the string passed to <code>g_regex_new()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L824-L831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L871-L878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4741,8 +4767,8 @@ the string passed to <code>g_regex_new()</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
