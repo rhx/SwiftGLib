@@ -261,7 +261,7 @@ public extension VariantDictRef {
     /// using `GVariantDict` to construct a `GVariant`.
     init( from_asv: VariantProtocol) {
         let rv = g_variant_dict_new(cast(from_asv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -367,15 +367,27 @@ open class VariantDict: VariantDictProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VariantDict` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVariantDict>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VariantDictProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVariantDict`.
-    public convenience init<T: VariantDictProtocol>(_ other: T) {
-        self.init(cast(other.variant_dict_ptr))
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVariantDict>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_variant_dict_ref(cast(variant_dict_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VariantDictProtocol`
+    /// Will retain `GVariantDict`.
+    /// - Parameter other: an instance of a related type that implements `VariantDictProtocol`
+    public init<T: VariantDictProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.variant_dict_ptr)
         g_variant_dict_ref(cast(variant_dict_ptr))
     }
 
@@ -386,26 +398,61 @@ open class VariantDict: VariantDictProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVariantDict.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_variant_dict_ref(cast(variant_dict_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVariantDict.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_variant_dict_ref(cast(variant_dict_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVariantDict.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_variant_dict_ref(cast(variant_dict_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVariantDict>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_variant_dict_ref(cast(variant_dict_ptr))
     }
 
     /// Allocates and initialises a new `GVariantDict`.
@@ -418,9 +465,9 @@ open class VariantDict: VariantDictProtocol {
     /// the stack of the calling function and initialise it with
     /// `g_variant_dict_init()`.  This is particularly useful when you are
     /// using `GVariantDict` to construct a `GVariant`.
-    public convenience init( from_asv: VariantProtocol) {
+    public init( from_asv: VariantProtocol) {
         let rv = g_variant_dict_new(cast(from_asv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 

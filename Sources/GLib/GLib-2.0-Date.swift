@@ -93,7 +93,7 @@ public extension DateRef {
     /// represent an existing day). Free the return value with `g_date_free()`.
     init() {
         let rv = g_date_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
@@ -101,7 +101,7 @@ public extension DateRef {
     /// returned date will be valid.
     init(dmy day: DateDay, month: DateMonth, year: DateYear) {
         let rv = g_date_new_dmy(day, month, year)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
@@ -109,7 +109,7 @@ public extension DateRef {
     /// unreasonably large number), the returned date will be valid.
     init(julian julian_day: UInt32) {
         let rv = g_date_new_julian(guint32(julian_day))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
@@ -149,15 +149,27 @@ open class Date: DateProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Date` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Date` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDate>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DateProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GDate` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Date` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDate>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GDate, cannot ref(cast(date_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DateProtocol`
     /// `GDate` does not allow reference counting.
-    public convenience init<T: DateProtocol>(_ other: T) {
-        self.init(cast(other.date_ptr))
+    /// - Parameter other: an instance of a related type that implements `DateProtocol`
+    public init<T: DateProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.date_ptr)
         // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
@@ -168,51 +180,86 @@ open class Date: DateProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDate.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDate.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDate.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDate>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
     /// Allocates a `GDate` and initializes
     /// it to a sane state. The new date will
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
-    public convenience init() {
+    public init() {
         let rv = g_date_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
-    public convenience init(dmy day: DateDay, month: DateMonth, year: DateYear) {
+    public init(dmy day: DateDay, month: DateMonth, year: DateYear) {
         let rv = g_date_new_dmy(day, month, year)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
-    public convenience init(julian julian_day: UInt32) {
+    public init(julian julian_day: UInt32) {
         let rv = g_date_new_julian(guint32(julian_day))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the

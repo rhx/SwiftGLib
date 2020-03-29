@@ -109,15 +109,27 @@ open class PtrArray: PtrArrayProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `PtrArray` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PtrArray` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GPtrArray>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `PtrArrayProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GPtrArray`.
-    public convenience init<T: PtrArrayProtocol>(_ other: T) {
-        self.init(cast(other.ptr_array_ptr))
+    /// i.e., ownership is transferred to the `PtrArray` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GPtrArray>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_ptr_array_ref(cast(ptr_array_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `PtrArrayProtocol`
+    /// Will retain `GPtrArray`.
+    /// - Parameter other: an instance of a related type that implements `PtrArrayProtocol`
+    public init<T: PtrArrayProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.ptr_array_ptr)
         g_ptr_array_ref(cast(ptr_array_ptr))
     }
 
@@ -128,26 +140,61 @@ open class PtrArray: PtrArrayProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GPtrArray.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_ptr_array_ref(cast(ptr_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GPtrArray.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_ptr_array_ref(cast(ptr_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GPtrArray.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_ptr_array_ref(cast(ptr_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GPtrArray>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_ptr_array_ref(cast(ptr_array_ptr))
     }
 
 
@@ -392,7 +439,33 @@ public extension PtrArrayProtocol {
     /// 
     /// Note that the comparison function for `g_ptr_array_sort()` doesn't
     /// take the pointers from the array as arguments, it takes pointers to
-    /// the pointers in the array.
+    /// the pointers in the array. Here is a full example of usage:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// typedef struct
+    /// {
+    ///   gchar *name;
+    ///   gint size;
+    /// } FileListEntry;
+    /// 
+    /// static gint
+    /// sort_filelist (gconstpointer a, gconstpointer b)
+    /// {
+    ///   const FileListEntry *entry1 = *((FileListEntry **) a);
+    ///   const FileListEntry *entry2 = *((FileListEntry **) b);
+    /// 
+    ///   return g_ascii_strcasecmp (entry1->name, entry2->name);
+    /// }
+    /// 
+    /// …
+    /// g_autoptr (GPtrArray) file_list = NULL;
+    /// 
+    /// // initialize file_list array and load with many FileListEntry entries
+    /// ...
+    /// // now sort it with
+    /// g_ptr_array_sort (file_list, sort_filelist);
+    /// ```
     /// 
     /// This is guaranteed to be a stable sort since version 2.32.
     func sort(compareFunc compare_func: @escaping CompareFunc) {
@@ -405,12 +478,105 @@ public extension PtrArrayProtocol {
     /// 
     /// Note that the comparison function for `g_ptr_array_sort_with_data()`
     /// doesn't take the pointers from the array as arguments, it takes
-    /// pointers to the pointers in the array.
+    /// pointers to the pointers in the array. Here is a full example of use:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// typedef enum { SORT_NAME, SORT_SIZE } SortMode;
+    /// 
+    /// typedef struct
+    /// {
+    ///   gchar *name;
+    ///   gint size;
+    /// } FileListEntry;
+    /// 
+    /// static gint
+    /// sort_filelist (gconstpointer a, gconstpointer b, gpointer user_data)
+    /// {
+    ///   gint order;
+    ///   const SortMode sort_mode = GPOINTER_TO_INT (user_data);
+    ///   const FileListEntry *entry1 = *((FileListEntry **) a);
+    ///   const FileListEntry *entry2 = *((FileListEntry **) b);
+    /// 
+    ///   switch (sort_mode)
+    ///     {
+    ///     case SORT_NAME:
+    ///       order = g_ascii_strcasecmp (entry1->name, entry2->name);
+    ///       break;
+    ///     case SORT_SIZE:
+    ///       order = entry1->size - entry2->size;
+    ///       break;
+    ///     default:
+    ///       order = 0;
+    ///       break;
+    ///     }
+    ///   return order;
+    /// }
+    /// 
+    /// ...
+    /// g_autoptr (GPtrArray) file_list = NULL;
+    /// SortMode sort_mode;
+    /// 
+    /// // initialize file_list array and load with many FileListEntry entries
+    /// ...
+    /// // now sort it with
+    /// sort_mode = SORT_NAME;
+    /// g_ptr_array_sort_with_data (file_list,
+    ///                             sort_filelist,
+    ///                             GINT_TO_POINTER (sort_mode));
+    /// ```
     /// 
     /// This is guaranteed to be a stable sort since version 2.32.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_ptr_array_sort_with_data(cast(ptr_array_ptr), compare_func, cast(user_data))
     
+    }
+
+    /// Frees the data in the array and resets the size to zero, while
+    /// the underlying array is preserved for use elsewhere and returned
+    /// to the caller.
+    /// 
+    /// Even if set, the `GDestroyNotify` function will never be called
+    /// on the current contents of the array and the caller is
+    /// responsible for freeing the array elements.
+    /// 
+    /// An example of use:
+    /// (C Language Example):
+    /// ```C
+    /// g_autoptr(GPtrArray) chunk_buffer = g_ptr_array_new_with_free_func (g_bytes_unref);
+    /// 
+    /// // Some part of your application appends a number of chunks to the pointer array.
+    /// g_ptr_array_add (chunk_buffer, g_bytes_new_static ("hello", 5));
+    /// g_ptr_array_add (chunk_buffer, g_bytes_new_static ("world", 5));
+    /// 
+    /// …
+    /// 
+    /// // Periodically, the chunks need to be sent as an array-and-length to some
+    /// // other part of the program.
+    /// GBytes **chunks;
+    /// gsize n_chunks;
+    /// 
+    /// chunks = g_ptr_array_steal (chunk_buffer, &n_chunks);
+    /// for (gsize i = 0; i < n_chunks; i++)
+    ///   {
+    ///     // Do something with each chunk here, and then free them, since
+    ///     // g_ptr_array_steal() transfers ownership of all the elements and the
+    ///     // array to the caller.
+    ///     …
+    /// 
+    ///     g_bytes_unref (chunks[i]);
+    ///   }
+    /// 
+    /// g_free (chunks);
+    /// 
+    /// // After calling g_ptr_array_steal(), the pointer array can be reused for the
+    /// // next set of chunks.
+    /// g_assert (chunk_buffer->len == 0);
+    /// ```
+    /// 
+    func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
+        let rv = g_ptr_array_steal(cast(ptr_array_ptr), cast(len))
+        return cast(rv)
     }
 
     /// Removes the pointer at the given index from the pointer array.

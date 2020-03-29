@@ -206,6 +206,10 @@ public typealias ScannerMsgFunc = GScannerMsgFunc
 /// if `a` comes before `b`, and a positive value if `b` comes before `a`.
 public typealias SequenceIterCompareFunc = GSequenceIterCompareFunc
 
+/// Dispose function for `source`. See `g_source_set_dispose_function()` for
+/// details.
+public typealias SourceDisposeFunc = GSourceDisposeFunc
+
 /// This is just a placeholder for `GClosureMarshal`,
 /// which cannot be used here for dependency reasons.
 public typealias SourceDummyMarshal = GSourceDummyMarshal

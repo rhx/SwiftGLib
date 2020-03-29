@@ -847,10 +847,10 @@ public func base64EncodeClose(breakLines break_lines: Bool, out: UnsafeMutablePo
 /// be written to it. Due to the way base64 encodes you will need
 /// at least: (`len` / 3 + 1) * 4 + 4 bytes (+ 4 may be needed in case of
 /// non-zero state). If you enable line-breaking you will need at least:
-/// ((`len` / 3 + 1) * 4 + 4) / 72 + 1 bytes of extra space.
+/// ((`len` / 3 + 1) * 4 + 4) / 76 + 1 bytes of extra space.
 /// 
 /// `break_lines` is typically used when putting base64-encoded data in emails.
-/// It breaks the lines at 72 columns instead of putting all of the text on
+/// It breaks the lines at 76 columns instead of putting all of the text on
 /// the same line. This avoids problems with long lines in the email system.
 /// Note however that it breaks the lines with `LF` characters, not
 /// `CR LF` sequences, so the result cannot be passed directly to SMTP
@@ -988,10 +988,12 @@ public func bookmarkFileErrorQuark() -> GQuark {
 
 /// Behaves exactly like `g_build_filename()`, but takes the path elements
 /// as a va_list. This function is mainly meant for language bindings.
+#if !os(Linux)
 public func buildFilenameValist(firstElement first_element: UnsafePointer<gchar>, args: UnsafeMutablePointer<CVaListPointer>) -> String! {
     let rv = g_build_filename_valist(first_element, cast(args))
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
 }
+#endif
 
 
 
@@ -1066,6 +1068,17 @@ public func byteArrayNew() -> UnsafeMutablePointer<GByteArray>! {
 /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
 public func byteArrayNewTake(data: UnsafeMutablePointer<UInt8>, len: Int) -> UnsafeMutablePointer<GByteArray>! {
     let rv = g_byte_array_new_take(cast(data), gsize(len))
+    return cast(rv)
+}
+
+
+
+
+/// Frees the data in the array and resets the size to zero, while
+/// the underlying array is preserved for use elsewhere and returned
+/// to the caller.
+public func byteArraySteal(array: ByteArrayProtocol, len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
+    let rv = g_byte_array_steal(cast(array.ptr), cast(len))
     return cast(rv)
 }
 
@@ -1281,6 +1294,17 @@ public func clearHandleID(tagPtr tag_ptr: UnsafeMutablePointer<CUnsignedInt>, cl
 
 
 
+/// Clears a pointer to a `GList`, freeing it and, optionally, freeing its elements using `destroy`.
+/// 
+/// `list_ptr` must be a valid pointer. If `list_ptr` points to a null `GList`, this does nothing.
+public func clearList(listPtr list_ptr: ListProtocol, destroy: @escaping DestroyNotify) {
+    g_clear_list(cast(list_ptr.ptr), destroy)
+
+}
+
+
+
+
 /// Clears a reference to a variable.
 /// 
 /// `pp` must not be `nil`.
@@ -1297,6 +1321,17 @@ public func clearHandleID(tagPtr tag_ptr: UnsafeMutablePointer<CUnsignedInt>, cl
 /// will experience undefined behaviour.
 public func clearPointer(pp: UnsafeMutablePointer<UnsafeMutableRawPointer>, destroy: @escaping DestroyNotify) {
     g_clear_pointer(cast(pp), destroy)
+
+}
+
+
+
+
+/// Clears a pointer to a `GSList`, freeing it and, optionally, freeing its elements using `destroy`.
+/// 
+/// `slist_ptr` must be a valid pointer. If `slist_ptr` points to a null `GSList`, this does nothing.
+public func clearSlist(slistPtr slist_ptr: SListProtocol, destroy: @escaping DestroyNotify) {
+    g_clear_slist(cast(slist_ptr.ptr), destroy)
 
 }
 
@@ -2738,10 +2773,15 @@ public func getLanguageNamesWithCategory(categoryName category_name: UnsafePoint
 /// Returns a list of derived variants of `locale`, which can be used to
 /// e.g. construct locale-dependent filenames or search paths. The returned
 /// list is sorted from most desirable to least desirable.
-/// This function handles territory, charset and extra locale modifiers.
+/// This function handles territory, charset and extra locale modifiers. See
+/// [``setlocale(3)``](man:setlocale) for information about locales and their format.
 /// 
-/// For example, if `locale` is "fr_BE", then the returned list
-/// is "fr_BE", "fr".
+/// `locale` itself is guaranteed to be returned in the output.
+/// 
+/// For example, if `locale` is `fr_BE`, then the returned list
+/// is `fr_BE`, `fr`. If `locale` is `en_GB.UTF-8`euro``, then the returned list
+/// is `en_GB.UTF-8`euro``, `en_GB.UTF-8`, `en_GB`euro``, `en_GB`, `en.UTF-8`euro``,
+/// `en.UTF-8`, `en`euro``, `en`.
 /// 
 /// If you need the list of variants for the current locale,
 /// use `g_get_language_names()`.
@@ -2778,6 +2818,22 @@ public func getMonotonicTime() -> Int64 {
 public func getNumProcessors() -> CUnsignedInt {
     let rv = g_get_num_processors()
     return CUnsignedInt(rv)
+}
+
+
+
+
+/// Get information about the operating system.
+/// 
+/// On Linux this comes from the `/etc/os-release` file. On other systems, it may
+/// come from a variety of sources. You can either use the standard key names
+/// like `G_OS_INFO_KEY_NAME` or pass any UTF-8 string key name. For example,
+/// `/etc/os-release` provides a number of other less commonly used values that may
+/// be useful. No key is guaranteed to be provided, so the caller should always
+/// check if the result is `nil`.
+public func getOsInfo(keyName key_name: UnsafePointer<gchar>) -> String! {
+    let rv = g_get_os_info(key_name)
+    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
 }
 
 
@@ -3046,6 +3102,10 @@ public func getenv(variable: UnsafePointer<gchar>) -> String! {
 /// This is a convenience function for using a `GHashTable` as a set.  It
 /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
 /// key and the value.
+/// 
+/// In particular, this means that if `key` already exists in the hash table, then
+/// the old copy of `key` in the hash table is freed and `key` replaces it in the
+/// table.
 /// 
 /// When a hash table only ever contains keys that have themselves as the
 /// corresponding value it is able to be stored more efficiently.  See
@@ -3598,6 +3658,9 @@ public func ioChannelErrorQuark() -> GQuark {
 /// Creates a `GSource` that's dispatched when `condition` is met for the
 /// given `channel`. For example, if condition is `G_IO_IN`, the source will
 /// be dispatched when there's data available for reading.
+/// 
+/// The callback function invoked by the `GSource` should be added with
+/// `g_source_set_callback()`, but it has type `GIOFunc` (not `GSourceFunc`).
 /// 
 /// `g_io_add_watch()` is a simpler interface to this same functionality, for
 /// the case where you want to add the source to the default main loop context
@@ -4307,7 +4370,7 @@ public func markupVprintfEscaped(format: UnsafePointer<CChar>, args: CVaListPoin
 
 /// Checks whether the allocator used by `g_malloc()` is the system's
 /// malloc implementation. If it returns `true` memory allocated with
-/// `malloc()` can be used interchangeable with memory allocated using `g_malloc()`.
+/// `malloc()` can be used interchangeably with memory allocated using `g_malloc()`.
 /// This function is useful for avoiding an extra copy of allocated memory returned
 /// by a non-GLib-based API.
 ///
@@ -5327,7 +5390,7 @@ public func regexMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointe
 /// As a special case, the result of splitting the empty string ""
 /// is an empty vector, not a vector containing a single string.
 /// The reason for this special case is that being able to represent
-/// a empty vector is typically more useful than consistent handling
+/// an empty vector is typically more useful than consistent handling
 /// of empty elements. If you do need to represent empty elements,
 /// you'll need to check for the empty string before calling this
 /// function.
@@ -6600,6 +6663,10 @@ public func strdup(str: UnsafePointer<gchar>) -> String! {
 /// the result. The returned string should be freed with `g_free()` when
 /// no longer needed.
 /// 
+/// The returned string is guaranteed to be non-NULL, unless `format`
+/// contains ``lc`` or ``ls`` conversions, which can fail if no multibyte
+/// representation is available for the given character.
+/// 
 /// See also `g_vasprintf()`, which offers the same functionality, but
 /// additionally returns the length of the allocated string.
 public func strdupVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> String! {
@@ -6898,7 +6965,7 @@ public func strsignal(signum: CInt) -> String! {
 /// 
 /// As a special case, the result of splitting the empty string "" is an empty
 /// vector, not a vector containing a single string. The reason for this
-/// special case is that being able to represent a empty vector is typically
+/// special case is that being able to represent an empty vector is typically
 /// more useful than consistent handling of empty elements. If you do need
 /// to represent empty elements, you'll need to check for the empty string
 /// before calling `g_strsplit()`.
@@ -6924,7 +6991,7 @@ public func strsplit(string: UnsafePointer<gchar>, delimiter: UnsafePointer<gcha
 /// 
 /// As a special case, the result of splitting the empty string "" is an empty
 /// vector, not a vector containing a single string. The reason for this
-/// special case is that being able to represent a empty vector is typically
+/// special case is that being able to represent an empty vector is typically
 /// more useful than consistent handling of empty elements. If you do need
 /// to represent empty elements, you'll need to check for the empty string
 /// before calling `g_strsplit_set()`.
@@ -7094,7 +7161,9 @@ public func testAssertExpectedMessagesInternal(domain: UnsafePointer<CChar>, fil
 /// This function adds a message to test reports that
 /// associates a bug URI with a test case.
 /// Bug URIs are constructed from a base URI set with `g_test_bug_base()`
-/// and `bug_uri_snippet`.
+/// and `bug_uri_snippet`. If `g_test_bug_base()` has not been called, it is
+/// assumed to be the empty string, so a full URI can be provided to
+/// `g_test_bug()` instead.
 public func testBug(bugURISnippet bug_uri_snippet: UnsafePointer<CChar>) {
     g_test_bug(bug_uri_snippet)
 
@@ -7114,6 +7183,9 @@ public func testBug(bugURISnippet bug_uri_snippet: UnsafePointer<CChar>) {
 /// Bug URIs are constructed by appending a bug specific URI
 /// portion to `uri_pattern`, or by replacing the special string
 /// '\`s`' within `uri_pattern` if that is present.
+/// 
+/// If `g_test_bug_base()` is not called, bug URIs are formed solely
+/// from the value provided by `g_test_bug()`.
 public func testBugBase(uriPattern uri_pattern: UnsafePointer<CChar>) {
     g_test_bug_base(uri_pattern)
 
@@ -7912,6 +7984,8 @@ public func threadYield() {
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
 /// 
+/// It is safe to call this function from any thread.
+/// 
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
 public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
@@ -7964,6 +8038,8 @@ public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @es
 /// using `g_source_attach()`. You can do these steps manually if you need
 /// greater control. Also see `g_timeout_add_seconds_full()`.
 /// 
+/// It is safe to call this function from any thread.
+/// 
 /// Note that the first call of the timer may not be precise for timeouts
 /// of one second. If you need finer precision and have such a timeout,
 /// you may want to use `g_timeout_add()` instead.
@@ -8014,6 +8090,8 @@ public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping Source
 /// `g_timeout_source_new_seconds()` and attaches it to the main loop context
 /// using `g_source_attach()`. You can do these steps manually if you need
 /// greater control.
+/// 
+/// It is safe to call this function from any thread.
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
@@ -8740,6 +8818,29 @@ public func unixFdSourceNew(fd: CInt, condition: IOCondition) -> UnsafeMutablePo
 
 
 
+/// Get the `passwd` file entry for the given `user_name` using ``getpwnam_r()``.
+/// This can fail if the given `user_name` doesn’t exist.
+/// 
+/// The returned `struct passwd` has been allocated using `g_malloc()` and should
+/// be freed using `g_free()`. The strings referenced by the returned struct are
+/// included in the same allocation, so are valid until the `struct passwd` is
+/// freed.
+/// 
+/// This function is safe to call from multiple threads concurrently.
+/// 
+/// You will need to include `pwd.h` to get the definition of `struct passwd`.
+public func unixGetPasswdEntry(userName user_name: UnsafePointer<gchar>) throws -> UnsafeMutablePointer<passwd>! {
+    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    let rv = g_unix_get_passwd_entry(user_name, &error)
+    if let error = error {
+        throw ErrorType(error)
+    }
+    return cast(rv)
+}
+
+
+
+
 /// Similar to the UNIX `pipe()` call, but on modern systems like Linux
 /// uses the `pipe2()` system call, which atomically creates a pipe with
 /// the configured flags. The only supported flag currently is
@@ -9195,7 +9296,7 @@ public func utf8OffsetToPointer(str: UnsafePointer<gchar>, offset: CLong) -> Str
 
 
 
-/// Converts from a pointer to position within a string to a integer
+/// Converts from a pointer to position within a string to an integer
 /// character offset.
 /// 
 /// Since 2.10, this function allows `pos` to be before `str`, and returns
@@ -9419,7 +9520,9 @@ public func uuidStringIsValid(str: UnsafePointer<gchar>) -> Bool {
 
 
 
-/// Generates a random UUID (RFC 4122 version 4) as a string.
+/// Generates a random UUID (RFC 4122 version 4) as a string. It has the same
+/// randomness guarantees as `GRand`, so must not be used for cryptographic
+/// purposes such as key generation, nonces, salts or one-time pads.
 public func uuidStringRandom() -> String! {
     let rv = g_uuid_string_random()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -9497,6 +9600,10 @@ public func variantIsSignature(string: UnsafePointer<gchar>) -> Bool {
 /// 
 /// Officially, the language understood by the parser is "any string
 /// produced by `g_variant_print()`".
+/// 
+/// There may be implementation specific restrictions on deeply nested values,
+/// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
+/// guaranteed to handle nesting up to at least 64 levels.
 public func variantParse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
     var error: Optional<UnsafeMutablePointer<GError>> = nil
     let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
@@ -9619,6 +9726,10 @@ public func variantTypeStringScan(string: UnsafePointer<gchar>, limit: UnsafePoi
 /// This function is similar to `g_vsprintf()`, except that it allocates a
 /// string to hold the output, instead of putting the output in a buffer
 /// you allocate in advance.
+/// 
+/// The returned value in `string` is guaranteed to be non-NULL, unless
+/// `format` contains ``lc`` or ``ls`` conversions, which can fail if no
+/// multibyte representation is available for the given character.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
 public func vasprintf(string: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {

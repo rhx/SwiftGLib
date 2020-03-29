@@ -75,7 +75,7 @@ public extension KeyFileRef {
     /// read an existing key file.
     init() {
         let rv = g_key_file_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -91,15 +91,27 @@ open class KeyFile: KeyFileProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `KeyFile` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GKeyFile>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `KeyFileProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GKeyFile`.
-    public convenience init<T: KeyFileProtocol>(_ other: T) {
-        self.init(cast(other.key_file_ptr))
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GKeyFile>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_key_file_ref(cast(key_file_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `KeyFileProtocol`
+    /// Will retain `GKeyFile`.
+    /// - Parameter other: an instance of a related type that implements `KeyFileProtocol`
+    public init<T: KeyFileProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.key_file_ptr)
         g_key_file_ref(cast(key_file_ptr))
     }
 
@@ -110,35 +122,70 @@ open class KeyFile: KeyFileProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GKeyFile.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_key_file_ref(cast(key_file_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GKeyFile.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_key_file_ref(cast(key_file_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GKeyFile.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_key_file_ref(cast(key_file_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GKeyFile>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_key_file_ref(cast(key_file_ptr))
     }
 
     /// Creates a new empty `GKeyFile` object. Use
     /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
     /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
     /// read an existing key file.
-    public convenience init() {
+    public init() {
         let rv = g_key_file_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 

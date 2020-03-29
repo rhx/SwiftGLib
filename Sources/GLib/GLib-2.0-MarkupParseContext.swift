@@ -82,7 +82,7 @@ public extension MarkupParseContextRef {
     /// free it and create a new parse context).
     init( parser: MarkupParserProtocol, flags: MarkupParseFlags, userData user_data: UnsafeMutableRawPointer, userDataDnotify user_data_dnotify: @escaping DestroyNotify) {
         let rv = g_markup_parse_context_new(cast(parser.ptr), flags, cast(user_data), user_data_dnotify)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -101,15 +101,27 @@ open class MarkupParseContext: MarkupParseContextProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `MarkupParseContext` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MarkupParseContext` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GMarkupParseContext>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `MarkupParseContextProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMarkupParseContext`.
-    public convenience init<T: MarkupParseContextProtocol>(_ other: T) {
-        self.init(cast(other.markup_parse_context_ptr))
+    /// i.e., ownership is transferred to the `MarkupParseContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GMarkupParseContext>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_markup_parse_context_ref(cast(markup_parse_context_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `MarkupParseContextProtocol`
+    /// Will retain `GMarkupParseContext`.
+    /// - Parameter other: an instance of a related type that implements `MarkupParseContextProtocol`
+    public init<T: MarkupParseContextProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.markup_parse_context_ptr)
         g_markup_parse_context_ref(cast(markup_parse_context_ptr))
     }
 
@@ -120,26 +132,61 @@ open class MarkupParseContext: MarkupParseContextProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GMarkupParseContext.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_markup_parse_context_ref(cast(markup_parse_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GMarkupParseContext.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_markup_parse_context_ref(cast(markup_parse_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GMarkupParseContext.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_markup_parse_context_ref(cast(markup_parse_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GMarkupParseContext>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_markup_parse_context_ref(cast(markup_parse_context_ptr))
     }
 
     /// Creates a new parse context. A parse context is used to parse
@@ -147,9 +194,9 @@ open class MarkupParseContext: MarkupParseContextProtocol {
     /// a context, as long as no errors occur; once an error occurs,
     /// the parse context can't continue to parse text (you have to
     /// free it and create a new parse context).
-    public convenience init( parser: MarkupParserProtocol, flags: MarkupParseFlags, userData user_data: UnsafeMutableRawPointer, userDataDnotify user_data_dnotify: @escaping DestroyNotify) {
+    public init( parser: MarkupParserProtocol, flags: MarkupParseFlags, userData user_data: UnsafeMutableRawPointer, userDataDnotify user_data_dnotify: @escaping DestroyNotify) {
         let rv = g_markup_parse_context_new(cast(parser.ptr), flags, cast(user_data), user_data_dnotify)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 

@@ -79,7 +79,7 @@ public extension SourceRef {
     /// executed.
     init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
         let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -95,15 +95,27 @@ open class Source: SourceProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Source` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSource>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `SourceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSource`.
-    public convenience init<T: SourceProtocol>(_ other: T) {
-        self.init(cast(other.source_ptr))
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSource>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_source_ref(cast(source_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `SourceProtocol`
+    /// Will retain `GSource`.
+    /// - Parameter other: an instance of a related type that implements `SourceProtocol`
+    public init<T: SourceProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.source_ptr)
         g_source_ref(cast(source_ptr))
     }
 
@@ -114,26 +126,61 @@ open class Source: SourceProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSource.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_source_ref(cast(source_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSource.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_source_ref(cast(source_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSource.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_source_ref(cast(source_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSource>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_source_ref(cast(source_ptr))
     }
 
     /// Creates a new `GSource` structure. The size is specified to
@@ -144,9 +191,9 @@ open class Source: SourceProtocol {
     /// The source will not initially be associated with any `GMainContext`
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
-    public convenience init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
+    public init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
         let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -220,6 +267,9 @@ public extension SourceProtocol {
 
     /// Adds a `GSource` to a `context` so that it will be executed within
     /// that context. Remove it by calling `g_source_destroy()`.
+    /// 
+    /// This function is safe to call from any thread, regardless of which thread
+    /// the `context` is running in.
     func attach(context: MainContextProtocol) -> CUnsignedInt {
         let rv = g_source_attach(cast(source_ptr), cast(context.ptr))
         return CUnsignedInt(rv)
@@ -232,6 +282,9 @@ public extension SourceProtocol {
     /// 
     /// This does not unref the `GSource:` if you still hold a reference, use
     /// `g_source_unref()` to drop it.
+    /// 
+    /// This function is safe to call from any thread, regardless of which thread
+    /// the `GMainContext` is running in.
     func destroy() {
         g_source_destroy(cast(source_ptr))
     
@@ -430,6 +483,27 @@ public extension SourceProtocol {
     /// source is blocked until the dispatch function returns.
     func set(canRecurse can_recurse: Bool) {
         g_source_set_can_recurse(cast(source_ptr), gboolean(can_recurse ? 1 : 0))
+    
+    }
+
+    /// Set `dispose` as dispose function on `source`. `dispose` will be called once
+    /// the reference count of `source` reaches 0 but before any of the state of the
+    /// source is freed, especially before the finalize function is called.
+    /// 
+    /// This means that at this point `source` is still a valid `GSource` and it is
+    /// allow for the reference count to increase again until `dispose` returns.
+    /// 
+    /// The dispose function can be used to clear any "weak" references to the
+    /// `source` in other data structures in a thread-safe way where it is possible
+    /// for another thread to increase the reference count of `source` again while
+    /// it is being freed.
+    /// 
+    /// The finalize function can not be used for this purpose as at that point
+    /// `source` is already partially freed and not valid anymore.
+    /// 
+    /// This should only ever be called from `GSource` implementations.
+    func setDisposeFunction(dispose: @escaping SourceDisposeFunc) {
+        g_source_set_dispose_function(cast(source_ptr), dispose)
     
     }
 

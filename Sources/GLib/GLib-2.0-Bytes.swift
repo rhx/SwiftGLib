@@ -118,7 +118,7 @@ public extension BytesRef {
     /// `data` is copied. If `size` is 0, `data` may be `nil`.
     init( data: gconstpointer, size: Int) {
         let rv = g_bytes_new(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBytes` from static data.
@@ -127,7 +127,7 @@ public extension BytesRef {
     /// is 0.
     init(static_ data: gconstpointer, size: Int) {
         let rv = g_bytes_new_static(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBytes` from `data`.
@@ -144,7 +144,7 @@ public extension BytesRef {
     /// `data` may be `nil` if `size` is 0.
     init(take data: UnsafeMutableRawPointer, size: Int) {
         let rv = g_bytes_new_take(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GBytes` from `data`.
@@ -158,7 +158,7 @@ public extension BytesRef {
     /// `data` may be `nil` if `size` is 0.
     init(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
         let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GBytes` from static data.
     /// 
@@ -235,15 +235,27 @@ open class Bytes: BytesProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Bytes` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Bytes` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GBytes>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `BytesProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GBytes`.
-    public convenience init<T: BytesProtocol>(_ other: T) {
-        self.init(cast(other.bytes_ptr))
+    /// i.e., ownership is transferred to the `Bytes` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GBytes>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_bytes_ref(cast(bytes_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `BytesProtocol`
+    /// Will retain `GBytes`.
+    /// - Parameter other: an instance of a related type that implements `BytesProtocol`
+    public init<T: BytesProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.bytes_ptr)
         g_bytes_ref(cast(bytes_ptr))
     }
 
@@ -254,43 +266,78 @@ open class Bytes: BytesProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GBytes.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_bytes_ref(cast(bytes_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GBytes.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_bytes_ref(cast(bytes_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GBytes.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_bytes_ref(cast(bytes_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GBytes>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_bytes_ref(cast(bytes_ptr))
     }
 
     /// Creates a new `GBytes` from `data`.
     /// 
     /// `data` is copied. If `size` is 0, `data` may be `nil`.
-    public convenience init( data: gconstpointer, size: Int) {
+    public init( data: gconstpointer, size: Int) {
         let rv = g_bytes_new(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBytes` from static data.
     /// 
     /// `data` must be static (ie: never modified or freed). It may be `nil` if `size`
     /// is 0.
-    public convenience init(static_ data: gconstpointer, size: Int) {
+    public init(static_ data: gconstpointer, size: Int) {
         let rv = g_bytes_new_static(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBytes` from `data`.
@@ -305,9 +352,9 @@ open class Bytes: BytesProtocol {
     /// `g_bytes_new_with_free_func()`.
     /// 
     /// `data` may be `nil` if `size` is 0.
-    public convenience init(take data: UnsafeMutableRawPointer, size: Int) {
+    public init(take data: UnsafeMutableRawPointer, size: Int) {
         let rv = g_bytes_new_take(cast(data), gsize(size))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GBytes` from `data`.
@@ -319,9 +366,9 @@ open class Bytes: BytesProtocol {
     /// been called to indicate that the bytes is no longer in use.
     /// 
     /// `data` may be `nil` if `size` is 0.
-    public convenience init(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
+    public init(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
         let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GBytes` from static data.

@@ -110,9 +110,17 @@ public extension ThreadRef {
     /// 
     /// To free the struct returned by this function, use `g_thread_unref()`.
     /// Note that `g_thread_join()` implicitly unrefs the `GThread` as well.
+    /// 
+    /// New threads by default inherit their scheduler policy (POSIX) or thread
+    /// priority (Windows) of the thread creating the new thread.
+    /// 
+    /// This behaviour changed in GLib 2.64: before threads on Windows were not
+    /// inheriting the thread priority but were spawned with the default priority.
+    /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
+    /// POSIX and all threads inherit their parent thread's priority.
     init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
         let rv = g_thread_new(name, func_, cast(data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -126,7 +134,7 @@ public extension ThreadRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
@@ -180,15 +188,27 @@ open class Thread: ThreadProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Thread` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GThread>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ThreadProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThread`.
-    public convenience init<T: ThreadProtocol>(_ other: T) {
-        self.init(cast(other.thread_ptr))
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GThread>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_thread_ref(cast(thread_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ThreadProtocol`
+    /// Will retain `GThread`.
+    /// - Parameter other: an instance of a related type that implements `ThreadProtocol`
+    public init<T: ThreadProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.thread_ptr)
         g_thread_ref(cast(thread_ptr))
     }
 
@@ -199,26 +219,61 @@ open class Thread: ThreadProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GThread.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_thread_ref(cast(thread_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GThread.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_thread_ref(cast(thread_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GThread.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_thread_ref(cast(thread_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GThread>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_thread_ref(cast(thread_ptr))
     }
 
     /// This function creates a new thread. The new thread starts by invoking
@@ -240,9 +295,17 @@ open class Thread: ThreadProtocol {
     /// 
     /// To free the struct returned by this function, use `g_thread_unref()`.
     /// Note that `g_thread_join()` implicitly unrefs the `GThread` as well.
-    public convenience init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
+    /// 
+    /// New threads by default inherit their scheduler policy (POSIX) or thread
+    /// priority (Windows) of the thread creating the new thread.
+    /// 
+    /// This behaviour changed in GLib 2.64: before threads on Windows were not
+    /// inheriting the thread priority but were spawned with the default priority.
+    /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
+    /// POSIX and all threads inherit their parent thread's priority.
+    public init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
         let rv = g_thread_new(name, func_, cast(data))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -250,13 +313,13 @@ open class Thread: ThreadProtocol {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    public convenience init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
+    public init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_thread_try_new(name, func_, cast(data), &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// This function is the same as `g_thread_new()` except that

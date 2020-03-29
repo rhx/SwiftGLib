@@ -203,7 +203,7 @@ public extension RegexRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -282,15 +282,27 @@ open class Regex: RegexProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Regex` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Regex` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GRegex>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `RegexProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GRegex`.
-    public convenience init<T: RegexProtocol>(_ other: T) {
-        self.init(cast(other.regex_ptr))
+    /// i.e., ownership is transferred to the `Regex` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GRegex>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_regex_ref(cast(regex_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `RegexProtocol`
+    /// Will retain `GRegex`.
+    /// - Parameter other: an instance of a related type that implements `RegexProtocol`
+    public init<T: RegexProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.regex_ptr)
         g_regex_ref(cast(regex_ptr))
     }
 
@@ -301,37 +313,72 @@ open class Regex: RegexProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GRegex.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_regex_ref(cast(regex_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GRegex.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_regex_ref(cast(regex_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GRegex.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_regex_ref(cast(regex_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GRegex>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_regex_ref(cast(regex_ptr))
     }
 
     /// Compiles the regular expression to an internal form, and does
     /// the initial setup of the `GRegex` structure.
-    public convenience init( pattern: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) throws {
+    public init( pattern: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_regex_new(pattern, compile_options, match_options, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -699,7 +746,7 @@ public extension RegexProtocol {
     /// 
     /// As a special case, the result of splitting the empty string "" is an
     /// empty vector, not a vector containing a single string. The reason for
-    /// this special case is that being able to represent a empty vector is
+    /// this special case is that being able to represent an empty vector is
     /// typically more useful than consistent handling of empty elements. If
     /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.
@@ -721,7 +768,7 @@ public extension RegexProtocol {
     /// 
     /// As a special case, the result of splitting the empty string "" is an
     /// empty vector, not a vector containing a single string. The reason for
-    /// this special case is that being able to represent a empty vector is
+    /// this special case is that being able to represent an empty vector is
     /// typically more useful than consistent handling of empty elements. If
     /// you do need to represent empty elements, you'll need to check for the
     /// empty string before calling this function.

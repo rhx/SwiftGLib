@@ -95,15 +95,27 @@ open class ByteArray: ByteArrayProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ByteArray` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ByteArray` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GByteArray>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ByteArrayProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GByteArray`.
-    public convenience init<T: ByteArrayProtocol>(_ other: T) {
-        self.init(cast(other.byte_array_ptr))
+    /// i.e., ownership is transferred to the `ByteArray` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GByteArray>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_byte_array_ref(cast(byte_array_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ByteArrayProtocol`
+    /// Will retain `GByteArray`.
+    /// - Parameter other: an instance of a related type that implements `ByteArrayProtocol`
+    public init<T: ByteArrayProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.byte_array_ptr)
         g_byte_array_ref(cast(byte_array_ptr))
     }
 
@@ -114,26 +126,61 @@ open class ByteArray: ByteArrayProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GByteArray.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_byte_array_ref(cast(byte_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GByteArray.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_byte_array_ref(cast(byte_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GByteArray.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_byte_array_ref(cast(byte_array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GByteArray>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_byte_array_ref(cast(byte_array_ptr))
     }
 
 
@@ -258,6 +305,14 @@ public extension ByteArrayProtocol {
     
     }
 
+    /// Frees the data in the array and resets the size to zero, while
+    /// the underlying array is preserved for use elsewhere and returned
+    /// to the caller.
+    func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
+        let rv = g_byte_array_steal(cast(byte_array_ptr), cast(len))
+        return cast(rv)
+    }
+
     /// Atomically decrements the reference count of `array` by one. If the
     /// reference count drops to 0, all memory allocated by the array is
     /// released. This function is thread-safe and may be called from any
@@ -286,6 +341,14 @@ public extension ByteArrayProtocol {
     /// together.
     func byteArrayFreeToBytes() -> UnsafeMutablePointer<GBytes>! {
         let rv = g_byte_array_free_to_bytes(cast(byte_array_ptr))
+        return cast(rv)
+    }
+
+    /// Frees the data in the array and resets the size to zero, while
+    /// the underlying array is preserved for use elsewhere and returned
+    /// to the caller.
+    func byteArraySteal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
+        let rv = g_byte_array_steal(cast(byte_array_ptr), cast(len))
         return cast(rv)
     }
 

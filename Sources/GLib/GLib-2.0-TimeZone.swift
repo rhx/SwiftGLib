@@ -85,7 +85,8 @@ public extension TimeZoneRef {
     /// the local time.
     /// 
     /// In UNIX, the `TZ` environment variable typically corresponds
-    /// to the name of a file in the zoneinfo database, or string in
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
     /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
     /// There  are  no spaces in the specification. The name of standard
     /// and daylight savings time zone must be three or more alphabetic
@@ -134,7 +135,7 @@ public extension TimeZoneRef {
     /// when you are done with it.
     init( identifier: UnsafePointer<gchar>) {
         let rv = g_time_zone_new(identifier)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -144,7 +145,7 @@ public extension TimeZoneRef {
     /// `[+|-]hh[:mm[:ss]]`.
     init(offset seconds: Int32) {
         let rv = g_time_zone_new_offset(gint32(seconds))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GTimeZone` corresponding to local time.  The local time
     /// zone may change between invocations to this function; for example,
@@ -195,15 +196,27 @@ open class TimeZone: TimeZoneProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `TimeZone` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GTimeZone>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `TimeZoneProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTimeZone`.
-    public convenience init<T: TimeZoneProtocol>(_ other: T) {
-        self.init(cast(other.time_zone_ptr))
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GTimeZone>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_time_zone_ref(cast(time_zone_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `TimeZoneProtocol`
+    /// Will retain `GTimeZone`.
+    /// - Parameter other: an instance of a related type that implements `TimeZoneProtocol`
+    public init<T: TimeZoneProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.time_zone_ptr)
         g_time_zone_ref(cast(time_zone_ptr))
     }
 
@@ -214,26 +227,61 @@ open class TimeZone: TimeZoneProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GTimeZone.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_time_zone_ref(cast(time_zone_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GTimeZone.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_time_zone_ref(cast(time_zone_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GTimeZone.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_time_zone_ref(cast(time_zone_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GTimeZone>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_time_zone_ref(cast(time_zone_ptr))
     }
 
     /// Creates a `GTimeZone` corresponding to `identifier`.
@@ -252,7 +300,8 @@ open class TimeZone: TimeZoneProtocol {
     /// the local time.
     /// 
     /// In UNIX, the `TZ` environment variable typically corresponds
-    /// to the name of a file in the zoneinfo database, or string in
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
     /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
     /// There  are  no spaces in the specification. The name of standard
     /// and daylight savings time zone must be three or more alphabetic
@@ -299,9 +348,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    public convenience init( identifier: UnsafePointer<gchar>) {
+    public init( identifier: UnsafePointer<gchar>) {
         let rv = g_time_zone_new(identifier)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -309,9 +358,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
-    public convenience init(offset seconds: Int32) {
+    public init(offset seconds: Int32) {
         let rv = g_time_zone_new_offset(gint32(seconds))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GTimeZone` corresponding to local time.  The local time
@@ -382,7 +431,7 @@ public extension TimeZoneProtocol {
         return CInt(rv)
     }
 
-    /// Finds an the interval within `tz` that corresponds to the given `time_`.
+    /// Finds an interval within `tz` that corresponds to the given `time_`.
     /// The meaning of `time_` depends on `type`.
     /// 
     /// If `type` is `G_TIME_TYPE_UNIVERSAL` then this function will always

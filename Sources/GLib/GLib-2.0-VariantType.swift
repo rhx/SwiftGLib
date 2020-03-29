@@ -367,7 +367,7 @@ public extension VariantTypeRef {
     /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
     init( type_string: UnsafePointer<gchar>) {
         let rv = g_variant_type_new(type_string)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Constructs a new tuple type, from `items`.
@@ -378,7 +378,7 @@ public extension VariantTypeRef {
     /// It is appropriate to call `g_variant_type_free()` on the return value.
     init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Constructs a new tuple type, from `items`.
     /// 
@@ -554,15 +554,27 @@ open class VariantType: VariantTypeProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VariantType` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantType` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVariantType>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VariantTypeProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GVariantType` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `VariantType` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVariantType>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VariantTypeProtocol`
     /// `GVariantType` does not allow reference counting.
-    public convenience init<T: VariantTypeProtocol>(_ other: T) {
-        self.init(cast(other.variant_type_ptr))
+    /// - Parameter other: an instance of a related type that implements `VariantTypeProtocol`
+    public init<T: VariantTypeProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.variant_type_ptr)
         // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
@@ -573,26 +585,61 @@ open class VariantType: VariantTypeProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVariantType.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVariantType.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVariantType.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVariantType>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
     /// Creates a new `GVariantType` corresponding to the type string given
@@ -601,9 +648,9 @@ open class VariantType: VariantTypeProtocol {
     /// 
     /// It is a programmer error to call this function with an invalid type
     /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
-    public convenience init( type_string: UnsafePointer<gchar>) {
+    public init( type_string: UnsafePointer<gchar>) {
         let rv = g_variant_type_new(type_string)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Constructs a new tuple type, from `items`.
@@ -612,9 +659,9 @@ open class VariantType: VariantTypeProtocol {
     /// `items` is `nil`-terminated.
     /// 
     /// It is appropriate to call `g_variant_type_free()` on the return value.
-    public convenience init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
+    public init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
         let rv = g_variant_type_new_tuple(cast(items), gint(length))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Constructs a new tuple type, from `items`.
@@ -830,6 +877,10 @@ public extension VariantTypeProtocol {
     /// 
     /// Officially, the language understood by the parser is "any string
     /// produced by `g_variant_print()`".
+    /// 
+    /// There may be implementation specific restrictions on deeply nested values,
+    /// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
+    /// guaranteed to handle nesting up to at least 64 levels.
     func variantParse(text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_variant_parse(cast(variant_type_ptr), text, limit, cast(endptr), &error)

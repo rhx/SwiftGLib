@@ -79,14 +79,14 @@ public extension ErrorRef {
     /// that could include `printf()` escape sequences.
     init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
         let rv = g_error_new_literal(domain, gint(code), message)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
     init(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) {
         let rv = g_error_new_valist(domain, gint(code), format, args)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GError`; unlike `g_error_new()`, `message` is
     /// not a `printf()`-style format string. Use this function if
@@ -117,18 +117,26 @@ open class ErrorType: ErrorTypeProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ErrorType` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ErrorType` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GError>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ErrorTypeProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GError` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `ErrorType` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GError>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Reference intialiser for a related type that implements `ErrorTypeProtocol`
     /// `GError` does not allow reference counting.
-    /// Convenience copy constructor, creating a unique copy
-    /// of the passed in Error.  Needs to be freed using free()
-    /// (automatically done in deinit if you use ErrorType).
-    public convenience init<T: ErrorTypeProtocol>(_ other: T) {
-        self.init(cast(other.error_ptr))
+    /// - Parameter other: an instance of a related type that implements `ErrorTypeProtocol`
+    public init<T: ErrorTypeProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.error_ptr)
     }
 
     /// Do-nothing destructor for`GError`.
@@ -138,26 +146,57 @@ open class ErrorType: ErrorTypeProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GError.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GError.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GError.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GError>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorTypeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
     }
 
 
@@ -168,16 +207,16 @@ open class ErrorType: ErrorTypeProtocol {
     /// not a `printf()`-style format string. Use this function if
     /// `message` contains text you don't have control over,
     /// that could include `printf()` escape sequences.
-    public convenience init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
+    public init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
         let rv = g_error_new_literal(domain, gint(code), message)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
-    public convenience init(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) {
+    public init(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) {
         let rv = g_error_new_valist(domain, gint(code), format, args)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GError`; unlike `g_error_new()`, `message` is

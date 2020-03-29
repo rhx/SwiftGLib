@@ -101,15 +101,27 @@ open class HashTable: HashTableProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `HashTable` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HashTable` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GHashTable>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `HashTableProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GHashTable`.
-    public convenience init<T: HashTableProtocol>(_ other: T) {
-        self.init(cast(other.hash_table_ptr))
+    /// i.e., ownership is transferred to the `HashTable` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GHashTable>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_hash_table_ref(cast(hash_table_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `HashTableProtocol`
+    /// Will retain `GHashTable`.
+    /// - Parameter other: an instance of a related type that implements `HashTableProtocol`
+    public init<T: HashTableProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.hash_table_ptr)
         g_hash_table_ref(cast(hash_table_ptr))
     }
 
@@ -120,26 +132,61 @@ open class HashTable: HashTableProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GHashTable.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_hash_table_ref(cast(hash_table_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GHashTable.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_hash_table_ref(cast(hash_table_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GHashTable.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_hash_table_ref(cast(hash_table_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GHashTable>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_hash_table_ref(cast(hash_table_ptr))
     }
 
 
@@ -173,6 +220,10 @@ public extension HashTableProtocol {
     /// This is a convenience function for using a `GHashTable` as a set.  It
     /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
     /// key and the value.
+    /// 
+    /// In particular, this means that if `key` already exists in the hash table, then
+    /// the old copy of `key` in the hash table is freed and `key` replaces it in the
+    /// table.
     /// 
     /// When a hash table only ever contains keys that have themselves as the
     /// corresponding value it is able to be stored more efficiently.  See
@@ -227,6 +278,9 @@ public extension HashTableProtocol {
     /// be modified while iterating over it (you can't add/remove
     /// items). To remove all items matching a predicate, use
     /// `g_hash_table_foreach_remove()`.
+    /// 
+    /// The order in which `g_hash_table_foreach()` iterates over the keys/values in
+    /// the hash table is not defined.
     /// 
     /// See `g_hash_table_find()` for performance caveats for linear
     /// order searches in contrast to `g_hash_table_lookup()`.
@@ -435,6 +489,10 @@ public extension HashTableProtocol {
     /// This is a convenience function for using a `GHashTable` as a set.  It
     /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
     /// key and the value.
+    /// 
+    /// In particular, this means that if `key` already exists in the hash table, then
+    /// the old copy of `key` in the hash table is freed and `key` replaces it in the
+    /// table.
     /// 
     /// When a hash table only ever contains keys that have themselves as the
     /// corresponding value it is able to be stored more efficiently.  See

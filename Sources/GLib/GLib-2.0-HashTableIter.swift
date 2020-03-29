@@ -11,6 +11,9 @@ import CGLib
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
 /// with `g_hash_table_iter_init()`.
+/// 
+/// The iteration order of a `GHashTableIter` over the keys/values in a hash
+/// table is not defined.
 public protocol HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -27,6 +30,9 @@ public protocol HashTableIterProtocol {
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
 /// with `g_hash_table_iter_init()`.
+/// 
+/// The iteration order of a `GHashTableIter` over the keys/values in a hash
+/// table is not defined.
 public struct HashTableIterRef: HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -83,21 +89,36 @@ public extension HashTableIterRef {
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
 /// with `g_hash_table_iter_init()`.
+/// 
+/// The iteration order of a `GHashTableIter` over the keys/values in a hash
+/// table is not defined.
 open class HashTableIter: HashTableIterProtocol {
     /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `HashTableIter` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HashTableIter` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GHashTableIter>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `HashTableIterProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GHashTableIter` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `HashTableIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GHashTableIter>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `HashTableIterProtocol`
     /// `GHashTableIter` does not allow reference counting.
-    public convenience init<T: HashTableIterProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `HashTableIterProtocol`
+    public init<T: HashTableIterProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
@@ -108,26 +129,61 @@ open class HashTableIter: HashTableIterProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GHashTableIter.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GHashTableIter.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GHashTableIter.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GHashTableIter>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
 
@@ -152,6 +208,10 @@ public extension HashTableIterProtocol {
     /// Initializes a key/value pair iterator and associates it with
     /// `hash_table`. Modifying the hash table after calling this function
     /// invalidates the returned iterator.
+    /// 
+    /// The iteration order of a `GHashTableIter` over the keys/values in a hash
+    /// table is not defined.
+    /// 
     /// (C Language Example):
     /// ```C
     /// GHashTableIter iter;

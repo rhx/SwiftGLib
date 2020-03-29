@@ -86,7 +86,7 @@ public extension ChecksumRef {
     /// on it anymore.
     init( checksum_type: ChecksumType) {
         let rv = g_checksum_new(checksum_type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -103,15 +103,27 @@ open class Checksum: ChecksumProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Checksum` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Checksum` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GChecksum>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ChecksumProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GChecksum` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Checksum` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GChecksum>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ChecksumProtocol`
     /// `GChecksum` does not allow reference counting.
-    public convenience init<T: ChecksumProtocol>(_ other: T) {
-        self.init(cast(other.checksum_ptr))
+    /// - Parameter other: an instance of a related type that implements `ChecksumProtocol`
+    public init<T: ChecksumProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.checksum_ptr)
         // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
@@ -122,26 +134,61 @@ open class Checksum: ChecksumProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GChecksum.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GChecksum.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GChecksum.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GChecksum>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
     /// Creates a new `GChecksum`, using the checksum algorithm `checksum_type`.
@@ -157,9 +204,9 @@ open class Checksum: ChecksumProtocol {
     /// `g_checksum_get_digest()` have been called on a `GChecksum`, the checksum
     /// will be closed and it won't be possible to call `g_checksum_update()`
     /// on it anymore.
-    public convenience init( checksum_type: ChecksumType) {
+    public init( checksum_type: ChecksumType) {
         let rv = g_checksum_new(checksum_type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -198,7 +245,7 @@ public extension ChecksumProtocol {
     
     }
 
-    /// Gets the digest as an hexadecimal string.
+    /// Gets the digest as a hexadecimal string.
     /// 
     /// Once this function has been called the `GChecksum` can no longer be
     /// updated with `g_checksum_update()`.
@@ -222,14 +269,14 @@ public extension ChecksumProtocol {
         g_checksum_update(cast(checksum_ptr), cast(data), length)
     
     }
-    /// Gets the digest as an hexadecimal string.
+    /// Gets the digest as a hexadecimal string.
     /// 
     /// Once this function has been called the `GChecksum` can no longer be
     /// updated with `g_checksum_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     var string: String! {
-        /// Gets the digest as an hexadecimal string.
+        /// Gets the digest as a hexadecimal string.
         /// 
         /// Once this function has been called the `GChecksum` can no longer be
         /// updated with `g_checksum_update()`.

@@ -90,7 +90,7 @@ public extension VariantBuilderRef {
     /// `g_variant_builder_init()`.
     init( type: VariantTypeProtocol) {
         let rv = g_variant_builder_new(cast(type.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -111,15 +111,27 @@ open class VariantBuilder: VariantBuilderProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `VariantBuilder` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GVariantBuilder>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `VariantBuilderProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVariantBuilder`.
-    public convenience init<T: VariantBuilderProtocol>(_ other: T) {
-        self.init(cast(other.variant_builder_ptr))
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GVariantBuilder>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_variant_builder_ref(cast(variant_builder_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `VariantBuilderProtocol`
+    /// Will retain `GVariantBuilder`.
+    /// - Parameter other: an instance of a related type that implements `VariantBuilderProtocol`
+    public init<T: VariantBuilderProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.variant_builder_ptr)
         g_variant_builder_ref(cast(variant_builder_ptr))
     }
 
@@ -130,26 +142,61 @@ open class VariantBuilder: VariantBuilderProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GVariantBuilder.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_variant_builder_ref(cast(variant_builder_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GVariantBuilder.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_variant_builder_ref(cast(variant_builder_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GVariantBuilder.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_variant_builder_ref(cast(variant_builder_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GVariantBuilder>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_variant_builder_ref(cast(variant_builder_ptr))
     }
 
     /// Allocates and initialises a new `GVariantBuilder`.
@@ -161,9 +208,9 @@ open class VariantBuilder: VariantBuilderProtocol {
     /// In most cases it is easier to place a `GVariantBuilder` directly on
     /// the stack of the calling function and initialise it with
     /// `g_variant_builder_init()`.
-    public convenience init( type: VariantTypeProtocol) {
+    public init( type: VariantTypeProtocol) {
         let rv = g_variant_builder_new(cast(type.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 

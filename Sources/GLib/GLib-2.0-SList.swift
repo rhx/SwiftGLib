@@ -90,15 +90,27 @@ open class SList: SListProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `SList` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GSList>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `SListProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GSList` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GSList, cannot ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `SListProtocol`
     /// `GSList` does not allow reference counting.
-    public convenience init<T: SListProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// - Parameter other: an instance of a related type that implements `SListProtocol`
+    public init<T: SListProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
@@ -109,26 +121,61 @@ open class SList: SListProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GSList.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GSList.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GSList.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GSList>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
 
@@ -274,6 +321,15 @@ public extension SListProtocol {
     /// If list elements contain dynamically-allocated memory,
     /// you should either use `g_slist_free_full()` or free them manually
     /// first.
+    /// 
+    /// It can be combined with `g_steal_pointer()` to ensure the list head pointer
+    /// is not left dangling:
+    /// (C Language Example):
+    /// ```C
+    /// GSList *list_of_borrowed_things = …;  /<!-- -->* (transfer container) *<!-- -->/
+    /// g_slist_free (g_steal_pointer (&list_of_borrowed_things));
+    /// ```
+    /// 
     func free() {
         g_slist_free(cast(_ptr))
     
@@ -291,6 +347,17 @@ public extension SListProtocol {
     /// 
     /// `free_func` must not modify the list (eg, by removing the freed
     /// element from it).
+    /// 
+    /// It can be combined with `g_steal_pointer()` to ensure the list head pointer
+    /// is not left dangling ­— this also has the nice property that the head pointer
+    /// is cleared before any of the list elements are freed, to prevent double frees
+    /// from `free_func:`
+    /// (C Language Example):
+    /// ```C
+    /// GSList *list_of_owned_things = …;  /<!-- -->* (transfer full) (element-type GObject) *<!-- -->/
+    /// g_slist_free_full (g_steal_pointer (&list_of_owned_things), g_object_unref);
+    /// ```
+    /// 
     func freeFull(freeFunc free_func: @escaping DestroyNotify) {
         g_slist_free_full(cast(_ptr), free_func)
     
@@ -433,6 +500,14 @@ public extension SListProtocol {
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
         let rv = g_slist_sort_with_data(cast(_ptr), compare_func, cast(user_data))
         return cast(rv)
+    }
+
+    /// Clears a pointer to a `GSList`, freeing it and, optionally, freeing its elements using `destroy`.
+    /// 
+    /// `slist_ptr` must be a valid pointer. If `slist_ptr` points to a null `GSList`, this does nothing.
+    func clearSlist(destroy: @escaping DestroyNotify) {
+        g_clear_slist(cast(_ptr), destroy)
+    
     }
 }
 

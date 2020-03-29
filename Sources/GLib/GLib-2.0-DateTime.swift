@@ -99,14 +99,22 @@ public extension DateTimeRef {
     /// when you are done with it.
     init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported.
+    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
+    /// mentioned below.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '.
+    /// Note that as `GDateTime` "is oblivious to leap seconds", leap seconds information
+    /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
+    /// `23:59:59`.
+    /// 
+    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// separators are an extension from
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
     /// 
     /// <date> is in the form:
     /// 
@@ -139,7 +147,7 @@ public extension DateTimeRef {
     /// when you are done with it.
     init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in the
@@ -160,7 +168,7 @@ public extension DateTimeRef {
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) init(timevalLocal tv: TimeValProtocol) {
         let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in UTC.
@@ -179,7 +187,7 @@ public extension DateTimeRef {
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) init(timevalUTC tv: TimeValProtocol) {
         let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in the
@@ -195,7 +203,7 @@ public extension DateTimeRef {
     /// when you are done with it.
     init(unixLocal t: Int64) {
         let rv = g_date_time_new_from_unix_local(gint64(t))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in UTC.
@@ -210,7 +218,7 @@ public extension DateTimeRef {
     /// when you are done with it.
     init(unixUTC t: Int64) {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -220,7 +228,7 @@ public extension DateTimeRef {
     /// zone returned by `g_time_zone_new_local()`.
     init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to this exact instant in the given
@@ -235,7 +243,7 @@ public extension DateTimeRef {
     /// when you are done with it.
     init(now tz: TimeZoneProtocol) {
         let rv = g_date_time_new_now(cast(tz.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -245,13 +253,21 @@ public extension DateTimeRef {
     /// zone returned by `g_time_zone_new_utc()`.
     init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported.
+    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
+    /// mentioned below.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '.
+    /// Note that as `GDateTime` "is oblivious to leap seconds", leap seconds information
+    /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
+    /// `23:59:59`.
+    /// 
+    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// separators are an extension from
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
     /// 
     /// <date> is in the form:
     /// 
@@ -425,15 +441,27 @@ open class DateTime: DateTimeProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `DateTime` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `DateTime` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GDateTime>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `DateTimeProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GDateTime`.
-    public convenience init<T: DateTimeProtocol>(_ other: T) {
-        self.init(cast(other.date_time_ptr))
+    /// i.e., ownership is transferred to the `DateTime` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GDateTime>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_date_time_ref(cast(date_time_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `DateTimeProtocol`
+    /// Will retain `GDateTime`.
+    /// - Parameter other: an instance of a related type that implements `DateTimeProtocol`
+    public init<T: DateTimeProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.date_time_ptr)
         g_date_time_ref(cast(date_time_ptr))
     }
 
@@ -444,26 +472,61 @@ open class DateTime: DateTimeProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GDateTime.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_date_time_ref(cast(date_time_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GDateTime.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_date_time_ref(cast(date_time_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GDateTime.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_date_time_ref(cast(date_time_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GDateTime>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_date_time_ref(cast(date_time_ptr))
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -494,16 +557,24 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
-    public convenience init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
+    public init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported.
+    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
+    /// mentioned below.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '.
+    /// Note that as `GDateTime` "is oblivious to leap seconds", leap seconds information
+    /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
+    /// `23:59:59`.
+    /// 
+    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// separators are an extension from
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
     /// 
     /// <date> is in the form:
     /// 
@@ -534,9 +605,9 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
-    public convenience init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
+    public init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
         let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in the
@@ -555,9 +626,9 @@ open class DateTime: DateTimeProtocol {
     /// **new_from_timeval_local is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
-    @available(*, deprecated) public convenience init(timevalLocal tv: TimeValProtocol) {
+    @available(*, deprecated) public init(timevalLocal tv: TimeValProtocol) {
         let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in UTC.
@@ -574,9 +645,9 @@ open class DateTime: DateTimeProtocol {
     /// **new_from_timeval_utc is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
-    @available(*, deprecated) public convenience init(timevalUTC tv: TimeValProtocol) {
+    @available(*, deprecated) public init(timevalUTC tv: TimeValProtocol) {
         let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in the
@@ -590,9 +661,9 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
-    public convenience init(unixLocal t: Int64) {
+    public init(unixLocal t: Int64) {
         let rv = g_date_time_new_from_unix_local(gint64(t))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in UTC.
@@ -605,9 +676,9 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
-    public convenience init(unixUTC t: Int64) {
+    public init(unixUTC t: Int64) {
         let rv = g_date_time_new_from_unix_utc(gint64(t))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -615,9 +686,9 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
-    public convenience init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
+    public init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to this exact instant in the given
@@ -630,9 +701,9 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
-    public convenience init(now tz: TimeZoneProtocol) {
+    public init(now tz: TimeZoneProtocol) {
         let rv = g_date_time_new_now(cast(tz.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -640,16 +711,24 @@ open class DateTime: DateTimeProtocol {
     /// 
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
-    public convenience init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
+    public init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
         let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported.
+    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
+    /// mentioned below.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '.
+    /// Note that as `GDateTime` "is oblivious to leap seconds", leap seconds information
+    /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
+    /// `23:59:59`.
+    /// 
+    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// separators are an extension from
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
     /// 
     /// <date> is in the form:
     /// 

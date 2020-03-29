@@ -1502,4 +1502,6 @@ public extension VariantParseError {
     static let unterminated_string_constant = G_VARIANT_PARSE_ERROR_UNTERMINATED_STRING_CONSTANT /* 16 */
     /// no value given
     static let value_expected = G_VARIANT_PARSE_ERROR_VALUE_EXPECTED /* 17 */
+    /// variant was too deeply nested; `GVariant` is only guaranteed to handle nesting up to 64 levels (Since: 2.64)
+    static let recursion = G_VARIANT_PARSE_ERROR_RECURSION /* 18 */
 }

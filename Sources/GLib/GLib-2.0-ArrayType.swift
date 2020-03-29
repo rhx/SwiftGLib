@@ -88,15 +88,27 @@ open class ArrayType: ArrayTypeProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ArrayType` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ArrayType` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GArray>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `ArrayTypeProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GArray`.
-    public convenience init<T: ArrayTypeProtocol>(_ other: T) {
-        self.init(cast(other.array_ptr))
+    /// i.e., ownership is transferred to the `ArrayType` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GArray>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_array_ref(cast(array_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `ArrayTypeProtocol`
+    /// Will retain `GArray`.
+    /// - Parameter other: an instance of a related type that implements `ArrayTypeProtocol`
+    public init<T: ArrayTypeProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.array_ptr)
         g_array_ref(cast(array_ptr))
     }
 
@@ -107,26 +119,61 @@ open class ArrayType: ArrayTypeProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GArray.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_array_ref(cast(array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GArray.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_array_ref(cast(array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GArray.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_array_ref(cast(array_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GArray>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayTypeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_array_ref(cast(array_ptr))
     }
 
 
@@ -322,6 +369,31 @@ public extension ArrayTypeProtocol {
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
         g_array_sort_with_data(cast(array_ptr), compare_func, cast(user_data))
     
+    }
+
+    /// Frees the data in the array and resets the size to zero, while
+    /// the underlying array is preserved for use elsewhere and returned
+    /// to the caller.
+    /// 
+    /// If the array was created with the `zero_terminate` property
+    /// set to `true`, the returned data is zero terminated too.
+    /// 
+    /// If array elements contain dynamically-allocated memory,
+    /// the array elements should also be freed by the caller.
+    /// 
+    /// A short example of use:
+    /// (C Language Example):
+    /// ```C
+    /// ...
+    /// gpointer data;
+    /// gsize data_len;
+    /// data = g_array_steal (some_array, &data_len);
+    /// ...
+    /// ```
+    /// 
+    func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
+        let rv = g_array_steal(cast(array_ptr), cast(len))
+        return cast(rv)
     }
 
     /// Atomically decrements the reference count of `array` by one. If the

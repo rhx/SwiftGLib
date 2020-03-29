@@ -82,7 +82,7 @@ public extension IOChannelRef {
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GIOChannel` given a file descriptor. On UNIX systems
@@ -109,7 +109,7 @@ public extension IOChannelRef {
     /// issued, and GLib assumes that it is the file descriptor you mean.
     init(unix fd: CInt) {
         let rv = g_io_channel_unix_new(fd)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
@@ -166,15 +166,27 @@ open class IOChannel: IOChannelProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `IOChannel` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IOChannel` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GIOChannel>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `IOChannelProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GIOChannel`.
-    public convenience init<T: IOChannelProtocol>(_ other: T) {
-        self.init(cast(other.io_channel_ptr))
+    /// i.e., ownership is transferred to the `IOChannel` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GIOChannel>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_io_channel_ref(cast(io_channel_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `IOChannelProtocol`
+    /// Will retain `GIOChannel`.
+    /// - Parameter other: an instance of a related type that implements `IOChannelProtocol`
+    public init<T: IOChannelProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.io_channel_ptr)
         g_io_channel_ref(cast(io_channel_ptr))
     }
 
@@ -185,26 +197,61 @@ open class IOChannel: IOChannelProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GIOChannel.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_io_channel_ref(cast(io_channel_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GIOChannel.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_io_channel_ref(cast(io_channel_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GIOChannel.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_io_channel_ref(cast(io_channel_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GIOChannel>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_io_channel_ref(cast(io_channel_ptr))
     }
 
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
@@ -212,13 +259,13 @@ open class IOChannel: IOChannelProtocol {
     /// so there is no need to call `g_io_channel_close()` (though doing
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
-    public convenience init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
+    public init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = g_io_channel_new_file(String_, mode, &error)
         if let error = error {
                 throw ErrorType(error)
         }
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GIOChannel` given a file descriptor. On UNIX systems
@@ -243,9 +290,9 @@ open class IOChannel: IOChannelProtocol {
     /// in case the argument you pass to this function happens to be both a
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
-    public convenience init(unix fd: CInt) {
+    public init(unix fd: CInt) {
         let rv = g_io_channel_unix_new(fd)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
@@ -663,6 +710,9 @@ public extension IOChannelProtocol {
     /// Creates a `GSource` that's dispatched when `condition` is met for the
     /// given `channel`. For example, if condition is `G_IO_IN`, the source will
     /// be dispatched when there's data available for reading.
+    /// 
+    /// The callback function invoked by the `GSource` should be added with
+    /// `g_source_set_callback()`, but it has type `GIOFunc` (not `GSourceFunc`).
     /// 
     /// `g_io_add_watch()` is a simpler interface to this same functionality, for
     /// the case where you want to add the source to the default main loop context

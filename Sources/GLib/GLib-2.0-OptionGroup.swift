@@ -82,7 +82,7 @@ public extension OptionGroupRef {
         /// Creates a new `GOptionGroup`.
     init( name: UnsafePointer<gchar>, description: UnsafePointer<gchar>, helpDescription help_description: UnsafePointer<gchar>, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) {
         let rv = g_option_group_new(name, description, help_description, cast(user_data), destroy)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -103,15 +103,27 @@ open class OptionGroup: OptionGroupProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `OptionGroup` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GOptionGroup>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `OptionGroupProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GOptionGroup`.
-    public convenience init<T: OptionGroupProtocol>(_ other: T) {
-        self.init(cast(other.option_group_ptr))
+    /// i.e., ownership is transferred to the `OptionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GOptionGroup>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_option_group_ref(cast(option_group_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `OptionGroupProtocol`
+    /// Will retain `GOptionGroup`.
+    /// - Parameter other: an instance of a related type that implements `OptionGroupProtocol`
+    public init<T: OptionGroupProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.option_group_ptr)
         g_option_group_ref(cast(option_group_ptr))
     }
 
@@ -122,32 +134,67 @@ open class OptionGroup: OptionGroupProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GOptionGroup.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_option_group_ref(cast(option_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GOptionGroup.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_option_group_ref(cast(option_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GOptionGroup.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_option_group_ref(cast(option_group_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GOptionGroup>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_option_group_ref(cast(option_group_ptr))
     }
 
     /// Creates a new `GOptionGroup`.
-    public convenience init( name: UnsafePointer<gchar>, description: UnsafePointer<gchar>, helpDescription help_description: UnsafePointer<gchar>, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) {
+    public init( name: UnsafePointer<gchar>, description: UnsafePointer<gchar>, helpDescription help_description: UnsafePointer<gchar>, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) {
         let rv = g_option_group_new(name, description, help_description, cast(user_data), destroy)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -163,8 +210,8 @@ public extension OptionGroupProtocol {
     var option_group_ptr: UnsafeMutablePointer<GOptionGroup> { return ptr.assumingMemoryBound(to: GOptionGroup.self) }
 
     /// Adds the options specified in `entries` to `group`.
-    func add(entries: OptionEntryProtocol) {
-        g_option_group_add_entries(cast(option_group_ptr), cast(entries.ptr))
+    func add(entries: UnsafePointer<GOptionEntry>) {
+        g_option_group_add_entries(cast(option_group_ptr), cast(entries))
     
     }
 

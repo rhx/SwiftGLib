@@ -86,15 +86,27 @@ open class Hmac: HmacProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Hmac` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Hmac` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GHmac>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `HmacProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GHmac`.
-    public convenience init<T: HmacProtocol>(_ other: T) {
-        self.init(cast(other._ptr))
+    /// i.e., ownership is transferred to the `Hmac` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GHmac>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_hmac_ref(cast(_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `HmacProtocol`
+    /// Will retain `GHmac`.
+    /// - Parameter other: an instance of a related type that implements `HmacProtocol`
+    public init<T: HmacProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other._ptr)
         g_hmac_ref(cast(_ptr))
     }
 
@@ -105,26 +117,61 @@ open class Hmac: HmacProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GHmac.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_hmac_ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GHmac.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_hmac_ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GHmac.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_hmac_ref(cast(_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GHmac>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_hmac_ref(cast(_ptr))
     }
 
 
@@ -158,7 +205,7 @@ public extension HmacProtocol {
     
     }
 
-    /// Gets the HMAC as an hexadecimal string.
+    /// Gets the HMAC as a hexadecimal string.
     /// 
     /// Once this function has been called the `GHmac` can no longer be
     /// updated with `g_hmac_update()`.
@@ -196,14 +243,14 @@ public extension HmacProtocol {
         g_hmac_update(cast(_ptr), cast(data), length)
     
     }
-    /// Gets the HMAC as an hexadecimal string.
+    /// Gets the HMAC as a hexadecimal string.
     /// 
     /// Once this function has been called the `GHmac` can no longer be
     /// updated with `g_hmac_update()`.
     /// 
     /// The hexadecimal characters will be lower case.
     var string: String! {
-        /// Gets the HMAC as an hexadecimal string.
+        /// Gets the HMAC as a hexadecimal string.
         /// 
         /// Once this function has been called the `GHmac` can no longer be
         /// updated with `g_hmac_update()`.

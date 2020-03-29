@@ -14,6 +14,9 @@ public typealias NativeSocketAddressClass = GNativeSocketAddressClass
 /// allowed. The year is represented with four digits.
 public typealias DateYear = GDateYear
 
+/// Opaque type. See `g_main_context_pusher_new()` for details.
+public typealias MainContextPusher = GMainContextPusher
+
 /// Opaque type. See `g_mutex_locker_new()` for details.
 public typealias MutexLocker = GMutexLocker
 
