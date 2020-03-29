@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>TreeProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3536,9 +3560,11 @@ accessed only by using the following functions.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3574,7 +3600,7 @@ the <code>GTree</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L177-L180">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L224-L227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3614,7 +3640,7 @@ the tree, then walk the list and remove each item.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L190-L193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L237-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3651,7 +3677,7 @@ If the root node has children the height is 2, etc.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L200-L203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L247-L250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3693,7 +3719,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L215-L218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L262-L265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3728,7 +3754,7 @@ is <code>O(log n)</code> (where n is the number of key/value pairs in the tree).
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L223-L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L270-L273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3764,7 +3790,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L232-L235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L279-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3797,7 +3823,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L238-L241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L285-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3832,7 +3858,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L246-L249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L293-L296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3870,7 +3896,7 @@ If the key does not exist in the <code>GTree</code>, the function does nothing.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L257-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L304-L307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3911,7 +3937,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L271-L274">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L318-L321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3952,7 +3978,7 @@ pairs that have a larger key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3988,7 +4014,7 @@ the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L294-L297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L341-L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4022,13 +4048,13 @@ The order of a balanced tree is somewhat arbitrary.
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">traverseFunc</span> <span class="nv">traverse_func</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:4GLib12TraverseFunca">TraverseFunc</a></span><span class="p">,</span> <span class="n">traverseType</span> <span class="nv">traverse_type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:4GLib12TraverseTypea">TraverseType</a></span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L306-L309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L353-L356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4066,7 +4092,7 @@ memory allocated by <code>tree</code> will be released.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L317-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L364-L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4079,8 +4105,8 @@ memory allocated by <code>tree</code> will be released.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

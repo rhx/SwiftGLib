@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RegexError</h1>
               <div class="declaration">
                 <div class="language">
@@ -3619,7 +3643,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\</q> at end of pattern. Since 2.16</p>
+                        <p>&ldquo;\&rdquo; at end of pattern. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -3649,7 +3673,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\c</q> at end of pattern. Since 2.16</p>
+                        <p>&ldquo;\c&rdquo; at end of pattern. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -3679,7 +3703,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unrecognized character follows <q>\</q>.
+                        <p>Unrecognized character follows &ldquo;\&rdquo;.
     Since 2.16</p>
 
                       </div>
@@ -3710,7 +3734,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Numbers out of order in <q>{}</q>
+                        <p>Numbers out of order in &ldquo;{}&rdquo;
     quantifier. Since 2.16</p>
 
                       </div>
@@ -3741,7 +3765,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Number too big in <q>{}</q> quantifier.
+                        <p>Number too big in &ldquo;{}&rdquo; quantifier.
     Since 2.16</p>
 
                       </div>
@@ -3772,7 +3796,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Missing terminating <q>]</q> for
+                        <p>Missing terminating &ldquo;]&rdquo; for
     character class. Since 2.16</p>
 
                       </div>
@@ -3895,8 +3919,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unrecognized character after <q>(?</q>,
-    <q>(?<</q> or <q>(?P</q>. Since 2.16</p>
+                        <p>Unrecognized character after &ldquo;(?&rdquo;,
+    &ldquo;(?&lt;&rdquo; or &ldquo;(?P&rdquo;. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -3957,8 +3981,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Missing terminating <q>)</q> or <q>)</q>
-    without opening <q>(</q>. Since 2.16</p>
+                        <p>Missing terminating &ldquo;)&rdquo; or &ldquo;)&rdquo;
+    without opening &ldquo;(&rdquo;. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -4019,7 +4043,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Missing terminating <q>)</q> after comment.
+                        <p>Missing terminating &ldquo;)&rdquo; after comment.
     Since 2.16</p>
 
                       </div>
@@ -4142,7 +4166,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Malformed number or name after <q>(?(</q>.
+                        <p>Malformed number or name after &ldquo;(?(&rdquo;.
     Since 2.16</p>
 
                       </div>
@@ -4204,7 +4228,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Assertion expected after <q>(?(</q>.
+                        <p>Assertion expected after &ldquo;(?(&rdquo;.
     Since 2.16</p>
 
                       </div>
@@ -4297,7 +4321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Character value in <q>\x{&hellip;}</q> sequence
+                        <p>Character value in &ldquo;\x{&hellip;}&rdquo; sequence
     is too large. Since 2.16</p>
 
                       </div>
@@ -4328,7 +4352,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Invalid condition <q>(?(0)</q>. Since 2.16</p>
+                        <p>Invalid condition &ldquo;(?(0)&rdquo;. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -4482,7 +4506,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Malformed <q>\P</q> or <q>\p</q> sequence.
+                        <p>Malformed &ldquo;\P&rdquo; or &ldquo;\p&rdquo; sequence.
     Since 2.16</p>
 
                       </div>
@@ -4513,8 +4537,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Unknown property name after <q>\P</q> or
-    <q>\p</q>. Since 2.16</p>
+                        <p>Unknown property name after &ldquo;\P&rdquo; or
+    &ldquo;\p&rdquo;. Since 2.16</p>
 
                       </div>
                       <div class="declaration">
@@ -4606,7 +4630,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Octal value is greater than <q>\377</q>.
+                        <p>Octal value is greater than &ldquo;\377&rdquo;.
     Since 2.16</p>
 
                       </div>
@@ -4637,7 +4661,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>DEFINE</q> group contains more
+                        <p>&ldquo;DEFINE&rdquo; group contains more
     than one branch. Since 2.16</p>
 
                       </div>
@@ -4668,7 +4692,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Repeating a <q>DEFINE</q> group is not allowed.
+                        <p>Repeating a &ldquo;DEFINE&rdquo; group is not allowed.
     This error is never raised. Since: 2.16 Deprecated: 2.34</p>
 
                       </div>
@@ -4730,7 +4754,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\g</q> is not followed by a braced,
+                        <p>&ldquo;\g&rdquo; is not followed by a braced,
      angle-bracketed, or quoted name or number, or by a plain number. Since: 2.16</p>
 
                       </div>
@@ -4944,7 +4968,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>In JavaScript compatibility mode,
-    <q>[</q> is an invalid data character. Since: 2.34</p>
+    &ldquo;[&rdquo; is an invalid data character. Since: 2.34</p>
 
                       </div>
                       <div class="declaration">
@@ -5036,7 +5060,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\c</q> must be followed by an ASCII
+                        <p>&ldquo;\c&rdquo; must be followed by an ASCII
     character. Since: 2.34</p>
 
                       </div>
@@ -5067,7 +5091,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\k</q> is not followed by a braced, angle-bracketed, or
+                        <p>&ldquo;\k&rdquo; is not followed by a braced, angle-bracketed, or
     quoted name. Since: 2.34</p>
 
                       </div>
@@ -5098,7 +5122,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><q>\N</q> is not supported in a class. Since: 2.34</p>
+                        <p>&ldquo;\N&rdquo; is not supported in a class. Since: 2.34</p>
 
                       </div>
                       <div class="declaration">
@@ -5158,8 +5182,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>the name is too long in <q>(*MARK)</q>, <q>(*PRUNE)</q>,
-    <q>(*SKIP)</q>, or <q>(*THEN)</q>. Since: 2.34</p>
+                        <p>the name is too long in &ldquo;(*MARK)&rdquo;, &ldquo;(*PRUNE)&rdquo;,
+    &ldquo;(*SKIP)&rdquo;, or &ldquo;(*THEN)&rdquo;. Since: 2.34</p>
 
                       </div>
                       <div class="declaration">
@@ -5215,8 +5239,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

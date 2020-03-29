@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>PtrArrayProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3534,9 +3558,11 @@ Alternatively, use <code><a href="../Structs/PtrArrayRef.html">PtrArrayRef</a></
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3568,7 +3594,7 @@ in size automatically if necessary.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L197-L200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L244-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3613,7 +3639,7 @@ pointing to) are copied to the new <code>GPtrArray</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L215-L218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L262-L265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3657,7 +3683,7 @@ pointing to) are copied to the new <code>GPtrArray</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L232-L235">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L279-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3696,7 +3722,7 @@ length of <code>array</code> set to zero.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L244-L247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L291-L294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3735,7 +3761,7 @@ checks, such as string comparisons, use <code>g_ptr_array_find_with_equal_func()
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L256-L259">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L303-L306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3776,7 +3802,7 @@ equality is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L270-L273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L317-L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3810,7 +3836,7 @@ add elements to or remove elements from the array.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L277-L280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L324-L327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3856,7 +3882,7 @@ functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L296-L299">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L343-L346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3890,7 +3916,7 @@ array will grow in size automatically if necessary.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L303-L306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L350-L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3924,7 +3950,7 @@ This function is thread-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L310-L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L357-L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3963,7 +3989,7 @@ pointer was not found.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L322-L325">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L369-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4003,7 +4029,7 @@ pointer was not found.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L335-L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L382-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4040,7 +4066,7 @@ to freed memory (depending on the <code>GDestroyNotify</code> implementation).</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L392-L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4079,7 +4105,7 @@ return value from this function will potentially point to freed memory
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L357-L360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L404-L407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4115,7 +4141,7 @@ called for the removed elements.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L366-L369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4150,7 +4176,7 @@ with <code>free_segment</code> set to <code>true</code> or when removing element
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L374-L377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L421-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4186,7 +4212,7 @@ called for the removed elements.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L383-L386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L430-L433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4214,7 +4240,32 @@ greater than second arg).</p>
 
 <p>Note that the comparison function for <code>g_ptr_array_sort()</code> doesn&rsquo;t
 take the pointers from the array as arguments, it takes pointers to
-the pointers in the array.</p>
+the pointers in the array. Here is a full example of usage:</p>
+
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>typedef struct
+{
+  gchar *name;
+  gint size;
+} FileListEntry;
+
+static gint
+sort_filelist (gconstpointer a, gconstpointer b)
+{
+  const FileListEntry *entry1 = *((FileListEntry **) a);
+  const FileListEntry *entry2 = *((FileListEntry **) b);
+
+  return g_ascii_strcasecmp (entry1-&gt;name, entry2-&gt;name);
+}
+
+…
+g_autoptr (GPtrArray) file_list = NULL;
+
+// initialize file_list array and load with many FileListEntry entries
+...
+// now sort it with
+g_ptr_array_sort (file_list, sort_filelist);
+</code></pre>
 
 <p>This is guaranteed to be a stable sort since version 2.32.</p>
 
@@ -4228,7 +4279,7 @@ the pointers in the array.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L398-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L471-L474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4254,7 +4305,52 @@ user data argument.</p>
 
 <p>Note that the comparison function for <code>g_ptr_array_sort_with_data()</code>
 doesn&rsquo;t take the pointers from the array as arguments, it takes
-pointers to the pointers in the array.</p>
+pointers to the pointers in the array. Here is a full example of use:</p>
+
+<p>(C Language Example):</p>
+<pre class="highlight plaintext"><code>typedef enum { SORT_NAME, SORT_SIZE } SortMode;
+
+typedef struct
+{
+  gchar *name;
+  gint size;
+} FileListEntry;
+
+static gint
+sort_filelist (gconstpointer a, gconstpointer b, gpointer user_data)
+{
+  gint order;
+  const SortMode sort_mode = GPOINTER_TO_INT (user_data);
+  const FileListEntry *entry1 = *((FileListEntry **) a);
+  const FileListEntry *entry2 = *((FileListEntry **) b);
+
+  switch (sort_mode)
+    {
+    case SORT_NAME:
+      order = g_ascii_strcasecmp (entry1-&gt;name, entry2-&gt;name);
+      break;
+    case SORT_SIZE:
+      order = entry1-&gt;size - entry2-&gt;size;
+      break;
+    default:
+      order = 0;
+      break;
+    }
+  return order;
+}
+
+...
+g_autoptr (GPtrArray) file_list = NULL;
+SortMode sort_mode;
+
+// initialize file_list array and load with many FileListEntry entries
+...
+// now sort it with
+sort_mode = SORT_NAME;
+g_ptr_array_sort_with_data (file_list,
+                            sort_filelist,
+                            GINT_TO_POINTER (sort_mode));
+</code></pre>
 
 <p>This is guaranteed to be a stable sort since version 2.32.</p>
 
@@ -4268,7 +4364,79 @@ pointers to the pointers in the array.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L411-L414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L530-L533">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib16PtrArrayProtocolPAAE5steal3lenSpySvGSgSpySiG_tF"></a>
+                    <a name="//apple_ref/swift/Method/steal(len:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib16PtrArrayProtocolPAAE5steal3lenSpySvGSgSpySiG_tF">steal(len:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Frees the data in the array and resets the size to zero, while
+the underlying array is preserved for use elsewhere and returned
+to the caller.</p>
+
+<p>Even if set, the <code>GDestroyNotify</code> function will never be called
+on the current contents of the array and the caller is
+responsible for freeing the array elements.</p>
+
+<p>An example of use:
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>g_autoptr(GPtrArray) chunk_buffer = g_ptr_array_new_with_free_func (g_bytes_unref);
+
+// Some part of your application appends a number of chunks to the pointer array.
+g_ptr_array_add (chunk_buffer, g_bytes_new_static ("hello", 5));
+g_ptr_array_add (chunk_buffer, g_bytes_new_static ("world", 5));
+
+…
+
+// Periodically, the chunks need to be sent as an array-and-length to some
+// other part of the program.
+GBytes **chunks;
+gsize n_chunks;
+
+chunks = g_ptr_array_steal (chunk_buffer, &amp;n_chunks);
+for (gsize i = 0; i &lt; n_chunks; i++)
+  {
+    // Do something with each chunk here, and then free them, since
+    // g_ptr_array_steal() transfers ownership of all the elements and the
+    // array to the caller.
+    …
+
+    g_bytes_unref (chunks[i]);
+  }
+
+g_free (chunks);
+
+// After calling g_ptr_array_steal(), the pointer array can be reused for the
+// next set of chunks.
+g_assert (chunk_buffer-&gt;len == 0);
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">steal</span><span class="p">(</span><span class="nv">len</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">Int</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutableRawPointer</span><span class="o">&gt;!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L577-L580">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4304,7 +4472,7 @@ the caller of this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L420-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L586-L589">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4342,7 +4510,7 @@ of this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L431-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L597-L600">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4378,7 +4546,7 @@ is thread-safe and may be called from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L440-L443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L606-L609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4417,7 +4585,7 @@ checks, such as string comparisons, use <code>g_ptr_array_find_with_equal_func()
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L452-L455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L618-L621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4458,7 +4626,7 @@ equality is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L466-L469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L632-L635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4471,8 +4639,8 @@ equality is used.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

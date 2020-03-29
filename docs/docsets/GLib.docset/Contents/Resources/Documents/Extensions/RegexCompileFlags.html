@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>RegexCompileFlags</h1>
               <div class="declaration">
                 <div class="language">
@@ -3469,7 +3493,7 @@
                       <div class="abstract">
                         <p>Letters in the pattern match both upper- and
     lowercase letters. This option can be changed within a pattern
-    by a <q>(?i)</q> option setting.</p>
+    by a &ldquo;(?i)&rdquo; option setting.</p>
 
                       </div>
                       <div class="declaration">
@@ -3501,14 +3525,14 @@
                       <div class="abstract">
                         <p>By default, GRegex treats the strings as consisting
     of a single line of characters (even if it actually contains
-    newlines). The <q>start of line</q> metacharacter (<q>^</q>) matches only
-    at the start of the string, while the <q>end of line</q> metacharacter
-    (<q>$</q>) matches only at the end of the string, or before a terminating
+    newlines). The &ldquo;start of line&rdquo; metacharacter (&ldquo;^&rdquo;) matches only
+    at the start of the string, while the &ldquo;end of line&rdquo; metacharacter
+    (&ldquo;$&rdquo;) matches only at the end of the string, or before a terminating
     newline (unless <code>G_REGEX_DOLLAR_ENDONLY</code> is set). When
-    <code>G_REGEX_MULTILINE</code> is set, the <q>start of line</q> and <q>end of line</q>
+    <code>G_REGEX_MULTILINE</code> is set, the &ldquo;start of line&rdquo; and &ldquo;end of line&rdquo;
     constructs match immediately following or immediately before any
     newline in the string, respectively, as well as at the very start
-    and end. This can be changed within a pattern by a <q>(?m)</q> option
+    and end. This can be changed within a pattern by a &ldquo;(?m)&rdquo; option
     setting.</p>
 
                       </div>
@@ -3539,9 +3563,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A dot metacharacter (<q>.</q>) in the pattern matches all
+                        <p>A dot metacharacter (&ldquo;.&rdquo;) in the pattern matches all
     characters, including newlines. Without it, newlines are excluded.
-    This option can be changed within a pattern by a (<q>?s</q>) option setting.</p>
+    This option can be changed within a pattern by a (&ldquo;?s&rdquo;) option setting.</p>
 
                       </div>
                       <div class="declaration">
@@ -3574,9 +3598,9 @@
                         <p>Whitespace data characters in the pattern are
     totally ignored except when escaped or inside a character class.
     Whitespace does not include the VT character (code 11). In addition,
-    characters between an unescaped <q>#</q> outside a character class and
+    characters between an unescaped &ldquo;#&rdquo; outside a character class and
     the next newline character, inclusive, are also ignored. This can
-    be changed within a pattern by a <q>(?x)</q> option setting.</p>
+    be changed within a pattern by a &ldquo;(?x)&rdquo; option setting.</p>
 
                       </div>
                       <div class="declaration">
@@ -3606,10 +3630,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The pattern is forced to be <q>anchored</q>, that is,
+                        <p>The pattern is forced to be &ldquo;anchored&rdquo;, that is,
     it is constrained to match only at the first matching point in the
     string that is being searched. This effect can also be achieved by
-    appropriate constructs in the pattern itself such as the <q>^</q>
+    appropriate constructs in the pattern itself such as the &ldquo;^&rdquo;
     metacharacter.</p>
 
                       </div>
@@ -3640,7 +3664,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A dollar metacharacter (<q>$</q>) in the pattern
+                        <p>A dollar metacharacter (&ldquo;$&rdquo;) in the pattern
     matches only at the end of the string. Without this option, a
     dollar also matches immediately before the final character if
     it is a newline (but not before any other newlines). This option
@@ -3674,9 +3698,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Inverts the <q>greediness</q> of the quantifiers so that
-    they are not greedy by default, but become greedy if followed by <q>?</q>.
-    It can also be set by a <q>(?U)</q> option setting within the pattern.</p>
+                        <p>Inverts the &ldquo;greediness&rdquo; of the quantifiers so that
+    they are not greedy by default, but become greedy if followed by &ldquo;?&rdquo;.
+    It can also be set by a &ldquo;(?U)&rdquo; option setting within the pattern.</p>
 
                       </div>
                       <div class="declaration">
@@ -3739,7 +3763,7 @@
                       <div class="abstract">
                         <p>Disables the use of numbered capturing
     parentheses in the pattern. Any opening parenthesis that is not
-    followed by <q>?</q> behaves as if it were followed by <q>?:</q> but named
+    followed by &ldquo;?&rdquo; behaves as if it were followed by &ldquo;?:&rdquo; but named
     parentheses can still be used for capturing (and they acquire numbers
     in the usual way).</p>
 
@@ -3996,7 +4020,7 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Usually any newline character or character sequence
-    is recognised. If this option is set, then <q>\R</q> only recognizes the newline
+    is recognised. If this option is set, then &ldquo;\R&rdquo; only recognizes the newline
    characters &lsquo;\r&rsquo;, &lsquo;\n&rsquo; and &lsquo;\r\n&rsquo;. Since: 2.34</p>
 
                       </div>
@@ -4053,8 +4077,8 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

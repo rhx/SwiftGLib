@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>VariantTypeProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3459,28 +3483,28 @@ therefore, provides a significant amount of
 information that is useful when working with GVariant.</p>
 
 <p>The first major change with respect to the D-Bus type system is the
-introduction of maybe (or <q>nullable</q>) types.  Any type in GVariant can be
-converted to a maybe type, in which case, <q>nothing</q> (or <q>null</q>) becomes a
+introduction of maybe (or &ldquo;nullable&rdquo;) types.  Any type in GVariant can be
+converted to a maybe type, in which case, &ldquo;nothing&rdquo; (or &ldquo;null&rdquo;) becomes a
 valid value.  Maybe types have been added by introducing the
-character <q>m</q> to type strings.</p>
+character &ldquo;m&rdquo; to type strings.</p>
 
 <p>The second major change is that the GVariant type system supports the
-concept of <q>indefinite types</q> &ndash; types that are less specific than
+concept of &ldquo;indefinite types&rdquo; &ndash; types that are less specific than
 the normal types found in D-Bus.  For example, it is possible to speak
-of <q>an array of any type</q> in GVariant, where the D-Bus type system
-would require you to speak of <q>an array of integers</q> or <q>an array of
-strings</q>.  Indefinite types have been added by introducing the
-characters <q>*</q>, <q>?</q> and <q>r</q> to type strings.</p>
+of &ldquo;an array of any type&rdquo; in GVariant, where the D-Bus type system
+would require you to speak of &ldquo;an array of integers&rdquo; or &ldquo;an array of
+strings&rdquo;.  Indefinite types have been added by introducing the
+characters &ldquo;*&rdquo;, &ldquo;?&rdquo; and &ldquo;r&rdquo; to type strings.</p>
 
 <p>Finally, all arbitrary restrictions relating to the complexity of
 types are lifted along with the restriction that dictionary entries
 may only appear nested inside of arrays.</p>
 
-<p>Just as in D-Bus, GVariant types are described with strings (<q>type
-strings</q>).  Subject to the differences mentioned above, these strings
+<p>Just as in D-Bus, GVariant types are described with strings (&ldquo;type
+strings&rdquo;).  Subject to the differences mentioned above, these strings
 are of the same form as those found in DBus.  Note, however: D-Bus
 always works in terms of messages and therefore individual type
-strings appear nowhere in its interface.  Instead, <q>signatures</q>
+strings appear nowhere in its interface.  Instead, &ldquo;signatures&rdquo;
 are a concatenation of the strings of the type of each argument in a
 message.  GVariant deals with single values directly so GVariant type
 strings always describe the type of exactly one value.  This means
@@ -3494,11 +3518,11 @@ indefinite type as its type, but values can exist that have types
 that are subtypes of indefinite types.  That is to say,
 <code>g_variant_get_type()</code> will never return an indefinite type, but
 calling <code>g_variant_is_of_type()</code> with an indefinite type may return
-<code>true</code>.  For example, you cannot have a value that represents <q>an
-array of no particular type</q>, but you can have an <q>array of integers</q>
-which certainly matches the type of <q>an array of no particular type</q>,
-since <q>array of integers</q> is a subtype of <q>array of no particular
-type</q>.</p>
+<code>true</code>.  For example, you cannot have a value that represents &ldquo;an
+array of no particular type&rdquo;, but you can have an &ldquo;array of integers&rdquo;
+which certainly matches the type of &ldquo;an array of no particular type&rdquo;,
+since &ldquo;array of integers&rdquo; is a subtype of &ldquo;array of no particular
+type&rdquo;.</p>
 
 <p>This is similar to how instances of abstract classes may not
 directly exist in other type systems, but instances of their
@@ -3513,7 +3537,7 @@ that the <code>GtkWindow</code> is a <code>GtkBin</code> (since <code>GtkWindow<
 
 <ul>
 <li><p>any basic type string (listed below)</p></li>
-<li><p><q>v</q>, <q>r</q> or <q>*</q></p></li>
+<li><p>&ldquo;v&rdquo;, &ldquo;r&rdquo; or &ldquo;*&rdquo;</p></li>
 <li><p>one of the characters &lsquo;a&rsquo; or &lsquo;m&rsquo;, followed by another type string</p></li>
 <li><p>the character &lsquo;(&rsquo;, followed by a concatenation of zero or more other
 type strings, followed by the character &lsquo;)&rsquo;</p></li>
@@ -3523,11 +3547,11 @@ followed by another type string, followed by the character &lsquo;}&rsquo;</p></
 
 <p>A basic type string describes a basic type (as per
 <code>g_variant_type_is_basic()</code>) and is always a single character in length.
-The valid basic type strings are <q>b</q>, <q>y</q>, <q>n</q>, <q>q</q>, <q>i</q>, <q>u</q>, <q>x</q>, <q>t</q>,
-<q>h</q>, <q>d</q>, <q>s</q>, <q>o</q>, <q>g</q> and <q>?</q>.</p>
+The valid basic type strings are &ldquo;b&rdquo;, &ldquo;y&rdquo;, &ldquo;n&rdquo;, &ldquo;q&rdquo;, &ldquo;i&rdquo;, &ldquo;u&rdquo;, &ldquo;x&rdquo;, &ldquo;t&rdquo;,
+&ldquo;h&rdquo;, &ldquo;d&rdquo;, &ldquo;s&rdquo;, &ldquo;o&rdquo;, &ldquo;g&rdquo; and &ldquo;?&rdquo;.</p>
 
-<p>The above definition is recursive to arbitrary depth. <q>aaaaai</q> and
-<q>(`ui(nq((y)`))s)</q> are both valid type strings, as is
+<p>The above definition is recursive to arbitrary depth. &ldquo;aaaaai&rdquo; and
+&ldquo;(<code>ui(nq((y)</code>))s)&rdquo; are both valid type strings, as is
 <code>&quot;a(aa(ui)</code>(qna{<code>ya(yd)</code>}))&ldquo;. In order to not hit memory limits, <code>GVariant</code>
 imposes a limit on recursion depth of 65 nested containers. This is the
 limit in the D-Bus specification (64) plus one to allow a <code>GDBusMessage</code> to
@@ -3559,20 +3583,20 @@ is a supertype of any of the basic types.</li>
 <li><code>v</code>: the type string of <code>G_VARIANT_TYPE_VARIANT</code>; a container type that
 contain any other type of value.</li>
 <li><code>a</code>: used as a prefix on another type string to mean an array of that
-type; the type string <q>ai</q>, for example, is the type of an array of
+type; the type string &quot;ai&rdquo;, for example, is the type of an array of
 signed 32-bit integers.</li>
-<li><code>m</code>: used as a prefix on another type string to mean a <q>maybe</q>, or
-<q>nullable</q>, version of that type; the type string <q>ms</q>, for example,
+<li><code>m</code>: used as a prefix on another type string to mean a &ldquo;maybe&rdquo;, or
+&ldquo;nullable&rdquo;, version of that type; the type string &ldquo;ms&rdquo;, for example,
 is the type of a value that maybe contains a string, or maybe contains
 nothing.</li>
 <li><code>()</code>: used to enclose zero or more other concatenated type strings to
-create a tuple type; the type string <q>(is)</q>, for example, is the type of
+create a tuple type; the type string &ldquo;(is)&rdquo;, for example, is the type of
 a pair of an integer and a string.</li>
 <li><code>r</code>: the type string of <code>G_VARIANT_TYPE_TUPLE</code>; an indefinite type that is
 a supertype of any tuple type, regardless of the number of items.</li>
 <li><code>{}</code>: used to enclose a basic type string concatenated with another type
 string to create a dictionary entry type, which usually appears inside of
-an array to form a dictionary; the type string <q>a{sd}</q>, for example, is
+an array to form a dictionary; the type string &ldquo;a{sd}&rdquo;, for example, is
 the type of a dictionary that maps strings to double precision floating
 point values.</li>
 </ul>
@@ -3585,22 +3609,22 @@ point values.</li>
 <li><code>*</code>: the type string of <code>G_VARIANT_TYPE_ANY</code>; the indefinite type that is
 a supertype of all types.  Note that, as with all type strings, this
 character represents exactly one type. It cannot be used inside of tuples
-to mean <q>any number of items</q>.</li>
+to mean &ldquo;any number of items&rdquo;.</li>
 </ul>
 
 <p>Any type string of a container that contains an indefinite type is,
-itself, an indefinite type. For example, the type string <q>a*</q>
+itself, an indefinite type. For example, the type string &ldquo;a*&rdquo;
 (corresponding to <code>G_VARIANT_TYPE_ARRAY</code>) is an indefinite type
-that is a supertype of every array type. <q>(*s)</q> is a supertype
+that is a supertype of every array type. &ldquo;(*s)&rdquo; is a supertype
 of all tuples that contain exactly two items where the second
 item is a string.</p>
 
-<p><q>a{?*}</q> is an indefinite type that is a supertype of all arrays
+<p>&ldquo;a{?<em>}&rdquo; is an indefinite type that is a supertype of all arrays
 containing dictionary entries where the key is any basic type and
 the value is any type at all.  This is, by definition, a dictionary,
 so this type string corresponds to <code>G_VARIANT_TYPE_DICTIONARY</code>. Note
 that, due to the restriction that the key of a dictionary entry must
-be a basic type, <q>{**}</q> is not a valid type string.</p>
+be a basic type, &ldquo;{</em>*}&rdquo; is not a valid type string.</p>
 
           </div>
         </section>
@@ -3683,9 +3707,11 @@ be a basic type, <q>{**}</q> is not a valid type string.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3717,7 +3743,7 @@ be a basic type, <q>{**}</q> is not a valid type string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L649-L652">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L696-L699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3752,7 +3778,7 @@ call <code>g_free()</code> on the return value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L657-L660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L704-L707">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3787,7 +3813,7 @@ call <code>g_free()</code> on the return value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L665-L668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L712-L715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3829,7 +3855,7 @@ both arguments, a valid <code>GVariantType</code> must be provided.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L680-L683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L727-L730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3875,7 +3901,7 @@ interface over tuple and dictionary entry types.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L699-L702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L746-L749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3914,7 +3940,7 @@ type constructor functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L711-L714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L758-L761">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3949,7 +3975,7 @@ the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L719-L722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L766-L769">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3986,7 +4012,7 @@ the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L729-L732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L776-L779">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4023,7 +4049,7 @@ only indefinite types can have subtypes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L739-L742">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L786-L789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4060,7 +4086,7 @@ than the additional restriction, this call is equivalent to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L749-L752">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L796-L799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4101,7 +4127,7 @@ return 2.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L763-L766">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L810-L813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4144,7 +4170,7 @@ entry then this call returns <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L779-L782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L826-L829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4181,7 +4207,7 @@ must call <code>g_variant_type_get_string_length()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L789-L792">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L836-L839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4216,7 +4242,7 @@ must call <code>g_variant_type_get_string_length()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L797-L800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L844-L847">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4266,8 +4292,12 @@ is returned. It is never floating, and must be freed with
 <p>In case of any error, <code>nil</code> will be returned.  If <code>error</code> is non-<code>nil</code>
 then it will be set to reflect the error that occurred.</p>
 
-<p>Officially, the language understood by the parser is <q>any string
-produced by `g_variant_print()`</q>.</p>
+<p>Officially, the language understood by the parser is &ldquo;any string
+produced by <code>g_variant_print()</code>&rdquo;.</p>
+
+<p>There may be implementation specific restrictions on deeply nested values,
+which would result in a <code>G_VARIANT_PARSE_ERROR_RECURSION</code> error. <code>GVariant</code> is
+guaranteed to handle nesting up to at least 64 levels.</p>
 
                       </div>
                       <div class="declaration">
@@ -4279,7 +4309,7 @@ produced by `g_variant_print()`</q>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L833-L840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L884-L891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4317,7 +4347,7 @@ example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L847-L858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L898-L909">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4358,7 +4388,7 @@ paths and signatures.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L869-L883">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L920-L934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4398,7 +4428,7 @@ example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L893-L906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L944-L957">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4440,7 +4470,7 @@ indefinite type like <code>G_VARIANT_TYPE_ARRAY</code>, however, will result in
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L918-L933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L969-L984">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4478,7 +4508,7 @@ definite subtype is a dictionary entry type &ndash;
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L941-L952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L992-L1003">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4516,7 +4546,7 @@ example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L960-L971">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L1011-L1022">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4555,7 +4585,7 @@ example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L980-L992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L1031-L1043">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4588,7 +4618,7 @@ example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L995-L1001">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L1046-L1052">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4623,7 +4653,7 @@ the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L1006-L1014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-VariantType.swift#L1057-L1065">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4636,8 +4666,8 @@ the memory region returned by <code>g_variant_type_peek_string()</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

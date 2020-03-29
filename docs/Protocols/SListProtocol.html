@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SListProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3535,9 +3559,11 @@ list.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3589,7 +3615,7 @@ number_list = g_slist_append (number_list, GINT_TO_POINTER (14));
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L178-L181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L225-L228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3624,7 +3650,7 @@ They are used directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L186-L189">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L233-L236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3647,7 +3673,7 @@ They are used directly.</p>
                       <div class="abstract">
                         <p>Copies a <code>GSList</code>.</p>
 
-<p>Note that this is a <q>shallow</q> copy. If the list elements
+<p>Note that this is a &ldquo;shallow&rdquo; copy. If the list elements
 consist of pointers to data, the pointers are copied but
 the actual data isn&rsquo;t. See <code>g_slist_copy_deep()</code> if you need
 to copy the data as well.</p>
@@ -3662,7 +3688,7 @@ to copy the data as well.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L197-L200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L244-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3714,7 +3740,7 @@ may get compiler warnings from this though if compiling with GCC’s
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L225-L228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L272-L275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3755,7 +3781,7 @@ consider a different data structure, such as the doubly-linked
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L239-L242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L286-L289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3789,7 +3815,7 @@ contains the given data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L246-L249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L293-L296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3827,7 +3853,7 @@ given user data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L257-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L304-L307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3863,7 +3889,7 @@ not modify any part of the list after that element.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L266-L269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L313-L316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3891,6 +3917,13 @@ The freed elements are returned to the slice allocator.</p>
 you should either use <code>g_slist_free_full()</code> or free them manually
 first.</p>
 
+<p>It can be combined with <code>g_steal_pointer()</code> to ensure the list head pointer
+is not left dangling:
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>GSList *list_of_borrowed_things = …;  /&lt;!-- --&gt;* (transfer container) *&lt;!-- --&gt;/
+g_slist_free (g_steal_pointer (&amp;list_of_borrowed_things));
+</code></pre>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -3901,7 +3934,7 @@ first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L277-L280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L333-L336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3935,7 +3968,7 @@ It is usually used after <code>g_slist_remove_link()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L284-L287">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L340-L343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3962,6 +3995,15 @@ calls the specified destroy function on every element&rsquo;s data.</p>
 <p><code>free_func</code> must not modify the list (eg, by removing the freed
 element from it).</p>
 
+<p>It can be combined with <code>g_steal_pointer()</code> to ensure the list head pointer
+is not left dangling ­— this also has the nice property that the head pointer
+is cleared before any of the list elements are freed, to prevent double frees
+from <code>free_func:</code>
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>GSList *list_of_owned_things = …;  /&lt;!-- --&gt;* (transfer full) (element-type GObject) *&lt;!-- --&gt;/
+g_slist_free_full (g_steal_pointer (&amp;list_of_owned_things), g_object_unref);
+</code></pre>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -3972,7 +4014,7 @@ element from it).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L294-L297">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L361-L364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4006,7 +4048,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L301-L304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L368-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4039,7 +4081,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L307-L310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L374-L377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4072,7 +4114,7 @@ the given data (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L313-L316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L380-L383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4106,7 +4148,7 @@ comparison function to determine its position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L320-L323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L387-L390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4140,7 +4182,7 @@ comparison function to determine its position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L327-L330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L394-L397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4175,7 +4217,7 @@ comparison function to determine its position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L335-L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L402-L405">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4212,7 +4254,7 @@ check <code>list</code> against <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L412-L415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4245,7 +4287,7 @@ check <code>list</code> against <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L351-L354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L418-L421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4278,7 +4320,7 @@ check <code>list</code> against <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L357-L360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4312,7 +4354,7 @@ in the <code>GSList</code> (starting from 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L364-L367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L431-L434">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4355,7 +4397,7 @@ list = g_slist_prepend (list, "first");
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L382-L385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L449-L452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4390,7 +4432,7 @@ If none of the elements contain the data, the <code>GSList</code> is unchanged.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L390-L393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L457-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4426,7 +4468,7 @@ matching the given data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L399-L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L466-L469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4468,7 +4510,7 @@ such as the doubly-linked <code>GList</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L414-L417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L481-L484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4501,7 +4543,7 @@ such as the doubly-linked <code>GList</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L420-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L487-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4535,7 +4577,7 @@ used is a stable sort.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L427-L430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L494-L497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4568,7 +4610,42 @@ used is a stable sort.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L433-L436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L500-L503">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib13SListProtocolPAAE10clearSlist7destroyyySvSgXC_tF"></a>
+                    <a name="//apple_ref/swift/Method/clearSlist(destroy:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib13SListProtocolPAAE10clearSlist7destroyyySvSgXC_tF">clearSlist(destroy:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears a pointer to a <code>GSList</code>, freeing it and, optionally, freeing its elements using <code>destroy</code>.</p>
+
+<p><code>slist_ptr</code> must be a valid pointer. If <code>slist_ptr</code> points to a null <code>GSList</code>, this does nothing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">clearSlist</span><span class="p">(</span><span class="nv">destroy</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:4GLib13DestroyNotifya">DestroyNotify</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-SList.swift#L508-L511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4581,8 +4658,8 @@ used is a stable sort.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

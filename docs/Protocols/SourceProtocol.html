@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SourceProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3535,9 +3559,11 @@ representing an event source.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3556,7 +3582,7 @@ representing an event source.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds <code>child_source</code> to <code>source</code> as a <q>polled</q> source; when <code>source</code> is
+                        <p>Adds <code>child_source</code> to <code>source</code> as a &ldquo;polled&rdquo; source; when <code>source</code> is
 added to a <code>GMainContext</code>, <code>child_source</code> will be automatically added
 with the same priority, when <code>child_source</code> is triggered, it will
 cause <code>source</code> to dispatch (in addition to calling its own
@@ -3584,7 +3610,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L181-L184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L228-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3628,7 +3654,7 @@ main loop iteration.  Newly-written event sources should try to use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L198-L201">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L245-L248">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3673,7 +3699,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L216-L219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L263-L266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3697,6 +3723,9 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         <p>Adds a <code>GSource</code> to a <code><a href="../Protocols/SourceProtocol.html#/s:4GLib14SourceProtocolPAAE7contextSpySo13_GMainContextVGSgvp">context</a></code> so that it will be executed within
 that context. Remove it by calling <code>g_source_destroy()</code>.</p>
 
+<p>This function is safe to call from any thread, regardless of which thread
+the <code><a href="../Protocols/SourceProtocol.html#/s:4GLib14SourceProtocolPAAE7contextSpySo13_GMainContextVGSgvp">context</a></code> is running in.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -3707,7 +3736,7 @@ that context. Remove it by calling <code>g_source_destroy()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L223-L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L273-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3736,6 +3765,9 @@ removed from their context.</p>
 <p>This does not unref the <code>GSource:</code> if you still hold a reference, use
 <code>g_source_unref()</code> to drop it.</p>
 
+<p>This function is safe to call from any thread, regardless of which thread
+the <code>GMainContext</code> is running in.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -3746,7 +3778,7 @@ removed from their context.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L235-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L288-L291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3780,7 +3812,7 @@ see <code>g_source_set_can_recurse()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L242-L245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L295-L298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3820,7 +3852,7 @@ whose <code>GMainContext</code> has been destroyed is an error.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L255-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L308-L311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3852,13 +3884,13 @@ use g_source_get_time() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getCurrentTime</span><span class="p">(</span><span class="nv">timeval</span><span class="p">:</span> <span class="kt"><a href="../Protocols/TimeValProtocol.html">TimeValProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L265-L268">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L318-L321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3899,7 +3931,7 @@ is unique within the <code>GMainContext</code> instance passed to <code>g_source
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L279-L282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3933,7 +3965,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L286-L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L339-L342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3966,7 +3998,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L292-L295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L345-L348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3987,7 +4019,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <q>ready time</q> of <code>source</code>, as set by
+                        <p>Gets the &ldquo;ready time&rdquo; of <code>source</code>, as set by
 <code>g_source_set_ready_time()</code>.</p>
 
 <p>Any time before the current monotonic time (including 0) is an
@@ -4003,7 +4035,7 @@ indication that the source will fire immediately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L355-L358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4042,7 +4074,7 @@ other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L314-L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L367-L370">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4085,7 +4117,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L330-L333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L383-L386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4127,7 +4159,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L398-L401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4160,7 +4192,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L351-L354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L404-L407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4196,7 +4228,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L360-L363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L413-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4233,7 +4265,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L423-L426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4275,7 +4307,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L385-L388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L438-L441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4324,7 +4356,7 @@ the source is dispatched after this call returns.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L407-L410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L460-L463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4346,7 +4378,7 @@ the source is dispatched after this call returns.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets the callback function storing the data as a refcounted callback
-<q>object</q>. This is used internally. Note that calling
+&ldquo;object&rdquo;. This is used internally. Note that calling
 <code>g_source_set_callback_indirect()</code> assumes
 an initial reference count on <code>callback_data</code>, and thus
 <code>callback_funcs</code>-&gt;unref will eventually be called once more
@@ -4366,7 +4398,7 @@ the source is dispatched after this call returns.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L422-L425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L475-L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4402,7 +4434,55 @@ source is blocked until the dispatch function returns.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L431-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L484-L487">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib14SourceProtocolPAAE18setDisposeFunction7disposeyySpySo8_GSourceVGSgXC_tF"></a>
+                    <a name="//apple_ref/swift/Method/setDisposeFunction(dispose:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE18setDisposeFunction7disposeyySpySo8_GSourceVGSgXC_tF">setDisposeFunction(dispose:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set <code>dispose</code> as dispose function on <code>source</code>. <code>dispose</code> will be called once
+the reference count of <code>source</code> reaches 0 but before any of the state of the
+source is freed, especially before the finalize function is called.</p>
+
+<p>This means that at this point <code>source</code> is still a valid <code>GSource</code> and it is
+allow for the reference count to increase again until <code>dispose</code> returns.</p>
+
+<p>The dispose function can be used to clear any &ldquo;weak&rdquo; references to the
+<code>source</code> in other data structures in a thread-safe way where it is possible
+for another thread to increase the reference count of <code>source</code> again while
+it is being freed.</p>
+
+<p>The finalize function can not be used for this purpose as at that point
+<code>source</code> is already partially freed and not valid anymore.</p>
+
+<p>This should only ever be called from <code>GSource</code> implementations.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">setDisposeFunction</span><span class="p">(</span><span class="nv">dispose</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L505-L508">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4436,7 +4516,7 @@ default implementations) of an unattached source.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L438-L441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L512-L515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4461,12 +4541,12 @@ default implementations) of an unattached source.</p>
 The name defaults to <code>NULL</code>.</p>
 
 <p>The source name should describe in a human-readable way
-what the source does. For example, <q>X11 event queue</q>
-or <q>GTK+ repaint idle handler</q> or whatever it is.</p>
+what the source does. For example, &ldquo;X11 event queue&rdquo;
+or &ldquo;GTK+ repaint idle handler&rdquo; or whatever it is.</p>
 
 <p>It is permitted to call this function multiple times, but is not
 recommended due to the potential performance impact.  For example,
-one could change the name in the <q>check</q> function of a <code>GSourceFuncs</code>
+one could change the name in the &ldquo;check&rdquo; function of a <code>GSourceFuncs</code>
 to include details like the event type in the source name.</p>
 
 <p>Use caution if changing the name while another thread may be
@@ -4484,7 +4564,7 @@ may be attempting to use it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L459-L462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L533-L536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4524,7 +4604,7 @@ as a child of another source.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L472-L475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L546-L549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4578,7 +4658,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L499-L502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L573-L576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4613,7 +4693,7 @@ memory will be destroyed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L507-L510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L581-L584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4647,7 +4727,7 @@ see <code>g_source_set_can_recurse()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L513-L527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L587-L601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4687,7 +4767,7 @@ whose <code>GMainContext</code> has been destroyed is an error.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L537-L550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L611-L624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4728,7 +4808,7 @@ is unique within the <code>GMainContext</code> instance passed to <code>g_source
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L561-L575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L635-L649">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4826,7 +4906,7 @@ used for opportunistic checks from any thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L645-L718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L719-L792">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4860,7 +4940,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L722-L748">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L796-L822">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4893,7 +4973,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L751-L768">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L825-L842">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4914,7 +4994,7 @@ name may be <code>NULL</code> if it has never been set with <code>g_source_set_n
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the <q>ready time</q> of <code>source</code>, as set by
+                        <p>Gets the &ldquo;ready time&rdquo; of <code>source</code>, as set by
 <code>g_source_set_ready_time()</code>.</p>
 
 <p>Any time before the current monotonic time (including 0) is an
@@ -4930,7 +5010,7 @@ indication that the source will fire immediately.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L775-L810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L849-L884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4969,7 +5049,7 @@ other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L819-L831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L893-L905">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4982,8 +5062,8 @@ other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -398,6 +398,9 @@
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib17HAVE_GNUC_VARARGSs5Int32Vvp">HAVE_GNUC_VARARGS</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib20HAVE_GNUC_VISIBILITYs5Int32Vvp">HAVE_GNUC_VISIBILITY</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Global%20Variables.html#/s:4GLib18HAVE_GROWING_STACKs5Int32Vvp">HAVE_GROWING_STACK</a>
               </li>
               <li class="nav-group-task">
@@ -1065,6 +1068,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16byteArrayNewTake4data3lenSpySo06_GByteC0VGSgSpys5UInt8VG_SitF">byteArrayNewTake(data:len:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArraySteal5array3lenSpys5UInt8VGSgAA04ByteC8Protocol_p_SpySiGtF">byteArraySteal(array:len:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14byteArrayUnref5arrayyAA04ByteC8Protocol_p_tF">byteArrayUnref(array:)</a>
               </li>
               <li class="nav-group-task">
@@ -1095,7 +1101,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13clearHandleID6tagPtr0B4FuncySpys6UInt32VG_yAFXCtF">clearHandleID(tagPtr:clearFunc:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9clearList7listPtr7destroyyAA0C8Protocol_p_ySvSgXCtF">clearList(listPtr:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12clearPointer2pp7destroyySpySvG_ySvSgXCtF">clearPointer(pp:destroy:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10clearSlist8slistPtr7destroyyAA13SListProtocol_p_ySvSgXCtF">clearSlist(slistPtr:destroy:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5close2fdSbs5Int32V_tKF">close(fd:)</a>
@@ -1384,6 +1396,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16getNumProcessorss6UInt32VyF">getNumProcessors()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9getOsInfo7keyNameSSSgSPys4Int8VG_tF">getOsInfo(keyName:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10getPrgnameSSSgyF">getPrgname()</a>
@@ -2448,6 +2463,9 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15unixFdSourceNew2fd9conditionSpySo8_GSourceVGSgs5Int32V_So12GIOConditionatF">unixFdSourceNew(fd:condition:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18unixGetPasswdEntry8userNameSpySo6passwdVGSgSPys4Int8VG_tKF">unixGetPasswdEntry(userName:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12unixOpenPipe3fds5flagsSbSpys5Int32VG_AFtKF">unixOpenPipe(fds:flags:)</a>
               </li>
               <li class="nav-group-task">
@@ -3231,6 +3249,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib15LogWriterOutputa">LogWriterOutput</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MainContextPushera">MainContextPusher</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17MarkupCollectTypea">MarkupCollectType</a>
               </li>
               <li class="nav-group-task">
@@ -3328,6 +3349,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib11SliceConfiga">SliceConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib17SourceDisposeFunca">SourceDisposeFunc</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib18SourceDummyMarshala">SourceDummyMarshal</a>
@@ -3438,7 +3462,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>BookmarkFileProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -3535,9 +3559,11 @@ private data and should not be directly accessed.</p>
               <div class="task-name-container">
                 <a name="/no%20signals"></a>
                 <a name="//apple_ref/swift/Section/no signals" class="dashAnchor"></a>
-                <a href="#/no%20signals">
-                  <h3 class="section-name">no signals</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/no%20signals"></a>
+                  <h3 class="section-name"><p>no signals</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -3569,7 +3595,7 @@ time the application registered this bookmark.</p>
 <p>If <code>name</code> is <code>nil</code>, the name of the application will be the
 same returned by <code>g_get_application_name()</code>; if <code>exec</code> is <code>nil</code>, the
 command line will be a composition of the program name as
-returned by <code>g_get_prgname()</code> and the <q>`u`</q> modifier, which will be
+returned by <code>g_get_prgname()</code> and the &ldquo;`u`&rdquo; modifier, which will be
 expanded to the bookmark&rsquo;s URI.</p>
 
 <p>This function will automatically take care of updating the
@@ -3589,7 +3615,7 @@ with the same <code>name</code> had already registered a bookmark for
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L162-L165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L209-L212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3625,7 +3651,7 @@ belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L171-L174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L218-L221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3658,7 +3684,7 @@ belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L177-L180">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L224-L227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3694,7 +3720,7 @@ belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L186-L193">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L233-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3739,7 +3765,7 @@ set and <code>false</code> is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L208-L215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L255-L262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3776,7 +3802,7 @@ bookmark for <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L222-L229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L269-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3812,7 +3838,7 @@ bookmark for <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L235-L242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L282-L289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3851,7 +3877,7 @@ be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L251-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L298-L305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3887,7 +3913,7 @@ be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L264-L271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L311-L318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3925,7 +3951,7 @@ event that the private flag cannot be found, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L279-L286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L326-L333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3963,7 +3989,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L294-L301">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L341-L348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3999,7 +4025,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L307-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L354-L361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4032,7 +4058,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L317-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L364-L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4070,7 +4096,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L328-L335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L375-L382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4105,7 +4131,7 @@ optionally be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L340-L343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L387-L390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4141,7 +4167,7 @@ optionally be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L349-L356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L396-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4178,7 +4204,7 @@ registered by application <code>name</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L363-L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L410-L417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4215,7 +4241,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L377-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L424-L431">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4248,7 +4274,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L387-L390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L434-L437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4283,7 +4309,7 @@ structure.  If the object cannot be created then <code>error</code> is set to a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L395-L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L442-L449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4320,7 +4346,7 @@ set to either a <code>GFileError</code> or <code>GBookmarkFileError</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L409-L416">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L456-L463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4355,7 +4381,7 @@ or <code>GBookmarkFileError</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L421-L428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L468-L475">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4393,7 +4419,7 @@ existing bookmark for <code>new_uri</code> will be overwritten.  If <code>new_ur
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L436-L443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L483-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4433,7 +4459,7 @@ a bookmark for <code>uri</code>,  <code>false</code> is returned and error is se
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L453-L460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L500-L507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4472,7 +4498,7 @@ In the event no group was defined, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L469-L476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L516-L523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4505,7 +4531,7 @@ In the event no group was defined, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L479-L486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L526-L533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4540,7 +4566,7 @@ In the event no group was defined, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L491-L494">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L538-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4570,16 +4596,16 @@ and <code>g_bookmark_file_remove_application()</code> instead.</p>
 
 <p><code>name</code> can be any UTF-8 encoded string used to identify an
 application.
-<code>exec</code> can have one of these two modifiers: <q>`f`</q>, which will
-be expanded as the local file name retrieved from the bookmark&rsquo;s
-URI; <q>`u`</q>, which will be expanded as the bookmark&rsquo;s URI.
+<code>exec</code> can have one of these two modifiers: &ldquo;`f<code>&quot;, which will
+be expanded as the local file name retrieved from the bookmark&#39;s
+URI; &quot;\</code>u<code>&quot;, which will be expanded as the bookmark&#39;s URI.
 The expansion is done automatically when retrieving the stored
-command line using the <code>g_bookmark_file_get_app_info()</code> function.
-<code>count</code> is the number of times the application has registered the
+command line using the</code>g_bookmark_file_get_app_info()<code>function.
+</code>count<code>is the number of times the application has registered the
 bookmark; if is &lt; 0, the current registration count will be increased
-by one, if is 0, the application with <code>name</code> will be removed from
+by one, if is 0, the application with</code>name<code>will be removed from
 the list of registered applications.
-<code>stamp</code> is the Unix time of the last registration; if it is -1, the
+</code>stamp` is the Unix time of the last registration; if it is -1, the
 current time will be used.</p>
 
 <p>If you try to remove an application by setting its registration count to
@@ -4600,7 +4626,7 @@ for <code>uri</code> is found, one is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L524-L531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L571-L578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4637,7 +4663,7 @@ for <code>uri</code> is found, one is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L538-L541">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L585-L588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4673,7 +4699,7 @@ set group name list is removed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L547-L550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L594-L597">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4710,7 +4736,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L557-L560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L604-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4745,7 +4771,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L565-L568">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L612-L615">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4780,7 +4806,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L573-L576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L620-L623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4805,7 +4831,7 @@ file or the icon name following the Icon Naming specification.</p>
 
 <p>If no bookmark for <code>uri</code> is found then it is created.</p>
 
-<p>The <q>modified</q> time should only be set when the bookmark&rsquo;s meta-data
+<p>The &ldquo;modified&rdquo; time should only be set when the bookmark&rsquo;s meta-data
 was actually changed.  Every function of <code>GBookmarkFile</code> that
 modifies a bookmark also changes the modification time, except for
 <code>g_bookmark_file_set_visited()</code>.</p>
@@ -4820,7 +4846,7 @@ modifies a bookmark also changes the modification time, except for
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L586-L589">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L633-L636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4858,7 +4884,7 @@ bookmark file <code>bookmark</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L597-L600">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L644-L647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4883,11 +4909,11 @@ bookmark file <code>bookmark</code>.</p>
 
 <p>If no bookmark for <code>uri</code> is found then it is created.</p>
 
-<p>The <q>visited</q> time should only be set if the bookmark was launched,
+<p>The &ldquo;visited&rdquo; time should only be set if the bookmark was launched,
 either using the command line retrieved by <code>g_bookmark_file_get_app_info()</code>
 or by the default application for the bookmark&rsquo;s MIME type, retrieved
-using <code>g_bookmark_file_get_mime_type()</code>.  Changing the <q>visited</q> time
-does not affect the <q>modified</q> time.</p>
+using <code>g_bookmark_file_get_mime_type()</code>.  Changing the &ldquo;visited&rdquo; time
+does not affect the &ldquo;modified&rdquo; time.</p>
 
                       </div>
                       <div class="declaration">
@@ -4899,7 +4925,7 @@ does not affect the <q>modified</q> time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L611-L614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L658-L661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4932,7 +4958,7 @@ does not affect the <q>modified</q> time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L617-L624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L664-L671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4966,7 +4992,7 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L628-L635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L675-L682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4999,7 +5025,7 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L637-L643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L684-L690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5012,8 +5038,8 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-11-27)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
