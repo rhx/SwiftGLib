@@ -235,7 +235,7 @@ struct _GDtlsServerConnection {};
 #include <glib/gvarianttype.h>
 #include <gio/gio.h>
 #include <gio/gnetworking.h>
-#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 60
+#if !defined(__APPLE__) || (GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 60)
 #include <gio/gdesktopappinfo.h>
 #else
 #include <gio/gioenums.h>
