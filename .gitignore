@@ -2,6 +2,7 @@
 /.build
 /.docs.old
 /Packages
+/GLib.xcodeproj
 Package.pins
 Package.resolved
 *.tgz
