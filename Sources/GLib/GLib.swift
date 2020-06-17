@@ -15,6 +15,8 @@ public extension LogLevelFlags {
     static let debug = LogLevelFlags.levelDebug
     /// log level for informational messages, see `g_info()`
     static let info = LogLevelFlags.levelInfo
+    /// log level for messages, see `g_message()`
+    static let message = LogLevelFlags.levelMessage
     /// log level for warnings, see `g_warning()`
     static let warning = LogLevelFlags.levelWarning
     /// log level for critical warning messages, see
