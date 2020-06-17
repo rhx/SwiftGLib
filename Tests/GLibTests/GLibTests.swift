@@ -187,6 +187,16 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
+
+    func testMutex() {
+        let mutex = Mutex()
+        XCTAssertTrue(mutex.trylock())
+        mutex.unlock()
+        mutex.lock()
+        XCTAssertFalse(mutex.trylock())
+        mutex.unlock()
+        XCTAssertTrue(mutex.trylock())
+    }
 }
 
 extension GLibTests {
@@ -202,6 +212,7 @@ extension GLibTests {
             ("testLogDomain",           testLogDomain),
             ("testLogDomainLevel",      testLogDomainLevel),
             ("testMainLoopCreation",    testMainLoopCreation),
+            ("testMutex",               testMutex),
             ("testTimeoutAdd",          testTimeoutAdd),
         ]
     }
