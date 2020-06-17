@@ -128,7 +128,7 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard $0 == nil, $1 == .level_debug,
+                guard $0 == nil, LogLevelFlags($1) == .debug,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee = strcmp(message, "testLog") == 0
@@ -143,13 +143,13 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard $0 == nil, $1 == .level_critical,
+                guard $0 == nil, LogLevelFlags($1) == .critical,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee = strcmp(message, "testLogLevel") == 0
             }, gpointer($0))
         }
-        g_log("testLogLevel", level: .level_critical)
+        g_log("testLogLevel", level: .critical)
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
@@ -158,7 +158,7 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard let domain = $0, $1 == .level_debug,
+                guard let domain = $0, LogLevelFlags($1) == .debug,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
@@ -170,12 +170,12 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
-    
+
     func testLogDomainLevel() {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard let domain = $0, $1 == .level_message,
+                guard let domain = $0, LogLevelFlags($1) == .message,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
@@ -183,7 +183,7 @@ class GLibTests: XCTestCase {
                     strcmp(message, "%s") == 0
             }, gpointer($0))
         }
-        g_log(domain: "testDomainLevel", "%s", level: .level_message)
+        g_log(domain: "testDomainLevel", "%s", level: .message)
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
