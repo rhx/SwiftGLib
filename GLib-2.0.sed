@@ -8,6 +8,12 @@ s/: \([A-Za-z]*Notify[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Func[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Marshaller[,)]\)/: @escaping \1/g
 s/: \([A-Za-z]*Callback[,)]\)/: @escaping \1/g
+s/\(func free.*\) -> String!/@discardableResult \1 -> UnsafeMutableRawPointer?/
+s/\(func ref.* -> UnsafeMutablePointer\)/@discardableResult \1/
+s/\(func set.* -> UnsafeMutablePointer\)/@discardableResult \1/
+s/\(func insert.* -> UnsafeMutablePointer\)/@discardableResult \1/
+s/\(func remove.* -> UnsafeMutablePointer\)/@discardableResult \1/
+s/\(func prepend.* -> UnsafeMutablePointer\)/@discardableResult \1/
 s|^public typealias RWLockWriterLocker|// GRWLockWriterLocker is a void typedef in C|
 s|^public typealias RWLockReaderLocker|// GRWLockReaderLocker is a void typedef in C|
 s|#glib-Double-ended-Queues|../Protocols/QueueProtocol.html|g
