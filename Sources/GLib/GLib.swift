@@ -35,13 +35,22 @@ public extension LogLevelFlags {
 /// - Parameters:
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(_ message: String, level: LogLevelFlags = .debug) {
+public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
     message.utf8CString.withUnsafeBufferPointer {
-        guard let base = $0.baseAddress else { return }
-        let varargs = [OpaquePointer(base)]
-        withVaList(varargs) {
-            g_logv(nil, level.value, "%s", $0)
-        }
+        g_log(messagePtr: $0.baseAddress, level: flags)
+    }
+}
+
+/// Logging function
+///
+/// - Parameters:
+///   - messagePtr: optional pointer to a C string message (nothing gets logged if `nil`)
+///   - level: log level (defaults to `.debug`)
+public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
+    guard let base = messagePtr else { return }
+    let varargs = [OpaquePointer(base)]
+    withVaList(varargs) {
+        g_logv(nil, level.value, "%s", $0)
     }
 }
 
@@ -66,16 +75,25 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .deb
 /// - Parameters:
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(_ message: String, level: LogLevelFlags = .debug) {
+public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
     var buffer = message
     if message.index(of: "%") != nil {
         buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
     }
     withUnsafeMutableBytes(of: &buffer) {
-        guard let buffer = $0.baseAddress else { return }
-        let msg = buffer.assumingMemoryBound(to: CChar.self)
-        g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: buffer))
+        let msg = $0.baseAddress?.assumingMemoryBound(to: CChar.self)
+        g_log(messagePtr: msg, level: flags)
     }
+}
+
+/// Logging function
+///
+/// - Parameters:
+///   - messagePtr: optional pointer to a C string message (nothing gets logged if `nil`)
+///   - level: log level (defaults to `.debug`)
+public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
+    guard let msg = messagePtr else { return }
+    g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: cast(msg)))
 }
 
 /// Logging function
