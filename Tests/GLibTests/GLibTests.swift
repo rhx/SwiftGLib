@@ -197,6 +197,31 @@ class GLibTests: XCTestCase {
         mutex.unlock()
         XCTAssertTrue(mutex.trylock())
     }
+
+    func testFloatIEEE754() {
+        let val = Float(1.5)
+        var value = GFloatIEEE754(v_float: val)
+        withUnsafeMutablePointer(to: &value) {
+            let ieee = FloatIEEE754Ref($0)
+            XCTAssertEqual(ieee.vFloat, val)
+            XCTAssertEqual(ieee.mpn.biased_exponent, 127)
+            XCTAssertEqual(ieee.mpn.mantissa, 4194304)
+            XCTAssertEqual(ieee.mpn.sign, 0)
+        }
+    }
+
+    func testDoubleIEEE754() {
+        let val = -1.5
+        var value = GDoubleIEEE754(v_double: val)
+        withUnsafeMutablePointer(to: &value) {
+            let ieee = DoubleIEEE754Ref($0)
+            XCTAssertEqual(ieee.vDouble, val)
+            XCTAssertEqual(ieee.mpn.biased_exponent, 1023)
+            XCTAssertEqual(ieee.mpn.mantissa_low, 0)
+            XCTAssertEqual(ieee.mpn.mantissa_high, 524288)
+            XCTAssertEqual(ieee.mpn.sign, 1)
+        }
+    }
 }
 
 extension GLibTests {
@@ -204,9 +229,11 @@ extension GLibTests {
         return [
             ("testDateTime",            testDateTime),
             ("testDateTimeUnixUTC",     testDateTimeUnixUTC),
-            ("testDirOpen",             testDirOpen),
-            ("testErrorType",           testErrorType),
             ("testDefaultMainContext",  testDefaultMainContext),
+            ("testDirOpen",             testDirOpen),
+            ("testDoubleIEEE754",       testDoubleIEEE754),
+            ("testErrorType",           testErrorType),
+            ("testFloatIEEE754",        testFloatIEEE754),
             ("testLog",                 testLog),
             ("testLogLevel",            testLogLevel),
             ("testLogDomain",           testLogDomain),
