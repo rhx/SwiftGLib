@@ -205,6 +205,7 @@ struct _GDtlsServerConnection {};
 #include <sys/types.h>
 #include <glib-unix.h>
 #include <glib-object.h>
+#include <gobject/gvaluecollector.h>
 #include <gmodule.h>
 #include <glib/gstdio.h>
 #include <glib/garray.h>
