@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 #if os(Linux)
     import Glibc
@@ -23,6 +23,21 @@ extension ErrorTypeProtocol {
     /// The error domain, code, and message associated with the receiver.
     public var debugDescription: String {
         return String("\(quarkToString(quark: error_ptr.pointee.domain) ?? "-") error \(error_ptr.pointee.code): \(String(cString: error_ptr.pointee.message) )")
+    }
+}
+
+public extension ErrorType {
+    /// Initialise from a raw Integer value
+    /// - Parameter rawValue: value to initalise from
+    convenience init(rawValue: Int32) {
+        let error: UnsafeMutablePointer<GError> = g_error_new_literal(0, rawValue, "Error \(rawValue)")
+        self.init(cPointer: error)
+    }
+
+    /// Raw error code
+    var rawValue: Int32 {
+        get { cast(error_ptr.pointee.code) }
+        set { error_ptr.pointee.code = cast(newValue) }
     }
 }
 
