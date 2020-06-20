@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -18,7 +18,7 @@ public class TimerClosureHolder {
     }
 }
 
-func _timeoutAdd(_ interval: CUnsignedInt, priority p: CInt = 0, data: TimerClosureHolder, handler: @convention(c) @escaping (gpointer) -> gboolean) -> CUnsignedInt {
+func _timeoutAdd(_ interval: CUnsignedInt, priority p: CInt = 0, data: TimerClosureHolder, handler: @convention(c) @escaping (gpointer) -> gboolean) -> Int {
     let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
     let callback = unsafeBitCast(handler, to: SourceFunc.self)
     let rv = timeoutAddFull(priority: p, interval: interval, function: callback, data: opaqueHolder) {
@@ -40,5 +40,5 @@ public func timeout(add interval: Int, priority p: Int = 0, handler: @escaping (
         let rv: gboolean = holder.call() ? 1 : 0
         return rv
     }
-    return Int(rv)
+    return rv
 }

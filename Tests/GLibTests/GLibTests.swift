@@ -128,7 +128,7 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard $0 == nil, $1 == .level_debug,
+                guard $0 == nil, LogLevelFlags($1) == .debug,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee = strcmp(message, "testLog") == 0
@@ -143,13 +143,13 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard $0 == nil, $1 == .level_critical,
+                guard $0 == nil, LogLevelFlags($1) == .critical,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee = strcmp(message, "testLogLevel") == 0
             }, gpointer($0))
         }
-        g_log("testLogLevel", level: .level_critical)
+        g_log("testLogLevel", level: .critical)
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
@@ -158,7 +158,7 @@ class GLibTests: XCTestCase {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard let domain = $0, $1 == .level_debug,
+                guard let domain = $0, LogLevelFlags($1) == .debug,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
@@ -170,12 +170,12 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
-    
+
     func testLogDomainLevel() {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             g_log_set_default_handler({
-                guard let domain = $0, $1 == .level_message,
+                guard let domain = $0, LogLevelFlags($1) == .message,
                       let message = $2,
                       let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return }
                 resultPtr.pointee =
@@ -183,9 +183,44 @@ class GLibTests: XCTestCase {
                     strcmp(message, "%s") == 0
             }, gpointer($0))
         }
-        g_log(domain: "testDomainLevel", "%s", level: .level_message)
+        g_log(domain: "testDomainLevel", "%s", level: .message)
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
+    }
+
+    func testMutex() {
+        let mutex = Mutex()
+        XCTAssertTrue(mutex.trylock())
+        mutex.unlock()
+        mutex.lock()
+        XCTAssertFalse(mutex.trylock())
+        mutex.unlock()
+        XCTAssertTrue(mutex.trylock())
+    }
+
+    func testFloatIEEE754() {
+        let val = Float(1.5)
+        var value = GFloatIEEE754(v_float: val)
+        withUnsafeMutablePointer(to: &value) {
+            let ieee = FloatIEEE754Ref($0)
+            XCTAssertEqual(ieee.vFloat, val)
+            XCTAssertEqual(ieee.mpn.biased_exponent, 127)
+            XCTAssertEqual(ieee.mpn.mantissa, 4194304)
+            XCTAssertEqual(ieee.mpn.sign, 0)
+        }
+    }
+
+    func testDoubleIEEE754() {
+        let val = -1.5
+        var value = GDoubleIEEE754(v_double: val)
+        withUnsafeMutablePointer(to: &value) {
+            let ieee = DoubleIEEE754Ref($0)
+            XCTAssertEqual(ieee.vDouble, val)
+            XCTAssertEqual(ieee.mpn.biased_exponent, 1023)
+            XCTAssertEqual(ieee.mpn.mantissa_low, 0)
+            XCTAssertEqual(ieee.mpn.mantissa_high, 524288)
+            XCTAssertEqual(ieee.mpn.sign, 1)
+        }
     }
 }
 
@@ -194,14 +229,17 @@ extension GLibTests {
         return [
             ("testDateTime",            testDateTime),
             ("testDateTimeUnixUTC",     testDateTimeUnixUTC),
-            ("testDirOpen",             testDirOpen),
-            ("testErrorType",           testErrorType),
             ("testDefaultMainContext",  testDefaultMainContext),
+            ("testDirOpen",             testDirOpen),
+            ("testDoubleIEEE754",       testDoubleIEEE754),
+            ("testErrorType",           testErrorType),
+            ("testFloatIEEE754",        testFloatIEEE754),
             ("testLog",                 testLog),
             ("testLogLevel",            testLogLevel),
             ("testLogDomain",           testLogDomain),
             ("testLogDomainLevel",      testLogDomainLevel),
             ("testMainLoopCreation",    testMainLoopCreation),
+            ("testMutex",               testMutex),
             ("testTimeoutAdd",          testTimeoutAdd),
         ]
     }
