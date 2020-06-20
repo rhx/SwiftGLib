@@ -30,7 +30,8 @@ public extension ErrorType {
     /// Initialise from a raw Integer value
     /// - Parameter rawValue: value to initalise from
     convenience init(rawValue: Int32) {
-        let error: UnsafeMutablePointer<GError> = g_error_new_literal(0, rawValue, "Error \(rawValue)")
+        let quark = g_quark_from_string("Error \(rawValue)")
+        let error: UnsafeMutablePointer<GError> = g_error_new_literal(quark, rawValue, g_quark_to_string(quark))
         self.init(cPointer: error)
     }
 

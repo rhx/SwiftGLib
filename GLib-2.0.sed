@@ -24,3 +24,4 @@ s|#glib-Sequences|../Protocols/SequenceProtocol.html|g
 s|#glib-Balanced-Binary-Trees|../Protocols/TreeProtocol.html|g
 s|Do-nothing destructor for.*`GMutex.*|`GMutex` destructor.  **Please note that deinitialising a locked mutex leads to undefined behaviour!**|
 s|// no reference counting for GMutex.*unref.*|g_mutex_clear(cast(_ptr))|
+s|unexpEof|unexpectedEOF|g
