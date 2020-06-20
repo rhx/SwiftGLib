@@ -25,7 +25,7 @@ import CGLib
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
 public protocol PrivateProtocol {
-    /// Untyped pointer to the underlying `GPrivate` instance.
+        /// Untyped pointer to the underlying `GPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPrivate` instance.
@@ -54,7 +54,7 @@ public protocol PrivateProtocol {
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
 public struct PrivateRef: PrivateProtocol {
-    /// Untyped pointer to the underlying `GPrivate` instance.
+        /// Untyped pointer to the underlying `GPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -123,7 +123,7 @@ public extension PrivateRef {
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
 open class Private: PrivateProtocol {
-    /// Untyped pointer to the underlying `GPrivate` instance.
+        /// Untyped pointer to the underlying `GPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -152,7 +152,7 @@ open class Private: PrivateProtocol {
         // no reference counting for GPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPrivate`.
+    /// Do-nothing destructor for `GPrivate`.
     deinit {
         // no reference counting for GPrivate, cannot unref(cast(_ptr))
     }
@@ -220,11 +220,12 @@ open class Private: PrivateProtocol {
 
 }
 
-// MARK: - no Private properties
+// MARK: no Private properties
 
-// MARK: - no signals
+// MARK: no Private signals
 
 
+// MARK: Private Record: PrivateProtocol extension (methods and fields)
 public extension PrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPrivate` instance.
     var _ptr: UnsafeMutablePointer<GPrivate> { return ptr.assumingMemoryBound(to: GPrivate.self) }
@@ -235,7 +236,7 @@ public extension PrivateProtocol {
     /// Values are never copied between threads (when a new thread is
     /// created, for example).
     func get() -> UnsafeMutableRawPointer! {
-        let rv = g_private_get(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_private_get(cast(_ptr)))
         return cast(rv)
     }
 
@@ -259,6 +260,13 @@ public extension PrivateProtocol {
         g_private_set(cast(_ptr), cast(value))
     
     }
+
+    // var p is unavailable because p is private
+
+    // var notify is unavailable because notify is private
+
+    // var future is unavailable because future is private
+
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 public protocol IConvProtocol {
-    /// Untyped pointer to the underlying `GIConv` instance.
+        /// Untyped pointer to the underlying `GIConv` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIConv` instance.
@@ -24,7 +24,7 @@ public protocol IConvProtocol {
 /// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 public struct IConvRef: IConvProtocol {
-    /// Untyped pointer to the underlying `GIConv` instance.
+        /// Untyped pointer to the underlying `GIConv` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -88,7 +88,7 @@ public extension IConvRef {
 /// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
 /// private data and should only be accessed using the following functions.
 open class IConv: IConvProtocol {
-    /// Untyped pointer to the underlying `GIConv` instance.
+        /// Untyped pointer to the underlying `GIConv` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -117,7 +117,7 @@ open class IConv: IConvProtocol {
         // no reference counting for GIConv, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIConv`.
+    /// Do-nothing destructor for `GIConv`.
     deinit {
         // no reference counting for GIConv, cannot unref(cast(_ptr))
     }
@@ -195,11 +195,12 @@ open class IConv: IConvProtocol {
 
 }
 
-// MARK: - no IConv properties
+// MARK: no IConv properties
 
-// MARK: - no signals
+// MARK: no IConv signals
 
 
+// MARK: IConv Record: IConvProtocol extension (methods and fields)
 public extension IConvProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIConv` instance.
     var _ptr: UnsafeMutablePointer<GIConv> { return ptr.assumingMemoryBound(to: GIConv.self) }
@@ -216,9 +217,9 @@ public extension IConvProtocol {
     /// 
     /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
     /// more convenient than the raw iconv wrappers.
-    func close() -> CInt {
-        let rv = g_iconv_close(cast(_ptr))
-        return CInt(rv)
+    func close() -> Int {
+        let rv: Int = cast(g_iconv_close(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Converts a string from one character set to another.
@@ -241,11 +242,9 @@ public extension IConvProtocol {
     /// the input character set. To get defined behaviour for conversion of
     /// unrepresentable characters, use `g_convert_with_fallback()`.
     func convertWithIconv(str: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_convert_with_iconv(cast(str), len, cast(_ptr), cast(bytes_read), cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<gchar>! = cast(g_convert_with_iconv(cast(str), len, cast(_ptr), cast(bytes_read), cast(bytes_written), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -266,6 +265,8 @@ public extension IConvProtocol {
         let rv = g_iconv(cast(_ptr), cast(inbuf), cast(inbytes_left), cast(outbuf), cast(outbytes_left))
         return Int(rv)
     }
+
+
 }
 
 

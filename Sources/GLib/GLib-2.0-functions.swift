@@ -12,9 +12,9 @@ import CGLib
 /// more exactly should use the Win32 API.
 /// 
 /// See your C library manual for more details about `access()`.
-public func access(String_: UnsafePointer<gchar>, mode: CInt) -> CInt {
-    let rv = g_access(String_, mode)
-    return rv
+public func access(String_: UnsafePointer<gchar>, mode: CInt) -> Int {
+    let rv: Int = cast(g_access(String_, mode))
+    return cast(rv)
 }
 
 
@@ -23,9 +23,9 @@ public func access(String_: UnsafePointer<gchar>, mode: CInt) -> CInt {
 /// Determines the numeric value of a character as a decimal digit.
 /// Differs from `g_unichar_digit_value()` because it takes a char, so
 /// there's no worry about sign extension if characters are signed.
-public func asciiDigitValue(c: gchar) -> CInt {
-    let rv = g_ascii_digit_value(c)
-    return CInt(rv)
+public func asciiDigitValue(c: gchar) -> Int {
+    let rv: Int = cast(g_ascii_digit_value(c))
+    return Int(rv)
 }
 
 
@@ -41,8 +41,8 @@ public func asciiDigitValue(c: gchar) -> CInt {
 /// be larger than `G_ASCII_DTOSTR_BUF_SIZE` bytes, including the terminating
 /// nul character, which is always added.
 public func asciiDtostr(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CInt, d: gdouble) -> String! {
-    let rv = g_ascii_dtostr(buffer, gint(buf_len), d)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ascii_dtostr(buffer, gint(buf_len), d))
+    return cast(rv)
 }
 
 
@@ -58,8 +58,8 @@ public func asciiDtostr(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CIn
 /// If you just want to want to serialize the value into a
 /// string, use `g_ascii_dtostr()`.
 public func asciiFormatd(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CInt, format: UnsafePointer<gchar>, d: gdouble) -> String! {
-    let rv = g_ascii_formatd(buffer, gint(buf_len), format, d)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ascii_formatd(buffer, gint(buf_len), format, d))
+    return cast(rv)
 }
 
 
@@ -80,9 +80,9 @@ public func asciiFormatd(buffer: UnsafeMutablePointer<gchar>, bufLen buf_len: CI
 /// strings using this function, you will get false matches.
 /// 
 /// Both `s1` and `s2` must be non-`nil`.
-public func asciiStrcasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>) -> CInt {
-    let rv = g_ascii_strcasecmp(s1, s2)
-    return CInt(rv)
+public func asciiStrcasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_ascii_strcasecmp(s1, s2))
+    return Int(rv)
 }
 
 
@@ -90,8 +90,8 @@ public func asciiStrcasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>) 
 
 /// Converts all upper case ASCII letters to lower case ASCII letters.
 public func asciiStrdown(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_ascii_strdown(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ascii_strdown(str, len))
+    return cast(rv)
 }
 
 
@@ -119,11 +119,9 @@ public func asciiStrdown(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// parsing a string which starts with a number, but then has other
 /// characters.
 public func asciiStringToSigned(str: UnsafePointer<gchar>, base: CUnsignedInt, min: Int64, max: Int64, outNum out_num: UnsafeMutablePointer<Int64>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_ascii_string_to_signed(str, guint(base), gint64(min), gint64(max), cast(out_num), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -153,11 +151,9 @@ public func asciiStringToSigned(str: UnsafePointer<gchar>, base: CUnsignedInt, m
 /// parsing a string which starts with a number, but then has other
 /// characters.
 public func asciiStringToUnsigned(str: UnsafePointer<gchar>, base: CUnsignedInt, min: UInt64, max: UInt64, outNum out_num: UnsafeMutablePointer<UInt64>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_ascii_string_to_unsigned(str, guint(base), guint64(min), guint64(max), cast(out_num), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -174,9 +170,9 @@ public func asciiStringToUnsigned(str: UnsafePointer<gchar>, base: CUnsignedInt,
 /// The same warning as in `g_ascii_strcasecmp()` applies: Use this
 /// function only on strings known to be in encodings where bytes
 /// corresponding to ASCII letters always represent themselves.
-public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>, n: Int) -> CInt {
-    let rv = g_ascii_strncasecmp(s1, s2, gsize(n))
-    return CInt(rv)
+public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>, n: Int) -> Int {
+    let rv: Int = cast(g_ascii_strncasecmp(s1, s2, gsize(n)))
+    return Int(rv)
 }
 
 
@@ -205,9 +201,9 @@ public func asciiStrncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>,
 /// 
 /// This function resets `errno` before calling `strtod()` so that
 /// you can reliably detect overflow and underflow.
-public func asciiStrtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> gdouble {
-    let rv = g_ascii_strtod(cast(nptr), cast(endptr))
-    return rv
+public func asciiStrtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> Double {
+    let rv: Double = cast(g_ascii_strtod(cast(nptr), cast(endptr)))
+    return cast(rv)
 }
 
 
@@ -270,8 +266,8 @@ public func asciiStrtoull(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePoint
 
 /// Converts all lower case ASCII letters to upper case ASCII letters.
 public func asciiStrup(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_ascii_strup(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ascii_strup(str, len))
+    return cast(rv)
 }
 
 
@@ -288,7 +284,7 @@ public func asciiStrup(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// before passing a possibly non-ASCII character in.
 public func asciiTolower(c: gchar) -> gchar {
     let rv = g_ascii_tolower(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -305,7 +301,7 @@ public func asciiTolower(c: gchar) -> gchar {
 /// before passing a possibly non-ASCII character in.
 public func asciiToupper(c: gchar) -> gchar {
     let rv = g_ascii_toupper(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -315,9 +311,9 @@ public func asciiToupper(c: gchar) -> gchar {
 /// digit. Differs from `g_unichar_xdigit_value()` because it takes
 /// a char, so there's no worry about sign extension if characters
 /// are signed.
-public func asciiXdigitValue(c: gchar) -> CInt {
-    let rv = g_ascii_xdigit_value(c)
-    return CInt(rv)
+public func asciiXdigitValue(c: gchar) -> Int {
+    let rv: Int = cast(g_ascii_xdigit_value(c))
+    return Int(rv)
 }
 
 
@@ -415,9 +411,9 @@ public func assertionMessageExpr(domain: UnsafePointer<CChar>, file: UnsafePoint
 /// 
 /// Before version 2.30, this function did not return a value
 /// (but `g_atomic_int_exchange_and_add()` did, and had the same meaning).
-public func atomicIntAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> CInt {
-    let rv = g_atomic_int_add(cast(atomic), gint(val))
-    return CInt(rv)
+public func atomicIntAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> Int {
+    let rv: Int = cast(g_atomic_int_add(cast(atomic), gint(val)))
+    return Int(rv)
 }
 
 
@@ -430,9 +426,9 @@ public func atomicIntAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> CInt 
 /// 
 /// Think of this operation as an atomic version of
 /// `{ tmp = *atomic; *atomic &= val; return tmp; }`.
-public func atomicIntAnd(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> CUnsignedInt {
-    let rv = g_atomic_int_and(cast(atomic), guint(val))
-    return CUnsignedInt(rv)
+public func atomicIntAnd(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_atomic_int_and(cast(atomic), guint(val)))
+    return Int(rv)
 }
 
 
@@ -475,9 +471,9 @@ public func atomicIntDecAndTest(atomic: UnsafeMutablePointer<CInt>) -> Bool {
 ///
 /// **atomic_int_exchange_and_add is deprecated:**
 /// Use g_atomic_int_add() instead.
-@available(*, deprecated) public func atomicIntExchangeAndAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> CInt {
-    let rv = g_atomic_int_exchange_and_add(cast(atomic), gint(val))
-    return CInt(rv)
+@available(*, deprecated) public func atomicIntExchangeAndAdd(atomic: UnsafeMutablePointer<CInt>, val: CInt) -> Int {
+    let rv: Int = cast(g_atomic_int_exchange_and_add(cast(atomic), gint(val)))
+    return Int(rv)
 }
 
 
@@ -487,9 +483,9 @@ public func atomicIntDecAndTest(atomic: UnsafeMutablePointer<CInt>) -> Bool {
 /// 
 /// This call acts as a full compiler and hardware
 /// memory barrier (before the get).
-public func atomicIntGet(atomic: UnsafePointer<CInt>) -> CInt {
-    let rv = g_atomic_int_get(cast(atomic))
-    return CInt(rv)
+public func atomicIntGet(atomic: UnsafePointer<CInt>) -> Int {
+    let rv: Int = cast(g_atomic_int_get(cast(atomic)))
+    return Int(rv)
 }
 
 
@@ -515,9 +511,9 @@ public func atomicIntInc(atomic: UnsafeMutablePointer<CInt>) {
 /// `{ tmp = *atomic; *atomic |= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
-public func atomicIntOr(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> CUnsignedInt {
-    let rv = g_atomic_int_or(cast(atomic), guint(val))
-    return CUnsignedInt(rv)
+public func atomicIntOr(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_atomic_int_or(cast(atomic), guint(val)))
+    return Int(rv)
 }
 
 
@@ -542,9 +538,9 @@ public func atomicIntSet(atomic: UnsafeMutablePointer<CInt>, newval: CInt) {
 /// `{ tmp = *atomic; *atomic ^= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
-public func atomicIntXor(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> CUnsignedInt {
-    let rv = g_atomic_int_xor(cast(atomic), guint(val))
-    return CUnsignedInt(rv)
+public func atomicIntXor(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_atomic_int_xor(cast(atomic), guint(val)))
+    return Int(rv)
 }
 
 
@@ -558,7 +554,7 @@ public func atomicIntXor(atomic: UnsafeMutablePointer<CUnsignedInt>, val: CUnsig
 /// This call acts as a full compiler and hardware memory barrier.
 public func atomicPointerAdd(atomic: UnsafeMutableRawPointer, val: gssize) -> gssize {
     let rv = g_atomic_pointer_add(cast(atomic), val)
-    return rv
+    return cast(rv)
 }
 
 
@@ -601,7 +597,7 @@ public func atomicPointerCompareAndExchange(atomic: UnsafeMutableRawPointer, old
 /// This call acts as a full compiler and hardware
 /// memory barrier (before the get).
 public func atomicPointerGet(atomic: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-    let rv = g_atomic_pointer_get(cast(atomic))
+    let rv: UnsafeMutableRawPointer! = cast(g_atomic_pointer_get(cast(atomic)))
     return cast(rv)
 }
 
@@ -652,7 +648,7 @@ public func atomicPointerXor(atomic: UnsafeMutableRawPointer, val: Int) -> Int {
 
 /// Atomically acquires a reference on the data pointed by `mem_block`.
 public func atomicRcBoxAcquire(memBlock mem_block: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-    let rv = g_atomic_rc_box_acquire(cast(mem_block))
+    let rv: UnsafeMutableRawPointer! = cast(g_atomic_rc_box_acquire(cast(mem_block)))
     return cast(rv)
 }
 
@@ -668,7 +664,7 @@ public func atomicRcBoxAcquire(memBlock mem_block: UnsafeMutableRawPointer) -> U
 /// The allocated data is guaranteed to be suitably aligned for any
 /// built-in type.
 public func atomicRcBoxAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_atomic_rc_box_alloc(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_atomic_rc_box_alloc(gsize(block_size)))
     return cast(rv)
 }
 
@@ -686,7 +682,7 @@ public func atomicRcBoxAlloc(blockSize block_size: Int) -> UnsafeMutableRawPoint
 /// The allocated data is guaranteed to be suitably aligned for any
 /// built-in type.
 public func atomicRcBoxAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_atomic_rc_box_alloc0(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_atomic_rc_box_alloc0(gsize(block_size)))
     return cast(rv)
 }
 
@@ -697,7 +693,7 @@ public func atomicRcBoxAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPoin
 /// semantics, and copies `block_size` bytes of `mem_block`
 /// into it.
 public func atomicRcBoxDup(blockSize block_size: Int, memBlock mem_block: gconstpointer) -> UnsafeMutableRawPointer! {
-    let rv = g_atomic_rc_box_dup(gsize(block_size), cast(mem_block))
+    let rv: UnsafeMutableRawPointer! = cast(g_atomic_rc_box_dup(gsize(block_size), cast(mem_block)))
     return cast(rv)
 }
 
@@ -778,7 +774,7 @@ public func atomicRefCountInit(arc: UnsafeMutablePointer<gatomicrefcount>) {
 /// that the returned binary data is not necessarily zero-terminated,
 /// so it should not be used as a character string.
 public func base64Decode(text: UnsafePointer<gchar>, outLen out_len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<guchar>! {
-    let rv = g_base64_decode(text, cast(out_len))
+    let rv: UnsafeMutablePointer<guchar>! = cast(g_base64_decode(text, cast(out_len)))
     return cast(rv)
 }
 
@@ -788,7 +784,7 @@ public func base64Decode(text: UnsafePointer<gchar>, outLen out_len: UnsafeMutab
 /// Decode a sequence of Base-64 encoded text into binary data
 /// by overwriting the input data.
 public func base64DecodeInplace(text: UnsafeMutablePointer<gchar>, outLen out_len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<guchar>! {
-    let rv = g_base64_decode_inplace(cast(text), cast(out_len))
+    let rv: UnsafeMutablePointer<guchar>! = cast(g_base64_decode_inplace(cast(text), cast(out_len)))
     return cast(rv)
 }
 
@@ -814,8 +810,8 @@ public func base64DecodeStep(in_: UnsafePointer<gchar>, len: Int, out: UnsafeMut
 /// Encode a sequence of binary data into its Base-64 stringified
 /// representation.
 public func base64Encode(data: UnsafePointer<guchar>, len: Int) -> String! {
-    let rv = g_base64_encode(cast(data), gsize(len))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_base64_encode(cast(data), gsize(len)))
+    return cast(rv)
 }
 
 
@@ -873,8 +869,8 @@ public func base64EncodeStep(in_: UnsafePointer<guchar>, len: Int, breakLines br
 ///     returned string, unlike this function which returns a pointer
 ///     into the argument.
 @available(*, deprecated) public func basename(fileName file_name: UnsafePointer<gchar>) -> String! {
-    let rv = g_basename(file_name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_basename(file_name))
+    return cast(rv)
 }
 
 
@@ -905,9 +901,9 @@ public func bitLock(address: UnsafeMutablePointer<CInt>, lockBit lock_bit: CInt)
 /// from (but not including) `nth_bit` upwards. Bits are numbered
 /// from 0 (least significant) to `sizeof(#gulong)` * 8 - 1 (31 or 63,
 /// usually). To start searching from the 0th bit, set `nth_bit` to -1.
-public func bitNthLsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
-    let rv = g_bit_nth_lsf(gulong(mask), gint(nth_bit))
-    return CInt(rv)
+public func bitNthLsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> Int {
+    let rv: Int = cast(g_bit_nth_lsf(gulong(mask), gint(nth_bit)))
+    return Int(rv)
 }
 
 
@@ -918,9 +914,9 @@ public func bitNthLsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
 /// from 0 (least significant) to `sizeof(#gulong)` * 8 - 1 (31 or 63,
 /// usually). To start searching from the last bit, set `nth_bit` to
 /// -1 or GLIB_SIZEOF_LONG * 8.
-public func bitNthMsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
-    let rv = g_bit_nth_msf(gulong(mask), gint(nth_bit))
-    return CInt(rv)
+public func bitNthMsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> Int {
+    let rv: Int = cast(g_bit_nth_msf(gulong(mask), gint(nth_bit)))
+    return Int(rv)
 }
 
 
@@ -928,9 +924,9 @@ public func bitNthMsf(mask: CUnsignedLong, nthBit nth_bit: CInt) -> CInt {
 
 /// Gets the number of bits used to hold `number`,
 /// e.g. if `number` is 4, 3 bits are needed.
-public func bitStorage(number: CUnsignedLong) -> CUnsignedInt {
-    let rv = g_bit_storage(gulong(number))
-    return CUnsignedInt(rv)
+public func bitStorage(number: CUnsignedLong) -> Int {
+    let rv: Int = cast(g_bit_storage(gulong(number)))
+    return Int(rv)
 }
 
 
@@ -973,7 +969,7 @@ public func bitUnlock(address: UnsafeMutablePointer<CInt>, lockBit lock_bit: CIn
 
 public func bookmarkFileErrorQuark() -> GQuark {
     let rv = g_bookmark_file_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -990,8 +986,8 @@ public func bookmarkFileErrorQuark() -> GQuark {
 /// as a va_list. This function is mainly meant for language bindings.
 #if !os(Linux)
 public func buildFilenameValist(firstElement first_element: UnsafePointer<gchar>, args: UnsafeMutablePointer<CVaListPointer>) -> String! {
-    let rv = g_build_filename_valist(first_element, cast(args))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_build_filename_valist(first_element, cast(args)))
+    return cast(rv)
 }
 #endif
 
@@ -1002,8 +998,8 @@ public func buildFilenameValist(firstElement first_element: UnsafePointer<gchar>
 /// as a string array, instead of varargs. This function is mainly
 /// meant for language bindings.
 public func buildFilenamev(args: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> String! {
-    let rv = g_build_filenamev(cast(args))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_build_filenamev(cast(args)))
+    return cast(rv)
 }
 
 
@@ -1020,8 +1016,8 @@ public func buildFilenamev(args: UnsafeMutablePointer<UnsafeMutablePointer<gchar
 /// as a string array, instead of varargs. This function is mainly
 /// meant for language bindings.
 public func buildPathv(separator: UnsafePointer<gchar>, args: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> String! {
-    let rv = g_build_pathv(separator, cast(args))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_build_pathv(separator, cast(args)))
+    return cast(rv)
 }
 
 
@@ -1032,7 +1028,7 @@ public func buildPathv(separator: UnsafePointer<gchar>, args: UnsafeMutablePoint
 /// `array` is greater than one, the `GByteArray` wrapper is preserved but
 /// the size of `array` will be set to zero.
 public func byteArrayFree(array: ByteArrayProtocol, freeSegment free_segment: Bool) -> UnsafeMutablePointer<UInt8>! {
-    let rv = g_byte_array_free(cast(array.ptr), gboolean(free_segment ? 1 : 0))
+    let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_free(cast(array.ptr), gboolean(free_segment ? 1 : 0)))
     return cast(rv)
 }
 
@@ -1048,7 +1044,7 @@ public func byteArrayFree(array: ByteArrayProtocol, freeSegment free_segment: Bo
 /// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
 /// together.
 public func byteArrayFreeToBytes(array: ByteArrayProtocol) -> UnsafeMutablePointer<GBytes>! {
-    let rv = g_byte_array_free_to_bytes(cast(array.ptr))
+    let rv: UnsafeMutablePointer<GBytes>! = cast(g_byte_array_free_to_bytes(cast(array.ptr)))
     return cast(rv)
 }
 
@@ -1057,7 +1053,7 @@ public func byteArrayFreeToBytes(array: ByteArrayProtocol) -> UnsafeMutablePoint
 
 /// Creates a new `GByteArray` with a reference count of 1.
 public func byteArrayNew() -> UnsafeMutablePointer<GByteArray>! {
-    let rv = g_byte_array_new()
+    let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_new())
     return cast(rv)
 }
 
@@ -1067,7 +1063,7 @@ public func byteArrayNew() -> UnsafeMutablePointer<GByteArray>! {
 /// Create byte array containing the data. The data will be owned by the array
 /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
 public func byteArrayNewTake(data: UnsafeMutablePointer<UInt8>, len: Int) -> UnsafeMutablePointer<GByteArray>! {
-    let rv = g_byte_array_new_take(cast(data), gsize(len))
+    let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_new_take(cast(data), gsize(len)))
     return cast(rv)
 }
 
@@ -1078,7 +1074,7 @@ public func byteArrayNewTake(data: UnsafeMutablePointer<UInt8>, len: Int) -> Uns
 /// the underlying array is preserved for use elsewhere and returned
 /// to the caller.
 public func byteArraySteal(array: ByteArrayProtocol, len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
-    let rv = g_byte_array_steal(cast(array.ptr), cast(len))
+    let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_steal(cast(array.ptr), cast(len)))
     return cast(rv)
 }
 
@@ -1112,8 +1108,8 @@ public func byteArrayUnref(array: ByteArrayProtocol) {
 /// 
 /// No file system I/O is done.
 public func canonicalizeFilename(String_: UnsafePointer<gchar>, relativeTo relative_to: UnsafePointer<gchar>) -> String! {
-    let rv = g_canonicalize_filename(String_, relative_to)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_canonicalize_filename(String_, relative_to))
+    return cast(rv)
 }
 
 
@@ -1123,9 +1119,9 @@ public func canonicalizeFilename(String_: UnsafePointer<gchar>, relativeTo relat
 /// current directory of the process to `path`.
 /// 
 /// See your C library manual for more details about `chdir()`.
-public func chdir(path: UnsafePointer<gchar>) -> CInt {
-    let rv = g_chdir(path)
-    return rv
+public func chdir(path: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_chdir(path))
+    return cast(rv)
 }
 
 
@@ -1146,8 +1142,8 @@ public func chdir(path: UnsafePointer<gchar>) -> CInt {
 /// version `required_major.required_minor`.`required_micro`
 /// (same major version.)
 public func checkVersion(requiredMajor required_major: CUnsignedInt, requiredMinor required_minor: CUnsignedInt, requiredMicro required_micro: CUnsignedInt) -> String! {
-    let rv = glib_check_version(guint(required_major), guint(required_minor), guint(required_micro))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(glib_check_version(guint(required_major), guint(required_minor), guint(required_micro)))
+    return cast(rv)
 }
 
 
@@ -1156,7 +1152,7 @@ public func checkVersion(requiredMajor required_major: CUnsignedInt, requiredMin
 /// Gets the length in bytes of digests of type `checksum_type`
 public func checksumTypeGetLength(checksumType checksum_type: ChecksumType) -> gssize {
     let rv = g_checksum_type_get_length(checksum_type)
-    return rv
+    return cast(rv)
 }
 
 
@@ -1182,9 +1178,9 @@ public func checksumTypeGetLength(checksumType checksum_type: ChecksumType) -> g
 /// `g_child_watch_source_new()` and attaches it to the main loop context
 /// using `g_source_attach()`. You can do these steps manually if you
 /// need greater control.
-public func childWatchAdd(pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_child_watch_add(pid, function, cast(data))
-    return CUnsignedInt(rv)
+public func childWatchAdd(pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_child_watch_add(pid, function, cast(data)))
+    return Int(rv)
 }
 
 
@@ -1214,9 +1210,9 @@ public func childWatchAdd(pid: Pid, function: @escaping ChildWatchFunc, data: Un
 /// `g_child_watch_source_new()` and attaches it to the main loop context
 /// using `g_source_attach()`. You can do these steps manually if you
 /// need greater control.
-public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_child_watch_add_full(gint(priority), pid, function, cast(data), notify)
-    return CUnsignedInt(rv)
+public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping ChildWatchFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_child_watch_add_full(gint(priority), pid, function, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -1255,7 +1251,7 @@ public func childWatchAddFull(priority: CInt, pid: Pid, function: @escaping Chil
 /// Calling `waitpid` for specific processes other than `pid` remains a
 /// valid thing to do.
 public func childWatchSourceNew(pid: Pid) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_child_watch_source_new(pid)
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_child_watch_source_new(pid))
     return cast(rv)
 }
 
@@ -1265,11 +1261,9 @@ public func childWatchSourceNew(pid: Pid) -> UnsafeMutablePointer<GSource>! {
 /// If `err` or *`err` is `nil`, does nothing. Otherwise,
 /// calls `g_error_free()` on *`err` and sets *`err` to `nil`.
 public func clearError() throws {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     g_clear_error(&error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
 
 }
 
@@ -1346,11 +1340,9 @@ public func clearSlist(slistPtr slist_ptr: SListProtocol, destroy: @escaping Des
 /// attempt to correctly handle `EINTR`, which has platform-specific
 /// semantics.
 public func close(fd: CInt) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_close(gint(fd), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -1363,8 +1355,8 @@ public func close(fd: CInt) throws -> Bool {
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeChecksumForBytes(checksumType checksum_type: ChecksumType, data: BytesProtocol) -> String! {
-    let rv = g_compute_checksum_for_bytes(checksum_type, cast(data.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_checksum_for_bytes(checksum_type, cast(data.ptr)))
+    return cast(rv)
 }
 
 
@@ -1376,8 +1368,8 @@ public func computeChecksumForBytes(checksumType checksum_type: ChecksumType, da
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeChecksumForData(checksumType checksum_type: ChecksumType, data: UnsafePointer<guchar>, length: Int) -> String! {
-    let rv = g_compute_checksum_for_data(checksum_type, cast(data), gsize(length))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_checksum_for_data(checksum_type, cast(data), gsize(length)))
+    return cast(rv)
 }
 
 
@@ -1387,8 +1379,8 @@ public func computeChecksumForData(checksumType checksum_type: ChecksumType, dat
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeChecksumForString(checksumType checksum_type: ChecksumType, str: UnsafePointer<gchar>, length: gssize) -> String! {
-    let rv = g_compute_checksum_for_string(checksum_type, str, length)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_checksum_for_string(checksum_type, str, length))
+    return cast(rv)
 }
 
 
@@ -1400,8 +1392,8 @@ public func computeChecksumForString(checksumType checksum_type: ChecksumType, s
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeHmacForBytes(digestType digest_type: ChecksumType, key: BytesProtocol, data: BytesProtocol) -> String! {
-    let rv = g_compute_hmac_for_bytes(digest_type, cast(key.ptr), cast(data.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_hmac_for_bytes(digest_type, cast(key.ptr), cast(data.ptr)))
+    return cast(rv)
 }
 
 
@@ -1413,8 +1405,8 @@ public func computeHmacForBytes(digestType digest_type: ChecksumType, key: Bytes
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeHmacForData(digestType digest_type: ChecksumType, key: UnsafePointer<guchar>, keyLen key_len: Int, data: UnsafePointer<guchar>, length: Int) -> String! {
-    let rv = g_compute_hmac_for_data(digest_type, cast(key), gsize(key_len), cast(data), gsize(length))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_hmac_for_data(digest_type, cast(key), gsize(key_len), cast(data), gsize(length)))
+    return cast(rv)
 }
 
 
@@ -1424,8 +1416,8 @@ public func computeHmacForData(digestType digest_type: ChecksumType, key: Unsafe
 /// 
 /// The hexadecimal string returned will be in lower case.
 public func computeHmacForString(digestType digest_type: ChecksumType, key: UnsafePointer<guchar>, keyLen key_len: Int, str: UnsafePointer<gchar>, length: gssize) -> String! {
-    let rv = g_compute_hmac_for_string(digest_type, cast(key), gsize(key_len), str, length)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_compute_hmac_for_string(digest_type, cast(key), gsize(key_len), str, length))
+    return cast(rv)
 }
 
 
@@ -1446,11 +1438,9 @@ public func computeHmacForString(digestType digest_type: ChecksumType, key: Unsa
 /// Using extensions such as "//TRANSLIT" may not work (or may not work
 /// well) on many platforms.  Consider using `g_str_to_ascii()` instead.
 public func convert(str: UnsafePointer<gchar>, len: gssize, toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_convert(cast(str), len, to_codeset, from_codeset, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gchar>! = cast(g_convert(cast(str), len, to_codeset, from_codeset, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1459,7 +1449,7 @@ public func convert(str: UnsafePointer<gchar>, len: gssize, toCodeset to_codeset
 
 public func convertErrorQuark() -> GQuark {
     let rv = g_convert_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1483,11 +1473,9 @@ public func convertErrorQuark() -> GQuark {
 /// character until it knows that the next character is not a mark that
 /// could combine with the base character.)
 public func convertWithFallback(str: UnsafePointer<gchar>, len: gssize, toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>, fallback: UnsafePointer<gchar>, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_convert_with_fallback(cast(str), len, to_codeset, from_codeset, fallback, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gchar>! = cast(g_convert_with_fallback(cast(str), len, to_codeset, from_codeset, fallback, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1514,11 +1502,9 @@ public func convertWithFallback(str: UnsafePointer<gchar>, len: gssize, toCodese
 /// the input character set. To get defined behaviour for conversion of
 /// unrepresentable characters, use `g_convert_with_fallback()`.
 public func convertWithIconv(str: UnsafePointer<gchar>, len: gssize, converter: IConv, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_convert_with_iconv(cast(str), len, cast(converter.ptr), cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gchar>! = cast(g_convert_with_iconv(cast(str), len, cast(converter.ptr), cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -1557,7 +1543,7 @@ public func datalistForeach(datalist: DataProtocol, func_: @escaping DataForeach
 /// Gets a data element, using its string identifier. This is slower than
 /// `g_datalist_id_get_data()` because it compares strings.
 public func datalistGetData(datalist: DataProtocol, key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-    let rv = g_datalist_get_data(cast(datalist.ptr), key)
+    let rv: UnsafeMutableRawPointer! = cast(g_datalist_get_data(cast(datalist.ptr), key))
     return cast(rv)
 }
 
@@ -1566,9 +1552,9 @@ public func datalistGetData(datalist: DataProtocol, key: UnsafePointer<gchar>) -
 
 /// Gets flags values packed in together with the datalist.
 /// See `g_datalist_set_flags()`.
-public func datalistGetFlags(datalist: DataProtocol) -> CUnsignedInt {
-    let rv = g_datalist_get_flags(cast(datalist.ptr))
-    return CUnsignedInt(rv)
+public func datalistGetFlags(datalist: DataProtocol) -> Int {
+    let rv: Int = cast(g_datalist_get_flags(cast(datalist.ptr)))
+    return Int(rv)
 }
 
 
@@ -1588,7 +1574,7 @@ public func datalistGetFlags(datalist: DataProtocol) -> CUnsignedInt {
 /// This function can be useful to avoid races when multiple
 /// threads are using the same datalist and the same key.
 public func datalistIDDupData(datalist: DataProtocol, keyID key_id: Quark, dupFunc dup_func: @escaping DuplicateFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-    let rv = g_datalist_id_dup_data(cast(datalist.ptr), key_id, dup_func, cast(user_data))
+    let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_dup_data(cast(datalist.ptr), key_id, dup_func, cast(user_data)))
     return cast(rv)
 }
 
@@ -1597,7 +1583,7 @@ public func datalistIDDupData(datalist: DataProtocol, keyID key_id: Quark, dupFu
 
 /// Retrieves the data element corresponding to `key_id`.
 public func datalistIDGetData(datalist: DataProtocol, keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-    let rv = g_datalist_id_get_data(cast(datalist.ptr), key_id)
+    let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_get_data(cast(datalist.ptr), key_id))
     return cast(rv)
 }
 
@@ -1607,7 +1593,7 @@ public func datalistIDGetData(datalist: DataProtocol, keyID key_id: Quark) -> Un
 /// Removes an element, without calling its destroy notification
 /// function.
 public func datalistIDRemoveNoNotify(datalist: DataProtocol, keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-    let rv = g_datalist_id_remove_no_notify(cast(datalist.ptr), key_id)
+    let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_remove_no_notify(cast(datalist.ptr), key_id))
     return cast(rv)
 }
 
@@ -1708,7 +1694,7 @@ public func datasetForeach(datasetLocation dataset_location: gconstpointer, func
 
 /// Gets the data element corresponding to a `GQuark`.
 public func datasetIDGetData(datasetLocation dataset_location: gconstpointer, keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-    let rv = g_dataset_id_get_data(cast(dataset_location), key_id)
+    let rv: UnsafeMutableRawPointer! = cast(g_dataset_id_get_data(cast(dataset_location), key_id))
     return cast(rv)
 }
 
@@ -1718,7 +1704,7 @@ public func datasetIDGetData(datasetLocation dataset_location: gconstpointer, ke
 /// Removes an element, without calling its destroy notification
 /// function.
 public func datasetIDRemoveNoNotify(datasetLocation dataset_location: gconstpointer, keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-    let rv = g_dataset_id_remove_no_notify(cast(dataset_location), key_id)
+    let rv: UnsafeMutableRawPointer! = cast(g_dataset_id_remove_no_notify(cast(dataset_location), key_id))
     return cast(rv)
 }
 
@@ -1814,9 +1800,9 @@ public func dateStrftime(s: UnsafeMutablePointer<gchar>, slen: Int, format: Unsa
 
 /// A comparison function for `GDateTimes` that is suitable
 /// as a `GCompareFunc`. Both `GDateTimes` must be non-`nil`.
-public func dateTimeCompare(dt1: gconstpointer, dt2: gconstpointer) -> CInt {
-    let rv = g_date_time_compare(cast(dt1), cast(dt2))
-    return CInt(rv)
+public func dateTimeCompare(dt1: gconstpointer, dt2: gconstpointer) -> Int {
+    let rv: Int = cast(g_date_time_compare(cast(dt1), cast(dt2)))
+    return Int(rv)
 }
 
 
@@ -1835,9 +1821,9 @@ public func dateTimeEqual(dt1: gconstpointer, dt2: gconstpointer) -> Bool {
 
 
 /// Hashes `datetime` into a `guint`, suitable for use within `GHashTable`.
-public func dateTimeHash(datetime: gconstpointer) -> CUnsignedInt {
-    let rv = g_date_time_hash(cast(datetime))
-    return CUnsignedInt(rv)
+public func dateTimeHash(datetime: gconstpointer) -> Int {
+    let rv: Int = cast(g_date_time_hash(cast(datetime)))
+    return Int(rv)
 }
 
 
@@ -1909,8 +1895,8 @@ public func dateValid(year: DateYear) -> Bool {
 /// more information about how this functions differs from calling
 /// `dcgettext()` directly.
 public func dcgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>, category: CInt) -> String! {
-    let rv = g_dcgettext(domain, msgid, gint(category))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dcgettext(domain, msgid, gint(category)))
+    return cast(rv)
 }
 
 
@@ -1949,8 +1935,8 @@ public func dcgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>,
 /// Applications should normally not use this function directly,
 /// but use the `_()` macro for translations.
 public func dgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) -> String! {
-    let rv = g_dgettext(domain, msgid)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dgettext(domain, msgid))
+    return cast(rv)
 }
 
 
@@ -1968,12 +1954,10 @@ public func dgettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) 
 /// Note that in contrast to `g_mkdtemp()` (and `mkdtemp()`) `tmpl` is not
 /// modified, and might thus be a read-only literal string.
 public func dirMakeTmp(tmpl: UnsafePointer<gchar>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_dir_make_tmp(tmpl, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_dir_make_tmp(tmpl, &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2001,9 +1985,9 @@ public func directEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 /// 
 /// This hash function is also appropriate for keys that are integers
 /// stored in pointers, such as `GINT_TO_POINTER (n)`.
-public func directHash(v: gconstpointer) -> CUnsignedInt {
-    let rv = g_direct_hash(cast(v))
-    return CUnsignedInt(rv)
+public func directHash(v: gconstpointer) -> Int {
+    let rv: Int = cast(g_direct_hash(cast(v)))
+    return Int(rv)
 }
 
 
@@ -2016,8 +2000,8 @@ public func directHash(v: gconstpointer) -> CUnsignedInt {
 /// See `g_dgettext()` for details of how this differs from `dngettext()`
 /// proper.
 public func dngettext(domain: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>, msgidPlural msgid_plural: UnsafePointer<gchar>, n: CUnsignedLong) -> String! {
-    let rv = g_dngettext(domain, msgid, msgid_plural, gulong(n))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dngettext(domain, msgid, msgid_plural, gulong(n)))
+    return cast(rv)
 }
 
 
@@ -2040,9 +2024,9 @@ public func doubleEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 /// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` pointers to doubles as keys in a `GHashTable`.
-public func doubleHash(v: gconstpointer) -> CUnsignedInt {
-    let rv = g_double_hash(cast(v))
-    return CUnsignedInt(rv)
+public func doubleHash(v: gconstpointer) -> Int {
+    let rv: Int = cast(g_double_hash(cast(v)))
+    return Int(rv)
 }
 
 
@@ -2062,8 +2046,8 @@ public func doubleHash(v: gconstpointer) -> CUnsignedInt {
 /// Applications should normally not use this function directly,
 /// but use the `C_()` macro for translations with context.
 public func dpgettext(domain: UnsafePointer<gchar>, msgctxtid: UnsafePointer<gchar>, msgidoffset: Int) -> String! {
-    let rv = g_dpgettext(domain, msgctxtid, gsize(msgidoffset))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dpgettext(domain, msgctxtid, gsize(msgidoffset)))
+    return cast(rv)
 }
 
 
@@ -2080,8 +2064,8 @@ public func dpgettext(domain: UnsafePointer<gchar>, msgctxtid: UnsafePointer<gch
 /// This function differs from `C_()` in that it is not a macro and
 /// thus you may use non-string-literals as context and msgid arguments.
 public func dpgettext2(domain: UnsafePointer<gchar>, context: UnsafePointer<gchar>, msgid: UnsafePointer<gchar>) -> String! {
-    let rv = g_dpgettext2(domain, context, msgid)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_dpgettext2(domain, context, msgid))
+    return cast(rv)
 }
 
 
@@ -2090,8 +2074,8 @@ public func dpgettext2(domain: UnsafePointer<gchar>, context: UnsafePointer<gcha
 /// Returns the value of the environment variable `variable` in the
 /// provided list `envp`.
 public func environGetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, variable: UnsafePointer<gchar>) -> String! {
-    let rv = g_environ_getenv(cast(envp), variable)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_environ_getenv(cast(envp), variable))
+    return cast(rv)
 }
 
 
@@ -2100,7 +2084,7 @@ public func environGetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>
 /// Sets the environment variable `variable` in the provided list
 /// `envp` to `value`.
 public func environSetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, variable: UnsafePointer<gchar>, value: UnsafePointer<gchar>, overwrite: Bool) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_environ_setenv(cast(envp), variable, value, gboolean(overwrite ? 1 : 0))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_environ_setenv(cast(envp), variable, value, gboolean(overwrite ? 1 : 0)))
     return cast(rv)
 }
 
@@ -2110,7 +2094,7 @@ public func environSetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>
 /// Removes the environment variable `variable` from the provided
 /// environment `envp`.
 public func environUnsetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, variable: UnsafePointer<gchar>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_environ_unsetenv(cast(envp), variable)
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_environ_unsetenv(cast(envp), variable))
     return cast(rv)
 }
 
@@ -2127,7 +2111,7 @@ public func environUnsetenv(envp: UnsafeMutablePointer<UnsafeMutablePointer<gcha
 /// `g_file_error_from_errno()` when constructing a `GError`.
 public func fileErrorFromErrno(errNo err_no: CInt) -> GFileError {
     let rv = g_file_error_from_errno(gint(err_no))
-    return rv
+    return cast(rv)
 }
 
 
@@ -2135,7 +2119,7 @@ public func fileErrorFromErrno(errNo err_no: CInt) -> GFileError {
 
 public func fileErrorQuark() -> GQuark {
     let rv = g_file_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -2152,11 +2136,9 @@ public func fileErrorQuark() -> GQuark {
 /// codes are those in the `GFileError` enumeration. In the error case,
 /// `contents` is set to `nil` and `length` is set to zero.
 public func fileGetContents(String_: UnsafePointer<gchar>, contents: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, length: UnsafeMutablePointer<Int>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_file_get_contents(String_, cast(contents), cast(length), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -2179,13 +2161,11 @@ public func fileGetContents(String_: UnsafePointer<gchar>, contents: UnsafeMutab
 /// is returned in `name_used`. This string should be freed with `g_free()`
 /// when not needed any longer. The returned name is in the GLib file
 /// name encoding.
-public func fileOpenTmp(tmpl: UnsafePointer<gchar>, nameUsed name_used: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> CInt {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_file_open_tmp(tmpl, cast(name_used), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return CInt(rv)
+public func fileOpenTmp(tmpl: UnsafePointer<gchar>, nameUsed name_used: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> Int {
+    var error: UnsafeMutablePointer<GError>?
+    let rv: Int = cast(g_file_open_tmp(tmpl, cast(name_used), &error))
+    if let error = error { throw ErrorType(error) }
+    return Int(rv)
 }
 
 
@@ -2195,12 +2175,10 @@ public func fileOpenTmp(tmpl: UnsafePointer<gchar>, nameUsed name_used: UnsafeMu
 /// `readlink()` function.  The returned string is in the encoding used
 /// for filenames. Use `g_filename_to_utf8()` to convert it to UTF-8.
 public func fileReadLink(String_: UnsafePointer<gchar>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_file_read_link(String_, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_file_read_link(String_, &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2243,11 +2221,9 @@ public func fileReadLink(String_: UnsafePointer<gchar>) throws -> String! {
 /// Note that the name for the temporary file is constructed by appending up
 /// to 7 characters to `filename`.
 public func fileSetContents(String_: UnsafePointer<gchar>, contents: UnsafePointer<gchar>, length: gssize) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_file_set_contents(String_, cast(contents), length, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -2297,7 +2273,7 @@ public func fileSetContents(String_: UnsafePointer<gchar>, contents: UnsafePoint
 /// its name indicates that it is executable, checking for well-known
 /// extensions and those listed in the `PATHEXT` environment variable.
 public func fileTest(String_: UnsafePointer<gchar>, test: FileTest) -> Bool {
-    let rv = g_file_test(String_, test)
+    let rv = g_file_test(String_, test.value)
     return Bool(rv != 0)
 }
 
@@ -2321,8 +2297,8 @@ public func fileTest(String_: UnsafePointer<gchar>, test: FileTest) -> Bool {
 /// This function is preferred over `g_filename_display_name()` if you know the
 /// whole path, as it allows translation.
 public func filenameDisplayBasename(String_: UnsafePointer<gchar>) -> String! {
-    let rv = g_filename_display_basename(String_)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_filename_display_basename(String_))
+    return cast(rv)
 }
 
 
@@ -2344,8 +2320,8 @@ public func filenameDisplayBasename(String_: UnsafePointer<gchar>) -> String! {
 /// `g_filename_display_basename()`, since that allows location-based
 /// translation of filenames.
 public func filenameDisplayName(String_: UnsafePointer<gchar>) -> String! {
-    let rv = g_filename_display_name(String_)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_filename_display_name(String_))
+    return cast(rv)
 }
 
 
@@ -2354,12 +2330,10 @@ public func filenameDisplayName(String_: UnsafePointer<gchar>) -> String! {
 /// Converts an escaped ASCII-encoded URI to a local filename in the
 /// encoding used for filenames.
 public func filenameFrom(uri: UnsafePointer<gchar>, hostname: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_filename_from_uri(uri, cast(hostname), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_filename_from_uri(uri, cast(hostname), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2376,12 +2350,10 @@ public func filenameFrom(uri: UnsafePointer<gchar>, hostname: UnsafeMutablePoint
 /// not UTF-8 and the conversion output contains a nul character, the error
 /// `G_CONVERT_ERROR_EMBEDDED_NUL` is set and the function returns `nil`.
 public func filenameFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_filename_from_utf8(utf8string, len, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_filename_from_utf8(utf8string, len, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2390,12 +2362,10 @@ public func filenameFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, byte
 /// Converts an absolute filename to an escaped ASCII-encoded URI, with the path
 /// component following Section 3.3. of RFC 2396.
 public func filenameToURI(String_: UnsafePointer<gchar>, hostname: UnsafePointer<gchar>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_filename_to_uri(String_, hostname, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_filename_to_uri(String_, hostname, &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2414,12 +2384,10 @@ public func filenameToURI(String_: UnsafePointer<gchar>, hostname: UnsafePointer
 /// function returns `nil`. Use `g_convert()` to produce output that
 /// may contain embedded nul characters.
 public func filenameToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_filename_to_utf8(opsysstring, len, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_filename_to_utf8(opsysstring, len, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -2443,8 +2411,8 @@ public func filenameToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytes
 /// the program is found, the return value contains the full name
 /// including the type suffix.
 public func findProgramInPath(program: UnsafePointer<gchar>) -> String! {
-    let rv = g_find_program_in_path(program)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_find_program_in_path(program))
+    return cast(rv)
 }
 
 
@@ -2464,8 +2432,8 @@ public func findProgramInPath(program: UnsafePointer<gchar>) -> String! {
 /// See `g_format_size_full()` for more options about how the size might be
 /// formatted.
 public func format(size: UInt64) -> String! {
-    let rv = g_format_size(guint64(size))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_format_size(guint64(size)))
+    return cast(rv)
 }
 
 
@@ -2485,8 +2453,8 @@ public func format(size: UInt64) -> String! {
 /// This function is broken due to its use of SI
 ///     suffixes to denote IEC units. Use g_format_size() instead.
 @available(*, deprecated) public func formatSizeForDisplay(size: Int64) -> String! {
-    let rv = g_format_size_for_display(goffset(size))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_format_size_for_display(goffset(size)))
+    return cast(rv)
 }
 
 
@@ -2497,8 +2465,8 @@ public func format(size: UInt64) -> String! {
 /// This function is similar to `g_format_size()` but allows for flags
 /// that modify the output. See `GFormatSizeFlags`.
 public func formatSizeFull(size: UInt64, flags: FormatSizeFlags) -> String! {
-    let rv = g_format_size_full(guint64(size), flags)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_format_size_full(guint64(size), flags.value))
+    return cast(rv)
 }
 
 
@@ -2531,8 +2499,8 @@ public func free(mem: UnsafeMutableRawPointer) {
 /// `g_get_prgname()` (which may be `nil` if `g_set_prgname()` has also not
 /// been called).
 public func getApplicationName() -> String! {
-    let rv = g_get_application_name()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_application_name())
+    return cast(rv)
 }
 
 
@@ -2568,8 +2536,8 @@ public func get(charset: UnsafePointer<UnsafePointer<CChar>>) -> Bool {
 
 /// Gets the character set for the current locale.
 public func getCodeset() -> String! {
-    let rv = g_get_codeset()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_codeset())
+    return cast(rv)
 }
 
 
@@ -2611,8 +2579,8 @@ public func getConsole(charset: UnsafePointer<UnsafePointer<CChar>>) -> Bool {
 /// the current directory.  This can make a difference in the case that
 /// the current directory is the target of a symbolic link.
 public func getCurrentDir() -> String! {
-    let rv = g_get_current_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_current_dir())
+    return cast(rv)
 }
 
 
@@ -2644,7 +2612,7 @@ public func getCurrentDir() -> String! {
 /// The return value is freshly allocated and it should be freed with
 /// `g_strfreev()` when it is no longer needed.
 public func getEnviron() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_get_environ()
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_get_environ())
     return cast(rv)
 }
 
@@ -2704,8 +2672,8 @@ public func get(filenameCharsets filename_charsets: UnsafePointer<UnsafePointer<
 /// should either directly check the `HOME` environment variable yourself
 /// or unset it before calling any functions in GLib.
 public func getHomeDir() -> String! {
-    let rv = g_get_home_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_home_dir())
+    return cast(rv)
 }
 
 
@@ -2726,8 +2694,8 @@ public func getHomeDir() -> String! {
 /// 
 /// The encoding of the returned string is UTF-8.
 public func getHostName() -> String! {
-    let rv = g_get_host_name()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_host_name())
+    return cast(rv)
 }
 
 
@@ -2745,7 +2713,7 @@ public func getHostName() -> String! {
 /// `LC_MESSAGES` and `LANG` to find the list of locales specified by the
 /// user.
 public func getLanguageNames() -> UnsafePointer<UnsafePointer<gchar>>! {
-    let rv = g_get_language_names()
+    let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_get_language_names())
     return cast(rv)
 }
 
@@ -2763,7 +2731,7 @@ public func getLanguageNames() -> UnsafePointer<UnsafePointer<gchar>>! {
 /// 
 /// `g_get_language_names()` returns `g_get_language_names_with_category("LC_MESSAGES")`.
 public func getLanguageNamesWithCategory(categoryName category_name: UnsafePointer<gchar>) -> UnsafePointer<UnsafePointer<gchar>>! {
-    let rv = g_get_language_names_with_category(category_name)
+    let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_get_language_names_with_category(category_name))
     return cast(rv)
 }
 
@@ -2786,7 +2754,7 @@ public func getLanguageNamesWithCategory(categoryName category_name: UnsafePoint
 /// If you need the list of variants for the current locale,
 /// use `g_get_language_names()`.
 public func getLocaleVariants(locale: UnsafePointer<gchar>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_get_locale_variants(locale)
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_get_locale_variants(locale))
     return cast(rv)
 }
 
@@ -2815,9 +2783,9 @@ public func getMonotonicTime() -> Int64 {
 /// schedule simultaneously for this process.  This is intended to be
 /// used as a parameter to `g_thread_pool_new()` for CPU bound tasks and
 /// similar cases.
-public func getNumProcessors() -> CUnsignedInt {
-    let rv = g_get_num_processors()
-    return CUnsignedInt(rv)
+public func getNumProcessors() -> Int {
+    let rv: Int = cast(g_get_num_processors())
+    return Int(rv)
 }
 
 
@@ -2832,8 +2800,8 @@ public func getNumProcessors() -> CUnsignedInt {
 /// be useful. No key is guaranteed to be provided, so the caller should always
 /// check if the result is `nil`.
 public func getOsInfo(keyName key_name: UnsafePointer<gchar>) -> String! {
-    let rv = g_get_os_info(key_name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_os_info(key_name))
+    return cast(rv)
 }
 
 
@@ -2848,8 +2816,8 @@ public func getOsInfo(keyName key_name: UnsafePointer<gchar>) -> String! {
 /// `GtkApplication::startup` handler. The program name is found by
 /// taking the last component of `argv`[0].
 public func getPrgname() -> String! {
-    let rv = g_get_prgname()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_prgname())
+    return cast(rv)
 }
 
 
@@ -2861,8 +2829,8 @@ public func getPrgname() -> String! {
 /// real user name cannot be determined, the string "Unknown" is
 /// returned.
 public func getRealName() -> String! {
-    let rv = g_get_real_name()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_real_name())
+    return cast(rv)
 }
 
 
@@ -2903,7 +2871,7 @@ public func getRealTime() -> Int64 {
 /// CSIDL_COMMON_APPDATA folder. This information will not roam and is available
 /// to anyone using the computer.
 public func getSystemConfigDirs() -> UnsafePointer<UnsafePointer<gchar>>! {
-    let rv = g_get_system_config_dirs()
+    let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_get_system_config_dirs())
     return cast(rv)
 }
 
@@ -2942,7 +2910,7 @@ public func getSystemConfigDirs() -> UnsafePointer<UnsafePointer<gchar>>! {
 /// Note that on Windows the returned list can vary depending on where
 /// this function is called.
 public func getSystemDataDirs() -> UnsafePointer<UnsafePointer<gchar>>! {
-    let rv = g_get_system_data_dirs()
+    let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_get_system_data_dirs())
     return cast(rv)
 }
 
@@ -2964,8 +2932,8 @@ public func getSystemDataDirs() -> UnsafePointer<UnsafePointer<gchar>>! {
 /// it is always UTF-8. The return value is never `nil` or the empty
 /// string.
 public func getTmpDir() -> String! {
-    let rv = g_get_tmp_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_tmp_dir())
+    return cast(rv)
 }
 
 
@@ -2985,8 +2953,8 @@ public func getTmpDir() -> String! {
 /// `C:\Documents and Settings\username\Local Settings\Temporary Internet Files`.
 /// See the [documentation for `CSIDL_INTERNET_CACHE`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_internet_cache`).
 public func getUserCacheDir() -> String! {
-    let rv = g_get_user_cache_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_cache_dir())
+    return cast(rv)
 }
 
 
@@ -3007,8 +2975,8 @@ public func getUserCacheDir() -> String! {
 /// Note that in this case on Windows it will be  the same
 /// as what `g_get_user_data_dir()` returns.
 public func getUserConfigDir() -> String! {
-    let rv = g_get_user_config_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_config_dir())
+    return cast(rv)
 }
 
 
@@ -3029,8 +2997,8 @@ public func getUserConfigDir() -> String! {
 /// Note that in this case on Windows it will be the same
 /// as what `g_get_user_config_dir()` returns.
 public func getUserDataDir() -> String! {
-    let rv = g_get_user_data_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_data_dir())
+    return cast(rv)
 }
 
 
@@ -3041,8 +3009,8 @@ public func getUserDataDir() -> String! {
 /// encoding, or something else, and there is no guarantee that it is even
 /// consistent on a machine. On Windows, it is always UTF-8.
 public func getUserName() -> String! {
-    let rv = g_get_user_name()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_name())
+    return cast(rv)
 }
 
 
@@ -3059,8 +3027,8 @@ public func getUserName() -> String! {
 /// In the case that this variable is not set, we return the value of
 /// `g_get_user_cache_dir()`, after verifying that it exists.
 public func getUserRuntimeDir() -> String! {
-    let rv = g_get_user_runtime_dir()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_runtime_dir())
+    return cast(rv)
 }
 
 
@@ -3077,8 +3045,8 @@ public func getUserRuntimeDir() -> String! {
 /// of the special directory without requiring the session to restart; GLib
 /// will not reflect any change once the special directories are loaded.
 public func getUserSpecialDir(directory: UserDirectory) -> String! {
-    let rv = g_get_user_special_dir(directory)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_get_user_special_dir(directory))
+    return cast(rv)
 }
 
 
@@ -3092,8 +3060,8 @@ public func getUserSpecialDir(directory: UserDirectory) -> String! {
 /// On Windows, in case the environment variable's value contains
 /// references to other environment variables, they are expanded.
 public func getenv(variable: UnsafePointer<gchar>) -> String! {
-    let rv = g_getenv(variable)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_getenv(variable))
+    return cast(rv)
 }
 
 
@@ -3170,7 +3138,7 @@ public func hashTableInsert(hashTable hash_table: HashTableProtocol, key: Unsafe
 /// and has the value `nil`. If you need this distinction, use
 /// `g_hash_table_lookup_extended()`.
 public func hashTableLookup(hashTable hash_table: HashTableProtocol, key: gconstpointer) -> UnsafeMutableRawPointer! {
-    let rv = g_hash_table_lookup(cast(hash_table.ptr), cast(key))
+    let rv: UnsafeMutableRawPointer! = cast(g_hash_table_lookup(cast(hash_table.ptr), cast(key)))
     return cast(rv)
 }
 
@@ -3241,9 +3209,9 @@ public func hashTableReplace(hashTable hash_table: HashTableProtocol, key: Unsaf
 
 
 /// Returns the number of elements contained in the `GHashTable`.
-public func hashTableSize(hashTable hash_table: HashTableProtocol) -> CUnsignedInt {
-    let rv = g_hash_table_size(cast(hash_table.ptr))
-    return CUnsignedInt(rv)
+public func hashTableSize(hashTable hash_table: HashTableProtocol) -> Int {
+    let rv: Int = cast(g_hash_table_size(cast(hash_table.ptr)))
+    return Int(rv)
 }
 
 
@@ -3402,8 +3370,8 @@ public func hostnameIsNonAscii(hostname: UnsafePointer<gchar>) -> Bool {
 /// string containing no uppercase letters and not ending with a
 /// trailing dot.
 public func hostnameToAscii(hostname: UnsafePointer<gchar>) -> String! {
-    let rv = g_hostname_to_ascii(hostname)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_hostname_to_ascii(hostname))
+    return cast(rv)
 }
 
 
@@ -3417,8 +3385,8 @@ public func hostnameToAscii(hostname: UnsafePointer<gchar>) -> String! {
 /// Of course if `hostname` is not an internationalized hostname, then
 /// the canonical presentation form will be entirely ASCII.
 public func hostnameToUnicode(hostname: UnsafePointer<gchar>) -> String! {
-    let rv = g_hostname_to_unicode(hostname)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_hostname_to_unicode(hostname))
+    return cast(rv)
 }
 
 
@@ -3453,7 +3421,7 @@ public func iconv(converter: IConv, inbuf: UnsafeMutablePointer<UnsafeMutablePoi
 /// more convenient than the raw iconv wrappers.
 public func iconvOpen(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset from_codeset: UnsafePointer<gchar>) -> GIConv? {
     let rv = g_iconv_open(to_codeset, from_codeset)
-    return rv == unsafeBitCast(-1, to: GIConv.self) ? nil : rv
+    return cast(rv)
 }
 
 
@@ -3473,9 +3441,9 @@ public func iconvOpen(toCodeset to_codeset: UnsafePointer<gchar>, fromCodeset fr
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
-public func idleAdd(function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_idle_add(function, cast(data))
-    return CUnsignedInt(rv)
+public func idleAdd(function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_idle_add(function, cast(data)))
+    return Int(rv)
 }
 
 
@@ -3493,9 +3461,9 @@ public func idleAdd(function: @escaping SourceFunc, data: UnsafeMutableRawPointe
 /// the callback will be invoked in whichever thread is running that main
 /// context. You can do these steps manually if you need greater control or to
 /// use a custom main context.
-public func idleAddFull(priority: CInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_idle_add_full(gint(priority), function, cast(data), notify)
-    return CUnsignedInt(rv)
+public func idleAddFull(priority: CInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_idle_add_full(gint(priority), function, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -3518,7 +3486,7 @@ public func idleRemoveBy(data: UnsafeMutableRawPointer) -> Bool {
 /// `G_PRIORITY_DEFAULT_IDLE`, as compared to other sources which
 /// have a default priority of `G_PRIORITY_DEFAULT`.
 public func idleSourceNew() -> UnsafeMutablePointer<GSource>! {
-    let rv = g_idle_source_new()
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_idle_source_new())
     return cast(rv)
 }
 
@@ -3543,9 +3511,9 @@ public func int64Equal(v1: gconstpointer, v2: gconstpointer) -> Bool {
 /// It can be passed to `g_hash_table_new()` as the `hash_func` parameter,
 /// when using non-`nil` pointers to 64-bit integer values as keys in a
 /// `GHashTable`.
-public func int64Hash(v: gconstpointer) -> CUnsignedInt {
-    let rv = g_int64_hash(cast(v))
-    return CUnsignedInt(rv)
+public func int64Hash(v: gconstpointer) -> Int {
+    let rv: Int = cast(g_int64_hash(cast(v)))
+    return Int(rv)
 }
 
 
@@ -3575,9 +3543,9 @@ public func intEqual(v1: gconstpointer, v2: gconstpointer) -> Bool {
 /// Note that this function acts on pointers to `gint`, not on `gint`
 /// directly: if your hash table's keys are of the form
 /// `GINT_TO_POINTER (n)`, use `g_direct_hash()` instead.
-public func intHash(v: gconstpointer) -> CUnsignedInt {
-    let rv = g_int_hash(cast(v))
-    return CUnsignedInt(rv)
+public func intHash(v: gconstpointer) -> Int {
+    let rv: Int = cast(g_int_hash(cast(v)))
+    return Int(rv)
 }
 
 
@@ -3592,8 +3560,8 @@ public func intHash(v: gconstpointer) -> CUnsignedInt {
 /// running. In particular, this means it cannot be used to initialize global
 /// variables in C++.
 public func internStatic(string: UnsafePointer<gchar>) -> String! {
-    let rv = g_intern_static_string(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_intern_static_string(string))
+    return cast(rv)
 }
 
 
@@ -3607,8 +3575,8 @@ public func internStatic(string: UnsafePointer<gchar>) -> String! {
 /// running. In particular, this means it cannot be used to initialize global
 /// variables in C++.
 public func intern(string: UnsafePointer<gchar>) -> String! {
-    let rv = g_intern_string(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_intern_string(string))
+    return cast(rv)
 }
 
 
@@ -3616,9 +3584,9 @@ public func intern(string: UnsafePointer<gchar>) -> String! {
 
 /// Adds the `GIOChannel` into the default main loop context
 /// with the default priority.
-public func ioAddWatch(channel: IOChannelProtocol, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_io_add_watch(cast(channel.ptr), condition, func_, cast(user_data))
-    return CUnsignedInt(rv)
+public func ioAddWatch(channel: IOChannelProtocol, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_io_add_watch(cast(channel.ptr), condition.value, func_, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -3630,9 +3598,9 @@ public func ioAddWatch(channel: IOChannelProtocol, condition: IOCondition, func_
 /// This internally creates a main loop source using `g_io_create_watch()`
 /// and attaches it to the main loop context with `g_source_attach()`.
 /// You can do these steps manually if you need greater control.
-public func ioAddWatchFull(channel: IOChannelProtocol, priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_io_add_watch_full(cast(channel.ptr), gint(priority), condition, func_, cast(user_data), notify)
-    return CUnsignedInt(rv)
+public func ioAddWatchFull(channel: IOChannelProtocol, priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_io_add_watch_full(cast(channel.ptr), gint(priority), condition.value, func_, cast(user_data), notify))
+    return Int(rv)
 }
 
 
@@ -3641,7 +3609,7 @@ public func ioAddWatchFull(channel: IOChannelProtocol, priority: CInt, condition
 /// Converts an `errno` error number to a `GIOChannelError`.
 public func ioChannelErrorFromErrno(en: CInt) -> GIOChannelError {
     let rv = g_io_channel_error_from_errno(gint(en))
-    return rv
+    return cast(rv)
 }
 
 
@@ -3649,7 +3617,7 @@ public func ioChannelErrorFromErrno(en: CInt) -> GIOChannelError {
 
 public func ioChannelErrorQuark() -> GQuark {
     let rv = g_io_channel_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -3670,7 +3638,7 @@ public func ioChannelErrorQuark() -> GQuark {
 /// puts the socket in non-blocking mode. This is a side-effect of the
 /// implementation and unavoidable.
 public func ioCreateWatch(channel: IOChannelProtocol, condition: IOCondition) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_io_create_watch(cast(channel.ptr), condition)
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_io_create_watch(cast(channel.ptr), condition.value))
     return cast(rv)
 }
 
@@ -3679,7 +3647,7 @@ public func ioCreateWatch(channel: IOChannelProtocol, condition: IOCondition) ->
 
 public func keyFileErrorQuark() -> GQuark {
     let rv = g_key_file_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -3694,7 +3662,7 @@ public func keyFileErrorQuark() -> GQuark {
 /// use cases for environment variables in GLib-using programs you want
 /// the UTF-8 encoding that this function and `g_getenv()` provide.
 public func listenv() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_listenv()
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_listenv())
     return cast(rv)
 }
 
@@ -3711,11 +3679,9 @@ public func listenv() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
 /// in error `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`. Use `g_convert()` to convert
 /// input that may contain embedded nul characters.
 public func localeFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_locale_from_utf8(utf8string, len, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gchar>! = cast(g_locale_from_utf8(utf8string, len, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -3734,12 +3700,10 @@ public func localeFromUTF8(utf8string: UnsafePointer<gchar>, len: gssize, bytesR
 /// earlier versions of this library. Use `g_convert()` to produce output that
 /// may contain embedded nul characters.
 public func localeToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRead bytes_read: UnsafeMutablePointer<Int>, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_locale_to_utf8(cast(opsysstring), len, cast(bytes_read), cast(bytes_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_locale_to_utf8(cast(opsysstring), len, cast(bytes_read), cast(bytes_written), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -3778,7 +3742,7 @@ public func localeToUTF8(opsysstring: UnsafePointer<gchar>, len: gssize, bytesRe
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging](#using-structured-logging).
 public func logDefaultHandler(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, message: UnsafePointer<gchar>, unusedData unused_data: UnsafeMutableRawPointer) {
-    g_log_default_handler(log_domain, log_level, message, cast(unused_data))
+    g_log_default_handler(log_domain, log_level.value, message, cast(unused_data))
 
 }
 
@@ -3814,8 +3778,8 @@ public func logRemoveHandler(logDomain log_domain: UnsafePointer<gchar>, handler
 /// otherwise it is up to the writer function to determine which log messages
 /// are fatal. See [Using Structured Logging](#using-structured-logging).
 public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelFlags {
-    let rv = g_log_set_always_fatal(fatal_mask)
-    return rv
+    let rv = g_log_set_always_fatal(fatal_mask.value)
+    return cast(rv)
 }
 
 
@@ -3829,8 +3793,8 @@ public func logSetAlwaysFatal(fatalMask fatal_mask: LogLevelFlags) -> GLogLevelF
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging](#using-structured-logging).
 public func logSetDefaultHandler(logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer) -> GLogFunc! {
-    let rv = g_log_set_default_handler(log_func, cast(user_data))
-    return rv
+    let rv: GLogFunc! = cast(g_log_set_default_handler(log_func, cast(user_data)))
+    return cast(rv)
 }
 
 
@@ -3850,8 +3814,8 @@ public func logSetDefaultHandler(logFunc log_func: @escaping LogFunc, userData u
 /// `G_LOG_LEVEL_WARNING`, `G_LOG_LEVEL_MESSAGE`, `G_LOG_LEVEL_INFO` or
 /// `G_LOG_LEVEL_DEBUG` as fatal except inside of test programs.
 public func logSetFatalMask(logDomain log_domain: UnsafePointer<gchar>, fatalMask fatal_mask: LogLevelFlags) -> GLogLevelFlags {
-    let rv = g_log_set_fatal_mask(log_domain, fatal_mask)
-    return rv
+    let rv = g_log_set_fatal_mask(log_domain, fatal_mask.value)
+    return cast(rv)
 }
 
 
@@ -3891,9 +3855,9 @@ public func logSetFatalMask(logDomain log_domain: UnsafePointer<gchar>, fatalMas
 ///                    | G_LOG_FLAG_RECURSION, my_log_handler, NULL);
 /// ```
 /// 
-public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_log_set_handler(log_domain, log_levels, log_func, cast(user_data))
-    return CUnsignedInt(rv)
+public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_log_set_handler(log_domain, log_levels.value, log_func, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -3903,9 +3867,9 @@ public func logSetHandler(logDomain log_domain: UnsafePointer<gchar>, logLevels 
 /// 
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging](#using-structured-logging).
-public func logSetHandlerFull(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_log_set_handler_full(log_domain, log_levels, log_func, cast(user_data), destroy)
-    return CUnsignedInt(rv)
+public func logSetHandlerFull(logDomain log_domain: UnsafePointer<gchar>, logLevels log_levels: LogLevelFlags, logFunc log_func: @escaping LogFunc, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_log_set_handler_full(log_domain, log_levels.value, log_func, cast(user_data), destroy))
+    return Int(rv)
 }
 
 
@@ -3945,7 +3909,7 @@ public func logSetWriterFunc(func_: @escaping LogWriterFunc, userData user_data:
 /// This assumes that `log_level` is already present in `fields` (typically as the
 /// `PRIORITY` field).
 public func logStructuredArray(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int) {
-    g_log_structured_array(log_level, cast(fields), gsize(n_fields))
+    g_log_structured_array(log_level.value, cast(fields), gsize(n_fields))
 
 }
 
@@ -3974,7 +3938,7 @@ public func logStructuredArray(logLevel log_level: LogLevelFlags, fields: Unsafe
 /// 
 /// For more details on its usage and about the parameters, see `g_log_structured()`.
 public func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, fields: VariantProtocol) {
-    g_log_variant(log_domain, log_level, cast(fields.ptr))
+    g_log_variant(log_domain, log_level.value, cast(fields.ptr))
 
 }
 
@@ -3997,8 +3961,8 @@ public func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_
 /// messages unless their log domain (or `all`) is listed in the space-separated
 /// `G_MESSAGES_DEBUG` environment variable.
 public func logWriterDefault(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int, userData user_data: UnsafeMutableRawPointer) -> GLogWriterOutput {
-    let rv = g_log_writer_default(log_level, cast(fields), gsize(n_fields), cast(user_data))
-    return rv
+    let rv = g_log_writer_default(log_level.value, cast(fields), gsize(n_fields), cast(user_data))
+    return cast(rv)
 }
 
 
@@ -4014,8 +3978,8 @@ public func logWriterDefault(logLevel log_level: LogLevelFlags, fields: UnsafePo
 /// encoded in the character set of the current locale, which is not necessarily
 /// UTF-8.
 public func logWriterFormatFields(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int, useColor use_color: Bool) -> String! {
-    let rv = g_log_writer_format_fields(log_level, cast(fields), gsize(n_fields), gboolean(use_color ? 1 : 0))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_log_writer_format_fields(log_level.value, cast(fields), gsize(n_fields), gboolean(use_color ? 1 : 0)))
+    return cast(rv)
 }
 
 
@@ -4050,8 +4014,8 @@ public func logWriterIsJournald(outputFd output_fd: CInt) -> Bool {
 /// If GLib has been compiled without systemd support, this function is still
 /// defined, but will always return `G_LOG_WRITER_UNHANDLED`.
 public func logWriterJournald(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int, userData user_data: UnsafeMutableRawPointer) -> GLogWriterOutput {
-    let rv = g_log_writer_journald(log_level, cast(fields), gsize(n_fields), cast(user_data))
-    return rv
+    let rv = g_log_writer_journald(log_level.value, cast(fields), gsize(n_fields), cast(user_data))
+    return cast(rv)
 }
 
 
@@ -4070,8 +4034,8 @@ public func logWriterJournald(logLevel log_level: LogLevelFlags, fields: UnsafeP
 /// 
 /// This is suitable for use as a `GLogWriterFunc`.
 public func logWriterStandardStreams(logLevel log_level: LogLevelFlags, fields: UnsafePointer<GLogField>, nFields n_fields: Int, userData user_data: UnsafeMutableRawPointer) -> GLogWriterOutput {
-    let rv = g_log_writer_standard_streams(log_level, cast(fields), gsize(n_fields), cast(user_data))
-    return rv
+    let rv = g_log_writer_standard_streams(log_level.value, cast(fields), gsize(n_fields), cast(user_data))
+    return cast(rv)
 }
 
 
@@ -4101,7 +4065,7 @@ public func logWriterSupportsColor(outputFd output_fd: CInt) -> Bool {
 /// If [structured logging is enabled](#using-structured-logging) this will
 /// output via the structured log writer function (see `g_log_set_writer_func()`).
 public func logv(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, format: UnsafePointer<gchar>, args: CVaListPointer) {
-    g_logv(log_domain, log_level, format, args)
+    g_logv(log_domain, log_level.value, format, args)
 
 }
 
@@ -4113,7 +4077,7 @@ public func logv(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level:
 /// specified, and corresponds to the "main" main loop. See also
 /// `g_main_context_get_thread_default()`.
 public func mainContextDefault() -> UnsafeMutablePointer<GMainContext>! {
-    let rv = g_main_context_default()
+    let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_default())
     return cast(rv)
 }
 
@@ -4132,7 +4096,7 @@ public func mainContextDefault() -> UnsafeMutablePointer<GMainContext>! {
 /// If you need to hold a reference on the context, use
 /// `g_main_context_ref_thread_default()` instead.
 public func mainContextGetThreadDefault() -> UnsafeMutablePointer<GMainContext>! {
-    let rv = g_main_context_get_thread_default()
+    let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_get_thread_default())
     return cast(rv)
 }
 
@@ -4146,7 +4110,7 @@ public func mainContextGetThreadDefault() -> UnsafeMutablePointer<GMainContext>!
 /// is the global default context, this will return that `GMainContext`
 /// (with a ref added to it) rather than returning `nil`.
 public func mainContextRefThreadDefault() -> UnsafeMutablePointer<GMainContext>! {
-    let rv = g_main_context_ref_thread_default()
+    let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_ref_thread_default())
     return cast(rv)
 }
 
@@ -4155,7 +4119,7 @@ public func mainContextRefThreadDefault() -> UnsafeMutablePointer<GMainContext>!
 
 /// Returns the currently firing source for this thread.
 public func mainCurrentSource() -> UnsafeMutablePointer<GSource>! {
-    let rv = g_main_current_source()
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_main_current_source())
     return cast(rv)
 }
 
@@ -4265,9 +4229,9 @@ public func mainCurrentSource() -> UnsafeMutablePointer<GSource>! {
 ///    arbitrary  callbacks. Instead, structure your code so that you
 ///    simply return to the main loop and then get called again when
 ///    there is more work to do.
-public func mainDepth() -> CInt {
-    let rv = g_main_depth()
-    return CInt(rv)
+public func mainDepth() -> Int {
+    let rv: Int = cast(g_main_depth())
+    return Int(rv)
 }
 
 
@@ -4276,7 +4240,7 @@ public func mainDepth() -> CInt {
 /// Allocates `n_bytes` bytes of memory.
 /// If `n_bytes` is 0 it returns `nil`.
 public func malloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_malloc(gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_malloc(gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -4286,7 +4250,7 @@ public func malloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 /// Allocates `n_bytes` bytes of memory, initialized to 0's.
 /// If `n_bytes` is 0 it returns `nil`.
 public func malloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_malloc0(gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_malloc0(gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -4296,7 +4260,7 @@ public func malloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 /// This function is similar to `g_malloc0()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func malloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_malloc0_n(gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_malloc0_n(gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -4306,7 +4270,7 @@ public func malloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> U
 /// This function is similar to `g_malloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func mallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_malloc_n(gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_malloc_n(gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -4322,7 +4286,7 @@ public func mallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> Un
 
 public func markupErrorQuark() -> GQuark {
     let rv = g_markup_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -4343,8 +4307,8 @@ public func markupErrorQuark() -> GQuark {
 /// references in this range are not valid XML 1.0, but they are
 /// valid XML 1.1 and will be accepted by the GMarkup parser.
 public func markupEscape(text: UnsafePointer<gchar>, length: gssize) -> String! {
-    let rv = g_markup_escape_text(text, length)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_markup_escape_text(text, length))
+    return cast(rv)
 }
 
 
@@ -4361,8 +4325,8 @@ public func markupEscape(text: UnsafePointer<gchar>, length: gssize) -> String! 
 /// all string and character arguments in the fashion
 /// of `g_markup_escape_text()`. See `g_markup_printf_escaped()`.
 public func markupVprintfEscaped(format: UnsafePointer<CChar>, args: CVaListPointer) -> String! {
-    let rv = g_markup_vprintf_escaped(format, args)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_markup_vprintf_escaped(format, args))
+    return cast(rv)
 }
 
 
@@ -4418,7 +4382,7 @@ public func markupVprintfEscaped(format: UnsafePointer<CChar>, args: CVaListPoin
 /// Allocates `byte_size` bytes of memory, and copies `byte_size` bytes into it
 /// from `mem`. If `mem` is `nil` it returns `nil`.
 public func memdup(mem: gconstpointer, byteSize byte_size: CUnsignedInt) -> UnsafeMutableRawPointer! {
-    let rv = g_memdup(cast(mem), guint(byte_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_memdup(cast(mem), guint(byte_size)))
     return cast(rv)
 }
 
@@ -4427,9 +4391,9 @@ public func memdup(mem: gconstpointer, byteSize byte_size: CUnsignedInt) -> Unsa
 
 /// Create a directory if it doesn't already exist. Create intermediate
 /// parent directories as needed, too.
-public func mkdirWithParents(pathname: UnsafePointer<gchar>, mode: CInt) -> CInt {
-    let rv = g_mkdir_with_parents(pathname, gint(mode))
-    return CInt(rv)
+public func mkdirWithParents(pathname: UnsafePointer<gchar>, mode: CInt) -> Int {
+    let rv: Int = cast(g_mkdir_with_parents(pathname, gint(mode)))
+    return Int(rv)
 }
 
 
@@ -4451,8 +4415,8 @@ public func mkdirWithParents(pathname: UnsafePointer<gchar>, mode: CInt) -> CInt
 /// directory returned by `g_get_tmp_dir()`, you might want to use
 /// `g_dir_make_tmp()` instead.
 public func mkdtemp(tmpl: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_mkdtemp(tmpl)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_mkdtemp(tmpl))
+    return cast(rv)
 }
 
 
@@ -4474,8 +4438,8 @@ public func mkdtemp(tmpl: UnsafeMutablePointer<gchar>) -> String! {
 /// directory returned by `g_get_tmp_dir()`, you might want to use
 /// `g_dir_make_tmp()` instead.
 public func mkdtempFull(tmpl: UnsafeMutablePointer<gchar>, mode: CInt) -> String! {
-    let rv = g_mkdtemp_full(tmpl, gint(mode))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_mkdtemp_full(tmpl, gint(mode)))
+    return cast(rv)
 }
 
 
@@ -4491,9 +4455,9 @@ public func mkdtempFull(tmpl: UnsafeMutablePointer<gchar>, mode: CInt) -> String
 /// The X string will be modified to form the name of a file that
 /// didn't exist. The string should be in the GLib file name encoding.
 /// Most importantly, on Windows it should be in UTF-8.
-public func mkstemp(tmpl: UnsafeMutablePointer<gchar>) -> CInt {
-    let rv = g_mkstemp(tmpl)
-    return CInt(rv)
+public func mkstemp(tmpl: UnsafeMutablePointer<gchar>) -> Int {
+    let rv: Int = cast(g_mkstemp(tmpl))
+    return Int(rv)
 }
 
 
@@ -4510,9 +4474,9 @@ public func mkstemp(tmpl: UnsafeMutablePointer<gchar>) -> CInt {
 /// string will be modified to form the name of a file that didn't exist.
 /// The string should be in the GLib file name encoding. Most importantly,
 /// on Windows it should be in UTF-8.
-public func mkstempFull(tmpl: UnsafeMutablePointer<gchar>, flags: CInt, mode: CInt) -> CInt {
-    let rv = g_mkstemp_full(tmpl, gint(flags), gint(mode))
-    return CInt(rv)
+public func mkstempFull(tmpl: UnsafeMutablePointer<gchar>, flags: CInt, mode: CInt) -> Int {
+    let rv: Int = cast(g_mkstemp_full(tmpl, gint(flags), gint(mode)))
+    return Int(rv)
 }
 
 
@@ -4529,7 +4493,7 @@ public func nullifyPointer(nullifyLocation nullify_location: UnsafeMutablePointe
 
 public func numberParserErrorQuark() -> GQuark {
     let rv = g_number_parser_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -4658,7 +4622,7 @@ public func onceInitLeave(location: UnsafeMutableRawPointer, result: Int) {
 
 public func optionErrorQuark() -> GQuark {
     let rv = g_option_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -4676,9 +4640,9 @@ public func optionErrorQuark() -> GQuark {
 /// 
 /// If `string` is equal to "help", all the available keys in `keys`
 /// are printed out to standard error.
-public func parseDebug(string: UnsafePointer<gchar>, keys: UnsafePointer<GDebugKey>, nkeys: CUnsignedInt) -> CUnsignedInt {
-    let rv = g_parse_debug_string(string, cast(keys), guint(nkeys))
-    return CUnsignedInt(rv)
+public func parseDebug(string: UnsafePointer<gchar>, keys: UnsafePointer<GDebugKey>, nkeys: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_parse_debug_string(string, cast(keys), guint(nkeys)))
+    return Int(rv)
 }
 
 
@@ -4691,8 +4655,8 @@ public func parseDebug(string: UnsafePointer<gchar>, keys: UnsafePointer<GDebugK
 /// separators (and on Windows, possibly a drive letter), a single
 /// separator is returned. If `file_name` is empty, it gets ".".
 public func pathGetBasename(fileName file_name: UnsafePointer<gchar>) -> String! {
-    let rv = g_path_get_basename(file_name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_path_get_basename(file_name))
+    return cast(rv)
 }
 
 
@@ -4705,8 +4669,8 @@ public func pathGetBasename(fileName file_name: UnsafePointer<gchar>) -> String!
 /// If the file name has no directory components "." is returned.
 /// The returned string should be freed when no longer needed.
 public func pathGetDirname(fileName file_name: UnsafePointer<gchar>) -> String! {
-    let rv = g_path_get_dirname(file_name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_path_get_dirname(file_name))
+    return cast(rv)
 }
 
 
@@ -4748,8 +4712,8 @@ public func pathIsAbsolute(fileName file_name: UnsafePointer<gchar>) -> Bool {
 /// i.e. after the "/" in UNIX or "C:\" under Windows. If `file_name`
 /// is not an absolute path it returns `nil`.
 public func pathSkipRoot(fileName file_name: UnsafePointer<gchar>) -> String! {
-    let rv = g_path_skip_root(file_name)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_path_skip_root(file_name))
+    return cast(rv)
 }
 
 
@@ -4859,9 +4823,9 @@ public func pointerBitUnlock(address: UnsafeMutableRawPointer, lockBit lock_bit:
 /// Windows. If you need to use `g_poll()` in code that has to run on
 /// Windows, the easiest solution is to construct all of your
 /// `GPollFDs` with `g_io_channel_win32_make_pollfd()`.
-public func poll(fds: PollFDProtocol, nfds: CUnsignedInt, timeout: CInt) -> CInt {
-    let rv = g_poll(cast(fds.ptr), guint(nfds), gint(timeout))
-    return CInt(rv)
+public func poll(fds: PollFDProtocol, nfds: CUnsignedInt, timeout: CInt) -> Int {
+    let rv: Int = cast(g_poll(cast(fds.ptr), guint(nfds), gint(timeout)))
+    return Int(rv)
 }
 
 
@@ -4990,7 +4954,7 @@ public func qsortWithData(pbase: gconstpointer, totalElems total_elems: CInt, si
 /// variables in C++.
 public func quarkFromStatic(string: UnsafePointer<gchar>) -> GQuark {
     let rv = g_quark_from_static_string(string)
-    return rv
+    return cast(rv)
 }
 
 
@@ -5005,7 +4969,7 @@ public func quarkFromStatic(string: UnsafePointer<gchar>) -> GQuark {
 /// variables in C++.
 public func quarkFrom(string: UnsafePointer<gchar>) -> GQuark {
     let rv = g_quark_from_string(string)
-    return rv
+    return cast(rv)
 }
 
 
@@ -5013,8 +4977,8 @@ public func quarkFrom(string: UnsafePointer<gchar>) -> GQuark {
 
 /// Gets the string associated with the given `GQuark`.
 public func quarkToString(quark: Quark) -> String! {
-    let rv = g_quark_to_string(quark)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_quark_to_string(quark))
+    return cast(rv)
 }
 
 
@@ -5030,16 +4994,16 @@ public func quarkToString(quark: Quark) -> String! {
 /// running.
 public func quarkTry(string: UnsafePointer<gchar>) -> GQuark {
     let rv = g_quark_try_string(string)
-    return rv
+    return cast(rv)
 }
 
 
 
 
 /// Returns a random `gdouble` equally distributed over the range [0..1).
-public func randomDouble() -> gdouble {
-    let rv = g_random_double()
-    return rv
+public func randomDouble() -> Double {
+    let rv: Double = cast(g_random_double())
+    return cast(rv)
 }
 
 
@@ -5047,9 +5011,9 @@ public func randomDouble() -> gdouble {
 
 /// Returns a random `gdouble` equally distributed over the range
 /// [`begin.`.`end`).
-public func randomDoubleRange(begin: gdouble, end: gdouble) -> gdouble {
-    let rv = g_random_double_range(begin, end)
-    return rv
+public func randomDoubleRange(begin: gdouble, end: gdouble) -> Double {
+    let rv: Double = cast(g_random_double_range(begin, end))
+    return cast(rv)
 }
 
 
@@ -5087,7 +5051,7 @@ public func randomSet(seed: UInt32) {
 
 /// Acquires a reference on the data pointed by `mem_block`.
 public func rcBoxAcquire(memBlock mem_block: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-    let rv = g_rc_box_acquire(cast(mem_block))
+    let rv: UnsafeMutableRawPointer! = cast(g_rc_box_acquire(cast(mem_block)))
     return cast(rv)
 }
 
@@ -5103,7 +5067,7 @@ public func rcBoxAcquire(memBlock mem_block: UnsafeMutableRawPointer) -> UnsafeM
 /// The allocated data is guaranteed to be suitably aligned for any
 /// built-in type.
 public func rcBoxAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_rc_box_alloc(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_rc_box_alloc(gsize(block_size)))
     return cast(rv)
 }
 
@@ -5121,7 +5085,7 @@ public func rcBoxAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 /// The allocated data is guaranteed to be suitably aligned for any
 /// built-in type.
 public func rcBoxAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_rc_box_alloc0(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_rc_box_alloc0(gsize(block_size)))
     return cast(rv)
 }
 
@@ -5132,7 +5096,7 @@ public func rcBoxAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 /// semantics, and copies `block_size` bytes of `mem_block`
 /// into it.
 public func rcBoxDup(blockSize block_size: Int, memBlock mem_block: gconstpointer) -> UnsafeMutableRawPointer! {
-    let rv = g_rc_box_dup(gsize(block_size), cast(mem_block))
+    let rv: UnsafeMutableRawPointer! = cast(g_rc_box_dup(gsize(block_size), cast(mem_block)))
     return cast(rv)
 }
 
@@ -5179,7 +5143,7 @@ public func rcBoxReleaseFull(memBlock mem_block: UnsafeMutableRawPointer, clearF
 /// have zero-length. `n_bytes` may be 0, in which case `nil` will be returned
 /// and `mem` will be freed unless it is `nil`.
 public func realloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_realloc(cast(mem), gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_realloc(cast(mem), gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -5189,7 +5153,7 @@ public func realloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> Unsafe
 /// This function is similar to `g_realloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func reallocN(mem: UnsafeMutableRawPointer, nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -5234,8 +5198,8 @@ public func refCountInit(rc: UnsafeMutablePointer<grefcount>) {
 
 /// Acquires a reference on a string.
 public func refStringAcquire(str: UnsafeMutablePointer<CChar>) -> String! {
-    let rv = g_ref_string_acquire(str)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ref_string_acquire(str))
+    return cast(rv)
 }
 
 
@@ -5253,8 +5217,8 @@ public func refStringLength(str: UnsafeMutablePointer<CChar>) -> Int {
 /// Creates a new reference counted string and copies the contents of `str`
 /// into it.
 public func refStringNew(str: UnsafePointer<CChar>) -> String! {
-    let rv = g_ref_string_new(str)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ref_string_new(str))
+    return cast(rv)
 }
 
 
@@ -5267,8 +5231,8 @@ public func refStringNew(str: UnsafePointer<CChar>) -> String! {
 /// the same contents of `str`, it will return a new reference, instead of
 /// creating a new string.
 public func refStringNewIntern(str: UnsafePointer<CChar>) -> String! {
-    let rv = g_ref_string_new_intern(str)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ref_string_new_intern(str))
+    return cast(rv)
 }
 
 
@@ -5280,8 +5244,8 @@ public func refStringNewIntern(str: UnsafePointer<CChar>) -> String! {
 /// Since this function does not stop at nul bytes, it is the caller's
 /// responsibility to ensure that `str` has at least `len` addressable bytes.
 public func refStringNewLen(str: UnsafePointer<CChar>, len: gssize) -> String! {
-    let rv = g_ref_string_new_len(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_ref_string_new_len(str, len))
+    return cast(rv)
 }
 
 
@@ -5307,11 +5271,9 @@ public func refStringRelease(str: UnsafeMutablePointer<CChar>) {
 /// about actual match, but '\0\1' (whole match followed by first
 /// subpattern) requires valid `GMatchInfo` object.
 public func regexCheck(replacement: UnsafePointer<gchar>, hasReferences has_references: UnsafeMutablePointer<Bool>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_regex_check_replacement(replacement, cast(has_references), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -5320,7 +5282,7 @@ public func regexCheck(replacement: UnsafePointer<gchar>, hasReferences has_refe
 
 public func regexErrorQuark() -> GQuark {
     let rv = g_regex_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -5332,8 +5294,8 @@ public func regexErrorQuark() -> GQuark {
 /// For completeness, `length` can be -1 for a nul-terminated string.
 /// In this case the output string will be of course equal to `string`.
 public func regexEscapeNul(string: UnsafePointer<gchar>, length: CInt) -> String! {
-    let rv = g_regex_escape_nul(string, gint(length))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_regex_escape_nul(string, gint(length)))
+    return cast(rv)
 }
 
 
@@ -5347,8 +5309,8 @@ public func regexEscapeNul(string: UnsafePointer<gchar>, length: CInt) -> String
 /// in this case remember to specify the correct length of `string`
 /// in `length`.
 public func regexEscape(string: UnsafePointer<gchar>, length: CInt) -> String! {
-    let rv = g_regex_escape_string(cast(string), gint(length))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_regex_escape_string(cast(string), gint(length)))
+    return cast(rv)
 }
 
 
@@ -5365,7 +5327,7 @@ public func regexEscape(string: UnsafePointer<gchar>, length: CInt) -> String! {
 /// once, it's more efficient to compile the pattern once with
 /// `g_regex_new()` and then use `g_regex_match()`.
 public func regexMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) -> Bool {
-    let rv = g_regex_match_simple(pattern, string, compile_options, match_options)
+    let rv = g_regex_match_simple(pattern, string, compile_options.value, match_options.value)
     return Bool(rv != 0)
 }
 
@@ -5400,7 +5362,7 @@ public func regexMatchSimple(pattern: UnsafePointer<gchar>, string: UnsafePointe
 /// characters. For example splitting "ab c" using as a separator
 /// "\s*", you will get "a", "b" and "c".
 public func regexSplitSimple(pattern: UnsafePointer<gchar>, string: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_regex_split_simple(pattern, string, compile_options, match_options)
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_regex_split_simple(pattern, string, compile_options.value, match_options.value))
     return cast(rv)
 }
 
@@ -5438,9 +5400,9 @@ public func returnIfFailWarning(logDomain log_domain: UnsafePointer<CChar>, pret
 /// 
 /// See your C library manual for more details about how `rmdir()` works
 /// on your system.
-public func rmdir(String_: UnsafePointer<gchar>) -> CInt {
-    let rv = g_rmdir(String_)
-    return rv
+public func rmdir(String_: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_rmdir(String_))
+    return cast(rv)
 }
 
 
@@ -5448,7 +5410,7 @@ public func rmdir(String_: UnsafePointer<gchar>) -> CInt {
 
 /// Returns the data that `iter` points to.
 public func sequenceGet(iter: SequenceIterProtocol) -> UnsafeMutableRawPointer! {
-    let rv = g_sequence_get(cast(iter.ptr))
+    let rv: UnsafeMutableRawPointer! = cast(g_sequence_get(cast(iter.ptr)))
     return cast(rv)
 }
 
@@ -5457,7 +5419,7 @@ public func sequenceGet(iter: SequenceIterProtocol) -> UnsafeMutableRawPointer! 
 
 /// Inserts a new item just before the item pointed to by `iter`.
 public func sequenceInsertBefore(iter: SequenceIterProtocol, data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-    let rv = g_sequence_insert_before(cast(iter.ptr), cast(data))
+    let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_before(cast(iter.ptr), cast(data)))
     return cast(rv)
 }
 
@@ -5499,7 +5461,7 @@ public func sequenceMoveRange(dest: SequenceIterProtocol, begin: SequenceIterPro
 /// The `begin` and `end` iterators must both point to the same sequence
 /// and `begin` must come before or be equal to `end` in the sequence.
 public func sequenceRangeGetMidpoint(begin: SequenceIterProtocol, end: SequenceIterProtocol) -> UnsafeMutablePointer<GSequenceIter>! {
-    let rv = g_sequence_range_get_midpoint(cast(begin.ptr), cast(end.ptr))
+    let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_range_get_midpoint(cast(begin.ptr), cast(end.ptr)))
     return cast(rv)
 }
 
@@ -5617,8 +5579,8 @@ public func set(prgname: UnsafePointer<gchar>) {
 /// you can redirect the output, to a GTK+ widget or a
 /// log file for example.
 public func setPrintHandler(func_: @escaping PrintFunc) -> GPrintFunc! {
-    let rv = g_set_print_handler(func_)
-    return rv
+    let rv: GPrintFunc! = cast(g_set_print_handler(func_))
+    return cast(rv)
 }
 
 
@@ -5632,8 +5594,8 @@ public func setPrintHandler(func_: @escaping PrintFunc) -> GPrintFunc! {
 /// redirect the output, to a GTK+ widget or a log file for
 /// example.
 public func setPrinterrHandler(func_: @escaping PrintFunc) -> GPrintFunc! {
-    let rv = g_set_printerr_handler(func_)
-    return rv
+    let rv: GPrintFunc! = cast(g_set_printerr_handler(func_))
+    return cast(rv)
 }
 
 
@@ -5668,7 +5630,7 @@ public func setenv(variable: UnsafePointer<gchar>, value: UnsafePointer<gchar>, 
 
 public func shellErrorQuark() -> GQuark {
     let rv = g_shell_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -5684,11 +5646,9 @@ public func shellErrorQuark() -> GQuark {
 /// literally. Possible errors are those from the `G_SHELL_ERROR`
 /// domain. Free the returned vector with `g_strfreev()`.
 public func shellParseArgv(commandLine command_line: UnsafePointer<gchar>, argcp: UnsafeMutablePointer<CInt>, argvp: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_shell_parse_argv(command_line, cast(argcp), cast(argvp), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -5702,8 +5662,8 @@ public func shellParseArgv(commandLine command_line: UnsafePointer<gchar>, argcp
 /// quoting style used is undefined (single or double quotes may be
 /// used).
 public func shellQuote(unquotedString unquoted_string: UnsafePointer<gchar>) -> String! {
-    let rv = g_shell_quote(unquoted_string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_shell_quote(unquoted_string))
+    return cast(rv)
 }
 
 
@@ -5731,12 +5691,10 @@ public func shellQuote(unquotedString unquoted_string: UnsafePointer<gchar>) -> 
 /// be escaped with backslash. Otherwise double quotes preserve things
 /// literally.
 public func shellUnquote(quotedString quoted_string: UnsafePointer<gchar>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_shell_unquote(quoted_string, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_shell_unquote(quoted_string, &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -5752,7 +5710,7 @@ public func shellUnquote(quotedString quoted_string: UnsafePointer<gchar>) throw
 /// be changed with the [`G_SLICE=always-malloc`](#G_SLICE)
 /// environment variable.
 public func sliceAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_slice_alloc(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_slice_alloc(gsize(block_size)))
     return cast(rv)
 }
 
@@ -5764,7 +5722,7 @@ public func sliceAlloc(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 /// mechanism can be changed with the [`G_SLICE=always-malloc`](#G_SLICE)
 /// environment variable.
 public func sliceAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_slice_alloc0(gsize(block_size))
+    let rv: UnsafeMutableRawPointer! = cast(g_slice_alloc0(gsize(block_size)))
     return cast(rv)
 }
 
@@ -5776,7 +5734,7 @@ public func sliceAlloc0(blockSize block_size: Int) -> UnsafeMutableRawPointer! {
 /// 
 /// `mem_block` must be non-`nil` if `block_size` is non-zero.
 public func sliceCopy(blockSize block_size: Int, memBlock mem_block: gconstpointer) -> UnsafeMutableRawPointer! {
-    let rv = g_slice_copy(gsize(block_size), cast(mem_block))
+    let rv: UnsafeMutableRawPointer! = cast(g_slice_copy(gsize(block_size), cast(mem_block)))
     return cast(rv)
 }
 
@@ -5828,7 +5786,7 @@ public func sliceGetConfig(ckey: SliceConfig) -> Int64 {
 
 
 public func sliceGetConfigState(ckey: SliceConfig, address: Int64, nValues n_values: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<Int64>! {
-    let rv = g_slice_get_config_state(ckey, gint64(address), cast(n_values))
+    let rv: UnsafeMutablePointer<Int64>! = cast(g_slice_get_config_state(ckey, gint64(address), cast(n_values)))
     return cast(rv)
 }
 
@@ -5929,9 +5887,9 @@ public func sourceSetNameByID(tag: CUnsignedInt, name: UnsafePointer<CChar>) {
 /// 
 /// The built-in array of primes ranges from 11 to 13845163 such that
 /// each prime is approximately 1.5-2 times the previous prime.
-public func spacedPrimesClosest(num: CUnsignedInt) -> CUnsignedInt {
-    let rv = g_spaced_primes_closest(guint(num))
-    return CUnsignedInt(rv)
+public func spacedPrimesClosest(num: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_spaced_primes_closest(guint(num)))
+    return Int(rv)
 }
 
 
@@ -5952,11 +5910,9 @@ public func spacedPrimesClosest(num: CUnsignedInt) -> CUnsignedInt {
 /// process and not its identifier. Process handles and process identifiers
 /// are different concepts on Windows.
 public func spawnAsync(workingDirectory working_directory: UnsafePointer<gchar>, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: SpawnFlags, childSetup child_setup: @escaping SpawnChildSetupFunc, userData user_data: UnsafeMutableRawPointer, childPid child_pid: UnsafeMutablePointer<GPid>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_spawn_async(working_directory, cast(argv), cast(envp), flags, child_setup, cast(user_data), cast(child_pid), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_spawn_async(working_directory, cast(argv), cast(envp), flags.value, child_setup, cast(user_data), cast(child_pid), &error)
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -5982,11 +5938,9 @@ public func spawnAsync(workingDirectory working_directory: UnsafePointer<gchar>,
 /// It is valid to pass the same fd in multiple parameters (e.g. you can pass
 /// a single fd for both stdout and stderr).
 public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<gchar>, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: SpawnFlags, childSetup child_setup: @escaping SpawnChildSetupFunc, userData user_data: UnsafeMutableRawPointer, childPid child_pid: UnsafeMutablePointer<GPid>, stdinFd stdin_fd: CInt, stdoutFd stdout_fd: CInt, stderrFd stderr_fd: CInt) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_spawn_async_with_fds(working_directory, cast(argv), cast(envp), flags, child_setup, cast(user_data), cast(child_pid), gint(stdin_fd), gint(stdout_fd), gint(stderr_fd), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_spawn_async_with_fds(working_directory, cast(argv), cast(envp), flags.value, child_setup, cast(user_data), cast(child_pid), gint(stdin_fd), gint(stdout_fd), gint(stderr_fd), &error)
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6160,11 +6114,9 @@ public func spawnAsyncWithFds(workingDirectory working_directory: UnsafePointer<
 /// windows on the right screen, you may want to use `GdkAppLaunchContext`,
 /// `GAppLaunchContext`, or set the `DISPLAY` environment variable.
 public func spawnAsyncWithPipes(workingDirectory working_directory: UnsafePointer<gchar>, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: SpawnFlags, childSetup child_setup: @escaping SpawnChildSetupFunc, userData user_data: UnsafeMutableRawPointer, childPid child_pid: UnsafeMutablePointer<GPid>, standardInput standard_input: UnsafeMutablePointer<CInt>, standardOutput standard_output: UnsafeMutablePointer<CInt>, standardError standard_error: UnsafeMutablePointer<CInt>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_spawn_async_with_pipes(working_directory, cast(argv), cast(envp), flags, child_setup, cast(user_data), cast(child_pid), cast(standard_input), cast(standard_output), cast(standard_error), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_spawn_async_with_pipes(working_directory, cast(argv), cast(envp), flags.value, child_setup, cast(user_data), cast(child_pid), cast(standard_input), cast(standard_output), cast(standard_error), &error)
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6208,11 +6160,9 @@ public func spawnAsyncWithPipes(workingDirectory working_directory: UnsafePointe
 /// to scan or parse the error message string; it may be translated and/or
 /// change in future versions of GLib.
 public func spawnCheck(exitStatus exit_status: CInt) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_spawn_check_exit_status(gint(exit_status), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6241,11 +6191,9 @@ public func spawnClose(pid: Pid) {
 /// 
 /// The same concerns on Windows apply as for `g_spawn_command_line_sync()`.
 public func spawnCommandLineAsync(commandLine command_line: UnsafePointer<gchar>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_spawn_command_line_async(command_line, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6275,11 +6223,9 @@ public func spawnCommandLineAsync(commandLine command_line: UnsafePointer<gchar>
 /// separator. You need to enclose such paths with single quotes, like
 /// "'c:\\program files\\app\\app.exe' 'e:\\folder\\argument.txt'".
 public func spawnCommandLineSync(commandLine command_line: UnsafePointer<gchar>, standardOutput standard_output: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, standardError standard_error: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, exitStatus exit_status: UnsafeMutablePointer<CInt>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_spawn_command_line_sync(command_line, cast(standard_output), cast(standard_error), cast(exit_status), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6288,7 +6234,7 @@ public func spawnCommandLineSync(commandLine command_line: UnsafePointer<gchar>,
 
 public func spawnErrorQuark() -> GQuark {
     let rv = g_spawn_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -6296,7 +6242,7 @@ public func spawnErrorQuark() -> GQuark {
 
 public func spawnExitErrorQuark() -> GQuark {
     let rv = g_spawn_exit_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -6322,11 +6268,9 @@ public func spawnExitErrorQuark() -> GQuark {
 /// function for full details on the other parameters and details on
 /// how these functions work on Windows.
 public func spawnSync(workingDirectory working_directory: UnsafePointer<gchar>, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: SpawnFlags, childSetup child_setup: @escaping SpawnChildSetupFunc, userData user_data: UnsafeMutableRawPointer, standardOutput standard_output: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, standardError standard_error: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, exitStatus exit_status: UnsafeMutablePointer<CInt>) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_spawn_sync(working_directory, cast(argv), cast(envp), flags, child_setup, cast(user_data), cast(standard_output), cast(standard_error), cast(exit_status), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv = g_spawn_sync(working_directory, cast(argv), cast(envp), flags.value, child_setup, cast(user_data), cast(standard_output), cast(standard_error), cast(exit_status), &error)
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -6345,8 +6289,8 @@ public func spawnSync(workingDirectory working_directory: UnsafePointer<gchar>, 
 /// This is useful for concatenating multiple strings together
 /// without having to repeatedly scan for the end.
 public func stpcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<CChar>) -> String! {
-    let rv = g_stpcpy(dest, src)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_stpcpy(dest, src))
+    return cast(rv)
 }
 
 
@@ -6400,9 +6344,9 @@ public func strHasSuffix(str: UnsafePointer<gchar>, suffix: UnsafePointer<gchar>
 /// Note that this function may not be a perfect fit for all use cases.
 /// For example, it produces some hash collisions with strings as short
 /// as 2.
-public func strHash(v: gconstpointer) -> CUnsignedInt {
-    let rv = g_str_hash(cast(v))
-    return CUnsignedInt(rv)
+public func strHash(v: gconstpointer) -> Int {
+    let rv: Int = cast(g_str_hash(cast(v)))
+    return Int(rv)
 }
 
 
@@ -6467,8 +6411,8 @@ public func strMatchString(searchTerm search_term: UnsafePointer<gchar>, potenti
 /// to be done independently of the currently locale, specify `"C"` for
 /// `from_locale`.
 public func strToAscii(str: UnsafePointer<gchar>, fromLocale from_locale: UnsafePointer<gchar>) -> String! {
-    let rv = g_str_to_ascii(str, from_locale)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_str_to_ascii(str, from_locale))
+    return cast(rv)
 }
 
 
@@ -6490,7 +6434,7 @@ public func strToAscii(str: UnsafePointer<gchar>, fromLocale from_locale: Unsafe
 /// improve the transliteration if the language of the source string is
 /// known.
 public func strTokenizeAndFold(string: UnsafePointer<gchar>, translitLocale translit_locale: UnsafePointer<gchar>, asciiAlternates ascii_alternates: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_str_tokenize_and_fold(string, translit_locale, cast(ascii_alternates))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_str_tokenize_and_fold(string, translit_locale, cast(ascii_alternates)))
     return cast(rv)
 }
 
@@ -6515,8 +6459,8 @@ public func strTokenizeAndFold(string: UnsafePointer<gchar>, translitLocale tran
 /// ```
 /// 
 public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars: UnsafePointer<gchar>, substitutor: gchar) -> String! {
-    let rv = g_strcanon(string, valid_chars, substitutor)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strcanon(string, valid_chars, substitutor))
+    return cast(rv)
 }
 
 
@@ -6528,9 +6472,9 @@ public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars
 /// **strcasecmp is deprecated:**
 /// See g_strncasecmp() for a discussion of why this
 ///     function is deprecated and how to replace it.
-@available(*, deprecated) public func strcasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>) -> CInt {
-    let rv = g_strcasecmp(s1, s2)
-    return CInt(rv)
+@available(*, deprecated) public func strcasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_strcasecmp(s1, s2))
+    return Int(rv)
 }
 
 
@@ -6546,8 +6490,8 @@ public func strcanon(string: UnsafeMutablePointer<gchar>, validChars valid_chars
 /// 
 /// Also see `g_strchug()` and `g_strstrip()`.
 public func strchomp(string: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_strchomp(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strchomp(string))
+    return cast(rv)
 }
 
 
@@ -6564,8 +6508,8 @@ public func strchomp(string: UnsafeMutablePointer<gchar>) -> String! {
 /// 
 /// Also see `g_strchomp()` and `g_strstrip()`.
 public func strchug(string: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_strchug(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strchug(string))
+    return cast(rv)
 }
 
 
@@ -6574,9 +6518,9 @@ public func strchug(string: UnsafeMutablePointer<gchar>) -> String! {
 /// Compares `str1` and `str2` like `strcmp()`. Handles `nil`
 /// gracefully by sorting it before non-`nil` strings.
 /// Comparing two `nil` pointers returns 0.
-public func strcmp0(str1: UnsafePointer<CChar>, str2: UnsafePointer<CChar>) -> CInt {
-    let rv = g_strcmp0(str1, str2)
-    return rv
+public func strcmp0(str1: UnsafePointer<CChar>, str2: UnsafePointer<CChar>) -> Int {
+    let rv: Int = cast(g_strcmp0(str1, str2))
+    return cast(rv)
 }
 
 
@@ -6586,8 +6530,8 @@ public func strcmp0(str1: UnsafePointer<CChar>, str2: UnsafePointer<CChar>) -> C
 /// 
 /// This function does the reverse conversion of `g_strescape()`.
 public func strcompress(source: UnsafePointer<gchar>) -> String! {
-    let rv = g_strcompress(source)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strcompress(source))
+    return cast(rv)
 }
 
 
@@ -6619,8 +6563,8 @@ public func strcompress(source: UnsafePointer<gchar>) -> String! {
 /// ```
 /// 
 public func strdelimit(string: UnsafeMutablePointer<gchar>, delimiters: UnsafePointer<gchar>, newDelimiter new_delimiter: gchar) -> String! {
-    let rv = g_strdelimit(string, delimiters, new_delimiter)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strdelimit(string, delimiters, new_delimiter))
+    return cast(rv)
 }
 
 
@@ -6633,8 +6577,8 @@ public func strdelimit(string: UnsafeMutablePointer<gchar>, delimiters: UnsafePo
 /// in the g_strncasecmp() docs - use g_ascii_strdown() or g_utf8_strdown()
 /// instead.
 @available(*, deprecated) public func strdown(string: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_strdown(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strdown(string))
+    return cast(rv)
 }
 
 
@@ -6644,8 +6588,8 @@ public func strdelimit(string: UnsafeMutablePointer<gchar>, delimiters: UnsafePo
 /// The returned string should be freed with `g_free()`
 /// when no longer needed.
 public func strdup(str: UnsafePointer<gchar>) -> String! {
-    let rv = g_strdup(str)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strdup(str))
+    return cast(rv)
 }
 
 
@@ -6670,8 +6614,8 @@ public func strdup(str: UnsafePointer<gchar>) -> String! {
 /// See also `g_vasprintf()`, which offers the same functionality, but
 /// additionally returns the length of the allocated string.
 public func strdupVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> String! {
-    let rv = g_strdup_vprintf(format, args)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strdup_vprintf(format, args))
+    return cast(rv)
 }
 
 
@@ -6682,7 +6626,7 @@ public func strdupVprintf(format: UnsafePointer<gchar>, args: CVaListPointer) ->
 /// the array itself. `g_strfreev()` does this for you. If called
 /// on a `nil` value, `g_strdupv()` simply returns `nil`.
 public func strdupv(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_strdupv(cast(str_array))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_strdupv(cast(str_array)))
     return cast(rv)
 }
 
@@ -6709,8 +6653,8 @@ public func strdupv(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointe
 /// ```
 /// 
 public func strerror(errnum: CInt) -> String! {
-    let rv = g_strerror(gint(errnum))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strerror(gint(errnum)))
+    return cast(rv)
 }
 
 
@@ -6725,8 +6669,8 @@ public func strerror(errnum: CInt) -> String! {
 /// 
 /// `g_strcompress()` does the reverse conversion.
 public func strescape(source: UnsafePointer<gchar>, exceptions: UnsafePointer<gchar>) -> String! {
-    let rv = g_strescape(source, exceptions)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strescape(source, exceptions))
+    return cast(rv)
 }
 
 
@@ -6746,7 +6690,7 @@ public func strfreev(strArray str_array: UnsafeMutablePointer<UnsafeMutablePoint
 
 /// Creates a new `GString`, initialized with the given string.
 public func stringNew(init_: UnsafePointer<gchar>) -> UnsafeMutablePointer<GString>! {
-    let rv = g_string_new(init_)
+    let rv: UnsafeMutablePointer<GString>! = cast(g_string_new(init_))
     return cast(rv)
 }
 
@@ -6761,7 +6705,7 @@ public func stringNew(init_: UnsafePointer<gchar>) -> UnsafeMutablePointer<GStri
 /// responsibility to ensure that `init` has at least `len` addressable
 /// bytes.
 public func stringNewLen(init_: UnsafePointer<gchar>, len: gssize) -> UnsafeMutablePointer<GString>! {
-    let rv = g_string_new_len(init_, len)
+    let rv: UnsafeMutablePointer<GString>! = cast(g_string_new_len(init_, len))
     return cast(rv)
 }
 
@@ -6773,7 +6717,7 @@ public func stringNewLen(init_: UnsafePointer<gchar>, len: gssize) -> UnsafeMuta
 /// text to the string and don't want it to be reallocated
 /// too often.
 public func stringSizedNew(dflSize dfl_size: Int) -> UnsafeMutablePointer<GString>! {
-    let rv = g_string_sized_new(gsize(dfl_size))
+    let rv: UnsafeMutablePointer<GString>! = cast(g_string_sized_new(gsize(dfl_size)))
     return cast(rv)
 }
 
@@ -6782,8 +6726,8 @@ public func stringSizedNew(dflSize dfl_size: Int) -> UnsafeMutablePointer<GStrin
 
 /// An auxiliary function for `gettext()` support (see `Q_()`).
 public func stripContext(msgid: UnsafePointer<gchar>, msgval: UnsafePointer<gchar>) -> String! {
-    let rv = g_strip_context(msgid, msgval)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strip_context(msgid, msgval))
+    return cast(rv)
 }
 
 
@@ -6804,8 +6748,8 @@ public func stripContext(msgid: UnsafePointer<gchar>, msgval: UnsafePointer<gcha
 /// empty string. If `str_array` contains a single item, `separator` will not
 /// appear in the resulting string.
 public func strjoinv(separator: UnsafePointer<gchar>, strArray str_array: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> String! {
-    let rv = g_strjoinv(separator, cast(str_array))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strjoinv(separator, cast(str_array)))
+    return cast(rv)
 }
 
 
@@ -6874,9 +6818,9 @@ public func strlcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>
 ///     which only works on ASCII and is not locale-sensitive, and
 ///     g_utf8_casefold() followed by strcmp() on the resulting strings,
 ///     which is good for case-insensitive sorting of UTF-8.
-@available(*, deprecated) public func strncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>, n: CUnsignedInt) -> CInt {
-    let rv = g_strncasecmp(s1, s2, guint(n))
-    return CInt(rv)
+@available(*, deprecated) public func strncasecmp(s1: UnsafePointer<gchar>, s2: UnsafePointer<gchar>, n: CUnsignedInt) -> Int {
+    let rv: Int = cast(g_strncasecmp(s1, s2, guint(n)))
+    return Int(rv)
 }
 
 
@@ -6891,8 +6835,8 @@ public func strlcpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>
 /// To copy a number of characters from a UTF-8 encoded string,
 /// use `g_utf8_strncpy()` instead.
 public func strndup(str: UnsafePointer<gchar>, n: Int) -> String! {
-    let rv = g_strndup(str, gsize(n))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strndup(str, gsize(n)))
+    return cast(rv)
 }
 
 
@@ -6901,8 +6845,8 @@ public func strndup(str: UnsafePointer<gchar>, n: Int) -> String! {
 /// Creates a new string `length` bytes long filled with `fill_char`.
 /// The returned string should be freed when no longer needed.
 public func strnfill(length: Int, fillChar fill_char: gchar) -> String! {
-    let rv = g_strnfill(gsize(length), fill_char)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strnfill(gsize(length), fill_char))
+    return cast(rv)
 }
 
 
@@ -6915,8 +6859,8 @@ public func strnfill(length: Int, fillChar fill_char: gchar) -> String! {
 /// containing multibyte characters. For that purpose, use
 /// `g_utf8_strreverse()`.
 public func strreverse(string: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_strreverse(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strreverse(string))
+    return cast(rv)
 }
 
 
@@ -6925,8 +6869,8 @@ public func strreverse(string: UnsafeMutablePointer<gchar>) -> String! {
 /// Searches the string `haystack` for the last occurrence
 /// of the string `needle`.
 public func strrstr(haystack: UnsafePointer<gchar>, needle: UnsafePointer<gchar>) -> String! {
-    let rv = g_strrstr(haystack, needle)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strrstr(haystack, needle))
+    return cast(rv)
 }
 
 
@@ -6936,8 +6880,8 @@ public func strrstr(haystack: UnsafePointer<gchar>, needle: UnsafePointer<gchar>
 /// of the string `needle`, limiting the length of the search
 /// to `haystack_len`.
 public func strrstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len: gssize, needle: UnsafePointer<gchar>) -> String! {
-    let rv = g_strrstr_len(haystack, haystack_len, needle)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strrstr_len(haystack, haystack_len, needle))
+    return cast(rv)
 }
 
 
@@ -6948,8 +6892,8 @@ public func strrstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len:
 /// returns a string in UTF-8 encoding, and since not all platforms support
 /// the `strsignal()` function.
 public func strsignal(signum: CInt) -> String! {
-    let rv = g_strsignal(gint(signum))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strsignal(gint(signum)))
+    return cast(rv)
 }
 
 
@@ -6970,7 +6914,7 @@ public func strsignal(signum: CInt) -> String! {
 /// to represent empty elements, you'll need to check for the empty string
 /// before calling `g_strsplit()`.
 public func strsplit(string: UnsafePointer<gchar>, delimiter: UnsafePointer<gchar>, maxTokens max_tokens: CInt) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_strsplit(string, delimiter, gint(max_tokens))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_strsplit(string, delimiter, gint(max_tokens)))
     return cast(rv)
 }
 
@@ -6999,7 +6943,7 @@ public func strsplit(string: UnsafePointer<gchar>, delimiter: UnsafePointer<gcha
 /// Note that this function works on bytes not characters, so it can't be used
 /// to delimit UTF-8 strings for anything but ASCII characters.
 public func strsplitSet(string: UnsafePointer<gchar>, delimiters: UnsafePointer<gchar>, maxTokens max_tokens: CInt) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_strsplit_set(string, delimiters, gint(max_tokens))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_strsplit_set(string, delimiters, gint(max_tokens)))
     return cast(rv)
 }
 
@@ -7010,8 +6954,8 @@ public func strsplitSet(string: UnsafePointer<gchar>, delimiters: UnsafePointer<
 /// of the string `needle`, limiting the length of the search
 /// to `haystack_len`.
 public func strstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len: gssize, needle: UnsafePointer<gchar>) -> String! {
-    let rv = g_strstr_len(haystack, haystack_len, needle)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strstr_len(haystack, haystack_len, needle))
+    return cast(rv)
 }
 
 
@@ -7028,9 +6972,9 @@ public func strstrLen(haystack: UnsafePointer<gchar>, haystackLen haystack_len: 
 /// should you use this. Make sure that you don't pass strings such as comma
 /// separated lists of values, since the commas may be interpreted as a decimal
 /// point in some locales, causing unexpected results.
-public func strtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> gdouble {
-    let rv = g_strtod(cast(nptr), cast(endptr))
-    return rv
+public func strtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> Double {
+    let rv: Double = cast(g_strtod(cast(nptr), cast(endptr)))
+    return cast(rv)
 }
 
 
@@ -7043,8 +6987,8 @@ public func strtod(nptr: UnsafePointer<gchar>, endptr: UnsafeMutablePointer<Unsa
 ///     discussed in the g_strncasecmp() docs - use g_ascii_strup()
 ///     or g_utf8_strup() instead.
 @available(*, deprecated) public func strup(string: UnsafeMutablePointer<gchar>) -> String! {
-    let rv = g_strup(string)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_strup(string))
+    return cast(rv)
 }
 
 
@@ -7075,7 +7019,7 @@ public func strvEqual(strv1: UnsafePointer<UnsafePointer<gchar>>, strv2: UnsafeP
 
 public func strvGetType() -> GType {
     let rv = g_strv_get_type()
-    return rv
+    return cast(rv)
 }
 
 
@@ -7083,9 +7027,9 @@ public func strvGetType() -> GType {
 
 /// Returns the length of the given `nil`-terminated
 /// string array `str_array`. `str_array` must not be `nil`.
-public func strvLength(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> CUnsignedInt {
-    let rv = g_strv_length(cast(str_array))
-    return CUnsignedInt(rv)
+public func strvLength(strArray str_array: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) -> Int {
+    let rv: Int = cast(g_strv_length(cast(str_array)))
+    return Int(rv)
 }
 
 
@@ -7216,7 +7160,7 @@ public func testBugBase(uriPattern uri_pattern: UnsafePointer<CChar>) {
 /// called with the same fixture, but varying `test_name` and
 /// `data_test` arguments.
 public func testCreateCase(testName test_name: UnsafePointer<CChar>, dataSize data_size: Int, testData test_data: gconstpointer, dataSetup data_setup: @escaping TestFixtureFunc, dataTest data_test: @escaping TestFixtureFunc, dataTeardown data_teardown: @escaping TestFixtureFunc) -> UnsafeMutablePointer<GTestCase>! {
-    let rv = g_test_create_case(test_name, gsize(data_size), cast(test_data), data_setup, data_test, data_teardown)
+    let rv: UnsafeMutablePointer<GTestCase>! = cast(g_test_create_case(test_name, gsize(data_size), cast(test_data), data_setup, data_test, data_teardown))
     return cast(rv)
 }
 
@@ -7225,7 +7169,7 @@ public func testCreateCase(testName test_name: UnsafePointer<CChar>, dataSize da
 
 /// Create a new test suite with the name `suite_name`.
 public func testCreateSuite(suiteName suite_name: UnsafePointer<CChar>) -> UnsafeMutablePointer<GTestSuite>! {
-    let rv = g_test_create_suite(suite_name)
+    let rv: UnsafeMutablePointer<GTestSuite>! = cast(g_test_create_suite(suite_name))
     return cast(rv)
 }
 
@@ -7268,7 +7212,7 @@ public func testCreateSuite(suiteName suite_name: UnsafePointer<CChar>) -> Unsaf
 /// If messages at `G_LOG_LEVEL_DEBUG` are emitted, but not explicitly
 /// expected via `g_test_expect_message()` then they will be ignored.
 public func testExpectMessage(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags, pattern: UnsafePointer<gchar>) {
-    g_test_expect_message(log_domain, log_level, pattern)
+    g_test_expect_message(log_domain, log_level.value, pattern)
 
 }
 
@@ -7320,8 +7264,8 @@ public func testFailed() -> Bool {
 /// This is approximately the same as calling `g_test_build_filename(".")`,
 /// but you don't need to free the return value.
 public func testGetDir(fileType file_type: TestFileType) -> String! {
-    let rv = g_test_get_dir(file_type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_test_get_dir(file_type))
+    return cast(rv)
 }
 
 
@@ -7336,7 +7280,7 @@ public func testGetDir(fileType file_type: TestFileType) -> String! {
 
 /// Get the toplevel test suite for the test path API.
 public func testGetRoot() -> UnsafeMutablePointer<GTestSuite>! {
-    let rv = g_test_get_root()
+    let rv: UnsafeMutablePointer<GTestSuite>! = cast(g_test_get_root())
     return cast(rv)
 }
 
@@ -7398,8 +7342,8 @@ public func testLogSetFatalHandler(logFunc log_func: @escaping TestLogFatalFunc,
 
 
 public func testLogTypeName(logType log_type: TestLogType) -> String! {
-    let rv = g_test_log_type_name(log_type)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_test_log_type_name(log_type))
+    return cast(rv)
 }
 
 
@@ -7453,9 +7397,9 @@ public func testQueueFree(gfreePointer gfree_pointer: UnsafeMutableRawPointer) {
 
 /// Get a reproducible random floating point number,
 /// see `g_test_rand_int()` for details on test case random numbers.
-public func testRandDouble() -> CDouble {
-    let rv = g_test_rand_double()
-    return rv
+public func testRandDouble() -> Double {
+    let rv: Double = cast(g_test_rand_double())
+    return cast(rv)
 }
 
 
@@ -7463,9 +7407,9 @@ public func testRandDouble() -> CDouble {
 
 /// Get a reproducible random floating pointer number out of a specified range,
 /// see `g_test_rand_int()` for details on test case random numbers.
-public func testRandDoubleRange(rangeStart range_start: gdouble, rangeEnd range_end: gdouble) -> CDouble {
-    let rv = g_test_rand_double_range(range_start, range_end)
-    return rv
+public func testRandDoubleRange(rangeStart range_start: gdouble, rangeEnd range_end: gdouble) -> Double {
+    let rv: Double = cast(g_test_rand_double_range(range_start, range_end))
+    return cast(rv)
 }
 
 
@@ -7530,9 +7474,9 @@ public func testRandIntRange(begin: Int32, end: Int32) -> Int32 {
 /// If all tests are skipped or marked as incomplete (expected failures),
 /// this function will return 0 if producing TAP output, or 77 (treated
 /// as "skip test" by Automake) otherwise.
-public func testRun() -> CInt {
-    let rv = g_test_run()
-    return rv
+public func testRun() -> Int {
+    let rv: Int = cast(g_test_run())
+    return cast(rv)
 }
 
 
@@ -7546,9 +7490,9 @@ public func testRun() -> CInt {
 /// 
 /// `g_test_run_suite()` or `g_test_run()` may only be called once
 /// in a program.
-public func testRun(suite: TestSuiteProtocol) -> CInt {
-    let rv = g_test_run_suite(cast(suite.ptr))
-    return rv
+public func testRun(suite: TestSuiteProtocol) -> Int {
+    let rv: Int = cast(g_test_run_suite(cast(suite.ptr)))
+    return cast(rv)
 }
 
 
@@ -7630,18 +7574,18 @@ public func test(summary: UnsafePointer<CChar>) {
 
 
 /// Get the time since the last start of the timer with `g_test_timer_start()`.
-public func testTimerElapsed() -> CDouble {
-    let rv = g_test_timer_elapsed()
-    return rv
+public func testTimerElapsed() -> Double {
+    let rv: Double = cast(g_test_timer_elapsed())
+    return cast(rv)
 }
 
 
 
 
 /// Report the last result of `g_test_timer_elapsed()`.
-public func testTimerLast() -> CDouble {
-    let rv = g_test_timer_last()
-    return rv
+public func testTimerLast() -> Double {
+    let rv: Double = cast(g_test_timer_last())
+    return cast(rv)
 }
 
 
@@ -7701,7 +7645,7 @@ public func testTrapAssertions(domain: UnsafePointer<CChar>, file: UnsafePointer
 /// and is not always reliable due to problems inherent in
 /// fork-without-exec. Use g_test_trap_subprocess() instead.
 @available(*, deprecated) public func testTrapFork(usecTimeout usec_timeout: UInt64, testTrapFlags test_trap_flags: TestTrapFlags) -> Bool {
-    let rv = g_test_trap_fork(guint64(usec_timeout), test_trap_flags)
+    let rv = g_test_trap_fork(guint64(usec_timeout), test_trap_flags.value)
     return Bool(rv != 0)
 }
 
@@ -7790,7 +7734,7 @@ public func testTrapReachedTimeout() -> Bool {
 /// ```
 /// 
 public func testTrapSubprocess(testPath test_path: UnsafePointer<CChar>, usecTimeout usec_timeout: UInt64, testFlags test_flags: TestSubprocessFlags) {
-    g_test_trap_subprocess(test_path, guint64(usec_timeout), test_flags)
+    g_test_trap_subprocess(test_path, guint64(usec_timeout), test_flags.value)
 
 }
 
@@ -7799,7 +7743,7 @@ public func testTrapSubprocess(testPath test_path: UnsafePointer<CChar>, usecTim
 
 public func threadErrorQuark() -> GQuark {
     let rv = g_thread_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -7832,27 +7776,27 @@ public func threadExit(retval: UnsafeMutableRawPointer) {
 /// 
 /// If this function returns 0, threads waiting in the thread
 /// pool for new work are not stopped.
-public func threadPoolGetMaxIdleTime() -> CUnsignedInt {
-    let rv = g_thread_pool_get_max_idle_time()
-    return CUnsignedInt(rv)
+public func threadPoolGetMaxIdleTime() -> Int {
+    let rv: Int = cast(g_thread_pool_get_max_idle_time())
+    return Int(rv)
 }
 
 
 
 
 /// Returns the maximal allowed number of unused threads.
-public func threadPoolGetMaxUnusedThreads() -> CInt {
-    let rv = g_thread_pool_get_max_unused_threads()
-    return CInt(rv)
+public func threadPoolGetMaxUnusedThreads() -> Int {
+    let rv: Int = cast(g_thread_pool_get_max_unused_threads())
+    return Int(rv)
 }
 
 
 
 
 /// Returns the number of currently unused threads.
-public func threadPoolGetNumUnusedThreads() -> CUnsignedInt {
-    let rv = g_thread_pool_get_num_unused_threads()
-    return CUnsignedInt(rv)
+public func threadPoolGetNumUnusedThreads() -> Int {
+    let rv: Int = cast(g_thread_pool_get_num_unused_threads())
+    return Int(rv)
 }
 
 
@@ -7909,7 +7853,7 @@ public func threadPoolStopUnusedThreads() {
 /// (i.e. comparisons) but you must not use GLib functions (such
 /// as `g_thread_join()`) on these threads.
 public func threadSelf() -> UnsafeMutablePointer<GThread>! {
-    let rv = g_thread_self()
+    let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_self())
     return cast(rv)
 }
 
@@ -7988,9 +7932,9 @@ public func threadYield() {
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
-public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_timeout_add(guint(interval), function, cast(data))
-    return CUnsignedInt(rv)
+public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_timeout_add(guint(interval), function, cast(data)))
+    return Int(rv)
 }
 
 
@@ -8020,9 +7964,9 @@ public func timeoutAdd(interval: CUnsignedInt, function: @escaping SourceFunc, d
 /// 
 /// The interval given is in terms of monotonic time, not wall clock time.
 /// See `g_get_monotonic_time()`.
-public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_timeout_add_full(gint(priority), guint(interval), function, cast(data), notify)
-    return CUnsignedInt(rv)
+public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_timeout_add_full(gint(priority), guint(interval), function, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -8049,9 +7993,9 @@ public func timeoutAddFull(priority: CInt, interval: CUnsignedInt, function: @es
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
-public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_timeout_add_seconds(guint(interval), function, cast(data))
-    return CUnsignedInt(rv)
+public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_timeout_add_seconds(guint(interval), function, cast(data)))
+    return Int(rv)
 }
 
 
@@ -8095,9 +8039,9 @@ public func timeoutAddSeconds(interval: CUnsignedInt, function: @escaping Source
 /// 
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
-public func timeoutAddSecondsFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_timeout_add_seconds_full(gint(priority), guint(interval), function, cast(data), notify)
-    return CUnsignedInt(rv)
+public func timeoutAddSecondsFull(priority: CInt, interval: CUnsignedInt, function: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_timeout_add_seconds_full(gint(priority), guint(interval), function, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -8112,7 +8056,7 @@ public func timeoutAddSecondsFull(priority: CInt, interval: CUnsignedInt, functi
 /// The interval given is in terms of monotonic time, not wall clock
 /// time.  See `g_get_monotonic_time()`.
 public func timeoutSourceNew(interval: CUnsignedInt) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_timeout_source_new(guint(interval))
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_timeout_source_new(guint(interval)))
     return cast(rv)
 }
 
@@ -8131,7 +8075,7 @@ public func timeoutSourceNew(interval: CUnsignedInt) -> UnsafeMutablePointer<GSo
 /// The interval given is in terms of monotonic time, not wall clock time.
 /// See `g_get_monotonic_time()`.
 public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_timeout_source_new_seconds(guint(interval))
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_timeout_source_new_seconds(guint(interval)))
     return cast(rv)
 }
 
@@ -8145,9 +8089,9 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 ///
 /// **trash_stack_height is deprecated:**
 /// #GTrashStack is deprecated without replacement
-@available(*, deprecated) public func trashStackHeight(stackP stack_p: TrashStackProtocol) -> CUnsignedInt {
-    let rv = g_trash_stack_height(cast(stack_p.ptr))
-    return CUnsignedInt(rv)
+@available(*, deprecated) public func trashStackHeight(stackP stack_p: TrashStackProtocol) -> Int {
+    let rv: Int = cast(g_trash_stack_height(cast(stack_p.ptr)))
+    return Int(rv)
 }
 
 
@@ -8159,7 +8103,7 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 /// **trash_stack_peek is deprecated:**
 /// #GTrashStack is deprecated without replacement
 @available(*, deprecated) public func trashStackPeek(stackP stack_p: TrashStackProtocol) -> UnsafeMutableRawPointer! {
-    let rv = g_trash_stack_peek(cast(stack_p.ptr))
+    let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_peek(cast(stack_p.ptr)))
     return cast(rv)
 }
 
@@ -8171,7 +8115,7 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 /// **trash_stack_pop is deprecated:**
 /// #GTrashStack is deprecated without replacement
 @available(*, deprecated) public func trashStackPop(stackP stack_p: TrashStackProtocol) -> UnsafeMutableRawPointer! {
-    let rv = g_trash_stack_pop(cast(stack_p.ptr))
+    let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_pop(cast(stack_p.ptr)))
     return cast(rv)
 }
 
@@ -8193,7 +8137,7 @@ public func timeoutSourceNewSeconds(interval: CUnsignedInt) -> UnsafeMutablePoin
 /// Attempts to allocate `n_bytes`, and returns `nil` on failure.
 /// Contrast with `g_malloc()`, which aborts the program on failure.
 public func tryMalloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_malloc(gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_malloc(gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -8203,7 +8147,7 @@ public func tryMalloc(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 /// Attempts to allocate `n_bytes`, initialized to 0's, and returns `nil` on
 /// failure. Contrast with `g_malloc0()`, which aborts the program on failure.
 public func tryMalloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_malloc0(gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_malloc0(gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -8213,7 +8157,7 @@ public func tryMalloc0(nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
 /// This function is similar to `g_try_malloc0()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryMalloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_malloc0_n(gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_malloc0_n(gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -8223,7 +8167,7 @@ public func tryMalloc0N(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -
 /// This function is similar to `g_try_malloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryMallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_malloc_n(gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_malloc_n(gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -8236,7 +8180,7 @@ public func tryMallocN(nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) ->
 /// 
 /// If `mem` is `nil`, behaves the same as `g_try_malloc()`.
 public func tryRealloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_realloc(cast(mem), gsize(n_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_realloc(cast(mem), gsize(n_bytes)))
     return cast(rv)
 }
 
@@ -8246,7 +8190,7 @@ public func tryRealloc(mem: UnsafeMutableRawPointer, nBytes n_bytes: Int) -> Uns
 /// This function is similar to `g_try_realloc()`, allocating (`n_blocks` * `n_block_bytes`) bytes,
 /// but care is taken to detect possible overflow during multiplication.
 public func tryReallocN(mem: UnsafeMutableRawPointer, nBlocks n_blocks: Int, nBlockBytes n_block_bytes: Int) -> UnsafeMutableRawPointer! {
-    let rv = g_try_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes))
+    let rv: UnsafeMutableRawPointer! = cast(g_try_realloc_n(cast(mem), gsize(n_blocks), gsize(n_block_bytes)))
     return cast(rv)
 }
 
@@ -8256,11 +8200,9 @@ public func tryReallocN(mem: UnsafeMutableRawPointer, nBlocks n_blocks: Int, nBl
 /// Convert a string from UCS-4 to UTF-16. A 0 character will be
 /// added to the result after the converted text.
 public func ucs4ToUTF16(str: UnsafePointer<gunichar>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> UnsafeMutablePointer<gunichar2>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_ucs4_to_utf16(cast(str), glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gunichar2>! = cast(g_ucs4_to_utf16(cast(str), glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -8270,12 +8212,10 @@ public func ucs4ToUTF16(str: UnsafePointer<gunichar>, len: CLong, itemsRead item
 /// Convert a string from a 32-bit fixed width representation as UCS-4.
 /// to UTF-8. The result will be terminated with a 0 byte.
 public func ucs4ToUTF8(str: UnsafePointer<gunichar>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_ucs4_to_utf8(cast(str), glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_ucs4_to_utf8(cast(str), glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -8289,16 +8229,16 @@ public func ucs4ToUTF8(str: UnsafePointer<gunichar>, len: CLong, itemsRead items
 /// as `pango_break()` instead of caring about break types yourself.
 public func unicharBreakType(c: gunichar) -> GUnicodeBreakType {
     let rv = g_unichar_break_type(c)
-    return rv
+    return cast(rv)
 }
 
 
 
 
 /// Determines the canonical combining class of a Unicode character.
-public func unicharCombiningClass(uc: gunichar) -> CInt {
-    let rv = g_unichar_combining_class(uc)
-    return CInt(rv)
+public func unicharCombiningClass(uc: gunichar) -> Int {
+    let rv: Int = cast(g_unichar_combining_class(uc))
+    return Int(rv)
 }
 
 
@@ -8361,9 +8301,9 @@ public func unicharDecompose(ch: gunichar, a: UnsafeMutablePointer<gunichar>, b:
 
 /// Determines the numeric value of a character as a decimal
 /// digit.
-public func unicharDigitValue(c: gunichar) -> CInt {
-    let rv = g_unichar_digit_value(c)
-    return CInt(rv)
+public func unicharDigitValue(c: gunichar) -> Int {
+    let rv: Int = cast(g_unichar_digit_value(c))
+    return Int(rv)
 }
 
 
@@ -8422,7 +8362,7 @@ public func unicharGetMirrorChar(ch: gunichar, mirroredCh mirrored_ch: UnsafeMut
 /// two are interchangeable.
 public func unicharGetScript(ch: gunichar) -> GUnicodeScript {
     let rv = g_unichar_get_script(ch)
-    return rv
+    return cast(rv)
 }
 
 
@@ -8639,9 +8579,9 @@ public func unicharIszerowidth(c: gunichar) -> Bool {
 
 
 /// Converts a single character to UTF-8.
-public func unicharToUTF8(c: gunichar, outbuf: UnsafeMutablePointer<gchar>) -> CInt {
-    let rv = g_unichar_to_utf8(c, outbuf)
-    return CInt(rv)
+public func unicharToUTF8(c: gunichar, outbuf: UnsafeMutablePointer<gchar>) -> Int {
+    let rv: Int = cast(g_unichar_to_utf8(c, outbuf))
+    return Int(rv)
 }
 
 
@@ -8650,7 +8590,7 @@ public func unicharToUTF8(c: gunichar, outbuf: UnsafeMutablePointer<gchar>) -> C
 /// Converts a character to lower case.
 public func unicharTolower(c: gunichar) -> gunichar {
     let rv = g_unichar_tolower(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -8659,7 +8599,7 @@ public func unicharTolower(c: gunichar) -> gunichar {
 /// Converts a character to the titlecase.
 public func unicharTotitle(c: gunichar) -> gunichar {
     let rv = g_unichar_totitle(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -8668,7 +8608,7 @@ public func unicharTotitle(c: gunichar) -> gunichar {
 /// Converts a character to uppercase.
 public func unicharToupper(c: gunichar) -> gunichar {
     let rv = g_unichar_toupper(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -8677,7 +8617,7 @@ public func unicharToupper(c: gunichar) -> gunichar {
 /// Classifies a Unicode character by type.
 public func unicharType(c: gunichar) -> GUnicodeType {
     let rv = g_unichar_type(c)
-    return rv
+    return cast(rv)
 }
 
 
@@ -8696,9 +8636,9 @@ public func unicharValidate(ch: gunichar) -> Bool {
 
 /// Determines the numeric value of a character as a hexidecimal
 /// digit.
-public func unicharXdigitValue(c: gunichar) -> CInt {
-    let rv = g_unichar_xdigit_value(c)
-    return CInt(rv)
+public func unicharXdigitValue(c: gunichar) -> Int {
+    let rv: Int = cast(g_unichar_xdigit_value(c))
+    return Int(rv)
 }
 
 
@@ -8710,7 +8650,7 @@ public func unicharXdigitValue(c: gunichar) -> CInt {
 /// Use the more flexible g_unichar_fully_decompose()
 ///   instead.
 @available(*, deprecated) public func unicodeCanonicalDecomposition(ch: gunichar, resultLen result_len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<gunichar>! {
-    let rv = g_unicode_canonical_decomposition(ch, cast(result_len))
+    let rv: UnsafeMutablePointer<gunichar>! = cast(g_unicode_canonical_decomposition(ch, cast(result_len)))
     return cast(rv)
 }
 
@@ -8740,7 +8680,7 @@ public func unicodeCanonicalOrdering(string: UnsafeMutablePointer<gunichar>, len
 /// for details.
 public func unicodeScriptFrom(iso15924: UInt32) -> GUnicodeScript {
     let rv = g_unicode_script_from_iso15924(guint32(iso15924))
-    return rv
+    return cast(rv)
 }
 
 
@@ -8765,7 +8705,7 @@ public func unicodeScriptToIso15924(script: UnicodeScript) -> UInt32 {
 
 public func unixErrorQuark() -> GQuark {
     let rv = g_unix_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -8784,9 +8724,9 @@ public func unixErrorQuark() -> GQuark {
 /// to cancel the watch at any time that it exists.
 /// 
 /// The source will never close the fd -- you must do it yourself.
-public func unixFdAdd(fd: CInt, condition: IOCondition, function: @escaping UnixFDSourceFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_unix_fd_add(gint(fd), condition, function, cast(user_data))
-    return CUnsignedInt(rv)
+public func unixFdAdd(fd: CInt, condition: IOCondition, function: @escaping UnixFDSourceFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_unix_fd_add(gint(fd), condition.value, function, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -8798,9 +8738,9 @@ public func unixFdAdd(fd: CInt, condition: IOCondition, function: @escaping Unix
 /// This is the same as `g_unix_fd_add()`, except that it allows you to
 /// specify a non-default priority and a provide a `GDestroyNotify` for
 /// `user_data`.
-public func unixFdAddFull(priority: CInt, fd: CInt, condition: IOCondition, function: @escaping UnixFDSourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_unix_fd_add_full(gint(priority), gint(fd), condition, function, cast(user_data), notify)
-    return CUnsignedInt(rv)
+public func unixFdAddFull(priority: CInt, fd: CInt, condition: IOCondition, function: @escaping UnixFDSourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_unix_fd_add_full(gint(priority), gint(fd), condition.value, function, cast(user_data), notify))
+    return Int(rv)
 }
 
 
@@ -8811,7 +8751,7 @@ public func unixFdAddFull(priority: CInt, fd: CInt, condition: IOCondition, func
 /// 
 /// The source will never close the fd -- you must do it yourself.
 public func unixFdSourceNew(fd: CInt, condition: IOCondition) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_unix_fd_source_new(gint(fd), condition)
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_unix_fd_source_new(gint(fd), condition.value))
     return cast(rv)
 }
 
@@ -8830,11 +8770,9 @@ public func unixFdSourceNew(fd: CInt, condition: IOCondition) -> UnsafeMutablePo
 /// 
 /// You will need to include `pwd.h` to get the definition of `struct passwd`.
 public func unixGetPasswdEntry(userName user_name: UnsafePointer<gchar>) throws -> UnsafeMutablePointer<passwd>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_unix_get_passwd_entry(user_name, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<passwd>! = cast(g_unix_get_passwd_entry(user_name, &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -8850,11 +8788,9 @@ public func unixGetPasswdEntry(userName user_name: UnsafePointer<gchar>) throws 
 /// This function does not take `O_CLOEXEC`, it takes `FD_CLOEXEC` as if
 /// for `fcntl()`; these are different on Linux/glibc.
 public func unixOpenPipe(fds: UnsafeMutablePointer<CInt>, flags: CInt) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_unix_open_pipe(cast(fds), gint(flags), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -8865,11 +8801,9 @@ public func unixOpenPipe(fds: UnsafeMutablePointer<CInt>, flags: CInt) throws ->
 /// according to `nonblock`. On most systems this uses `O_NONBLOCK`, but
 /// on some older ones may use `O_NDELAY`.
 public func unixSetFdNonblocking(fd: CInt, nonblock: Bool) throws -> Bool {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = g_unix_set_fd_nonblocking(gint(fd), gboolean(nonblock ? 1 : 0), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    if let error = error { throw ErrorType(error) }
     return Bool(rv != 0)
 }
 
@@ -8879,9 +8813,9 @@ public func unixSetFdNonblocking(fd: CInt, nonblock: Bool) throws -> Bool {
 /// A convenience function for `g_unix_signal_source_new()`, which
 /// attaches to the default `GMainContext`.  You can remove the watch
 /// using `g_source_remove()`.
-public func unixSignalAdd(signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = g_unix_signal_add(gint(signum), handler, cast(user_data))
-    return CUnsignedInt(rv)
+public func unixSignalAdd(signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(g_unix_signal_add(gint(signum), handler, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -8890,9 +8824,9 @@ public func unixSignalAdd(signum: CInt, handler: @escaping SourceFunc, userData 
 /// A convenience function for `g_unix_signal_source_new()`, which
 /// attaches to the default `GMainContext`.  You can remove the watch
 /// using `g_source_remove()`.
-public func unixSignalAddFull(priority: CInt, signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-    let rv = g_unix_signal_add_full(gint(priority), gint(signum), handler, cast(user_data), notify)
-    return CUnsignedInt(rv)
+public func unixSignalAddFull(priority: CInt, signum: CInt, handler: @escaping SourceFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+    let rv: Int = cast(g_unix_signal_add_full(gint(priority), gint(signum), handler, cast(user_data), notify))
+    return Int(rv)
 }
 
 
@@ -8922,7 +8856,7 @@ public func unixSignalAddFull(priority: CInt, signum: CInt, handler: @escaping S
 /// and must be added to one with `g_source_attach()` before it will be
 /// executed.
 public func unixSignalSourceNew(signum: CInt) -> UnsafeMutablePointer<GSource>! {
-    let rv = g_unix_signal_source_new(gint(signum))
+    let rv: UnsafeMutablePointer<GSource>! = cast(g_unix_signal_source_new(gint(signum)))
     return cast(rv)
 }
 
@@ -8937,9 +8871,9 @@ public func unixSignalSourceNew(signum: CInt) -> UnsafeMutablePointer<GSource>! 
 /// See your C library manual for more details about `unlink()`. Note
 /// that on Windows, it is in general not possible to delete files that
 /// are open to some process, or mapped into memory.
-public func unlink(String_: UnsafePointer<gchar>) -> CInt {
-    let rv = g_unlink(String_)
-    return rv
+public func unlink(String_: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_unlink(String_))
+    return cast(rv)
 }
 
 
@@ -8979,8 +8913,8 @@ public func unsetenv(variable: UnsafePointer<gchar>) {
 /// specification, since those are allowed unescaped in some portions of
 /// a URI.
 public func uriEscapeString(unescaped: UnsafePointer<CChar>, reservedCharsAllowed reserved_chars_allowed: UnsafePointer<CChar>, allowUTF8 allow_utf8: Bool) -> String! {
-    let rv = g_uri_escape_string(unescaped, reserved_chars_allowed, gboolean(allow_utf8 ? 1 : 0))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_uri_escape_string(unescaped, reserved_chars_allowed, gboolean(allow_utf8 ? 1 : 0)))
+    return cast(rv)
 }
 
 
@@ -8990,7 +8924,7 @@ public func uriEscapeString(unescaped: UnsafePointer<CChar>, reservedCharsAllowe
 /// mime type defined in RFC 2483 into individual URIs,
 /// discarding any comments. The URIs are not validated.
 public func uriListExtractURIs(uriList uri_list: UnsafePointer<gchar>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-    let rv = g_uri_list_extract_uris(uri_list)
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_uri_list_extract_uris(uri_list))
     return cast(rv)
 }
 
@@ -9003,8 +8937,8 @@ public func uriListExtractURIs(uriList uri_list: UnsafePointer<gchar>) -> Unsafe
 /// ```
 /// Common schemes include "file", "http", "svn+ssh", etc.
 public func uriParseScheme(uri: UnsafePointer<CChar>) -> String! {
-    let rv = g_uri_parse_scheme(uri)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_uri_parse_scheme(uri))
+    return cast(rv)
 }
 
 
@@ -9018,8 +8952,8 @@ public func uriParseScheme(uri: UnsafePointer<CChar>) -> String! {
 /// slash being expanded in an escaped path element, which might confuse pathname
 /// handling.
 public func uriUnescapeSegment(escapedString escaped_string: UnsafePointer<CChar>, escapedStringEnd escaped_string_end: UnsafePointer<CChar>, illegalCharacters illegal_characters: UnsafePointer<CChar>) -> String! {
-    let rv = g_uri_unescape_segment(escaped_string, escaped_string_end, illegal_characters)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_uri_unescape_segment(escaped_string, escaped_string_end, illegal_characters))
+    return cast(rv)
 }
 
 
@@ -9033,8 +8967,8 @@ public func uriUnescapeSegment(escapedString escaped_string: UnsafePointer<CChar
 /// slash being expanded in an escaped path element, which might confuse pathname
 /// handling.
 public func uriUnescapeString(escapedString escaped_string: UnsafePointer<CChar>, illegalCharacters illegal_characters: UnsafePointer<CChar>) -> String! {
-    let rv = g_uri_unescape_string(escaped_string, illegal_characters)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_uri_unescape_string(escaped_string, illegal_characters))
+    return cast(rv)
 }
 
 
@@ -9057,11 +8991,9 @@ public func usleep(microseconds: CUnsignedLong) {
 /// Convert a string from UTF-16 to UCS-4. The result will be
 /// nul-terminated.
 public func utf16ToUCS4(str: UnsafePointer<gunichar2>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> UnsafeMutablePointer<gunichar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_utf16_to_ucs4(cast(str), glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gunichar>! = cast(g_utf16_to_ucs4(cast(str), glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -9082,12 +9014,10 @@ public func utf16ToUCS4(str: UnsafePointer<gunichar2>, len: CLong, itemsRead ite
 /// be correctly interpreted as UTF-16, i.e. it doesn't contain
 /// things unpaired surrogates.
 public func utf16ToUTF8(str: UnsafePointer<gunichar2>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> String! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_utf16_to_utf8(cast(str), glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: String! = cast(g_utf16_to_utf8(cast(str), glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -9105,8 +9035,8 @@ public func utf16ToUTF8(str: UnsafePointer<gunichar2>, len: CLong, itemsRead ite
 /// takes case sensitivity into account. GLib does not currently
 /// provide such a function.
 public func utf8Casefold(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_casefold(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_casefold(str, len))
+    return cast(rv)
 }
 
 
@@ -9118,9 +9048,9 @@ public func utf8Casefold(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// faster to obtain collation keys with `g_utf8_collate_key()` and
 /// compare the keys with `strcmp()` when sorting instead of sorting
 /// the original strings.
-public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) -> CInt {
-    let rv = g_utf8_collate(str1, str2)
-    return CInt(rv)
+public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_utf8_collate(str1, str2))
+    return Int(rv)
 }
 
 
@@ -9136,8 +9066,8 @@ public func utf8Collate(str1: UnsafePointer<gchar>, str2: UnsafePointer<gchar>) 
 /// 
 /// Note that this function depends on the [current locale](#setlocale).
 public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_collate_key(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_collate_key(str, len))
+    return cast(rv)
 }
 
 
@@ -9155,8 +9085,8 @@ public func utf8CollateKey(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// 
 /// Note that this function depends on the [current locale](#setlocale).
 public func utf8CollateKeyForFilename(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_collate_key_for_filename(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_collate_key_for_filename(str, len))
+    return cast(rv)
 }
 
 
@@ -9173,8 +9103,8 @@ public func utf8CollateKeyForFilename(str: UnsafePointer<gchar>, len: gssize) ->
 /// `end` is non-`nil`, the return value will be `nil` if the end of the string
 /// is reached.
 public func utf8FindNextChar(p: UnsafePointer<gchar>, end: UnsafePointer<gchar>) -> String! {
-    let rv = g_utf8_find_next_char(p, end)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_find_next_char(p, end))
+    return cast(rv)
 }
 
 
@@ -9188,8 +9118,8 @@ public func utf8FindNextChar(p: UnsafePointer<gchar>, end: UnsafePointer<gchar>)
 /// is made to see if the character found is actually valid other than
 /// it starts with an appropriate byte.
 public func utf8FindPrevChar(str: UnsafePointer<gchar>, p: UnsafePointer<gchar>) -> String! {
-    let rv = g_utf8_find_prev_char(str, p)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_find_prev_char(str, p))
+    return cast(rv)
 }
 
 
@@ -9203,7 +9133,7 @@ public func utf8FindPrevChar(str: UnsafePointer<gchar>, p: UnsafePointer<gchar>)
 /// instead.
 public func utf8GetChar(p: UnsafePointer<gchar>) -> gunichar {
     let rv = g_utf8_get_char(p)
-    return rv
+    return cast(rv)
 }
 
 
@@ -9219,7 +9149,7 @@ public func utf8GetChar(p: UnsafePointer<gchar>) -> gunichar {
 /// sequence are nul.
 public func utf8GetCharValidated(p: UnsafePointer<gchar>, maxLen max_len: gssize) -> gunichar {
     let rv = g_utf8_get_char_validated(p, max_len)
-    return rv
+    return cast(rv)
 }
 
 
@@ -9235,8 +9165,8 @@ public func utf8GetCharValidated(p: UnsafePointer<gchar>, maxLen max_len: gssize
 /// assumption that it is close enough to ASCII or UTF-8 to be mostly
 /// readable as-is.
 public func utf8MakeValid(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_make_valid(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_make_valid(str, len))
+    return cast(rv)
 }
 
 
@@ -9268,8 +9198,8 @@ public func utf8MakeValid(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// a legacy encoding or pass it to a system with
 /// less capable Unicode handling.
 public func utf8Normalize(str: UnsafePointer<gchar>, len: gssize, mode: NormalizeMode) -> String! {
-    let rv = g_utf8_normalize(str, len, mode)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_normalize(str, len, mode))
+    return cast(rv)
 }
 
 
@@ -9289,8 +9219,8 @@ public func utf8Normalize(str: UnsafePointer<gchar>, len: gssize, mode: Normaliz
 /// This limitation exists as this function is called frequently during
 /// text rendering and therefore has to be as fast as possible.
 public func utf8OffsetToPointer(str: UnsafePointer<gchar>, offset: CLong) -> String! {
-    let rv = g_utf8_offset_to_pointer(str, glong(offset))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_offset_to_pointer(str, glong(offset)))
+    return cast(rv)
 }
 
 
@@ -9301,9 +9231,9 @@ public func utf8OffsetToPointer(str: UnsafePointer<gchar>, offset: CLong) -> Str
 /// 
 /// Since 2.10, this function allows `pos` to be before `str`, and returns
 /// a negative offset in this case.
-public func utf8PointerToOffset(str: UnsafePointer<gchar>, pos: UnsafePointer<gchar>) -> CLong {
-    let rv = g_utf8_pointer_to_offset(str, pos)
-    return CLong(rv)
+public func utf8PointerToOffset(str: UnsafePointer<gchar>, pos: UnsafePointer<gchar>) -> Int {
+    let rv: Int = cast(g_utf8_pointer_to_offset(str, pos))
+    return Int(rv)
 }
 
 
@@ -9316,8 +9246,8 @@ public func utf8PointerToOffset(str: UnsafePointer<gchar>, pos: UnsafePointer<gc
 /// it starts with an appropriate byte. If `p` might be the first
 /// character of the string, you must use `g_utf8_find_prev_char()` instead.
 public func utf8PrevChar(p: UnsafePointer<gchar>) -> String! {
-    let rv = g_utf8_prev_char(p)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_prev_char(p))
+    return cast(rv)
 }
 
 
@@ -9327,8 +9257,8 @@ public func utf8PrevChar(p: UnsafePointer<gchar>) -> String! {
 /// in a UTF-8 encoded string, while limiting the search to `len` bytes.
 /// If `len` is -1, allow unbounded search.
 public func utf8Strchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> String! {
-    let rv = g_utf8_strchr(p, len, c)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strchr(p, len, c))
+    return cast(rv)
 }
 
 
@@ -9339,8 +9269,8 @@ public func utf8Strchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> Str
 /// on the current locale, and may result in the number of
 /// characters in the string changing.
 public func utf8Strdown(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_strdown(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strdown(str, len))
+    return cast(rv)
 }
 
 
@@ -9349,9 +9279,9 @@ public func utf8Strdown(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// Computes the length of the string in characters, not including
 /// the terminating nul character. If the `max`'th byte falls in the
 /// middle of a character, the last (partial) character is not counted.
-public func utf8Strlen(p: UnsafePointer<gchar>, max: gssize) -> CLong {
-    let rv = g_utf8_strlen(p, max)
-    return CLong(rv)
+public func utf8Strlen(p: UnsafePointer<gchar>, max: gssize) -> Int {
+    let rv: Int = cast(g_utf8_strlen(p, max))
+    return Int(rv)
 }
 
 
@@ -9365,8 +9295,8 @@ public func utf8Strlen(p: UnsafePointer<gchar>, max: gssize) -> CLong {
 /// Note you must ensure `dest` is at least 4 * `n` to fit the
 /// largest possible UTF-8 characters
 public func utf8Strncpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gchar>, n: Int) -> String! {
-    let rv = g_utf8_strncpy(dest, src, gsize(n))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strncpy(dest, src, gsize(n)))
+    return cast(rv)
 }
 
 
@@ -9376,8 +9306,8 @@ public func utf8Strncpy(dest: UnsafeMutablePointer<gchar>, src: UnsafePointer<gc
 /// in a UTF-8 encoded string, while limiting the search to `len` bytes.
 /// If `len` is -1, allow unbounded search.
 public func utf8Strrchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> String! {
-    let rv = g_utf8_strrchr(p, len, c)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strrchr(p, len, c))
+    return cast(rv)
 }
 
 
@@ -9397,8 +9327,8 @@ public func utf8Strrchr(p: UnsafePointer<gchar>, len: gssize, c: gunichar) -> St
 /// newly-allocated memory, which should be freed with `g_free()` when
 /// no longer needed.
 public func utf8Strreverse(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_strreverse(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strreverse(str, len))
+    return cast(rv)
 }
 
 
@@ -9410,8 +9340,8 @@ public func utf8Strreverse(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// characters in the string increasing. (For instance, the
 /// German ess-zet will be changed to SS.)
 public func utf8Strup(str: UnsafePointer<gchar>, len: gssize) -> String! {
-    let rv = g_utf8_strup(str, len)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_strup(str, len))
+    return cast(rv)
 }
 
 
@@ -9420,8 +9350,8 @@ public func utf8Strup(str: UnsafePointer<gchar>, len: gssize) -> String! {
 /// Copies a substring out of a UTF-8 encoded string.
 /// The substring will contain `end_pos` - `start_pos` characters.
 public func utf8Substring(str: UnsafePointer<gchar>, startPos start_pos: CLong, endPos end_pos: CLong) -> String! {
-    let rv = g_utf8_substring(str, glong(start_pos), glong(end_pos))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_utf8_substring(str, glong(start_pos), glong(end_pos)))
+    return cast(rv)
 }
 
 
@@ -9431,11 +9361,9 @@ public func utf8Substring(str: UnsafePointer<gchar>, startPos start_pos: CLong, 
 /// representation as UCS-4. A trailing 0 character will be added to the
 /// string after the converted text.
 public func utf8ToUCS4(str: UnsafePointer<gchar>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> UnsafeMutablePointer<gunichar>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_utf8_to_ucs4(str, glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gunichar>! = cast(g_utf8_to_ucs4(str, glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -9448,7 +9376,7 @@ public func utf8ToUCS4(str: UnsafePointer<gchar>, len: CLong, itemsRead items_re
 /// but does no error checking on the input. A trailing 0 character
 /// will be added to the string after the converted text.
 public func utf8ToUCS4Fast(str: UnsafePointer<gchar>, len: CLong, itemsWritten items_written: UnsafeMutablePointer<CLong>) -> UnsafeMutablePointer<gunichar>! {
-    let rv = g_utf8_to_ucs4_fast(str, glong(len), cast(items_written))
+    let rv: UnsafeMutablePointer<gunichar>! = cast(g_utf8_to_ucs4_fast(str, glong(len), cast(items_written)))
     return cast(rv)
 }
 
@@ -9458,11 +9386,9 @@ public func utf8ToUCS4Fast(str: UnsafePointer<gchar>, len: CLong, itemsWritten i
 /// Convert a string from UTF-8 to UTF-16. A 0 character will be
 /// added to the result after the converted text.
 public func utf8ToUTF16(str: UnsafePointer<gchar>, len: CLong, itemsRead items_read: UnsafeMutablePointer<CLong>, itemsWritten items_written: UnsafeMutablePointer<CLong>) throws -> UnsafeMutablePointer<gunichar2>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_utf8_to_utf16(str, glong(len), cast(items_read), cast(items_written), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<gunichar2>! = cast(g_utf8_to_utf16(str, glong(len), cast(items_read), cast(items_written), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -9524,8 +9450,8 @@ public func uuidStringIsValid(str: UnsafePointer<gchar>) -> Bool {
 /// randomness guarantees as `GRand`, so must not be used for cryptographic
 /// purposes such as key generation, nonces, salts or one-time pads.
 public func uuidStringRandom() -> String! {
-    let rv = g_uuid_string_random()
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_uuid_string_random())
+    return cast(rv)
 }
 
 
@@ -9533,7 +9459,7 @@ public func uuidStringRandom() -> String! {
 
 public func variantGetGtype() -> GType {
     let rv = g_variant_get_gtype()
-    return rv
+    return cast(rv)
 }
 
 
@@ -9605,11 +9531,9 @@ public func variantIsSignature(string: UnsafePointer<gchar>) -> Bool {
 /// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
 /// guaranteed to handle nesting up to at least 64 levels.
 public func variantParse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
-    let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
+    var error: UnsafeMutablePointer<GError>?
+    let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error))
+    if let error = error { throw ErrorType(error) }
     return cast(rv)
 }
 
@@ -9646,8 +9570,8 @@ public func variantParse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, 
 /// `g_variant_parse()` then you must add nul termination before using this
 /// function.
 public func variantParseErrorPrintContext(error: ErrorTypeProtocol, sourceStr source_str: UnsafePointer<gchar>) -> String! {
-    let rv = g_variant_parse_error_print_context(cast(error.ptr), source_str)
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(g_variant_parse_error_print_context(cast(error.ptr), source_str))
+    return cast(rv)
 }
 
 
@@ -9655,7 +9579,7 @@ public func variantParseErrorPrintContext(error: ErrorTypeProtocol, sourceStr so
 
 public func variantParseErrorQuark() -> GQuark {
     let rv = g_variant_parse_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -9667,14 +9591,14 @@ public func variantParseErrorQuark() -> GQuark {
 /// Use g_variant_parse_error_quark() instead.
 @available(*, deprecated) public func variantParserGetErrorQuark() -> GQuark {
     let rv = g_variant_parser_get_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
 
 
 public func variantTypeChecked_(arg0: UnsafePointer<gchar>) -> UnsafePointer<GVariantType>! {
-    let rv = g_variant_type_checked_(arg0)
+    let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_checked_(arg0))
     return cast(rv)
 }
 
@@ -9732,9 +9656,9 @@ public func variantTypeStringScan(string: UnsafePointer<gchar>, limit: UnsafePoi
 /// multibyte representation is available for the given character.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
-public func vasprintf(string: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {
-    let rv = g_vasprintf(cast(string), format, args)
-    return CInt(rv)
+public func vasprintf(string: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_vasprintf(cast(string), format, args))
+    return Int(rv)
 }
 
 
@@ -9744,9 +9668,9 @@ public func vasprintf(string: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>,
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
-public func vfprintf(file: UnsafeMutablePointer<FILE>, format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {
-    let rv = g_vfprintf(cast(file), format, args)
-    return CInt(rv)
+public func vfprintf(file: UnsafeMutablePointer<FILE>, format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_vfprintf(cast(file), format, args))
+    return Int(rv)
 }
 
 
@@ -9756,9 +9680,9 @@ public func vfprintf(file: UnsafeMutablePointer<FILE>, format: UnsafePointer<gch
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
-public func vprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {
-    let rv = g_vprintf(format, args)
-    return CInt(rv)
+public func vprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_vprintf(format, args))
+    return Int(rv)
 }
 
 
@@ -9781,9 +9705,9 @@ public func vprintf(format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt 
 /// 
 /// The format string may contain positional parameters, as specified in
 /// the Single Unix Specification.
-public func vsnprintf(string: UnsafeMutablePointer<gchar>, n: CUnsignedLong, format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {
-    let rv = g_vsnprintf(string, gulong(n), format, args)
-    return CInt(rv)
+public func vsnprintf(string: UnsafeMutablePointer<gchar>, n: CUnsignedLong, format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_vsnprintf(string, gulong(n), format, args))
+    return Int(rv)
 }
 
 
@@ -9793,9 +9717,9 @@ public func vsnprintf(string: UnsafeMutablePointer<gchar>, n: CUnsignedLong, for
 /// positional parameters, as specified in the Single Unix Specification.
 /// 
 /// `glib/gprintf.h` must be explicitly included in order to use this function.
-public func vsprintf(string: UnsafeMutablePointer<gchar>, format: UnsafePointer<gchar>, args: CVaListPointer) -> CInt {
-    let rv = g_vsprintf(string, format, args)
-    return CInt(rv)
+public func vsprintf(string: UnsafeMutablePointer<gchar>, format: UnsafePointer<gchar>, args: CVaListPointer) -> Int {
+    let rv: Int = cast(g_vsprintf(string, format, args))
+    return Int(rv)
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// An opaque data structure representing String Chunks.
 /// It should only be accessed by using the following functions.
 public protocol StringChunkProtocol {
-    /// Untyped pointer to the underlying `GStringChunk` instance.
+        /// Untyped pointer to the underlying `GStringChunk` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GStringChunk` instance.
@@ -24,7 +24,7 @@ public protocol StringChunkProtocol {
 /// An opaque data structure representing String Chunks.
 /// It should only be accessed by using the following functions.
 public struct StringChunkRef: StringChunkProtocol {
-    /// Untyped pointer to the underlying `GStringChunk` instance.
+        /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension StringChunkRef {
 /// An opaque data structure representing String Chunks.
 /// It should only be accessed by using the following functions.
 open class StringChunk: StringChunkProtocol {
-    /// Untyped pointer to the underlying `GStringChunk` instance.
+        /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class StringChunk: StringChunkProtocol {
         // no reference counting for GStringChunk, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GStringChunk`.
+    /// Do-nothing destructor for `GStringChunk`.
     deinit {
         // no reference counting for GStringChunk, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class StringChunk: StringChunkProtocol {
 
 }
 
-// MARK: - no StringChunk properties
+// MARK: no StringChunk properties
 
-// MARK: - no signals
+// MARK: no StringChunk signals
 
 
+// MARK: StringChunk Record: StringChunkProtocol extension (methods and fields)
 public extension StringChunkProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GStringChunk` instance.
     var _ptr: UnsafeMutablePointer<GStringChunk> { return ptr.assumingMemoryBound(to: GStringChunk.self) }
@@ -212,8 +213,8 @@ public extension StringChunkProtocol {
     /// by `g_string_chunk_insert_const()` when looking for
     /// duplicates.
     func insert(string: UnsafePointer<gchar>) -> String! {
-        let rv = g_string_chunk_insert(cast(_ptr), string)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_string_chunk_insert(cast(_ptr), string))
+        return cast(rv)
     }
 
     /// Adds a copy of `string` to the `GStringChunk`, unless the same
@@ -230,8 +231,8 @@ public extension StringChunkProtocol {
     /// pointer to a string added with `g_string_chunk_insert()`, even
     /// if they do match.
     func insertConst(string: UnsafePointer<gchar>) -> String! {
-        let rv = g_string_chunk_insert_const(cast(_ptr), string)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_string_chunk_insert_const(cast(_ptr), string))
+        return cast(rv)
     }
 
     /// Adds a copy of the first `len` bytes of `string` to the `GStringChunk`.
@@ -244,9 +245,11 @@ public extension StringChunkProtocol {
     /// The characters in the returned string can be changed, if necessary,
     /// though you should not change anything after the end of the string.
     func insertLen(string: UnsafePointer<gchar>, len: gssize) -> String! {
-        let rv = g_string_chunk_insert_len(cast(_ptr), string, len)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_string_chunk_insert_len(cast(_ptr), string, len))
+        return cast(rv)
     }
+
+
 }
 
 

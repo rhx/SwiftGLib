@@ -9,7 +9,7 @@ import CGLib
 ///
 /// An opaque structure representing a test case.
 public protocol TestCaseProtocol {
-    /// Untyped pointer to the underlying `GTestCase` instance.
+        /// Untyped pointer to the underlying `GTestCase` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTestCase` instance.
@@ -22,7 +22,7 @@ public protocol TestCaseProtocol {
 ///
 /// An opaque structure representing a test case.
 public struct TestCaseRef: TestCaseProtocol {
-    /// Untyped pointer to the underlying `GTestCase` instance.
+        /// Untyped pointer to the underlying `GTestCase` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TestCaseRef {
 ///
 /// An opaque structure representing a test case.
 open class TestCase: TestCaseProtocol {
-    /// Untyped pointer to the underlying `GTestCase` instance.
+        /// Untyped pointer to the underlying `GTestCase` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class TestCase: TestCaseProtocol {
         // no reference counting for GTestCase, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTestCase`.
+    /// Do-nothing destructor for `GTestCase`.
     deinit {
         // no reference counting for GTestCase, cannot unref(cast(_ptr))
     }
@@ -172,14 +172,17 @@ open class TestCase: TestCaseProtocol {
 
 }
 
-// MARK: - no TestCase properties
+// MARK: no TestCase properties
 
-// MARK: - no signals
+// MARK: no TestCase signals
 
 
+// MARK: TestCase Record: TestCaseProtocol extension (methods and fields)
 public extension TestCaseProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestCase` instance.
     var _ptr: UnsafeMutablePointer<GTestCase> { return ptr.assumingMemoryBound(to: GTestCase.self) }
+
+
 
 }
 

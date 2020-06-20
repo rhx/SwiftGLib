@@ -10,7 +10,7 @@ import CGLib
 /// `GVariantIter` is an opaque data structure and can only be accessed
 /// using the following functions.
 public protocol VariantIterProtocol {
-    /// Untyped pointer to the underlying `GVariantIter` instance.
+        /// Untyped pointer to the underlying `GVariantIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVariantIter` instance.
@@ -24,7 +24,7 @@ public protocol VariantIterProtocol {
 /// `GVariantIter` is an opaque data structure and can only be accessed
 /// using the following functions.
 public struct VariantIterRef: VariantIterProtocol {
-    /// Untyped pointer to the underlying `GVariantIter` instance.
+        /// Untyped pointer to the underlying `GVariantIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension VariantIterRef {
 /// `GVariantIter` is an opaque data structure and can only be accessed
 /// using the following functions.
 open class VariantIter: VariantIterProtocol {
-    /// Untyped pointer to the underlying `GVariantIter` instance.
+        /// Untyped pointer to the underlying `GVariantIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class VariantIter: VariantIterProtocol {
         // no reference counting for GVariantIter, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GVariantIter`.
+    /// Do-nothing destructor for `GVariantIter`.
     deinit {
         // no reference counting for GVariantIter, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class VariantIter: VariantIterProtocol {
 
 }
 
-// MARK: - no VariantIter properties
+// MARK: no VariantIter properties
 
-// MARK: - no signals
+// MARK: no VariantIter signals
 
 
+// MARK: VariantIter Record: VariantIterProtocol extension (methods and fields)
 public extension VariantIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantIter` instance.
     var _ptr: UnsafeMutablePointer<GVariantIter> { return ptr.assumingMemoryBound(to: GVariantIter.self) }
@@ -195,7 +196,7 @@ public extension VariantIterProtocol {
     /// A reference is taken to the container that `iter` is iterating over
     /// and will be releated only when `g_variant_iter_free()` is called.
     func copy() -> UnsafeMutablePointer<GVariantIter>! {
-        let rv = g_variant_iter_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GVariantIter>! = cast(g_variant_iter_copy(cast(_ptr)))
         return cast(rv)
     }
 
@@ -266,9 +267,12 @@ public extension VariantIterProtocol {
     /// ```
     /// 
     func nextValue() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_iter_next_value(cast(_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_iter_next_value(cast(_ptr)))
         return cast(rv)
     }
+
+    // var x is unavailable because x is private
+
 }
 
 

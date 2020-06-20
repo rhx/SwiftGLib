@@ -15,7 +15,7 @@ import CGLib
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
 public protocol LogFieldProtocol {
-    /// Untyped pointer to the underlying `GLogField` instance.
+        /// Untyped pointer to the underlying `GLogField` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GLogField` instance.
@@ -34,7 +34,7 @@ public protocol LogFieldProtocol {
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
 public struct LogFieldRef: LogFieldProtocol {
-    /// Untyped pointer to the underlying `GLogField` instance.
+        /// Untyped pointer to the underlying `GLogField` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -93,7 +93,7 @@ public extension LogFieldRef {
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
 open class LogField: LogFieldProtocol {
-    /// Untyped pointer to the underlying `GLogField` instance.
+        /// Untyped pointer to the underlying `GLogField` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -122,7 +122,7 @@ open class LogField: LogFieldProtocol {
         // no reference counting for GLogField, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GLogField`.
+    /// Do-nothing destructor for `GLogField`.
     deinit {
         // no reference counting for GLogField, cannot unref(cast(_ptr))
     }
@@ -190,14 +190,55 @@ open class LogField: LogFieldProtocol {
 
 }
 
-// MARK: - no LogField properties
+// MARK: no LogField properties
 
-// MARK: - no signals
+// MARK: no LogField signals
 
 
+// MARK: LogField Record: LogFieldProtocol extension (methods and fields)
 public extension LogFieldProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GLogField` instance.
     var _ptr: UnsafeMutablePointer<GLogField> { return ptr.assumingMemoryBound(to: GLogField.self) }
+
+
+    /// field name (UTF-8 string)
+    var key: UnsafePointer<CChar> {
+        /// field name (UTF-8 string)
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.key)
+            return rv
+        }
+        /// field name (UTF-8 string)
+         set {
+            _ptr.pointee.key = cast(newValue)
+        }
+    }
+
+    /// field value (arbitrary bytes)
+    var value: gconstpointer {
+        /// field value (arbitrary bytes)
+        get {
+            let rv: gconstpointer = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// field value (arbitrary bytes)
+         set {
+            _ptr.pointee.value = cast(newValue)
+        }
+    }
+
+    /// length of `value`, in bytes, or -1 if it is nul-terminated
+    var length: gssize {
+        /// length of `value`, in bytes, or -1 if it is nul-terminated
+        get {
+            let rv: gssize = cast(_ptr.pointee.length)
+            return rv
+        }
+        /// length of `value`, in bytes, or -1 if it is nul-terminated
+         set {
+            _ptr.pointee.length = cast(newValue)
+        }
+    }
 
 }
 

@@ -10,7 +10,7 @@ import CGLib
 /// Contains the public fields of a
 /// [Queue](../Protocols/QueueProtocol.html).
 public protocol QueueProtocol {
-    /// Untyped pointer to the underlying `GQueue` instance.
+        /// Untyped pointer to the underlying `GQueue` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GQueue` instance.
@@ -24,7 +24,7 @@ public protocol QueueProtocol {
 /// Contains the public fields of a
 /// [Queue](../Protocols/QueueProtocol.html).
 public struct QueueRef: QueueProtocol {
-    /// Untyped pointer to the underlying `GQueue` instance.
+        /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension QueueRef {
 /// Contains the public fields of a
 /// [Queue](../Protocols/QueueProtocol.html).
 open class Queue: QueueProtocol {
-    /// Untyped pointer to the underlying `GQueue` instance.
+        /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class Queue: QueueProtocol {
         // no reference counting for GQueue, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GQueue`.
+    /// Do-nothing destructor for `GQueue`.
     deinit {
         // no reference counting for GQueue, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class Queue: QueueProtocol {
 
 }
 
-// MARK: - no Queue properties
+// MARK: no Queue properties
 
-// MARK: - no signals
+// MARK: no Queue signals
 
 
+// MARK: Queue Record: QueueProtocol extension (methods and fields)
 public extension QueueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GQueue` instance.
     var _ptr: UnsafeMutablePointer<GQueue> { return ptr.assumingMemoryBound(to: GQueue.self) }
@@ -202,7 +203,7 @@ public extension QueueProtocol {
     /// queue consist of pointers to data, the pointers are copied, but the
     /// actual data is not.
     func copy() -> UnsafeMutablePointer<GQueue>! {
-        let rv = g_queue_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GQueue>! = cast(g_queue_copy(cast(_ptr)))
         return cast(rv)
     }
 
@@ -216,7 +217,7 @@ public extension QueueProtocol {
 
     /// Finds the first link in `queue` which contains `data`.
     func find(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_find(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_find(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -226,7 +227,7 @@ public extension QueueProtocol {
     /// takes two gconstpointer arguments, the `GQueue` element's data as the
     /// first argument and the given user data as the second argument.
     func findCustom(data: gconstpointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_find_custom(cast(_ptr), cast(data), func_)
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_find_custom(cast(_ptr), cast(data), func_))
         return cast(rv)
     }
 
@@ -262,15 +263,15 @@ public extension QueueProtocol {
     }
 
     /// Returns the number of items in `queue`.
-    func getLength() -> CUnsignedInt {
-        let rv = g_queue_get_length(cast(_ptr))
-        return CUnsignedInt(rv)
+    func getLength() -> Int {
+        let rv: Int = cast(g_queue_get_length(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the position of the first element in `queue` which contains `data`.
-    func index(data: gconstpointer) -> CInt {
-        let rv = g_queue_index(cast(_ptr), cast(data))
-        return CInt(rv)
+    func index(data: gconstpointer) -> Int {
+        let rv: Int = cast(g_queue_index(cast(_ptr), cast(data)))
+        return Int(rv)
     }
 
     /// A statically-allocated `GQueue` must be initialized with this function
@@ -323,80 +324,80 @@ public extension QueueProtocol {
     }
 
     /// Returns the position of `link_` in `queue`.
-    func linkIndex(link_: ListProtocol) -> CInt {
-        let rv = g_queue_link_index(cast(_ptr), cast(link_.ptr))
-        return CInt(rv)
+    func linkIndex(link_: ListProtocol) -> Int {
+        let rv: Int = cast(g_queue_link_index(cast(_ptr), cast(link_.ptr)))
+        return Int(rv)
     }
 
     /// Returns the first element of the queue.
     func peekHead() -> UnsafeMutableRawPointer! {
-        let rv = g_queue_peek_head(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_head(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the first link in `queue`.
     func peekHeadLink() -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_peek_head_link(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_head_link(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the `n`'th element of `queue`.
     func peekNth(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_queue_peek_nth(cast(_ptr), guint(n))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_nth(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Returns the link at the given position
     func peekNthLink(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_peek_nth_link(cast(_ptr), guint(n))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_nth_link(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Returns the last element of the queue.
     func peekTail() -> UnsafeMutableRawPointer! {
-        let rv = g_queue_peek_tail(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_tail(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the last link in `queue`.
     func peekTailLink() -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_peek_tail_link(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_tail_link(cast(_ptr)))
         return cast(rv)
     }
 
     /// Removes the first element of the queue and returns its data.
     func popHead() -> UnsafeMutableRawPointer! {
-        let rv = g_queue_pop_head(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_head(cast(_ptr)))
         return cast(rv)
     }
 
     /// Removes and returns the first element of the queue.
     func popHeadLink() -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_pop_head_link(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_head_link(cast(_ptr)))
         return cast(rv)
     }
 
     /// Removes the `n`'th element of `queue` and returns its data.
     func popNth(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_queue_pop_nth(cast(_ptr), guint(n))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_nth(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Removes and returns the link at the given position.
     func popNthLink(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_pop_nth_link(cast(_ptr), guint(n))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_nth_link(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Removes the last element of the queue and returns its data.
     func popTail() -> UnsafeMutableRawPointer! {
-        let rv = g_queue_pop_tail(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_tail(cast(_ptr)))
         return cast(rv)
     }
 
     /// Removes and returns the last element of the queue.
     func popTailLink() -> UnsafeMutablePointer<GList>! {
-        let rv = g_queue_pop_tail_link(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_tail_link(cast(_ptr)))
         return cast(rv)
     }
 
@@ -443,9 +444,9 @@ public extension QueueProtocol {
     }
 
     /// Remove all elements whose data equals `data` from `queue`.
-    func removeAll(data: gconstpointer) -> CUnsignedInt {
-        let rv = g_queue_remove_all(cast(_ptr), cast(data))
-        return CUnsignedInt(rv)
+    func removeAll(data: gconstpointer) -> Int {
+        let rv: Int = cast(g_queue_remove_all(cast(_ptr), cast(data)))
+        return Int(rv)
     }
 
     /// Reverses the order of the items in `queue`.
@@ -478,13 +479,53 @@ public extension QueueProtocol {
     }
 
     /// Returns the number of items in `queue`.
-    var length: CUnsignedInt {
+    var length: Int {
         /// Returns the number of items in `queue`.
         get {
-            let rv = g_queue_get_length(cast(_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_queue_get_length(cast(_ptr)))
+            return Int(rv)
         }
     }
+
+    /// a pointer to the first element of the queue
+    var head: UnsafeMutablePointer<GList> {
+        /// a pointer to the first element of the queue
+        get {
+            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.head)
+            return rv
+        }
+        /// a pointer to the first element of the queue
+         set {
+            _ptr.pointee.head = cast(newValue)
+        }
+    }
+
+    /// a pointer to the last element of the queue
+    var tail: UnsafeMutablePointer<GList> {
+        /// a pointer to the last element of the queue
+        get {
+            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.tail)
+            return rv
+        }
+        /// a pointer to the last element of the queue
+         set {
+            _ptr.pointee.tail = cast(newValue)
+        }
+    }
+
+    /// the number of elements in the queue
+    var _length: Int {
+        /// the number of elements in the queue
+        get {
+            let rv: Int = cast(_ptr.pointee.length)
+            return rv
+        }
+        /// the number of elements in the queue
+         set {
+            _ptr.pointee.length = guint(newValue)
+        }
+    }
+
 }
 
 

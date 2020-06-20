@@ -11,7 +11,7 @@ import CGLib
 /// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 public protocol MappedFileProtocol {
-    /// Untyped pointer to the underlying `GMappedFile` instance.
+        /// Untyped pointer to the underlying `GMappedFile` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMappedFile` instance.
@@ -26,7 +26,7 @@ public protocol MappedFileProtocol {
 /// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 public struct MappedFileRef: MappedFileProtocol {
-    /// Untyped pointer to the underlying `GMappedFile` instance.
+        /// Untyped pointer to the underlying `GMappedFile` instance.
     /// For type-safe access, use the generated, typed pointer `mapped_file_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -88,11 +88,9 @@ public extension MappedFileRef {
     /// size 0 (e.g. device files such as /dev/null), `error` will be set
     /// to the `GFileError` value `G_FILE_ERROR_INVAL`.
     init( String_: UnsafePointer<gchar>, writable: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new(String_, gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new(String_, gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -108,11 +106,9 @@ public extension MappedFileRef {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     init(fd: CInt, writable: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
@@ -127,11 +123,9 @@ public extension MappedFileRef {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     static func newFrom(fd: CInt, writable: Bool) throws -> MappedFileRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { MappedFileRef(cast($0)) }
     }
 }
@@ -144,7 +138,7 @@ public extension MappedFileRef {
 /// `g_mapped_file_new()`. It has only private members and should
 /// not be accessed directly.
 open class MappedFile: MappedFileProtocol {
-    /// Untyped pointer to the underlying `GMappedFile` instance.
+        /// Untyped pointer to the underlying `GMappedFile` instance.
     /// For type-safe access, use the generated, typed pointer `mapped_file_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -254,11 +248,9 @@ open class MappedFile: MappedFileProtocol {
     /// size 0 (e.g. device files such as /dev/null), `error` will be set
     /// to the `GFileError` value `G_FILE_ERROR_INVAL`.
     public init( String_: UnsafePointer<gchar>, writable: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new(String_, gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new(String_, gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -274,11 +266,9 @@ open class MappedFile: MappedFileProtocol {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     public init(fd: CInt, writable: Bool) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -294,21 +284,20 @@ open class MappedFile: MappedFileProtocol {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     public static func newFrom(fd: CInt, writable: Bool) throws -> MappedFile! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_new_from_fd(gint(fd), gboolean(writable ? 1 : 0), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { MappedFile(cast($0)) }
     }
 
 }
 
-// MARK: - no MappedFile properties
+// MARK: no MappedFile properties
 
-// MARK: - no signals
+// MARK: no MappedFile signals
 
 
+// MARK: MappedFile Record: MappedFileProtocol extension (methods and fields)
 public extension MappedFileProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMappedFile` instance.
     var mapped_file_ptr: UnsafeMutablePointer<GMappedFile> { return ptr.assumingMemoryBound(to: GMappedFile.self) }
@@ -327,7 +316,7 @@ public extension MappedFileProtocol {
     /// The mapped contents of the file must not be modified after creating this
     /// bytes object, because a `GBytes` should be immutable.
     func getBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_mapped_file_get_bytes(cast(mapped_file_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_mapped_file_get_bytes(cast(mapped_file_ptr)))
         return cast(rv)
     }
 
@@ -338,8 +327,8 @@ public extension MappedFileProtocol {
     /// 
     /// If the file is empty then `nil` is returned.
     func getContents() -> String! {
-        let rv = g_mapped_file_get_contents(cast(mapped_file_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_mapped_file_get_contents(cast(mapped_file_ptr)))
+        return cast(rv)
     }
 
     /// Returns the length of the contents of a `GMappedFile`.
@@ -350,8 +339,8 @@ public extension MappedFileProtocol {
 
     /// Increments the reference count of `file` by one.  It is safe to call
     /// this function from any thread.
-    func ref() -> UnsafeMutablePointer<GMappedFile>! {
-        let rv = g_mapped_file_ref(cast(mapped_file_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GMappedFile>! {
+        let rv: UnsafeMutablePointer<GMappedFile>! = cast(g_mapped_file_ref(cast(mapped_file_ptr)))
         return cast(rv)
     }
 
@@ -373,7 +362,7 @@ public extension MappedFileProtocol {
         /// The mapped contents of the file must not be modified after creating this
         /// bytes object, because a `GBytes` should be immutable.
         get {
-            let rv = g_mapped_file_get_bytes(cast(mapped_file_ptr))
+            let rv: UnsafeMutablePointer<GBytes>! = cast(g_mapped_file_get_bytes(cast(mapped_file_ptr)))
             return cast(rv)
         }
     }
@@ -392,8 +381,8 @@ public extension MappedFileProtocol {
         /// 
         /// If the file is empty then `nil` is returned.
         get {
-            let rv = g_mapped_file_get_contents(cast(mapped_file_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_mapped_file_get_contents(cast(mapped_file_ptr)))
+            return cast(rv)
         }
     }
 
@@ -405,6 +394,8 @@ public extension MappedFileProtocol {
             return Int(rv)
         }
     }
+
+
 }
 
 

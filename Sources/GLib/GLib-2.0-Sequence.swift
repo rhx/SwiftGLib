@@ -10,7 +10,7 @@ import CGLib
 /// The `GSequence` struct is an opaque data type representing a
 /// [sequence](../Protocols/SequenceProtocol.html) data type.
 public protocol SequenceProtocol {
-    /// Untyped pointer to the underlying `GSequence` instance.
+        /// Untyped pointer to the underlying `GSequence` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSequence` instance.
@@ -24,7 +24,7 @@ public protocol SequenceProtocol {
 /// The `GSequence` struct is an opaque data type representing a
 /// [sequence](../Protocols/SequenceProtocol.html) data type.
 public struct SequenceRef: SequenceProtocol {
-    /// Untyped pointer to the underlying `GSequence` instance.
+        /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension SequenceRef {
 /// The `GSequence` struct is an opaque data type representing a
 /// [sequence](../Protocols/SequenceProtocol.html) data type.
 open class Sequence: SequenceProtocol {
-    /// Untyped pointer to the underlying `GSequence` instance.
+        /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class Sequence: SequenceProtocol {
         // no reference counting for GSequence, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSequence`.
+    /// Do-nothing destructor for `GSequence`.
     deinit {
         // no reference counting for GSequence, cannot unref(cast(_ptr))
     }
@@ -175,18 +175,19 @@ open class Sequence: SequenceProtocol {
 
 }
 
-// MARK: - no Sequence properties
+// MARK: no Sequence properties
 
-// MARK: - no signals
+// MARK: no Sequence signals
 
 
+// MARK: Sequence Record: SequenceProtocol extension (methods and fields)
 public extension SequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSequence` instance.
     var _ptr: UnsafeMutablePointer<GSequence> { return ptr.assumingMemoryBound(to: GSequence.self) }
 
     /// Adds a new item to the end of `seq`.
     func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_append(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_append(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -207,29 +208,29 @@ public extension SequenceProtocol {
 
     /// Returns the begin iterator for `seq`.
     func getBeginIter() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_get_begin_iter(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_begin_iter(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the end iterator for `seg`
     func getEndIter() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_get_end_iter(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_end_iter(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the iterator at position `pos`. If `pos` is negative or larger
     /// than the number of items in `seq`, the end iterator is returned.
     func getIterAt(pos: CInt) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_get_iter_at_pos(cast(_ptr), gint(pos))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_iter_at_pos(cast(_ptr), gint(pos)))
         return cast(rv)
     }
 
     /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
     /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
-    func getLength() -> CInt {
-        let rv = g_sequence_get_length(cast(_ptr))
-        return CInt(rv)
+    func getLength() -> Int {
+        let rv: Int = cast(g_sequence_get_length(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Inserts `data` into `seq` using `cmp_func` to determine the new
@@ -244,8 +245,8 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    func insertSorted(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_insert_sorted(cast(_ptr), cast(data), cmp_func, cast(cmp_data))
+    @discardableResult func insertSorted(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_sorted(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
         return cast(rv)
     }
 
@@ -261,8 +262,8 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    func insertSortedIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_insert_sorted_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data))
+    @discardableResult func insertSortedIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_sorted_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
         return cast(rv)
     }
 
@@ -280,7 +281,7 @@ public extension SequenceProtocol {
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
     func lookup(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_lookup(cast(_ptr), cast(data), cmp_func, cast(cmp_data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_lookup(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
         return cast(rv)
     }
 
@@ -295,13 +296,13 @@ public extension SequenceProtocol {
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
     func lookupIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_lookup_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_lookup_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
         return cast(rv)
     }
 
     /// Adds a new item to the front of `seq`
-    func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_prepend(cast(_ptr), cast(data))
+    @discardableResult func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_prepend(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -319,7 +320,7 @@ public extension SequenceProtocol {
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
     func search(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_search(cast(_ptr), cast(data), cmp_func, cast(cmp_data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_search(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
         return cast(rv)
     }
 
@@ -337,7 +338,7 @@ public extension SequenceProtocol {
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
     func searchIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_search_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_search_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
         return cast(rv)
     }
 
@@ -367,7 +368,7 @@ public extension SequenceProtocol {
     var beginIter: UnsafeMutablePointer<GSequenceIter>! {
         /// Returns the begin iterator for `seq`.
         get {
-            let rv = g_sequence_get_begin_iter(cast(_ptr))
+            let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_begin_iter(cast(_ptr)))
             return cast(rv)
         }
     }
@@ -376,7 +377,7 @@ public extension SequenceProtocol {
     var endIter: UnsafeMutablePointer<GSequenceIter>! {
         /// Returns the end iterator for `seg`
         get {
-            let rv = g_sequence_get_end_iter(cast(_ptr))
+            let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_end_iter(cast(_ptr)))
             return cast(rv)
         }
     }
@@ -401,15 +402,17 @@ public extension SequenceProtocol {
     /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
     /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
-    var length: CInt {
+    var length: Int {
         /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
         /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
         /// when comparing the length to zero.
         get {
-            let rv = g_sequence_get_length(cast(_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_sequence_get_length(cast(_ptr)))
+            return Int(rv)
         }
     }
+
+
 }
 
 

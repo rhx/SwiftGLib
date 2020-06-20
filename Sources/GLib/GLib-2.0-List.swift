@@ -9,7 +9,7 @@ import CGLib
 ///
 /// The `GList` struct is used for each element in a doubly-linked list.
 public protocol ListProtocol {
-    /// Untyped pointer to the underlying `GList` instance.
+        /// Untyped pointer to the underlying `GList` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GList` instance.
@@ -22,7 +22,7 @@ public protocol ListProtocol {
 ///
 /// The `GList` struct is used for each element in a doubly-linked list.
 public struct ListRef: ListProtocol {
-    /// Untyped pointer to the underlying `GList` instance.
+        /// Untyped pointer to the underlying `GList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,7 +71,7 @@ public extension ListRef {
     /// `g_list_append()`, `g_list_prepend()`, `g_list_insert()` and
     /// `g_list_insert_sorted()` and so is rarely used on its own.
     static func alloc() -> ListRef! {
-        let rv = g_list_alloc()
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_alloc())
         return rv.map { ListRef(cast($0)) }
     }
 }
@@ -82,7 +82,7 @@ public extension ListRef {
 ///
 /// The `GList` struct is used for each element in a doubly-linked list.
 open class List: ListProtocol {
-    /// Untyped pointer to the underlying `GList` instance.
+        /// Untyped pointer to the underlying `GList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -111,7 +111,7 @@ open class List: ListProtocol {
         // no reference counting for GList, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GList`.
+    /// Do-nothing destructor for `GList`.
     deinit {
         // no reference counting for GList, cannot unref(cast(_ptr))
     }
@@ -180,17 +180,18 @@ open class List: ListProtocol {
     /// `g_list_append()`, `g_list_prepend()`, `g_list_insert()` and
     /// `g_list_insert_sorted()` and so is rarely used on its own.
     public static func alloc() -> List! {
-        let rv = g_list_alloc()
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_alloc())
         return rv.map { List(cast($0)) }
     }
 
 }
 
-// MARK: - no List properties
+// MARK: no List properties
 
-// MARK: - no signals
+// MARK: no List signals
 
 
+// MARK: List Record: ListProtocol extension (methods and fields)
 public extension ListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GList` instance.
     var _ptr: UnsafeMutablePointer<GList> { return ptr.assumingMemoryBound(to: GList.self) }
@@ -220,7 +221,7 @@ public extension ListProtocol {
     /// ```
     /// 
     func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_append(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_append(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -237,7 +238,7 @@ public extension ListProtocol {
     /// ```
     /// 
     func concat(list2: ListProtocol) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_concat(cast(_ptr), cast(list2.ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_concat(cast(_ptr), cast(list2.ptr)))
         return cast(rv)
     }
 
@@ -248,7 +249,7 @@ public extension ListProtocol {
     /// the actual data is not. See `g_list_copy_deep()` if you need
     /// to copy the data as well.
     func copy() -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_copy(cast(_ptr)))
         return cast(rv)
     }
 
@@ -277,7 +278,7 @@ public extension ListProtocol {
     /// ```
     /// 
     func copyDeep(func_: @escaping CopyFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_copy_deep(cast(_ptr), func_, cast(user_data))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_copy_deep(cast(_ptr), func_, cast(user_data)))
         return cast(rv)
     }
 
@@ -285,13 +286,13 @@ public extension ListProtocol {
     /// Compare this to `g_list_remove_link()` which removes the node
     /// without freeing it.
     func deleteLink(link_: ListProtocol) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_delete_link(cast(_ptr), cast(link_.ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_delete_link(cast(_ptr), cast(link_.ptr)))
         return cast(rv)
     }
 
     /// Finds the element in a `GList` which contains the given data.
     func find(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_find(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_find(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -302,13 +303,13 @@ public extension ListProtocol {
     /// the `GList` element's data as the first argument and the
     /// given user data.
     func findCustom(data: gconstpointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_find_custom(cast(_ptr), cast(data), func_)
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_find_custom(cast(_ptr), cast(data), func_))
         return cast(rv)
     }
 
     /// Gets the first element in a `GList`.
     func first() -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_first(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_first(cast(_ptr)))
         return cast(rv)
     }
 
@@ -373,26 +374,26 @@ public extension ListProtocol {
 
     /// Gets the position of the element containing
     /// the given data (starting from 0).
-    func index(data: gconstpointer) -> CInt {
-        let rv = g_list_index(cast(_ptr), cast(data))
-        return CInt(rv)
+    func index(data: gconstpointer) -> Int {
+        let rv: Int = cast(g_list_index(cast(_ptr), cast(data)))
+        return Int(rv)
     }
 
     /// Inserts a new element into the list at the given position.
-    func insert(data: UnsafeMutableRawPointer, position: CInt) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_insert(cast(_ptr), cast(data), gint(position))
+    @discardableResult func insert(data: UnsafeMutableRawPointer, position: CInt) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_insert(cast(_ptr), cast(data), gint(position)))
         return cast(rv)
     }
 
     /// Inserts a new element into the list before the given position.
-    func insertBefore(sibling: ListProtocol, data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_insert_before(cast(_ptr), cast(sibling.ptr), cast(data))
+    @discardableResult func insertBefore(sibling: ListProtocol, data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_insert_before(cast(_ptr), cast(sibling.ptr), cast(data)))
         return cast(rv)
     }
 
     /// Inserts `link_` into the list before the given position.
-    func insertBeforeLink(sibling: ListProtocol, link_: ListProtocol) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_insert_before_link(cast(_ptr), cast(sibling.ptr), cast(link_.ptr))
+    @discardableResult func insertBeforeLink(sibling: ListProtocol, link_: ListProtocol) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_insert_before_link(cast(_ptr), cast(sibling.ptr), cast(link_.ptr)))
         return cast(rv)
     }
 
@@ -403,8 +404,8 @@ public extension ListProtocol {
     /// new elements is much larger than the length of the list, use
     /// `g_list_prepend()` to add the new items and sort the list afterwards
     /// with `g_list_sort()`.
-    func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_insert_sorted(cast(_ptr), cast(data), func_)
+    @discardableResult func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_insert_sorted(cast(_ptr), cast(data), func_))
         return cast(rv)
     }
 
@@ -415,14 +416,14 @@ public extension ListProtocol {
     /// new elements is much larger than the length of the list, use
     /// `g_list_prepend()` to add the new items and sort the list afterwards
     /// with `g_list_sort()`.
-    func insertSortedWith(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_insert_sorted_with_data(cast(_ptr), cast(data), func_, cast(user_data))
+    @discardableResult func insertSortedWith(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_insert_sorted_with_data(cast(_ptr), cast(data), func_, cast(user_data)))
         return cast(rv)
     }
 
     /// Gets the last element in a `GList`.
     func last() -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_last(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_last(cast(_ptr)))
         return cast(rv)
     }
 
@@ -432,9 +433,9 @@ public extension ListProtocol {
     /// Use a `GQueue` instead of a GList if you regularly need the number
     /// of items. To check whether the list is non-empty, it is faster to check
     /// `list` against `nil`.
-    func length() -> CUnsignedInt {
-        let rv = g_list_length(cast(_ptr))
-        return CUnsignedInt(rv)
+    func length() -> Int {
+        let rv: Int = cast(g_list_length(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Gets the element at the given position in a `GList`.
@@ -443,7 +444,7 @@ public extension ListProtocol {
     /// intend to iterate over every element, it is better to use a for-loop as
     /// described in the `GList` introduction.
     func nth(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_nth(cast(_ptr), guint(n))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_nth(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
@@ -453,21 +454,21 @@ public extension ListProtocol {
     /// intend to iterate over every element, it is better to use a for-loop as
     /// described in the `GList` introduction.
     func nthData(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_list_nth_data(cast(_ptr), guint(n))
+        let rv: UnsafeMutableRawPointer! = cast(g_list_nth_data(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Gets the element `n` places before `list`.
     func nthPrev(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_nth_prev(cast(_ptr), guint(n))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_nth_prev(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Gets the position of the given element
     /// in the `GList` (starting from 0).
-    func position(llink: ListProtocol) -> CInt {
-        let rv = g_list_position(cast(_ptr), cast(llink.ptr))
-        return CInt(rv)
+    func position(llink: ListProtocol) -> Int {
+        let rv: Int = cast(g_list_position(cast(_ptr), cast(llink.ptr)))
+        return Int(rv)
     }
 
     /// Prepends a new element on to the start of the list.
@@ -486,16 +487,16 @@ public extension ListProtocol {
     /// 
     /// Do not use this function to prepend a new element to a different
     /// element than the start of the list. Use `g_list_insert_before()` instead.
-    func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_prepend(cast(_ptr), cast(data))
+    @discardableResult func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_prepend(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
     /// Removes an element from a `GList`.
     /// If two elements contain the same data, only the first is removed.
     /// If none of the elements contain the data, the `GList` is unchanged.
-    func remove(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_remove(cast(_ptr), cast(data))
+    @discardableResult func remove(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_remove(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -503,8 +504,8 @@ public extension ListProtocol {
     /// Returns the new head of the list. Contrast with
     /// `g_list_remove()` which removes only the first node
     /// matching the given data.
-    func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_remove_all(cast(_ptr), cast(data))
+    @discardableResult func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_remove_all(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -522,29 +523,29 @@ public extension ListProtocol {
     /// g_list_free (llink);
     /// ```
     /// 
-    func removeLink(llink: ListProtocol) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_remove_link(cast(_ptr), cast(llink.ptr))
+    @discardableResult func removeLink(llink: ListProtocol) -> UnsafeMutablePointer<GList>! {
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_remove_link(cast(_ptr), cast(llink.ptr)))
         return cast(rv)
     }
 
     /// Reverses a `GList`.
     /// It simply switches the next and prev pointers of each element.
     func reverse() -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_reverse(cast(_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_reverse(cast(_ptr)))
         return cast(rv)
     }
 
     /// Sorts a `GList` using the given comparison function. The algorithm
     /// used is a stable sort.
     func sort(compareFunc compare_func: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_sort(cast(_ptr), compare_func)
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_sort(cast(_ptr), compare_func))
         return cast(rv)
     }
 
     /// Like `g_list_sort()`, but the comparison function accepts
     /// a user data argument.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv = g_list_sort_with_data(cast(_ptr), compare_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_list_sort_with_data(cast(_ptr), compare_func, cast(user_data)))
         return cast(rv)
     }
 
@@ -555,6 +556,52 @@ public extension ListProtocol {
         g_clear_list(cast(_ptr), destroy)
     
     }
+
+    /// holds the element's data, which can be a pointer to any kind
+    ///        of data, or any integer value using the
+    ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+    var data: UnsafeMutableRawPointer {
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.data)
+            return rv
+        }
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+         set {
+            _ptr.pointee.data = cast(newValue)
+        }
+    }
+
+    /// contains the link to the next element in the list
+    var next: UnsafeMutablePointer<GList> {
+        /// contains the link to the next element in the list
+        get {
+            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.next)
+            return rv
+        }
+        /// contains the link to the next element in the list
+         set {
+            _ptr.pointee.next = cast(newValue)
+        }
+    }
+
+    /// contains the link to the previous element in the list
+    var prev: UnsafeMutablePointer<GList> {
+        /// contains the link to the previous element in the list
+        get {
+            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.prev)
+            return rv
+        }
+        /// contains the link to the previous element in the list
+         set {
+            _ptr.pointee.prev = cast(newValue)
+        }
+    }
+
 }
 
 

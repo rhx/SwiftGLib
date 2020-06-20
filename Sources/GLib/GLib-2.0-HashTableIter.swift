@@ -15,7 +15,7 @@ import CGLib
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
 public protocol HashTableIterProtocol {
-    /// Untyped pointer to the underlying `GHashTableIter` instance.
+        /// Untyped pointer to the underlying `GHashTableIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GHashTableIter` instance.
@@ -34,7 +34,7 @@ public protocol HashTableIterProtocol {
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
 public struct HashTableIterRef: HashTableIterProtocol {
-    /// Untyped pointer to the underlying `GHashTableIter` instance.
+        /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -93,7 +93,7 @@ public extension HashTableIterRef {
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
 open class HashTableIter: HashTableIterProtocol {
-    /// Untyped pointer to the underlying `GHashTableIter` instance.
+        /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -122,7 +122,7 @@ open class HashTableIter: HashTableIterProtocol {
         // no reference counting for GHashTableIter, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GHashTableIter`.
+    /// Do-nothing destructor for `GHashTableIter`.
     deinit {
         // no reference counting for GHashTableIter, cannot unref(cast(_ptr))
     }
@@ -190,18 +190,19 @@ open class HashTableIter: HashTableIterProtocol {
 
 }
 
-// MARK: - no HashTableIter properties
+// MARK: no HashTableIter properties
 
-// MARK: - no signals
+// MARK: no HashTableIter signals
 
 
+// MARK: HashTableIter Record: HashTableIterProtocol extension (methods and fields)
 public extension HashTableIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHashTableIter` instance.
     var _ptr: UnsafeMutablePointer<GHashTableIter> { return ptr.assumingMemoryBound(to: GHashTableIter.self) }
 
     /// Returns the `GHashTable` associated with `iter`.
     func getHashTable() -> UnsafeMutablePointer<GHashTable>! {
-        let rv = g_hash_table_iter_get_hash_table(cast(_ptr))
+        let rv: UnsafeMutablePointer<GHashTable>! = cast(g_hash_table_iter_get_hash_table(cast(_ptr)))
         return cast(rv)
     }
 
@@ -286,10 +287,23 @@ public extension HashTableIterProtocol {
     var hashTable: UnsafeMutablePointer<GHashTable>! {
         /// Returns the `GHashTable` associated with `iter`.
         get {
-            let rv = g_hash_table_iter_get_hash_table(cast(_ptr))
+            let rv: UnsafeMutablePointer<GHashTable>! = cast(g_hash_table_iter_get_hash_table(cast(_ptr)))
             return cast(rv)
         }
     }
+
+    // var dummy1 is unavailable because dummy1 is private
+
+    // var dummy2 is unavailable because dummy2 is private
+
+    // var dummy3 is unavailable because dummy3 is private
+
+    // var dummy4 is unavailable because dummy4 is private
+
+    // var dummy5 is unavailable because dummy5 is private
+
+    // var dummy6 is unavailable because dummy6 is private
+
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// Associates a string with a bit flag.
 /// Used in `g_parse_debug_string()`.
 public protocol DebugKeyProtocol {
-    /// Untyped pointer to the underlying `GDebugKey` instance.
+        /// Untyped pointer to the underlying `GDebugKey` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDebugKey` instance.
@@ -24,7 +24,7 @@ public protocol DebugKeyProtocol {
 /// Associates a string with a bit flag.
 /// Used in `g_parse_debug_string()`.
 public struct DebugKeyRef: DebugKeyProtocol {
-    /// Untyped pointer to the underlying `GDebugKey` instance.
+        /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension DebugKeyRef {
 /// Associates a string with a bit flag.
 /// Used in `g_parse_debug_string()`.
 open class DebugKey: DebugKeyProtocol {
-    /// Untyped pointer to the underlying `GDebugKey` instance.
+        /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class DebugKey: DebugKeyProtocol {
         // no reference counting for GDebugKey, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDebugKey`.
+    /// Do-nothing destructor for `GDebugKey`.
     deinit {
         // no reference counting for GDebugKey, cannot unref(cast(_ptr))
     }
@@ -175,14 +175,42 @@ open class DebugKey: DebugKeyProtocol {
 
 }
 
-// MARK: - no DebugKey properties
+// MARK: no DebugKey properties
 
-// MARK: - no signals
+// MARK: no DebugKey signals
 
 
+// MARK: DebugKey Record: DebugKeyProtocol extension (methods and fields)
 public extension DebugKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDebugKey` instance.
     var _ptr: UnsafeMutablePointer<GDebugKey> { return ptr.assumingMemoryBound(to: GDebugKey.self) }
+
+
+    /// the string
+    var key: UnsafePointer<CChar> {
+        /// the string
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.key)
+            return rv
+        }
+        /// the string
+         set {
+            _ptr.pointee.key = cast(newValue)
+        }
+    }
+
+    /// the flag
+    var value: Int {
+        /// the flag
+        get {
+            let rv: Int = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// the flag
+         set {
+            _ptr.pointee.value = guint(newValue)
+        }
+    }
 
 }
 

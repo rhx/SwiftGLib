@@ -10,7 +10,7 @@ import CGLib
 /// A table of functions used to handle different types of `GIOChannel`
 /// in a generic way.
 public protocol IOFuncsProtocol {
-    /// Untyped pointer to the underlying `GIOFuncs` instance.
+        /// Untyped pointer to the underlying `GIOFuncs` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOFuncs` instance.
@@ -24,7 +24,7 @@ public protocol IOFuncsProtocol {
 /// A table of functions used to handle different types of `GIOChannel`
 /// in a generic way.
 public struct IOFuncsRef: IOFuncsProtocol {
-    /// Untyped pointer to the underlying `GIOFuncs` instance.
+        /// Untyped pointer to the underlying `GIOFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension IOFuncsRef {
 /// A table of functions used to handle different types of `GIOChannel`
 /// in a generic way.
 open class IOFuncs: IOFuncsProtocol {
-    /// Untyped pointer to the underlying `GIOFuncs` instance.
+        /// Untyped pointer to the underlying `GIOFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class IOFuncs: IOFuncsProtocol {
         // no reference counting for GIOFuncs, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GIOFuncs`.
+    /// Do-nothing destructor for `GIOFuncs`.
     deinit {
         // no reference counting for GIOFuncs, cannot unref(cast(_ptr))
     }
@@ -175,14 +175,32 @@ open class IOFuncs: IOFuncsProtocol {
 
 }
 
-// MARK: - no IOFuncs properties
+// MARK: no IOFuncs properties
 
-// MARK: - no signals
+// MARK: no IOFuncs signals
 
 
+// MARK: IOFuncs Record: IOFuncsProtocol extension (methods and fields)
 public extension IOFuncsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOFuncs` instance.
     var _ptr: UnsafeMutablePointer<GIOFuncs> { return ptr.assumingMemoryBound(to: GIOFuncs.self) }
+
+
+    // var ioRead is unavailable because io_read is void
+
+    // var ioWrite is unavailable because io_write is void
+
+    // var ioSeek is unavailable because io_seek is void
+
+    // var ioClose is unavailable because io_close is void
+
+    // var ioCreateWatch is unavailable because io_create_watch is void
+
+    // var ioFree is unavailable because io_free is void
+
+    // var ioSetFlags is unavailable because io_set_flags is void
+
+    // var ioGetFlags is unavailable because io_get_flags is void
 
 }
 

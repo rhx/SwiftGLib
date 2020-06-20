@@ -9,7 +9,7 @@ import CGLib
 ///
 
 public protocol SourcePrivateProtocol {
-    /// Untyped pointer to the underlying `GSourcePrivate` instance.
+        /// Untyped pointer to the underlying `GSourcePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSourcePrivate` instance.
@@ -22,7 +22,7 @@ public protocol SourcePrivateProtocol {
 ///
 
 public struct SourcePrivateRef: SourcePrivateProtocol {
-    /// Untyped pointer to the underlying `GSourcePrivate` instance.
+        /// Untyped pointer to the underlying `GSourcePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension SourcePrivateRef {
 ///
 
 open class SourcePrivate: SourcePrivateProtocol {
-    /// Untyped pointer to the underlying `GSourcePrivate` instance.
+        /// Untyped pointer to the underlying `GSourcePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class SourcePrivate: SourcePrivateProtocol {
         // no reference counting for GSourcePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSourcePrivate`.
+    /// Do-nothing destructor for `GSourcePrivate`.
     deinit {
         // no reference counting for GSourcePrivate, cannot unref(cast(_ptr))
     }
@@ -172,14 +172,17 @@ open class SourcePrivate: SourcePrivateProtocol {
 
 }
 
-// MARK: - no SourcePrivate properties
+// MARK: no SourcePrivate properties
 
-// MARK: - no signals
+// MARK: no SourcePrivate signals
 
 
+// MARK: SourcePrivate Record: SourcePrivateProtocol extension (methods and fields)
 public extension SourcePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSourcePrivate` instance.
     var _ptr: UnsafeMutablePointer<GSourcePrivate> { return ptr.assumingMemoryBound(to: GSourcePrivate.self) }
+
+
 
 }
 

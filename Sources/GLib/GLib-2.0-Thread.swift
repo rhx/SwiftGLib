@@ -21,7 +21,7 @@ import CGLib
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
 public protocol ThreadProtocol {
-    /// Untyped pointer to the underlying `GThread` instance.
+        /// Untyped pointer to the underlying `GThread` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GThread` instance.
@@ -46,7 +46,7 @@ public protocol ThreadProtocol {
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
 public struct ThreadRef: ThreadProtocol {
-    /// Untyped pointer to the underlying `GThread` instance.
+        /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -119,7 +119,7 @@ public extension ThreadRef {
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
     init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
-        let rv = g_thread_new(name, func_, cast(data))
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_new(name, func_, cast(data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -129,11 +129,9 @@ public extension ThreadRef {
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
     init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_thread_try_new(name, func_, cast(data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// This function is the same as `g_thread_new()` except that
@@ -142,11 +140,9 @@ public extension ThreadRef {
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
     static func tryNew(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws -> ThreadRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_thread_try_new(name, func_, cast(data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { ThreadRef(cast($0)) }
     }
 
@@ -160,7 +156,7 @@ public extension ThreadRef {
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
     static func self_() -> ThreadRef! {
-        let rv = g_thread_self()
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_self())
         return rv.map { ThreadRef(cast($0)) }
     }
 }
@@ -183,7 +179,7 @@ public extension ThreadRef {
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
 open class Thread: ThreadProtocol {
-    /// Untyped pointer to the underlying `GThread` instance.
+        /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -304,7 +300,7 @@ open class Thread: ThreadProtocol {
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
     public init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
-        let rv = g_thread_new(name, func_, cast(data))
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_new(name, func_, cast(data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -314,11 +310,9 @@ open class Thread: ThreadProtocol {
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
     public init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_thread_try_new(name, func_, cast(data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -328,11 +322,9 @@ open class Thread: ThreadProtocol {
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
     public static func tryNew(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws -> Thread! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_thread_try_new(name, func_, cast(data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Thread(cast($0)) }
     }
 
@@ -346,17 +338,18 @@ open class Thread: ThreadProtocol {
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
     public static func self_() -> Thread! {
-        let rv = g_thread_self()
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_self())
         return rv.map { Thread(cast($0)) }
     }
 
 }
 
-// MARK: - no Thread properties
+// MARK: no Thread properties
 
-// MARK: - no signals
+// MARK: no Thread signals
 
 
+// MARK: Thread Record: ThreadProtocol extension (methods and fields)
 public extension ThreadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThread` instance.
     var thread_ptr: UnsafeMutablePointer<GThread> { return ptr.assumingMemoryBound(to: GThread.self) }
@@ -378,13 +371,13 @@ public extension ThreadProtocol {
     /// to be freed. Use `g_thread_ref()` to obtain an extra reference if you
     /// want to keep the GThread alive beyond the `g_thread_join()` call.
     func join() -> UnsafeMutableRawPointer! {
-        let rv = g_thread_join(cast(thread_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_thread_join(cast(thread_ptr)))
         return cast(rv)
     }
 
     /// Increase the reference count on `thread`.
-    func ref() -> UnsafeMutablePointer<GThread>! {
-        let rv = g_thread_ref(cast(thread_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GThread>! {
+        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_ref(cast(thread_ptr)))
         return cast(rv)
     }
 
@@ -398,6 +391,8 @@ public extension ThreadProtocol {
         g_thread_unref(cast(thread_ptr))
     
     }
+
+
 }
 
 

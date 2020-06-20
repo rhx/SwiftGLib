@@ -411,7 +411,7 @@ public let MAXUINT8: UInt8 = 255 /* G_MAXUINT8 */
 /// Like `gtk_micro_version`, but from the headers used at
 /// application compile time, rather than from the library
 /// linked against at application run time.
-public let MICRO_VERSION = GLIB_MICRO_VERSION /* gint 0 */
+public let MICRO_VERSION = GLIB_MICRO_VERSION /* gint 3 */
 
 /// The minimum value which can be held in a `gint16`.
 public let MININT16 = G_MININT16 /* gint16 -32768 */

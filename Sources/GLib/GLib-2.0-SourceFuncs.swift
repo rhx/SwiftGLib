@@ -28,7 +28,7 @@ import CGLib
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 public protocol SourceFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceFuncs` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSourceFuncs` instance.
@@ -60,7 +60,7 @@ public protocol SourceFuncsProtocol {
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 public struct SourceFuncsRef: SourceFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -132,7 +132,7 @@ public extension SourceFuncsRef {
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
 open class SourceFuncs: SourceFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -161,7 +161,7 @@ open class SourceFuncs: SourceFuncsProtocol {
         // no reference counting for GSourceFuncs, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSourceFuncs`.
+    /// Do-nothing destructor for `GSourceFuncs`.
     deinit {
         // no reference counting for GSourceFuncs, cannot unref(cast(_ptr))
     }
@@ -229,11 +229,12 @@ open class SourceFuncs: SourceFuncsProtocol {
 
 }
 
-// MARK: - no SourceFuncs properties
+// MARK: no SourceFuncs properties
 
-// MARK: - no signals
+// MARK: no SourceFuncs signals
 
 
+// MARK: SourceFuncs Record: SourceFuncsProtocol extension (methods and fields)
 public extension SourceFuncsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSourceFuncs` instance.
     var _ptr: UnsafeMutablePointer<GSourceFuncs> { return ptr.assumingMemoryBound(to: GSourceFuncs.self) }
@@ -245,6 +246,19 @@ public extension SourceFuncsProtocol {
         let rv = g_source_remove_by_funcs_user_data(cast(_ptr), cast(user_data))
         return Bool(rv != 0)
     }
+
+    // var prepare is unavailable because prepare is void
+
+    // var check is unavailable because check is void
+
+    // var dispatch is unavailable because dispatch is void
+
+    // var finalize is unavailable because finalize is void
+
+    // var closureCallback is unavailable because closure_callback is private
+
+    // var closureMarshal is unavailable because closure_marshal is private
+
 }
 
 

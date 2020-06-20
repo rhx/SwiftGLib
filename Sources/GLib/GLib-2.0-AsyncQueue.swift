@@ -11,7 +11,7 @@ import CGLib
 /// an asynchronous queue. It should only be accessed through the
 /// g_async_queue_* functions.
 public protocol AsyncQueueProtocol {
-    /// Untyped pointer to the underlying `GAsyncQueue` instance.
+        /// Untyped pointer to the underlying `GAsyncQueue` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GAsyncQueue` instance.
@@ -26,7 +26,7 @@ public protocol AsyncQueueProtocol {
 /// an asynchronous queue. It should only be accessed through the
 /// g_async_queue_* functions.
 public struct AsyncQueueRef: AsyncQueueProtocol {
-    /// Untyped pointer to the underlying `GAsyncQueue` instance.
+        /// Untyped pointer to the underlying `GAsyncQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension AsyncQueueRef {
     /// function that is used to free any remaining queue items when
     /// the queue is destroyed after the final unref.
     static func new(full item_free_func: @escaping DestroyNotify) -> AsyncQueueRef! {
-        let rv = g_async_queue_new_full(item_free_func)
+        let rv: UnsafeMutablePointer<GAsyncQueue>! = cast(g_async_queue_new_full(item_free_func))
         return rv.map { AsyncQueueRef(cast($0)) }
     }
 }
@@ -88,7 +88,7 @@ public extension AsyncQueueRef {
 /// an asynchronous queue. It should only be accessed through the
 /// g_async_queue_* functions.
 open class AsyncQueue: AsyncQueueProtocol {
-    /// Untyped pointer to the underlying `GAsyncQueue` instance.
+        /// Untyped pointer to the underlying `GAsyncQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -186,17 +186,18 @@ open class AsyncQueue: AsyncQueueProtocol {
     /// function that is used to free any remaining queue items when
     /// the queue is destroyed after the final unref.
     public static func new(full item_free_func: @escaping DestroyNotify) -> AsyncQueue! {
-        let rv = g_async_queue_new_full(item_free_func)
+        let rv: UnsafeMutablePointer<GAsyncQueue>! = cast(g_async_queue_new_full(item_free_func))
         return rv.map { AsyncQueue(cast($0)) }
     }
 
 }
 
-// MARK: - no AsyncQueue properties
+// MARK: no AsyncQueue properties
 
-// MARK: - no signals
+// MARK: no AsyncQueue signals
 
 
+// MARK: AsyncQueue Record: AsyncQueueProtocol extension (methods and fields)
 public extension AsyncQueueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GAsyncQueue` instance.
     var _ptr: UnsafeMutablePointer<GAsyncQueue> { return ptr.assumingMemoryBound(to: GAsyncQueue.self) }
@@ -209,9 +210,9 @@ public extension AsyncQueueProtocol {
     /// entries in the `queue`. A return value of 0 could mean n entries
     /// in the queue and n threads waiting. This can happen due to locking
     /// of the queue or due to scheduling.
-    func length() -> CInt {
-        let rv = g_async_queue_length(cast(_ptr))
-        return CInt(rv)
+    func length() -> Int {
+        let rv: Int = cast(g_async_queue_length(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the length of the queue.
@@ -224,9 +225,9 @@ public extension AsyncQueueProtocol {
     /// of the queue or due to scheduling.
     /// 
     /// This function must be called while holding the `queue`'s lock.
-    func lengthUnlocked() -> CInt {
-        let rv = g_async_queue_length_unlocked(cast(_ptr))
-        return CInt(rv)
+    func lengthUnlocked() -> Int {
+        let rv: Int = cast(g_async_queue_length_unlocked(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Acquires the `queue`'s lock. If another thread is already
@@ -246,7 +247,7 @@ public extension AsyncQueueProtocol {
     /// Pops data from the `queue`. If `queue` is empty, this function
     /// blocks until data becomes available.
     func pop() -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_pop(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_pop(cast(_ptr)))
         return cast(rv)
     }
 
@@ -255,7 +256,7 @@ public extension AsyncQueueProtocol {
     /// 
     /// This function must be called while holding the `queue`'s lock.
     func popUnlocked() -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_pop_unlocked(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_pop_unlocked(cast(_ptr)))
         return cast(rv)
     }
 
@@ -330,8 +331,8 @@ public extension AsyncQueueProtocol {
 
     /// Increases the reference count of the asynchronous `queue` by 1.
     /// You do not need to hold the lock to call this function.
-    func ref() -> UnsafeMutablePointer<GAsyncQueue>! {
-        let rv = g_async_queue_ref(cast(_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GAsyncQueue>! {
+        let rv: UnsafeMutablePointer<GAsyncQueue>! = cast(g_async_queue_ref(cast(_ptr)))
         return cast(rv)
     }
 
@@ -414,7 +415,7 @@ public extension AsyncQueueProtocol {
     /// **timed_pop is deprecated:**
     /// use g_async_queue_timeout_pop().
     @available(*, deprecated) func timedPop(endTime end_time: TimeValProtocol) -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_timed_pop(cast(_ptr), cast(end_time.ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_timed_pop(cast(_ptr), cast(end_time.ptr)))
         return cast(rv)
     }
 
@@ -431,7 +432,7 @@ public extension AsyncQueueProtocol {
     /// **timed_pop_unlocked is deprecated:**
     /// use g_async_queue_timeout_pop_unlocked().
     @available(*, deprecated) func timedPopUnlocked(endTime end_time: TimeValProtocol) -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_timed_pop_unlocked(cast(_ptr), cast(end_time.ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_timed_pop_unlocked(cast(_ptr), cast(end_time.ptr)))
         return cast(rv)
     }
 
@@ -440,7 +441,7 @@ public extension AsyncQueueProtocol {
     /// 
     /// If no data is received before the timeout, `nil` is returned.
     func timeoutPop(timeout: UInt64) -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_timeout_pop(cast(_ptr), guint64(timeout))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_timeout_pop(cast(_ptr), guint64(timeout)))
         return cast(rv)
     }
 
@@ -451,14 +452,14 @@ public extension AsyncQueueProtocol {
     /// 
     /// This function must be called while holding the `queue`'s lock.
     func timeoutPopUnlocked(timeout: UInt64) -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_timeout_pop_unlocked(cast(_ptr), guint64(timeout))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_timeout_pop_unlocked(cast(_ptr), guint64(timeout)))
         return cast(rv)
     }
 
     /// Tries to pop data from the `queue`. If no data is available,
     /// `nil` is returned.
     func tryPop() -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_try_pop(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_try_pop(cast(_ptr)))
         return cast(rv)
     }
 
@@ -467,7 +468,7 @@ public extension AsyncQueueProtocol {
     /// 
     /// This function must be called while holding the `queue`'s lock.
     func tryPopUnlocked() -> UnsafeMutableRawPointer! {
-        let rv = g_async_queue_try_pop_unlocked(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_async_queue_try_pop_unlocked(cast(_ptr)))
         return cast(rv)
     }
 
@@ -505,6 +506,8 @@ public extension AsyncQueueProtocol {
         g_async_queue_unref_and_unlock(cast(_ptr))
     
     }
+
+
 }
 
 

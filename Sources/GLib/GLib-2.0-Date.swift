@@ -19,7 +19,7 @@ import CGLib
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 public protocol DateProtocol {
-    /// Untyped pointer to the underlying `GDate` instance.
+        /// Untyped pointer to the underlying `GDate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDate` instance.
@@ -42,7 +42,7 @@ public protocol DateProtocol {
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 public struct DateRef: DateProtocol {
-    /// Untyped pointer to the underlying `GDate` instance.
+        /// Untyped pointer to the underlying `GDate` instance.
     /// For type-safe access, use the generated, typed pointer `date_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -92,7 +92,7 @@ public extension DateRef {
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     init() {
-        let rv = g_date_new()
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -100,7 +100,7 @@ public extension DateRef {
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     init(dmy day: DateDay, month: DateMonth, year: DateYear) {
-        let rv = g_date_new_dmy(day, month, year)
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_dmy(day, month, year))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -108,14 +108,14 @@ public extension DateRef {
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     init(julian julian_day: UInt32) {
-        let rv = g_date_new_julian(guint32(julian_day))
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_julian(guint32(julian_day)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Like `g_date_new()`, but also sets the value of the date. Assuming the
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     static func new(dmy day: DateDay, month: DateMonth, year: DateYear) -> DateRef! {
-        let rv = g_date_new_dmy(day, month, year)
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_dmy(day, month, year))
         return rv.map { DateRef(cast($0)) }
     }
 
@@ -123,7 +123,7 @@ public extension DateRef {
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     static func new(julian julian_day: UInt32) -> DateRef! {
-        let rv = g_date_new_julian(guint32(julian_day))
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_julian(guint32(julian_day)))
         return rv.map { DateRef(cast($0)) }
     }
 }
@@ -144,7 +144,7 @@ public extension DateRef {
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 open class Date: DateProtocol {
-    /// Untyped pointer to the underlying `GDate` instance.
+        /// Untyped pointer to the underlying `GDate` instance.
     /// For type-safe access, use the generated, typed pointer `date_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -173,7 +173,7 @@ open class Date: DateProtocol {
         // no reference counting for GDate, cannot ref(cast(date_ptr))
     }
 
-    /// Do-nothing destructor for`GDate`.
+    /// Do-nothing destructor for `GDate`.
     deinit {
         // no reference counting for GDate, cannot unref(cast(date_ptr))
     }
@@ -242,7 +242,7 @@ open class Date: DateProtocol {
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     public init() {
-        let rv = g_date_new()
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -250,7 +250,7 @@ open class Date: DateProtocol {
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     public init(dmy day: DateDay, month: DateMonth, year: DateYear) {
-        let rv = g_date_new_dmy(day, month, year)
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_dmy(day, month, year))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -258,7 +258,7 @@ open class Date: DateProtocol {
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     public init(julian julian_day: UInt32) {
-        let rv = g_date_new_julian(guint32(julian_day))
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_julian(guint32(julian_day)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -266,7 +266,7 @@ open class Date: DateProtocol {
     /// day-month-year triplet you pass in represents an existing day, the
     /// returned date will be valid.
     public static func new(dmy day: DateDay, month: DateMonth, year: DateYear) -> Date! {
-        let rv = g_date_new_dmy(day, month, year)
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_dmy(day, month, year))
         return rv.map { Date(cast($0)) }
     }
 
@@ -274,17 +274,18 @@ open class Date: DateProtocol {
     /// Julian day number you pass in is valid (greater than 0, less than an
     /// unreasonably large number), the returned date will be valid.
     public static func new(julian julian_day: UInt32) -> Date! {
-        let rv = g_date_new_julian(guint32(julian_day))
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_new_julian(guint32(julian_day)))
         return rv.map { Date(cast($0)) }
     }
 
 }
 
-// MARK: - no Date properties
+// MARK: no Date properties
 
-// MARK: - no signals
+// MARK: no Date signals
 
 
+// MARK: Date Record: DateProtocol extension (methods and fields)
 public extension DateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDate` instance.
     var date_ptr: UnsafeMutablePointer<GDate> { return ptr.assumingMemoryBound(to: GDate.self) }
@@ -337,25 +338,25 @@ public extension DateProtocol {
 
     /// `qsort()`-style comparison function for dates.
     /// Both dates must be valid.
-    func compare(rhs: DateProtocol) -> CInt {
-        let rv = g_date_compare(cast(date_ptr), cast(rhs.ptr))
-        return CInt(rv)
+    func compare(rhs: DateProtocol) -> Int {
+        let rv: Int = cast(g_date_compare(cast(date_ptr), cast(rhs.ptr)))
+        return Int(rv)
     }
 
     /// Copies a GDate to a newly-allocated GDate. If the input was invalid
     /// (as determined by `g_date_valid()`), the invalid state will be copied
     /// as is into the new object.
     func copy() -> UnsafeMutablePointer<GDate>! {
-        let rv = g_date_copy(cast(date_ptr))
+        let rv: UnsafeMutablePointer<GDate>! = cast(g_date_copy(cast(date_ptr)))
         return cast(rv)
     }
 
     /// Computes the number of days between two dates.
     /// If `date2` is prior to `date1`, the returned value is negative.
     /// Both dates must be valid.
-    func daysBetween(date2: DateProtocol) -> CInt {
-        let rv = g_date_days_between(cast(date_ptr), cast(date2.ptr))
-        return CInt(rv)
+    func daysBetween(date2: DateProtocol) -> Int {
+        let rv: Int = cast(g_date_days_between(cast(date_ptr), cast(date2.ptr)))
+        return Int(rv)
     }
 
     /// Frees a `GDate` returned from `g_date_new()`.
@@ -367,21 +368,21 @@ public extension DateProtocol {
     /// Returns the day of the month. The date must be valid.
     func getDay() -> GDateDay {
         let rv = g_date_get_day(cast(date_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the day of the year, where Jan 1 is the first day of the
     /// year. The date must be valid.
-    func getDayOfYear() -> CUnsignedInt {
-        let rv = g_date_get_day_of_year(cast(date_ptr))
-        return CUnsignedInt(rv)
+    func getDayOfYear() -> Int {
+        let rv: Int = cast(g_date_get_day_of_year(cast(date_ptr)))
+        return Int(rv)
     }
 
     /// Returns the week of the year, where weeks are interpreted according
     /// to ISO 8601.
-    func getIso8601WeekOfYear() -> CUnsignedInt {
-        let rv = g_date_get_iso8601_week_of_year(cast(date_ptr))
-        return CUnsignedInt(rv)
+    func getIso8601WeekOfYear() -> Int {
+        let rv: Int = cast(g_date_get_iso8601_week_of_year(cast(date_ptr)))
+        return Int(rv)
     }
 
     /// Returns the Julian day or "serial number" of the `GDate`. The
@@ -396,35 +397,35 @@ public extension DateProtocol {
     /// Returns the week of the year, where weeks are understood to start on
     /// Monday. If the date is before the first Monday of the year, return 0.
     /// The date must be valid.
-    func getMondayWeekOfYear() -> CUnsignedInt {
-        let rv = g_date_get_monday_week_of_year(cast(date_ptr))
-        return CUnsignedInt(rv)
+    func getMondayWeekOfYear() -> Int {
+        let rv: Int = cast(g_date_get_monday_week_of_year(cast(date_ptr)))
+        return Int(rv)
     }
 
     /// Returns the month of the year. The date must be valid.
     func getMonth() -> GDateMonth {
         let rv = g_date_get_month(cast(date_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the week of the year during which this date falls, if
     /// weeks are understood to begin on Sunday. The date must be valid.
     /// Can return 0 if the day is before the first Sunday of the year.
-    func getSundayWeekOfYear() -> CUnsignedInt {
-        let rv = g_date_get_sunday_week_of_year(cast(date_ptr))
-        return CUnsignedInt(rv)
+    func getSundayWeekOfYear() -> Int {
+        let rv: Int = cast(g_date_get_sunday_week_of_year(cast(date_ptr)))
+        return Int(rv)
     }
 
     /// Returns the day of the week for a `GDate`. The date must be valid.
     func getWeekday() -> GDateWeekday {
         let rv = g_date_get_weekday(cast(date_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the year of a `GDate`. The date must be valid.
     func getYear() -> GDateYear {
         let rv = g_date_get_year(cast(date_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Checks if `date1` is less than or equal to `date2`,
@@ -610,23 +611,23 @@ public extension DateProtocol {
         /// Returns the day of the month. The date must be valid.
         get {
             let rv = g_date_get_day(cast(date_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the day of the month for a `GDate`. If the resulting
         /// day-month-year triplet is invalid, the date will be invalid.
         nonmutating set {
-            g_date_set_day(cast(date_ptr), newValue)
+            g_date_set_day(cast(date_ptr), cast(newValue))
         }
     }
 
     /// Returns the day of the year, where Jan 1 is the first day of the
     /// year. The date must be valid.
-    var dayOfYear: CUnsignedInt {
+    var dayOfYear: Int {
         /// Returns the day of the year, where Jan 1 is the first day of the
         /// year. The date must be valid.
         get {
-            let rv = g_date_get_day_of_year(cast(date_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_date_get_day_of_year(cast(date_ptr)))
+            return Int(rv)
         }
     }
 
@@ -654,12 +655,12 @@ public extension DateProtocol {
 
     /// Returns the week of the year, where weeks are interpreted according
     /// to ISO 8601.
-    var iso8601WeekOfYear: CUnsignedInt {
+    var iso8601WeekOfYear: Int {
         /// Returns the week of the year, where weeks are interpreted according
         /// to ISO 8601.
         get {
-            let rv = g_date_get_iso8601_week_of_year(cast(date_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_date_get_iso8601_week_of_year(cast(date_ptr)))
+            return Int(rv)
         }
     }
 
@@ -685,13 +686,13 @@ public extension DateProtocol {
     /// Returns the week of the year, where weeks are understood to start on
     /// Monday. If the date is before the first Monday of the year, return 0.
     /// The date must be valid.
-    var mondayWeekOfYear: CUnsignedInt {
+    var mondayWeekOfYear: Int {
         /// Returns the week of the year, where weeks are understood to start on
         /// Monday. If the date is before the first Monday of the year, return 0.
         /// The date must be valid.
         get {
-            let rv = g_date_get_monday_week_of_year(cast(date_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_date_get_monday_week_of_year(cast(date_ptr)))
+            return Int(rv)
         }
     }
 
@@ -700,25 +701,25 @@ public extension DateProtocol {
         /// Returns the month of the year. The date must be valid.
         get {
             let rv = g_date_get_month(cast(date_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the month of the year for a `GDate`.  If the resulting
         /// day-month-year triplet is invalid, the date will be invalid.
         nonmutating set {
-            g_date_set_month(cast(date_ptr), newValue)
+            g_date_set_month(cast(date_ptr), cast(newValue))
         }
     }
 
     /// Returns the week of the year during which this date falls, if
     /// weeks are understood to begin on Sunday. The date must be valid.
     /// Can return 0 if the day is before the first Sunday of the year.
-    var sundayWeekOfYear: CUnsignedInt {
+    var sundayWeekOfYear: Int {
         /// Returns the week of the year during which this date falls, if
         /// weeks are understood to begin on Sunday. The date must be valid.
         /// Can return 0 if the day is before the first Sunday of the year.
         get {
-            let rv = g_date_get_sunday_week_of_year(cast(date_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_date_get_sunday_week_of_year(cast(date_ptr)))
+            return Int(rv)
         }
     }
 
@@ -727,7 +728,7 @@ public extension DateProtocol {
         /// Returns the day of the week for a `GDate`. The date must be valid.
         get {
             let rv = g_date_get_weekday(cast(date_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -736,14 +737,99 @@ public extension DateProtocol {
         /// Returns the year of a `GDate`. The date must be valid.
         get {
             let rv = g_date_get_year(cast(date_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the year for a `GDate`. If the resulting day-month-year
         /// triplet is invalid, the date will be invalid.
         nonmutating set {
-            g_date_set_year(cast(date_ptr), newValue)
+            g_date_set_year(cast(date_ptr), cast(newValue))
         }
     }
+
+    /// the Julian representation of the date
+    var julianDays: Int {
+        /// the Julian representation of the date
+        get {
+            let rv: Int = cast(date_ptr.pointee.julian_days)
+            return rv
+        }
+        /// the Julian representation of the date
+         set {
+            date_ptr.pointee.julian_days = guint(newValue)
+        }
+    }
+
+    /// this bit is set if `julian_days` is valid
+    var _julian: Int {
+        /// this bit is set if `julian_days` is valid
+        get {
+            let rv: Int = cast(date_ptr.pointee.julian)
+            return rv
+        }
+        /// this bit is set if `julian_days` is valid
+         set {
+            date_ptr.pointee.julian = guint(newValue)
+        }
+    }
+
+    /// this is set if `day`, `month` and `year` are valid
+    var dmy: Int {
+        /// this is set if `day`, `month` and `year` are valid
+        get {
+            let rv: Int = cast(date_ptr.pointee.dmy)
+            return rv
+        }
+        /// this is set if `day`, `month` and `year` are valid
+         set {
+            date_ptr.pointee.dmy = guint(newValue)
+        }
+    }
+
+    /// the day of the day-month-year representation of the date,
+    ///     as a number between 1 and 31
+    var _day: Int {
+        /// the day of the day-month-year representation of the date,
+        ///     as a number between 1 and 31
+        get {
+            let rv: Int = cast(date_ptr.pointee.day)
+            return rv
+        }
+        /// the day of the day-month-year representation of the date,
+        ///     as a number between 1 and 31
+         set {
+            date_ptr.pointee.day = guint(newValue)
+        }
+    }
+
+    /// the day of the day-month-year representation of the date,
+    ///     as a number between 1 and 12
+    var _month: Int {
+        /// the day of the day-month-year representation of the date,
+        ///     as a number between 1 and 12
+        get {
+            let rv: Int = cast(date_ptr.pointee.month)
+            return rv
+        }
+        /// the day of the day-month-year representation of the date,
+        ///     as a number between 1 and 12
+         set {
+            date_ptr.pointee.month = guint(newValue)
+        }
+    }
+
+    /// the day of the day-month-year representation of the date
+    var _year: Int {
+        /// the day of the day-month-year representation of the date
+        get {
+            let rv: Int = cast(date_ptr.pointee.year)
+            return rv
+        }
+        /// the day of the day-month-year representation of the date
+         set {
+            date_ptr.pointee.year = guint(newValue)
+        }
+    }
+
 }
 
 

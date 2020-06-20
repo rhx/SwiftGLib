@@ -155,7 +155,7 @@ import CGLib
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
 public protocol VariantTypeProtocol {
-    /// Untyped pointer to the underlying `GVariantType` instance.
+        /// Untyped pointer to the underlying `GVariantType` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVariantType` instance.
@@ -314,7 +314,7 @@ public protocol VariantTypeProtocol {
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
 public struct VariantTypeRef: VariantTypeProtocol {
-    /// Untyped pointer to the underlying `GVariantType` instance.
+        /// Untyped pointer to the underlying `GVariantType` instance.
     /// For type-safe access, use the generated, typed pointer `variant_type_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -366,7 +366,7 @@ public extension VariantTypeRef {
     /// It is a programmer error to call this function with an invalid type
     /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
     init( type_string: UnsafePointer<gchar>) {
-        let rv = g_variant_type_new(type_string)
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new(type_string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -377,7 +377,7 @@ public extension VariantTypeRef {
     /// 
     /// It is appropriate to call `g_variant_type_free()` on the return value.
     init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
-        let rv = g_variant_type_new_tuple(cast(items), gint(length))
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new_tuple(cast(items), gint(length)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Constructs a new tuple type, from `items`.
@@ -387,12 +387,12 @@ public extension VariantTypeRef {
     /// 
     /// It is appropriate to call `g_variant_type_free()` on the return value.
     static func new(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) -> VariantTypeRef! {
-        let rv = g_variant_type_new_tuple(cast(items), gint(length))
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new_tuple(cast(items), gint(length)))
         return rv.map { VariantTypeRef(cast($0)) }
     }
 
     static func checked_(arg0: UnsafePointer<gchar>) -> VariantTypeRef! {
-        let rv = g_variant_type_checked_(arg0)
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_checked_(arg0))
         return rv.map { VariantTypeRef(cast($0)) }
     }
 }
@@ -549,7 +549,7 @@ public extension VariantTypeRef {
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
 open class VariantType: VariantTypeProtocol {
-    /// Untyped pointer to the underlying `GVariantType` instance.
+        /// Untyped pointer to the underlying `GVariantType` instance.
     /// For type-safe access, use the generated, typed pointer `variant_type_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -578,7 +578,7 @@ open class VariantType: VariantTypeProtocol {
         // no reference counting for GVariantType, cannot ref(cast(variant_type_ptr))
     }
 
-    /// Do-nothing destructor for`GVariantType`.
+    /// Do-nothing destructor for `GVariantType`.
     deinit {
         // no reference counting for GVariantType, cannot unref(cast(variant_type_ptr))
     }
@@ -649,7 +649,7 @@ open class VariantType: VariantTypeProtocol {
     /// It is a programmer error to call this function with an invalid type
     /// string.  Use `g_variant_type_string_is_valid()` if you are unsure.
     public init( type_string: UnsafePointer<gchar>) {
-        let rv = g_variant_type_new(type_string)
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new(type_string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -660,7 +660,7 @@ open class VariantType: VariantTypeProtocol {
     /// 
     /// It is appropriate to call `g_variant_type_free()` on the return value.
     public init(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) {
-        let rv = g_variant_type_new_tuple(cast(items), gint(length))
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new_tuple(cast(items), gint(length)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -671,22 +671,23 @@ open class VariantType: VariantTypeProtocol {
     /// 
     /// It is appropriate to call `g_variant_type_free()` on the return value.
     public static func new(tuple items: UnsafePointer<UnsafePointer<GVariantType>>, length: CInt) -> VariantType! {
-        let rv = g_variant_type_new_tuple(cast(items), gint(length))
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_new_tuple(cast(items), gint(length)))
         return rv.map { VariantType(cast($0)) }
     }
 
     public static func checked_(arg0: UnsafePointer<gchar>) -> VariantType! {
-        let rv = g_variant_type_checked_(arg0)
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_checked_(arg0))
         return rv.map { VariantType(cast($0)) }
     }
 
 }
 
-// MARK: - no VariantType properties
+// MARK: no VariantType properties
 
-// MARK: - no signals
+// MARK: no VariantType signals
 
 
+// MARK: VariantType Record: VariantTypeProtocol extension (methods and fields)
 public extension VariantTypeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantType` instance.
     var variant_type_ptr: UnsafeMutablePointer<GVariantType> { return ptr.assumingMemoryBound(to: GVariantType.self) }
@@ -694,7 +695,7 @@ public extension VariantTypeProtocol {
     /// Makes a copy of a `GVariantType`.  It is appropriate to call
     /// `g_variant_type_free()` on the return value.  `type` may not be `nil`.
     func copy() -> UnsafeMutablePointer<GVariantType>! {
-        let rv = g_variant_type_copy(cast(variant_type_ptr))
+        let rv: UnsafeMutablePointer<GVariantType>! = cast(g_variant_type_copy(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -702,15 +703,15 @@ public extension VariantTypeProtocol {
     /// `type`.  The returned string is nul-terminated.  It is appropriate to
     /// call `g_free()` on the return value.
     func dupString() -> String! {
-        let rv = g_variant_type_dup_string(cast(variant_type_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_type_dup_string(cast(variant_type_ptr)))
+        return cast(rv)
     }
 
     /// Determines the element type of an array or maybe type.
     /// 
     /// This function may only be used with array or maybe types.
     func element() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_type_element(cast(variant_type_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_element(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -744,7 +745,7 @@ public extension VariantTypeProtocol {
     /// This call, together with `g_variant_type_next()` provides an iterator
     /// interface over tuple and dictionary entry types.
     func first() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_type_first(cast(variant_type_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_first(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -773,9 +774,9 @@ public extension VariantTypeProtocol {
     /// The argument type of `type` is only `gconstpointer` to allow use with
     /// `GHashTable` without function pointer casting.  A valid
     /// `GVariantType` must be provided.
-    func hash() -> CUnsignedInt {
-        let rv = g_variant_type_hash(cast(variant_type_ptr))
-        return CUnsignedInt(rv)
+    func hash() -> Int {
+        let rv: Int = cast(g_variant_type_hash(cast(variant_type_ptr)))
+        return Int(rv)
     }
 
     /// Checks if `type` is a subtype of `supertype`.
@@ -794,7 +795,7 @@ public extension VariantTypeProtocol {
     /// than the additional restriction, this call is equivalent to
     /// `g_variant_type_first()`.
     func key() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_type_key(cast(variant_type_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_key(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -824,7 +825,7 @@ public extension VariantTypeProtocol {
     /// 
     /// For tuples, `nil` is returned when `type` is the last item in a tuple.
     func next() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_type_next(cast(variant_type_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_next(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -834,15 +835,15 @@ public extension VariantTypeProtocol {
     /// 
     /// To get a nul-terminated string, see `g_variant_type_dup_string()`.
     func peekString() -> String! {
-        let rv = g_variant_type_peek_string(cast(variant_type_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_type_peek_string(cast(variant_type_ptr)))
+        return cast(rv)
     }
 
     /// Determines the value type of a dictionary entry type.
     /// 
     /// This function may only be used with a dictionary entry type.
     func value() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_type_value(cast(variant_type_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_type_value(cast(variant_type_ptr)))
         return cast(rv)
     }
 
@@ -882,11 +883,9 @@ public extension VariantTypeProtocol {
     /// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
     /// guaranteed to handle nesting up to at least 64 levels.
     func variantParse(text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> UnsafeMutablePointer<GVariant>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_variant_parse(cast(variant_type_ptr), text, limit, cast(endptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_parse(cast(variant_type_ptr), text, limit, cast(endptr), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
     /// Determines if the given `type` is an array type.  This is true if the
@@ -1063,6 +1062,8 @@ public extension VariantTypeProtocol {
             return Int(rv)
         }
     }
+
+
 }
 
 

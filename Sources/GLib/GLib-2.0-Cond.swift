@@ -74,7 +74,7 @@ import CGLib
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 public protocol CondProtocol {
-    /// Untyped pointer to the underlying `GCond` instance.
+        /// Untyped pointer to the underlying `GCond` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GCond` instance.
@@ -152,7 +152,7 @@ public protocol CondProtocol {
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 public struct CondRef: CondProtocol {
-    /// Untyped pointer to the underlying `GCond` instance.
+        /// Untyped pointer to the underlying `GCond` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -270,7 +270,7 @@ public extension CondRef {
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
 open class Cond: CondProtocol {
-    /// Untyped pointer to the underlying `GCond` instance.
+        /// Untyped pointer to the underlying `GCond` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -299,7 +299,7 @@ open class Cond: CondProtocol {
         // no reference counting for GCond, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GCond`.
+    /// Do-nothing destructor for `GCond`.
     deinit {
         // no reference counting for GCond, cannot unref(cast(_ptr))
     }
@@ -367,11 +367,12 @@ open class Cond: CondProtocol {
 
 }
 
-// MARK: - no Cond properties
+// MARK: no Cond properties
 
-// MARK: - no signals
+// MARK: no Cond signals
 
 
+// MARK: Cond Record: CondProtocol extension (methods and fields)
 public extension CondProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GCond` instance.
     var _ptr: UnsafeMutablePointer<GCond> { return ptr.assumingMemoryBound(to: GCond.self) }
@@ -436,8 +437,8 @@ public extension CondProtocol {
     /// 
     /// For this reason, `g_cond_wait()` must always be used in a loop.  See
     /// the documentation for `GCond` for a complete example.
-    func wait(mutex: UnsafeMutablePointer<GMutex>) {
-        g_cond_wait(cast(_ptr), cast(mutex))
+    func wait(mutex: MutexProtocol) {
+        g_cond_wait(cast(_ptr), cast(mutex.ptr))
     
     }
 
@@ -490,10 +491,15 @@ public extension CondProtocol {
     /// directly to the call and a spurious wakeup occurred, the program would
     /// have to start over waiting again (which would lead to a total wait
     /// time of more than 5 seconds).
-    func waitUntil(mutex: UnsafeMutablePointer<GMutex>, endTime end_time: Int64) -> Bool {
-        let rv = g_cond_wait_until(cast(_ptr), cast(mutex), gint64(end_time))
+    func waitUntil(mutex: MutexProtocol, endTime end_time: Int64) -> Bool {
+        let rv = g_cond_wait_until(cast(_ptr), cast(mutex.ptr), gint64(end_time))
         return Bool(rv != 0)
     }
+
+    // var p is unavailable because p is private
+
+    // var i is unavailable because i is private
+
 }
 
 

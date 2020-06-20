@@ -100,7 +100,7 @@ import CGLib
 /// ```
 /// 
 public protocol VariantDictProtocol {
-    /// Untyped pointer to the underlying `GVariantDict` instance.
+        /// Untyped pointer to the underlying `GVariantDict` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVariantDict` instance.
@@ -204,7 +204,7 @@ public protocol VariantDictProtocol {
 /// ```
 /// 
 public struct VariantDictRef: VariantDictProtocol {
-    /// Untyped pointer to the underlying `GVariantDict` instance.
+        /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -260,7 +260,7 @@ public extension VariantDictRef {
     /// `g_variant_dict_init()`.  This is particularly useful when you are
     /// using `GVariantDict` to construct a `GVariant`.
     init( from_asv: VariantProtocol) {
-        let rv = g_variant_dict_new(cast(from_asv.ptr))
+        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_new(cast(from_asv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -362,7 +362,7 @@ public extension VariantDictRef {
 /// ```
 /// 
 open class VariantDict: VariantDictProtocol {
-    /// Untyped pointer to the underlying `GVariantDict` instance.
+        /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -466,18 +466,19 @@ open class VariantDict: VariantDictProtocol {
     /// `g_variant_dict_init()`.  This is particularly useful when you are
     /// using `GVariantDict` to construct a `GVariant`.
     public init( from_asv: VariantProtocol) {
-        let rv = g_variant_dict_new(cast(from_asv.ptr))
+        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_new(cast(from_asv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no VariantDict properties
+// MARK: no VariantDict properties
 
-// MARK: - no signals
+// MARK: no VariantDict signals
 
 
+// MARK: VariantDict Record: VariantDictProtocol extension (methods and fields)
 public extension VariantDictProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantDict` instance.
     var variant_dict_ptr: UnsafeMutablePointer<GVariantDict> { return ptr.assumingMemoryBound(to: GVariantDict.self) }
@@ -515,7 +516,7 @@ public extension VariantDictProtocol {
     /// `GVariantDict`) or by reinitialising it with `g_variant_dict_init()` (in
     /// the case of stack-allocated).
     func end() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_dict_end(cast(variant_dict_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_dict_end(cast(variant_dict_ptr)))
         return cast(rv)
     }
 
@@ -568,7 +569,7 @@ public extension VariantDictProtocol {
     /// returned.  If `expected_type` was specified then any non-`nil` return
     /// value will have this type.
     func lookupValue(key: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_dict_lookup_value(cast(variant_dict_ptr), key, cast(expected_type.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_dict_lookup_value(cast(variant_dict_ptr), key, cast(expected_type.ptr)))
         return cast(rv)
     }
 
@@ -576,8 +577,8 @@ public extension VariantDictProtocol {
     /// 
     /// Don't call this on stack-allocated `GVariantDict` instances or bad
     /// things will happen.
-    func ref() -> UnsafeMutablePointer<GVariantDict>! {
-        let rv = g_variant_dict_ref(cast(variant_dict_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GVariantDict>! {
+        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_ref(cast(variant_dict_ptr)))
         return cast(rv)
     }
 
@@ -598,6 +599,8 @@ public extension VariantDictProtocol {
         g_variant_dict_unref(cast(variant_dict_ptr))
     
     }
+
+
 }
 
 

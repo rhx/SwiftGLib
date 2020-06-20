@@ -73,7 +73,7 @@ import CGLib
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
 public protocol RegexProtocol {
-    /// Untyped pointer to the underlying `GRegex` instance.
+        /// Untyped pointer to the underlying `GRegex` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRegex` instance.
@@ -150,7 +150,7 @@ public protocol RegexProtocol {
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
 public struct RegexRef: RegexProtocol {
-    /// Untyped pointer to the underlying `GRegex` instance.
+        /// Untyped pointer to the underlying `GRegex` instance.
     /// For type-safe access, use the generated, typed pointer `regex_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -198,11 +198,9 @@ public extension RegexRef {
         /// Compiles the regular expression to an internal form, and does
     /// the initial setup of the `GRegex` structure.
     init( pattern: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_new(pattern, compile_options, match_options, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GRegex>! = cast(g_regex_new(pattern, compile_options.value, match_options.value, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -277,7 +275,7 @@ public extension RegexRef {
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
 open class Regex: RegexProtocol {
-    /// Untyped pointer to the underlying `GRegex` instance.
+        /// Untyped pointer to the underlying `GRegex` instance.
     /// For type-safe access, use the generated, typed pointer `regex_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -373,30 +371,29 @@ open class Regex: RegexProtocol {
     /// Compiles the regular expression to an internal form, and does
     /// the initial setup of the `GRegex` structure.
     public init( pattern: UnsafePointer<gchar>, compileOptions compile_options: RegexCompileFlags, matchOptions match_options: RegexMatchFlags) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_new(pattern, compile_options, match_options, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GRegex>! = cast(g_regex_new(pattern, compile_options.value, match_options.value, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no Regex properties
+// MARK: no Regex properties
 
-// MARK: - no signals
+// MARK: no Regex signals
 
 
+// MARK: Regex Record: RegexProtocol extension (methods and fields)
 public extension RegexProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRegex` instance.
     var regex_ptr: UnsafeMutablePointer<GRegex> { return ptr.assumingMemoryBound(to: GRegex.self) }
 
     /// Returns the number of capturing subpatterns in the pattern.
-    func getCaptureCount() -> CInt {
-        let rv = g_regex_get_capture_count(cast(regex_ptr))
-        return CInt(rv)
+    func getCaptureCount() -> Int {
+        let rv: Int = cast(g_regex_get_capture_count(cast(regex_ptr)))
+        return Int(rv)
     }
 
     /// Returns the compile options that `regex` was created with.
@@ -406,7 +403,7 @@ public extension RegexProtocol {
     /// top-level within the compiled pattern.
     func getCompileFlags() -> GRegexCompileFlags {
         let rv = g_regex_get_compile_flags(cast(regex_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Checks whether the pattern contains explicit CR or LF references.
@@ -418,36 +415,36 @@ public extension RegexProtocol {
     /// Returns the match options that `regex` was created with.
     func getMatchFlags() -> GRegexMatchFlags {
         let rv = g_regex_get_match_flags(cast(regex_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the number of the highest back reference
     /// in the pattern, or 0 if the pattern does not contain
     /// back references.
-    func getMaxBackref() -> CInt {
-        let rv = g_regex_get_max_backref(cast(regex_ptr))
-        return CInt(rv)
+    func getMaxBackref() -> Int {
+        let rv: Int = cast(g_regex_get_max_backref(cast(regex_ptr)))
+        return Int(rv)
     }
 
     /// Gets the number of characters in the longest lookbehind assertion in the
     /// pattern. This information is useful when doing multi-segment matching using
     /// the partial matching facilities.
-    func getMaxLookbehind() -> CInt {
-        let rv = g_regex_get_max_lookbehind(cast(regex_ptr))
-        return CInt(rv)
+    func getMaxLookbehind() -> Int {
+        let rv: Int = cast(g_regex_get_max_lookbehind(cast(regex_ptr)))
+        return Int(rv)
     }
 
     /// Gets the pattern string associated with `regex`, i.e. a copy of
     /// the string passed to `g_regex_new()`.
     func getPattern() -> String! {
-        let rv = g_regex_get_pattern(cast(regex_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_regex_get_pattern(cast(regex_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the number of the subexpression named `name`.
-    func getStringNumber(name: UnsafePointer<gchar>) -> CInt {
-        let rv = g_regex_get_string_number(cast(regex_ptr), name)
-        return CInt(rv)
+    func getStringNumber(name: UnsafePointer<gchar>) -> Int {
+        let rv: Int = cast(g_regex_get_string_number(cast(regex_ptr), name))
+        return Int(rv)
     }
 
     /// Scans for a match in `string` for the pattern in `regex`.
@@ -492,7 +489,7 @@ public extension RegexProtocol {
     /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func match(string: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) -> Bool {
-        let rv = g_regex_match(cast(regex_ptr), string, match_options, cast(match_info.ptr))
+        let rv = g_regex_match(cast(regex_ptr), string, match_options.value, cast(match_info.ptr))
         return Bool(rv != 0)
     }
 
@@ -511,7 +508,7 @@ public extension RegexProtocol {
     /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func matchAll(string: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) -> Bool {
-        let rv = g_regex_match_all(cast(regex_ptr), string, match_options, cast(match_info.ptr))
+        let rv = g_regex_match_all(cast(regex_ptr), string, match_options.value, cast(match_info.ptr))
         return Bool(rv != 0)
     }
 
@@ -554,11 +551,9 @@ public extension RegexProtocol {
     /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     func matchAllFull(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_match_all_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, cast(match_info.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_regex_match_all_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options.value, cast(match_info.ptr), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -616,17 +611,15 @@ public extension RegexProtocol {
     /// ```
     /// 
     func matchFull(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, matchInfo match_info: MatchInfoProtocol) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_match_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, cast(match_info.ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_regex_match_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options.value, cast(match_info.ptr), &error)
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Increases reference count of `regex` by 1.
-    func ref() -> UnsafeMutablePointer<GRegex>! {
-        let rv = g_regex_ref(cast(regex_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GRegex>! {
+        let rv: UnsafeMutablePointer<GRegex>! = cast(g_regex_ref(cast(regex_ptr)))
         return cast(rv)
     }
 
@@ -657,12 +650,10 @@ public extension RegexProtocol {
     /// string and setting `G_REGEX_MATCH_NOTBOL` in the case of a pattern that
     /// begins with any kind of lookbehind assertion, such as "\b".
     func replace(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, replacement: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_replace(cast(regex_ptr), cast(string), string_len, gint(start_position), replacement, match_options, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_regex_replace(cast(regex_ptr), cast(string), string_len, gint(start_position), replacement, match_options.value, &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Replaces occurrences of the pattern in regex with the output of
@@ -713,12 +704,10 @@ public extension RegexProtocol {
     /// ```
     /// 
     func replaceEval(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, eval: @escaping RegexEvalCallback, userData user_data: UnsafeMutableRawPointer) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_replace_eval(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, eval, cast(user_data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_regex_replace_eval(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options.value, eval, cast(user_data), &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Replaces all occurrences of the pattern in `regex` with the
@@ -730,12 +719,10 @@ public extension RegexProtocol {
     /// case of a pattern that begins with any kind of lookbehind
     /// assertion, such as "\b".
     func replaceLiteral(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, replacement: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_replace_literal(cast(regex_ptr), cast(string), string_len, gint(start_position), replacement, match_options, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_regex_replace_literal(cast(regex_ptr), cast(string), string_len, gint(start_position), replacement, match_options.value, &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Breaks the string on the pattern, and returns an array of the tokens.
@@ -756,7 +743,7 @@ public extension RegexProtocol {
     /// For example splitting "ab c" using as a separator "\s*", you will get
     /// "a", "b" and "c".
     func split(string: UnsafePointer<gchar>, matchOptions match_options: RegexMatchFlags) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_regex_split(cast(regex_ptr), string, match_options)
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_regex_split(cast(regex_ptr), string, match_options.value))
         return cast(rv)
     }
 
@@ -782,11 +769,9 @@ public extension RegexProtocol {
     /// string and setting `G_REGEX_MATCH_NOTBOL` in the case of a pattern
     /// that begins with any kind of lookbehind assertion, such as "\b".
     func splitFull(string: UnsafePointer<gchar>, stringLen string_len: gssize, startPosition start_position: CInt, matchOptions match_options: RegexMatchFlags, maxTokens max_tokens: CInt) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_regex_split_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options, gint(max_tokens), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_regex_split_full(cast(regex_ptr), cast(string), string_len, gint(start_position), match_options.value, gint(max_tokens), &error))
+        if let error = error { throw ErrorType(error) }
         return cast(rv)
     }
 
@@ -797,11 +782,11 @@ public extension RegexProtocol {
     
     }
     /// Returns the number of capturing subpatterns in the pattern.
-    var captureCount: CInt {
+    var captureCount: Int {
         /// Returns the number of capturing subpatterns in the pattern.
         get {
-            let rv = g_regex_get_capture_count(cast(regex_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_regex_get_capture_count(cast(regex_ptr)))
+            return Int(rv)
         }
     }
 
@@ -818,7 +803,7 @@ public extension RegexProtocol {
         /// top-level within the compiled pattern.
         get {
             let rv = g_regex_get_compile_flags(cast(regex_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -836,33 +821,33 @@ public extension RegexProtocol {
         /// Returns the match options that `regex` was created with.
         get {
             let rv = g_regex_get_match_flags(cast(regex_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// Returns the number of the highest back reference
     /// in the pattern, or 0 if the pattern does not contain
     /// back references.
-    var maxBackref: CInt {
+    var maxBackref: Int {
         /// Returns the number of the highest back reference
         /// in the pattern, or 0 if the pattern does not contain
         /// back references.
         get {
-            let rv = g_regex_get_max_backref(cast(regex_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_regex_get_max_backref(cast(regex_ptr)))
+            return Int(rv)
         }
     }
 
     /// Gets the number of characters in the longest lookbehind assertion in the
     /// pattern. This information is useful when doing multi-segment matching using
     /// the partial matching facilities.
-    var maxLookbehind: CInt {
+    var maxLookbehind: Int {
         /// Gets the number of characters in the longest lookbehind assertion in the
         /// pattern. This information is useful when doing multi-segment matching using
         /// the partial matching facilities.
         get {
-            let rv = g_regex_get_max_lookbehind(cast(regex_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_regex_get_max_lookbehind(cast(regex_ptr)))
+            return Int(rv)
         }
     }
 
@@ -872,10 +857,12 @@ public extension RegexProtocol {
         /// Gets the pattern string associated with `regex`, i.e. a copy of
         /// the string passed to `g_regex_new()`.
         get {
-            let rv = g_regex_get_pattern(cast(regex_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_regex_get_pattern(cast(regex_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

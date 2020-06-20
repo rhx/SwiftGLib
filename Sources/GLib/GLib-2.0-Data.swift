@@ -11,7 +11,7 @@ import CGLib
 /// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 public protocol DataProtocol {
-    /// Untyped pointer to the underlying `GData` instance.
+        /// Untyped pointer to the underlying `GData` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GData` instance.
@@ -26,7 +26,7 @@ public protocol DataProtocol {
 /// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 public struct DataRef: DataProtocol {
-    /// Untyped pointer to the underlying `GData` instance.
+        /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension DataRef {
 /// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
 /// accessed via the following functions.
 open class Data: DataProtocol {
-    /// Untyped pointer to the underlying `GData` instance.
+        /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -110,7 +110,7 @@ open class Data: DataProtocol {
         // no reference counting for GData, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GData`.
+    /// Do-nothing destructor for `GData`.
     deinit {
         // no reference counting for GData, cannot unref(cast(_ptr))
     }
@@ -178,11 +178,12 @@ open class Data: DataProtocol {
 
 }
 
-// MARK: - no Data properties
+// MARK: no Data properties
 
-// MARK: - no signals
+// MARK: no Data signals
 
 
+// MARK: Data Record: DataProtocol extension (methods and fields)
 public extension DataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GData` instance.
     var _ptr: UnsafeMutablePointer<GData> { return ptr.assumingMemoryBound(to: GData.self) }
@@ -213,15 +214,15 @@ public extension DataProtocol {
     /// Gets a data element, using its string identifier. This is slower than
     /// `g_datalist_id_get_data()` because it compares strings.
     func datalistGetData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv = g_datalist_get_data(cast(_ptr), key)
+        let rv: UnsafeMutableRawPointer! = cast(g_datalist_get_data(cast(_ptr), key))
         return cast(rv)
     }
 
     /// Gets flags values packed in together with the datalist.
     /// See `g_datalist_set_flags()`.
-    func datalistGetFlags() -> CUnsignedInt {
-        let rv = g_datalist_get_flags(cast(_ptr))
-        return CUnsignedInt(rv)
+    func datalistGetFlags() -> Int {
+        let rv: Int = cast(g_datalist_get_flags(cast(_ptr)))
+        return Int(rv)
     }
 
     /// This is a variant of `g_datalist_id_get_data()` which
@@ -238,20 +239,20 @@ public extension DataProtocol {
     /// This function can be useful to avoid races when multiple
     /// threads are using the same datalist and the same key.
     func datalistIDDupData(keyID key_id: Quark, dupFunc dup_func: @escaping DuplicateFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_datalist_id_dup_data(cast(_ptr), key_id, dup_func, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_dup_data(cast(_ptr), key_id, dup_func, cast(user_data)))
         return cast(rv)
     }
 
     /// Retrieves the data element corresponding to `key_id`.
     func datalistIDGetData(keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_datalist_id_get_data(cast(_ptr), key_id)
+        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_get_data(cast(_ptr), key_id))
         return cast(rv)
     }
 
     /// Removes an element, without calling its destroy notification
     /// function.
     func datalistIDRemoveNoNotify(keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-        let rv = g_datalist_id_remove_no_notify(cast(_ptr), key_id)
+        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_remove_no_notify(cast(_ptr), key_id))
         return cast(rv)
     }
 
@@ -305,6 +306,8 @@ public extension DataProtocol {
         g_datalist_unset_flags(cast(_ptr), guint(flags))
     
     }
+
+
 }
 
 

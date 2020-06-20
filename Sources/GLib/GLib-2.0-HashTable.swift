@@ -11,7 +11,7 @@ import CGLib
 /// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 public protocol HashTableProtocol {
-    /// Untyped pointer to the underlying `GHashTable` instance.
+        /// Untyped pointer to the underlying `GHashTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GHashTable` instance.
@@ -26,7 +26,7 @@ public protocol HashTableProtocol {
 /// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 public struct HashTableRef: HashTableProtocol {
-    /// Untyped pointer to the underlying `GHashTable` instance.
+        /// Untyped pointer to the underlying `GHashTable` instance.
     /// For type-safe access, use the generated, typed pointer `hash_table_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -83,7 +83,7 @@ public extension HashTableRef {
     /// calling `g_hash_table_remove_all()` before releasing the last reference using
     /// `g_hash_table_unref()`.
     static func new(full hash_func: @escaping HashFunc, keyEqualFunc key_equal_func: @escaping EqualFunc, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> HashTableRef! {
-        let rv = g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func)
+        let rv: UnsafeMutablePointer<GHashTable>! = cast(g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func))
         return rv.map { HashTableRef(cast($0)) }
     }
 }
@@ -96,7 +96,7 @@ public extension HashTableRef {
 /// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 open class HashTable: HashTableProtocol {
-    /// Untyped pointer to the underlying `GHashTable` instance.
+        /// Untyped pointer to the underlying `GHashTable` instance.
     /// For type-safe access, use the generated, typed pointer `hash_table_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -202,17 +202,18 @@ open class HashTable: HashTableProtocol {
     /// calling `g_hash_table_remove_all()` before releasing the last reference using
     /// `g_hash_table_unref()`.
     public static func new(full hash_func: @escaping HashFunc, keyEqualFunc key_equal_func: @escaping EqualFunc, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> HashTable! {
-        let rv = g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func)
+        let rv: UnsafeMutablePointer<GHashTable>! = cast(g_hash_table_new_full(hash_func, key_equal_func, key_destroy_func, value_destroy_func))
         return rv.map { HashTable(cast($0)) }
     }
 
 }
 
-// MARK: - no HashTable properties
+// MARK: no HashTable properties
 
-// MARK: - no signals
+// MARK: no HashTable signals
 
 
+// MARK: HashTable Record: HashTableProtocol extension (methods and fields)
 public extension HashTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHashTable` instance.
     var hash_table_ptr: UnsafeMutablePointer<GHashTable> { return ptr.assumingMemoryBound(to: GHashTable.self) }
@@ -268,7 +269,7 @@ public extension HashTableProtocol {
     /// (keep in mind that an `O(n)` find/foreach operation issued for all n
     /// values in a hash table ends up needing `O(n*n)` operations).
     func find(predicate: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_hash_table_find(cast(hash_table_ptr), predicate, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_hash_table_find(cast(hash_table_ptr), predicate, cast(user_data)))
         return cast(rv)
     }
 
@@ -297,9 +298,9 @@ public extension HashTableProtocol {
     /// 
     /// See `GHashTableIter` for an alternative way to loop over the
     /// key/value pairs in the hash table.
-    func foreachRemove(func_: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_hash_table_foreach_remove(cast(hash_table_ptr), func_, cast(user_data))
-        return CUnsignedInt(rv)
+    func foreachRemove(func_: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_hash_table_foreach_remove(cast(hash_table_ptr), func_, cast(user_data)))
+        return Int(rv)
     }
 
     /// Calls the given function for each key/value pair in the
@@ -309,9 +310,9 @@ public extension HashTableProtocol {
     /// 
     /// See `GHashTableIter` for an alternative way to loop over the
     /// key/value pairs in the hash table.
-    func foreachSteal(func_: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_hash_table_foreach_steal(cast(hash_table_ptr), func_, cast(user_data))
-        return CUnsignedInt(rv)
+    func foreachSteal(func_: @escaping HRFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_hash_table_foreach_steal(cast(hash_table_ptr), func_, cast(user_data)))
+        return Int(rv)
     }
 
     /// Retrieves every key inside `hash_table`. The returned data is valid
@@ -321,7 +322,7 @@ public extension HashTableProtocol {
     /// To iterate over the entries in a `GHashTable` more efficiently, use a
     /// `GHashTableIter`.
     func getKeys() -> UnsafeMutablePointer<GList>! {
-        let rv = g_hash_table_get_keys(cast(hash_table_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_hash_table_get_keys(cast(hash_table_ptr)))
         return cast(rv)
     }
 
@@ -343,7 +344,7 @@ public extension HashTableProtocol {
     /// appropriate to use `g_strfreev()` if you call `g_hash_table_steal_all()`
     /// first to transfer ownership of the keys.
     func getKeysAsArray(length: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
-        let rv = g_hash_table_get_keys_as_array(cast(hash_table_ptr), cast(length))
+        let rv: UnsafeMutablePointer<UnsafeMutableRawPointer>! = cast(g_hash_table_get_keys_as_array(cast(hash_table_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -354,7 +355,7 @@ public extension HashTableProtocol {
     /// To iterate over the entries in a `GHashTable` more efficiently, use a
     /// `GHashTableIter`.
     func getValues() -> UnsafeMutablePointer<GList>! {
-        let rv = g_hash_table_get_values(cast(hash_table_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(g_hash_table_get_values(cast(hash_table_ptr)))
         return cast(rv)
     }
 
@@ -380,7 +381,7 @@ public extension HashTableProtocol {
     /// and has the value `nil`. If you need this distinction, use
     /// `g_hash_table_lookup_extended()`.
     func lookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
-        let rv = g_hash_table_lookup(cast(hash_table_ptr), cast(key))
+        let rv: UnsafeMutableRawPointer! = cast(g_hash_table_lookup(cast(hash_table_ptr), cast(key)))
         return cast(rv)
     }
 
@@ -399,8 +400,8 @@ public extension HashTableProtocol {
 
     /// Atomically increments the reference count of `hash_table` by one.
     /// This function is MT-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GHashTable>! {
-        let rv = g_hash_table_ref(cast(hash_table_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GHashTable>! {
+        let rv: UnsafeMutablePointer<GHashTable>! = cast(g_hash_table_ref(cast(hash_table_ptr)))
         return cast(rv)
     }
 
@@ -443,9 +444,9 @@ public extension HashTableProtocol {
     }
 
     /// Returns the number of elements contained in the `GHashTable`.
-    func size() -> CUnsignedInt {
-        let rv = g_hash_table_size(cast(hash_table_ptr))
-        return CUnsignedInt(rv)
+    func size() -> Int {
+        let rv: Int = cast(g_hash_table_size(cast(hash_table_ptr)))
+        return Int(rv)
     }
 
     /// Removes a key and its associated value from a `GHashTable` without
@@ -545,7 +546,7 @@ public extension HashTableProtocol {
     /// and has the value `nil`. If you need this distinction, use
     /// `g_hash_table_lookup_extended()`.
     func hashTableLookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
-        let rv = g_hash_table_lookup(cast(hash_table_ptr), cast(key))
+        let rv: UnsafeMutableRawPointer! = cast(g_hash_table_lookup(cast(hash_table_ptr), cast(key)))
         return cast(rv)
     }
 
@@ -601,9 +602,9 @@ public extension HashTableProtocol {
     }
 
     /// Returns the number of elements contained in the `GHashTable`.
-    func hashTableSize() -> CUnsignedInt {
-        let rv = g_hash_table_size(cast(hash_table_ptr))
-        return CUnsignedInt(rv)
+    func hashTableSize() -> Int {
+        let rv: Int = cast(g_hash_table_size(cast(hash_table_ptr)))
+        return Int(rv)
     }
 
     /// Removes a key and its associated value from a `GHashTable` without
@@ -657,7 +658,7 @@ public extension HashTableProtocol {
         /// To iterate over the entries in a `GHashTable` more efficiently, use a
         /// `GHashTableIter`.
         get {
-            let rv = g_hash_table_get_keys(cast(hash_table_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_hash_table_get_keys(cast(hash_table_ptr)))
             return cast(rv)
         }
     }
@@ -676,10 +677,12 @@ public extension HashTableProtocol {
         /// To iterate over the entries in a `GHashTable` more efficiently, use a
         /// `GHashTableIter`.
         get {
-            let rv = g_hash_table_get_values(cast(hash_table_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(g_hash_table_get_values(cast(hash_table_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

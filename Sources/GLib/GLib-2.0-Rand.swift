@@ -10,7 +10,7 @@ import CGLib
 /// The GRand struct is an opaque data structure. It should only be
 /// accessed through the g_rand_* functions.
 public protocol RandProtocol {
-    /// Untyped pointer to the underlying `GRand` instance.
+        /// Untyped pointer to the underlying `GRand` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRand` instance.
@@ -24,7 +24,7 @@ public protocol RandProtocol {
 /// The GRand struct is an opaque data structure. It should only be
 /// accessed through the g_rand_* functions.
 public struct RandRef: RandProtocol {
-    /// Untyped pointer to the underlying `GRand` instance.
+        /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,13 +71,13 @@ public extension RandRef {
 
         /// Creates a new random number generator initialized with `seed`.
     static func newWith(seed: UInt32) -> RandRef! {
-        let rv = g_rand_new_with_seed(guint32(seed))
+        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed(guint32(seed)))
         return rv.map { RandRef(cast($0)) }
     }
 
     /// Creates a new random number generator initialized with `seed`.
     static func newWith(seedArray seed: UnsafePointer<UInt32>, seedLength seed_length: CUnsignedInt) -> RandRef! {
-        let rv = g_rand_new_with_seed_array(cast(seed), guint(seed_length))
+        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed_array(cast(seed), guint(seed_length)))
         return rv.map { RandRef(cast($0)) }
     }
 }
@@ -89,7 +89,7 @@ public extension RandRef {
 /// The GRand struct is an opaque data structure. It should only be
 /// accessed through the g_rand_* functions.
 open class Rand: RandProtocol {
-    /// Untyped pointer to the underlying `GRand` instance.
+        /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -118,7 +118,7 @@ open class Rand: RandProtocol {
         // no reference counting for GRand, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GRand`.
+    /// Do-nothing destructor for `GRand`.
     deinit {
         // no reference counting for GRand, cannot unref(cast(_ptr))
     }
@@ -185,23 +185,24 @@ open class Rand: RandProtocol {
 
     /// Creates a new random number generator initialized with `seed`.
     public static func newWith(seed: UInt32) -> Rand! {
-        let rv = g_rand_new_with_seed(guint32(seed))
+        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed(guint32(seed)))
         return rv.map { Rand(cast($0)) }
     }
 
     /// Creates a new random number generator initialized with `seed`.
     public static func newWith(seedArray seed: UnsafePointer<UInt32>, seedLength seed_length: CUnsignedInt) -> Rand! {
-        let rv = g_rand_new_with_seed_array(cast(seed), guint(seed_length))
+        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed_array(cast(seed), guint(seed_length)))
         return rv.map { Rand(cast($0)) }
     }
 
 }
 
-// MARK: - no Rand properties
+// MARK: no Rand properties
 
-// MARK: - no signals
+// MARK: no Rand signals
 
 
+// MARK: Rand Record: RandProtocol extension (methods and fields)
 public extension RandProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRand` instance.
     var _ptr: UnsafeMutablePointer<GRand> { return ptr.assumingMemoryBound(to: GRand.self) }
@@ -210,22 +211,22 @@ public extension RandProtocol {
     /// This way you can take a snapshot of the random number generator for
     /// replaying later.
     func copy() -> UnsafeMutablePointer<GRand>! {
-        let rv = g_rand_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_copy(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [0..1).
-    func CDouble() -> gdouble {
-        let rv = g_rand_double(cast(_ptr))
-        return rv
+    func CDouble() -> Double {
+        let rv: Double = cast(g_rand_double(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [`begin.`.`end`).
-    func doubleRange(begin: gdouble, end: gdouble) -> gdouble {
-        let rv = g_rand_double_range(cast(_ptr), begin, end)
-        return rv
+    func doubleRange(begin: gdouble, end: gdouble) -> Double {
+        let rv: Double = cast(g_rand_double_range(cast(_ptr), begin, end))
+        return cast(rv)
     }
 
     /// Frees the memory allocated for the `GRand`.
@@ -263,6 +264,8 @@ public extension RandProtocol {
         g_rand_set_seed_array(cast(_ptr), cast(seed), guint(seed_length))
     
     }
+
+
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// A GPatternSpec struct is the 'compiled' form of a pattern. This
 /// structure is opaque and its fields cannot be accessed directly.
 public protocol PatternSpecProtocol {
-    /// Untyped pointer to the underlying `GPatternSpec` instance.
+        /// Untyped pointer to the underlying `GPatternSpec` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPatternSpec` instance.
@@ -24,7 +24,7 @@ public protocol PatternSpecProtocol {
 /// A GPatternSpec struct is the 'compiled' form of a pattern. This
 /// structure is opaque and its fields cannot be accessed directly.
 public struct PatternSpecRef: PatternSpecProtocol {
-    /// Untyped pointer to the underlying `GPatternSpec` instance.
+        /// Untyped pointer to the underlying `GPatternSpec` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension PatternSpecRef {
 /// A GPatternSpec struct is the 'compiled' form of a pattern. This
 /// structure is opaque and its fields cannot be accessed directly.
 open class PatternSpec: PatternSpecProtocol {
-    /// Untyped pointer to the underlying `GPatternSpec` instance.
+        /// Untyped pointer to the underlying `GPatternSpec` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class PatternSpec: PatternSpecProtocol {
         // no reference counting for GPatternSpec, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GPatternSpec`.
+    /// Do-nothing destructor for `GPatternSpec`.
     deinit {
         // no reference counting for GPatternSpec, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class PatternSpec: PatternSpecProtocol {
 
 }
 
-// MARK: - no PatternSpec properties
+// MARK: no PatternSpec properties
 
-// MARK: - no signals
+// MARK: no PatternSpec signals
 
 
+// MARK: PatternSpec Record: PatternSpecProtocol extension (methods and fields)
 public extension PatternSpecProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPatternSpec` instance.
     var _ptr: UnsafeMutablePointer<GPatternSpec> { return ptr.assumingMemoryBound(to: GPatternSpec.self) }
@@ -226,6 +227,8 @@ public extension PatternSpecProtocol {
         let rv = g_pattern_match_string(cast(_ptr), string)
         return Bool(rv != 0)
     }
+
+
 }
 
 

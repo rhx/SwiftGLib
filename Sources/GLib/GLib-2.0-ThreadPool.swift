@@ -11,7 +11,7 @@ import CGLib
 /// public read-only members, but the underlying struct is bigger,
 /// so you must not copy this struct.
 public protocol ThreadPoolProtocol {
-    /// Untyped pointer to the underlying `GThreadPool` instance.
+        /// Untyped pointer to the underlying `GThreadPool` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GThreadPool` instance.
@@ -26,7 +26,7 @@ public protocol ThreadPoolProtocol {
 /// public read-only members, but the underlying struct is bigger,
 /// so you must not copy this struct.
 public struct ThreadPoolRef: ThreadPoolProtocol {
-    /// Untyped pointer to the underlying `GThreadPool` instance.
+        /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension ThreadPoolRef {
 /// public read-only members, but the underlying struct is bigger,
 /// so you must not copy this struct.
 open class ThreadPool: ThreadPoolProtocol {
-    /// Untyped pointer to the underlying `GThreadPool` instance.
+        /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -110,7 +110,7 @@ open class ThreadPool: ThreadPoolProtocol {
         // no reference counting for GThreadPool, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GThreadPool`.
+    /// Do-nothing destructor for `GThreadPool`.
     deinit {
         // no reference counting for GThreadPool, cannot unref(cast(_ptr))
     }
@@ -178,11 +178,12 @@ open class ThreadPool: ThreadPoolProtocol {
 
 }
 
-// MARK: - no ThreadPool properties
+// MARK: no ThreadPool properties
 
-// MARK: - no signals
+// MARK: no ThreadPool signals
 
 
+// MARK: ThreadPool Record: ThreadPoolProtocol extension (methods and fields)
 public extension ThreadPoolProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThreadPool` instance.
     var _ptr: UnsafeMutablePointer<GThreadPool> { return ptr.assumingMemoryBound(to: GThreadPool.self) }
@@ -207,15 +208,15 @@ public extension ThreadPoolProtocol {
     }
 
     /// Returns the maximal number of threads for `pool`.
-    func getMaxThreads() -> CInt {
-        let rv = g_thread_pool_get_max_threads(cast(_ptr))
-        return CInt(rv)
+    func getMaxThreads() -> Int {
+        let rv: Int = cast(g_thread_pool_get_max_threads(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the number of threads currently running in `pool`.
-    func getNumThreads() -> CUnsignedInt {
-        let rv = g_thread_pool_get_num_threads(cast(_ptr))
-        return CUnsignedInt(rv)
+    func getNumThreads() -> Int {
+        let rv: Int = cast(g_thread_pool_get_num_threads(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Moves the item to the front of the queue of unprocessed
@@ -240,11 +241,9 @@ public extension ThreadPoolProtocol {
     /// 
     /// Before version 2.32, this function did not return a success status.
     func push(data: UnsafeMutableRawPointer) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_thread_pool_push(cast(_ptr), cast(data), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -269,11 +268,9 @@ public extension ThreadPoolProtocol {
     /// 
     /// Before version 2.32, this function did not return a success status.
     func set(maxThreads max_threads: CInt) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_thread_pool_set_max_threads(cast(_ptr), gint(max_threads), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -292,27 +289,92 @@ public extension ThreadPoolProtocol {
     }
 
     /// Returns the number of tasks still unprocessed in `pool`.
-    func unprocessed() -> CUnsignedInt {
-        let rv = g_thread_pool_unprocessed(cast(_ptr))
-        return CUnsignedInt(rv)
+    func unprocessed() -> Int {
+        let rv: Int = cast(g_thread_pool_unprocessed(cast(_ptr)))
+        return Int(rv)
     }
     /// Returns the maximal number of threads for `pool`.
-    var maxThreads: CInt {
+    var maxThreads: Int {
         /// Returns the maximal number of threads for `pool`.
         get {
-            let rv = g_thread_pool_get_max_threads(cast(_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_thread_pool_get_max_threads(cast(_ptr)))
+            return Int(rv)
+        }
+        /// Sets the maximal allowed number of threads for `pool`.
+        /// A value of -1 means that the maximal number of threads
+        /// is unlimited. If `pool` is an exclusive thread pool, setting
+        /// the maximal number of threads to -1 is not allowed.
+        /// 
+        /// Setting `max_threads` to 0 means stopping all work for `pool`.
+        /// It is effectively frozen until `max_threads` is set to a non-zero
+        /// value again.
+        /// 
+        /// A thread is never terminated while calling `func`, as supplied by
+        /// `g_thread_pool_new()`. Instead the maximal number of threads only
+        /// has effect for the allocation of new threads in `g_thread_pool_push()`.
+        /// A new thread is allocated, whenever the number of currently
+        /// running threads in `pool` is smaller than the maximal number.
+        /// 
+        /// `error` can be `nil` to ignore errors, or non-`nil` to report
+        /// errors. An error can only occur when a new thread couldn't be
+        /// created.
+        /// 
+        /// Before version 2.32, this function did not return a success status.
+        nonmutating set {
+            var err: UnsafeMutablePointer<GError>?
+            _ = g_thread_pool_set_max_threads(cast(_ptr), gint(newValue), &err)
+            g_log(messagePtr: err?.pointee.message, level: .error)
         }
     }
 
     /// Returns the number of threads currently running in `pool`.
-    var numThreads: CUnsignedInt {
+    var numThreads: Int {
         /// Returns the number of threads currently running in `pool`.
         get {
-            let rv = g_thread_pool_get_num_threads(cast(_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_thread_pool_get_num_threads(cast(_ptr)))
+            return Int(rv)
         }
     }
+
+    /// the function to execute in the threads of this pool
+    var `func`: GFunc {
+        /// the function to execute in the threads of this pool
+        get {
+            let rv: GFunc = cast(_ptr.pointee.func)
+            return rv
+        }
+        /// the function to execute in the threads of this pool
+         set {
+            _ptr.pointee.func = cast(newValue)
+        }
+    }
+
+    /// the user data for the threads of this pool
+    var userData: UnsafeMutableRawPointer {
+        /// the user data for the threads of this pool
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.user_data)
+            return rv
+        }
+        /// the user data for the threads of this pool
+         set {
+            _ptr.pointee.user_data = cast(newValue)
+        }
+    }
+
+    /// are all threads exclusive to this pool
+    var exclusive: Bool {
+        /// are all threads exclusive to this pool
+        get {
+            let rv: Bool = cast(_ptr.pointee.exclusive)
+            return rv
+        }
+        /// are all threads exclusive to this pool
+         set {
+            _ptr.pointee.exclusive = gboolean(newValue ? 1 : 0)
+        }
+    }
+
 }
 
 

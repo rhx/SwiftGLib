@@ -251,7 +251,7 @@ import CGLib
 /// management for those dictionaries, but the type information would
 /// be shared.
 public protocol VariantProtocol {
-    /// Untyped pointer to the underlying `GVariant` instance.
+        /// Untyped pointer to the underlying `GVariant` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVariant` instance.
@@ -506,7 +506,7 @@ public protocol VariantProtocol {
 /// management for those dictionaries, but the type information would
 /// be shared.
 public struct VariantRef: VariantProtocol {
-    /// Untyped pointer to the underlying `GVariant` instance.
+        /// Untyped pointer to the underlying `GVariant` instance.
     /// For type-safe access, use the generated, typed pointer `variant_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -571,19 +571,19 @@ public extension VariantRef {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     init(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
-        let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new boolean `GVariant` instance -- either `true` or `false`.
     init(boolean value: Bool) {
-        let rv = g_variant_new_boolean(gboolean(value ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_boolean(gboolean(value ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new byte `GVariant` instance.
     init(byte value: UInt8) {
-        let rv = g_variant_new_byte(guint8(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_byte(guint8(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -594,7 +594,7 @@ public extension VariantRef {
     /// The nul terminator character at the end of the string is stored in
     /// the array.
     init(bytestring string: UnsafePointer<gchar>) {
-        let rv = g_variant_new_bytestring(cast(string))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring(cast(string)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -603,13 +603,13 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     init(bytestring_array strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_bytestring_array(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring_array(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new double `GVariant` instance.
     init(CDouble value: gdouble) {
-        let rv = g_variant_new_double(value)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_double(value))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -627,7 +627,7 @@ public extension VariantRef {
     /// 
     /// `n_elements` must be the length of the `elements` array.
     init(fixed_array element_type: VariantTypeProtocol, elements: gconstpointer, nElements n_elements: Int, elementSize element_size: Int) {
-        let rv = g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -641,7 +641,7 @@ public extension VariantRef {
     /// Otherwise this function will internally create a copy of the memory (since
     /// GLib 2.60) or (in older versions) fail and exit the process.
     init(bytes type: VariantTypeProtocol, bytes: BytesProtocol, trusted: Bool) {
-        let rv = g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -675,7 +675,7 @@ public extension VariantRef {
     /// the memory (since GLib 2.60) or (in older versions) fail and exit the
     /// process.
     init(data type: VariantTypeProtocol, data: gconstpointer, size: Int, trusted: Bool, notify: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
-        let rv = g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -685,25 +685,25 @@ public extension VariantRef {
     /// that are sent alongside a D-Bus message.  If you're not interacting
     /// with D-Bus, you probably don't need them.
     init(handle value: Int32) {
-        let rv = g_variant_new_handle(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_handle(gint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int16 `GVariant` instance.
     init(int16 value: Int16) {
-        let rv = g_variant_new_int16(gint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int16(gint16(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int32 `GVariant` instance.
     init(int32 value: Int32) {
-        let rv = g_variant_new_int32(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int32(gint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int64 `GVariant` instance.
     init(int64 value: Int64) {
-        let rv = g_variant_new_int64(gint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int64(gint64(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -718,7 +718,7 @@ public extension VariantRef {
     /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     init(maybe child_type: VariantTypeProtocol, child: VariantProtocol) {
-        let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -726,7 +726,7 @@ public extension VariantRef {
     /// `string` must be a valid D-Bus object path.  Use
     /// `g_variant_is_object_path()` if you're not sure.
     init(objectPath object_path: UnsafePointer<gchar>) {
-        let rv = g_variant_new_object_path(object_path)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_object_path(object_path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -738,7 +738,7 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     init(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_objv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_objv(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -769,7 +769,7 @@ public extension VariantRef {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     init(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) {
-        let rv = g_variant_new_parsed_va(format, cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_parsed_va(format, cast(app)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 #endif
@@ -782,7 +782,7 @@ public extension VariantRef {
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
     /// `g_variant_is_signature()` if you're not sure.
     init(signature: UnsafePointer<gchar>) {
-        let rv = g_variant_new_signature(signature)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_signature(signature))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -792,7 +792,7 @@ public extension VariantRef {
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string](#gvariant-format-strings-maybe-types).
     init(string: UnsafePointer<gchar>) {
-        let rv = g_variant_new_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_string(string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -801,7 +801,7 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     init(strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_strv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_strv(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -817,7 +817,7 @@ public extension VariantRef {
     /// it to this function.  It is even possible that `string` is immediately
     /// freed.
     init(take_string string: UnsafeMutablePointer<gchar>) {
-        let rv = g_variant_new_take_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_take_string(string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -830,25 +830,25 @@ public extension VariantRef {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     init(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
-        let rv = g_variant_new_tuple(cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_tuple(cast(children), gsize(n_children)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint16 `GVariant` instance.
     init(uint16 value: UInt16) {
-        let rv = g_variant_new_uint16(guint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint16(guint16(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint32 `GVariant` instance.
     init(uint32 value: UInt32) {
-        let rv = g_variant_new_uint32(guint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint32(guint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint64 `GVariant` instance.
     init(uint64 value: UInt64) {
-        let rv = g_variant_new_uint64(guint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint64(guint64(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -890,7 +890,7 @@ public extension VariantRef {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     init(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) {
-        let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_va(format_string, cast(endptr), cast(app)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 #endif
@@ -910,19 +910,19 @@ public extension VariantRef {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     static func new(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> VariantRef! {
-        let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new boolean `GVariant` instance -- either `true` or `false`.
     static func new(boolean value: Bool) -> VariantRef! {
-        let rv = g_variant_new_boolean(gboolean(value ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_boolean(gboolean(value ? 1 : 0)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new byte `GVariant` instance.
     static func new(byte value: UInt8) -> VariantRef! {
-        let rv = g_variant_new_byte(guint8(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_byte(guint8(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -933,7 +933,7 @@ public extension VariantRef {
     /// The nul terminator character at the end of the string is stored in
     /// the array.
     static func newByte(bytestring string: UnsafePointer<gchar>) -> VariantRef! {
-        let rv = g_variant_new_bytestring(cast(string))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring(cast(string)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -942,13 +942,13 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     static func newBytestringArray(bytestring_array strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> VariantRef! {
-        let rv = g_variant_new_bytestring_array(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring_array(cast(strv), length))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new double `GVariant` instance.
     static func newDouble(CDouble value: gdouble) -> VariantRef! {
-        let rv = g_variant_new_double(value)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_double(value))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -966,7 +966,7 @@ public extension VariantRef {
     /// 
     /// `n_elements` must be the length of the `elements` array.
     static func newFixedArray(fixed_array element_type: VariantTypeProtocol, elements: gconstpointer, nElements n_elements: Int, elementSize element_size: Int) -> VariantRef! {
-        let rv = g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -980,7 +980,7 @@ public extension VariantRef {
     /// Otherwise this function will internally create a copy of the memory (since
     /// GLib 2.60) or (in older versions) fail and exit the process.
     static func newFrom(bytes type: VariantTypeProtocol, bytes: BytesProtocol, trusted: Bool) -> VariantRef! {
-        let rv = g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1014,7 +1014,7 @@ public extension VariantRef {
     /// the memory (since GLib 2.60) or (in older versions) fail and exit the
     /// process.
     static func newFrom(data type: VariantTypeProtocol, data: gconstpointer, size: Int, trusted: Bool, notify: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> VariantRef! {
-        let rv = g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1024,25 +1024,25 @@ public extension VariantRef {
     /// that are sent alongside a D-Bus message.  If you're not interacting
     /// with D-Bus, you probably don't need them.
     static func new(handle value: Int32) -> VariantRef! {
-        let rv = g_variant_new_handle(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_handle(gint32(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new int16 `GVariant` instance.
     static func new(int16 value: Int16) -> VariantRef! {
-        let rv = g_variant_new_int16(gint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int16(gint16(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new int32 `GVariant` instance.
     static func new(int32 value: Int32) -> VariantRef! {
-        let rv = g_variant_new_int32(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int32(gint32(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new int64 `GVariant` instance.
     static func new(int64 value: Int64) -> VariantRef! {
-        let rv = g_variant_new_int64(gint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int64(gint64(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1057,7 +1057,7 @@ public extension VariantRef {
     /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     static func new(maybe child_type: VariantTypeProtocol, child: VariantProtocol) -> VariantRef! {
-        let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1065,7 +1065,7 @@ public extension VariantRef {
     /// `string` must be a valid D-Bus object path.  Use
     /// `g_variant_is_object_path()` if you're not sure.
     static func new(objectPath object_path: UnsafePointer<gchar>) -> VariantRef! {
-        let rv = g_variant_new_object_path(object_path)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_object_path(object_path))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1077,7 +1077,7 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     static func new(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> VariantRef! {
-        let rv = g_variant_new_objv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_objv(cast(strv), length))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1108,7 +1108,7 @@ public extension VariantRef {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     static func newParsedVa(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) -> VariantRef! {
-        let rv = g_variant_new_parsed_va(format, cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_parsed_va(format, cast(app)))
         return rv.map { VariantRef(cast($0)) }
     }
 #endif
@@ -1121,7 +1121,7 @@ public extension VariantRef {
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
     /// `g_variant_is_signature()` if you're not sure.
     static func new(signature: UnsafePointer<gchar>) -> VariantRef! {
-        let rv = g_variant_new_signature(signature)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_signature(signature))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1131,7 +1131,7 @@ public extension VariantRef {
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string](#gvariant-format-strings-maybe-types).
     static func new(string: UnsafePointer<gchar>) -> VariantRef! {
-        let rv = g_variant_new_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_string(string))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1140,7 +1140,7 @@ public extension VariantRef {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     static func new(strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> VariantRef! {
-        let rv = g_variant_new_strv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_strv(cast(strv), length))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1156,7 +1156,7 @@ public extension VariantRef {
     /// it to this function.  It is even possible that `string` is immediately
     /// freed.
     static func newTake(take_string string: UnsafeMutablePointer<gchar>) -> VariantRef! {
-        let rv = g_variant_new_take_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_take_string(string))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1169,25 +1169,25 @@ public extension VariantRef {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     static func new(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> VariantRef! {
-        let rv = g_variant_new_tuple(cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_tuple(cast(children), gsize(n_children)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new uint16 `GVariant` instance.
     static func new(uint16 value: UInt16) -> VariantRef! {
-        let rv = g_variant_new_uint16(guint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint16(guint16(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new uint32 `GVariant` instance.
     static func new(uint32 value: UInt32) -> VariantRef! {
-        let rv = g_variant_new_uint32(guint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint32(guint32(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
     /// Creates a new uint64 `GVariant` instance.
     static func new(uint64 value: UInt64) -> VariantRef! {
-        let rv = g_variant_new_uint64(guint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint64(guint64(value)))
         return rv.map { VariantRef(cast($0)) }
     }
 
@@ -1229,7 +1229,7 @@ public extension VariantRef {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     static func new(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) -> VariantRef! {
-        let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_va(format_string, cast(endptr), cast(app)))
         return rv.map { VariantRef(cast($0)) }
     }
 #endif
@@ -1270,11 +1270,9 @@ public extension VariantRef {
     /// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
     /// guaranteed to handle nesting up to at least 64 levels.
     static func parse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> VariantRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { VariantRef(cast($0)) }
     }
 }
@@ -1527,7 +1525,7 @@ public extension VariantRef {
 /// management for those dictionaries, but the type information would
 /// be shared.
 open class Variant: VariantProtocol {
-    /// Untyped pointer to the underlying `GVariant` instance.
+        /// Untyped pointer to the underlying `GVariant` instance.
     /// For type-safe access, use the generated, typed pointer `variant_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1640,19 +1638,19 @@ open class Variant: VariantProtocol {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public init(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
-        let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new boolean `GVariant` instance -- either `true` or `false`.
     public init(boolean value: Bool) {
-        let rv = g_variant_new_boolean(gboolean(value ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_boolean(gboolean(value ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new byte `GVariant` instance.
     public init(byte value: UInt8) {
-        let rv = g_variant_new_byte(guint8(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_byte(guint8(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1663,7 +1661,7 @@ open class Variant: VariantProtocol {
     /// The nul terminator character at the end of the string is stored in
     /// the array.
     public init(bytestring string: UnsafePointer<gchar>) {
-        let rv = g_variant_new_bytestring(cast(string))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring(cast(string)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1672,13 +1670,13 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public init(bytestring_array strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_bytestring_array(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring_array(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new double `GVariant` instance.
     public init(CDouble value: gdouble) {
-        let rv = g_variant_new_double(value)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_double(value))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1696,7 +1694,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `n_elements` must be the length of the `elements` array.
     public init(fixed_array element_type: VariantTypeProtocol, elements: gconstpointer, nElements n_elements: Int, elementSize element_size: Int) {
-        let rv = g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1710,7 +1708,7 @@ open class Variant: VariantProtocol {
     /// Otherwise this function will internally create a copy of the memory (since
     /// GLib 2.60) or (in older versions) fail and exit the process.
     public init(bytes type: VariantTypeProtocol, bytes: BytesProtocol, trusted: Bool) {
-        let rv = g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1744,7 +1742,7 @@ open class Variant: VariantProtocol {
     /// the memory (since GLib 2.60) or (in older versions) fail and exit the
     /// process.
     public init(data type: VariantTypeProtocol, data: gconstpointer, size: Int, trusted: Bool, notify: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
-        let rv = g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1754,25 +1752,25 @@ open class Variant: VariantProtocol {
     /// that are sent alongside a D-Bus message.  If you're not interacting
     /// with D-Bus, you probably don't need them.
     public init(handle value: Int32) {
-        let rv = g_variant_new_handle(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_handle(gint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int16 `GVariant` instance.
     public init(int16 value: Int16) {
-        let rv = g_variant_new_int16(gint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int16(gint16(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int32 `GVariant` instance.
     public init(int32 value: Int32) {
-        let rv = g_variant_new_int32(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int32(gint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new int64 `GVariant` instance.
     public init(int64 value: Int64) {
-        let rv = g_variant_new_int64(gint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int64(gint64(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1787,7 +1785,7 @@ open class Variant: VariantProtocol {
     /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     public init(maybe child_type: VariantTypeProtocol, child: VariantProtocol) {
-        let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1795,7 +1793,7 @@ open class Variant: VariantProtocol {
     /// `string` must be a valid D-Bus object path.  Use
     /// `g_variant_is_object_path()` if you're not sure.
     public init(objectPath object_path: UnsafePointer<gchar>) {
-        let rv = g_variant_new_object_path(object_path)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_object_path(object_path))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1807,7 +1805,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public init(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_objv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_objv(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1838,7 +1836,7 @@ open class Variant: VariantProtocol {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     public init(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) {
-        let rv = g_variant_new_parsed_va(format, cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_parsed_va(format, cast(app)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 #endif
@@ -1851,7 +1849,7 @@ open class Variant: VariantProtocol {
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
     /// `g_variant_is_signature()` if you're not sure.
     public init(signature: UnsafePointer<gchar>) {
-        let rv = g_variant_new_signature(signature)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_signature(signature))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1861,7 +1859,7 @@ open class Variant: VariantProtocol {
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string](#gvariant-format-strings-maybe-types).
     public init(string: UnsafePointer<gchar>) {
-        let rv = g_variant_new_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_string(string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1870,7 +1868,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public init(strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) {
-        let rv = g_variant_new_strv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_strv(cast(strv), length))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1886,7 +1884,7 @@ open class Variant: VariantProtocol {
     /// it to this function.  It is even possible that `string` is immediately
     /// freed.
     public init(take_string string: UnsafeMutablePointer<gchar>) {
-        let rv = g_variant_new_take_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_take_string(string))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1899,25 +1897,25 @@ open class Variant: VariantProtocol {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public init(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) {
-        let rv = g_variant_new_tuple(cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_tuple(cast(children), gsize(n_children)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint16 `GVariant` instance.
     public init(uint16 value: UInt16) {
-        let rv = g_variant_new_uint16(guint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint16(guint16(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint32 `GVariant` instance.
     public init(uint32 value: UInt32) {
-        let rv = g_variant_new_uint32(guint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint32(guint32(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new uint64 `GVariant` instance.
     public init(uint64 value: UInt64) {
-        let rv = g_variant_new_uint64(guint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint64(guint64(value)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -1959,7 +1957,7 @@ open class Variant: VariantProtocol {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     public init(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) {
-        let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_va(format_string, cast(endptr), cast(app)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 #endif
@@ -1980,19 +1978,19 @@ open class Variant: VariantProtocol {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public static func new(array child_type: VariantTypeProtocol, children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> Variant! {
-        let rv = g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_array(cast(child_type.ptr), cast(children), gsize(n_children)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new boolean `GVariant` instance -- either `true` or `false`.
     public static func new(boolean value: Bool) -> Variant! {
-        let rv = g_variant_new_boolean(gboolean(value ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_boolean(gboolean(value ? 1 : 0)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new byte `GVariant` instance.
     public static func new(byte value: UInt8) -> Variant! {
-        let rv = g_variant_new_byte(guint8(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_byte(guint8(value)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2003,7 +2001,7 @@ open class Variant: VariantProtocol {
     /// The nul terminator character at the end of the string is stored in
     /// the array.
     public static func newByte(bytestring string: UnsafePointer<gchar>) -> Variant! {
-        let rv = g_variant_new_bytestring(cast(string))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring(cast(string)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2012,13 +2010,13 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public static func newBytestringArray(bytestring_array strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> Variant! {
-        let rv = g_variant_new_bytestring_array(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_bytestring_array(cast(strv), length))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new double `GVariant` instance.
     public static func newDouble(CDouble value: gdouble) -> Variant! {
-        let rv = g_variant_new_double(value)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_double(value))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2036,7 +2034,7 @@ open class Variant: VariantProtocol {
     /// 
     /// `n_elements` must be the length of the `elements` array.
     public static func newFixedArray(fixed_array element_type: VariantTypeProtocol, elements: gconstpointer, nElements n_elements: Int, elementSize element_size: Int) -> Variant! {
-        let rv = g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_fixed_array(cast(element_type.ptr), cast(elements), gsize(n_elements), gsize(element_size)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2050,7 +2048,7 @@ open class Variant: VariantProtocol {
     /// Otherwise this function will internally create a copy of the memory (since
     /// GLib 2.60) or (in older versions) fail and exit the process.
     public static func newFrom(bytes type: VariantTypeProtocol, bytes: BytesProtocol, trusted: Bool) -> Variant! {
-        let rv = g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_bytes(cast(type.ptr), cast(bytes.ptr), gboolean(trusted ? 1 : 0)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2084,7 +2082,7 @@ open class Variant: VariantProtocol {
     /// the memory (since GLib 2.60) or (in older versions) fail and exit the
     /// process.
     public static func newFrom(data type: VariantTypeProtocol, data: gconstpointer, size: Int, trusted: Bool, notify: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> Variant! {
-        let rv = g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_from_data(cast(type.ptr), cast(data), gsize(size), gboolean(trusted ? 1 : 0), notify, cast(user_data)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2094,25 +2092,25 @@ open class Variant: VariantProtocol {
     /// that are sent alongside a D-Bus message.  If you're not interacting
     /// with D-Bus, you probably don't need them.
     public static func new(handle value: Int32) -> Variant! {
-        let rv = g_variant_new_handle(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_handle(gint32(value)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new int16 `GVariant` instance.
     public static func new(int16 value: Int16) -> Variant! {
-        let rv = g_variant_new_int16(gint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int16(gint16(value)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new int32 `GVariant` instance.
     public static func new(int32 value: Int32) -> Variant! {
-        let rv = g_variant_new_int32(gint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int32(gint32(value)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new int64 `GVariant` instance.
     public static func new(int64 value: Int64) -> Variant! {
-        let rv = g_variant_new_int64(gint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_int64(gint64(value)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2127,7 +2125,7 @@ open class Variant: VariantProtocol {
     /// If `child` is a floating reference (see `g_variant_ref_sink()`), the new
     /// instance takes ownership of `child`.
     public static func new(maybe child_type: VariantTypeProtocol, child: VariantProtocol) -> Variant! {
-        let rv = g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_maybe(cast(child_type.ptr), cast(child.ptr)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2135,7 +2133,7 @@ open class Variant: VariantProtocol {
     /// `string` must be a valid D-Bus object path.  Use
     /// `g_variant_is_object_path()` if you're not sure.
     public static func new(objectPath object_path: UnsafePointer<gchar>) -> Variant! {
-        let rv = g_variant_new_object_path(object_path)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_object_path(object_path))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2147,7 +2145,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public static func new(objv strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> Variant! {
-        let rv = g_variant_new_objv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_objv(cast(strv), length))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2178,7 +2176,7 @@ open class Variant: VariantProtocol {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     public static func newParsedVa(parsed_va format: UnsafePointer<gchar>, app: UnsafeMutablePointer<CVaListPointer>) -> Variant! {
-        let rv = g_variant_new_parsed_va(format, cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_parsed_va(format, cast(app)))
         return rv.map { Variant(cast($0)) }
     }
 #endif
@@ -2191,7 +2189,7 @@ open class Variant: VariantProtocol {
     /// `string`.  `string` must be a valid D-Bus type signature.  Use
     /// `g_variant_is_signature()` if you're not sure.
     public static func new(signature: UnsafePointer<gchar>) -> Variant! {
-        let rv = g_variant_new_signature(signature)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_signature(signature))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2201,7 +2199,7 @@ open class Variant: VariantProtocol {
     /// potentially-`nil` strings, use `g_variant_new()` with `ms` as the
     /// [format string](#gvariant-format-strings-maybe-types).
     public static func new(string: UnsafePointer<gchar>) -> Variant! {
-        let rv = g_variant_new_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_string(string))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2210,7 +2208,7 @@ open class Variant: VariantProtocol {
     /// 
     /// If `length` is -1 then `strv` is `nil`-terminated.
     public static func new(strv: UnsafePointer<UnsafePointer<gchar>>, length: gssize) -> Variant! {
-        let rv = g_variant_new_strv(cast(strv), length)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_strv(cast(strv), length))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2226,7 +2224,7 @@ open class Variant: VariantProtocol {
     /// it to this function.  It is even possible that `string` is immediately
     /// freed.
     public static func newTake(take_string string: UnsafeMutablePointer<gchar>) -> Variant! {
-        let rv = g_variant_new_take_string(string)
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_take_string(string))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2239,25 +2237,25 @@ open class Variant: VariantProtocol {
     /// If the `children` are floating references (see `g_variant_ref_sink()`), the
     /// new instance takes ownership of them as if via `g_variant_ref_sink()`.
     public static func new(tuple children: UnsafePointer<UnsafePointer<GVariant>>, nChildren n_children: Int) -> Variant! {
-        let rv = g_variant_new_tuple(cast(children), gsize(n_children))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_tuple(cast(children), gsize(n_children)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new uint16 `GVariant` instance.
     public static func new(uint16 value: UInt16) -> Variant! {
-        let rv = g_variant_new_uint16(guint16(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint16(guint16(value)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new uint32 `GVariant` instance.
     public static func new(uint32 value: UInt32) -> Variant! {
-        let rv = g_variant_new_uint32(guint32(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint32(guint32(value)))
         return rv.map { Variant(cast($0)) }
     }
 
     /// Creates a new uint64 `GVariant` instance.
     public static func new(uint64 value: UInt64) -> Variant! {
-        let rv = g_variant_new_uint64(guint64(value))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_uint64(guint64(value)))
         return rv.map { Variant(cast($0)) }
     }
 
@@ -2299,7 +2297,7 @@ open class Variant: VariantProtocol {
     /// or by passing it to another `g_variant_new()` call.
 #if !os(Linux)
     public static func new(va format_string: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>, app: UnsafeMutablePointer<CVaListPointer>) -> Variant! {
-        let rv = g_variant_new_va(format_string, cast(endptr), cast(app))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_new_va(format_string, cast(endptr), cast(app)))
         return rv.map { Variant(cast($0)) }
     }
 #endif
@@ -2340,21 +2338,20 @@ open class Variant: VariantProtocol {
     /// which would result in a `G_VARIANT_PARSE_ERROR_RECURSION` error. `GVariant` is
     /// guaranteed to handle nesting up to at least 64 levels.
     public static func parse(type: VariantTypeProtocol, text: UnsafePointer<gchar>, limit: UnsafePointer<gchar>, endptr: UnsafePointer<UnsafePointer<gchar>>) throws -> Variant! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_parse(cast(type.ptr), text, limit, cast(endptr), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Variant(cast($0)) }
     }
 
 }
 
-// MARK: - no Variant properties
+// MARK: no Variant properties
 
-// MARK: - no signals
+// MARK: no Variant signals
 
 
+// MARK: Variant Record: VariantProtocol extension (methods and fields)
 public extension VariantProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariant` instance.
     var variant_ptr: UnsafeMutablePointer<GVariant> { return ptr.assumingMemoryBound(to: GVariant.self) }
@@ -2371,7 +2368,7 @@ public extension VariantProtocol {
     /// 
     /// The returned value is always in normal form and is marked as trusted.
     func byteswap() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_byteswap(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_byteswap(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2397,7 +2394,7 @@ public extension VariantProtocol {
     /// Classifies `value` according to its top-level type.
     func classify() -> GVariantClass {
         let rv = g_variant_classify(cast(variant_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Compares `one` and `two`.
@@ -2419,9 +2416,9 @@ public extension VariantProtocol {
     /// 
     /// If you only require an equality comparison, `g_variant_equal()` is more
     /// general.
-    func compare(two: VariantProtocol) -> CInt {
-        let rv = g_variant_compare(cast(variant_ptr), cast(two.ptr))
-        return CInt(rv)
+    func compare(two: VariantProtocol) -> Int {
+        let rv: Int = cast(g_variant_compare(cast(variant_ptr), cast(two.ptr)))
+        return Int(rv)
     }
 
     /// Similar to `g_variant_get_bytestring()` except that instead of
@@ -2429,7 +2426,7 @@ public extension VariantProtocol {
     /// 
     /// The return value must be freed using `g_free()`.
     func dupBytestring(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<gchar>! {
-        let rv = g_variant_dup_bytestring(cast(variant_ptr), cast(length))
+        let rv: UnsafeMutablePointer<gchar>! = cast(g_variant_dup_bytestring(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2444,7 +2441,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func dupBytestringArray(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_variant_dup_bytestring_array(cast(variant_ptr), cast(length))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_variant_dup_bytestring_array(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2459,7 +2456,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func dupObjv(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_variant_dup_objv(cast(variant_ptr), cast(length))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_variant_dup_objv(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2470,8 +2467,8 @@ public extension VariantProtocol {
     /// 
     /// The return value must be freed using `g_free()`.
     func dupString(length: UnsafeMutablePointer<Int>) -> String! {
-        let rv = g_variant_dup_string(cast(variant_ptr), cast(length))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_dup_string(cast(variant_ptr), cast(length)))
+        return cast(rv)
     }
 
     /// Gets the contents of an array of strings `GVariant`.  This call
@@ -2485,7 +2482,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func dupStrv(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_variant_dup_strv(cast(variant_ptr), cast(length))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_variant_dup_strv(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2539,7 +2536,7 @@ public extension VariantProtocol {
     /// 
     /// The return value remains valid as long as `value` exists.
     func getBytestring() -> UnsafePointer<gchar>! {
-        let rv = g_variant_get_bytestring(cast(variant_ptr))
+        let rv: UnsafePointer<gchar>! = cast(g_variant_get_bytestring(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2554,7 +2551,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func getBytestringArray(length: UnsafeMutablePointer<Int>) -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv = g_variant_get_bytestring_array(cast(variant_ptr), cast(length))
+        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_variant_get_bytestring_array(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2580,7 +2577,7 @@ public extension VariantProtocol {
     /// 
     /// This function is `O(1)`.
     func getChildValue(index_: Int) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_get_child_value(cast(variant_ptr), gsize(index_))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_child_value(cast(variant_ptr), gsize(index_)))
         return cast(rv)
     }
 
@@ -2610,7 +2607,7 @@ public extension VariantProtocol {
     /// explicitly (by storing the type and/or endianness in addition to the
     /// serialised data).
     func getData() -> gconstpointer! {
-        let rv = g_variant_get_data(cast(variant_ptr))
+        let rv: gconstpointer! = cast(g_variant_get_data(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2619,7 +2616,7 @@ public extension VariantProtocol {
     /// `g_variant_get_data()`, except that the returned `GBytes` holds
     /// a reference to the variant data.
     func getDataAsBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_variant_get_data_as_bytes(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_variant_get_data_as_bytes(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2627,9 +2624,9 @@ public extension VariantProtocol {
     /// 
     /// It is an error to call this function with a `value` of any type
     /// other than `G_VARIANT_TYPE_DOUBLE`.
-    func getDouble() -> gdouble {
-        let rv = g_variant_get_double(cast(variant_ptr))
-        return rv
+    func getDouble() -> Double {
+        let rv: Double = cast(g_variant_get_double(cast(variant_ptr)))
+        return cast(rv)
     }
 
     /// Provides access to the serialised data for an array of fixed-sized
@@ -2659,7 +2656,7 @@ public extension VariantProtocol {
     /// `n_elements`, which must be non-`nil`, is set equal to the number of
     /// items in the array.
     func getFixedArray(nElements n_elements: UnsafeMutablePointer<Int>, elementSize element_size: Int) -> gconstpointer! {
-        let rv = g_variant_get_fixed_array(cast(variant_ptr), cast(n_elements), gsize(element_size))
+        let rv: gconstpointer! = cast(g_variant_get_fixed_array(cast(variant_ptr), cast(n_elements), gsize(element_size)))
         return cast(rv)
     }
 
@@ -2706,7 +2703,7 @@ public extension VariantProtocol {
     /// Given a maybe-typed `GVariant` instance, extract its value.  If the
     /// value is Nothing, then this function returns `nil`.
     func getMaybe() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_get_maybe(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_maybe(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2734,7 +2731,7 @@ public extension VariantProtocol {
     /// value from this function to guarantee ownership of a single non-floating
     /// reference to it.
     func getNormalForm() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_get_normal_form(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_normal_form(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2749,7 +2746,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func getObjv(length: UnsafeMutablePointer<Int>) -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv = g_variant_get_objv(cast(variant_ptr), cast(length))
+        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_variant_get_objv(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2784,8 +2781,8 @@ public extension VariantProtocol {
     /// 
     /// The return value remains valid as long as `value` exists.
     func getString(length: UnsafeMutablePointer<Int>) -> String! {
-        let rv = g_variant_get_string(cast(variant_ptr), cast(length))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_get_string(cast(variant_ptr), cast(length)))
+        return cast(rv)
     }
 
     /// Gets the contents of an array of strings `GVariant`.  This call
@@ -2799,7 +2796,7 @@ public extension VariantProtocol {
     /// For an empty array, `length` will be set to 0 and a pointer to a
     /// `nil` pointer will be returned.
     func getStrv(length: UnsafeMutablePointer<Int>) -> UnsafePointer<UnsafePointer<gchar>>! {
-        let rv = g_variant_get_strv(cast(variant_ptr), cast(length))
+        let rv: UnsafePointer<UnsafePointer<gchar>>! = cast(g_variant_get_strv(cast(variant_ptr), cast(length)))
         return cast(rv)
     }
 
@@ -2808,7 +2805,7 @@ public extension VariantProtocol {
     /// The return value is valid for the lifetime of `value` and must not
     /// be freed.
     func getType() -> UnsafePointer<GVariantType>! {
-        let rv = g_variant_get_type(cast(variant_ptr))
+        let rv: UnsafePointer<GVariantType>! = cast(g_variant_get_type(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2816,8 +2813,8 @@ public extension VariantProtocol {
     /// `g_variant_type_peek_string()`, this string is nul-terminated.  This
     /// string belongs to `GVariant` and must not be freed.
     func getTypeString() -> String! {
-        let rv = g_variant_get_type_string(cast(variant_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_get_type_string(cast(variant_ptr)))
+        return cast(rv)
     }
 
     /// Returns the 16-bit unsigned integer value of `value`.
@@ -2881,7 +2878,7 @@ public extension VariantProtocol {
     /// Unboxes `value`.  The result is the `GVariant` instance that was
     /// contained in `value`.
     func getVariant() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_get_variant(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_variant(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2894,9 +2891,9 @@ public extension VariantProtocol {
     /// 
     /// The type of `value` is `gconstpointer` only to allow use of this
     /// function with `GHashTable`.  `value` must be a `GVariant`.
-    func hash() -> CUnsignedInt {
-        let rv = g_variant_hash(cast(variant_ptr))
-        return CUnsignedInt(rv)
+    func hash() -> Int {
+        let rv: Int = cast(g_variant_hash(cast(variant_ptr)))
+        return Int(rv)
     }
 
     /// Checks if a value has a type matching the provided type.
@@ -2914,7 +2911,7 @@ public extension VariantProtocol {
     /// A reference is taken to `value` and will be released only when
     /// `g_variant_iter_free()` is called.
     func iterNew() -> UnsafeMutablePointer<GVariantIter>! {
-        let rv = g_variant_iter_new(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariantIter>! = cast(g_variant_iter_new(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -2944,7 +2941,7 @@ public extension VariantProtocol {
     /// This function is currently implemented with a linear scan.  If you
     /// plan to do many lookups then `GVariantDict` may be more efficient.
     func lookupValue(key: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_lookup_value(cast(variant_ptr), key, cast(expected_type.ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_lookup_value(cast(variant_ptr), key, cast(expected_type.ptr)))
         return cast(rv)
     }
 
@@ -2971,8 +2968,8 @@ public extension VariantProtocol {
     /// If `type_annotate` is `true`, then type information is included in
     /// the output.
     func print(typeAnnotate type_annotate: Bool) -> String! {
-        let rv = g_variant_print(cast(variant_ptr), gboolean(type_annotate ? 1 : 0))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_print(cast(variant_ptr), gboolean(type_annotate ? 1 : 0)))
+        return cast(rv)
     }
 
     /// Behaves as `g_variant_print()`, but operates on a `GString`.
@@ -2980,13 +2977,13 @@ public extension VariantProtocol {
     /// If `string` is non-`nil` then it is appended to and returned.  Else,
     /// a new empty `GString` is allocated and it is returned.
     func print(string: StringTypeProtocol, typeAnnotate type_annotate: Bool) -> UnsafeMutablePointer<GString>! {
-        let rv = g_variant_print_string(cast(variant_ptr), cast(string.ptr), gboolean(type_annotate ? 1 : 0))
+        let rv: UnsafeMutablePointer<GString>! = cast(g_variant_print_string(cast(variant_ptr), cast(string.ptr), gboolean(type_annotate ? 1 : 0)))
         return cast(rv)
     }
 
     /// Increases the reference count of `value`.
-    func ref() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_ref(cast(variant_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GVariant>! {
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_ref(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -3012,8 +3009,8 @@ public extension VariantProtocol {
     /// makes certain common styles of programming much easier while still
     /// maintaining normal refcounting semantics in situations where values
     /// are not floating.
-    func refSink() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_ref_sink(cast(variant_ptr))
+    @discardableResult func refSink() -> UnsafeMutablePointer<GVariant>! {
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_ref_sink(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -3067,7 +3064,7 @@ public extension VariantProtocol {
     /// an additional reference on top of that one is added.  It is best to
     /// avoid this situation.
     func takeRef() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_take_ref(cast(variant_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_take_ref(cast(variant_ptr)))
         return cast(rv)
     }
 
@@ -3093,7 +3090,7 @@ public extension VariantProtocol {
     /// 
     /// For more details on its usage and about the parameters, see `g_log_structured()`.
     func logVariant(logDomain log_domain: UnsafePointer<gchar>, logLevel log_level: LogLevelFlags) {
-        g_log_variant(log_domain, log_level, cast(variant_ptr))
+        g_log_variant(log_domain, log_level.value, cast(variant_ptr))
     
     }
     /// Returns the boolean value of `value`.
@@ -3164,7 +3161,7 @@ public extension VariantProtocol {
         /// 
         /// The return value remains valid as long as `value` exists.
         get {
-            let rv = g_variant_get_bytestring(cast(variant_ptr))
+            let rv: UnsafePointer<gchar>! = cast(g_variant_get_bytestring(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3221,7 +3218,7 @@ public extension VariantProtocol {
         /// explicitly (by storing the type and/or endianness in addition to the
         /// serialised data).
         get {
-            let rv = g_variant_get_data(cast(variant_ptr))
+            let rv: gconstpointer! = cast(g_variant_get_data(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3236,7 +3233,7 @@ public extension VariantProtocol {
         /// `g_variant_get_data()`, except that the returned `GBytes` holds
         /// a reference to the variant data.
         get {
-            let rv = g_variant_get_data_as_bytes(cast(variant_ptr))
+            let rv: UnsafeMutablePointer<GBytes>! = cast(g_variant_get_data_as_bytes(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3245,14 +3242,14 @@ public extension VariantProtocol {
     /// 
     /// It is an error to call this function with a `value` of any type
     /// other than `G_VARIANT_TYPE_DOUBLE`.
-    var double: gdouble {
+    var double: Double {
         /// Returns the double precision floating point value of `value`.
         /// 
         /// It is an error to call this function with a `value` of any type
         /// other than `G_VARIANT_TYPE_DOUBLE`.
         get {
-            let rv = g_variant_get_double(cast(variant_ptr))
-            return rv
+            let rv: Double = cast(g_variant_get_double(cast(variant_ptr)))
+            return cast(rv)
         }
     }
 
@@ -3397,7 +3394,7 @@ public extension VariantProtocol {
         /// Given a maybe-typed `GVariant` instance, extract its value.  If the
         /// value is Nothing, then this function returns `nil`.
         get {
-            let rv = g_variant_get_maybe(cast(variant_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_maybe(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3450,7 +3447,7 @@ public extension VariantProtocol {
         /// value from this function to guarantee ownership of a single non-floating
         /// reference to it.
         get {
-            let rv = g_variant_get_normal_form(cast(variant_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_normal_form(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3494,7 +3491,7 @@ public extension VariantProtocol {
         /// The return value is valid for the lifetime of `value` and must not
         /// be freed.
         get {
-            let rv = g_variant_get_type(cast(variant_ptr))
+            let rv: UnsafePointer<GVariantType>! = cast(g_variant_get_type(cast(variant_ptr)))
             return cast(rv)
         }
     }
@@ -3507,8 +3504,8 @@ public extension VariantProtocol {
         /// `g_variant_type_peek_string()`, this string is nul-terminated.  This
         /// string belongs to `GVariant` and must not be freed.
         get {
-            let rv = g_variant_get_type_string(cast(variant_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_variant_get_type_string(cast(variant_ptr)))
+            return cast(rv)
         }
     }
 
@@ -3563,10 +3560,12 @@ public extension VariantProtocol {
         /// Unboxes `value`.  The result is the `GVariant` instance that was
         /// contained in `value`.
         get {
-            let rv = g_variant_get_variant(cast(variant_ptr))
+            let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_get_variant(cast(variant_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

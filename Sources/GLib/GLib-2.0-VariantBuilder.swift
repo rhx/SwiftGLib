@@ -15,7 +15,7 @@ import CGLib
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
 public protocol VariantBuilderProtocol {
-    /// Untyped pointer to the underlying `GVariantBuilder` instance.
+        /// Untyped pointer to the underlying `GVariantBuilder` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GVariantBuilder` instance.
@@ -34,7 +34,7 @@ public protocol VariantBuilderProtocol {
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
 public struct VariantBuilderRef: VariantBuilderProtocol {
-    /// Untyped pointer to the underlying `GVariantBuilder` instance.
+        /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -89,7 +89,7 @@ public extension VariantBuilderRef {
     /// the stack of the calling function and initialise it with
     /// `g_variant_builder_init()`.
     init( type: VariantTypeProtocol) {
-        let rv = g_variant_builder_new(cast(type.ptr))
+        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_new(cast(type.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -106,7 +106,7 @@ public extension VariantBuilderRef {
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
 open class VariantBuilder: VariantBuilderProtocol {
-    /// Untyped pointer to the underlying `GVariantBuilder` instance.
+        /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -209,18 +209,19 @@ open class VariantBuilder: VariantBuilderProtocol {
     /// the stack of the calling function and initialise it with
     /// `g_variant_builder_init()`.
     public init( type: VariantTypeProtocol) {
-        let rv = g_variant_builder_new(cast(type.ptr))
+        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_new(cast(type.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no VariantBuilder properties
+// MARK: no VariantBuilder properties
 
-// MARK: - no signals
+// MARK: no VariantBuilder signals
 
 
+// MARK: VariantBuilder Record: VariantBuilderProtocol extension (methods and fields)
 public extension VariantBuilderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantBuilder` instance.
     var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder> { return ptr.assumingMemoryBound(to: GVariantBuilder.self) }
@@ -296,7 +297,7 @@ public extension VariantBuilderProtocol {
     /// have been added; in this case it is impossible to infer the type of
     /// the empty array.
     func end() -> UnsafeMutablePointer<GVariant>! {
-        let rv = g_variant_builder_end(cast(variant_builder_ptr))
+        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_builder_end(cast(variant_builder_ptr)))
         return cast(rv)
     }
 
@@ -381,8 +382,8 @@ public extension VariantBuilderProtocol {
     /// 
     /// Don't call this on stack-allocated `GVariantBuilder` instances or bad
     /// things will happen.
-    func ref() -> UnsafeMutablePointer<GVariantBuilder>! {
-        let rv = g_variant_builder_ref(cast(variant_builder_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GVariantBuilder>! {
+        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_ref(cast(variant_builder_ptr)))
         return cast(rv)
     }
 
@@ -397,6 +398,8 @@ public extension VariantBuilderProtocol {
         g_variant_builder_unref(cast(variant_builder_ptr))
     
     }
+
+
 }
 
 

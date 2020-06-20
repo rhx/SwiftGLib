@@ -11,7 +11,7 @@ import CGLib
 /// considered private and should only be accessed with the following
 /// functions.
 public protocol IOChannelProtocol {
-    /// Untyped pointer to the underlying `GIOChannel` instance.
+        /// Untyped pointer to the underlying `GIOChannel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GIOChannel` instance.
@@ -26,7 +26,7 @@ public protocol IOChannelProtocol {
 /// considered private and should only be accessed with the following
 /// functions.
 public struct IOChannelRef: IOChannelProtocol {
-    /// Untyped pointer to the underlying `GIOChannel` instance.
+        /// Untyped pointer to the underlying `GIOChannel` instance.
     /// For type-safe access, use the generated, typed pointer `io_channel_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -77,11 +77,9 @@ public extension IOChannelRef {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_io_channel_new_file(String_, mode, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_new_file(String_, mode, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -108,7 +106,7 @@ public extension IOChannelRef {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     init(unix fd: CInt) {
-        let rv = g_io_channel_unix_new(fd)
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_unix_new(fd))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
@@ -117,11 +115,9 @@ public extension IOChannelRef {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     static func new(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws -> IOChannelRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_io_channel_new_file(String_, mode, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_new_file(String_, mode, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { IOChannelRef(cast($0)) }
     }
 
@@ -148,7 +144,7 @@ public extension IOChannelRef {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     static func unixNew(unix fd: CInt) -> IOChannelRef! {
-        let rv = g_io_channel_unix_new(fd)
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_unix_new(fd))
         return rv.map { IOChannelRef(cast($0)) }
     }
 }
@@ -161,7 +157,7 @@ public extension IOChannelRef {
 /// considered private and should only be accessed with the following
 /// functions.
 open class IOChannel: IOChannelProtocol {
-    /// Untyped pointer to the underlying `GIOChannel` instance.
+        /// Untyped pointer to the underlying `GIOChannel` instance.
     /// For type-safe access, use the generated, typed pointer `io_channel_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -260,11 +256,9 @@ open class IOChannel: IOChannelProtocol {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     public init(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_io_channel_new_file(String_, mode, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_new_file(String_, mode, &error))
+        if let error = error { throw ErrorType(error) }
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -291,7 +285,7 @@ open class IOChannel: IOChannelProtocol {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     public init(unix fd: CInt) {
-        let rv = g_io_channel_unix_new(fd)
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_unix_new(fd))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -301,11 +295,9 @@ open class IOChannel: IOChannelProtocol {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     public static func new(file String_: UnsafePointer<gchar>, mode: UnsafePointer<gchar>) throws -> IOChannel! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_io_channel_new_file(String_, mode, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_new_file(String_, mode, &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { IOChannel(cast($0)) }
     }
 
@@ -332,17 +324,18 @@ open class IOChannel: IOChannelProtocol {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     public static func unixNew(unix fd: CInt) -> IOChannel! {
-        let rv = g_io_channel_unix_new(fd)
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_unix_new(fd))
         return rv.map { IOChannel(cast($0)) }
     }
 
 }
 
-// MARK: - no IOChannel properties
+// MARK: no IOChannel properties
 
-// MARK: - no signals
+// MARK: no IOChannel signals
 
 
+// MARK: IOChannel Record: IOChannelProtocol extension (methods and fields)
 public extension IOChannelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GIOChannel` instance.
     var io_channel_ptr: UnsafeMutablePointer<GIOChannel> { return ptr.assumingMemoryBound(to: GIOChannel.self) }
@@ -360,12 +353,10 @@ public extension IOChannelProtocol {
 
     /// Flushes the write buffer for the GIOChannel.
     func flush() throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_flush(cast(io_channel_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This function returns a `GIOCondition` depending on whether there
@@ -373,7 +364,7 @@ public extension IOChannelProtocol {
     /// the `GIOChannel`. Only the flags `G_IO_IN` and `G_IO_OUT` may be set.
     func getBufferCondition() -> GIOCondition {
         let rv = g_io_channel_get_buffer_condition(cast(io_channel_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the buffer size.
@@ -401,8 +392,8 @@ public extension IOChannelProtocol {
     /// The internal encoding is always UTF-8. The encoding `nil`
     /// makes the channel safe for binary data.
     func getEncoding() -> String! {
-        let rv = g_io_channel_get_encoding(cast(io_channel_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_io_channel_get_encoding(cast(io_channel_ptr)))
+        return cast(rv)
     }
 
     /// Gets the current flags for a `GIOChannel`, including read-only
@@ -416,15 +407,15 @@ public extension IOChannelProtocol {
     /// the internal values of these flags.
     func getFlags() -> GIOFlags {
         let rv = g_io_channel_get_flags(cast(io_channel_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// This returns the string that `GIOChannel` uses to determine
     /// where in the file a line break occurs. A value of `nil`
     /// indicates autodetection.
     func getLineTerm(length: UnsafeMutablePointer<CInt>) -> String! {
-        let rv = g_io_channel_get_line_term(cast(io_channel_ptr), cast(length))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_io_channel_get_line_term(cast(io_channel_ptr), cast(length)))
+        return cast(rv)
     }
 
     /// Initializes a `GIOChannel` struct.
@@ -443,17 +434,15 @@ public extension IOChannelProtocol {
     /// Use g_io_channel_read_chars() instead.
     @available(*, deprecated) func read(buf: UnsafeMutablePointer<gchar>, count: Int, bytesRead bytes_read: UnsafeMutablePointer<Int>) -> GIOError {
         let rv = g_io_channel_read(cast(io_channel_ptr), buf, gsize(count), cast(bytes_read))
-        return rv
+        return cast(rv)
     }
 
     /// Replacement for `g_io_channel_read()` with the new API.
     func readChars(buf: UnsafeMutablePointer<gchar>, count: Int, bytesRead bytes_read: UnsafeMutablePointer<Int>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_read_chars(cast(io_channel_ptr), cast(buf), gsize(count), cast(bytes_read), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a line, including the terminating `character(s)`,
@@ -461,48 +450,40 @@ public extension IOChannelProtocol {
     /// `str_return` will contain allocated memory if the return
     /// is `G_IO_STATUS_NORMAL`.
     func readLine(strReturn str_return: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, length: UnsafeMutablePointer<Int>, terminatorPos terminator_pos: UnsafeMutablePointer<Int>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_read_line(cast(io_channel_ptr), cast(str_return), cast(length), cast(terminator_pos), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a line from a `GIOChannel`, using a `GString` as a buffer.
     func readLineString(buffer: StringTypeProtocol, terminatorPos terminator_pos: UnsafeMutablePointer<Int>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_read_line_string(cast(io_channel_ptr), cast(buffer.ptr), cast(terminator_pos), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads all the remaining data from the file.
     func readToEnd(strReturn str_return: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, length: UnsafeMutablePointer<Int>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_read_to_end(cast(io_channel_ptr), cast(str_return), cast(length), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Reads a Unicode character from `channel`.
     /// This function cannot be called on a channel with `nil` encoding.
     func readUnichar(thechar: UnsafeMutablePointer<gunichar>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_read_unichar(cast(io_channel_ptr), cast(thechar), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Increments the reference count of a `GIOChannel`.
-    func ref() -> UnsafeMutablePointer<GIOChannel>! {
-        let rv = g_io_channel_ref(cast(io_channel_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GIOChannel>! {
+        let rv: UnsafeMutablePointer<GIOChannel>! = cast(g_io_channel_ref(cast(io_channel_ptr)))
         return cast(rv)
     }
 
@@ -513,17 +494,15 @@ public extension IOChannelProtocol {
     /// Use g_io_channel_seek_position() instead.
     @available(*, deprecated) func seek(offset: Int64, type: SeekType) -> GIOError {
         let rv = g_io_channel_seek(cast(io_channel_ptr), gint64(offset), type)
-        return rv
+        return cast(rv)
     }
 
     /// Replacement for `g_io_channel_seek()` with the new API.
     func seekPosition(offset: Int64, type: SeekType) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_seek_position(cast(io_channel_ptr), gint64(offset), type, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Sets the buffer size.
@@ -602,22 +581,18 @@ public extension IOChannelProtocol {
     /// they are "seekable", cannot call `g_io_channel_write_chars()` after
     /// calling one of the API "read" functions.
     func set(encoding: UnsafePointer<gchar>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_set_encoding(cast(io_channel_ptr), encoding, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Sets the (writeable) flags in `channel` to (`flags` & `G_IO_FLAG_SET_MASK`).
     func set(flags: IOFlags) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_io_channel_set_flags(cast(io_channel_ptr), flags, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        var error: UnsafeMutablePointer<GError>?
+        let rv = g_io_channel_set_flags(cast(io_channel_ptr), flags.value, &error)
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// This sets the string that `GIOChannel` uses to determine
@@ -631,21 +606,19 @@ public extension IOChannelProtocol {
     /// flushed if `flush` is `true`. The channel will not be freed until the
     /// last reference is dropped using `g_io_channel_unref()`.
     func shutdown(flush: Bool) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_shutdown(cast(io_channel_ptr), gboolean(flush ? 1 : 0), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Returns the file descriptor of the `GIOChannel`.
     /// 
     /// On Windows this function returns the file descriptor or socket of
     /// the `GIOChannel`.
-    func unixGetFd() -> CInt {
-        let rv = g_io_channel_unix_get_fd(cast(io_channel_ptr))
-        return CInt(rv)
+    func unixGetFd() -> Int {
+        let rv: Int = cast(g_io_channel_unix_get_fd(cast(io_channel_ptr)))
+        return Int(rv)
     }
 
     /// Decrements the reference count of a `GIOChannel`.
@@ -660,7 +633,7 @@ public extension IOChannelProtocol {
     /// Use g_io_channel_write_chars() instead.
     @available(*, deprecated) func write(buf: UnsafePointer<gchar>, count: Int, bytesWritten bytes_written: UnsafeMutablePointer<Int>) -> GIOError {
         let rv = g_io_channel_write(cast(io_channel_ptr), buf, gsize(count), cast(bytes_written))
-        return rv
+        return cast(rv)
     }
 
     /// Replacement for `g_io_channel_write()` with the new API.
@@ -670,30 +643,26 @@ public extension IOChannelProtocol {
     /// may only be made on a channel from which data has been read in the
     /// cases described in the documentation for g_io_channel_set_encoding ().
     func writeChars(buf: UnsafePointer<gchar>, count: gssize, bytesWritten bytes_written: UnsafeMutablePointer<Int>) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_write_chars(cast(io_channel_ptr), cast(buf), count, cast(bytes_written), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Writes a Unicode character to `channel`.
     /// This function cannot be called on a channel with `nil` encoding.
     func writeUnichar(thechar: gunichar) throws -> GIOStatus {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_io_channel_write_unichar(cast(io_channel_ptr), thechar, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Adds the `GIOChannel` into the default main loop context
     /// with the default priority.
-    func ioAddWatch(condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-        let rv = g_io_add_watch(cast(io_channel_ptr), condition, func_, cast(user_data))
-        return CUnsignedInt(rv)
+    func ioAddWatch(condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer) -> Int {
+        let rv: Int = cast(g_io_add_watch(cast(io_channel_ptr), condition.value, func_, cast(user_data)))
+        return Int(rv)
     }
 
     /// Adds the `GIOChannel` into the default main loop context
@@ -702,9 +671,9 @@ public extension IOChannelProtocol {
     /// This internally creates a main loop source using `g_io_create_watch()`
     /// and attaches it to the main loop context with `g_source_attach()`.
     /// You can do these steps manually if you need greater control.
-    func ioAddWatchFull(priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> CUnsignedInt {
-        let rv = g_io_add_watch_full(cast(io_channel_ptr), gint(priority), condition, func_, cast(user_data), notify)
-        return CUnsignedInt(rv)
+    func ioAddWatchFull(priority: CInt, condition: IOCondition, func_: @escaping IOFunc, userData user_data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) -> Int {
+        let rv: Int = cast(g_io_add_watch_full(cast(io_channel_ptr), gint(priority), condition.value, func_, cast(user_data), notify))
+        return Int(rv)
     }
 
     /// Creates a `GSource` that's dispatched when `condition` is met for the
@@ -722,7 +691,7 @@ public extension IOChannelProtocol {
     /// puts the socket in non-blocking mode. This is a side-effect of the
     /// implementation and unavoidable.
     func ioCreateWatch(condition: IOCondition) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_io_create_watch(cast(io_channel_ptr), condition)
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_io_create_watch(cast(io_channel_ptr), condition.value))
         return cast(rv)
     }
     /// This function returns a `GIOCondition` depending on whether there
@@ -734,7 +703,7 @@ public extension IOChannelProtocol {
         /// the `GIOChannel`. Only the flags `G_IO_IN` and `G_IO_OUT` may be set.
         get {
             let rv = g_io_channel_get_buffer_condition(cast(io_channel_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -814,8 +783,47 @@ public extension IOChannelProtocol {
         /// The internal encoding is always UTF-8. The encoding `nil`
         /// makes the channel safe for binary data.
         get {
-            let rv = g_io_channel_get_encoding(cast(io_channel_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_io_channel_get_encoding(cast(io_channel_ptr)))
+            return cast(rv)
+        }
+        /// Sets the encoding for the input/output of the channel.
+        /// The internal encoding is always UTF-8. The default encoding
+        /// for the external file is UTF-8.
+        /// 
+        /// The encoding `nil` is safe to use with binary data.
+        /// 
+        /// The encoding can only be set if one of the following conditions
+        /// is true:
+        /// 
+        /// - The channel was just created, and has not been written to or read from yet.
+        /// 
+        /// - The channel is write-only.
+        /// 
+        /// - The channel is a file, and the file pointer was just repositioned
+        ///   by a call to `g_io_channel_seek_position()`. (This flushes all the
+        ///   internal buffers.)
+        /// 
+        /// - The current encoding is `nil` or UTF-8.
+        /// 
+        /// - One of the (new API) read functions has just returned `G_IO_STATUS_EOF`
+        ///   (or, in the case of `g_io_channel_read_to_end()`, `G_IO_STATUS_NORMAL`).
+        /// 
+        /// -  One of the functions `g_io_channel_read_chars()` or
+        ///    `g_io_channel_read_unichar()` has returned `G_IO_STATUS_AGAIN` or
+        ///    `G_IO_STATUS_ERROR`. This may be useful in the case of
+        ///    `G_CONVERT_ERROR_ILLEGAL_SEQUENCE`.
+        ///    Returning one of these statuses from `g_io_channel_read_line()`,
+        ///    `g_io_channel_read_line_string()`, or `g_io_channel_read_to_end()`
+        ///    does not guarantee that the encoding can be changed.
+        /// 
+        /// Channels which do not meet one of the above conditions cannot call
+        /// `g_io_channel_seek_position()` with an offset of `G_SEEK_CUR`, and, if
+        /// they are "seekable", cannot call `g_io_channel_write_chars()` after
+        /// calling one of the API "read" functions.
+        nonmutating set {
+            var err: UnsafeMutablePointer<GError>?
+            _ = g_io_channel_set_encoding(cast(io_channel_ptr), cast(newValue), &err)
+            g_log(messagePtr: err?.pointee.message, level: .error)
         }
     }
 
@@ -840,9 +848,56 @@ public extension IOChannelProtocol {
         /// the internal values of these flags.
         get {
             let rv = g_io_channel_get_flags(cast(io_channel_ptr))
-            return rv
+            return cast(rv)
+        }
+        /// Sets the (writeable) flags in `channel` to (`flags` & `G_IO_FLAG_SET_MASK`).
+        nonmutating set {
+            var err: UnsafeMutablePointer<GError>?
+            _ = g_io_channel_set_flags(cast(io_channel_ptr), cast(newValue), &err)
+            g_log(messagePtr: err?.pointee.message, level: .error)
         }
     }
+
+    // var refCount is unavailable because ref_count is private
+
+    // var funcs is unavailable because funcs is private
+
+    // var _encoding is unavailable because encoding is private
+
+    // var readCd is unavailable because read_cd is private
+
+    // var writeCd is unavailable because write_cd is private
+
+    // var lineTerm is unavailable because line_term is private
+
+    // var lineTermLen is unavailable because line_term_len is private
+
+    // var bufSize is unavailable because buf_size is private
+
+    // var readBuf is unavailable because read_buf is private
+
+    // var encodedReadBuf is unavailable because encoded_read_buf is private
+
+    // var writeBuf is unavailable because write_buf is private
+
+    // var partialWriteBuf is unavailable because partial_write_buf is private
+
+    // var useBuffer is unavailable because use_buffer is private
+
+    // var doEncode is unavailable because do_encode is private
+
+    // var _closeOnUnref is unavailable because close_on_unref is private
+
+    // var isReadable is unavailable because is_readable is private
+
+    // var isWriteable is unavailable because is_writeable is private
+
+    // var isSeekable is unavailable because is_seekable is private
+
+    // var reserved1 is unavailable because reserved1 is private
+
+    // var reserved2 is unavailable because reserved2 is private
+
 }
 
 

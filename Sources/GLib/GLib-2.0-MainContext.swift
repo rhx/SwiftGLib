@@ -10,7 +10,7 @@ import CGLib
 /// The `GMainContext` struct is an opaque data
 /// type representing a set of sources to be handled in a main loop.
 public protocol MainContextProtocol {
-    /// Untyped pointer to the underlying `GMainContext` instance.
+        /// Untyped pointer to the underlying `GMainContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMainContext` instance.
@@ -24,7 +24,7 @@ public protocol MainContextProtocol {
 /// The `GMainContext` struct is an opaque data
 /// type representing a set of sources to be handled in a main loop.
 public struct MainContextRef: MainContextProtocol {
-    /// Untyped pointer to the underlying `GMainContext` instance.
+        /// Untyped pointer to the underlying `GMainContext` instance.
     /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,7 +71,7 @@ public extension MainContextRef {
 
         /// Creates a new `GMainContext` structure.
     init() {
-        let rv = g_main_context_new()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Returns the global default main context. This is the main context
@@ -79,7 +79,7 @@ public extension MainContextRef {
     /// specified, and corresponds to the "main" main loop. See also
     /// `g_main_context_get_thread_default()`.
     static func default_() -> MainContextRef! {
-        let rv = g_main_context_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_default())
         return rv.map { MainContextRef(cast($0)) }
     }
 
@@ -95,7 +95,7 @@ public extension MainContextRef {
     /// If you need to hold a reference on the context, use
     /// `g_main_context_ref_thread_default()` instead.
     static func getThreadDefault() -> MainContextRef! {
-        let rv = g_main_context_get_thread_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_get_thread_default())
         return rv.map { MainContextRef(cast($0)) }
     }
 
@@ -106,7 +106,7 @@ public extension MainContextRef {
     /// is the global default context, this will return that `GMainContext`
     /// (with a ref added to it) rather than returning `nil`.
     static func refThreadDefault() -> MainContextRef! {
-        let rv = g_main_context_ref_thread_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_ref_thread_default())
         return rv.map { MainContextRef(cast($0)) }
     }
 }
@@ -118,7 +118,7 @@ public extension MainContextRef {
 /// The `GMainContext` struct is an opaque data
 /// type representing a set of sources to be handled in a main loop.
 open class MainContext: MainContextProtocol {
-    /// Untyped pointer to the underlying `GMainContext` instance.
+        /// Untyped pointer to the underlying `GMainContext` instance.
     /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -213,7 +213,7 @@ open class MainContext: MainContextProtocol {
 
     /// Creates a new `GMainContext` structure.
     public init() {
-        let rv = g_main_context_new()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -222,7 +222,7 @@ open class MainContext: MainContextProtocol {
     /// specified, and corresponds to the "main" main loop. See also
     /// `g_main_context_get_thread_default()`.
     public static func default_() -> MainContext! {
-        let rv = g_main_context_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_default())
         return rv.map { MainContext(cast($0)) }
     }
 
@@ -238,7 +238,7 @@ open class MainContext: MainContextProtocol {
     /// If you need to hold a reference on the context, use
     /// `g_main_context_ref_thread_default()` instead.
     public static func getThreadDefault() -> MainContext! {
-        let rv = g_main_context_get_thread_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_get_thread_default())
         return rv.map { MainContext(cast($0)) }
     }
 
@@ -249,17 +249,18 @@ open class MainContext: MainContextProtocol {
     /// is the global default context, this will return that `GMainContext`
     /// (with a ref added to it) rather than returning `nil`.
     public static func refThreadDefault() -> MainContext! {
-        let rv = g_main_context_ref_thread_default()
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_ref_thread_default())
         return rv.map { MainContext(cast($0)) }
     }
 
 }
 
-// MARK: - no MainContext properties
+// MARK: no MainContext properties
 
-// MARK: - no signals
+// MARK: no MainContext signals
 
 
+// MARK: MainContext Record: MainContextProtocol extension (methods and fields)
 public extension MainContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMainContext` instance.
     var main_context_ptr: UnsafeMutablePointer<GMainContext> { return ptr.assumingMemoryBound(to: GMainContext.self) }
@@ -309,7 +310,7 @@ public extension MainContextProtocol {
     /// multiple sources exist with the same source function and user data,
     /// the first one found will be returned.
     func findSourceByFuncsUserData(funcs: SourceFuncsProtocol, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_main_context_find_source_by_funcs_user_data(cast(main_context_ptr), cast(funcs.ptr), cast(user_data))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_main_context_find_source_by_funcs_user_data(cast(main_context_ptr), cast(funcs.ptr), cast(user_data)))
         return cast(rv)
     }
 
@@ -326,7 +327,7 @@ public extension MainContextProtocol {
     /// been reissued, leading to the operation being performed against the
     /// wrong source.
     func findSourceByID(sourceID source_id: CUnsignedInt) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_main_context_find_source_by_id(cast(main_context_ptr), guint(source_id))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_main_context_find_source_by_id(cast(main_context_ptr), guint(source_id)))
         return cast(rv)
     }
 
@@ -334,14 +335,14 @@ public extension MainContextProtocol {
     /// multiple sources exist with the same user data, the first
     /// one found will be returned.
     func findSourceBy(userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSource>! {
-        let rv = g_main_context_find_source_by_user_data(cast(main_context_ptr), cast(user_data))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_main_context_find_source_by_user_data(cast(main_context_ptr), cast(user_data)))
         return cast(rv)
     }
 
     /// Gets the poll function set by `g_main_context_set_poll_func()`.
     func getPollFunc() -> GPollFunc! {
-        let rv = g_main_context_get_poll_func(cast(main_context_ptr))
-        return rv
+        let rv: GPollFunc! = cast(g_main_context_get_poll_func(cast(main_context_ptr)))
+        return cast(rv)
     }
 
     /// Invokes a function in such a way that `context` is owned during the
@@ -471,14 +472,14 @@ public extension MainContextProtocol {
     /// 
     /// You must have successfully acquired the context with
     /// `g_main_context_acquire()` before you may call this function.
-    func query(maxPriority max_priority: CInt, timeout_: UnsafeMutablePointer<CInt>, fds: UnsafeMutablePointer<GPollFD>, nFds n_fds: CInt) -> CInt {
-        let rv = g_main_context_query(cast(main_context_ptr), gint(max_priority), cast(timeout_), cast(fds), gint(n_fds))
-        return CInt(rv)
+    func query(maxPriority max_priority: CInt, timeout_: UnsafeMutablePointer<CInt>, fds: UnsafeMutablePointer<GPollFD>, nFds n_fds: CInt) -> Int {
+        let rv: Int = cast(g_main_context_query(cast(main_context_ptr), gint(max_priority), cast(timeout_), cast(fds), gint(n_fds)))
+        return Int(rv)
     }
 
     /// Increases the reference count on a `GMainContext` object by one.
-    func ref() -> UnsafeMutablePointer<GMainContext>! {
-        let rv = g_main_context_ref(cast(main_context_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GMainContext>! {
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_context_ref(cast(main_context_ptr)))
         return cast(rv)
     }
 
@@ -525,8 +526,8 @@ public extension MainContextProtocol {
     ///
     /// **wait is deprecated:**
     /// Use g_main_context_is_owner() and separate locking instead.
-    @available(*, deprecated) func wait(cond: CondProtocol, mutex: UnsafeMutablePointer<GMutex>) -> Bool {
-        let rv = g_main_context_wait(cast(main_context_ptr), cast(cond.ptr), cast(mutex))
+    @available(*, deprecated) func wait(cond: CondProtocol, mutex: MutexProtocol) -> Bool {
+        let rv = g_main_context_wait(cast(main_context_ptr), cast(cond.ptr), cast(mutex.ptr))
         return Bool(rv != 0)
     }
 
@@ -584,8 +585,8 @@ public extension MainContextProtocol {
     var pollFunc: GPollFunc! {
         /// Gets the poll function set by `g_main_context_set_poll_func()`.
         get {
-            let rv = g_main_context_get_poll_func(cast(main_context_ptr))
-            return rv
+            let rv: GPollFunc! = cast(g_main_context_get_poll_func(cast(main_context_ptr)))
+            return cast(rv)
         }
         /// Sets the function to use to handle polling of file descriptors. It
         /// will be used instead of the `poll()` system call
@@ -595,9 +596,11 @@ public extension MainContextProtocol {
         /// This function could possibly be used to integrate the GLib event
         /// loop with an external event loop.
         nonmutating set {
-            g_main_context_set_poll_func(cast(main_context_ptr), newValue)
+            g_main_context_set_poll_func(cast(main_context_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

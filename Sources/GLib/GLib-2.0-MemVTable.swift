@@ -13,7 +13,7 @@ import CGLib
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
 public protocol MemVTableProtocol {
-    /// Untyped pointer to the underlying `GMemVTable` instance.
+        /// Untyped pointer to the underlying `GMemVTable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMemVTable` instance.
@@ -30,7 +30,7 @@ public protocol MemVTableProtocol {
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
 public struct MemVTableRef: MemVTableProtocol {
-    /// Untyped pointer to the underlying `GMemVTable` instance.
+        /// Untyped pointer to the underlying `GMemVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -87,7 +87,7 @@ public extension MemVTableRef {
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
 open class MemVTable: MemVTableProtocol {
-    /// Untyped pointer to the underlying `GMemVTable` instance.
+        /// Untyped pointer to the underlying `GMemVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -116,7 +116,7 @@ open class MemVTable: MemVTableProtocol {
         // no reference counting for GMemVTable, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMemVTable`.
+    /// Do-nothing destructor for `GMemVTable`.
     deinit {
         // no reference counting for GMemVTable, cannot unref(cast(_ptr))
     }
@@ -184,11 +184,12 @@ open class MemVTable: MemVTableProtocol {
 
 }
 
-// MARK: - no MemVTable properties
+// MARK: no MemVTable properties
 
-// MARK: - no signals
+// MARK: no MemVTable signals
 
 
+// MARK: MemVTable Record: MemVTableProtocol extension (methods and fields)
 public extension MemVTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMemVTable` instance.
     var _ptr: UnsafeMutablePointer<GMemVTable> { return ptr.assumingMemoryBound(to: GMemVTable.self) }
@@ -205,6 +206,19 @@ public extension MemVTableProtocol {
         g_mem_set_vtable(cast(_ptr))
     
     }
+
+    // var malloc is unavailable because malloc is void
+
+    // var realloc is unavailable because realloc is void
+
+    // var free is unavailable because free is void
+
+    // var calloc is unavailable because calloc is void
+
+    // var tryMalloc is unavailable because try_malloc is void
+
+    // var tryRealloc is unavailable because try_realloc is void
+
 }
 
 

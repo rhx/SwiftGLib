@@ -22,7 +22,7 @@ import CGLib
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
 public protocol ScannerProtocol {
-    /// Untyped pointer to the underlying `GScanner` instance.
+        /// Untyped pointer to the underlying `GScanner` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GScanner` instance.
@@ -48,7 +48,7 @@ public protocol ScannerProtocol {
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
 public struct ScannerRef: ScannerProtocol {
-    /// Untyped pointer to the underlying `GScanner` instance.
+        /// Untyped pointer to the underlying `GScanner` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -114,7 +114,7 @@ public extension ScannerRef {
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
 open class Scanner: ScannerProtocol {
-    /// Untyped pointer to the underlying `GScanner` instance.
+        /// Untyped pointer to the underlying `GScanner` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -143,7 +143,7 @@ open class Scanner: ScannerProtocol {
         // no reference counting for GScanner, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GScanner`.
+    /// Do-nothing destructor for `GScanner`.
     deinit {
         // no reference counting for GScanner, cannot unref(cast(_ptr))
     }
@@ -211,11 +211,12 @@ open class Scanner: ScannerProtocol {
 
 }
 
-// MARK: - no Scanner properties
+// MARK: no Scanner properties
 
-// MARK: - no signals
+// MARK: no Scanner signals
 
 
+// MARK: Scanner Record: ScannerProtocol extension (methods and fields)
 public extension ScannerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GScanner` instance.
     var _ptr: UnsafeMutablePointer<GScanner> { return ptr.assumingMemoryBound(to: GScanner.self) }
@@ -223,31 +224,31 @@ public extension ScannerProtocol {
     /// Returns the current line in the input stream (counting
     /// from 1). This is the line of the last token parsed via
     /// `g_scanner_get_next_token()`.
-    func curLine() -> CUnsignedInt {
-        let rv = g_scanner_cur_line(cast(_ptr))
-        return CUnsignedInt(rv)
+    func curLine() -> Int {
+        let rv: Int = cast(g_scanner_cur_line(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the current position in the current line (counting
     /// from 0). This is the position of the last token parsed via
     /// `g_scanner_get_next_token()`.
-    func curPosition() -> CUnsignedInt {
-        let rv = g_scanner_cur_position(cast(_ptr))
-        return CUnsignedInt(rv)
+    func curPosition() -> Int {
+        let rv: Int = cast(g_scanner_cur_position(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Gets the current token type. This is simply the `token`
     /// field in the `GScanner` structure.
     func curToken() -> GTokenType {
         let rv = g_scanner_cur_token(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the current token value. This is simply the `value`
     /// field in the `GScanner` structure.
     func curValue() -> GTokenValue {
         let rv = g_scanner_cur_value(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Frees all memory used by the `GScanner`.
@@ -273,7 +274,7 @@ public extension ScannerProtocol {
     /// the `GScanner` structure.
     func getNextToken() -> GTokenType {
         let rv = g_scanner_get_next_token(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Prepares to scan a file.
@@ -292,7 +293,7 @@ public extension ScannerProtocol {
     /// If the symbol is not bound in the current scope, `nil` is
     /// returned.
     func lookup(symbol: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv = g_scanner_lookup_symbol(cast(_ptr), symbol)
+        let rv: UnsafeMutableRawPointer! = cast(g_scanner_lookup_symbol(cast(_ptr), symbol))
         return cast(rv)
     }
 
@@ -309,7 +310,7 @@ public extension ScannerProtocol {
     /// any symbols that may have been added or removed in the new scope.
     func peekNextToken() -> GTokenType {
         let rv = g_scanner_peek_next_token(cast(_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Adds a symbol to the given scope.
@@ -330,7 +331,7 @@ public extension ScannerProtocol {
     /// Looks up a symbol in a scope and return its value. If the
     /// symbol is not bound in the scope, `nil` is returned.
     func scopeLookupSymbol(scopeID scope_id: CUnsignedInt, symbol: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv = g_scanner_scope_lookup_symbol(cast(_ptr), guint(scope_id), symbol)
+        let rv: UnsafeMutableRawPointer! = cast(g_scanner_scope_lookup_symbol(cast(_ptr), guint(scope_id), symbol))
         return cast(rv)
     }
 
@@ -341,9 +342,9 @@ public extension ScannerProtocol {
     }
 
     /// Sets the current scope.
-    func setScope(scopeID scope_id: CUnsignedInt) -> CUnsignedInt {
-        let rv = g_scanner_set_scope(cast(_ptr), guint(scope_id))
-        return CUnsignedInt(rv)
+    func setScope(scopeID scope_id: CUnsignedInt) -> Int {
+        let rv: Int = cast(g_scanner_set_scope(cast(_ptr), guint(scope_id)))
+        return Int(rv)
     }
 
     /// Rewinds the filedescriptor to the current buffer position
@@ -381,9 +382,217 @@ public extension ScannerProtocol {
         /// the `GScanner` structure.
         get {
             let rv = g_scanner_get_next_token(cast(_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+    /// unused
+    var userData: UnsafeMutableRawPointer {
+        /// unused
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.user_data)
+            return rv
+        }
+        /// unused
+         set {
+            _ptr.pointee.user_data = cast(newValue)
+        }
+    }
+
+    /// unused
+    var maxParseErrors: Int {
+        /// unused
+        get {
+            let rv: Int = cast(_ptr.pointee.max_parse_errors)
+            return rv
+        }
+        /// unused
+         set {
+            _ptr.pointee.max_parse_errors = guint(newValue)
+        }
+    }
+
+    /// `g_scanner_error()` increments this field
+    var parseErrors: Int {
+        /// `g_scanner_error()` increments this field
+        get {
+            let rv: Int = cast(_ptr.pointee.parse_errors)
+            return rv
+        }
+        /// `g_scanner_error()` increments this field
+         set {
+            _ptr.pointee.parse_errors = guint(newValue)
+        }
+    }
+
+    /// name of input stream, featured by the default message handler
+    var inputName: UnsafePointer<CChar> {
+        /// name of input stream, featured by the default message handler
+        get {
+            let rv: UnsafePointer<CChar> = cast(_ptr.pointee.input_name)
+            return rv
+        }
+        /// name of input stream, featured by the default message handler
+         set {
+            _ptr.pointee.input_name = cast(newValue)
+        }
+    }
+
+    /// quarked data
+    var qdata: UnsafeMutablePointer<GData> {
+        /// quarked data
+        get {
+            let rv: UnsafeMutablePointer<GData> = cast(_ptr.pointee.qdata)
+            return rv
+        }
+        /// quarked data
+         set {
+            _ptr.pointee.qdata = cast(newValue)
+        }
+    }
+
+    /// link into the scanner configuration
+    var config: UnsafeMutablePointer<GScannerConfig> {
+        /// link into the scanner configuration
+        get {
+            let rv: UnsafeMutablePointer<GScannerConfig> = cast(_ptr.pointee.config)
+            return rv
+        }
+        /// link into the scanner configuration
+         set {
+            _ptr.pointee.config = cast(newValue)
+        }
+    }
+
+    /// token parsed by the last `g_scanner_get_next_token()`
+    var token: GTokenType {
+        /// token parsed by the last `g_scanner_get_next_token()`
+        get {
+            let rv: GTokenType = cast(_ptr.pointee.token)
+            return rv
+        }
+        /// token parsed by the last `g_scanner_get_next_token()`
+         set {
+            _ptr.pointee.token = cast(newValue)
+        }
+    }
+
+    /// value of the last token from `g_scanner_get_next_token()`
+    var value: GTokenValue {
+        /// value of the last token from `g_scanner_get_next_token()`
+        get {
+            let rv: GTokenValue = cast(_ptr.pointee.value)
+            return rv
+        }
+        /// value of the last token from `g_scanner_get_next_token()`
+         set {
+            _ptr.pointee.value = cast(newValue)
+        }
+    }
+
+    /// line number of the last token from `g_scanner_get_next_token()`
+    var line: Int {
+        /// line number of the last token from `g_scanner_get_next_token()`
+        get {
+            let rv: Int = cast(_ptr.pointee.line)
+            return rv
+        }
+        /// line number of the last token from `g_scanner_get_next_token()`
+         set {
+            _ptr.pointee.line = guint(newValue)
+        }
+    }
+
+    /// char number of the last token from `g_scanner_get_next_token()`
+    var position: Int {
+        /// char number of the last token from `g_scanner_get_next_token()`
+        get {
+            let rv: Int = cast(_ptr.pointee.position)
+            return rv
+        }
+        /// char number of the last token from `g_scanner_get_next_token()`
+         set {
+            _ptr.pointee.position = guint(newValue)
+        }
+    }
+
+    /// token parsed by the last `g_scanner_peek_next_token()`
+    var _nextToken: GTokenType {
+        /// token parsed by the last `g_scanner_peek_next_token()`
+        get {
+            let rv: GTokenType = cast(_ptr.pointee.next_token)
+            return rv
+        }
+        /// token parsed by the last `g_scanner_peek_next_token()`
+         set {
+            _ptr.pointee.next_token = cast(newValue)
+        }
+    }
+
+    /// value of the last token from `g_scanner_peek_next_token()`
+    var nextValue: GTokenValue {
+        /// value of the last token from `g_scanner_peek_next_token()`
+        get {
+            let rv: GTokenValue = cast(_ptr.pointee.next_value)
+            return rv
+        }
+        /// value of the last token from `g_scanner_peek_next_token()`
+         set {
+            _ptr.pointee.next_value = cast(newValue)
+        }
+    }
+
+    /// line number of the last token from `g_scanner_peek_next_token()`
+    var nextLine: Int {
+        /// line number of the last token from `g_scanner_peek_next_token()`
+        get {
+            let rv: Int = cast(_ptr.pointee.next_line)
+            return rv
+        }
+        /// line number of the last token from `g_scanner_peek_next_token()`
+         set {
+            _ptr.pointee.next_line = guint(newValue)
+        }
+    }
+
+    /// char number of the last token from `g_scanner_peek_next_token()`
+    var nextPosition: Int {
+        /// char number of the last token from `g_scanner_peek_next_token()`
+        get {
+            let rv: Int = cast(_ptr.pointee.next_position)
+            return rv
+        }
+        /// char number of the last token from `g_scanner_peek_next_token()`
+         set {
+            _ptr.pointee.next_position = guint(newValue)
+        }
+    }
+
+    // var symbolTable is unavailable because symbol_table is private
+
+    // var inputFd is unavailable because input_fd is private
+
+    // var text is unavailable because text is private
+
+    // var textEnd is unavailable because text_end is private
+
+    // var buffer is unavailable because buffer is private
+
+    // var scopeID is unavailable because scope_id is private
+
+    /// handler function for _warn and _error
+    var msgHandler: GScannerMsgFunc {
+        /// handler function for _warn and _error
+        get {
+            let rv: GScannerMsgFunc = cast(_ptr.pointee.msg_handler)
+            return rv
+        }
+        /// handler function for _warn and _error
+         set {
+            _ptr.pointee.msg_handler = cast(newValue)
+        }
+    }
+
 }
 
 

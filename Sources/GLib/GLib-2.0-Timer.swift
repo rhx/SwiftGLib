@@ -9,7 +9,7 @@ import CGLib
 ///
 /// Opaque datatype that records a start time.
 public protocol TimerProtocol {
-    /// Untyped pointer to the underlying `GTimer` instance.
+        /// Untyped pointer to the underlying `GTimer` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTimer` instance.
@@ -22,7 +22,7 @@ public protocol TimerProtocol {
 ///
 /// Opaque datatype that records a start time.
 public struct TimerRef: TimerProtocol {
-    /// Untyped pointer to the underlying `GTimer` instance.
+        /// Untyped pointer to the underlying `GTimer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TimerRef {
 ///
 /// Opaque datatype that records a start time.
 open class Timer: TimerProtocol {
-    /// Untyped pointer to the underlying `GTimer` instance.
+        /// Untyped pointer to the underlying `GTimer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class Timer: TimerProtocol {
         // no reference counting for GTimer, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTimer`.
+    /// Do-nothing destructor for `GTimer`.
     deinit {
         // no reference counting for GTimer, cannot unref(cast(_ptr))
     }
@@ -172,11 +172,12 @@ open class Timer: TimerProtocol {
 
 }
 
-// MARK: - no Timer properties
+// MARK: no Timer properties
 
-// MARK: - no signals
+// MARK: no Timer signals
 
 
+// MARK: Timer Record: TimerProtocol extension (methods and fields)
 public extension TimerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTimer` instance.
     var _ptr: UnsafeMutablePointer<GTimer> { return ptr.assumingMemoryBound(to: GTimer.self) }
@@ -201,9 +202,9 @@ public extension TimerProtocol {
     /// stopped. The return value is the number of seconds elapsed,
     /// including any fractional part. The `microseconds` out parameter is
     /// essentially useless.
-    func elapsed(microseconds: UnsafeMutablePointer<CUnsignedLong>) -> gdouble {
-        let rv = g_timer_elapsed(cast(_ptr), cast(microseconds))
-        return rv
+    func elapsed(microseconds: UnsafeMutablePointer<CUnsignedLong>) -> Double {
+        let rv: Double = cast(g_timer_elapsed(cast(_ptr), cast(microseconds)))
+        return cast(rv)
     }
 
     /// This function is useless; it's fine to call `g_timer_start()` on an
@@ -237,6 +238,8 @@ public extension TimerProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 

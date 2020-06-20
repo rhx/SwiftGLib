@@ -13,7 +13,7 @@ import CGLib
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 public protocol MarkupParseContextProtocol {
-    /// Untyped pointer to the underlying `GMarkupParseContext` instance.
+        /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMarkupParseContext` instance.
@@ -30,7 +30,7 @@ public protocol MarkupParseContextProtocol {
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 public struct MarkupParseContextRef: MarkupParseContextProtocol {
-    /// Untyped pointer to the underlying `GMarkupParseContext` instance.
+        /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `markup_parse_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension MarkupParseContextRef {
     /// the parse context can't continue to parse text (you have to
     /// free it and create a new parse context).
     init( parser: MarkupParserProtocol, flags: MarkupParseFlags, userData user_data: UnsafeMutableRawPointer, userDataDnotify user_data_dnotify: @escaping DestroyNotify) {
-        let rv = g_markup_parse_context_new(cast(parser.ptr), flags, cast(user_data), user_data_dnotify)
+        let rv: UnsafeMutablePointer<GMarkupParseContext>! = cast(g_markup_parse_context_new(cast(parser.ptr), flags.value, cast(user_data), user_data_dnotify))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -96,7 +96,7 @@ public extension MarkupParseContextRef {
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
 open class MarkupParseContext: MarkupParseContextProtocol {
-    /// Untyped pointer to the underlying `GMarkupParseContext` instance.
+        /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `markup_parse_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -195,18 +195,19 @@ open class MarkupParseContext: MarkupParseContextProtocol {
     /// the parse context can't continue to parse text (you have to
     /// free it and create a new parse context).
     public init( parser: MarkupParserProtocol, flags: MarkupParseFlags, userData user_data: UnsafeMutableRawPointer, userDataDnotify user_data_dnotify: @escaping DestroyNotify) {
-        let rv = g_markup_parse_context_new(cast(parser.ptr), flags, cast(user_data), user_data_dnotify)
+        let rv: UnsafeMutablePointer<GMarkupParseContext>! = cast(g_markup_parse_context_new(cast(parser.ptr), flags.value, cast(user_data), user_data_dnotify))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no MarkupParseContext properties
+// MARK: no MarkupParseContext properties
 
-// MARK: - no signals
+// MARK: no MarkupParseContext signals
 
 
+// MARK: MarkupParseContext Record: MarkupParseContextProtocol extension (methods and fields)
 public extension MarkupParseContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMarkupParseContext` instance.
     var markup_parse_context_ptr: UnsafeMutablePointer<GMarkupParseContext> { return ptr.assumingMemoryBound(to: GMarkupParseContext.self) }
@@ -217,11 +218,9 @@ public extension MarkupParseContextProtocol {
     /// This function reports an error if the document isn't complete,
     /// for example if elements are still open.
     func endParse() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_markup_parse_context_end_parse(cast(markup_parse_context_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -240,8 +239,8 @@ public extension MarkupParseContextProtocol {
     /// give the element_name as passed to those functions. For the parent
     /// elements, see `g_markup_parse_context_get_element_stack()`.
     func getElement() -> String! {
-        let rv = g_markup_parse_context_get_element(cast(markup_parse_context_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_markup_parse_context_get_element(cast(markup_parse_context_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the element stack from the internal state of the parser.
@@ -256,7 +255,7 @@ public extension MarkupParseContextProtocol {
     /// would merely return the name of the element that is being
     /// processed.
     func getElementStack() -> UnsafePointer<GSList>! {
-        let rv = g_markup_parse_context_get_element_stack(cast(markup_parse_context_ptr))
+        let rv: UnsafePointer<GSList>! = cast(g_markup_parse_context_get_element_stack(cast(markup_parse_context_ptr)))
         return cast(rv)
     }
 
@@ -275,7 +274,7 @@ public extension MarkupParseContextProtocol {
     /// `g_markup_parse_context_new()` or to the most recent call
     /// of `g_markup_parse_context_push()`.
     func getUserData() -> UnsafeMutableRawPointer! {
-        let rv = g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr)))
         return cast(rv)
     }
 
@@ -290,11 +289,9 @@ public extension MarkupParseContextProtocol {
     /// is reported, no further data may be fed to the `GMarkupParseContext`;
     /// all errors are fatal.
     func parse(text: UnsafePointer<gchar>, textLen text_len: gssize) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_markup_parse_context_parse(cast(markup_parse_context_ptr), text, text_len, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -312,7 +309,7 @@ public extension MarkupParseContextProtocol {
     /// be used by the subparsers themselves to implement a higher-level
     /// interface.
     func pop() -> UnsafeMutableRawPointer! {
-        let rv = g_markup_parse_context_pop(cast(markup_parse_context_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_markup_parse_context_pop(cast(markup_parse_context_ptr)))
         return cast(rv)
     }
 
@@ -440,8 +437,8 @@ public extension MarkupParseContextProtocol {
     }
 
     /// Increases the reference count of `context`.
-    func ref() -> UnsafeMutablePointer<GMarkupParseContext>! {
-        let rv = g_markup_parse_context_ref(cast(markup_parse_context_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GMarkupParseContext>! {
+        let rv: UnsafeMutablePointer<GMarkupParseContext>! = cast(g_markup_parse_context_ref(cast(markup_parse_context_ptr)))
         return cast(rv)
     }
 
@@ -463,8 +460,8 @@ public extension MarkupParseContextProtocol {
         /// give the element_name as passed to those functions. For the parent
         /// elements, see `g_markup_parse_context_get_element_stack()`.
         get {
-            let rv = g_markup_parse_context_get_element(cast(markup_parse_context_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_markup_parse_context_get_element(cast(markup_parse_context_ptr)))
+            return cast(rv)
         }
     }
 
@@ -492,7 +489,7 @@ public extension MarkupParseContextProtocol {
         /// would merely return the name of the element that is being
         /// processed.
         get {
-            let rv = g_markup_parse_context_get_element_stack(cast(markup_parse_context_ptr))
+            let rv: UnsafePointer<GSList>! = cast(g_markup_parse_context_get_element_stack(cast(markup_parse_context_ptr)))
             return cast(rv)
         }
     }
@@ -509,10 +506,12 @@ public extension MarkupParseContextProtocol {
         /// `g_markup_parse_context_new()` or to the most recent call
         /// of `g_markup_parse_context_push()`.
         get {
-            let rv = g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr))
+            let rv: UnsafeMutableRawPointer! = cast(g_markup_parse_context_get_user_data(cast(markup_parse_context_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

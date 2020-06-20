@@ -15,7 +15,7 @@ import CGLib
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
 public protocol OptionGroupProtocol {
-    /// Untyped pointer to the underlying `GOptionGroup` instance.
+        /// Untyped pointer to the underlying `GOptionGroup` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOptionGroup` instance.
@@ -34,7 +34,7 @@ public protocol OptionGroupProtocol {
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
 public struct OptionGroupRef: OptionGroupProtocol {
-    /// Untyped pointer to the underlying `GOptionGroup` instance.
+        /// Untyped pointer to the underlying `GOptionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `option_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension OptionGroupRef {
 
         /// Creates a new `GOptionGroup`.
     init( name: UnsafePointer<gchar>, description: UnsafePointer<gchar>, helpDescription help_description: UnsafePointer<gchar>, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) {
-        let rv = g_option_group_new(name, description, help_description, cast(user_data), destroy)
+        let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_group_new(name, description, help_description, cast(user_data), destroy))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -98,7 +98,7 @@ public extension OptionGroupRef {
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
 open class OptionGroup: OptionGroupProtocol {
-    /// Untyped pointer to the underlying `GOptionGroup` instance.
+        /// Untyped pointer to the underlying `GOptionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `option_group_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -193,18 +193,19 @@ open class OptionGroup: OptionGroupProtocol {
 
     /// Creates a new `GOptionGroup`.
     public init( name: UnsafePointer<gchar>, description: UnsafePointer<gchar>, helpDescription help_description: UnsafePointer<gchar>, userData user_data: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify) {
-        let rv = g_option_group_new(name, description, help_description, cast(user_data), destroy)
+        let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_group_new(name, description, help_description, cast(user_data), destroy))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no OptionGroup properties
+// MARK: no OptionGroup properties
 
-// MARK: - no signals
+// MARK: no OptionGroup signals
 
 
+// MARK: OptionGroup Record: OptionGroupProtocol extension (methods and fields)
 public extension OptionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOptionGroup` instance.
     var option_group_ptr: UnsafeMutablePointer<GOptionGroup> { return ptr.assumingMemoryBound(to: GOptionGroup.self) }
@@ -226,8 +227,8 @@ public extension OptionGroupProtocol {
     }
 
     /// Increments the reference count of `group` by one.
-    func ref() -> UnsafeMutablePointer<GOptionGroup>! {
-        let rv = g_option_group_ref(cast(option_group_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GOptionGroup>! {
+        let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_group_ref(cast(option_group_ptr)))
         return cast(rv)
     }
 
@@ -278,6 +279,8 @@ public extension OptionGroupProtocol {
         g_option_group_unref(cast(option_group_ptr))
     
     }
+
+
 }
 
 

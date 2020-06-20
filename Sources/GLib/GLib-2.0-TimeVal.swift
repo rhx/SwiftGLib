@@ -17,7 +17,7 @@ import CGLib
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
 public protocol TimeValProtocol {
-    /// Untyped pointer to the underlying `GTimeVal` instance.
+        /// Untyped pointer to the underlying `GTimeVal` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTimeVal` instance.
@@ -38,7 +38,7 @@ public protocol TimeValProtocol {
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
 public struct TimeValRef: TimeValProtocol {
-    /// Untyped pointer to the underlying `GTimeVal` instance.
+        /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -99,7 +99,7 @@ public extension TimeValRef {
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
 open class TimeVal: TimeValProtocol {
-    /// Untyped pointer to the underlying `GTimeVal` instance.
+        /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -128,7 +128,7 @@ open class TimeVal: TimeValProtocol {
         // no reference counting for GTimeVal, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTimeVal`.
+    /// Do-nothing destructor for `GTimeVal`.
     deinit {
         // no reference counting for GTimeVal, cannot unref(cast(_ptr))
     }
@@ -196,11 +196,12 @@ open class TimeVal: TimeValProtocol {
 
 }
 
-// MARK: - no TimeVal properties
+// MARK: no TimeVal properties
 
-// MARK: - no signals
+// MARK: no TimeVal signals
 
 
+// MARK: TimeVal Record: TimeValProtocol extension (methods and fields)
 public extension TimeValProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTimeVal` instance.
     var _ptr: UnsafeMutablePointer<GTimeVal> { return ptr.assumingMemoryBound(to: GTimeVal.self) }
@@ -255,8 +256,8 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_format_iso8601(dt) instead.
     @available(*, deprecated) func toIso8601() -> String! {
-        let rv = g_time_val_to_iso8601(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_time_val_to_iso8601(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Converts a string containing an ISO 8601 encoded date and time
@@ -325,6 +326,33 @@ public extension TimeValProtocol {
         return Bool(rv != 0)
     }
     // var currentTime is unavailable because it does not have a valid getter or setter
+
+    /// seconds
+    var tvSec: Int {
+        /// seconds
+        get {
+            let rv: Int = cast(_ptr.pointee.tv_sec)
+            return rv
+        }
+        /// seconds
+         set {
+            _ptr.pointee.tv_sec = glong(newValue)
+        }
+    }
+
+    /// microseconds
+    var tvUsec: Int {
+        /// microseconds
+        get {
+            let rv: Int = cast(_ptr.pointee.tv_usec)
+            return rv
+        }
+        /// microseconds
+         set {
+            _ptr.pointee.tv_usec = glong(newValue)
+        }
+    }
+
 }
 
 

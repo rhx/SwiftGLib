@@ -11,7 +11,7 @@ import CGLib
 /// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 public protocol TreeProtocol {
-    /// Untyped pointer to the underlying `GTree` instance.
+        /// Untyped pointer to the underlying `GTree` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTree` instance.
@@ -26,7 +26,7 @@ public protocol TreeProtocol {
 /// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 public struct TreeRef: TreeProtocol {
-    /// Untyped pointer to the underlying `GTree` instance.
+        /// Untyped pointer to the underlying `GTree` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,14 +75,14 @@ public extension TreeRef {
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
     static func new(full key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> TreeRef! {
-        let rv = g_tree_new_full(key_compare_func, cast(key_compare_data), key_destroy_func, value_destroy_func)
+        let rv: UnsafeMutablePointer<GTree>! = cast(g_tree_new_full(key_compare_func, cast(key_compare_data), key_destroy_func, value_destroy_func))
         return rv.map { TreeRef(cast($0)) }
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
     static func newWith(data key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer) -> TreeRef! {
-        let rv = g_tree_new_with_data(key_compare_func, cast(key_compare_data))
+        let rv: UnsafeMutablePointer<GTree>! = cast(g_tree_new_with_data(key_compare_func, cast(key_compare_data)))
         return rv.map { TreeRef(cast($0)) }
     }
 }
@@ -95,7 +95,7 @@ public extension TreeRef {
 /// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
 /// accessed only by using the following functions.
 open class Tree: TreeProtocol {
-    /// Untyped pointer to the underlying `GTree` instance.
+        /// Untyped pointer to the underlying `GTree` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -193,24 +193,25 @@ open class Tree: TreeProtocol {
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
     public static func new(full key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer, keyDestroyFunc key_destroy_func: @escaping DestroyNotify, valueDestroyFunc value_destroy_func: @escaping DestroyNotify) -> Tree! {
-        let rv = g_tree_new_full(key_compare_func, cast(key_compare_data), key_destroy_func, value_destroy_func)
+        let rv: UnsafeMutablePointer<GTree>! = cast(g_tree_new_full(key_compare_func, cast(key_compare_data), key_destroy_func, value_destroy_func))
         return rv.map { Tree(cast($0)) }
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
     public static func newWith(data key_compare_func: @escaping CompareDataFunc, keyCompareData key_compare_data: UnsafeMutableRawPointer) -> Tree! {
-        let rv = g_tree_new_with_data(key_compare_func, cast(key_compare_data))
+        let rv: UnsafeMutablePointer<GTree>! = cast(g_tree_new_with_data(key_compare_func, cast(key_compare_data)))
         return rv.map { Tree(cast($0)) }
     }
 
 }
 
-// MARK: - no Tree properties
+// MARK: no Tree properties
 
-// MARK: - no signals
+// MARK: no Tree signals
 
 
+// MARK: Tree Record: TreeProtocol extension (methods and fields)
 public extension TreeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTree` instance.
     var _ptr: UnsafeMutablePointer<GTree> { return ptr.assumingMemoryBound(to: GTree.self) }
@@ -244,9 +245,9 @@ public extension TreeProtocol {
     /// If the `GTree` contains no nodes, the height is 0.
     /// If the `GTree` contains only one root node the height is 1.
     /// If the root node has children the height is 2, etc.
-    func height() -> CInt {
-        let rv = g_tree_height(cast(_ptr))
-        return CInt(rv)
+    func height() -> Int {
+        let rv: Int = cast(g_tree_height(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Inserts a key/value pair into a `GTree`.
@@ -268,7 +269,7 @@ public extension TreeProtocol {
     /// automatically balanced as key/value pairs are added, key lookup
     /// is `O(log n)` (where n is the number of key/value pairs in the tree).
     func lookup(key: gconstpointer) -> UnsafeMutableRawPointer! {
-        let rv = g_tree_lookup(cast(_ptr), cast(key))
+        let rv: UnsafeMutableRawPointer! = cast(g_tree_lookup(cast(_ptr), cast(key)))
         return cast(rv)
     }
 
@@ -282,16 +283,16 @@ public extension TreeProtocol {
     }
 
     /// Gets the number of nodes in a `GTree`.
-    func nnodes() -> CInt {
-        let rv = g_tree_nnodes(cast(_ptr))
-        return CInt(rv)
+    func nnodes() -> Int {
+        let rv: Int = cast(g_tree_nnodes(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Increments the reference count of `tree` by one.
     /// 
     /// It is safe to call this function from any thread.
-    func ref() -> UnsafeMutablePointer<GTree>! {
-        let rv = g_tree_ref(cast(_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GTree>! {
+        let rv: UnsafeMutablePointer<GTree>! = cast(g_tree_ref(cast(_ptr)))
         return cast(rv)
     }
 
@@ -330,7 +331,7 @@ public extension TreeProtocol {
     /// `search_func` returns 1, searching will proceed among the key/value
     /// pairs that have a larger key.
     func search(searchFunc search_func: @escaping CompareFunc, userData user_data: gconstpointer) -> UnsafeMutableRawPointer! {
-        let rv = g_tree_search(cast(_ptr), search_func, cast(user_data))
+        let rv: UnsafeMutableRawPointer! = cast(g_tree_search(cast(_ptr), search_func, cast(user_data)))
         return cast(rv)
     }
 
@@ -365,6 +366,8 @@ public extension TreeProtocol {
         g_tree_unref(cast(_ptr))
     
     }
+
+
 }
 
 

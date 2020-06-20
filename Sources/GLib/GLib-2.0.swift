@@ -7,6 +7,36 @@ public let G_MININT32: Int32 = -2147483648
 public let G_MININT8: Int8 = -128
 public let G_SOURCE_CONTINUE: gboolean = 1
 
+
+func cast(_ param: UInt)   -> Int    {    Int(bitPattern: param) }
+func cast(_ param: Int)    -> UInt   {   UInt(bitPattern: param) }
+func cast(_ param: UInt16) -> Int16  {  Int16(bitPattern: param) }
+func cast(_ param: Int16)  -> UInt16 { UInt16(bitPattern: param) }
+func cast(_ param: UInt32) -> Int32  {  Int32(bitPattern: param) }
+func cast(_ param: Int32)  -> UInt32 { UInt32(bitPattern: param) }
+func cast(_ param: UInt64) -> Int64  {  Int64(bitPattern: param) }
+func cast(_ param: Int64)  -> UInt64 { UInt64(bitPattern: param) }
+func cast(_ param: Float)  -> Double { Double(param) }
+func cast(_ param: Float80) -> Double { Double(param) }
+func cast(_ param: Double) -> Float { Float(param) }
+func cast(_ param: Double) -> Float80 { Float80(param) }
+func cast<U: UnsignedInteger>(_ param: U) -> Int { Int(param) }
+func cast<S: SignedInteger>(_ param: S) -> Int { Int(param) }
+func cast<U: UnsignedInteger>(_ param: Int) -> U { U(param) }
+func cast<S: SignedInteger>(_ param: Int) -> S  { S(param) }
+func cast<I: BinaryInteger>(_ param: I) -> Int32 { Int32(param) }
+func cast<I: BinaryInteger>(_ param: I) -> UInt32 { UInt32(param) }
+func cast<I: BinaryInteger>(_ param: I) -> Bool { param != 0 }
+func cast<I: BinaryInteger>(_ param: Bool) -> I { param ? 1 : 0 }
+
+func cast(_ param: UnsafeRawPointer?) -> String! {
+    return param.map { String(cString: $0.assumingMemoryBound(to: CChar.self)) }
+}
+
+func cast(_ param: OpaquePointer?) -> String! {
+    return param.map { String(cString: UnsafePointer<CChar>($0)) }
+}
+
 func cast(_ param: UnsafeRawPointer) -> OpaquePointer! {
     return OpaquePointer(param)
 }

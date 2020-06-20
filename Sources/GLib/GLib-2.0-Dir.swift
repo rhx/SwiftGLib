@@ -9,7 +9,7 @@ import CGLib
 ///
 /// An opaque structure representing an opened directory.
 public protocol DirProtocol {
-    /// Untyped pointer to the underlying `GDir` instance.
+        /// Untyped pointer to the underlying `GDir` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDir` instance.
@@ -22,7 +22,7 @@ public protocol DirProtocol {
 ///
 /// An opaque structure representing an opened directory.
 public struct DirRef: DirProtocol {
-    /// Untyped pointer to the underlying `GDir` instance.
+        /// Untyped pointer to the underlying `GDir` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,11 +71,9 @@ public extension DirRef {
     /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     static func open(path: UnsafePointer<gchar>, flags: CUnsignedInt) throws -> DirRef! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dir_open(path, guint(flags), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDir>! = cast(g_dir_open(path, guint(flags), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { DirRef(cast($0)) }
     }
 }
@@ -86,7 +84,7 @@ public extension DirRef {
 ///
 /// An opaque structure representing an opened directory.
 open class Dir: DirProtocol {
-    /// Untyped pointer to the underlying `GDir` instance.
+        /// Untyped pointer to the underlying `GDir` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -115,7 +113,7 @@ open class Dir: DirProtocol {
         // no reference counting for GDir, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GDir`.
+    /// Do-nothing destructor for `GDir`.
     deinit {
         // no reference counting for GDir, cannot unref(cast(_ptr))
     }
@@ -184,21 +182,20 @@ open class Dir: DirProtocol {
     /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     public static func open(path: UnsafePointer<gchar>, flags: CUnsignedInt) throws -> Dir! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_dir_open(path, guint(flags), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: UnsafeMutablePointer<GDir>! = cast(g_dir_open(path, guint(flags), &error))
+        if let error = error { throw ErrorType(error) }
         return rv.map { Dir(cast($0)) }
     }
 
 }
 
-// MARK: - no Dir properties
+// MARK: no Dir properties
 
-// MARK: - no signals
+// MARK: no Dir signals
 
 
+// MARK: Dir Record: DirProtocol extension (methods and fields)
 public extension DirProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDir` instance.
     var _ptr: UnsafeMutablePointer<GDir> { return ptr.assumingMemoryBound(to: GDir.self) }
@@ -223,8 +220,8 @@ public extension DirProtocol {
     /// On Windows, as is true of all GLib functions which operate on
     /// filenames, the returned name is in UTF-8.
     func readName() -> String! {
-        let rv = g_dir_read_name(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_dir_read_name(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Resets the given directory. The next call to `g_dir_read_name()`
@@ -233,6 +230,8 @@ public extension DirProtocol {
         g_dir_rewind(cast(_ptr))
     
     }
+
+
 }
 
 

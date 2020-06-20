@@ -10,7 +10,7 @@ import CGLib
 /// The `GSList` struct is used for each element in the singly-linked
 /// list.
 public protocol SListProtocol {
-    /// Untyped pointer to the underlying `GSList` instance.
+        /// Untyped pointer to the underlying `GSList` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSList` instance.
@@ -24,7 +24,7 @@ public protocol SListProtocol {
 /// The `GSList` struct is used for each element in the singly-linked
 /// list.
 public struct SListRef: SListProtocol {
-    /// Untyped pointer to the underlying `GSList` instance.
+        /// Untyped pointer to the underlying `GSList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -73,7 +73,7 @@ public extension SListRef {
     /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
     /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
     static func alloc() -> SListRef! {
-        let rv = g_slist_alloc()
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_alloc())
         return rv.map { SListRef(cast($0)) }
     }
 }
@@ -85,7 +85,7 @@ public extension SListRef {
 /// The `GSList` struct is used for each element in the singly-linked
 /// list.
 open class SList: SListProtocol {
-    /// Untyped pointer to the underlying `GSList` instance.
+        /// Untyped pointer to the underlying `GSList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +114,7 @@ open class SList: SListProtocol {
         // no reference counting for GSList, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSList`.
+    /// Do-nothing destructor for `GSList`.
     deinit {
         // no reference counting for GSList, cannot unref(cast(_ptr))
     }
@@ -183,17 +183,18 @@ open class SList: SListProtocol {
     /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
     /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
     public static func alloc() -> SList! {
-        let rv = g_slist_alloc()
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_alloc())
         return rv.map { SList(cast($0)) }
     }
 
 }
 
-// MARK: - no SList properties
+// MARK: no SList properties
 
-// MARK: - no signals
+// MARK: no SList signals
 
 
+// MARK: SList Record: SListProtocol extension (methods and fields)
 public extension SListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSList` instance.
     var _ptr: UnsafeMutablePointer<GSList> { return ptr.assumingMemoryBound(to: GSList.self) }
@@ -223,7 +224,7 @@ public extension SListProtocol {
     /// ```
     /// 
     func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_append(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_append(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -231,7 +232,7 @@ public extension SListProtocol {
     /// Note that the elements of the second `GSList` are not copied.
     /// They are used directly.
     func concat(list2: SListProtocol) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_concat(cast(_ptr), cast(list2.ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_concat(cast(_ptr), cast(list2.ptr)))
         return cast(rv)
     }
 
@@ -242,7 +243,7 @@ public extension SListProtocol {
     /// the actual data isn't. See `g_slist_copy_deep()` if you need
     /// to copy the data as well.
     func copy() -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_copy(cast(_ptr)))
         return cast(rv)
     }
 
@@ -270,7 +271,7 @@ public extension SListProtocol {
     /// ```
     /// 
     func copyDeep(func_: @escaping CopyFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_copy_deep(cast(_ptr), func_, cast(user_data))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_copy_deep(cast(_ptr), func_, cast(user_data)))
         return cast(rv)
     }
 
@@ -284,14 +285,14 @@ public extension SListProtocol {
     /// consider a different data structure, such as the doubly-linked
     /// `GList`.
     func deleteLink(link_: SListProtocol) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_delete_link(cast(_ptr), cast(link_.ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_delete_link(cast(_ptr), cast(link_.ptr)))
         return cast(rv)
     }
 
     /// Finds the element in a `GSList` which
     /// contains the given data.
     func find(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_find(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_find(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -302,7 +303,7 @@ public extension SListProtocol {
     /// the `GSList` element's data as the first argument and the
     /// given user data.
     func findCustom(data: gconstpointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_find_custom(cast(_ptr), cast(data), func_)
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_find_custom(cast(_ptr), cast(data), func_))
         return cast(rv)
     }
 
@@ -365,34 +366,34 @@ public extension SListProtocol {
 
     /// Gets the position of the element containing
     /// the given data (starting from 0).
-    func index(data: gconstpointer) -> CInt {
-        let rv = g_slist_index(cast(_ptr), cast(data))
-        return CInt(rv)
+    func index(data: gconstpointer) -> Int {
+        let rv: Int = cast(g_slist_index(cast(_ptr), cast(data)))
+        return Int(rv)
     }
 
     /// Inserts a new element into the list at the given position.
-    func insert(data: UnsafeMutableRawPointer, position: CInt) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_insert(cast(_ptr), cast(data), gint(position))
+    @discardableResult func insert(data: UnsafeMutableRawPointer, position: CInt) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_insert(cast(_ptr), cast(data), gint(position)))
         return cast(rv)
     }
 
     /// Inserts a node before `sibling` containing `data`.
-    func insertBefore(sibling: SListProtocol, data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_insert_before(cast(_ptr), cast(sibling.ptr), cast(data))
+    @discardableResult func insertBefore(sibling: SListProtocol, data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_insert_before(cast(_ptr), cast(sibling.ptr), cast(data)))
         return cast(rv)
     }
 
     /// Inserts a new element into the list, using the given
     /// comparison function to determine its position.
-    func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_insert_sorted(cast(_ptr), cast(data), func_)
+    @discardableResult func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_insert_sorted(cast(_ptr), cast(data), func_))
         return cast(rv)
     }
 
     /// Inserts a new element into the list, using the given
     /// comparison function to determine its position.
-    func insertSortedWith(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_insert_sorted_with_data(cast(_ptr), cast(data), func_, cast(user_data))
+    @discardableResult func insertSortedWith(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_insert_sorted_with_data(cast(_ptr), cast(data), func_, cast(user_data)))
         return cast(rv)
     }
 
@@ -400,7 +401,7 @@ public extension SListProtocol {
     /// 
     /// This function iterates over the whole list.
     func last() -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_last(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_last(cast(_ptr)))
         return cast(rv)
     }
 
@@ -409,28 +410,28 @@ public extension SListProtocol {
     /// This function iterates over the whole list to
     /// count its elements. To check whether the list is non-empty, it is faster to
     /// check `list` against `nil`.
-    func length() -> CUnsignedInt {
-        let rv = g_slist_length(cast(_ptr))
-        return CUnsignedInt(rv)
+    func length() -> Int {
+        let rv: Int = cast(g_slist_length(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Gets the element at the given position in a `GSList`.
     func nth(n: CUnsignedInt) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_nth(cast(_ptr), guint(n))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_nth(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Gets the data of the element at the given position.
     func nthData(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_slist_nth_data(cast(_ptr), guint(n))
+        let rv: UnsafeMutableRawPointer! = cast(g_slist_nth_data(cast(_ptr), guint(n)))
         return cast(rv)
     }
 
     /// Gets the position of the given element
     /// in the `GSList` (starting from 0).
-    func position(llink: SListProtocol) -> CInt {
-        let rv = g_slist_position(cast(_ptr), cast(llink.ptr))
-        return CInt(rv)
+    func position(llink: SListProtocol) -> Int {
+        let rv: Int = cast(g_slist_position(cast(_ptr), cast(llink.ptr)))
+        return Int(rv)
     }
 
     /// Adds a new element on to the start of the list.
@@ -446,16 +447,16 @@ public extension SListProtocol {
     /// list = g_slist_prepend (list, "first");
     /// ```
     /// 
-    func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_prepend(cast(_ptr), cast(data))
+    @discardableResult func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_prepend(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
     /// Removes an element from a `GSList`.
     /// If two elements contain the same data, only the first is removed.
     /// If none of the elements contain the data, the `GSList` is unchanged.
-    func remove(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_remove(cast(_ptr), cast(data))
+    @discardableResult func remove(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_remove(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -463,8 +464,8 @@ public extension SListProtocol {
     /// Returns the new head of the list. Contrast with
     /// `g_slist_remove()` which removes only the first node
     /// matching the given data.
-    func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_remove_all(cast(_ptr), cast(data))
+    @discardableResult func removeAll(data: gconstpointer) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_remove_all(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -478,27 +479,27 @@ public extension SListProtocol {
     /// (ie. `O(n)`). If you find yourself using `g_slist_remove_link()`
     /// frequently, you should consider a different data structure,
     /// such as the doubly-linked `GList`.
-    func removeLink(link_: SListProtocol) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_remove_link(cast(_ptr), cast(link_.ptr))
+    @discardableResult func removeLink(link_: SListProtocol) -> UnsafeMutablePointer<GSList>! {
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_remove_link(cast(_ptr), cast(link_.ptr)))
         return cast(rv)
     }
 
     /// Reverses a `GSList`.
     func reverse() -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_reverse(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_reverse(cast(_ptr)))
         return cast(rv)
     }
 
     /// Sorts a `GSList` using the given comparison function. The algorithm
     /// used is a stable sort.
     func sort(compareFunc compare_func: @escaping CompareFunc) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_sort(cast(_ptr), compare_func)
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_sort(cast(_ptr), compare_func))
         return cast(rv)
     }
 
     /// Like `g_slist_sort()`, but the sort function accepts a user data argument.
     func sortWithData(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSList>! {
-        let rv = g_slist_sort_with_data(cast(_ptr), compare_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GSList>! = cast(g_slist_sort_with_data(cast(_ptr), compare_func, cast(user_data)))
         return cast(rv)
     }
 
@@ -509,6 +510,39 @@ public extension SListProtocol {
         g_clear_slist(cast(_ptr), destroy)
     
     }
+
+    /// holds the element's data, which can be a pointer to any kind
+    ///        of data, or any integer value using the
+    ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+    var data: UnsafeMutableRawPointer {
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.data)
+            return rv
+        }
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+         set {
+            _ptr.pointee.data = cast(newValue)
+        }
+    }
+
+    /// contains the link to the next element in the list.
+    var next: UnsafeMutablePointer<GSList> {
+        /// contains the link to the next element in the list.
+        get {
+            let rv: UnsafeMutablePointer<GSList> = cast(_ptr.pointee.next)
+            return rv
+        }
+        /// contains the link to the next element in the list.
+         set {
+            _ptr.pointee.next = cast(newValue)
+        }
+    }
+
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// `GDateTime` is an opaque structure whose members
 /// cannot be accessed directly.
 public protocol DateTimeProtocol {
-    /// Untyped pointer to the underlying `GDateTime` instance.
+        /// Untyped pointer to the underlying `GDateTime` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GDateTime` instance.
@@ -24,7 +24,7 @@ public protocol DateTimeProtocol {
 /// `GDateTime` is an opaque structure whose members
 /// cannot be accessed directly.
 public struct DateTimeRef: DateTimeProtocol {
-    /// Untyped pointer to the underlying `GDateTime` instance.
+        /// Untyped pointer to the underlying `GDateTime` instance.
     /// For type-safe access, use the generated, typed pointer `date_time_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -98,7 +98,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -146,7 +146,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
-        let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_iso8601(text, cast(default_tz.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -167,7 +167,7 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) init(timevalLocal tv: TimeValProtocol) {
-        let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_local(cast(tv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -186,7 +186,7 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) init(timevalUTC tv: TimeValProtocol) {
-        let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_utc(cast(tv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -202,7 +202,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(unixLocal t: Int64) {
-        let rv = g_date_time_new_from_unix_local(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_local(gint64(t)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -217,7 +217,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(unixUTC t: Int64) {
-        let rv = g_date_time_new_from_unix_utc(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_utc(gint64(t)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -227,7 +227,7 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -242,7 +242,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     init(now tz: TimeZoneProtocol) {
-        let rv = g_date_time_new_now(cast(tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now(cast(tz.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -252,7 +252,7 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a `GDateTime` corresponding to the given
@@ -299,7 +299,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) -> DateTimeRef! {
-        let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_iso8601(text, cast(default_tz.ptr)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -320,7 +320,7 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) static func newFrom(timevalLocal tv: TimeValProtocol) -> DateTimeRef! {
-        let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_local(cast(tv.ptr)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -339,7 +339,7 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) static func newFrom(timevalUTC tv: TimeValProtocol) -> DateTimeRef! {
-        let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_utc(cast(tv.ptr)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -355,7 +355,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(unixLocal t: Int64) -> DateTimeRef! {
-        let rv = g_date_time_new_from_unix_local(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_local(gint64(t)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -370,7 +370,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func newFrom(unixUTC t: Int64) -> DateTimeRef! {
-        let rv = g_date_time_new_from_unix_utc(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_utc(gint64(t)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -380,7 +380,7 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     static func new(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTimeRef! {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -395,7 +395,7 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     static func new(now tz: TimeZoneProtocol) -> DateTimeRef! {
-        let rv = g_date_time_new_now(cast(tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now(cast(tz.ptr)))
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -405,7 +405,7 @@ public extension DateTimeRef {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     static func newNowLocal() -> DateTimeRef! {
-        let rv = g_date_time_new_now_local()
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now_local())
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -414,7 +414,7 @@ public extension DateTimeRef {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     static func newNowUTC() -> DateTimeRef! {
-        let rv = g_date_time_new_now_utc()
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now_utc())
         return rv.map { DateTimeRef(cast($0)) }
     }
 
@@ -424,7 +424,7 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     static func new(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTimeRef! {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         return rv.map { DateTimeRef(cast($0)) }
     }
 }
@@ -436,7 +436,7 @@ public extension DateTimeRef {
 /// `GDateTime` is an opaque structure whose members
 /// cannot be accessed directly.
 open class DateTime: DateTimeProtocol {
-    /// Untyped pointer to the underlying `GDateTime` instance.
+        /// Untyped pointer to the underlying `GDateTime` instance.
     /// For type-safe access, use the generated, typed pointer `date_time_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -558,7 +558,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public init( tz: TimeZoneProtocol, year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new(cast(tz.ptr), gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -606,7 +606,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public init(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) {
-        let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_iso8601(text, cast(default_tz.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -627,7 +627,7 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) public init(timevalLocal tv: TimeValProtocol) {
-        let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_local(cast(tv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -646,7 +646,7 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) public init(timevalUTC tv: TimeValProtocol) {
-        let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_utc(cast(tv.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -662,7 +662,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public init(unixLocal t: Int64) {
-        let rv = g_date_time_new_from_unix_local(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_local(gint64(t)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -677,7 +677,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public init(unixUTC t: Int64) {
-        let rv = g_date_time_new_from_unix_utc(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_utc(gint64(t)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -687,7 +687,7 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     public init(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -702,7 +702,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public init(now tz: TimeZoneProtocol) {
-        let rv = g_date_time_new_now(cast(tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now(cast(tz.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -712,7 +712,7 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     public init(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -760,7 +760,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(iso8601 text: UnsafePointer<gchar>, defaultTz default_tz: TimeZoneProtocol) -> DateTime! {
-        let rv = g_date_time_new_from_iso8601(text, cast(default_tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_iso8601(text, cast(default_tz.ptr)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -781,7 +781,7 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) public static func newFrom(timevalLocal tv: TimeValProtocol) -> DateTime! {
-        let rv = g_date_time_new_from_timeval_local(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_local(cast(tv.ptr)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -800,7 +800,7 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) public static func newFrom(timevalUTC tv: TimeValProtocol) -> DateTime! {
-        let rv = g_date_time_new_from_timeval_utc(cast(tv.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_timeval_utc(cast(tv.ptr)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -816,7 +816,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(unixLocal t: Int64) -> DateTime! {
-        let rv = g_date_time_new_from_unix_local(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_local(gint64(t)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -831,7 +831,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func newFrom(unixUTC t: Int64) -> DateTime! {
-        let rv = g_date_time_new_from_unix_utc(gint64(t))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_from_unix_utc(gint64(t)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -841,7 +841,7 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     public static func new(local year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTime! {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -856,7 +856,7 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     public static func new(now tz: TimeZoneProtocol) -> DateTime! {
-        let rv = g_date_time_new_now(cast(tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now(cast(tz.ptr)))
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -866,7 +866,7 @@ open class DateTime: DateTimeProtocol {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     public static func newNowLocal() -> DateTime! {
-        let rv = g_date_time_new_now_local()
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now_local())
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -875,7 +875,7 @@ open class DateTime: DateTimeProtocol {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     public static func newNowUTC() -> DateTime! {
-        let rv = g_date_time_new_now_utc()
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_now_utc())
         return rv.map { DateTime(cast($0)) }
     }
 
@@ -885,52 +885,53 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     public static func new(utc year: CInt, month: CInt, day: CInt, hour: CInt, minute: CInt, seconds: gdouble) -> DateTime! {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), seconds))
         return rv.map { DateTime(cast($0)) }
     }
 
 }
 
-// MARK: - no DateTime properties
+// MARK: no DateTime properties
 
-// MARK: - no signals
+// MARK: no DateTime signals
 
 
+// MARK: DateTime Record: DateTimeProtocol extension (methods and fields)
 public extension DateTimeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GDateTime` instance.
     var date_time_ptr: UnsafeMutablePointer<GDateTime> { return ptr.assumingMemoryBound(to: GDateTime.self) }
 
     /// Creates a copy of `datetime` and adds the specified timespan to the copy.
     func add(timespan: TimeSpan) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add(cast(date_time_ptr), timespan)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add(cast(date_time_ptr), timespan))
         return cast(rv)
     }
 
     /// Creates a copy of `datetime` and adds the specified number of days to the
     /// copy. Add negative values to subtract days.
     func add(days: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_days(cast(date_time_ptr), gint(days))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_days(cast(date_time_ptr), gint(days)))
         return cast(rv)
     }
 
     /// Creates a new `GDateTime` adding the specified values to the current date and
     /// time in `datetime`. Add negative values to subtract.
     func addFull(years: CInt, months: CInt, days: CInt, hours: CInt, minutes: CInt, seconds: gdouble) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_full(cast(date_time_ptr), gint(years), gint(months), gint(days), gint(hours), gint(minutes), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_full(cast(date_time_ptr), gint(years), gint(months), gint(days), gint(hours), gint(minutes), seconds))
         return cast(rv)
     }
 
     /// Creates a copy of `datetime` and adds the specified number of hours.
     /// Add negative values to subtract hours.
     func add(hours: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_hours(cast(date_time_ptr), gint(hours))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_hours(cast(date_time_ptr), gint(hours)))
         return cast(rv)
     }
 
     /// Creates a copy of `datetime` adding the specified number of minutes.
     /// Add negative values to subtract minutes.
     func add(minutes: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_minutes(cast(date_time_ptr), gint(minutes))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_minutes(cast(date_time_ptr), gint(minutes)))
         return cast(rv)
     }
 
@@ -942,21 +943,21 @@ public extension DateTimeProtocol {
     /// 31st January 2018, the result would be 28th February 2018. In 2020 (a leap
     /// year), the result would be 29th February.
     func add(months: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_months(cast(date_time_ptr), gint(months))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_months(cast(date_time_ptr), gint(months)))
         return cast(rv)
     }
 
     /// Creates a copy of `datetime` and adds the specified number of seconds.
     /// Add negative values to subtract seconds.
     func add(seconds: gdouble) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_seconds(cast(date_time_ptr), seconds)
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_seconds(cast(date_time_ptr), seconds))
         return cast(rv)
     }
 
     /// Creates a copy of `datetime` and adds the specified number of weeks to the
     /// copy. Add negative values to subtract weeks.
     func add(weeks: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_weeks(cast(date_time_ptr), gint(weeks))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_weeks(cast(date_time_ptr), gint(weeks)))
         return cast(rv)
     }
 
@@ -966,7 +967,7 @@ public extension DateTimeProtocol {
     /// As with `g_date_time_add_months()`, if the resulting date would be 29th
     /// February on a non-leap year, the day will be clamped to 28th February.
     func add(years: CInt) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_add_years(cast(date_time_ptr), gint(years))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_add_years(cast(date_time_ptr), gint(years)))
         return cast(rv)
     }
 
@@ -975,7 +976,7 @@ public extension DateTimeProtocol {
     /// positive if the first parameter is larger).
     func difference(begin: DateTimeProtocol) -> GTimeSpan {
         let rv = g_date_time_difference(cast(date_time_ptr), cast(begin.ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Creates a newly allocated string representing the requested `format`.
@@ -1073,80 +1074,80 @@ public extension DateTimeProtocol {
     /// `strftime()` extension expected to be added to the future POSIX specification,
     /// \`Ob` and \`Oh` are GNU `strftime()` extensions. Since: 2.56
     func format(format: UnsafePointer<gchar>) -> String! {
-        let rv = g_date_time_format(cast(date_time_ptr), format)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_date_time_format(cast(date_time_ptr), format))
+        return cast(rv)
     }
 
     /// Format `datetime` in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601),
     /// including the date, time and time zone, and return that as a UTF-8 encoded
     /// string.
     func formatIso8601() -> String! {
-        let rv = g_date_time_format_iso8601(cast(date_time_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_date_time_format_iso8601(cast(date_time_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the day of the month represented by `datetime` in the gregorian
     /// calendar.
-    func getDayOfMonth() -> CInt {
-        let rv = g_date_time_get_day_of_month(cast(date_time_ptr))
-        return CInt(rv)
+    func getDayOfMonth() -> Int {
+        let rv: Int = cast(g_date_time_get_day_of_month(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the ISO 8601 day of the week on which `datetime` falls (1 is
     /// Monday, 2 is Tuesday... 7 is Sunday).
-    func getDayOfWeek() -> CInt {
-        let rv = g_date_time_get_day_of_week(cast(date_time_ptr))
-        return CInt(rv)
+    func getDayOfWeek() -> Int {
+        let rv: Int = cast(g_date_time_get_day_of_week(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the day of the year represented by `datetime` in the Gregorian
     /// calendar.
-    func getDayOfYear() -> CInt {
-        let rv = g_date_time_get_day_of_year(cast(date_time_ptr))
-        return CInt(rv)
+    func getDayOfYear() -> Int {
+        let rv: Int = cast(g_date_time_get_day_of_year(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the hour of the day represented by `datetime`
-    func getHour() -> CInt {
-        let rv = g_date_time_get_hour(cast(date_time_ptr))
-        return CInt(rv)
+    func getHour() -> Int {
+        let rv: Int = cast(g_date_time_get_hour(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the microsecond of the date represented by `datetime`
-    func getMicrosecond() -> CInt {
-        let rv = g_date_time_get_microsecond(cast(date_time_ptr))
-        return CInt(rv)
+    func getMicrosecond() -> Int {
+        let rv: Int = cast(g_date_time_get_microsecond(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the minute of the hour represented by `datetime`
-    func getMinute() -> CInt {
-        let rv = g_date_time_get_minute(cast(date_time_ptr))
-        return CInt(rv)
+    func getMinute() -> Int {
+        let rv: Int = cast(g_date_time_get_minute(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the month of the year represented by `datetime` in the Gregorian
     /// calendar.
-    func getMonth() -> CInt {
-        let rv = g_date_time_get_month(cast(date_time_ptr))
-        return CInt(rv)
+    func getMonth() -> Int {
+        let rv: Int = cast(g_date_time_get_month(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the second of the minute represented by `datetime`
-    func getSecond() -> CInt {
-        let rv = g_date_time_get_second(cast(date_time_ptr))
-        return CInt(rv)
+    func getSecond() -> Int {
+        let rv: Int = cast(g_date_time_get_second(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the number of seconds since the start of the last minute,
     /// including the fractional part.
-    func getSeconds() -> gdouble {
-        let rv = g_date_time_get_seconds(cast(date_time_ptr))
-        return rv
+    func getSeconds() -> Double {
+        let rv: Double = cast(g_date_time_get_seconds(cast(date_time_ptr)))
+        return cast(rv)
     }
 
     /// Get the time zone for this `datetime`.
     func getTimezone() -> UnsafeMutablePointer<GTimeZone>! {
-        let rv = g_date_time_get_timezone(cast(date_time_ptr))
+        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_date_time_get_timezone(cast(date_time_ptr)))
         return cast(rv)
     }
 
@@ -1157,8 +1158,8 @@ public extension DateTimeProtocol {
     /// months and "EDT" during the summer months when daylight savings
     /// time is in effect.
     func getTimezoneAbbreviation() -> String! {
-        let rv = g_date_time_get_timezone_abbreviation(cast(date_time_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_date_time_get_timezone_abbreviation(cast(date_time_ptr)))
+        return cast(rv)
     }
 
     /// Determines the offset to UTC in effect at the time and in the time
@@ -1171,7 +1172,7 @@ public extension DateTimeProtocol {
     /// If `datetime` represents UTC time, then the offset is always zero.
     func getUTCOffset() -> GTimeSpan {
         let rv = g_date_time_get_utc_offset(cast(date_time_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the ISO 8601 week-numbering year in which the week containing
@@ -1205,9 +1206,9 @@ public extension DateTimeProtocol {
     /// 
     /// Note that January 1 0001 in the proleptic Gregorian calendar is a
     /// Monday, so this function never returns 0.
-    func getWeekNumberingYear() -> CInt {
-        let rv = g_date_time_get_week_numbering_year(cast(date_time_ptr))
-        return CInt(rv)
+    func getWeekNumberingYear() -> Int {
+        let rv: Int = cast(g_date_time_get_week_numbering_year(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Returns the ISO 8601 week number for the week containing `datetime`.
@@ -1225,15 +1226,15 @@ public extension DateTimeProtocol {
     /// previous year.  Similarly, the final days of a calendar year may be
     /// considered as being part of the first ISO 8601 week of the next year
     /// if 4 or more days of that week are contained within the new year.
-    func getWeekOfYear() -> CInt {
-        let rv = g_date_time_get_week_of_year(cast(date_time_ptr))
-        return CInt(rv)
+    func getWeekOfYear() -> Int {
+        let rv: Int = cast(g_date_time_get_week_of_year(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the year represented by `datetime` in the Gregorian calendar.
-    func getYear() -> CInt {
-        let rv = g_date_time_get_year(cast(date_time_ptr))
-        return CInt(rv)
+    func getYear() -> Int {
+        let rv: Int = cast(g_date_time_get_year(cast(date_time_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the Gregorian day, month, and year of a given `GDateTime`.
@@ -1243,8 +1244,8 @@ public extension DateTimeProtocol {
     }
 
     /// Atomically increments the reference count of `datetime` by one.
-    func ref() -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_ref(cast(date_time_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GDateTime>! {
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_ref(cast(date_time_ptr)))
         return cast(rv)
     }
 
@@ -1254,7 +1255,7 @@ public extension DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_to_timezone()` with the
     /// time zone returned by `g_time_zone_new_local()`.
     func toLocal() -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_to_local(cast(date_time_ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_to_local(cast(date_time_ptr)))
         return cast(rv)
     }
 
@@ -1290,7 +1291,7 @@ public extension DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     func toTimezone(tz: TimeZoneProtocol) -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_to_timezone(cast(date_time_ptr), cast(tz.ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_to_timezone(cast(date_time_ptr), cast(tz.ptr)))
         return cast(rv)
     }
 
@@ -1310,7 +1311,7 @@ public extension DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_to_timezone()` with the
     /// time zone returned by `g_time_zone_new_utc()`.
     func toUTC() -> UnsafeMutablePointer<GDateTime>! {
-        let rv = g_date_time_to_utc(cast(date_time_ptr))
+        let rv: UnsafeMutablePointer<GDateTime>! = cast(g_date_time_to_utc(cast(date_time_ptr)))
         return cast(rv)
     }
 
@@ -1324,43 +1325,43 @@ public extension DateTimeProtocol {
     }
     /// Retrieves the day of the month represented by `datetime` in the gregorian
     /// calendar.
-    var dayOfMonth: CInt {
+    var dayOfMonth: Int {
         /// Retrieves the day of the month represented by `datetime` in the gregorian
         /// calendar.
         get {
-            let rv = g_date_time_get_day_of_month(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_day_of_month(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the ISO 8601 day of the week on which `datetime` falls (1 is
     /// Monday, 2 is Tuesday... 7 is Sunday).
-    var dayOfWeek: CInt {
+    var dayOfWeek: Int {
         /// Retrieves the ISO 8601 day of the week on which `datetime` falls (1 is
         /// Monday, 2 is Tuesday... 7 is Sunday).
         get {
-            let rv = g_date_time_get_day_of_week(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_day_of_week(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the day of the year represented by `datetime` in the Gregorian
     /// calendar.
-    var dayOfYear: CInt {
+    var dayOfYear: Int {
         /// Retrieves the day of the year represented by `datetime` in the Gregorian
         /// calendar.
         get {
-            let rv = g_date_time_get_day_of_year(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_day_of_year(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the hour of the day represented by `datetime`
-    var hour: CInt {
+    var hour: Int {
         /// Retrieves the hour of the day represented by `datetime`
         get {
-            let rv = g_date_time_get_hour(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_hour(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1376,51 +1377,51 @@ public extension DateTimeProtocol {
     }
 
     /// Retrieves the microsecond of the date represented by `datetime`
-    var microsecond: CInt {
+    var microsecond: Int {
         /// Retrieves the microsecond of the date represented by `datetime`
         get {
-            let rv = g_date_time_get_microsecond(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_microsecond(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the minute of the hour represented by `datetime`
-    var minute: CInt {
+    var minute: Int {
         /// Retrieves the minute of the hour represented by `datetime`
         get {
-            let rv = g_date_time_get_minute(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_minute(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the month of the year represented by `datetime` in the Gregorian
     /// calendar.
-    var month: CInt {
+    var month: Int {
         /// Retrieves the month of the year represented by `datetime` in the Gregorian
         /// calendar.
         get {
-            let rv = g_date_time_get_month(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_month(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the second of the minute represented by `datetime`
-    var second: CInt {
+    var second: Int {
         /// Retrieves the second of the minute represented by `datetime`
         get {
-            let rv = g_date_time_get_second(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_second(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the number of seconds since the start of the last minute,
     /// including the fractional part.
-    var seconds: gdouble {
+    var seconds: Double {
         /// Retrieves the number of seconds since the start of the last minute,
         /// including the fractional part.
         get {
-            let rv = g_date_time_get_seconds(cast(date_time_ptr))
-            return rv
+            let rv: Double = cast(g_date_time_get_seconds(cast(date_time_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1428,7 +1429,7 @@ public extension DateTimeProtocol {
     var timezone: UnsafeMutablePointer<GTimeZone>! {
         /// Get the time zone for this `datetime`.
         get {
-            let rv = g_date_time_get_timezone(cast(date_time_ptr))
+            let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_date_time_get_timezone(cast(date_time_ptr)))
             return cast(rv)
         }
     }
@@ -1447,8 +1448,8 @@ public extension DateTimeProtocol {
         /// months and "EDT" during the summer months when daylight savings
         /// time is in effect.
         get {
-            let rv = g_date_time_get_timezone_abbreviation(cast(date_time_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_date_time_get_timezone_abbreviation(cast(date_time_ptr)))
+            return cast(rv)
         }
     }
 
@@ -1471,7 +1472,7 @@ public extension DateTimeProtocol {
         /// If `datetime` represents UTC time, then the offset is always zero.
         get {
             let rv = g_date_time_get_utc_offset(cast(date_time_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -1506,7 +1507,7 @@ public extension DateTimeProtocol {
     /// 
     /// Note that January 1 0001 in the proleptic Gregorian calendar is a
     /// Monday, so this function never returns 0.
-    var weekNumberingYear: CInt {
+    var weekNumberingYear: Int {
         /// Returns the ISO 8601 week-numbering year in which the week containing
         /// `datetime` falls.
         /// 
@@ -1539,8 +1540,8 @@ public extension DateTimeProtocol {
         /// Note that January 1 0001 in the proleptic Gregorian calendar is a
         /// Monday, so this function never returns 0.
         get {
-            let rv = g_date_time_get_week_numbering_year(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_week_numbering_year(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1559,7 +1560,7 @@ public extension DateTimeProtocol {
     /// previous year.  Similarly, the final days of a calendar year may be
     /// considered as being part of the first ISO 8601 week of the next year
     /// if 4 or more days of that week are contained within the new year.
-    var weekOfYear: CInt {
+    var weekOfYear: Int {
         /// Returns the ISO 8601 week number for the week containing `datetime`.
         /// The ISO 8601 week number is the same for every day of the week (from
         /// Moday through Sunday).  That can produce some unusual results
@@ -1576,19 +1577,21 @@ public extension DateTimeProtocol {
         /// considered as being part of the first ISO 8601 week of the next year
         /// if 4 or more days of that week are contained within the new year.
         get {
-            let rv = g_date_time_get_week_of_year(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_week_of_year(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the year represented by `datetime` in the Gregorian calendar.
-    var year: CInt {
+    var year: Int {
         /// Retrieves the year represented by `datetime` in the Gregorian calendar.
         get {
-            let rv = g_date_time_get_year(cast(date_time_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_date_time_get_year(cast(date_time_ptr)))
+            return Int(rv)
         }
     }
+
+
 }
 
 

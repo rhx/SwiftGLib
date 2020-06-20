@@ -15,7 +15,7 @@ import CGLib
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 public protocol MarkupParserProtocol {
-    /// Untyped pointer to the underlying `GMarkupParser` instance.
+        /// Untyped pointer to the underlying `GMarkupParser` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMarkupParser` instance.
@@ -34,7 +34,7 @@ public protocol MarkupParserProtocol {
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 public struct MarkupParserRef: MarkupParserProtocol {
-    /// Untyped pointer to the underlying `GMarkupParser` instance.
+        /// Untyped pointer to the underlying `GMarkupParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -93,7 +93,7 @@ public extension MarkupParserRef {
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
 open class MarkupParser: MarkupParserProtocol {
-    /// Untyped pointer to the underlying `GMarkupParser` instance.
+        /// Untyped pointer to the underlying `GMarkupParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -122,7 +122,7 @@ open class MarkupParser: MarkupParserProtocol {
         // no reference counting for GMarkupParser, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GMarkupParser`.
+    /// Do-nothing destructor for `GMarkupParser`.
     deinit {
         // no reference counting for GMarkupParser, cannot unref(cast(_ptr))
     }
@@ -190,14 +190,26 @@ open class MarkupParser: MarkupParserProtocol {
 
 }
 
-// MARK: - no MarkupParser properties
+// MARK: no MarkupParser properties
 
-// MARK: - no signals
+// MARK: no MarkupParser signals
 
 
+// MARK: MarkupParser Record: MarkupParserProtocol extension (methods and fields)
 public extension MarkupParserProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMarkupParser` instance.
     var _ptr: UnsafeMutablePointer<GMarkupParser> { return ptr.assumingMemoryBound(to: GMarkupParser.self) }
+
+
+    // var startElement is unavailable because start_element is void
+
+    // var endElement is unavailable because end_element is void
+
+    // var text is unavailable because text is void
+
+    // var passthrough is unavailable because passthrough is void
+
+    // var error is unavailable because error is void
 
 }
 

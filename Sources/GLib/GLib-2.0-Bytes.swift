@@ -32,7 +32,7 @@ import CGLib
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 public protocol BytesProtocol {
-    /// Untyped pointer to the underlying `GBytes` instance.
+        /// Untyped pointer to the underlying `GBytes` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GBytes` instance.
@@ -68,7 +68,7 @@ public protocol BytesProtocol {
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 public struct BytesRef: BytesProtocol {
-    /// Untyped pointer to the underlying `GBytes` instance.
+        /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -117,7 +117,7 @@ public extension BytesRef {
     /// 
     /// `data` is copied. If `size` is 0, `data` may be `nil`.
     init( data: gconstpointer, size: Int) {
-        let rv = g_bytes_new(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -126,7 +126,7 @@ public extension BytesRef {
     /// `data` must be static (ie: never modified or freed). It may be `nil` if `size`
     /// is 0.
     init(static_ data: gconstpointer, size: Int) {
-        let rv = g_bytes_new_static(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_static(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -143,7 +143,7 @@ public extension BytesRef {
     /// 
     /// `data` may be `nil` if `size` is 0.
     init(take data: UnsafeMutableRawPointer, size: Int) {
-        let rv = g_bytes_new_take(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_take(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -157,7 +157,7 @@ public extension BytesRef {
     /// 
     /// `data` may be `nil` if `size` is 0.
     init(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
-        let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GBytes` from static data.
@@ -165,7 +165,7 @@ public extension BytesRef {
     /// `data` must be static (ie: never modified or freed). It may be `nil` if `size`
     /// is 0.
     static func newStatic(static_ data: gconstpointer, size: Int) -> BytesRef! {
-        let rv = g_bytes_new_static(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_static(cast(data), gsize(size)))
         return rv.map { BytesRef(cast($0)) }
     }
 
@@ -182,7 +182,7 @@ public extension BytesRef {
     /// 
     /// `data` may be `nil` if `size` is 0.
     static func new(take data: UnsafeMutableRawPointer, size: Int) -> BytesRef! {
-        let rv = g_bytes_new_take(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_take(cast(data), gsize(size)))
         return rv.map { BytesRef(cast($0)) }
     }
 
@@ -196,7 +196,7 @@ public extension BytesRef {
     /// 
     /// `data` may be `nil` if `size` is 0.
     static func newWith(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> BytesRef! {
-        let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data)))
         return rv.map { BytesRef(cast($0)) }
     }
 }
@@ -230,7 +230,7 @@ public extension BytesRef {
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
 open class Bytes: BytesProtocol {
-    /// Untyped pointer to the underlying `GBytes` instance.
+        /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -327,7 +327,7 @@ open class Bytes: BytesProtocol {
     /// 
     /// `data` is copied. If `size` is 0, `data` may be `nil`.
     public init( data: gconstpointer, size: Int) {
-        let rv = g_bytes_new(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -336,7 +336,7 @@ open class Bytes: BytesProtocol {
     /// `data` must be static (ie: never modified or freed). It may be `nil` if `size`
     /// is 0.
     public init(static_ data: gconstpointer, size: Int) {
-        let rv = g_bytes_new_static(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_static(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -353,7 +353,7 @@ open class Bytes: BytesProtocol {
     /// 
     /// `data` may be `nil` if `size` is 0.
     public init(take data: UnsafeMutableRawPointer, size: Int) {
-        let rv = g_bytes_new_take(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_take(cast(data), gsize(size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -367,7 +367,7 @@ open class Bytes: BytesProtocol {
     /// 
     /// `data` may be `nil` if `size` is 0.
     public init(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) {
-        let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -376,7 +376,7 @@ open class Bytes: BytesProtocol {
     /// `data` must be static (ie: never modified or freed). It may be `nil` if `size`
     /// is 0.
     public static func newStatic(static_ data: gconstpointer, size: Int) -> Bytes! {
-        let rv = g_bytes_new_static(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_static(cast(data), gsize(size)))
         return rv.map { Bytes(cast($0)) }
     }
 
@@ -393,7 +393,7 @@ open class Bytes: BytesProtocol {
     /// 
     /// `data` may be `nil` if `size` is 0.
     public static func new(take data: UnsafeMutableRawPointer, size: Int) -> Bytes! {
-        let rv = g_bytes_new_take(cast(data), gsize(size))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_take(cast(data), gsize(size)))
         return rv.map { Bytes(cast($0)) }
     }
 
@@ -407,17 +407,18 @@ open class Bytes: BytesProtocol {
     /// 
     /// `data` may be `nil` if `size` is 0.
     public static func newWith(freeFunc data: gconstpointer, size: Int, freeFunc free_func: @escaping DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> Bytes! {
-        let rv = g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_with_free_func(cast(data), gsize(size), free_func, cast(user_data)))
         return rv.map { Bytes(cast($0)) }
     }
 
 }
 
-// MARK: - no Bytes properties
+// MARK: no Bytes properties
 
-// MARK: - no signals
+// MARK: no Bytes signals
 
 
+// MARK: Bytes Record: BytesProtocol extension (methods and fields)
 public extension BytesProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBytes` instance.
     var bytes_ptr: UnsafeMutablePointer<GBytes> { return ptr.assumingMemoryBound(to: GBytes.self) }
@@ -431,9 +432,9 @@ public extension BytesProtocol {
     /// the longer one. Otherwise the first byte where both differ is used for
     /// comparison. If `bytes1` has a smaller value at that position it is
     /// considered less, otherwise greater than `bytes2`.
-    func compare(bytes2: BytesProtocol) -> CInt {
-        let rv = g_bytes_compare(cast(bytes_ptr), cast(bytes2.ptr))
-        return CInt(rv)
+    func compare(bytes2: BytesProtocol) -> Int {
+        let rv: Int = cast(g_bytes_compare(cast(bytes_ptr), cast(bytes2.ptr)))
+        return Int(rv)
     }
 
     /// Compares the two `GBytes` values being pointed to and returns
@@ -454,7 +455,7 @@ public extension BytesProtocol {
     /// may represent an empty string with `data` non-`nil` and `size` as 0. `nil` will
     /// not be returned if `size` is non-zero.
     func getData(size: UnsafeMutablePointer<Int>) -> gconstpointer! {
-        let rv = g_bytes_get_data(cast(bytes_ptr), cast(size))
+        let rv: gconstpointer! = cast(g_bytes_get_data(cast(bytes_ptr), cast(size)))
         return cast(rv)
     }
 
@@ -470,9 +471,9 @@ public extension BytesProtocol {
     /// 
     /// This function can be passed to `g_hash_table_new()` as the `key_hash_func`
     /// parameter, when using non-`nil` `GBytes` pointers as keys in a `GHashTable`.
-    func hash() -> CUnsignedInt {
-        let rv = g_bytes_hash(cast(bytes_ptr))
-        return CUnsignedInt(rv)
+    func hash() -> Int {
+        let rv: Int = cast(g_bytes_hash(cast(bytes_ptr)))
+        return Int(rv)
     }
 
     /// Creates a `GBytes` which is a subsection of another `GBytes`. The `offset` +
@@ -487,13 +488,13 @@ public extension BytesProtocol {
     /// the same `GBytes` instead of `bytes`. This allows consumers to simplify the
     /// usage of `GBytes` when asynchronously writing to streams.
     func newFromBytes(offset: Int, length: Int) -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_bytes_new_from_bytes(cast(bytes_ptr), gsize(offset), gsize(length))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_new_from_bytes(cast(bytes_ptr), gsize(offset), gsize(length)))
         return cast(rv)
     }
 
     /// Increase the reference count on `bytes`.
-    func ref() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_bytes_ref(cast(bytes_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GBytes>! {
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_bytes_ref(cast(bytes_ptr)))
         return cast(rv)
     }
 
@@ -512,7 +513,7 @@ public extension BytesProtocol {
     /// `g_bytes_new()`, `g_bytes_new_take()` or `g_byte_array_free_to_bytes()`. In all
     /// other cases the data is copied.
     func unrefToArray() -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_bytes_unref_to_array(cast(bytes_ptr))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_bytes_unref_to_array(cast(bytes_ptr)))
         return cast(rv)
     }
 
@@ -524,7 +525,7 @@ public extension BytesProtocol {
     /// `g_bytes_new_take()` or `g_byte_array_free_to_bytes()`. In all other cases the
     /// data is copied.
     func unrefToData(size: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
-        let rv = g_bytes_unref_to_data(cast(bytes_ptr), cast(size))
+        let rv: UnsafeMutableRawPointer! = cast(g_bytes_unref_to_data(cast(bytes_ptr), cast(size)))
         return cast(rv)
     }
 
@@ -534,8 +535,8 @@ public extension BytesProtocol {
     /// 
     /// The hexadecimal string returned will be in lower case.
     func computeChecksumForBytes(checksumType checksum_type: ChecksumType) -> String! {
-        let rv = g_compute_checksum_for_bytes(checksum_type, cast(bytes_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_compute_checksum_for_bytes(checksum_type, cast(bytes_ptr)))
+        return cast(rv)
     }
 
     /// Computes the HMAC for a binary `data`. This is a
@@ -544,8 +545,8 @@ public extension BytesProtocol {
     /// 
     /// The hexadecimal string returned will be in lower case.
     func computeHmacForBytes(digestType digest_type: ChecksumType, data: BytesProtocol) -> String! {
-        let rv = g_compute_hmac_for_bytes(digest_type, cast(bytes_ptr), cast(data.ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_compute_hmac_for_bytes(digest_type, cast(bytes_ptr), cast(data.ptr)))
+        return cast(rv)
     }
     /// Get the size of the byte data in the `GBytes`.
     /// 
@@ -559,6 +560,8 @@ public extension BytesProtocol {
             return Int(rv)
         }
     }
+
+
 }
 
 

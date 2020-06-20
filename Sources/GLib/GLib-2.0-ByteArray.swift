@@ -9,7 +9,7 @@ import CGLib
 ///
 /// Contains the public fields of a GByteArray.
 public protocol ByteArrayProtocol {
-    /// Untyped pointer to the underlying `GByteArray` instance.
+        /// Untyped pointer to the underlying `GByteArray` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GByteArray` instance.
@@ -22,7 +22,7 @@ public protocol ByteArrayProtocol {
 ///
 /// Contains the public fields of a GByteArray.
 public struct ByteArrayRef: ByteArrayProtocol {
-    /// Untyped pointer to the underlying `GByteArray` instance.
+        /// Untyped pointer to the underlying `GByteArray` instance.
     /// For type-safe access, use the generated, typed pointer `byte_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -70,7 +70,7 @@ public extension ByteArrayRef {
         /// Create byte array containing the data. The data will be owned by the array
     /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
     static func new(take data: UnsafeMutablePointer<UInt8>, len: Int) -> ByteArrayRef! {
-        let rv = g_byte_array_new_take(cast(data), gsize(len))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_new_take(cast(data), gsize(len)))
         return rv.map { ByteArrayRef(cast($0)) }
     }
 
@@ -79,7 +79,7 @@ public extension ByteArrayRef {
     /// bytes to the array. Note however that the size of the array is still
     /// 0.
     static func sizedNew(sized reserved_size: CUnsignedInt) -> ByteArrayRef! {
-        let rv = g_byte_array_sized_new(guint(reserved_size))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_sized_new(guint(reserved_size)))
         return rv.map { ByteArrayRef(cast($0)) }
     }
 }
@@ -90,7 +90,7 @@ public extension ByteArrayRef {
 ///
 /// Contains the public fields of a GByteArray.
 open class ByteArray: ByteArrayProtocol {
-    /// Untyped pointer to the underlying `GByteArray` instance.
+        /// Untyped pointer to the underlying `GByteArray` instance.
     /// For type-safe access, use the generated, typed pointer `byte_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -187,7 +187,7 @@ open class ByteArray: ByteArrayProtocol {
     /// Create byte array containing the data. The data will be owned by the array
     /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
     public static func new(take data: UnsafeMutablePointer<UInt8>, len: Int) -> ByteArray! {
-        let rv = g_byte_array_new_take(cast(data), gsize(len))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_new_take(cast(data), gsize(len)))
         return rv.map { ByteArray(cast($0)) }
     }
 
@@ -196,17 +196,18 @@ open class ByteArray: ByteArrayProtocol {
     /// bytes to the array. Note however that the size of the array is still
     /// 0.
     public static func sizedNew(sized reserved_size: CUnsignedInt) -> ByteArray! {
-        let rv = g_byte_array_sized_new(guint(reserved_size))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_sized_new(guint(reserved_size)))
         return rv.map { ByteArray(cast($0)) }
     }
 
 }
 
-// MARK: - no ByteArray properties
+// MARK: no ByteArray properties
 
-// MARK: - no signals
+// MARK: no ByteArray signals
 
 
+// MARK: ByteArray Record: ByteArrayProtocol extension (methods and fields)
 public extension ByteArrayProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GByteArray` instance.
     var byte_array_ptr: UnsafeMutablePointer<GByteArray> { return ptr.assumingMemoryBound(to: GByteArray.self) }
@@ -214,7 +215,7 @@ public extension ByteArrayProtocol {
     /// Adds the given bytes to the end of the `GByteArray`.
     /// The array will grow in size automatically if necessary.
     func append(data: UnsafePointer<UInt8>, len: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_append(cast(byte_array_ptr), cast(data), guint(len))
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_append(cast(byte_array_ptr), cast(data), guint(len)))
         return cast(rv)
     }
 
@@ -223,7 +224,7 @@ public extension ByteArrayProtocol {
     /// `array` is greater than one, the `GByteArray` wrapper is preserved but
     /// the size of `array` will be set to zero.
     func free(freeSegment free_segment: Bool) -> UnsafeMutablePointer<UInt8>! {
-        let rv = g_byte_array_free(cast(byte_array_ptr), gboolean(free_segment ? 1 : 0))
+        let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_free(cast(byte_array_ptr), gboolean(free_segment ? 1 : 0)))
         return cast(rv)
     }
 
@@ -236,28 +237,28 @@ public extension ByteArrayProtocol {
     /// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
     /// together.
     func freeToBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_byte_array_free_to_bytes(cast(byte_array_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_byte_array_free_to_bytes(cast(byte_array_ptr)))
         return cast(rv)
     }
 
     /// Adds the given data to the start of the `GByteArray`.
     /// The array will grow in size automatically if necessary.
-    func prepend(data: UnsafePointer<UInt8>, len: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_prepend(cast(byte_array_ptr), cast(data), guint(len))
+    @discardableResult func prepend(data: UnsafePointer<UInt8>, len: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_prepend(cast(byte_array_ptr), cast(data), guint(len)))
         return cast(rv)
     }
 
     /// Atomically increments the reference count of `array` by one.
     /// This function is thread-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_ref(cast(byte_array_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_ref(cast(byte_array_ptr)))
         return cast(rv)
     }
 
     /// Removes the byte at the given index from a `GByteArray`.
     /// The following bytes are moved down one place.
-    func removeIndex(index_: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_remove_index(cast(byte_array_ptr), guint(index_))
+    @discardableResult func removeIndex(index_: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_remove_index(cast(byte_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -265,21 +266,21 @@ public extension ByteArrayProtocol {
     /// element in the array is used to fill in the space, so this function
     /// does not preserve the order of the `GByteArray`. But it is faster
     /// than `g_byte_array_remove_index()`.
-    func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_remove_index_fast(cast(byte_array_ptr), guint(index_))
+    @discardableResult func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_remove_index_fast(cast(byte_array_ptr), guint(index_)))
         return cast(rv)
     }
 
     /// Removes the given number of bytes starting at the given index from a
     /// `GByteArray`.  The following elements are moved to close the gap.
-    func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_remove_range(cast(byte_array_ptr), guint(index_), guint(length))
+    @discardableResult func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_remove_range(cast(byte_array_ptr), guint(index_), guint(length)))
         return cast(rv)
     }
 
     /// Sets the size of the `GByteArray`, expanding it if necessary.
-    func setSize(length: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
-        let rv = g_byte_array_set_size(cast(byte_array_ptr), guint(length))
+    @discardableResult func setSize(length: CUnsignedInt) -> UnsafeMutablePointer<GByteArray>! {
+        let rv: UnsafeMutablePointer<GByteArray>! = cast(g_byte_array_set_size(cast(byte_array_ptr), guint(length)))
         return cast(rv)
     }
 
@@ -309,7 +310,7 @@ public extension ByteArrayProtocol {
     /// the underlying array is preserved for use elsewhere and returned
     /// to the caller.
     func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
-        let rv = g_byte_array_steal(cast(byte_array_ptr), cast(len))
+        let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_steal(cast(byte_array_ptr), cast(len)))
         return cast(rv)
     }
 
@@ -327,7 +328,7 @@ public extension ByteArrayProtocol {
     /// `array` is greater than one, the `GByteArray` wrapper is preserved but
     /// the size of `array` will be set to zero.
     func byteArrayFree(freeSegment free_segment: Bool) -> UnsafeMutablePointer<UInt8>! {
-        let rv = g_byte_array_free(cast(byte_array_ptr), gboolean(free_segment ? 1 : 0))
+        let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_free(cast(byte_array_ptr), gboolean(free_segment ? 1 : 0)))
         return cast(rv)
     }
 
@@ -340,7 +341,7 @@ public extension ByteArrayProtocol {
     /// This is identical to using `g_bytes_new_take()` and `g_byte_array_free()`
     /// together.
     func byteArrayFreeToBytes() -> UnsafeMutablePointer<GBytes>! {
-        let rv = g_byte_array_free_to_bytes(cast(byte_array_ptr))
+        let rv: UnsafeMutablePointer<GBytes>! = cast(g_byte_array_free_to_bytes(cast(byte_array_ptr)))
         return cast(rv)
     }
 
@@ -348,7 +349,7 @@ public extension ByteArrayProtocol {
     /// the underlying array is preserved for use elsewhere and returned
     /// to the caller.
     func byteArraySteal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UInt8>! {
-        let rv = g_byte_array_steal(cast(byte_array_ptr), cast(len))
+        let rv: UnsafeMutablePointer<UInt8>! = cast(g_byte_array_steal(cast(byte_array_ptr), cast(len)))
         return cast(rv)
     }
 
@@ -360,6 +361,36 @@ public extension ByteArrayProtocol {
         g_byte_array_unref(cast(byte_array_ptr))
     
     }
+
+    /// a pointer to the element data. The data may be moved as
+    ///     elements are added to the `GByteArray`
+    var data: UnsafeMutablePointer<UInt8> {
+        /// a pointer to the element data. The data may be moved as
+        ///     elements are added to the `GByteArray`
+        get {
+            let rv: UnsafeMutablePointer<UInt8> = cast(byte_array_ptr.pointee.data)
+            return rv
+        }
+        /// a pointer to the element data. The data may be moved as
+        ///     elements are added to the `GByteArray`
+         set {
+            byte_array_ptr.pointee.data = cast(newValue)
+        }
+    }
+
+    /// the number of elements in the `GByteArray`
+    var len: Int {
+        /// the number of elements in the `GByteArray`
+        get {
+            let rv: Int = cast(byte_array_ptr.pointee.len)
+            return rv
+        }
+        /// the number of elements in the `GByteArray`
+         set {
+            byte_array_ptr.pointee.len = guint(newValue)
+        }
+    }
+
 }
 
 

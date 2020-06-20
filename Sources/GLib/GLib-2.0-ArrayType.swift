@@ -9,7 +9,7 @@ import CGLib
 ///
 /// Contains the public fields of a GArray.
 public protocol ArrayTypeProtocol {
-    /// Untyped pointer to the underlying `GArray` instance.
+        /// Untyped pointer to the underlying `GArray` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GArray` instance.
@@ -22,7 +22,7 @@ public protocol ArrayTypeProtocol {
 ///
 /// Contains the public fields of a GArray.
 public struct ArrayRef: ArrayTypeProtocol {
-    /// Untyped pointer to the underlying `GArray` instance.
+        /// Untyped pointer to the underlying `GArray` instance.
     /// For type-safe access, use the generated, typed pointer `array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -72,7 +72,7 @@ public extension ArrayRef {
     /// are going to add many elements to the array. Note however that the
     /// size of the array is still 0.
     static func sizedNew(sized zero_terminated: Bool, clear_: Bool, elementSize element_size: CUnsignedInt, reservedSize reserved_size: CUnsignedInt) -> ArrayRef! {
-        let rv = g_array_sized_new(gboolean(zero_terminated ? 1 : 0), gboolean(clear_ ? 1 : 0), guint(element_size), guint(reserved_size))
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_sized_new(gboolean(zero_terminated ? 1 : 0), gboolean(clear_ ? 1 : 0), guint(element_size), guint(reserved_size)))
         return rv.map { ArrayRef(cast($0)) }
     }
 }
@@ -83,7 +83,7 @@ public extension ArrayRef {
 ///
 /// Contains the public fields of a GArray.
 open class ArrayType: ArrayTypeProtocol {
-    /// Untyped pointer to the underlying `GArray` instance.
+        /// Untyped pointer to the underlying `GArray` instance.
     /// For type-safe access, use the generated, typed pointer `array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -182,24 +182,25 @@ open class ArrayType: ArrayTypeProtocol {
     /// are going to add many elements to the array. Note however that the
     /// size of the array is still 0.
     public static func sizedNew(sized zero_terminated: Bool, clear_: Bool, elementSize element_size: CUnsignedInt, reservedSize reserved_size: CUnsignedInt) -> ArrayType! {
-        let rv = g_array_sized_new(gboolean(zero_terminated ? 1 : 0), gboolean(clear_ ? 1 : 0), guint(element_size), guint(reserved_size))
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_sized_new(gboolean(zero_terminated ? 1 : 0), gboolean(clear_ ? 1 : 0), guint(element_size), guint(reserved_size)))
         return rv.map { ArrayType(cast($0)) }
     }
 
 }
 
-// MARK: - no ArrayType properties
+// MARK: no ArrayType properties
 
-// MARK: - no signals
+// MARK: no ArrayType signals
 
 
+// MARK: Array Record: ArrayTypeProtocol extension (methods and fields)
 public extension ArrayTypeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GArray` instance.
     var array_ptr: UnsafeMutablePointer<GArray> { return ptr.assumingMemoryBound(to: GArray.self) }
 
     /// Adds `len` elements onto the end of the array.
     func appendVals(data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_append_vals(cast(array_ptr), cast(data), guint(len))
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_append_vals(cast(array_ptr), cast(data), guint(len)))
         return cast(rv)
     }
 
@@ -239,7 +240,7 @@ public extension ArrayTypeProtocol {
     /// Create a shallow copy of a `GArray`. If the array elements consist of
     /// pointers to data, the pointers are copied but the actual data is not.
     func copy() -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_copy(cast(array_ptr))
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_copy(cast(array_ptr)))
         return cast(rv)
     }
 
@@ -257,15 +258,15 @@ public extension ArrayTypeProtocol {
     /// This function is not thread-safe. If using a `GArray` from multiple
     /// threads, use only the atomic `g_array_ref()` and `g_array_unref()`
     /// functions.
-    func free(freeSegment free_segment: Bool) -> String! {
-        let rv = g_array_free(cast(array_ptr), gboolean(free_segment ? 1 : 0))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    @discardableResult func free(freeSegment free_segment: Bool) -> UnsafeMutableRawPointer? {
+        let rv: String! = cast(g_array_free(cast(array_ptr), gboolean(free_segment ? 1 : 0)))
+        return cast(rv)
     }
 
     /// Gets the size of the elements in `array`.
-    func getElementSize() -> CUnsignedInt {
-        let rv = g_array_get_element_size(cast(array_ptr))
-        return CUnsignedInt(rv)
+    func getElementSize() -> Int {
+        let rv: Int = cast(g_array_get_element_size(cast(array_ptr)))
+        return Int(rv)
     }
 
     /// Inserts `len` elements into a `GArray` at the given index.
@@ -277,8 +278,8 @@ public extension ArrayTypeProtocol {
     /// 
     /// `data` may be `nil` if (and only if) `len` is zero. If `len` is zero, this
     /// function is a no-op.
-    func insertVals(index_: CUnsignedInt, data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_insert_vals(cast(array_ptr), guint(index_), cast(data), guint(len))
+    @discardableResult func insertVals(index_: CUnsignedInt, data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_insert_vals(cast(array_ptr), guint(index_), cast(data), guint(len)))
         return cast(rv)
     }
 
@@ -290,22 +291,22 @@ public extension ArrayTypeProtocol {
     /// This operation is slower than `g_array_append_vals()` since the
     /// existing elements in the array have to be moved to make space for
     /// the new elements.
-    func prependVals(data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_prepend_vals(cast(array_ptr), cast(data), guint(len))
+    @discardableResult func prependVals(data: gconstpointer, len: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_prepend_vals(cast(array_ptr), cast(data), guint(len)))
         return cast(rv)
     }
 
     /// Atomically increments the reference count of `array` by one.
     /// This function is thread-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_ref(cast(array_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_ref(cast(array_ptr)))
         return cast(rv)
     }
 
     /// Removes the element at the given index from a `GArray`. The following
     /// elements are moved down one place.
-    func removeIndex(index_: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_remove_index(cast(array_ptr), guint(index_))
+    @discardableResult func removeIndex(index_: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_remove_index(cast(array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -313,15 +314,15 @@ public extension ArrayTypeProtocol {
     /// element in the array is used to fill in the space, so this function
     /// does not preserve the order of the `GArray`. But it is faster than
     /// `g_array_remove_index()`.
-    func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_remove_index_fast(cast(array_ptr), guint(index_))
+    @discardableResult func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_remove_index_fast(cast(array_ptr), guint(index_)))
         return cast(rv)
     }
 
     /// Removes the given number of elements starting at the given index
     /// from a `GArray`.  The following elements are moved to close the gap.
-    func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_remove_range(cast(array_ptr), guint(index_), guint(length))
+    @discardableResult func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_remove_range(cast(array_ptr), guint(index_), guint(length)))
         return cast(rv)
     }
 
@@ -342,8 +343,8 @@ public extension ArrayTypeProtocol {
 
     /// Sets the size of the array, expanding it if necessary. If the array
     /// was created with `clear_` set to `true`, the new elements are set to 0.
-    func setSize(length: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
-        let rv = g_array_set_size(cast(array_ptr), guint(length))
+    @discardableResult func setSize(length: CUnsignedInt) -> UnsafeMutablePointer<GArray>! {
+        let rv: UnsafeMutablePointer<GArray>! = cast(g_array_set_size(cast(array_ptr), guint(length)))
         return cast(rv)
     }
 
@@ -392,7 +393,7 @@ public extension ArrayTypeProtocol {
     /// ```
     /// 
     func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutableRawPointer! {
-        let rv = g_array_steal(cast(array_ptr), cast(len))
+        let rv: UnsafeMutableRawPointer! = cast(g_array_steal(cast(array_ptr), cast(len)))
         return cast(rv)
     }
 
@@ -405,13 +406,46 @@ public extension ArrayTypeProtocol {
     
     }
     /// Gets the size of the elements in `array`.
-    var elementSize: CUnsignedInt {
+    var elementSize: Int {
         /// Gets the size of the elements in `array`.
         get {
-            let rv = g_array_get_element_size(cast(array_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_array_get_element_size(cast(array_ptr)))
+            return Int(rv)
         }
     }
+
+    /// a pointer to the element data. The data may be moved as
+    ///     elements are added to the `GArray`.
+    var data: UnsafePointer<CChar> {
+        /// a pointer to the element data. The data may be moved as
+        ///     elements are added to the `GArray`.
+        get {
+            let rv: UnsafePointer<CChar> = cast(array_ptr.pointee.data)
+            return rv
+        }
+        /// a pointer to the element data. The data may be moved as
+        ///     elements are added to the `GArray`.
+         set {
+            array_ptr.pointee.data = cast(newValue)
+        }
+    }
+
+    /// the number of elements in the `GArray` not including the
+    ///     possible terminating zero element.
+    var len: Int {
+        /// the number of elements in the `GArray` not including the
+        ///     possible terminating zero element.
+        get {
+            let rv: Int = cast(array_ptr.pointee.len)
+            return rv
+        }
+        /// the number of elements in the `GArray` not including the
+        ///     possible terminating zero element.
+         set {
+            array_ptr.pointee.len = guint(newValue)
+        }
+    }
+
 }
 
 

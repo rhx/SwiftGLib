@@ -11,7 +11,7 @@ import CGLib
 /// are accepted by the commandline option parser. The struct has only private
 /// fields and should not be directly accessed.
 public protocol OptionContextProtocol {
-    /// Untyped pointer to the underlying `GOptionContext` instance.
+        /// Untyped pointer to the underlying `GOptionContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOptionContext` instance.
@@ -26,7 +26,7 @@ public protocol OptionContextProtocol {
 /// are accepted by the commandline option parser. The struct has only private
 /// fields and should not be directly accessed.
 public struct OptionContextRef: OptionContextProtocol {
-    /// Untyped pointer to the underlying `GOptionContext` instance.
+        /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension OptionContextRef {
 /// are accepted by the commandline option parser. The struct has only private
 /// fields and should not be directly accessed.
 open class OptionContext: OptionContextProtocol {
-    /// Untyped pointer to the underlying `GOptionContext` instance.
+        /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -110,7 +110,7 @@ open class OptionContext: OptionContextProtocol {
         // no reference counting for GOptionContext, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOptionContext`.
+    /// Do-nothing destructor for `GOptionContext`.
     deinit {
         // no reference counting for GOptionContext, cannot unref(cast(_ptr))
     }
@@ -178,11 +178,12 @@ open class OptionContext: OptionContextProtocol {
 
 }
 
-// MARK: - no OptionContext properties
+// MARK: no OptionContext properties
 
-// MARK: - no signals
+// MARK: no OptionContext signals
 
 
+// MARK: OptionContext Record: OptionContextProtocol extension (methods and fields)
 public extension OptionContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOptionContext` instance.
     var _ptr: UnsafeMutablePointer<GOptionContext> { return ptr.assumingMemoryBound(to: GOptionContext.self) }
@@ -214,8 +215,8 @@ public extension OptionContextProtocol {
 
     /// Returns the description. See `g_option_context_set_description()`.
     func getDescription() -> String! {
-        let rv = g_option_context_get_description(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_option_context_get_description(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Returns a formatted, translated help text for the given context.
@@ -226,8 +227,8 @@ public extension OptionContextProtocol {
     /// To obtain the help text for an option group, call
     /// `g_option_context_get_help (context, FALSE, group)`.
     func getHelp(mainHelp main_help: Bool, group: OptionGroupProtocol) -> String! {
-        let rv = g_option_context_get_help(cast(_ptr), gboolean(main_help ? 1 : 0), cast(group.ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_option_context_get_help(cast(_ptr), gboolean(main_help ? 1 : 0), cast(group.ptr)))
+        return cast(rv)
     }
 
     /// Returns whether automatic `--help` generation
@@ -246,7 +247,7 @@ public extension OptionContextProtocol {
 
     /// Returns a pointer to the main group of `context`.
     func getMainGroup() -> UnsafeMutablePointer<GOptionGroup>! {
-        let rv = g_option_context_get_main_group(cast(_ptr))
+        let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_context_get_main_group(cast(_ptr)))
         return cast(rv)
     }
 
@@ -260,8 +261,8 @@ public extension OptionContextProtocol {
 
     /// Returns the summary. See `g_option_context_set_summary()`.
     func getSummary() -> String! {
-        let rv = g_option_context_get_summary(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_option_context_get_summary(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Parses the command line arguments, recognizing options
@@ -286,11 +287,9 @@ public extension OptionContextProtocol {
     /// automatic character set conversion of string and filename
     /// arguments.
     func parse(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_option_context_parse(cast(_ptr), cast(argc), cast(argv), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -311,11 +310,9 @@ public extension OptionContextProtocol {
     /// This function is useful if you are trying to use `GOptionContext` with
     /// `GApplication`.
     func parseStrv(arguments: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_option_context_parse_strv(cast(_ptr), cast(arguments), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -425,8 +422,8 @@ public extension OptionContextProtocol {
     var description: String! {
         /// Returns the description. See `g_option_context_set_description()`.
         get {
-            let rv = g_option_context_get_description(cast(_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_option_context_get_description(cast(_ptr)))
+            return cast(rv)
         }
         /// Adds a string to be displayed in `--help` output after the list
         /// of options. This text often includes a bug reporting address.
@@ -434,7 +431,7 @@ public extension OptionContextProtocol {
         /// Note that the summary is translated (see
         /// `g_option_context_set_translate_func()`).
         nonmutating set {
-            g_option_context_set_description(cast(_ptr), newValue)
+            g_option_context_set_description(cast(_ptr), cast(newValue))
         }
     }
 
@@ -481,7 +478,7 @@ public extension OptionContextProtocol {
     var mainGroup: UnsafeMutablePointer<GOptionGroup>! {
         /// Returns a pointer to the main group of `context`.
         get {
-            let rv = g_option_context_get_main_group(cast(_ptr))
+            let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_context_get_main_group(cast(_ptr)))
             return cast(rv)
         }
         /// Sets a `GOptionGroup` as main group of the `context`.
@@ -537,8 +534,8 @@ public extension OptionContextProtocol {
     var summary: String! {
         /// Returns the summary. See `g_option_context_set_summary()`.
         get {
-            let rv = g_option_context_get_summary(cast(_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_option_context_get_summary(cast(_ptr)))
+            return cast(rv)
         }
         /// Adds a string to be displayed in `--help` output before the list
         /// of options. This is typically a summary of the program functionality.
@@ -547,9 +544,11 @@ public extension OptionContextProtocol {
         /// `g_option_context_set_translate_func()` and
         /// `g_option_context_set_translation_domain()`).
         nonmutating set {
-            g_option_context_set_summary(cast(_ptr), newValue)
+            g_option_context_set_summary(cast(_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

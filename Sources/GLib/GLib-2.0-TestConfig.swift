@@ -9,7 +9,7 @@ import CGLib
 ///
 
 public protocol TestConfigProtocol {
-    /// Untyped pointer to the underlying `GTestConfig` instance.
+        /// Untyped pointer to the underlying `GTestConfig` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTestConfig` instance.
@@ -22,7 +22,7 @@ public protocol TestConfigProtocol {
 ///
 
 public struct TestConfigRef: TestConfigProtocol {
-    /// Untyped pointer to the underlying `GTestConfig` instance.
+        /// Untyped pointer to the underlying `GTestConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TestConfigRef {
 ///
 
 open class TestConfig: TestConfigProtocol {
-    /// Untyped pointer to the underlying `GTestConfig` instance.
+        /// Untyped pointer to the underlying `GTestConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class TestConfig: TestConfigProtocol {
         // no reference counting for GTestConfig, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTestConfig`.
+    /// Do-nothing destructor for `GTestConfig`.
     deinit {
         // no reference counting for GTestConfig, cannot unref(cast(_ptr))
     }
@@ -172,14 +172,76 @@ open class TestConfig: TestConfigProtocol {
 
 }
 
-// MARK: - no TestConfig properties
+// MARK: no TestConfig properties
 
-// MARK: - no signals
+// MARK: no TestConfig signals
 
 
+// MARK: TestConfig Record: TestConfigProtocol extension (methods and fields)
 public extension TestConfigProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestConfig` instance.
     var _ptr: UnsafeMutablePointer<GTestConfig> { return ptr.assumingMemoryBound(to: GTestConfig.self) }
+
+
+    var testInitialized: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_initialized)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_initialized = gboolean(newValue ? 1 : 0)
+        }
+    }
+
+    var testQuick: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_quick)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_quick = gboolean(newValue ? 1 : 0)
+        }
+    }
+
+    var testPerf: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_perf)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_perf = gboolean(newValue ? 1 : 0)
+        }
+    }
+
+    var testVerbose: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_verbose)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_verbose = gboolean(newValue ? 1 : 0)
+        }
+    }
+
+    var testQuiet: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_quiet)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_quiet = gboolean(newValue ? 1 : 0)
+        }
+    }
+
+    var testUndefined: Bool {
+        get {
+            let rv: Bool = cast(_ptr.pointee.test_undefined)
+            return rv
+        }
+         set {
+            _ptr.pointee.test_undefined = gboolean(newValue ? 1 : 0)
+        }
+    }
 
 }
 

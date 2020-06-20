@@ -11,7 +11,7 @@ import CGLib
 /// one-time initialization function must have its own unique `GOnce`
 /// struct.
 public protocol OnceProtocol {
-    /// Untyped pointer to the underlying `GOnce` instance.
+        /// Untyped pointer to the underlying `GOnce` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GOnce` instance.
@@ -26,7 +26,7 @@ public protocol OnceProtocol {
 /// one-time initialization function must have its own unique `GOnce`
 /// struct.
 public struct OnceRef: OnceProtocol {
-    /// Untyped pointer to the underlying `GOnce` instance.
+        /// Untyped pointer to the underlying `GOnce` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension OnceRef {
 /// one-time initialization function must have its own unique `GOnce`
 /// struct.
 open class Once: OnceProtocol {
-    /// Untyped pointer to the underlying `GOnce` instance.
+        /// Untyped pointer to the underlying `GOnce` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -110,7 +110,7 @@ open class Once: OnceProtocol {
         // no reference counting for GOnce, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GOnce`.
+    /// Do-nothing destructor for `GOnce`.
     deinit {
         // no reference counting for GOnce, cannot unref(cast(_ptr))
     }
@@ -178,19 +178,50 @@ open class Once: OnceProtocol {
 
 }
 
-// MARK: - no Once properties
+// MARK: no Once properties
 
-// MARK: - no signals
+// MARK: no Once signals
 
 
+// MARK: Once Record: OnceProtocol extension (methods and fields)
 public extension OnceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOnce` instance.
     var _ptr: UnsafeMutablePointer<GOnce> { return ptr.assumingMemoryBound(to: GOnce.self) }
 
     func impl(func_: @escaping ThreadFunc, arg: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv = g_once_impl(cast(_ptr), func_, cast(arg))
+        let rv: UnsafeMutableRawPointer! = cast(g_once_impl(cast(_ptr), func_, cast(arg)))
         return cast(rv)
     }
+
+    /// the status of the `GOnce`
+    var status: GOnceStatus {
+        /// the status of the `GOnce`
+        get {
+            let rv: GOnceStatus = cast(_ptr.pointee.status)
+            return rv
+        }
+        /// the status of the `GOnce`
+         set {
+            _ptr.pointee.status = cast(newValue)
+        }
+    }
+
+    /// the value returned by the call to the function, if `status`
+    ///          is `G_ONCE_STATUS_READY`
+    var retval: UnsafeMutableRawPointer {
+        /// the value returned by the call to the function, if `status`
+        ///          is `G_ONCE_STATUS_READY`
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.retval)
+            return rv
+        }
+        /// the value returned by the call to the function, if `status`
+        ///          is `G_ONCE_STATUS_READY`
+         set {
+            _ptr.pointee.retval = cast(newValue)
+        }
+    }
+
 }
 
 

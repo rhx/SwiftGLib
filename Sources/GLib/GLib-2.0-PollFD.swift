@@ -10,7 +10,7 @@ import CGLib
 /// Represents a file descriptor, which events to poll for, and which events
 /// occurred.
 public protocol PollFDProtocol {
-    /// Untyped pointer to the underlying `GPollFD` instance.
+        /// Untyped pointer to the underlying `GPollFD` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPollFD` instance.
@@ -24,7 +24,7 @@ public protocol PollFDProtocol {
 /// Represents a file descriptor, which events to poll for, and which events
 /// occurred.
 public struct PollFDRef: PollFDProtocol {
-    /// Untyped pointer to the underlying `GPollFD` instance.
+        /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension PollFDRef {
 /// Represents a file descriptor, which events to poll for, and which events
 /// occurred.
 open class PollFD: PollFDProtocol {
-    /// Untyped pointer to the underlying `GPollFD` instance.
+        /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class PollFD: PollFDProtocol {
         // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
     }
 
-    /// Do-nothing destructor for`GPollFD`.
+    /// Do-nothing destructor for `GPollFD`.
     deinit {
         // no reference counting for GPollFD, cannot unref(cast(pollfd_ptr))
     }
@@ -175,11 +175,12 @@ open class PollFD: PollFDProtocol {
 
 }
 
-// MARK: - no PollFD properties
+// MARK: no PollFD properties
 
-// MARK: - no signals
+// MARK: no PollFD signals
 
 
+// MARK: PollFD Record: PollFDProtocol extension (methods and fields)
 public extension PollFDProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollFD` instance.
     var pollfd_ptr: UnsafeMutablePointer<GPollFD> { return ptr.assumingMemoryBound(to: GPollFD.self) }
@@ -201,10 +202,62 @@ public extension PollFDProtocol {
     /// Windows. If you need to use `g_poll()` in code that has to run on
     /// Windows, the easiest solution is to construct all of your
     /// `GPollFDs` with `g_io_channel_win32_make_pollfd()`.
-    func poll(nfds: CUnsignedInt, timeout: CInt) -> CInt {
-        let rv = g_poll(cast(pollfd_ptr), guint(nfds), gint(timeout))
-        return CInt(rv)
+    func poll(nfds: CUnsignedInt, timeout: CInt) -> Int {
+        let rv: Int = cast(g_poll(cast(pollfd_ptr), guint(nfds), gint(timeout)))
+        return Int(rv)
     }
+
+    /// the file descriptor to poll (or a HANDLE on Win32)
+    var fd: Int {
+        /// the file descriptor to poll (or a HANDLE on Win32)
+        get {
+            let rv: Int = cast(pollfd_ptr.pointee.fd)
+            return rv
+        }
+        /// the file descriptor to poll (or a HANDLE on Win32)
+         set {
+            pollfd_ptr.pointee.fd = gint(newValue)
+        }
+    }
+
+    /// a bitwise combination from `GIOCondition`, specifying which
+    ///     events should be polled for. Typically for reading from a file
+    ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
+    ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
+    var events: gushort {
+        /// a bitwise combination from `GIOCondition`, specifying which
+        ///     events should be polled for. Typically for reading from a file
+        ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
+        ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
+        get {
+            let rv: gushort = cast(pollfd_ptr.pointee.events)
+            return rv
+        }
+        /// a bitwise combination from `GIOCondition`, specifying which
+        ///     events should be polled for. Typically for reading from a file
+        ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
+        ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
+         set {
+            pollfd_ptr.pointee.events = cast(newValue)
+        }
+    }
+
+    /// a bitwise combination of flags from `GIOCondition`, returned
+    ///     from the `poll()` function to indicate which events occurred.
+    var revents: gushort {
+        /// a bitwise combination of flags from `GIOCondition`, returned
+        ///     from the `poll()` function to indicate which events occurred.
+        get {
+            let rv: gushort = cast(pollfd_ptr.pointee.revents)
+            return rv
+        }
+        /// a bitwise combination of flags from `GIOCondition`, returned
+        ///     from the `poll()` function to indicate which events occurred.
+         set {
+            pollfd_ptr.pointee.revents = cast(newValue)
+        }
+    }
+
 }
 
 

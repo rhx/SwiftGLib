@@ -10,7 +10,7 @@ import CGLib
 /// The `GMainLoop` struct is an opaque data type
 /// representing the main event loop of a GLib or GTK+ application.
 public protocol MainLoopProtocol {
-    /// Untyped pointer to the underlying `GMainLoop` instance.
+        /// Untyped pointer to the underlying `GMainLoop` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMainLoop` instance.
@@ -24,7 +24,7 @@ public protocol MainLoopProtocol {
 /// The `GMainLoop` struct is an opaque data type
 /// representing the main event loop of a GLib or GTK+ application.
 public struct MainLoopRef: MainLoopProtocol {
-    /// Untyped pointer to the underlying `GMainLoop` instance.
+        /// Untyped pointer to the underlying `GMainLoop` instance.
     /// For type-safe access, use the generated, typed pointer `main_loop_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -71,7 +71,7 @@ public extension MainLoopRef {
 
         /// Creates a new `GMainLoop` structure.
     init( context: MainContextProtocol, isRunning is_running: Bool) {
-        let rv = g_main_loop_new(cast(context.ptr), gboolean(is_running ? 1 : 0))
+        let rv: UnsafeMutablePointer<GMainLoop>! = cast(g_main_loop_new(cast(context.ptr), gboolean(is_running ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -83,7 +83,7 @@ public extension MainLoopRef {
 /// The `GMainLoop` struct is an opaque data type
 /// representing the main event loop of a GLib or GTK+ application.
 open class MainLoop: MainLoopProtocol {
-    /// Untyped pointer to the underlying `GMainLoop` instance.
+        /// Untyped pointer to the underlying `GMainLoop` instance.
     /// For type-safe access, use the generated, typed pointer `main_loop_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -178,25 +178,26 @@ open class MainLoop: MainLoopProtocol {
 
     /// Creates a new `GMainLoop` structure.
     public init( context: MainContextProtocol, isRunning is_running: Bool) {
-        let rv = g_main_loop_new(cast(context.ptr), gboolean(is_running ? 1 : 0))
+        let rv: UnsafeMutablePointer<GMainLoop>! = cast(g_main_loop_new(cast(context.ptr), gboolean(is_running ? 1 : 0)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no MainLoop properties
+// MARK: no MainLoop properties
 
-// MARK: - no signals
+// MARK: no MainLoop signals
 
 
+// MARK: MainLoop Record: MainLoopProtocol extension (methods and fields)
 public extension MainLoopProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMainLoop` instance.
     var main_loop_ptr: UnsafeMutablePointer<GMainLoop> { return ptr.assumingMemoryBound(to: GMainLoop.self) }
 
     /// Returns the `GMainContext` of `loop`.
     func getContext() -> UnsafeMutablePointer<GMainContext>! {
-        let rv = g_main_loop_get_context(cast(main_loop_ptr))
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_loop_get_context(cast(main_loop_ptr)))
         return cast(rv)
     }
 
@@ -211,8 +212,8 @@ public extension MainLoopProtocol {
     }
 
     /// Increases the reference count on a `GMainLoop` object by one.
-    func ref() -> UnsafeMutablePointer<GMainLoop>! {
-        let rv = g_main_loop_ref(cast(main_loop_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GMainLoop>! {
+        let rv: UnsafeMutablePointer<GMainLoop>! = cast(g_main_loop_ref(cast(main_loop_ptr)))
         return cast(rv)
     }
 
@@ -235,7 +236,7 @@ public extension MainLoopProtocol {
     var context: UnsafeMutablePointer<GMainContext>! {
         /// Returns the `GMainContext` of `loop`.
         get {
-            let rv = g_main_loop_get_context(cast(main_loop_ptr))
+            let rv: UnsafeMutablePointer<GMainContext>! = cast(g_main_loop_get_context(cast(main_loop_ptr)))
             return cast(rv)
         }
     }
@@ -248,6 +249,8 @@ public extension MainLoopProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 

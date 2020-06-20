@@ -10,7 +10,7 @@ import CGLib
 /// The `GSource` struct is an opaque data type
 /// representing an event source.
 public protocol SourceProtocol {
-    /// Untyped pointer to the underlying `GSource` instance.
+        /// Untyped pointer to the underlying `GSource` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSource` instance.
@@ -24,7 +24,7 @@ public protocol SourceProtocol {
 /// The `GSource` struct is an opaque data type
 /// representing an event source.
 public struct SourceRef: SourceProtocol {
-    /// Untyped pointer to the underlying `GSource` instance.
+        /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension SourceRef {
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
-        let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_new(cast(source_funcs.ptr), guint(struct_size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -90,7 +90,7 @@ public extension SourceRef {
 /// The `GSource` struct is an opaque data type
 /// representing an event source.
 open class Source: SourceProtocol {
-    /// Untyped pointer to the underlying `GSource` instance.
+        /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -192,18 +192,19 @@ open class Source: SourceProtocol {
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     public init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
-        let rv = g_source_new(cast(source_funcs.ptr), guint(struct_size))
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_new(cast(source_funcs.ptr), guint(struct_size)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no Source properties
+// MARK: no Source properties
 
-// MARK: - no signals
+// MARK: no Source signals
 
 
+// MARK: Source Record: SourceProtocol extension (methods and fields)
 public extension SourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSource` instance.
     var source_ptr: UnsafeMutablePointer<GSource> { return ptr.assumingMemoryBound(to: GSource.self) }
@@ -261,7 +262,7 @@ public extension SourceProtocol {
     /// 
     /// As the name suggests, this function is not available on Windows.
     func addUnix(fd: CInt, events: IOCondition) -> UnsafeMutableRawPointer! {
-        let rv = g_source_add_unix_fd(cast(source_ptr), gint(fd), events)
+        let rv: UnsafeMutableRawPointer! = cast(g_source_add_unix_fd(cast(source_ptr), gint(fd), events.value))
         return cast(rv)
     }
 
@@ -270,9 +271,9 @@ public extension SourceProtocol {
     /// 
     /// This function is safe to call from any thread, regardless of which thread
     /// the `context` is running in.
-    func attach(context: MainContextProtocol) -> CUnsignedInt {
-        let rv = g_source_attach(cast(source_ptr), cast(context.ptr))
-        return CUnsignedInt(rv)
+    func attach(context: MainContextProtocol) -> Int {
+        let rv: Int = cast(g_source_attach(cast(source_ptr), cast(context.ptr)))
+        return Int(rv)
     }
 
     /// Removes a source from its `GMainContext`, if any, and mark it as
@@ -306,7 +307,7 @@ public extension SourceProtocol {
     /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
     func getContext() -> UnsafeMutablePointer<GMainContext>! {
-        let rv = g_source_get_context(cast(source_ptr))
+        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_source_get_context(cast(source_ptr)))
         return cast(rv)
     }
 
@@ -329,22 +330,22 @@ public extension SourceProtocol {
     /// `GMainContext` instance; calling this function before `g_source_attach()`
     /// or after `g_source_destroy()` yields undefined behavior. The ID returned
     /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
-    func getID() -> CUnsignedInt {
-        let rv = g_source_get_id(cast(source_ptr))
-        return CUnsignedInt(rv)
+    func getID() -> Int {
+        let rv: Int = cast(g_source_get_id(cast(source_ptr)))
+        return Int(rv)
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
     /// name may be `NULL` if it has never been set with `g_source_set_name()`.
     func getName() -> String! {
-        let rv = g_source_get_name(cast(source_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_source_get_name(cast(source_ptr)))
+        return cast(rv)
     }
 
     /// Gets the priority of a source.
-    func getPriority() -> CInt {
-        let rv = g_source_get_priority(cast(source_ptr))
-        return CInt(rv)
+    func getPriority() -> Int {
+        let rv: Int = cast(g_source_get_priority(cast(source_ptr)))
+        return Int(rv)
     }
 
     /// Gets the "ready time" of `source`, as set by
@@ -381,7 +382,7 @@ public extension SourceProtocol {
     /// 
     /// As the name suggests, this function is not available on Windows.
     func modifyUnixFd(tag: UnsafeMutableRawPointer, newEvents new_events: IOCondition) {
-        g_source_modify_unix_fd(cast(source_ptr), cast(tag), new_events)
+        g_source_modify_unix_fd(cast(source_ptr), cast(tag), new_events.value)
     
     }
 
@@ -397,12 +398,12 @@ public extension SourceProtocol {
     /// As the name suggests, this function is not available on Windows.
     func queryUnixFd(tag: UnsafeMutableRawPointer) -> GIOCondition {
         let rv = g_source_query_unix_fd(cast(source_ptr), cast(tag))
-        return rv
+        return cast(rv)
     }
 
     /// Increases the reference count on a source by one.
-    func ref() -> UnsafeMutablePointer<GSource>! {
-        let rv = g_source_ref(cast(source_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GSource>! {
+        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_ref(cast(source_ptr)))
         return cast(rv)
     }
 
@@ -618,7 +619,7 @@ public extension SourceProtocol {
         /// `g_main_current_source()`. But calling this function on a source
         /// whose `GMainContext` has been destroyed is an error.
         get {
-            let rv = g_source_get_context(cast(source_ptr))
+            let rv: UnsafeMutablePointer<GMainContext>! = cast(g_source_get_context(cast(source_ptr)))
             return cast(rv)
         }
     }
@@ -632,7 +633,7 @@ public extension SourceProtocol {
     /// `GMainContext` instance; calling this function before `g_source_attach()`
     /// or after `g_source_destroy()` yields undefined behavior. The ID returned
     /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
-    var id: CUnsignedInt {
+    var id: Int {
         /// Returns the numeric ID for a particular source. The ID of a source
         /// is a positive integer which is unique within a particular main loop
         /// context. The reverse
@@ -643,8 +644,8 @@ public extension SourceProtocol {
         /// or after `g_source_destroy()` yields undefined behavior. The ID returned
         /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
         get {
-            let rv = g_source_get_id(cast(source_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(g_source_get_id(cast(source_ptr)))
+            return Int(rv)
         }
     }
 
@@ -797,8 +798,8 @@ public extension SourceProtocol {
         /// Gets a name for the source, used in debugging and profiling.  The
         /// name may be `NULL` if it has never been set with `g_source_set_name()`.
         get {
-            let rv = g_source_get_name(cast(source_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_source_get_name(cast(source_ptr)))
+            return cast(rv)
         }
         /// Sets a name for the source, used in debugging and profiling.
         /// The name defaults to `NULL`.
@@ -817,16 +818,16 @@ public extension SourceProtocol {
         /// the value, and changing the value will free it while the other thread
         /// may be attempting to use it.
         nonmutating set {
-            g_source_set_name(cast(source_ptr), newValue)
+            g_source_set_name(cast(source_ptr), cast(newValue))
         }
     }
 
     /// Gets the priority of a source.
-    var priority: CInt {
+    var priority: Int {
         /// Gets the priority of a source.
         get {
-            let rv = g_source_get_priority(cast(source_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_source_get_priority(cast(source_ptr)))
+            return Int(rv)
         }
         /// Sets the priority of a source. While the main loop is being run, a
         /// source will be dispatched if it is ready to be dispatched and no
@@ -903,6 +904,33 @@ public extension SourceProtocol {
             return Int64(rv)
         }
     }
+
+    // var callbackData is unavailable because callback_data is private
+
+    // var callbackFuncs is unavailable because callback_funcs is private
+
+    // var sourceFuncs is unavailable because source_funcs is private
+
+    // var refCount is unavailable because ref_count is private
+
+    // var _context is unavailable because context is private
+
+    // var _priority is unavailable because priority is private
+
+    // var flags is unavailable because flags is private
+
+    // var sourceID is unavailable because source_id is private
+
+    // var pollFds is unavailable because poll_fds is private
+
+    // var prev is unavailable because prev is private
+
+    // var next is unavailable because next is private
+
+    // var _name is unavailable because name is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 

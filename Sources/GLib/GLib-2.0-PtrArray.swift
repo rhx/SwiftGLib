@@ -9,7 +9,7 @@ import CGLib
 ///
 /// Contains the public fields of a pointer array.
 public protocol PtrArrayProtocol {
-    /// Untyped pointer to the underlying `GPtrArray` instance.
+        /// Untyped pointer to the underlying `GPtrArray` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GPtrArray` instance.
@@ -22,7 +22,7 @@ public protocol PtrArrayProtocol {
 ///
 /// Contains the public fields of a pointer array.
 public struct PtrArrayRef: PtrArrayProtocol {
-    /// Untyped pointer to the underlying `GPtrArray` instance.
+        /// Untyped pointer to the underlying `GPtrArray` instance.
     /// For type-safe access, use the generated, typed pointer `ptr_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension PtrArrayRef {
     /// `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     static func new(full reserved_size: CUnsignedInt, elementFreeFunc element_free_func: @escaping DestroyNotify) -> PtrArrayRef! {
-        let rv = g_ptr_array_new_full(guint(reserved_size), element_free_func)
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_new_full(guint(reserved_size), element_free_func))
         return rv.map { PtrArrayRef(cast($0)) }
     }
 
@@ -84,7 +84,7 @@ public extension PtrArrayRef {
     /// either via `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     static func newWith(freeFunc element_free_func: @escaping DestroyNotify) -> PtrArrayRef! {
-        let rv = g_ptr_array_new_with_free_func(element_free_func)
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_new_with_free_func(element_free_func))
         return rv.map { PtrArrayRef(cast($0)) }
     }
 
@@ -93,7 +93,7 @@ public extension PtrArrayRef {
     /// you are going to add many pointers to the array. Note however that
     /// the size of the array is still 0.
     static func sizedNew(sized reserved_size: CUnsignedInt) -> PtrArrayRef! {
-        let rv = g_ptr_array_sized_new(guint(reserved_size))
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_sized_new(guint(reserved_size)))
         return rv.map { PtrArrayRef(cast($0)) }
     }
 }
@@ -104,7 +104,7 @@ public extension PtrArrayRef {
 ///
 /// Contains the public fields of a pointer array.
 open class PtrArray: PtrArrayProtocol {
-    /// Untyped pointer to the underlying `GPtrArray` instance.
+        /// Untyped pointer to the underlying `GPtrArray` instance.
     /// For type-safe access, use the generated, typed pointer `ptr_array_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -206,7 +206,7 @@ open class PtrArray: PtrArrayProtocol {
     /// `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     public static func new(full reserved_size: CUnsignedInt, elementFreeFunc element_free_func: @escaping DestroyNotify) -> PtrArray! {
-        let rv = g_ptr_array_new_full(guint(reserved_size), element_free_func)
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_new_full(guint(reserved_size), element_free_func))
         return rv.map { PtrArray(cast($0)) }
     }
 
@@ -215,7 +215,7 @@ open class PtrArray: PtrArrayProtocol {
     /// either via `g_ptr_array_unref()`, when `g_ptr_array_free()` is called with
     /// `free_segment` set to `true` or when removing elements.
     public static func newWith(freeFunc element_free_func: @escaping DestroyNotify) -> PtrArray! {
-        let rv = g_ptr_array_new_with_free_func(element_free_func)
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_new_with_free_func(element_free_func))
         return rv.map { PtrArray(cast($0)) }
     }
 
@@ -224,17 +224,18 @@ open class PtrArray: PtrArrayProtocol {
     /// you are going to add many pointers to the array. Note however that
     /// the size of the array is still 0.
     public static func sizedNew(sized reserved_size: CUnsignedInt) -> PtrArray! {
-        let rv = g_ptr_array_sized_new(guint(reserved_size))
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_sized_new(guint(reserved_size)))
         return rv.map { PtrArray(cast($0)) }
     }
 
 }
 
-// MARK: - no PtrArray properties
+// MARK: no PtrArray properties
 
-// MARK: - no signals
+// MARK: no PtrArray signals
 
 
+// MARK: PtrArray Record: PtrArrayProtocol extension (methods and fields)
 public extension PtrArrayProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPtrArray` instance.
     var ptr_array_ptr: UnsafeMutablePointer<GPtrArray> { return ptr.assumingMemoryBound(to: GPtrArray.self) }
@@ -260,7 +261,7 @@ public extension PtrArrayProtocol {
     /// The copy of `array` will have the same `GDestroyNotify` for its elements as
     /// `array`.
     func copy(func_: @escaping CopyFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GPtrArray>! {
-        let rv = g_ptr_array_copy(cast(ptr_array_ptr), func_, cast(user_data))
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_copy(cast(ptr_array_ptr), func_, cast(user_data)))
         return cast(rv)
     }
 
@@ -341,7 +342,7 @@ public extension PtrArrayProtocol {
     /// threads, use only the atomic `g_ptr_array_ref()` and `g_ptr_array_unref()`
     /// functions.
     func free(freeSeg free_seg: Bool) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
-        let rv = g_ptr_array_free(cast(ptr_array_ptr), gboolean(free_seg ? 1 : 0))
+        let rv: UnsafeMutablePointer<UnsafeMutableRawPointer>! = cast(g_ptr_array_free(cast(ptr_array_ptr), gboolean(free_seg ? 1 : 0)))
         return cast(rv)
     }
 
@@ -354,8 +355,8 @@ public extension PtrArrayProtocol {
 
     /// Atomically increments the reference count of `array` by one.
     /// This function is thread-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GPtrArray>! {
-        let rv = g_ptr_array_ref(cast(ptr_array_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GPtrArray>! {
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_ref(cast(ptr_array_ptr)))
         return cast(rv)
     }
 
@@ -390,7 +391,7 @@ public extension PtrArrayProtocol {
     /// element. If so, the return value from this function will potentially point
     /// to freed memory (depending on the `GDestroyNotify` implementation).
     func removeIndex(index_: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_ptr_array_remove_index(cast(ptr_array_ptr), guint(index_))
+        let rv: UnsafeMutableRawPointer! = cast(g_ptr_array_remove_index(cast(ptr_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -402,7 +403,7 @@ public extension PtrArrayProtocol {
     /// return value from this function will potentially point to freed memory
     /// (depending on the `GDestroyNotify` implementation).
     func removeIndexFast(index_: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_ptr_array_remove_index_fast(cast(ptr_array_ptr), guint(index_))
+        let rv: UnsafeMutableRawPointer! = cast(g_ptr_array_remove_index_fast(cast(ptr_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -410,8 +411,8 @@ public extension PtrArrayProtocol {
     /// from a `GPtrArray`. The following elements are moved to close the
     /// gap. If `array` has a non-`nil` `GDestroyNotify` function it is
     /// called for the removed elements.
-    func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GPtrArray>! {
-        let rv = g_ptr_array_remove_range(cast(ptr_array_ptr), guint(index_), guint(length))
+    @discardableResult func removeRange(index_: CUnsignedInt, length: CUnsignedInt) -> UnsafeMutablePointer<GPtrArray>! {
+        let rv: UnsafeMutablePointer<GPtrArray>! = cast(g_ptr_array_remove_range(cast(ptr_array_ptr), guint(index_), guint(length)))
         return cast(rv)
     }
 
@@ -575,7 +576,7 @@ public extension PtrArrayProtocol {
     /// ```
     /// 
     func steal(len: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutableRawPointer>! {
-        let rv = g_ptr_array_steal(cast(ptr_array_ptr), cast(len))
+        let rv: UnsafeMutablePointer<UnsafeMutableRawPointer>! = cast(g_ptr_array_steal(cast(ptr_array_ptr), cast(len)))
         return cast(rv)
     }
 
@@ -584,7 +585,7 @@ public extension PtrArrayProtocol {
     /// `array` is *not* called on the removed element; ownership is transferred to
     /// the caller of this function.
     func stealIndex(index_: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_ptr_array_steal_index(cast(ptr_array_ptr), guint(index_))
+        let rv: UnsafeMutableRawPointer! = cast(g_ptr_array_steal_index(cast(ptr_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -595,7 +596,7 @@ public extension PtrArrayProtocol {
     /// *not* called on the removed element; ownership is transferred to the caller
     /// of this function.
     func stealIndexFast(index_: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv = g_ptr_array_steal_index_fast(cast(ptr_array_ptr), guint(index_))
+        let rv: UnsafeMutableRawPointer! = cast(g_ptr_array_steal_index_fast(cast(ptr_array_ptr), guint(index_)))
         return cast(rv)
     }
 
@@ -633,6 +634,36 @@ public extension PtrArrayProtocol {
         let rv = g_ptr_array_find_with_equal_func(cast(ptr_array_ptr), cast(needle), equal_func, cast(index_))
         return Bool(rv != 0)
     }
+
+    /// points to the array of pointers, which may be moved when the
+    ///     array grows
+    var pdata: UnsafeMutablePointer<UnsafeMutableRawPointer> {
+        /// points to the array of pointers, which may be moved when the
+        ///     array grows
+        get {
+            let rv: UnsafeMutablePointer<UnsafeMutableRawPointer> = cast(ptr_array_ptr.pointee.pdata)
+            return rv
+        }
+        /// points to the array of pointers, which may be moved when the
+        ///     array grows
+         set {
+            ptr_array_ptr.pointee.pdata = cast(newValue)
+        }
+    }
+
+    /// number of pointers in the array
+    var len: Int {
+        /// number of pointers in the array
+        get {
+            let rv: Int = cast(ptr_array_ptr.pointee.len)
+            return rv
+        }
+        /// number of pointers in the array
+         set {
+            ptr_array_ptr.pointee.len = guint(newValue)
+        }
+    }
+
 }
 
 

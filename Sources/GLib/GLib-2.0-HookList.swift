@@ -9,7 +9,7 @@ import CGLib
 ///
 /// The `GHookList` struct represents a list of hook functions.
 public protocol HookListProtocol {
-    /// Untyped pointer to the underlying `GHookList` instance.
+        /// Untyped pointer to the underlying `GHookList` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GHookList` instance.
@@ -22,7 +22,7 @@ public protocol HookListProtocol {
 ///
 /// The `GHookList` struct represents a list of hook functions.
 public struct HookListRef: HookListProtocol {
-    /// Untyped pointer to the underlying `GHookList` instance.
+        /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension HookListRef {
 ///
 /// The `GHookList` struct represents a list of hook functions.
 open class HookList: HookListProtocol {
-    /// Untyped pointer to the underlying `GHookList` instance.
+        /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class HookList: HookListProtocol {
         // no reference counting for GHookList, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GHookList`.
+    /// Do-nothing destructor for `GHookList`.
     deinit {
         // no reference counting for GHookList, cannot unref(cast(_ptr))
     }
@@ -172,11 +172,12 @@ open class HookList: HookListProtocol {
 
 }
 
-// MARK: - no HookList properties
+// MARK: no HookList properties
 
-// MARK: - no signals
+// MARK: no HookList signals
 
 
+// MARK: HookList Record: HookListProtocol extension (methods and fields)
 public extension HookListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHookList` instance.
     var _ptr: UnsafeMutablePointer<GHookList> { return ptr.assumingMemoryBound(to: GHookList.self) }
@@ -259,6 +260,90 @@ public extension HookListProtocol {
         g_hook_unref(cast(_ptr), cast(hook.ptr))
     
     }
+
+    /// the next free `GHook` id
+    var seqID: Int {
+        /// the next free `GHook` id
+        get {
+            let rv: Int = cast(_ptr.pointee.seq_id)
+            return rv
+        }
+        /// the next free `GHook` id
+         set {
+            _ptr.pointee.seq_id = gulong(newValue)
+        }
+    }
+
+    /// the size of the `GHookList` elements, in bytes
+    var hookSize: Int {
+        /// the size of the `GHookList` elements, in bytes
+        get {
+            let rv: Int = cast(_ptr.pointee.hook_size)
+            return rv
+        }
+        /// the size of the `GHookList` elements, in bytes
+         set {
+            _ptr.pointee.hook_size = guint(newValue)
+        }
+    }
+
+    /// 1 if the `GHookList` has been initialized
+    var isSetup: Int {
+        /// 1 if the `GHookList` has been initialized
+        get {
+            let rv: Int = cast(_ptr.pointee.is_setup)
+            return rv
+        }
+        /// 1 if the `GHookList` has been initialized
+         set {
+            _ptr.pointee.is_setup = guint(newValue)
+        }
+    }
+
+    /// the first `GHook` element in the list
+    var hooks: UnsafeMutablePointer<GHook> {
+        /// the first `GHook` element in the list
+        get {
+            let rv: UnsafeMutablePointer<GHook> = cast(_ptr.pointee.hooks)
+            return rv
+        }
+        /// the first `GHook` element in the list
+         set {
+            _ptr.pointee.hooks = cast(newValue)
+        }
+    }
+
+    /// unused
+    var dummy3: UnsafeMutableRawPointer {
+        /// unused
+        get {
+            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.dummy3)
+            return rv
+        }
+        /// unused
+         set {
+            _ptr.pointee.dummy3 = cast(newValue)
+        }
+    }
+
+    /// the function to call to finalize a `GHook` element.
+    ///     The default behaviour is to call the hooks `destroy` function
+    var finalizeHook: GHookFinalizeFunc {
+        /// the function to call to finalize a `GHook` element.
+        ///     The default behaviour is to call the hooks `destroy` function
+        get {
+            let rv: GHookFinalizeFunc = cast(_ptr.pointee.finalize_hook)
+            return rv
+        }
+        /// the function to call to finalize a `GHook` element.
+        ///     The default behaviour is to call the hooks `destroy` function
+         set {
+            _ptr.pointee.finalize_hook = cast(newValue)
+        }
+    }
+
+    // var dummy is unavailable because dummy is void
+
 }
 
 

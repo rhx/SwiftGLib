@@ -9,7 +9,7 @@ import CGLib
 ///
 /// An opaque structure representing a test suite.
 public protocol TestSuiteProtocol {
-    /// Untyped pointer to the underlying `GTestSuite` instance.
+        /// Untyped pointer to the underlying `GTestSuite` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTestSuite` instance.
@@ -22,7 +22,7 @@ public protocol TestSuiteProtocol {
 ///
 /// An opaque structure representing a test suite.
 public struct TestSuiteRef: TestSuiteProtocol {
-    /// Untyped pointer to the underlying `GTestSuite` instance.
+        /// Untyped pointer to the underlying `GTestSuite` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TestSuiteRef {
 ///
 /// An opaque structure representing a test suite.
 open class TestSuite: TestSuiteProtocol {
-    /// Untyped pointer to the underlying `GTestSuite` instance.
+        /// Untyped pointer to the underlying `GTestSuite` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class TestSuite: TestSuiteProtocol {
         // no reference counting for GTestSuite, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTestSuite`.
+    /// Do-nothing destructor for `GTestSuite`.
     deinit {
         // no reference counting for GTestSuite, cannot unref(cast(_ptr))
     }
@@ -172,11 +172,12 @@ open class TestSuite: TestSuiteProtocol {
 
 }
 
-// MARK: - no TestSuite properties
+// MARK: no TestSuite properties
 
-// MARK: - no signals
+// MARK: no TestSuite signals
 
 
+// MARK: TestSuite Record: TestSuiteProtocol extension (methods and fields)
 public extension TestSuiteProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestSuite` instance.
     var _ptr: UnsafeMutablePointer<GTestSuite> { return ptr.assumingMemoryBound(to: GTestSuite.self) }
@@ -201,10 +202,12 @@ public extension TestSuiteProtocol {
     /// 
     /// `g_test_run_suite()` or `g_test_run()` may only be called once
     /// in a program.
-    func testRunSuite() -> CInt {
-        let rv = g_test_run_suite(cast(_ptr))
-        return rv
+    func testRunSuite() -> Int {
+        let rv: Int = cast(g_test_run_suite(cast(_ptr)))
+        return cast(rv)
     }
+
+
 }
 
 

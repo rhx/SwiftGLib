@@ -9,7 +9,7 @@ import CGLib
 ///
 
 public protocol TestLogBufferProtocol {
-    /// Untyped pointer to the underlying `GTestLogBuffer` instance.
+        /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTestLogBuffer` instance.
@@ -22,7 +22,7 @@ public protocol TestLogBufferProtocol {
 ///
 
 public struct TestLogBufferRef: TestLogBufferProtocol {
-    /// Untyped pointer to the underlying `GTestLogBuffer` instance.
+        /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TestLogBufferRef {
 ///
 
 open class TestLogBuffer: TestLogBufferProtocol {
-    /// Untyped pointer to the underlying `GTestLogBuffer` instance.
+        /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class TestLogBuffer: TestLogBufferProtocol {
         // no reference counting for GTestLogBuffer, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTestLogBuffer`.
+    /// Do-nothing destructor for `GTestLogBuffer`.
     deinit {
         // no reference counting for GTestLogBuffer, cannot unref(cast(_ptr))
     }
@@ -172,11 +172,12 @@ open class TestLogBuffer: TestLogBufferProtocol {
 
 }
 
-// MARK: - no TestLogBuffer properties
+// MARK: no TestLogBuffer properties
 
-// MARK: - no signals
+// MARK: no TestLogBuffer signals
 
 
+// MARK: TestLogBuffer Record: TestLogBufferProtocol extension (methods and fields)
 public extension TestLogBufferProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestLogBuffer` instance.
     var _ptr: UnsafeMutablePointer<GTestLogBuffer> { return ptr.assumingMemoryBound(to: GTestLogBuffer.self) }
@@ -189,7 +190,7 @@ public extension TestLogBufferProtocol {
 
     /// Internal function for gtester to retrieve test log messages, no ABI guarantees provided.
     func pop() -> UnsafeMutablePointer<GTestLogMsg>! {
-        let rv = g_test_log_buffer_pop(cast(_ptr))
+        let rv: UnsafeMutablePointer<GTestLogMsg>! = cast(g_test_log_buffer_pop(cast(_ptr)))
         return cast(rv)
     }
 
@@ -198,6 +199,11 @@ public extension TestLogBufferProtocol {
         g_test_log_buffer_push(cast(_ptr), guint(n_bytes), cast(bytes))
     
     }
+
+    // var data is unavailable because data is private
+
+    // var msgs is unavailable because msgs is private
+
 }
 
 

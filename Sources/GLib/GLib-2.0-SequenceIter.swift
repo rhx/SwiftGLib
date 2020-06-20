@@ -10,7 +10,7 @@ import CGLib
 /// The `GSequenceIter` struct is an opaque data type representing an
 /// iterator pointing into a `GSequence`.
 public protocol SequenceIterProtocol {
-    /// Untyped pointer to the underlying `GSequenceIter` instance.
+        /// Untyped pointer to the underlying `GSequenceIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSequenceIter` instance.
@@ -24,7 +24,7 @@ public protocol SequenceIterProtocol {
 /// The `GSequenceIter` struct is an opaque data type representing an
 /// iterator pointing into a `GSequence`.
 public struct SequenceIterRef: SequenceIterProtocol {
-    /// Untyped pointer to the underlying `GSequenceIter` instance.
+        /// Untyped pointer to the underlying `GSequenceIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension SequenceIterRef {
 /// The `GSequenceIter` struct is an opaque data type representing an
 /// iterator pointing into a `GSequence`.
 open class SequenceIter: SequenceIterProtocol {
-    /// Untyped pointer to the underlying `GSequenceIter` instance.
+        /// Untyped pointer to the underlying `GSequenceIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class SequenceIter: SequenceIterProtocol {
         // no reference counting for GSequenceIter, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSequenceIter`.
+    /// Do-nothing destructor for `GSequenceIter`.
     deinit {
         // no reference counting for GSequenceIter, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class SequenceIter: SequenceIterProtocol {
 
 }
 
-// MARK: - no SequenceIter properties
+// MARK: no SequenceIter properties
 
-// MARK: - no signals
+// MARK: no SequenceIter signals
 
 
+// MARK: SequenceIter Record: SequenceIterProtocol extension (methods and fields)
 public extension SequenceIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSequenceIter` instance.
     var _ptr: UnsafeMutablePointer<GSequenceIter> { return ptr.assumingMemoryBound(to: GSequenceIter.self) }
@@ -188,20 +189,20 @@ public extension SequenceIterProtocol {
     /// and a positive number if `a` comes after `b`.
     /// 
     /// The `a` and `b` iterators must point into the same sequence.
-    func compare(b: SequenceIterProtocol) -> CInt {
-        let rv = g_sequence_iter_compare(cast(_ptr), cast(b.ptr))
-        return CInt(rv)
+    func compare(b: SequenceIterProtocol) -> Int {
+        let rv: Int = cast(g_sequence_iter_compare(cast(_ptr), cast(b.ptr)))
+        return Int(rv)
     }
 
     /// Returns the position of `iter`
-    func getPosition() -> CInt {
-        let rv = g_sequence_iter_get_position(cast(_ptr))
-        return CInt(rv)
+    func getPosition() -> Int {
+        let rv: Int = cast(g_sequence_iter_get_position(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the `GSequence` that `iter` points into.
     func getSequence() -> UnsafeMutablePointer<GSequence>! {
-        let rv = g_sequence_iter_get_sequence(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSequence>! = cast(g_sequence_iter_get_sequence(cast(_ptr)))
         return cast(rv)
     }
 
@@ -210,33 +211,33 @@ public extension SequenceIterProtocol {
     /// the begin iterator is returned. If `iter` is closer than `delta` positions
     /// to the end of the sequence, the end iterator is returned.
     func move(delta: CInt) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_iter_move(cast(_ptr), gint(delta))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_iter_move(cast(_ptr), gint(delta)))
         return cast(rv)
     }
 
     /// Returns an iterator pointing to the next position after `iter`.
     /// If `iter` is the end iterator, the end iterator is returned.
     func next() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_iter_next(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_iter_next(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns an iterator pointing to the previous position before `iter`.
     /// If `iter` is the begin iterator, the begin iterator is returned.
     func prev() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_iter_prev(cast(_ptr))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_iter_prev(cast(_ptr)))
         return cast(rv)
     }
 
     /// Returns the data that `iter` points to.
     func sequenceGet() -> UnsafeMutableRawPointer! {
-        let rv = g_sequence_get(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_sequence_get(cast(_ptr)))
         return cast(rv)
     }
 
     /// Inserts a new item just before the item pointed to by `iter`.
     func sequenceInsertBefore(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_insert_before(cast(_ptr), cast(data))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_before(cast(_ptr), cast(data)))
         return cast(rv)
     }
 
@@ -269,7 +270,7 @@ public extension SequenceIterProtocol {
     /// The `begin` and `end` iterators must both point to the same sequence
     /// and `begin` must come before or be equal to `end` in the sequence.
     func sequenceRangeGetMidpoint(end: SequenceIterProtocol) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv = g_sequence_range_get_midpoint(cast(_ptr), cast(end.ptr))
+        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_range_get_midpoint(cast(_ptr), cast(end.ptr)))
         return cast(rv)
     }
 
@@ -325,11 +326,11 @@ public extension SequenceIterProtocol {
     }
 
     /// Returns the position of `iter`
-    var position: CInt {
+    var position: Int {
         /// Returns the position of `iter`
         get {
-            let rv = g_sequence_iter_get_position(cast(_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_sequence_iter_get_position(cast(_ptr)))
+            return Int(rv)
         }
     }
 
@@ -337,10 +338,12 @@ public extension SequenceIterProtocol {
     var sequence: UnsafeMutablePointer<GSequence>! {
         /// Returns the `GSequence` that `iter` points into.
         get {
-            let rv = g_sequence_iter_get_sequence(cast(_ptr))
+            let rv: UnsafeMutablePointer<GSequence>! = cast(g_sequence_iter_get_sequence(cast(_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

@@ -73,7 +73,7 @@ import CGLib
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 public protocol RWLockProtocol {
-    /// Untyped pointer to the underlying `GRWLock` instance.
+        /// Untyped pointer to the underlying `GRWLock` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRWLock` instance.
@@ -150,7 +150,7 @@ public protocol RWLockProtocol {
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 public struct RWLockRef: RWLockProtocol {
-    /// Untyped pointer to the underlying `GRWLock` instance.
+        /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -267,7 +267,7 @@ public extension RWLockRef {
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 open class RWLock: RWLockProtocol {
-    /// Untyped pointer to the underlying `GRWLock` instance.
+        /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -296,7 +296,7 @@ open class RWLock: RWLockProtocol {
         // no reference counting for GRWLock, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GRWLock`.
+    /// Do-nothing destructor for `GRWLock`.
     deinit {
         // no reference counting for GRWLock, cannot unref(cast(_ptr))
     }
@@ -364,11 +364,12 @@ open class RWLock: RWLockProtocol {
 
 }
 
-// MARK: - no RWLock properties
+// MARK: no RWLock properties
 
-// MARK: - no signals
+// MARK: no RWLock signals
 
 
+// MARK: RWLock Record: RWLockProtocol extension (methods and fields)
 public extension RWLockProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRWLock` instance.
     var _ptr: UnsafeMutablePointer<GRWLock> { return ptr.assumingMemoryBound(to: GRWLock.self) }
@@ -472,6 +473,11 @@ public extension RWLockProtocol {
         g_rw_lock_writer_unlock(cast(_ptr))
     
     }
+
+    // var p is unavailable because p is private
+
+    // var i is unavailable because i is private
+
 }
 
 

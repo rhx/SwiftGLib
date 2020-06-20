@@ -10,7 +10,7 @@ import CGLib
 /// The `GSourceCallbackFuncs` struct contains
 /// functions for managing callback objects.
 public protocol SourceCallbackFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GSourceCallbackFuncs` instance.
@@ -24,7 +24,7 @@ public protocol SourceCallbackFuncsProtocol {
 /// The `GSourceCallbackFuncs` struct contains
 /// functions for managing callback objects.
 public struct SourceCallbackFuncsRef: SourceCallbackFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension SourceCallbackFuncsRef {
 /// The `GSourceCallbackFuncs` struct contains
 /// functions for managing callback objects.
 open class SourceCallbackFuncs: SourceCallbackFuncsProtocol {
-    /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
+        /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class SourceCallbackFuncs: SourceCallbackFuncsProtocol {
         // no reference counting for GSourceCallbackFuncs, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GSourceCallbackFuncs`.
+    /// Do-nothing destructor for `GSourceCallbackFuncs`.
     deinit {
         // no reference counting for GSourceCallbackFuncs, cannot unref(cast(_ptr))
     }
@@ -175,14 +175,22 @@ open class SourceCallbackFuncs: SourceCallbackFuncsProtocol {
 
 }
 
-// MARK: - no SourceCallbackFuncs properties
+// MARK: no SourceCallbackFuncs properties
 
-// MARK: - no signals
+// MARK: no SourceCallbackFuncs signals
 
 
+// MARK: SourceCallbackFuncs Record: SourceCallbackFuncsProtocol extension (methods and fields)
 public extension SourceCallbackFuncsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSourceCallbackFuncs` instance.
     var _ptr: UnsafeMutablePointer<GSourceCallbackFuncs> { return ptr.assumingMemoryBound(to: GSourceCallbackFuncs.self) }
+
+
+    // var ref is unavailable because ref is void
+
+    // var unref is unavailable because unref is void
+
+    // var get is unavailable because get is void
 
 }
 

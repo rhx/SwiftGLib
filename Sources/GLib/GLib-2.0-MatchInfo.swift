@@ -10,7 +10,7 @@ import CGLib
 /// A GMatchInfo is an opaque struct used to return information about
 /// matches.
 public protocol MatchInfoProtocol {
-    /// Untyped pointer to the underlying `GMatchInfo` instance.
+        /// Untyped pointer to the underlying `GMatchInfo` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GMatchInfo` instance.
@@ -24,7 +24,7 @@ public protocol MatchInfoProtocol {
 /// A GMatchInfo is an opaque struct used to return information about
 /// matches.
 public struct MatchInfoRef: MatchInfoProtocol {
-    /// Untyped pointer to the underlying `GMatchInfo` instance.
+        /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension MatchInfoRef {
 /// A GMatchInfo is an opaque struct used to return information about
 /// matches.
 open class MatchInfo: MatchInfoProtocol {
-    /// Untyped pointer to the underlying `GMatchInfo` instance.
+        /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -175,11 +175,12 @@ open class MatchInfo: MatchInfoProtocol {
 
 }
 
-// MARK: - no MatchInfo properties
+// MARK: no MatchInfo properties
 
-// MARK: - no signals
+// MARK: no MatchInfo signals
 
 
+// MARK: MatchInfo Record: MatchInfoProtocol extension (methods and fields)
 public extension MatchInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMatchInfo` instance.
     var match_info_ptr: UnsafeMutablePointer<GMatchInfo> { return ptr.assumingMemoryBound(to: GMatchInfo.self) }
@@ -202,12 +203,10 @@ public extension MatchInfoProtocol {
     /// Use `g_regex_check_replacement()` to find out whether `string_to_expand`
     /// contains references.
     func expandReferences(stringToExpand string_to_expand: UnsafePointer<gchar>) throws -> String! {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
-        let rv = g_match_info_expand_references(cast(match_info_ptr), string_to_expand, &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        var error: UnsafeMutablePointer<GError>?
+        let rv: String! = cast(g_match_info_expand_references(cast(match_info_ptr), string_to_expand, &error))
+        if let error = error { throw ErrorType(error) }
+        return cast(rv)
     }
 
     /// Retrieves the text matching the `match_num`'th capturing
@@ -227,8 +226,8 @@ public extension MatchInfoProtocol {
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     func fetch(matchNum match_num: CInt) -> String! {
-        let rv = g_match_info_fetch(cast(match_info_ptr), gint(match_num))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_match_info_fetch(cast(match_info_ptr), gint(match_num)))
+        return cast(rv)
     }
 
     /// Bundles up pointers to each of the matching substrings from a match
@@ -248,7 +247,7 @@ public extension MatchInfoProtocol {
     /// The strings are fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     func fetchAll() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv = g_match_info_fetch_all(cast(match_info_ptr))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_match_info_fetch_all(cast(match_info_ptr)))
         return cast(rv)
     }
 
@@ -261,8 +260,8 @@ public extension MatchInfoProtocol {
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     func fetchNamed(name: UnsafePointer<gchar>) -> String! {
-        let rv = g_match_info_fetch_named(cast(match_info_ptr), name)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_match_info_fetch_named(cast(match_info_ptr), name))
+        return cast(rv)
     }
 
     /// Retrieves the position in bytes of the capturing parentheses named `name`.
@@ -308,16 +307,16 @@ public extension MatchInfoProtocol {
     /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
-    func getMatchCount() -> CInt {
-        let rv = g_match_info_get_match_count(cast(match_info_ptr))
-        return CInt(rv)
+    func getMatchCount() -> Int {
+        let rv: Int = cast(g_match_info_get_match_count(cast(match_info_ptr)))
+        return Int(rv)
     }
 
     /// Returns `GRegex` object used in `match_info`. It belongs to Glib
     /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
     func getRegex() -> UnsafeMutablePointer<GRegex>! {
-        let rv = g_match_info_get_regex(cast(match_info_ptr))
+        let rv: UnsafeMutablePointer<GRegex>! = cast(g_match_info_get_regex(cast(match_info_ptr)))
         return cast(rv)
     }
 
@@ -325,8 +324,8 @@ public extension MatchInfoProtocol {
     /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
     func getString() -> String! {
-        let rv = g_match_info_get_string(cast(match_info_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_match_info_get_string(cast(match_info_ptr)))
+        return cast(rv)
     }
 
     /// Returns whether the previous match operation succeeded.
@@ -342,17 +341,15 @@ public extension MatchInfoProtocol {
     /// The match is done on the string passed to the match function, so you
     /// cannot free it before calling this function.
     func next() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = g_match_info_next(cast(match_info_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
     /// Increases reference count of `match_info` by 1.
-    func ref() -> UnsafeMutablePointer<GMatchInfo>! {
-        let rv = g_match_info_ref(cast(match_info_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GMatchInfo>! {
+        let rv: UnsafeMutablePointer<GMatchInfo>! = cast(g_match_info_ref(cast(match_info_ptr)))
         return cast(rv)
     }
 
@@ -443,7 +440,7 @@ public extension MatchInfoProtocol {
     /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
-    var matchCount: CInt {
+    var matchCount: Int {
         /// Retrieves the number of matched substrings (including substring 0,
         /// that is the whole matched text), so 1 is returned if the pattern
         /// has no substrings in it and 0 is returned if the match failed.
@@ -453,8 +450,8 @@ public extension MatchInfoProtocol {
         /// count is not that of the number of capturing parentheses but that of
         /// the number of matched substrings.
         get {
-            let rv = g_match_info_get_match_count(cast(match_info_ptr))
-            return CInt(rv)
+            let rv: Int = cast(g_match_info_get_match_count(cast(match_info_ptr)))
+            return Int(rv)
         }
     }
 
@@ -466,7 +463,7 @@ public extension MatchInfoProtocol {
         /// and must not be freed. Use `g_regex_ref()` if you need to keep it
         /// after you free `match_info` object.
         get {
-            let rv = g_match_info_get_regex(cast(match_info_ptr))
+            let rv: UnsafeMutablePointer<GRegex>! = cast(g_match_info_get_regex(cast(match_info_ptr)))
             return cast(rv)
         }
     }
@@ -479,10 +476,12 @@ public extension MatchInfoProtocol {
         /// string passed to `g_regex_match()` or `g_regex_replace()` so
         /// you may not free it before calling this function.
         get {
-            let rv = g_match_info_get_string(cast(match_info_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_match_info_get_string(cast(match_info_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

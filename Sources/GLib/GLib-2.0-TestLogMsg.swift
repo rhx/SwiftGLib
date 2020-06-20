@@ -9,7 +9,7 @@ import CGLib
 ///
 
 public protocol TestLogMsgProtocol {
-    /// Untyped pointer to the underlying `GTestLogMsg` instance.
+        /// Untyped pointer to the underlying `GTestLogMsg` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTestLogMsg` instance.
@@ -22,7 +22,7 @@ public protocol TestLogMsgProtocol {
 ///
 
 public struct TestLogMsgRef: TestLogMsgProtocol {
-    /// Untyped pointer to the underlying `GTestLogMsg` instance.
+        /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -75,7 +75,7 @@ public extension TestLogMsgRef {
 ///
 
 open class TestLogMsg: TestLogMsgProtocol {
-    /// Untyped pointer to the underlying `GTestLogMsg` instance.
+        /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -104,7 +104,7 @@ open class TestLogMsg: TestLogMsgProtocol {
         // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTestLogMsg`.
+    /// Do-nothing destructor for `GTestLogMsg`.
     deinit {
         // no reference counting for GTestLogMsg, cannot unref(cast(_ptr))
     }
@@ -172,11 +172,12 @@ open class TestLogMsg: TestLogMsgProtocol {
 
 }
 
-// MARK: - no TestLogMsg properties
+// MARK: no TestLogMsg properties
 
-// MARK: - no signals
+// MARK: no TestLogMsg signals
 
 
+// MARK: TestLogMsg Record: TestLogMsgProtocol extension (methods and fields)
 public extension TestLogMsgProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestLogMsg` instance.
     var _ptr: UnsafeMutablePointer<GTestLogMsg> { return ptr.assumingMemoryBound(to: GTestLogMsg.self) }
@@ -186,6 +187,57 @@ public extension TestLogMsgProtocol {
         g_test_log_msg_free(cast(_ptr))
     
     }
+
+    var logType: GTestLogType {
+        get {
+            let rv: GTestLogType = cast(_ptr.pointee.log_type)
+            return rv
+        }
+         set {
+            _ptr.pointee.log_type = cast(newValue)
+        }
+    }
+
+    var nStrings: Int {
+        get {
+            let rv: Int = cast(_ptr.pointee.n_strings)
+            return rv
+        }
+         set {
+            _ptr.pointee.n_strings = guint(newValue)
+        }
+    }
+
+    var strings: UnsafeMutablePointer<UnsafeMutablePointer<gchar>> {
+        get {
+            let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>> = cast(_ptr.pointee.strings)
+            return rv
+        }
+         set {
+            _ptr.pointee.strings = cast(newValue)
+        }
+    }
+
+    var nNums: Int {
+        get {
+            let rv: Int = cast(_ptr.pointee.n_nums)
+            return rv
+        }
+         set {
+            _ptr.pointee.n_nums = guint(newValue)
+        }
+    }
+
+    var nums: UnsafeMutablePointer<Float80> {
+        get {
+            let rv: UnsafeMutablePointer<Float80> = cast(_ptr.pointee.nums)
+            return rv
+        }
+         set {
+            _ptr.pointee.nums = cast(newValue)
+        }
+    }
+
 }
 
 

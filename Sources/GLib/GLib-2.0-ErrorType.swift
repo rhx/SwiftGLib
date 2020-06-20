@@ -10,7 +10,7 @@ import CGLib
 /// The `GError` structure contains information about
 /// an error that has occurred.
 public protocol ErrorTypeProtocol: Error {
-    /// Untyped pointer to the underlying `GError` instance.
+        /// Untyped pointer to the underlying `GError` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GError` instance.
@@ -24,7 +24,7 @@ public protocol ErrorTypeProtocol: Error {
 /// The `GError` structure contains information about
 /// an error that has occurred.
 public struct ErrorRef: ErrorTypeProtocol {
-    /// Untyped pointer to the underlying `GError` instance.
+        /// Untyped pointer to the underlying `GError` instance.
     /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,14 +78,14 @@ public extension ErrorRef {
     /// `message` contains text you don't have control over,
     /// that could include `printf()` escape sequences.
     init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
-        let rv = g_error_new_literal(domain, gint(code), message)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_literal(domain, gint(code), message))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
     init(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) {
-        let rv = g_error_new_valist(domain, gint(code), format, args)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_valist(domain, gint(code), format, args))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `GError`; unlike `g_error_new()`, `message` is
@@ -93,14 +93,14 @@ public extension ErrorRef {
     /// `message` contains text you don't have control over,
     /// that could include `printf()` escape sequences.
     static func new(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) -> ErrorRef! {
-        let rv = g_error_new_literal(domain, gint(code), message)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_literal(domain, gint(code), message))
         return rv.map { ErrorRef(cast($0)) }
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
     static func new(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) -> ErrorRef! {
-        let rv = g_error_new_valist(domain, gint(code), format, args)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_valist(domain, gint(code), format, args))
         return rv.map { ErrorRef(cast($0)) }
     }
 }
@@ -112,7 +112,7 @@ public extension ErrorRef {
 /// The `GError` structure contains information about
 /// an error that has occurred.
 open class ErrorType: ErrorTypeProtocol {
-    /// Untyped pointer to the underlying `GError` instance.
+        /// Untyped pointer to the underlying `GError` instance.
     /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -139,7 +139,7 @@ open class ErrorType: ErrorTypeProtocol {
         ptr = UnsafeMutableRawPointer(other.error_ptr)
     }
 
-    /// Do-nothing destructor for`GError`.
+    /// Do-nothing destructor for `GError`.
     deinit {
 	    g_error_free(error_ptr)
     }
@@ -208,14 +208,14 @@ open class ErrorType: ErrorTypeProtocol {
     /// `message` contains text you don't have control over,
     /// that could include `printf()` escape sequences.
     public init(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) {
-        let rv = g_error_new_literal(domain, gint(code), message)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_literal(domain, gint(code), message))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
     public init(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) {
-        let rv = g_error_new_valist(domain, gint(code), format, args)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_valist(domain, gint(code), format, args))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -224,31 +224,32 @@ open class ErrorType: ErrorTypeProtocol {
     /// `message` contains text you don't have control over,
     /// that could include `printf()` escape sequences.
     public static func new(literal domain: Quark, code: CInt, message: UnsafePointer<gchar>) -> ErrorType! {
-        let rv = g_error_new_literal(domain, gint(code), message)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_literal(domain, gint(code), message))
         return rv.map { ErrorType(cast($0)) }
     }
 
     /// Creates a new `GError` with the given `domain` and `code`,
     /// and a message formatted with `format`.
     public static func new(valist domain: Quark, code: CInt, format: UnsafePointer<gchar>, args: CVaListPointer) -> ErrorType! {
-        let rv = g_error_new_valist(domain, gint(code), format, args)
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_new_valist(domain, gint(code), format, args))
         return rv.map { ErrorType(cast($0)) }
     }
 
 }
 
-// MARK: - no ErrorType properties
+// MARK: no ErrorType properties
 
-// MARK: - no signals
+// MARK: no ErrorType signals
 
 
+// MARK: Error Record: ErrorTypeProtocol extension (methods and fields)
 public extension ErrorTypeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GError` instance.
     var error_ptr: UnsafeMutablePointer<GError> { return ptr.assumingMemoryBound(to: GError.self) }
 
     /// Makes a copy of `error`.
     func copy() -> UnsafeMutablePointer<GError>! {
-        let rv = g_error_copy(cast(error_ptr))
+        let rv: UnsafeMutablePointer<GError>! = cast(g_error_copy(cast(error_ptr)))
         return cast(rv)
     }
 
@@ -347,9 +348,49 @@ public extension ErrorTypeProtocol {
     /// `g_variant_parse()` then you must add nul termination before using this
     /// function.
     func variantParseErrorPrintContext(sourceStr source_str: UnsafePointer<gchar>) -> String! {
-        let rv = g_variant_parse_error_print_context(cast(error_ptr), source_str)
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_variant_parse_error_print_context(cast(error_ptr), source_str))
+        return cast(rv)
     }
+
+    /// error domain, e.g. `G_FILE_ERROR`
+    var domain: GQuark {
+        /// error domain, e.g. `G_FILE_ERROR`
+        get {
+            let rv: GQuark = cast(error_ptr.pointee.domain)
+            return rv
+        }
+        /// error domain, e.g. `G_FILE_ERROR`
+         set {
+            error_ptr.pointee.domain = cast(newValue)
+        }
+    }
+
+    /// error code, e.g. `G_FILE_ERROR_NOENT`
+    var code: Int {
+        /// error code, e.g. `G_FILE_ERROR_NOENT`
+        get {
+            let rv: Int = cast(error_ptr.pointee.code)
+            return rv
+        }
+        /// error code, e.g. `G_FILE_ERROR_NOENT`
+         set {
+            error_ptr.pointee.code = gint(newValue)
+        }
+    }
+
+    /// human-readable informative error message
+    var message: UnsafePointer<CChar> {
+        /// human-readable informative error message
+        get {
+            let rv: UnsafePointer<CChar> = cast(error_ptr.pointee.message)
+            return rv
+        }
+        /// human-readable informative error message
+         set {
+            error_ptr.pointee.message = cast(newValue)
+        }
+    }
+
 }
 
 

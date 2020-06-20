@@ -20,7 +20,7 @@ import CGLib
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
 public protocol RecMutexProtocol {
-    /// Untyped pointer to the underlying `GRecMutex` instance.
+        /// Untyped pointer to the underlying `GRecMutex` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GRecMutex` instance.
@@ -44,7 +44,7 @@ public protocol RecMutexProtocol {
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
 public struct RecMutexRef: RecMutexProtocol {
-    /// Untyped pointer to the underlying `GRecMutex` instance.
+        /// Untyped pointer to the underlying `GRecMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -108,7 +108,7 @@ public extension RecMutexRef {
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
 open class RecMutex: RecMutexProtocol {
-    /// Untyped pointer to the underlying `GRecMutex` instance.
+        /// Untyped pointer to the underlying `GRecMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -137,7 +137,7 @@ open class RecMutex: RecMutexProtocol {
         // no reference counting for GRecMutex, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GRecMutex`.
+    /// Do-nothing destructor for `GRecMutex`.
     deinit {
         // no reference counting for GRecMutex, cannot unref(cast(_ptr))
     }
@@ -205,11 +205,12 @@ open class RecMutex: RecMutexProtocol {
 
 }
 
-// MARK: - no RecMutex properties
+// MARK: no RecMutex properties
 
-// MARK: - no signals
+// MARK: no RecMutex signals
 
 
+// MARK: RecMutex Record: RecMutexProtocol extension (methods and fields)
 public extension RecMutexProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRecMutex` instance.
     var _ptr: UnsafeMutablePointer<GRecMutex> { return ptr.assumingMemoryBound(to: GRecMutex.self) }
@@ -290,6 +291,11 @@ public extension RecMutexProtocol {
         g_rec_mutex_unlock(cast(_ptr))
     
     }
+
+    // var p is unavailable because p is private
+
+    // var i is unavailable because i is private
+
 }
 
 

@@ -10,7 +10,7 @@ import CGLib
 /// Each piece of memory that is pushed onto the stack
 /// is cast to a GTrashStack*.
 public protocol TrashStackProtocol {
-    /// Untyped pointer to the underlying `GTrashStack` instance.
+        /// Untyped pointer to the underlying `GTrashStack` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GTrashStack` instance.
@@ -24,7 +24,7 @@ public protocol TrashStackProtocol {
 /// Each piece of memory that is pushed onto the stack
 /// is cast to a GTrashStack*.
 public struct TrashStackRef: TrashStackProtocol {
-    /// Untyped pointer to the underlying `GTrashStack` instance.
+        /// Untyped pointer to the underlying `GTrashStack` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -78,7 +78,7 @@ public extension TrashStackRef {
 /// Each piece of memory that is pushed onto the stack
 /// is cast to a GTrashStack*.
 open class TrashStack: TrashStackProtocol {
-    /// Untyped pointer to the underlying `GTrashStack` instance.
+        /// Untyped pointer to the underlying `GTrashStack` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -107,7 +107,7 @@ open class TrashStack: TrashStackProtocol {
         // no reference counting for GTrashStack, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GTrashStack`.
+    /// Do-nothing destructor for `GTrashStack`.
     deinit {
         // no reference counting for GTrashStack, cannot unref(cast(_ptr))
     }
@@ -175,11 +175,12 @@ open class TrashStack: TrashStackProtocol {
 
 }
 
-// MARK: - no TrashStack properties
+// MARK: no TrashStack properties
 
-// MARK: - no signals
+// MARK: no TrashStack signals
 
 
+// MARK: TrashStack Record: TrashStackProtocol extension (methods and fields)
 public extension TrashStackProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTrashStack` instance.
     var _ptr: UnsafeMutablePointer<GTrashStack> { return ptr.assumingMemoryBound(to: GTrashStack.self) }
@@ -191,9 +192,9 @@ public extension TrashStackProtocol {
     ///
     /// **height is deprecated:**
     /// #GTrashStack is deprecated without replacement
-    @available(*, deprecated) func height() -> CUnsignedInt {
-        let rv = g_trash_stack_height(cast(_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func height() -> Int {
+        let rv: Int = cast(g_trash_stack_height(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the element at the top of a `GTrashStack`
@@ -202,7 +203,7 @@ public extension TrashStackProtocol {
     /// **peek is deprecated:**
     /// #GTrashStack is deprecated without replacement
     @available(*, deprecated) func peek() -> UnsafeMutableRawPointer! {
-        let rv = g_trash_stack_peek(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_peek(cast(_ptr)))
         return cast(rv)
     }
 
@@ -211,7 +212,7 @@ public extension TrashStackProtocol {
     /// **pop is deprecated:**
     /// #GTrashStack is deprecated without replacement
     @available(*, deprecated) func pop() -> UnsafeMutableRawPointer! {
-        let rv = g_trash_stack_pop(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_pop(cast(_ptr)))
         return cast(rv)
     }
 
@@ -231,9 +232,9 @@ public extension TrashStackProtocol {
     ///
     /// **trash_stack_height is deprecated:**
     /// #GTrashStack is deprecated without replacement
-    @available(*, deprecated) func trashStackHeight() -> CUnsignedInt {
-        let rv = g_trash_stack_height(cast(_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func trashStackHeight() -> Int {
+        let rv: Int = cast(g_trash_stack_height(cast(_ptr)))
+        return Int(rv)
     }
 
     /// Returns the element at the top of a `GTrashStack`
@@ -242,7 +243,7 @@ public extension TrashStackProtocol {
     /// **trash_stack_peek is deprecated:**
     /// #GTrashStack is deprecated without replacement
     @available(*, deprecated) func trashStackPeek() -> UnsafeMutableRawPointer! {
-        let rv = g_trash_stack_peek(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_peek(cast(_ptr)))
         return cast(rv)
     }
 
@@ -251,7 +252,7 @@ public extension TrashStackProtocol {
     /// **trash_stack_pop is deprecated:**
     /// #GTrashStack is deprecated without replacement
     @available(*, deprecated) func trashStackPop() -> UnsafeMutableRawPointer! {
-        let rv = g_trash_stack_pop(cast(_ptr))
+        let rv: UnsafeMutableRawPointer! = cast(g_trash_stack_pop(cast(_ptr)))
         return cast(rv)
     }
 
@@ -263,6 +264,26 @@ public extension TrashStackProtocol {
         g_trash_stack_push(cast(_ptr), cast(data_p))
     
     }
+
+    /// pointer to the previous element of the stack,
+    ///     gets stored in the first `sizeof (gpointer)`
+    ///     bytes of the element
+    var next: UnsafeMutablePointer<GTrashStack> {
+        /// pointer to the previous element of the stack,
+        ///     gets stored in the first `sizeof (gpointer)`
+        ///     bytes of the element
+        get {
+            let rv: UnsafeMutablePointer<GTrashStack> = cast(_ptr.pointee.next)
+            return rv
+        }
+        /// pointer to the previous element of the stack,
+        ///     gets stored in the first `sizeof (gpointer)`
+        ///     bytes of the element
+         set {
+            _ptr.pointee.next = cast(newValue)
+        }
+    }
+
 }
 
 

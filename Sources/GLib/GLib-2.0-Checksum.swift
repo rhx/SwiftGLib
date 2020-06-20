@@ -11,7 +11,7 @@ import CGLib
 /// To create a new GChecksum, use `g_checksum_new()`. To free
 /// a GChecksum, use `g_checksum_free()`.
 public protocol ChecksumProtocol {
-    /// Untyped pointer to the underlying `GChecksum` instance.
+        /// Untyped pointer to the underlying `GChecksum` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GChecksum` instance.
@@ -26,7 +26,7 @@ public protocol ChecksumProtocol {
 /// To create a new GChecksum, use `g_checksum_new()`. To free
 /// a GChecksum, use `g_checksum_free()`.
 public struct ChecksumRef: ChecksumProtocol {
-    /// Untyped pointer to the underlying `GChecksum` instance.
+        /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +85,7 @@ public extension ChecksumRef {
     /// will be closed and it won't be possible to call `g_checksum_update()`
     /// on it anymore.
     init( checksum_type: ChecksumType) {
-        let rv = g_checksum_new(checksum_type)
+        let rv: UnsafeMutablePointer<GChecksum>! = cast(g_checksum_new(checksum_type))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -98,7 +98,7 @@ public extension ChecksumRef {
 /// To create a new GChecksum, use `g_checksum_new()`. To free
 /// a GChecksum, use `g_checksum_free()`.
 open class Checksum: ChecksumProtocol {
-    /// Untyped pointer to the underlying `GChecksum` instance.
+        /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -127,7 +127,7 @@ open class Checksum: ChecksumProtocol {
         // no reference counting for GChecksum, cannot ref(cast(checksum_ptr))
     }
 
-    /// Do-nothing destructor for`GChecksum`.
+    /// Do-nothing destructor for `GChecksum`.
     deinit {
         // no reference counting for GChecksum, cannot unref(cast(checksum_ptr))
     }
@@ -205,18 +205,19 @@ open class Checksum: ChecksumProtocol {
     /// will be closed and it won't be possible to call `g_checksum_update()`
     /// on it anymore.
     public init( checksum_type: ChecksumType) {
-        let rv = g_checksum_new(checksum_type)
+        let rv: UnsafeMutablePointer<GChecksum>! = cast(g_checksum_new(checksum_type))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no Checksum properties
+// MARK: no Checksum properties
 
-// MARK: - no signals
+// MARK: no Checksum signals
 
 
+// MARK: Checksum Record: ChecksumProtocol extension (methods and fields)
 public extension ChecksumProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GChecksum` instance.
     var checksum_ptr: UnsafeMutablePointer<GChecksum> { return ptr.assumingMemoryBound(to: GChecksum.self) }
@@ -225,7 +226,7 @@ public extension ChecksumProtocol {
     /// `g_checksum_get_string()` or `g_checksum_get_digest()`, the copied
     /// checksum will be closed as well.
     func copy() -> UnsafeMutablePointer<GChecksum>! {
-        let rv = g_checksum_copy(cast(checksum_ptr))
+        let rv: UnsafeMutablePointer<GChecksum>! = cast(g_checksum_copy(cast(checksum_ptr)))
         return cast(rv)
     }
 
@@ -252,8 +253,8 @@ public extension ChecksumProtocol {
     /// 
     /// The hexadecimal characters will be lower case.
     func getString() -> String! {
-        let rv = g_checksum_get_string(cast(checksum_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_checksum_get_string(cast(checksum_ptr)))
+        return cast(rv)
     }
 
     /// Resets the state of the `checksum` back to its initial state.
@@ -283,10 +284,12 @@ public extension ChecksumProtocol {
         /// 
         /// The hexadecimal characters will be lower case.
         get {
-            let rv = g_checksum_get_string(cast(checksum_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_checksum_get_string(cast(checksum_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 

@@ -12,7 +12,7 @@ import CGLib
 /// 
 /// See `g_stat()` for more information.
 public protocol StatBufProtocol {
-    /// Untyped pointer to the underlying `GStatBuf` instance.
+        /// Untyped pointer to the underlying `GStatBuf` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GStatBuf` instance.
@@ -28,7 +28,7 @@ public protocol StatBufProtocol {
 /// 
 /// See `g_stat()` for more information.
 public struct StatBufRef: StatBufProtocol {
-    /// Untyped pointer to the underlying `GStatBuf` instance.
+        /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -84,7 +84,7 @@ public extension StatBufRef {
 /// 
 /// See `g_stat()` for more information.
 open class StatBuf: StatBufProtocol {
-    /// Untyped pointer to the underlying `GStatBuf` instance.
+        /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -113,7 +113,7 @@ open class StatBuf: StatBufProtocol {
         // no reference counting for GStatBuf, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GStatBuf`.
+    /// Do-nothing destructor for `GStatBuf`.
     deinit {
         // no reference counting for GStatBuf, cannot unref(cast(_ptr))
     }
@@ -181,14 +181,17 @@ open class StatBuf: StatBufProtocol {
 
 }
 
-// MARK: - no StatBuf properties
+// MARK: no StatBuf properties
 
-// MARK: - no signals
+// MARK: no StatBuf signals
 
 
+// MARK: StatBuf Record: StatBufProtocol extension (methods and fields)
 public extension StatBufProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GStatBuf` instance.
     var _ptr: UnsafeMutablePointer<GStatBuf> { return ptr.assumingMemoryBound(to: GStatBuf.self) }
+
+
 
 }
 

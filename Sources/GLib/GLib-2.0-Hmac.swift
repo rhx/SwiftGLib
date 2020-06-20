@@ -11,7 +11,7 @@ import CGLib
 /// To create a new GHmac, use `g_hmac_new()`. To free
 /// a GHmac, use `g_hmac_unref()`.
 public protocol HmacProtocol {
-    /// Untyped pointer to the underlying `GHmac` instance.
+        /// Untyped pointer to the underlying `GHmac` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GHmac` instance.
@@ -26,7 +26,7 @@ public protocol HmacProtocol {
 /// To create a new GHmac, use `g_hmac_new()`. To free
 /// a GHmac, use `g_hmac_unref()`.
 public struct HmacRef: HmacProtocol {
-    /// Untyped pointer to the underlying `GHmac` instance.
+        /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -81,7 +81,7 @@ public extension HmacRef {
 /// To create a new GHmac, use `g_hmac_new()`. To free
 /// a GHmac, use `g_hmac_unref()`.
 open class Hmac: HmacProtocol {
-    /// Untyped pointer to the underlying `GHmac` instance.
+        /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -178,11 +178,12 @@ open class Hmac: HmacProtocol {
 
 }
 
-// MARK: - no Hmac properties
+// MARK: no Hmac properties
 
-// MARK: - no signals
+// MARK: no Hmac signals
 
 
+// MARK: Hmac Record: HmacProtocol extension (methods and fields)
 public extension HmacProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHmac` instance.
     var _ptr: UnsafeMutablePointer<GHmac> { return ptr.assumingMemoryBound(to: GHmac.self) }
@@ -191,7 +192,7 @@ public extension HmacProtocol {
     /// `g_hmac_get_string()` or `g_hmac_get_digest()`, the copied
     /// HMAC will be closed as well.
     func copy() -> UnsafeMutablePointer<GHmac>! {
-        let rv = g_hmac_copy(cast(_ptr))
+        let rv: UnsafeMutablePointer<GHmac>! = cast(g_hmac_copy(cast(_ptr)))
         return cast(rv)
     }
 
@@ -212,15 +213,15 @@ public extension HmacProtocol {
     /// 
     /// The hexadecimal characters will be lower case.
     func getString() -> String! {
-        let rv = g_hmac_get_string(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(g_hmac_get_string(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Atomically increments the reference count of `hmac` by one.
     /// 
     /// This function is MT-safe and may be called from any thread.
-    func ref() -> UnsafeMutablePointer<GHmac>! {
-        let rv = g_hmac_ref(cast(_ptr))
+    @discardableResult func ref() -> UnsafeMutablePointer<GHmac>! {
+        let rv: UnsafeMutablePointer<GHmac>! = cast(g_hmac_ref(cast(_ptr)))
         return cast(rv)
     }
 
@@ -257,10 +258,12 @@ public extension HmacProtocol {
         /// 
         /// The hexadecimal characters will be lower case.
         get {
-            let rv = g_hmac_get_string(cast(_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(g_hmac_get_string(cast(_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
