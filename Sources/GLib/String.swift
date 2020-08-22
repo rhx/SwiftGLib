@@ -8,7 +8,23 @@
 import CGLib
 
 /// Allow Swift strings to interact with GLib strings
-extension String {
+public extension String {
+    /// Convert a C string to a Swift String, freeing the original buffer
+    /// - Parameter s: The C string buffer to convert and free
+    /// - Returns: The corresponding Swift string or `nil` if `s` was `nil`
+    @inlinable static func freeing(_ s: UnsafePointer<CChar>?) -> String! {
+        defer { g_free(UnsafeMutableRawPointer(mutating: s)) }
+        return s.map { String(cString: $0) }
+    }
+
+    /// Convert a C string to a Swift String, freeing the original buffer
+    /// - Parameter s: The C string buffer to convert and free
+    /// - Returns: The corresponding Swift string or `nil` if `s` was `nil`
+    @inlinable static func freeing(_ s: UnsafePointer<CUnsignedChar>?) -> String! {
+        defer { g_free(UnsafeMutableRawPointer(mutating: s)) }
+        return s.map { String(cString: $0) }
+    }
+
     /// Return a GString corresponding to the given swift string.
     /// The returned string pointer needs to be freed using g_string_free(*, true)
     var gstring_ptr: UnsafeMutablePointer<GString> { return g_string_new(self) }

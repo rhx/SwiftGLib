@@ -13,15 +13,18 @@
 
 import CGLib
 
+/// Alias for a reference wrapping a `GError` pointer
+public typealias ErrorRef = ErrorTypeRef
+
 /// CustomStringConvertible extension for GError ErrorType
-extension ErrorTypeProtocol {
+public extension ErrorTypeProtocol {
     /// The error message associated with the receiver.
-    public var description: String {
+    var description: String {
         return String(cString: error_ptr.pointee.message)
     }
 
     /// The error domain, code, and message associated with the receiver.
-    public var debugDescription: String {
+    var debugDescription: String {
         return String("\(quarkToString(quark: error_ptr.pointee.domain) ?? "-") error \(error_ptr.pointee.code): \(String(cString: error_ptr.pointee.message) )")
     }
 }
