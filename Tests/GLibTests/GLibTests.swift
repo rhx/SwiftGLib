@@ -56,7 +56,7 @@ class GLibTests: XCTestCase {
             }
             defer { dir.close() }
             XCTFail("\(nonexistent) should have failed to open")
-        } catch let e as GLib.ErrorType {
+        } catch let e as GLibError {
             XCTAssertFalse(e.description.isEmpty)
         } catch {
             XCTFail("Unknown error: \(error)")
@@ -67,7 +67,7 @@ class GLibTests: XCTestCase {
     func testDefaultMainContext() {
         let context = MainContext.defaultContext()
         let p = context.ref()
-        XCTAssertEqual(p, context.main_context_ptr)
+        XCTAssertEqual(p?.main_context_ptr, context.main_context_ptr)
         context.unref()
         XCTAssertNil(context.findSourceByID(sourceID: 123))
         XCTAssertNotNil(context.pollFunc)

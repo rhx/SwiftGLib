@@ -28,7 +28,7 @@ public extension GLibErrorProtocol {
 
     /// The error domain, code, and message associated with the receiver.
     var debugDescription: String {
-        return String("\(quarkToString(quark: error_ptr.pointee.domain).map(String.init) ?? "-") error \(error_ptr.pointee.code): \(String(cString: error_ptr.pointee.message) )")
+        return String("\(quarkToString(quark: error_ptr.pointee.domain) ?? "-") error \(error_ptr.pointee.code): \(String(cString: error_ptr.pointee.message) )")
     }
 }
 
