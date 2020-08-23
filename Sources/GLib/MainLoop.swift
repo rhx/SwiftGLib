@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 27/04/2017.
-//  Copyright © 2017, 2018, 2019 Rene Hexel.  All rights reserved.
+//  Copyright © 2017, 2018, 2019, 2020 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -15,9 +15,17 @@ public extension MainContextRef {
     /// main context, i.e. the main context used for main loop functions
     /// when a main loop is not explicitly specified, and corresponds to
     /// the "main" main loop. See also g_main_context_get_thread_default().
-    static func defaultContext() -> MainContextRef {
+    @inlinable static func defaultContext() -> MainContextRef {
         return MainContextRef(g_main_context_default()!)
     }
+
+    /// Return a MainContext that references the default context singleton.
+    ///
+    /// This is a convenience factory method that returns the global default
+    /// main context, i.e. the main context used for main loop functions
+    /// when a main loop is not explicitly specified, and corresponds to
+    /// the "main" main loop. See also g_main_context_get_thread_default().
+    @inlinable static var `default`: MainContextRef { defaultContext() }
 }
 
 
@@ -29,10 +37,18 @@ public extension MainContext {
     /// main context, i.e. the main context used for main loop functions
     /// when a main loop is not explicitly specified, and corresponds to
     /// the "main" main loop. See also g_main_context_get_thread_default().
-    static func defaultContext() -> MainContext {
+    @inlinable static func defaultContext() -> MainContext {
         let context = MainContext(g_main_context_ref(g_main_context_default())!)
         return context
     }
+
+    /// Return a MainContext that references the default context singleton.
+    ///
+    /// This is a convenience factory method that returns the global default
+    /// main context, i.e. the main context used for main loop functions
+    /// when a main loop is not explicitly specified, and corresponds to
+    /// the "main" main loop. See also g_main_context_get_thread_default().
+    @inlinable static var `default`: MainContext { defaultContext() }
 }
 
 
@@ -40,7 +56,7 @@ public extension MainContext {
 public extension MainLoopRef {
     /// Convenience initialiser that returns a retained reference to the
     /// default main loop.  See also g_main_loop_unref()
-    init() {
+    @inlinable init() {
         ptr = UnsafeMutableRawPointer(g_main_loop_new(g_main_context_default()!, 0)!)
     }
 }
@@ -50,7 +66,7 @@ public extension MainLoopRef {
 public extension MainLoop {
     /// Convenience initialiser that creates and returns the
     /// default main loop.
-    convenience init() {
+    @inlinable convenience init() {
         self.init(g_main_loop_new(g_main_context_default()!, 0))
     }
 }

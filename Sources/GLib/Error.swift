@@ -22,12 +22,12 @@ public typealias GLibErrorProtocol = ErrorProtocol
 /// CustomStringConvertible extension for GError GLibError
 public extension GLibErrorProtocol {
     /// The error message associated with the receiver.
-    var description: String {
+    @inlinable var description: String {
         return String(cString: error_ptr.pointee.message)
     }
 
     /// The error domain, code, and message associated with the receiver.
-    var debugDescription: String {
+    @inlinable var debugDescription: String {
         return String("\(quarkToString(quark: error_ptr.pointee.domain) ?? "-") error \(error_ptr.pointee.code): \(String(cString: error_ptr.pointee.message) )")
     }
 }
@@ -35,14 +35,14 @@ public extension GLibErrorProtocol {
 public extension GLibError {
     /// Initialise from a raw Integer value
     /// - Parameter rawValue: value to initalise from
-    convenience init(rawValue: Int32) {
+    @inlinable convenience init(rawValue: Int32) {
         let quark = g_quark_from_string("Error \(rawValue)")
         let error: UnsafeMutablePointer<GError> = g_error_new_literal(quark, rawValue, g_quark_to_string(quark))
         self.init(cPointer: error)
     }
 
     /// Raw error code
-    var rawValue: Int32 {
+    @inlinable var rawValue: Int32 {
         get { Int32(error_ptr.pointee.code) }
         set { error_ptr.pointee.code = gint(newValue) }
     }

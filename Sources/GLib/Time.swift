@@ -13,11 +13,12 @@ public class TimerClosureHolder {
 
     public let call: () -> Bool
 
-    public init(_ closure: @escaping () -> Bool) {
+    @inlinable public init(_ closure: @escaping () -> Bool) {
         self.call = closure
     }
 }
 
+@usableFromInline
 func _timeoutAdd(_ interval: Int, priority p: Int = 0, data: TimerClosureHolder, handler: @convention(c) @escaping (gpointer) -> gboolean) -> Int {
     let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
     let callback = unsafeBitCast(handler, to: SourceFunc.self)
@@ -34,7 +35,7 @@ func _timeoutAdd(_ interval: Int, priority p: Int = 0, data: TimerClosureHolder,
 /// Similar to g_timeout_add_full(), but allows
 /// to provide a Swift closure that can capture its surrounding context.
 @discardableResult
-public func timeout(add interval: Int, priority p: Int = 0, handler: @escaping () -> Bool) -> Int {
+@inlinable public func timeout(add interval: Int, priority p: Int = 0, handler: @escaping () -> Bool) -> Int {
     let rv = _timeoutAdd(interval, priority: p, data: TimerClosureHolder(handler)) {
         let holder = Unmanaged<TimerClosureHolder>.fromOpaque($0).takeUnretainedValue()
         let rv: gboolean = holder.call() ? 1 : 0

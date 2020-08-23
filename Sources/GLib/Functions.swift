@@ -9,7 +9,7 @@ import Foundation
 import CGLib
 
 /// Decode a sequence of Base-64 encoded text into binary data.
-public func base64Decode(_ text: UnsafePointer<CChar>) -> Foundation.Data! {
+@inlinable public func base64Decode(_ text: UnsafePointer<CChar>) -> Foundation.Data! {
     var size = gsize(0)
     guard let ptr = g_base64_decode(text, &size) else { return nil }
     defer { g_free(ptr) }
@@ -19,7 +19,7 @@ public func base64Decode(_ text: UnsafePointer<CChar>) -> Foundation.Data! {
 
 /// Decode a sequence of Base-64 encoded text into binary data
 /// by overwriting the input data.
-@discardableResult public func base64DecodeInPlace(_ text: UnsafeMutablePointer<CChar>, deallocator: Foundation.Data.Deallocator = .none) -> Foundation.Data! {
+@discardableResult @inlinable public func base64DecodeInPlace(_ text: UnsafeMutablePointer<CChar>, deallocator: Foundation.Data.Deallocator = .none) -> Foundation.Data! {
     var size = gsize(0)
     guard let ptr = g_base64_decode_inplace(text, &size) else { return nil }
     return Foundation.Data(bytesNoCopy: UnsafeMutableRawPointer(ptr), count: Int(size), deallocator: deallocator)

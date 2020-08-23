@@ -35,7 +35,7 @@ public extension LogLevelFlags {
 /// - Parameters:
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
+@inlinable public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
     message.utf8CString.withUnsafeBufferPointer {
         g_log(messagePtr: $0.baseAddress, level: flags)
     }
@@ -46,7 +46,7 @@ public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
 /// - Parameters:
 ///   - messagePtr: optional pointer to a C string message (nothing gets logged if `nil`)
 ///   - level: log level (defaults to `.debug`)
-public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
+@inlinable public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
     guard let base = messagePtr else { return }
     let varargs = [OpaquePointer(base)]
     withVaList(varargs) {
@@ -60,7 +60,7 @@ public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .deb
 ///   - domain: the domain this logging function occurs in
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(domain: String, _ message: String, level: LogLevelFlags = .debug) {
+@inlinable public func g_log(domain: String, _ message: String, level: LogLevelFlags = .debug) {
     message.utf8CString.withUnsafeBufferPointer {
         guard let base = $0.baseAddress else { return }
         let varargs = [OpaquePointer(base)]
@@ -75,7 +75,7 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .deb
 /// - Parameters:
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
+@inlinable public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
     var buffer = message
     if message.index(of: "%") != nil {
         buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
@@ -91,7 +91,7 @@ public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
 /// - Parameters:
 ///   - messagePtr: optional pointer to a C string message (nothing gets logged if `nil`)
 ///   - level: log level (defaults to `.debug`)
-public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
+@inlinable public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
     guard let msg = messagePtr else { return }
     g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: cast(msg)))
 }
@@ -102,7 +102,7 @@ public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .deb
 ///   - domain: the domain this logging function occurs in
 ///   - message: log message
 ///   - level: log level (defaults to `.debug`)
-public func g_log(domain: String, _ message: String, level: LogLevelFlags = .debug) {
+@inlinable public func g_log(domain: String, _ message: String, level: LogLevelFlags = .debug) {
     var buffer = message
     if message.index(of: "%") != nil {
         buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
@@ -120,7 +120,7 @@ public func g_log(domain: String, _ message: String, level: LogLevelFlags = .deb
 /// - Parameters:
 ///   - message: warning message
 ///   - domain: the domain this logging occurs in (defaults to `nil`)
-public func g_warning(_ message: String, domain: String? = nil) {
+@inlinable public func g_warning(_ message: String, domain: String? = nil) {
     if let d = domain {
         g_log(domain: d, message, level: .warning)
     } else {
