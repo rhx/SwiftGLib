@@ -14,6 +14,7 @@ struct _GMainLoop {};
 struct _GMappedFile {};
 struct _GMarkupParseContext {};
 struct _GMatchInfo {};
+struct _GModule {};
 struct _GMutexLocker {};
 struct _GOptionContext {};
 struct _GOptionGroup {};
