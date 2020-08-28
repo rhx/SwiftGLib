@@ -26,3 +26,4 @@ s|Do-nothing destructor for.*`GMutex.*|`GMutex` destructor.  **Please note that 
 s|// no reference counting for GMutex.*unref.*|g_mutex_clear(_ptr)|
 s|unexpEof|unexpectedEOF|g
 s|UnsafePointer<UnsafePointer<GVariant>|UnsafePointer<UnsafeMutablePointer<GVariant>|g
+s|g_option_context_set_main_group(_ptr, UnsafeMutablePointer<GOptionGroup>.(newValue?.option_group_ptr))|g_option_context_set_main_group(_ptr, UnsafeMutablePointer<GOptionGroup>(newValue?.option_group_ptr))|
