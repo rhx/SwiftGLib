@@ -4,6 +4,7 @@ struct _GBinding {};
 struct _GBytes {};
 struct _GChecksum {};
 struct _GData {};
+struct _GDatagramBased {};
 struct _GDateTime {};
 struct _GDir {};
 struct _GHashTable {};
@@ -14,6 +15,7 @@ struct _GMainLoop {};
 struct _GMappedFile {};
 struct _GMarkupParseContext {};
 struct _GMatchInfo {};
+struct _GMemoryMonitor {};
 struct _GModule {};
 struct _GMutexLocker {};
 struct _GOptionContext {};
@@ -130,6 +132,9 @@ struct _GMountOperationPrivate {};
 struct _GNativeSocketAddress {};
 typedef struct _GNativeSocketAddress GNativeSocketAddress;
 #else
+# ifndef __APPLE__
+struct _GNativeSocketAddress {};
+# endif
 struct _GNativeSocketAddressPrivate {};
 typedef struct _GNativeSocketAddressClass GNativeSocketAddressClass;
 typedef struct _GNativeSocketAddressPrivate GNativeSocketAddressPrivate;
