@@ -45,7 +45,6 @@ struct _GUnixSocketAddressPrivate {};
 struct _GVariant {};
 struct _GVariantType {};
 struct GMainContextPusher {};
-struct GMemoryMonitor {};
 struct GMutexLocker {};
 struct GTestCase {};
 struct GTestSuite {};
