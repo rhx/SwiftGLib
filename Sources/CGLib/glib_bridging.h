@@ -138,9 +138,6 @@ struct _GMountOperationPrivate {};
 struct _GNativeSocketAddress {};
 typedef struct _GNativeSocketAddress GNativeSocketAddress;
 #else
-# ifndef __APPLE__
-struct _GNativeSocketAddress {};
-# endif
 struct _GNativeSocketAddressPrivate {};
 typedef struct _GNativeSocketAddressClass GNativeSocketAddressClass;
 typedef struct _GNativeSocketAddressPrivate GNativeSocketAddressPrivate;
