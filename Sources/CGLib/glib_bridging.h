@@ -1,8 +1,10 @@
 struct _GAsyncQueue {};
 struct _GBookmarkFile {};
+struct _GBinding {};
 struct _GBytes {};
 struct _GChecksum {};
 struct _GData {};
+struct _GDatagramBased {};
 struct _GDateTime {};
 struct _GDir {};
 struct _GHashTable {};
@@ -13,13 +15,17 @@ struct _GMainLoop {};
 struct _GMappedFile {};
 struct _GMarkupParseContext {};
 struct _GMatchInfo {};
+struct _GMemoryMonitor {};
+struct _GModule {};
 struct _GMutexLocker {};
 struct _GOptionContext {};
 struct _GOptionGroup {};
+struct _GParamSpecPool {};
 struct _GPatternSpec {};
 struct _GRand {};
 struct _GRegex {};
 struct _GSequence {};
+struct _GSequenceNode {};
 struct _GSequenceIter {};
 struct _GSourcePrivate {};
 struct _GStringChunk {};
@@ -28,10 +34,18 @@ struct _GTestSuite {};
 struct _GTimeZone {};
 struct _GTimer {};
 struct _GTree {};
+struct _GTypePlugin {};
+struct _GUnixConnectionPrivate {};
+struct _GUnixCredentialsMessagePrivate {};
+struct _GUnixFDListPrivate {};
+struct _GUnixFDMessagePrivate {};
+struct _GUnixInputStreamPrivate {};
+struct _GUnixOutputStreamPrivate {};
+struct _GUnixSocketAddressPrivate {};
 struct _GVariant {};
 struct _GVariantType {};
+struct GMainContextPusher {};
 struct GMutexLocker {};
-struct GSequenceIter {};
 struct GTestCase {};
 struct GTestSuite {};
 
@@ -101,6 +115,7 @@ struct _GIOModuleScope {};
 struct _GIOSchedulerJob {};
 struct _GIOStreamAdapter {};
 struct _GIOStreamPrivate {};
+struct _GIConv {};
 struct _GIcon {};
 struct _GInetAddressMaskPrivate {};
 struct _GInetAddressPrivate {};
@@ -203,6 +218,7 @@ struct _GDtlsServerConnection {};
 #include <sys/types.h>
 #include <glib-unix.h>
 #include <glib-object.h>
+#include <gobject/gvaluecollector.h>
 #include <gmodule.h>
 #include <glib/gstdio.h>
 #include <glib/garray.h>
@@ -233,7 +249,7 @@ struct _GDtlsServerConnection {};
 #include <glib/gvarianttype.h>
 #include <gio/gio.h>
 #include <gio/gnetworking.h>
-#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 60
+#if !defined(__APPLE__) || (GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 60)
 #include <gio/gdesktopappinfo.h>
 #else
 #include <gio/gioenums.h>
@@ -268,3 +284,12 @@ typedef struct _GObjectNotifyQueue
     guint16               n_pspecs;
     guint16               freeze_count;
 } GObjectNotifyQueue;
+
+#ifndef __G_DESKTOP_APP_INFO_H__
+struct _GDesktopAppInfoClass {};
+typedef struct _GDesktopAppInfo        GDesktopAppInfo;
+typedef struct _GDesktopAppInfoClass   GDesktopAppInfoClass;
+typedef void (*GDesktopAppLaunchCallback) (GDesktopAppInfo  *appinfo,
+                                           GPid              pid,
+                                           gpointer          user_data);
+#endif
