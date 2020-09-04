@@ -23,6 +23,7 @@ s|#glib-N-ary-Trees|../Protocols/NodeProtocol.html|g
 s|#glib-Sequences|../Protocols/SequenceProtocol.html|g
 s|#glib-Balanced-Binary-Trees|../Protocols/TreeProtocol.html|g
 s|Do-nothing destructor for.*`GMutex.*|`GMutex` destructor.  **Please note that deinitialising a locked mutex leads to undefined behaviour!**|
+s|// no reference counting for GMutex.* ref.*|g_mutex_init(_ptr)|
 s|// no reference counting for GMutex.*unref.*|g_mutex_clear(_ptr)|
 s|unexpEof|unexpectedEOF|g
 s|UnsafePointer<UnsafePointer<GVariant>|UnsafePointer<UnsafeMutablePointer<GVariant>|g
