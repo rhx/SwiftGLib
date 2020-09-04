@@ -29,6 +29,10 @@ BEGIN { etpInit = 0 ; vaptrptr = 0 }
 	vaptrptr = 1
 	print "#if !os(Linux)"
 }
+/Pointer<va_list>/ {
+	vaptrptr = 1
+	print "#if !os(Linux)"
+}
 /^$/ {
 	if (vaptrptr) {
 		print "#endif"
