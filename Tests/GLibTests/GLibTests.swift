@@ -19,7 +19,7 @@ class GLibTests: XCTestCase {
     /// check that we can convert the given Unix UTC time
     func testDateTimeUnixUTC() {
         let t = Int64(time(nil))
-        let dateTime = DateTime(unixUTC: t)
+        let dateTime = DateTime(unixUTC: gint64(t))
         let unix = dateTime.toUnix()
         XCTAssertEqual(unix, t)
         let offs = dateTime.utcOffset
