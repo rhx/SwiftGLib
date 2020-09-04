@@ -227,6 +227,7 @@ class GLibTests: XCTestCase {
             XCTAssertFalse(mutex.trylock())
             mutex.unlock()
             XCTAssertTrue(mutex.trylock())
+            mutex.unlock()
         }
     }
 
