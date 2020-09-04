@@ -220,12 +220,14 @@ class GLibTests: XCTestCase {
 
     func testMutex() {
         let mutex = Mutex()
-        XCTAssertTrue(mutex.trylock())
-        mutex.unlock()
-        mutex.lock()
-        XCTAssertFalse(mutex.trylock())
-        mutex.unlock()
-        XCTAssertTrue(mutex.trylock())
+        withExtendedLifetime(mutex) {
+            XCTAssertTrue(mutex.trylock())
+            mutex.unlock()
+            mutex.lock()
+            XCTAssertFalse(mutex.trylock())
+            mutex.unlock()
+            XCTAssertTrue(mutex.trylock())
+        }
     }
 
     func testFloatIEEE754() {
