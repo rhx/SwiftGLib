@@ -7,10 +7,50 @@
 //
 import CGLib
 
+/// The key for passing the log message to `logStructuredArray` (required)
+public let logKeyMessage  = "MESSAGE"
+/// The key for passing the log priority to `logStructuredArray` (required)
+public let logKeyPriority = "PRIORITY"
+/// The key for passing the log domain to `logStructuredArray` (optional)
+public let logKeyDomain   = "GLIB_DOMAIN"
+/// The key for passing the source file name to `logStructuredArray` (optional)
+public let logKeyFile    = "CODE_FILE"
+/// The key for passing the source line number as a string to `logStructuredArray` (optional)
+public let logKeyLine    = "CODE_LINE"
+/// The key for passing the source function name to `logStructuredArray` (optional)
+public let logKeyFunc    = "CODE_FUNC"
+
+/// Log priority 1 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority1: UnsafePointer<CChar> = UnsafePointer(strdup("1"))
+/// Log priority 2 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority2: UnsafePointer<CChar> = UnsafePointer(strdup("2"))
+/// Log priority 3 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority3: UnsafePointer<CChar> = UnsafePointer(strdup("3"))
+/// Log priority 4 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority4: UnsafePointer<CChar> = UnsafePointer(strdup("4"))
+/// Log priority 5 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority5: UnsafePointer<CChar> = UnsafePointer(strdup("5"))
+/// Log priority 6 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority6: UnsafePointer<CChar> = UnsafePointer(strdup("6"))
+/// Log priority 7 for passing to the `logKeyPriority` field for `logStructuredArray`
+public let logPriority7: UnsafePointer<CChar> = UnsafePointer(strdup("7"))
+
+/// Conversion dictionary from `LogLevelFlags` to the corresponding priorities
+@usableFromInline let priorities: [LogLevelFlags : UnsafePointer<CChar>] = [
+    .error: logPriority3, .critical: logPriority4, .warning: logPriority4,
+    .message: logPriority5, .info: logPriority6, .debug: logPriority7
+]
+
 /// Opaque type. See RecMutexLocker for details.
 public struct GRecMutexLocker {}
 
 public extension LogLevelFlags {
+    /// return the priority string as required by
+    /// the `logKeyPriority` field for `logStructuredArray`
+    @inlinable var priorityString: UnsafePointer<CChar> {
+        priorities[self] ?? logPriority5
+    }
+
     /// log level for debug messages, see `g_debug()`
     static let debug = LogLevelFlags.levelDebug
     /// log level for informational messages, see `g_info()`
@@ -28,6 +68,8 @@ public extension LogLevelFlags {
     ///     This level is also used for messages produced by `g_assert()`.
     static let error = LogLevelFlags.levelError
 }
+
+extension LogLevelFlags: Hashable {}
 
 #if !os(Linux)
 /// Logging function
@@ -70,6 +112,7 @@ public extension LogLevelFlags {
     }
 }
 #else
+
 /// Logging function
 ///
 /// - Parameters:
@@ -93,7 +136,23 @@ public extension LogLevelFlags {
 ///   - level: log level (defaults to `.debug`)
 @inlinable public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
     guard let msg = messagePtr else { return }
+    #if swift(<5.2)
     g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: UnsafeMutableRawPointer(mutating: msg)))
+    #else
+    guard GLIB_MAJOR_VERSION > 2 || GLIB_MINOR_VERSION >= 50 else {
+        print(String(cString: msg))
+        return
+    }
+    logKeyMessage.withCString {
+        let messageField = GLogField(key: $0, value: gconstpointer(msg), length: -1)
+        logKeyPriority.withCString {
+            let priority = level.priorityString
+            let priorityField = GLogField(key: $0, value: priority, length: -1)
+            let fields = [messageField, priorityField]
+            logStructuredArray(logLevel: level, fields: fields, nFields: fields.count)
+        }
+    }
+    #endif
 }
 
 /// Logging function
@@ -110,7 +169,28 @@ public extension LogLevelFlags {
     withUnsafeMutableBytes(of: &buffer) {
         guard let buffer = $0.baseAddress else { return }
         let msg = buffer.assumingMemoryBound(to: CChar.self)
+        #if swift(<5.2)
         g_logv(domain, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: buffer))
+        #else
+        guard GLIB_MAJOR_VERSION > 2 || GLIB_MINOR_VERSION >= 50 else {
+            print(message)
+            return
+        }
+        logKeyMessage.withCString {
+            let messageField = GLogField(key: $0, value: gconstpointer(msg), length: -1)
+            logKeyPriority.withCString {
+                let priority = level.priorityString
+                let priorityField = GLogField(key: $0, value: priority, length: -1)
+                logKeyDomain.withCString { domainKey in
+                    domain.withCString {
+                        let domainField = GLogField(key: domainKey, value: $0, length: -1)
+                        let fields = [messageField, priorityField, domainField]
+                        logStructuredArray(logLevel: level, fields: fields, nFields: fields.count)
+                    }
+                }
+            }
+        }
+        #endif
     }
 }
 #endif
