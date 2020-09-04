@@ -77,7 +77,7 @@ public extension LogLevelFlags {
 ///   - level: log level (defaults to `.debug`)
 @inlinable public func g_log(_ message: String, level flags: LogLevelFlags = .debug) {
     var buffer = message
-    if message.index(of: "%") != nil {
+    if message.firstIndex(of: "%") != nil {
         buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
     }
     withUnsafeMutableBytes(of: &buffer) {
@@ -93,7 +93,7 @@ public extension LogLevelFlags {
 ///   - level: log level (defaults to `.debug`)
 @inlinable public func g_log(messagePtr: UnsafePointer<CChar>?, level: LogLevelFlags = .debug) {
     guard let msg = messagePtr else { return }
-    g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: cast(msg)))
+    g_logv(nil, level.value, msg, CVaListPointer(_fromUnsafeMutablePointer: UnsafeMutableRawPointer(mutating: msg)))
 }
 
 /// Logging function
@@ -104,7 +104,7 @@ public extension LogLevelFlags {
 ///   - level: log level (defaults to `.debug`)
 @inlinable public func g_log(domain: String, _ message: String, level: LogLevelFlags = .debug) {
     var buffer = message
-    if message.index(of: "%") != nil {
+    if message.firstIndex(of: "%") != nil {
         buffer = message.reduce("") { $0 + ($1 == "%" ? "%%" : String($1)) }
     }
     withUnsafeMutableBytes(of: &buffer) {
