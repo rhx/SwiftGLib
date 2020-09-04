@@ -148,8 +148,8 @@ extension LogLevelFlags: Hashable {}
         logKeyPriority.withCString {
             let priority = level.priorityString
             let priorityField = GLogField(key: $0, value: priority, length: -1)
-            let fields = [messageField, priorityField]
-            logStructuredArray(logLevel: level, fields: fields, nFields: fields.count)
+            var fields = [messageField, priorityField]
+            logStructuredArray(logLevel: level, fields: &fields, nFields: fields.count)
         }
     }
     #endif
@@ -184,8 +184,8 @@ extension LogLevelFlags: Hashable {}
                 logKeyDomain.withCString { domainKey in
                     domain.withCString {
                         let domainField = GLogField(key: domainKey, value: $0, length: -1)
-                        let fields = [messageField, priorityField, domainField]
-                        logStructuredArray(logLevel: level, fields: fields, nFields: fields.count)
+                        var fields = [messageField, priorityField, domainField]
+                        logStructuredArray(logLevel: level, fields: &fields, nFields: fields.count)
                     }
                 }
             }

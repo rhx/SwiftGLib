@@ -34,5 +34,12 @@ s|groups: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|groups: UnsafeMutable
 s|list: Bool|list: UnsafeMutablePointer<gboolean>!|
 s|list: Double|list: UnsafeMutablePointer<gdouble>!|
 s|list: Int|list: UnsafeMutablePointer<gint>!|
-s|list: UnsafeMutablePointer<gchar>|list: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>|
+s|list: UnsafeMutablePointer<gchar>|list: UnsafePointer<UnsafePointer<gchar>?>|
 s|[&]list, gsize(length)|list, gsize(length)|
+s|strv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>.>|strv: UnsafePointer<UnsafePointer<gchar>?>|
+s|items: UnsafeMutablePointer<UnsafeMutablePointer|items: UnsafePointer<UnsafePointer|
+s|\(func getBytestringArray(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1UnsafePointer<gchar>|
+s|\(func getObjv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1UnsafePointer<gchar>|
+s|\(func getStrv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1UnsafePointer<gchar>|
+s|\(func get.*Names.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
+s|\(func get.*Dirs.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
