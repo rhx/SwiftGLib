@@ -10,7 +10,7 @@ import CGLib
 /// Convenience extension for Mutex
 public extension Mutex {
     /// Convenience initialiser that creates and initialises a `GMutex`
-    convenience init() {
+    @inlinable convenience init() {
         let m = UnsafeMutablePointer<GMutex>.allocate(capacity: 1)
         self.init(m)
         init_()

@@ -23,9 +23,13 @@ BEGIN { etpInit = 0 ; vaptrptr = 0 }
 }
 / -> GIConv {/, /^}/ {
 	sub(/GIConv {/,"GIConv? {")
-	sub(/return rv/,"return rv == unsafeBitCast(-1, to: GIConv.self) ? nil : rv")
+	sub(/return rv/,"return rv == GIConv(bitPattern: -1) ? nil : rv")
 }
 /UnsafeMutablePointer.CVaListPointer/ {
+	vaptrptr = 1
+	print "#if !os(Linux)"
+}
+/Pointer<va_list>/ {
 	vaptrptr = 1
 	print "#if !os(Linux)"
 }
