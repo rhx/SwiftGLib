@@ -23,14 +23,20 @@ if [ ! -e "${GIR}" ] ; then
 	exit 1
 fi
 gir2swift -o Sources/${Mod} -s -m ${Module}.module "${GIR}"
-for src in Sources/${Mod}/*-*.swift ; do
+for src in Sources/${Mod}/*-*.swift Sources/CGLib/glib_bridging.h ; do
 	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
-	mv ${src}.out ${src}
+	mv -f ${src}.out ${src}
 	for ver in 2.62.0 ; do
 		if pkg-config --atleast-version=$ver glib-2.0 ; then
 			sed -f ${Module}-$ver.sed < ${src} |		\
 			awk -f ${Module}-$ver.awk > ${src}.out
-			mv ${src}.out ${src}
+			mv -f ${src}.out ${src}
+		fi
+	done
+	for ver in 2.60.0 ; do
+		if pkg-config --max-version=$ver glib-2.0 ; then
+			sed -f ${Module}-$ver.sed < ${src} > ${src}.out
+			mv -f ${src}.out ${src}
 		fi
 	done
 done
