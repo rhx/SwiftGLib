@@ -11,10 +11,11 @@ import CGLib
 /// [sequence](../Protocols/SequenceProtocol.html) data type.
 public protocol SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GSequence` instance.
-    var _ptr: UnsafeMutablePointer<GSequence> { get }
+    var _ptr: UnsafeMutablePointer<GSequence>! { get }
+
 }
 
 /// The `SequenceRef` type acts as a lightweight Swift reference to an underlying `GSequence` instance.
@@ -26,46 +27,76 @@ public protocol SequenceProtocol {
 public struct SequenceRef: SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SequenceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GSequence>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GSequence>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSequence>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSequence>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSequence>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SequenceProtocol`
-    init<T: SequenceProtocol>(_ other: T) {
+    @inlinable init<T: SequenceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension SequenceRef {
 open class Sequence: SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Sequence` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GSequence>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GSequence>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Sequence` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSequence>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Sequence` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Sequence` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Sequence` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSequence>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Sequence` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSequence>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GSequence` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Sequence` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GSequence>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSequence>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SequenceProtocol`
     /// `GSequence` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SequenceProtocol`
-    public init<T: SequenceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+    @inlinable public init<T: SequenceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GSequence`.
     deinit {
-        // no reference counting for GSequence, cannot unref(cast(_ptr))
+        // no reference counting for GSequence, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GSequence, cannot ref(cast(_ptr))
+        // no reference counting for GSequence, cannot ref(_ptr)
     }
 
 
@@ -183,54 +260,54 @@ open class Sequence: SequenceProtocol {
 // MARK: Sequence Record: SequenceProtocol extension (methods and fields)
 public extension SequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSequence` instance.
-    var _ptr: UnsafeMutablePointer<GSequence> { return ptr.assumingMemoryBound(to: GSequence.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GSequence>! { return ptr?.assumingMemoryBound(to: GSequence.self) }
 
     /// Adds a new item to the end of `seq`.
-    func append(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_append(cast(_ptr), cast(data)))
-        return cast(rv)
+    @inlinable func append(data: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_append(_ptr, data)))
+        return rv
     }
 
     /// Calls `func` for each item in the sequence passing `user_data`
     /// to the function. `func` must not modify the sequence itself.
-    func foreach(func_: @escaping Func, userData user_data: UnsafeMutableRawPointer) {
-        g_sequence_foreach(cast(_ptr), func_, cast(user_data))
+    @inlinable func foreach(`func`: GFunc?, userData: gpointer! = nil) {
+        g_sequence_foreach(_ptr, `func`, userData)
     
     }
 
     /// Frees the memory allocated for `seq`. If `seq` has a data destroy
     /// function associated with it, that function is called on all items
     /// in `seq`.
-    func free() {
-        g_sequence_free(cast(_ptr))
+    @inlinable func free() {
+        g_sequence_free(_ptr)
     
     }
 
     /// Returns the begin iterator for `seq`.
-    func getBeginIter() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_begin_iter(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getBeginIter() -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_begin_iter(_ptr)))
+        return rv
     }
 
     /// Returns the end iterator for `seg`
-    func getEndIter() -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_end_iter(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getEndIter() -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_end_iter(_ptr)))
+        return rv
     }
 
     /// Returns the iterator at position `pos`. If `pos` is negative or larger
     /// than the number of items in `seq`, the end iterator is returned.
-    func getIterAt(pos: CInt) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_iter_at_pos(cast(_ptr), gint(pos)))
-        return cast(rv)
+    @inlinable func getIterAt(pos: Int) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_iter_at_pos(_ptr, gint(pos))))
+        return rv
     }
 
     /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
     /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
-    func getLength() -> Int {
-        let rv: Int = cast(g_sequence_get_length(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getLength() -> Int {
+        let rv = Int(g_sequence_get_length(_ptr))
+        return rv
     }
 
     /// Inserts `data` into `seq` using `cmp_func` to determine the new
@@ -245,9 +322,9 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    @discardableResult func insertSorted(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_sorted(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func insertSorted(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_insert_sorted(_ptr, data, cmpFunc, cmpData)))
+        return rv
     }
 
     /// Like `g_sequence_insert_sorted()`, but uses
@@ -262,9 +339,9 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    @discardableResult func insertSortedIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_insert_sorted_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func insertSortedIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_insert_sorted_iter(_ptr, data, iterCmp, cmpData)))
+        return rv
     }
 
     /// Returns an iterator pointing to the position of the first item found
@@ -280,9 +357,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    func lookup(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_lookup(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func lookup(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_lookup(_ptr, data, cmpFunc, cmpData)))
+        return rv
     }
 
     /// Like `g_sequence_lookup()`, but uses a `GSequenceIterCompareFunc`
@@ -295,15 +372,15 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    func lookupIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_lookup_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func lookupIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_lookup_iter(_ptr, data, iterCmp, cmpData)))
+        return rv
     }
 
     /// Adds a new item to the front of `seq`
-    @discardableResult func prepend(data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_prepend(cast(_ptr), cast(data)))
-        return cast(rv)
+    @inlinable func prepend(data: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_prepend(_ptr, data)))
+        return rv
     }
 
     /// Returns an iterator pointing to the position where `data` would
@@ -319,9 +396,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    func search(data: UnsafeMutableRawPointer, cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_search(cast(_ptr), cast(data), cmp_func, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func search(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_search(_ptr, data, cmpFunc, cmpData)))
+        return rv
     }
 
     /// Like `g_sequence_search()`, but uses a `GSequenceIterCompareFunc`
@@ -337,9 +414,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    func searchIter(data: UnsafeMutableRawPointer, iterCmp iter_cmp: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GSequenceIter>! {
-        let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_search_iter(cast(_ptr), cast(data), iter_cmp, cast(cmp_data)))
-        return cast(rv)
+    @inlinable func searchIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_search_iter(_ptr, data, iterCmp, cmpData)))
+        return rv
     }
 
     /// Sorts `seq` using `cmp_func`.
@@ -348,8 +425,8 @@ public extension SequenceProtocol {
     /// return 0 if they are equal, a negative value if the
     /// first comes before the second, and a positive value
     /// if the second comes before the first.
-    func sort(cmpFunc cmp_func: @escaping CompareDataFunc, cmpData cmp_data: UnsafeMutableRawPointer) {
-        g_sequence_sort(cast(_ptr), cmp_func, cast(cmp_data))
+    @inlinable func sort(cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) {
+        g_sequence_sort(_ptr, cmpFunc, cmpData)
     
     }
 
@@ -360,25 +437,25 @@ public extension SequenceProtocol {
     /// return 0 if the iterators are equal, a negative value if the first
     /// iterator comes before the second, and a positive value if the second
     /// iterator comes before the first.
-    func sortIter(cmpFunc cmp_func: @escaping SequenceIterCompareFunc, cmpData cmp_data: UnsafeMutableRawPointer) {
-        g_sequence_sort_iter(cast(_ptr), cmp_func, cast(cmp_data))
+    @inlinable func sortIter(cmpFunc: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) {
+        g_sequence_sort_iter(_ptr, cmpFunc, cmpData)
     
     }
     /// Returns the begin iterator for `seq`.
-    var beginIter: UnsafeMutablePointer<GSequenceIter>! {
+    @inlinable var beginIter: SequenceIterRef! {
         /// Returns the begin iterator for `seq`.
         get {
-            let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_begin_iter(cast(_ptr)))
-            return cast(rv)
+            let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_begin_iter(_ptr)))
+            return rv
         }
     }
 
     /// Returns the end iterator for `seg`
-    var endIter: UnsafeMutablePointer<GSequenceIter>! {
+    @inlinable var endIter: SequenceIterRef! {
         /// Returns the end iterator for `seg`
         get {
-            let rv: UnsafeMutablePointer<GSequenceIter>! = cast(g_sequence_get_end_iter(cast(_ptr)))
-            return cast(rv)
+            let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_end_iter(_ptr)))
+            return rv
         }
     }
 
@@ -387,28 +464,28 @@ public extension SequenceProtocol {
     /// This function is functionally identical to checking the result of
     /// `g_sequence_get_length()` being equal to zero. However this function is
     /// implemented in `O(1)` running time.
-    var isEmpty: Bool {
+    @inlinable var isEmpty: Bool {
         /// Returns `true` if the sequence contains zero items.
         /// 
         /// This function is functionally identical to checking the result of
         /// `g_sequence_get_length()` being equal to zero. However this function is
         /// implemented in `O(1)` running time.
         get {
-            let rv = g_sequence_is_empty(cast(_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_sequence_is_empty(_ptr)) != 0)
+            return rv
         }
     }
 
     /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
     /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
     /// when comparing the length to zero.
-    var length: Int {
+    @inlinable var length: Int {
         /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
         /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
         /// when comparing the length to zero.
         get {
-            let rv: Int = cast(g_sequence_get_length(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_sequence_get_length(_ptr))
+            return rv
         }
     }
 

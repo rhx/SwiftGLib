@@ -11,10 +11,11 @@ import CGLib
 /// accessed through the g_rand_* functions.
 public protocol RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GRand` instance.
-    var _ptr: UnsafeMutablePointer<GRand> { get }
+    var _ptr: UnsafeMutablePointer<GRand>! { get }
+
 }
 
 /// The `RandRef` type acts as a lightweight Swift reference to an underlying `GRand` instance.
@@ -26,59 +27,89 @@ public protocol RandProtocol {
 public struct RandRef: RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension RandRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GRand>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GRand>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GRand>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GRand>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GRand>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `RandProtocol`
-    init<T: RandProtocol>(_ other: T) {
+    @inlinable init<T: RandProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new random number generator initialized with `seed`.
-    static func newWith(seed: UInt32) -> RandRef! {
-        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed(guint32(seed)))
-        return rv.map { RandRef(cast($0)) }
+    @inlinable static func newWith(seed: guint32) -> RandRef! {
+        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_new_with_seed(seed))) else { return nil }
+        return rv
     }
 
     /// Creates a new random number generator initialized with `seed`.
-    static func newWith(seedArray seed: UnsafePointer<UInt32>, seedLength seed_length: CUnsignedInt) -> RandRef! {
-        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed_array(cast(seed), guint(seed_length)))
-        return rv.map { RandRef(cast($0)) }
+    @inlinable static func newWith(seedArray seed: UnsafePointer<guint32>!, seedLength: Int) -> RandRef! {
+        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_new_with_seed_array(seed, guint(seedLength)))) else { return nil }
+        return rv
     }
 }
 
@@ -91,108 +122,154 @@ public extension RandRef {
 open class Rand: RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Rand` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GRand>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GRand>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Rand` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GRand>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Rand` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Rand` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Rand` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GRand>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Rand` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GRand>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GRand` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Rand` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GRand>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GRand>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `RandProtocol`
     /// `GRand` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `RandProtocol`
-    public init<T: RandProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+    @inlinable public init<T: RandProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GRand`.
     deinit {
-        // no reference counting for GRand, cannot unref(cast(_ptr))
+        // no reference counting for GRand, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GRand, cannot ref(cast(_ptr))
+        // no reference counting for GRand, cannot ref(_ptr)
     }
 
 
     /// Creates a new random number generator initialized with `seed`.
-    public static func newWith(seed: UInt32) -> Rand! {
-        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed(guint32(seed)))
-        return rv.map { Rand(cast($0)) }
+    @inlinable public static func newWith(seed: guint32) -> Rand! {
+        guard let rv = Rand(gconstpointer: gconstpointer(g_rand_new_with_seed(seed))) else { return nil }
+        return rv
     }
 
     /// Creates a new random number generator initialized with `seed`.
-    public static func newWith(seedArray seed: UnsafePointer<UInt32>, seedLength seed_length: CUnsignedInt) -> Rand! {
-        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_new_with_seed_array(cast(seed), guint(seed_length)))
-        return rv.map { Rand(cast($0)) }
+    @inlinable public static func newWith(seedArray seed: UnsafePointer<guint32>!, seedLength: Int) -> Rand! {
+        guard let rv = Rand(gconstpointer: gconstpointer(g_rand_new_with_seed_array(seed, guint(seedLength)))) else { return nil }
+        return rv
     }
 
 }
@@ -205,53 +282,53 @@ open class Rand: RandProtocol {
 // MARK: Rand Record: RandProtocol extension (methods and fields)
 public extension RandProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRand` instance.
-    var _ptr: UnsafeMutablePointer<GRand> { return ptr.assumingMemoryBound(to: GRand.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GRand>! { return ptr?.assumingMemoryBound(to: GRand.self) }
 
     /// Copies a `GRand` into a new one with the same exact state as before.
     /// This way you can take a snapshot of the random number generator for
     /// replaying later.
-    func copy() -> UnsafeMutablePointer<GRand>! {
-        let rv: UnsafeMutablePointer<GRand>! = cast(g_rand_copy(cast(_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> RandRef! {
+        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_copy(_ptr))) else { return nil }
+        return rv
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [0..1).
-    func CDouble() -> Double {
-        let rv: Double = cast(g_rand_double(cast(_ptr)))
-        return cast(rv)
+    @inlinable func CDouble() -> Double {
+        let rv = Double(g_rand_double(_ptr))
+        return rv
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [`begin.`.`end`).
-    func doubleRange(begin: gdouble, end: gdouble) -> Double {
-        let rv: Double = cast(g_rand_double_range(cast(_ptr), begin, end))
-        return cast(rv)
+    @inlinable func doubleRange(begin: Double, end: Double) -> Double {
+        let rv = Double(g_rand_double_range(_ptr, gdouble(begin), gdouble(end)))
+        return rv
     }
 
     /// Frees the memory allocated for the `GRand`.
-    func free() {
-        g_rand_free(cast(_ptr))
+    @inlinable func free() {
+        g_rand_free(_ptr)
     
     }
 
     /// Returns the next random `guint32` from `rand_` equally distributed over
     /// the range [0..2^32-1].
-    func CInt() -> UInt32 {
-        let rv = g_rand_int(cast(_ptr))
-        return UInt32(rv)
+    @inlinable func CInt() -> guint32 {
+        let rv = g_rand_int(_ptr)
+        return rv
     }
 
     /// Returns the next random `gint32` from `rand_` equally distributed over
     /// the range [`begin.`.`end`-1].
-    func intRange(begin: Int32, end: Int32) -> Int32 {
-        let rv = g_rand_int_range(cast(_ptr), gint32(begin), gint32(end))
-        return Int32(rv)
+    @inlinable func intRange(begin: gint32, end: gint32) -> gint32 {
+        let rv = g_rand_int_range(_ptr, begin, end)
+        return rv
     }
 
     /// Sets the seed for the random number generator `GRand` to `seed`.
-    func set(seed: UInt32) {
-        g_rand_set_seed(cast(_ptr), guint32(seed))
+    @inlinable func set(seed: guint32) {
+        g_rand_set_seed(_ptr, seed)
     
     }
 
@@ -260,8 +337,8 @@ public extension RandProtocol {
     /// are taken.  This function is useful if you have many low entropy
     /// seeds, or if you require more then 32 bits of actual entropy for
     /// your application.
-    func setSeedArray(seed: UnsafePointer<UInt32>, seedLength seed_length: CUnsignedInt) {
-        g_rand_set_seed_array(cast(_ptr), cast(seed), guint(seed_length))
+    @inlinable func setSeedArray(seed: UnsafePointer<guint32>!, seedLength: Int) {
+        g_rand_set_seed_array(_ptr, seed, guint(seedLength))
     
     }
 

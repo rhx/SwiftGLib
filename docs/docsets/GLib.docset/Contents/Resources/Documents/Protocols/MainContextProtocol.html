@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3723,7 +3726,7 @@ a typical event source will use <code>g_source_add_unix_fd()</code> instead.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="n">maxPriority</span> <span class="nv">max_priority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">fds</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GPollFD</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">nFds</span> <span class="nv">n_fds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="nv">maxPriority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">fds</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GPollFD</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nFds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -3796,7 +3799,7 @@ the first one found will be returned.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">findSourceByFuncsUserData</span><span class="o">&lt;</span><span class="kt">SourceFuncsT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">funcs</span><span class="p">:</span> <span class="kt">SourceFuncsT</span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">SourceFuncsT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SourceFuncsProtocol.html">SourceFuncsProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">findSourceByFuncsUserData</span><span class="o">&lt;</span><span class="kt">SourceFuncsT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">funcs</span><span class="p">:</span> <span class="kt">SourceFuncsT</span><span class="p">,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">SourceFuncsT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/SourceFuncsProtocol.html">SourceFuncsProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -3841,7 +3844,7 @@ wrong source.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">findSourceByID</span><span class="p">(</span><span class="n">sourceID</span> <span class="nv">source_id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">findSourceByID</span><span class="p">(</span><span class="nv">sourceID</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -3877,7 +3880,7 @@ one found will be returned.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">findSourceBy</span><span class="p">(</span><span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">findSourceBy</span><span class="p">(</span><span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/SourceRef.html">SourceRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -4052,7 +4055,7 @@ be interrupted for other reasons than an event source becoming ready.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">iteration</span><span class="p">(</span><span class="n">mayBlock</span> <span class="nv">may_block</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">iteration</span><span class="p">(</span><span class="nv">mayBlock</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4267,7 +4270,7 @@ see <code>g_file_supports_thread_contexts()</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">maxPriority</span> <span class="nv">max_priority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">timeout_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">fds</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GPollFD</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">nFds</span> <span class="nv">n_fds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+<span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="nv">maxPriority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">timeout_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">fds</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GPollFD</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nFds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -4641,7 +4644,7 @@ blocking to get ownership of <code>context</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

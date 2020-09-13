@@ -11,10 +11,11 @@ import CGLib
 /// directly.
 public protocol TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTimeZone` instance.
-    var time_zone_ptr: UnsafeMutablePointer<GTimeZone> { get }
+    var time_zone_ptr: UnsafeMutablePointer<GTimeZone>! { get }
+
 }
 
 /// The `TimeZoneRef` type acts as a lightweight Swift reference to an underlying `GTimeZone` instance.
@@ -26,46 +27,76 @@ public protocol TimeZoneProtocol {
 public struct TimeZoneRef: TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
     /// For type-safe access, use the generated, typed pointer `time_zone_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TimeZoneRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTimeZone>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTimeZone>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTimeZone>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTimeZone>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTimeZone>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TimeZoneProtocol`
-    init<T: TimeZoneProtocol>(_ other: T) {
+    @inlinable init<T: TimeZoneProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -133,9 +164,9 @@ public extension TimeZoneRef {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    init( identifier: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new(identifier))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( identifier: UnsafePointer<gchar>? = nil) {
+        let rv = g_time_zone_new(identifier)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -143,9 +174,9 @@ public extension TimeZoneRef {
     /// 
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
-    init(offset seconds: Int32) {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_offset(gint32(seconds)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init(offset seconds: gint32) {
+        let rv = g_time_zone_new_offset(seconds)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a `GTimeZone` corresponding to local time.  The local time
     /// zone may change between invocations to this function; for example,
@@ -156,9 +187,9 @@ public extension TimeZoneRef {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    static func newLocal() -> TimeZoneRef! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_local())
-        return rv.map { TimeZoneRef(cast($0)) }
+    @inlinable static func newLocal() -> TimeZoneRef! {
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_local())) else { return nil }
+        return rv
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -166,9 +197,9 @@ public extension TimeZoneRef {
     /// 
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
-    static func new(offset seconds: Int32) -> TimeZoneRef! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_offset(gint32(seconds)))
-        return rv.map { TimeZoneRef(cast($0)) }
+    @inlinable static func new(offset seconds: gint32) -> TimeZoneRef! {
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_offset(seconds))) else { return nil }
+        return rv
     }
 
     /// Creates a `GTimeZone` corresponding to UTC.
@@ -178,9 +209,9 @@ public extension TimeZoneRef {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    static func newUTC() -> TimeZoneRef! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_utc())
-        return rv.map { TimeZoneRef(cast($0)) }
+    @inlinable static func newUTC() -> TimeZoneRef! {
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_utc())) else { return nil }
+        return rv
     }
 }
 
@@ -193,95 +224,141 @@ public extension TimeZoneRef {
 open class TimeZone: TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
     /// For type-safe access, use the generated, typed pointer `time_zone_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TimeZone` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTimeZone>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GTimeZone>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTimeZone>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTimeZone>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeZone` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTimeZone>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GTimeZone`.
     /// i.e., ownership is transferred to the `TimeZone` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTimeZone>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTimeZone>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_time_zone_ref(cast(time_zone_ptr))
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Reference intialiser for a related type that implements `TimeZoneProtocol`
     /// Will retain `GTimeZone`.
     /// - Parameter other: an instance of a related type that implements `TimeZoneProtocol`
-    public init<T: TimeZoneProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.time_zone_ptr)
-        g_time_zone_ref(cast(time_zone_ptr))
+    @inlinable public init<T: TimeZoneProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Releases the underlying `GTimeZone` instance using `g_time_zone_unref`.
     deinit {
-        g_time_zone_unref(cast(time_zone_ptr))
+        g_time_zone_unref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_time_zone_ref(cast(time_zone_ptr))
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_time_zone_ref(cast(time_zone_ptr))
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_time_zone_ref(cast(time_zone_ptr))
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_time_zone_ref(cast(time_zone_ptr))
+        g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
     /// Creates a `GTimeZone` corresponding to `identifier`.
@@ -348,9 +425,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    public init( identifier: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new(identifier))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( identifier: UnsafePointer<gchar>? = nil) {
+        let rv = g_time_zone_new(identifier)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -358,9 +435,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
-    public init(offset seconds: Int32) {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_offset(gint32(seconds)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init(offset seconds: gint32) {
+        let rv = g_time_zone_new_offset(seconds)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to local time.  The local time
@@ -372,9 +449,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    public static func newLocal() -> TimeZone! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_local())
-        return rv.map { TimeZone(cast($0)) }
+    @inlinable public static func newLocal() -> TimeZone! {
+        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_local())) else { return nil }
+        return rv
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -382,9 +459,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
-    public static func new(offset seconds: Int32) -> TimeZone! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_offset(gint32(seconds)))
-        return rv.map { TimeZone(cast($0)) }
+    @inlinable public static func new(offset seconds: gint32) -> TimeZone! {
+        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_offset(seconds))) else { return nil }
+        return rv
     }
 
     /// Creates a `GTimeZone` corresponding to UTC.
@@ -394,9 +471,9 @@ open class TimeZone: TimeZoneProtocol {
     /// 
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
-    public static func newUTC() -> TimeZone! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_new_utc())
-        return rv.map { TimeZone(cast($0)) }
+    @inlinable public static func newUTC() -> TimeZone! {
+        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_utc())) else { return nil }
+        return rv
     }
 
 }
@@ -409,7 +486,7 @@ open class TimeZone: TimeZoneProtocol {
 // MARK: TimeZone Record: TimeZoneProtocol extension (methods and fields)
 public extension TimeZoneProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTimeZone` instance.
-    var time_zone_ptr: UnsafeMutablePointer<GTimeZone> { return ptr.assumingMemoryBound(to: GTimeZone.self) }
+    @inlinable var time_zone_ptr: UnsafeMutablePointer<GTimeZone>! { return ptr?.assumingMemoryBound(to: GTimeZone.self) }
 
     /// Finds an interval within `tz` that corresponds to the given `time_`,
     /// possibly adjusting `time_` if required to fit into an interval.
@@ -427,9 +504,9 @@ public extension TimeZoneProtocol {
     /// requested on March 14th 2010 in Toronto then this function would
     /// adjust `time_` to be 03:00 and return the interval containing the
     /// adjusted time.
-    func adjustTime(type: TimeType, time_: UnsafeMutablePointer<Int64>) -> Int {
-        let rv: Int = cast(g_time_zone_adjust_time(cast(time_zone_ptr), type, cast(time_)))
-        return Int(rv)
+    @inlinable func adjustTime(type: GTimeType, time_: UnsafeMutablePointer<gint64>!) -> Int {
+        let rv = Int(g_time_zone_adjust_time(time_zone_ptr, type, time_))
+        return rv
     }
 
     /// Finds an interval within `tz` that corresponds to the given `time_`.
@@ -450,9 +527,9 @@ public extension TimeZoneProtocol {
     /// example, 02:00 on March 14th 2010 does not exist (due to the leap
     /// forward to begin daylight savings time).  -1 is returned in that
     /// case.
-    func findInterval(type: TimeType, time_: Int64) -> Int {
-        let rv: Int = cast(g_time_zone_find_interval(cast(time_zone_ptr), type, gint64(time_)))
-        return Int(rv)
+    @inlinable func findInterval(type: GTimeType, time_: gint64) -> Int {
+        let rv = Int(g_time_zone_find_interval(time_zone_ptr, type, time_))
+        return rv
     }
 
     /// Determines the time zone abbreviation to be used during a particular
@@ -461,9 +538,9 @@ public extension TimeZoneProtocol {
     /// For example, in Toronto this is currently "EST" during the winter
     /// months and "EDT" during the summer months when daylight savings time
     /// is in effect.
-    func getAbbreviation(interval: CInt) -> String! {
-        let rv: String! = cast(g_time_zone_get_abbreviation(cast(time_zone_ptr), gint(interval)))
-        return cast(rv)
+    @inlinable func getAbbreviation(interval: Int) -> String! {
+        let rv = g_time_zone_get_abbreviation(time_zone_ptr, gint(interval)).map({ String(cString: $0) })
+        return rv
     }
 
     /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
@@ -474,9 +551,9 @@ public extension TimeZoneProtocol {
     /// The identifier will be returned in the same format as provided at
     /// construction time: if provided as a time offset, that will be returned by
     /// this function.
-    func getIDentifier() -> String! {
-        let rv: String! = cast(g_time_zone_get_identifier(cast(time_zone_ptr)))
-        return cast(rv)
+    @inlinable func getIDentifier() -> String! {
+        let rv = g_time_zone_get_identifier(time_zone_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Determines the offset to UTC in effect during a particular `interval`
@@ -485,27 +562,27 @@ public extension TimeZoneProtocol {
     /// The offset is the number of seconds that you add to UTC time to
     /// arrive at local time for `tz` (ie: negative numbers for time zones
     /// west of GMT, positive numbers for east).
-    func getOffset(interval: CInt) -> Int32 {
-        let rv = g_time_zone_get_offset(cast(time_zone_ptr), gint(interval))
-        return Int32(rv)
+    @inlinable func getOffset(interval: Int) -> gint32 {
+        let rv = g_time_zone_get_offset(time_zone_ptr, gint(interval))
+        return rv
     }
 
     /// Determines if daylight savings time is in effect during a particular
     /// `interval` of time in the time zone `tz`.
-    func isDst(interval: CInt) -> Bool {
-        let rv = g_time_zone_is_dst(cast(time_zone_ptr), gint(interval))
-        return Bool(rv != 0)
+    @inlinable func isDst(interval: Int) -> Bool {
+        let rv = ((g_time_zone_is_dst(time_zone_ptr, gint(interval))) != 0)
+        return rv
     }
 
     /// Increases the reference count on `tz`.
-    @discardableResult func ref() -> UnsafeMutablePointer<GTimeZone>! {
-        let rv: UnsafeMutablePointer<GTimeZone>! = cast(g_time_zone_ref(cast(time_zone_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> TimeZoneRef! {
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_ref(time_zone_ptr))) else { return nil }
+        return rv
     }
 
     /// Decreases the reference count on `tz`.
-    func unref() {
-        g_time_zone_unref(cast(time_zone_ptr))
+    @inlinable func unref() {
+        g_time_zone_unref(time_zone_ptr)
     
     }
     /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
@@ -516,7 +593,7 @@ public extension TimeZoneProtocol {
     /// The identifier will be returned in the same format as provided at
     /// construction time: if provided as a time offset, that will be returned by
     /// this function.
-    var identifier: String! {
+    @inlinable var identifier: String! {
         /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
         /// If the identifier passed at construction time was not recognised, `UTC` will
         /// be returned. If it was `nil`, the identifier of the local timezone at
@@ -526,8 +603,8 @@ public extension TimeZoneProtocol {
         /// construction time: if provided as a time offset, that will be returned by
         /// this function.
         get {
-            let rv: String! = cast(g_time_zone_get_identifier(cast(time_zone_ptr)))
-            return cast(rv)
+            let rv = g_time_zone_get_identifier(time_zone_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 

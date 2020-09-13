@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3932,7 +3935,7 @@ varargs accessors to <code>GVariant</code> values of uncertain values (eg:
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="n">formatString</span> <span class="nv">format_string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">copyOnly</span> <span class="nv">copy_only</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="nv">formatString</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">copyOnly</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4672,7 +4675,7 @@ items in the array.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getFixedArray</span><span class="p">(</span><span class="n">nElements</span> <span class="nv">n_elements</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">elementSize</span> <span class="nv">element_size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gconstpointer</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">getFixedArray</span><span class="p">(</span><span class="nv">nElements</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">elementSize</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">gconstpointer</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -5310,7 +5313,7 @@ other than <code>G_VARIANT_TYPE_UINT64</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getVa</span><span class="p">(</span><span class="n">formatString</span> <span class="nv">format_string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">endptr</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">va_list</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">getVa</span><span class="p">(</span><span class="nv">formatString</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">endptr</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">app</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">va_list</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -5475,6 +5478,60 @@ need it.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:4GLib15VariantProtocolPAAE11lookupValue3key12expectedTypeAA0B3RefVSgSPys4Int8VGSg_AA0bhI0VSgtF"></a>
+                    <a name="//apple_ref/swift/Method/lookupValue(key:expectedType:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib15VariantProtocolPAAE11lookupValue3key12expectedTypeAA0B3RefVSgSPys4Int8VGSg_AA0bhI0VSgtF">lookupValue(key:expectedType:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Looks up a value in a dictionary <code>GVariant</code>.</p>
+
+<p>This function works with dictionaries of the type a{s*} (and equally
+well with type a{o*}, but we only further discuss the string case
+for sake of clarity).</p>
+
+<p>In the event that <code>dictionary</code> has the type a{sv}, the <code>expected_type</code>
+string specifies what type of value is expected to be inside of the
+variant. If the value inside the variant has a different type then
+<code>nil</code> is returned. In the event that <code>dictionary</code> has a value type other
+than v then <code>expected_type</code> must directly match the value type and it is
+used to unpack the value directly or an error occurs.</p>
+
+<p>In either case, if <code>key</code> is not found in <code>dictionary</code>, <code>nil</code> is returned.</p>
+
+<p>If the key is found and the value has the correct type, it is
+returned.  If <code>expected_type</code> was specified then any non-<code>nil</code> return
+value will have this type.</p>
+
+<p>This function is currently implemented with a linear scan.  If you
+plan to do many lookups then <code>GVariantDict</code> may be more efficient.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">lookupValue</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">expectedType</span><span class="p">:</span> <span class="kt"><a href="../Structs/VariantTypeRef.html">VariantTypeRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VariantRef.html">VariantRef</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2896-L2899">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:4GLib15VariantProtocolPAAE11lookupValue3key12expectedTypeAA0B3RefVSgSPys4Int8VGSg_qd__SgtAA0bhC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/lookupValue(key:expectedType:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:4GLib15VariantProtocolPAAE11lookupValue3key12expectedTypeAA0B3RefVSgSPys4Int8VGSg_qd__SgtAA0bhC0Rd__lF">lookupValue(key:expectedType:)</a>
@@ -5516,12 +5573,12 @@ plan to do many lookups then <code>GVariantDict</code> may be more efficient.</p
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">lookupValue</span><span class="o">&lt;</span><span class="kt">VariantTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">expectedType</span> <span class="nv">expected_type</span><span class="p">:</span> <span class="kt">VariantTypeT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VariantRef.html">VariantRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">VariantTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/VariantTypeProtocol.html">VariantTypeProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">lookupValue</span><span class="o">&lt;</span><span class="kt">VariantTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">expectedType</span><span class="p">:</span> <span class="kt">VariantTypeT</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/VariantRef.html">VariantRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">VariantTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/VariantTypeProtocol.html">VariantTypeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2896-L2899">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2921-L2924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5565,7 +5622,7 @@ only on the type).  For dictionary entries, it is always 2</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2912-L2915">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2937-L2940">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5599,12 +5656,49 @@ the output.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">print</span><span class="p">(</span><span class="n">typeAnnotate</span> <span class="nv">type_annotate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">print</span><span class="p">(</span><span class="nv">typeAnnotate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2923-L2926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2948-L2951">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib15VariantProtocolPAAE5print6string12typeAnnotateAA9StringRefVSgAI_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/print(string:typeAnnotate:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib15VariantProtocolPAAE5print6string12typeAnnotateAA9StringRefVSgAI_SbtF">print(string:typeAnnotate:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Behaves as <code>g_variant_print()</code>, but operates on a <code>GString</code>.</p>
+
+<p>If <code>string</code> is non-<code>nil</code> then it is appended to and returned.  Else,
+a new empty <code>GString</code> is allocated and it is returned.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">print</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt"><a href="../Structs/StringRef.html">StringRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">typeAnnotate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StringRef.html">StringRef</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2957-L2960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5636,12 +5730,12 @@ a new empty <code>GString</code> is allocated and it is returned.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">print</span><span class="o">&lt;</span><span class="kt">StringTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">StringTypeT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">typeAnnotate</span> <span class="nv">type_annotate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StringRef.html">StringRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">StringTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StringProtocol.html">StringProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">print</span><span class="o">&lt;</span><span class="kt">StringTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="kt">StringTypeT</span><span class="p">?,</span> <span class="nv">typeAnnotate</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/StringRef.html">StringRef</a></span><span class="o">!</span> <span class="k">where</span> <span class="kt">StringTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StringProtocol.html">StringProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2932-L2935">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2965-L2968">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5676,7 +5770,7 @@ a new empty <code>GString</code> is allocated and it is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2938-L2941">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2971-L2974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5731,7 +5825,7 @@ are not floating.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2965-L2968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2998-L3001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5776,7 +5870,7 @@ machine might be different) its endianness must also be available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L2982-L2985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3015-L3018">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5841,7 +5935,7 @@ avoid this situation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3019-L3022">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3052-L3055">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5876,7 +5970,7 @@ drops to 0, the memory used by the variant is freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3026-L3029">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3059-L3062">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5918,12 +6012,12 @@ to the log writer as such. The size of the array should not be higher than
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">logVariant</span><span class="p">(</span><span class="n">logDomain</span> <span class="nv">log_domain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">logLevel</span> <span class="nv">log_level</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogLevelFlags.html">LogLevelFlags</a></span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">logVariant</span><span class="p">(</span><span class="nv">logDomain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">logLevel</span><span class="p">:</span> <span class="kt"><a href="../Structs/LogLevelFlags.html">LogLevelFlags</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3045-L3048">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3078-L3081">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5960,7 +6054,7 @@ other than <code>G_VARIANT_TYPE_BOOLEAN</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3053-L3062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3086-L3095">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5997,7 +6091,7 @@ other than <code>G_VARIANT_TYPE_BYTE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3068-L3077">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3101-L3110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6048,7 +6142,7 @@ array of bytes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3097-L3120">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3130-L3153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6106,7 +6200,7 @@ serialised data).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3147-L3177">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3180-L3210">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6143,7 +6237,7 @@ a reference to the variant data.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3183-L3192">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3216-L3225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6180,7 +6274,7 @@ other than <code>G_VARIANT_TYPE_DOUBLE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3198-L3207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3231-L3240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6221,7 +6315,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3217-L3230">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3250-L3263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6258,7 +6352,7 @@ other than <code>G_VARIANT_TYPE_INT16</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3236-L3245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3269-L3278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6295,7 +6389,7 @@ other than <code>G_VARIANT_TYPE_INT32</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3251-L3260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3284-L3293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6332,7 +6426,7 @@ other than <code>G_VARIANT_TYPE_INT64</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3266-L3275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3299-L3308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6366,7 +6460,7 @@ other than <code>G_VARIANT_TYPE_INT64</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3278-L3284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3311-L3317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6408,7 +6502,7 @@ counts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3295-L3309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3328-L3342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6454,7 +6548,7 @@ GVariant is guaranteed to handle nesting up to at least 64 levels.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3324-L3342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3357-L3375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6489,7 +6583,7 @@ value is Nothing, then this function returns <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3346-L3353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3379-L3386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6545,7 +6639,7 @@ reference to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3378-L3406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3411-L3439">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6589,7 +6683,7 @@ involved.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3419-L3435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3452-L3468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6626,7 +6720,7 @@ be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3441-L3450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3474-L3483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6662,7 +6756,7 @@ string belongs to <code>GVariant</code> and must not be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3455-L3463">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3488-L3496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6699,7 +6793,7 @@ other than <code>G_VARIANT_TYPE_UINT16</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3469-L3478">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3502-L3511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6736,7 +6830,7 @@ other than <code>G_VARIANT_TYPE_UINT32</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3484-L3493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3517-L3526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6773,7 +6867,7 @@ other than <code>G_VARIANT_TYPE_UINT64</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3499-L3508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3532-L3541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6808,7 +6902,7 @@ contained in <code>value</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3512-L3519">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L3545-L3552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -6821,7 +6915,7 @@ contained in <code>value</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -4013,7 +4016,7 @@ Use g_io_channel_read_chars() instead.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">read</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">bytesRead</span> <span class="nv">bytes_read</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
+<span class="kd">func</span> <span class="nf">read</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">bytesRead</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
 
                         </div>
                       </div>
@@ -4047,7 +4050,7 @@ Use g_io_channel_read_chars() instead.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">readChars</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">bytesRead</span> <span class="nv">bytes_read</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
+<span class="kd">func</span> <span class="nf">readChars</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">bytesRead</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
 
                         </div>
                       </div>
@@ -4084,7 +4087,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">readLine</span><span class="p">(</span><span class="n">strReturn</span> <span class="nv">str_return</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">terminatorPos</span> <span class="nv">terminator_pos</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
+<span class="kd">func</span> <span class="nf">readLine</span><span class="p">(</span><span class="nv">strReturn</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">terminatorPos</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
 
                         </div>
                       </div>
@@ -4118,7 +4121,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">readLineString</span><span class="o">&lt;</span><span class="kt">StringTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span> <span class="kt">StringTypeT</span><span class="p">,</span> <span class="n">terminatorPos</span> <span class="nv">terminator_pos</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span> <span class="k">where</span> <span class="kt">StringTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StringProtocol.html">StringProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">readLineString</span><span class="o">&lt;</span><span class="kt">StringTypeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span> <span class="kt">StringTypeT</span><span class="p">,</span> <span class="nv">terminatorPos</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span> <span class="k">where</span> <span class="kt">StringTypeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StringProtocol.html">StringProtocol</a></span></code></pre>
 
                         </div>
                       </div>
@@ -4152,7 +4155,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">readToEnd</span><span class="p">(</span><span class="n">strReturn</span> <span class="nv">str_return</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
+<span class="kd">func</span> <span class="nf">readToEnd</span><span class="p">(</span><span class="nv">strReturn</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
 
                         </div>
                       </div>
@@ -4420,7 +4423,7 @@ can cause problems when the final reference to the <code>GIOChannel</code> is dr
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setCloseOnUnref</span><span class="p">(</span><span class="n">doClose</span> <span class="nv">do_close</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">setCloseOnUnref</span><span class="p">(</span><span class="nv">doClose</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4553,7 +4556,7 @@ where in the file a line break occurs.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="n">lineTerm</span> <span class="nv">line_term</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">lineTerm</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4698,7 +4701,7 @@ Use g_io_channel_write_chars() instead.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">bytesWritten</span> <span class="nv">bytes_written</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
+<span class="kd">func</span> <span class="nf">write</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">bytesWritten</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GIOError</span></code></pre>
 
                         </div>
                       </div>
@@ -4737,7 +4740,7 @@ cases described in the documentation for g_io_channel_set_encoding ().</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">writeChars</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="n">gssize</span><span class="p">,</span> <span class="n">bytesWritten</span> <span class="nv">bytes_written</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
+<span class="kd">func</span> <span class="nf">writeChars</span><span class="p">(</span><span class="nv">buf</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="n">gssize</span><span class="p">,</span> <span class="nv">bytesWritten</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">GIOStatus</span></code></pre>
 
                         </div>
                       </div>
@@ -4807,7 +4810,7 @@ with the default priority.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">ioAddWatch</span><span class="p">(</span><span class="nv">condition</span><span class="p">:</span> <span class="kt"><a href="../Structs/IOCondition.html">IOCondition</a></span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GIOFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+<span class="kd">func</span> <span class="nf">ioAddWatch</span><span class="p">(</span><span class="nv">condition</span><span class="p">:</span> <span class="kt"><a href="../Structs/IOCondition.html">IOCondition</a></span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GIOFunc</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -4846,7 +4849,7 @@ You can do these steps manually if you need greater control.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">ioAddWatchFull</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">condition</span><span class="p">:</span> <span class="kt"><a href="../Structs/IOCondition.html">IOCondition</a></span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GIOFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+<span class="kd">func</span> <span class="nf">ioAddWatchFull</span><span class="p">(</span><span class="nv">priority</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">condition</span><span class="p">:</span> <span class="kt"><a href="../Structs/IOCondition.html">IOCondition</a></span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GIOFunc</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -5130,7 +5133,7 @@ the internal values of these flags.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

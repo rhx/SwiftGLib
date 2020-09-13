@@ -18,10 +18,11 @@ import CGLib
 /// problem.
 public protocol TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTimeVal` instance.
-    var _ptr: UnsafeMutablePointer<GTimeVal> { get }
+    var _ptr: UnsafeMutablePointer<GTimeVal>! { get }
+
 }
 
 /// The `TimeValRef` type acts as a lightweight Swift reference to an underlying `GTimeVal` instance.
@@ -40,46 +41,76 @@ public protocol TimeValProtocol {
 public struct TimeValRef: TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TimeValRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTimeVal>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTimeVal>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTimeVal>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTimeVal>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTimeVal>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TimeValProtocol`
-    init<T: TimeValProtocol>(_ other: T) {
+    @inlinable init<T: TimeValProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -101,95 +132,141 @@ public extension TimeValRef {
 open class TimeVal: TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TimeVal` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTimeVal>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GTimeVal>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeVal` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTimeVal>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeVal` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeVal` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeVal` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTimeVal>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TimeVal` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTimeVal>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GTimeVal` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `TimeVal` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTimeVal>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTimeVal>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `TimeValProtocol`
     /// `GTimeVal` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `TimeValProtocol`
-    public init<T: TimeValProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+    @inlinable public init<T: TimeValProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GTimeVal`.
     deinit {
-        // no reference counting for GTimeVal, cannot unref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GTimeVal, cannot ref(cast(_ptr))
+        // no reference counting for GTimeVal, cannot ref(_ptr)
     }
 
 
@@ -204,7 +281,7 @@ open class TimeVal: TimeValProtocol {
 // MARK: TimeVal Record: TimeValProtocol extension (methods and fields)
 public extension TimeValProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTimeVal` instance.
-    var _ptr: UnsafeMutablePointer<GTimeVal> { return ptr.assumingMemoryBound(to: GTimeVal.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GTimeVal>! { return ptr?.assumingMemoryBound(to: GTimeVal.self) }
 
     /// Adds the given number of microseconds to `time_`. `microseconds` can
     /// also be negative to decrease the value of `time_`.
@@ -212,8 +289,8 @@ public extension TimeValProtocol {
     /// **add is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use `guint64` for
     ///    representing microseconds since the epoch, or use #GDateTime.
-    @available(*, deprecated) func add(microseconds: CLong) {
-        g_time_val_add(cast(_ptr), glong(microseconds))
+    @available(*, deprecated) @inlinable func add(microseconds: Int) {
+        g_time_val_add(_ptr, glong(microseconds))
     
     }
 
@@ -255,9 +332,9 @@ public extension TimeValProtocol {
     /// **to_iso8601 is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_format_iso8601(dt) instead.
-    @available(*, deprecated) func toIso8601() -> String! {
-        let rv: String! = cast(g_time_val_to_iso8601(cast(_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func toIso8601() -> String! {
+        let rv = g_time_val_to_iso8601(_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Converts a string containing an ISO 8601 encoded date and time
@@ -282,9 +359,9 @@ public extension TimeValProtocol {
     /// **from_iso8601 is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_iso8601() instead.
-    @available(*, deprecated) func fromIso8601(isoDate iso_date: UnsafePointer<gchar>) -> Bool {
-        let rv = g_time_val_from_iso8601(iso_date, cast(_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func fromIso8601(isoDate: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_time_val_from_iso8601(isoDate, _ptr)) != 0)
+        return rv
     }
 
     /// Equivalent to the UNIX `gettimeofday()` function, but portable.
@@ -294,8 +371,8 @@ public extension TimeValProtocol {
     /// **get_current_time is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use g_get_real_time()
     ///    instead.
-    @available(*, deprecated) func getCurrentTime() {
-        g_get_current_time(cast(_ptr))
+    @available(*, deprecated) @inlinable func getCurrentTime() {
+        g_get_current_time(_ptr)
     
     }
 
@@ -321,35 +398,35 @@ public extension TimeValProtocol {
     /// **time_val_from_iso8601 is deprecated:**
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_iso8601() instead.
-    @available(*, deprecated) func timeValFromIso8601(isoDate iso_date: UnsafePointer<gchar>) -> Bool {
-        let rv = g_time_val_from_iso8601(iso_date, cast(_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func timeValFromIso8601(isoDate: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_time_val_from_iso8601(isoDate, _ptr)) != 0)
+        return rv
     }
     // var currentTime is unavailable because it does not have a valid getter or setter
 
     /// seconds
-    var tvSec: Int {
+    @inlinable var tvSec: glong {
         /// seconds
         get {
-            let rv: Int = cast(_ptr.pointee.tv_sec)
+            let rv = _ptr.pointee.tv_sec
             return rv
         }
         /// seconds
          set {
-            _ptr.pointee.tv_sec = glong(newValue)
+            _ptr.pointee.tv_sec = newValue
         }
     }
 
     /// microseconds
-    var tvUsec: Int {
+    @inlinable var tvUsec: glong {
         /// microseconds
         get {
-            let rv: Int = cast(_ptr.pointee.tv_usec)
+            let rv = _ptr.pointee.tv_usec
             return rv
         }
         /// microseconds
          set {
-            _ptr.pointee.tv_usec = glong(newValue)
+            _ptr.pointee.tv_usec = newValue
         }
     }
 

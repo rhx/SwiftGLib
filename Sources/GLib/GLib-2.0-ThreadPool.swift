@@ -12,10 +12,11 @@ import CGLib
 /// so you must not copy this struct.
 public protocol ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GThreadPool` instance.
-    var _ptr: UnsafeMutablePointer<GThreadPool> { get }
+    var _ptr: UnsafeMutablePointer<GThreadPool>! { get }
+
 }
 
 /// The `ThreadPoolRef` type acts as a lightweight Swift reference to an underlying `GThreadPool` instance.
@@ -28,46 +29,76 @@ public protocol ThreadPoolProtocol {
 public struct ThreadPoolRef: ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ThreadPoolRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GThreadPool>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GThreadPool>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GThreadPool>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GThreadPool>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GThreadPool>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ThreadPoolProtocol`
-    init<T: ThreadPoolProtocol>(_ other: T) {
+    @inlinable init<T: ThreadPoolProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -83,95 +114,141 @@ public extension ThreadPoolRef {
 open class ThreadPool: ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ThreadPool` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GThreadPool>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GThreadPool>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GThreadPool>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadPool` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GThreadPool>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ThreadPool` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GThreadPool>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GThreadPool` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ThreadPool` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GThreadPool>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GThreadPool>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ThreadPoolProtocol`
     /// `GThreadPool` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ThreadPoolProtocol`
-    public init<T: ThreadPoolProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+    @inlinable public init<T: ThreadPoolProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GThreadPool`.
     deinit {
-        // no reference counting for GThreadPool, cannot unref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GThreadPool, cannot ref(cast(_ptr))
+        // no reference counting for GThreadPool, cannot ref(_ptr)
     }
 
 
@@ -186,7 +263,7 @@ open class ThreadPool: ThreadPoolProtocol {
 // MARK: ThreadPool Record: ThreadPoolProtocol extension (methods and fields)
 public extension ThreadPoolProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThreadPool` instance.
-    var _ptr: UnsafeMutablePointer<GThreadPool> { return ptr.assumingMemoryBound(to: GThreadPool.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GThreadPool>! { return ptr?.assumingMemoryBound(to: GThreadPool.self) }
 
     /// Frees all resources allocated for `pool`.
     /// 
@@ -202,28 +279,28 @@ public extension ThreadPoolProtocol {
     /// Otherwise the function returns immediately.
     /// 
     /// After calling this function `pool` must not be used anymore.
-    func free(immediate: Bool, wait_: Bool) {
-        g_thread_pool_free(cast(_ptr), gboolean(immediate ? 1 : 0), gboolean(wait_ ? 1 : 0))
+    @inlinable func free(immediate: Bool, wait_: Bool) {
+        g_thread_pool_free(_ptr, gboolean((immediate) ? 1 : 0), gboolean((wait_) ? 1 : 0))
     
     }
 
     /// Returns the maximal number of threads for `pool`.
-    func getMaxThreads() -> Int {
-        let rv: Int = cast(g_thread_pool_get_max_threads(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getMaxThreads() -> Int {
+        let rv = Int(g_thread_pool_get_max_threads(_ptr))
+        return rv
     }
 
     /// Returns the number of threads currently running in `pool`.
-    func getNumThreads() -> Int {
-        let rv: Int = cast(g_thread_pool_get_num_threads(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getNumThreads() -> Int {
+        let rv = Int(g_thread_pool_get_num_threads(_ptr))
+        return rv
     }
 
     /// Moves the item to the front of the queue of unprocessed
     /// items, so that it will be processed next.
-    func moveToFront(data: UnsafeMutableRawPointer) -> Bool {
-        let rv = g_thread_pool_move_to_front(cast(_ptr), cast(data))
-        return Bool(rv != 0)
+    @inlinable func moveToFront(data: gpointer! = nil) -> Bool {
+        let rv = ((g_thread_pool_move_to_front(_ptr, data)) != 0)
+        return rv
     }
 
     /// Inserts `data` into the list of tasks to be executed by `pool`.
@@ -240,11 +317,11 @@ public extension ThreadPoolProtocol {
     /// work to do.
     /// 
     /// Before version 2.32, this function did not return a success status.
-    func push(data: UnsafeMutableRawPointer) throws -> Bool {
+    @inlinable func push(data: gpointer! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_thread_pool_push(cast(_ptr), cast(data), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_thread_pool_push(_ptr, data, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the maximal allowed number of threads for `pool`.
@@ -267,11 +344,11 @@ public extension ThreadPoolProtocol {
     /// created.
     /// 
     /// Before version 2.32, this function did not return a success status.
-    func set(maxThreads max_threads: CInt) throws -> Bool {
+    @inlinable func set(maxThreads: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_thread_pool_set_max_threads(cast(_ptr), gint(max_threads), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_thread_pool_set_max_threads(_ptr, gint(maxThreads), &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the function used to sort the list of tasks. This allows the
@@ -283,22 +360,22 @@ public extension ThreadPoolProtocol {
     /// scheduled by the operating system and are executed at random. It
     /// cannot be assumed that threads are executed in the order they are
     /// created.
-    func setSortFunction(func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
-        g_thread_pool_set_sort_function(cast(_ptr), func_, cast(user_data))
+    @inlinable func setSortFunction(`func`: GCompareDataFunc?, userData: gpointer! = nil) {
+        g_thread_pool_set_sort_function(_ptr, `func`, userData)
     
     }
 
     /// Returns the number of tasks still unprocessed in `pool`.
-    func unprocessed() -> Int {
-        let rv: Int = cast(g_thread_pool_unprocessed(cast(_ptr)))
-        return Int(rv)
+    @inlinable func unprocessed() -> Int {
+        let rv = Int(g_thread_pool_unprocessed(_ptr))
+        return rv
     }
     /// Returns the maximal number of threads for `pool`.
-    var maxThreads: Int {
+    @inlinable var maxThreads: Int {
         /// Returns the maximal number of threads for `pool`.
         get {
-            let rv: Int = cast(g_thread_pool_get_max_threads(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_thread_pool_get_max_threads(_ptr))
+            return rv
         }
         /// Sets the maximal allowed number of threads for `pool`.
         /// A value of -1 means that the maximal number of threads
@@ -321,57 +398,57 @@ public extension ThreadPoolProtocol {
         /// 
         /// Before version 2.32, this function did not return a success status.
         nonmutating set {
-            var err: UnsafeMutablePointer<GError>?
-            _ = g_thread_pool_set_max_threads(cast(_ptr), gint(newValue), &err)
-            g_log(messagePtr: err?.pointee.message, level: .error)
+            var error: UnsafeMutablePointer<GError>?
+            _ = g_thread_pool_set_max_threads(_ptr, gint(newValue), &error)
+            g_log(messagePtr: error?.pointee.message, level: .error)
         }
     }
 
     /// Returns the number of threads currently running in `pool`.
-    var numThreads: Int {
+    @inlinable var numThreads: Int {
         /// Returns the number of threads currently running in `pool`.
         get {
-            let rv: Int = cast(g_thread_pool_get_num_threads(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_thread_pool_get_num_threads(_ptr))
+            return rv
         }
     }
 
     /// the function to execute in the threads of this pool
-    var `func`: GFunc {
+    @inlinable var `func`: GFunc! {
         /// the function to execute in the threads of this pool
         get {
-            let rv: GFunc = cast(_ptr.pointee.func)
+            let rv = _ptr.pointee.func
             return rv
         }
         /// the function to execute in the threads of this pool
          set {
-            _ptr.pointee.func = cast(newValue)
+            _ptr.pointee.func = newValue
         }
     }
 
     /// the user data for the threads of this pool
-    var userData: UnsafeMutableRawPointer {
+    @inlinable var userData: gpointer! {
         /// the user data for the threads of this pool
         get {
-            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.user_data)
+            let rv = _ptr.pointee.user_data
             return rv
         }
         /// the user data for the threads of this pool
          set {
-            _ptr.pointee.user_data = cast(newValue)
+            _ptr.pointee.user_data = newValue
         }
     }
 
     /// are all threads exclusive to this pool
-    var exclusive: Bool {
+    @inlinable var exclusive: gboolean {
         /// are all threads exclusive to this pool
         get {
-            let rv: Bool = cast(_ptr.pointee.exclusive)
+            let rv = _ptr.pointee.exclusive
             return rv
         }
         /// are all threads exclusive to this pool
          set {
-            _ptr.pointee.exclusive = gboolean(newValue ? 1 : 0)
+            _ptr.pointee.exclusive = newValue
         }
     }
 

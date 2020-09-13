@@ -11,10 +11,11 @@ import CGLib
 /// representing an event source.
 public protocol SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GSource` instance.
-    var source_ptr: UnsafeMutablePointer<GSource> { get }
+    var source_ptr: UnsafeMutablePointer<GSource>! { get }
+
 }
 
 /// The `SourceRef` type acts as a lightweight Swift reference to an underlying `GSource` instance.
@@ -26,46 +27,76 @@ public protocol SourceProtocol {
 public struct SourceRef: SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SourceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GSource>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GSource>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSource>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSource>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSource>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SourceProtocol`
-    init<T: SourceProtocol>(_ other: T) {
+    @inlinable init<T: SourceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -77,9 +108,9 @@ public extension SourceRef {
     /// The source will not initially be associated with any `GMainContext`
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
-    init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_new(cast(source_funcs.ptr), guint(struct_size)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<SourceFuncsT: SourceFuncsProtocol>( sourceFuncs: SourceFuncsT, structSize: Int) {
+        let rv = g_source_new(sourceFuncs._ptr, guint(structSize))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -92,95 +123,141 @@ public extension SourceRef {
 open class Source: SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Source` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GSource>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GSource>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSource>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSource>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Source` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSource>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GSource`.
     /// i.e., ownership is transferred to the `Source` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GSource>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSource>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_source_ref(cast(source_ptr))
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Reference intialiser for a related type that implements `SourceProtocol`
     /// Will retain `GSource`.
     /// - Parameter other: an instance of a related type that implements `SourceProtocol`
-    public init<T: SourceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.source_ptr)
-        g_source_ref(cast(source_ptr))
+    @inlinable public init<T: SourceProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Releases the underlying `GSource` instance using `g_source_unref`.
     deinit {
-        g_source_unref(cast(source_ptr))
+        g_source_unref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_source_ref(cast(source_ptr))
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_source_ref(cast(source_ptr))
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_source_ref(cast(source_ptr))
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_source_ref(cast(source_ptr))
+        g_source_ref(ptr.assumingMemoryBound(to: GSource.self))
     }
 
     /// Creates a new `GSource` structure. The size is specified to
@@ -191,9 +268,9 @@ open class Source: SourceProtocol {
     /// The source will not initially be associated with any `GMainContext`
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
-    public init( source_funcs: SourceFuncsProtocol, structSize struct_size: CUnsignedInt) {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_new(cast(source_funcs.ptr), guint(struct_size)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init<SourceFuncsT: SourceFuncsProtocol>( sourceFuncs: SourceFuncsT, structSize: Int) {
+        let rv = g_source_new(sourceFuncs._ptr, guint(structSize))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -207,7 +284,7 @@ open class Source: SourceProtocol {
 // MARK: Source Record: SourceProtocol extension (methods and fields)
 public extension SourceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GSource` instance.
-    var source_ptr: UnsafeMutablePointer<GSource> { return ptr.assumingMemoryBound(to: GSource.self) }
+    @inlinable var source_ptr: UnsafeMutablePointer<GSource>! { return ptr?.assumingMemoryBound(to: GSource.self) }
 
     /// Adds `child_source` to `source` as a "polled" source; when `source` is
     /// added to a `GMainContext`, `child_source` will be automatically added
@@ -226,8 +303,8 @@ public extension SourceProtocol {
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
-    func add(childSource child_source: SourceProtocol) {
-        g_source_add_child_source(cast(source_ptr), cast(child_source.ptr))
+    @inlinable func add<SourceT: SourceProtocol>(childSource: SourceT) {
+        g_source_add_child_source(source_ptr, childSource.source_ptr)
     
     }
 
@@ -243,8 +320,8 @@ public extension SourceProtocol {
     /// Using this API forces the linear scanning of event sources on each
     /// main loop iteration.  Newly-written event sources should try to use
     /// `g_source_add_unix_fd()` instead of this API.
-    func addPoll(fd: PollFDProtocol) {
-        g_source_add_poll(cast(source_ptr), cast(fd.ptr))
+    @inlinable func addPoll<PollFDT: PollFDProtocol>(fd: PollFDT) {
+        g_source_add_poll(source_ptr, fd.pollfd_ptr)
     
     }
 
@@ -261,9 +338,9 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     /// 
     /// As the name suggests, this function is not available on Windows.
-    func addUnix(fd: CInt, events: IOCondition) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_source_add_unix_fd(cast(source_ptr), gint(fd), events.value))
-        return cast(rv)
+    @inlinable func addUnix(fd: Int, events: IOCondition) -> gpointer! {
+        let rv = gpointer?(g_source_add_unix_fd(source_ptr, gint(fd), events.value))
+        return rv
     }
 
     /// Adds a `GSource` to a `context` so that it will be executed within
@@ -271,9 +348,18 @@ public extension SourceProtocol {
     /// 
     /// This function is safe to call from any thread, regardless of which thread
     /// the `context` is running in.
-    func attach(context: MainContextProtocol) -> Int {
-        let rv: Int = cast(g_source_attach(cast(source_ptr), cast(context.ptr)))
-        return Int(rv)
+    @inlinable func attach(context: MainContextRef? = nil) -> Int {
+        let rv = Int(g_source_attach(source_ptr, context?.main_context_ptr))
+        return rv
+    }
+    /// Adds a `GSource` to a `context` so that it will be executed within
+    /// that context. Remove it by calling `g_source_destroy()`.
+    /// 
+    /// This function is safe to call from any thread, regardless of which thread
+    /// the `context` is running in.
+    @inlinable func attach<MainContextT: MainContextProtocol>(context: MainContextT?) -> Int {
+        let rv = Int(g_source_attach(source_ptr, context?.main_context_ptr))
+        return rv
     }
 
     /// Removes a source from its `GMainContext`, if any, and mark it as
@@ -286,16 +372,16 @@ public extension SourceProtocol {
     /// 
     /// This function is safe to call from any thread, regardless of which thread
     /// the `GMainContext` is running in.
-    func destroy() {
-        g_source_destroy(cast(source_ptr))
+    @inlinable func destroy() {
+        g_source_destroy(source_ptr)
     
     }
 
     /// Checks whether a source is allowed to be called recursively.
     /// see `g_source_set_can_recurse()`.
-    func getCanRecurse() -> Bool {
-        let rv = g_source_get_can_recurse(cast(source_ptr))
-        return Bool(rv != 0)
+    @inlinable func getCanRecurse() -> Bool {
+        let rv = ((g_source_get_can_recurse(source_ptr)) != 0)
+        return rv
     }
 
     /// Gets the `GMainContext` with which the source is associated.
@@ -306,9 +392,9 @@ public extension SourceProtocol {
     /// always call this function on the source returned from
     /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
-    func getContext() -> UnsafeMutablePointer<GMainContext>! {
-        let rv: UnsafeMutablePointer<GMainContext>! = cast(g_source_get_context(cast(source_ptr)))
-        return cast(rv)
+    @inlinable func getContext() -> MainContextRef! {
+        let rv = MainContextRef(gconstpointer: gconstpointer(g_source_get_context(source_ptr)))
+        return rv
     }
 
     /// This function ignores `source` and is otherwise the same as
@@ -316,8 +402,8 @@ public extension SourceProtocol {
     ///
     /// **get_current_time is deprecated:**
     /// use g_source_get_time() instead
-    @available(*, deprecated) func getCurrentTime(timeval: TimeValProtocol) {
-        g_source_get_current_time(cast(source_ptr), cast(timeval.ptr))
+    @available(*, deprecated) @inlinable func getCurrentTime<TimeValT: TimeValProtocol>(timeval: TimeValT) {
+        g_source_get_current_time(source_ptr, timeval._ptr)
     
     }
 
@@ -330,22 +416,22 @@ public extension SourceProtocol {
     /// `GMainContext` instance; calling this function before `g_source_attach()`
     /// or after `g_source_destroy()` yields undefined behavior. The ID returned
     /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
-    func getID() -> Int {
-        let rv: Int = cast(g_source_get_id(cast(source_ptr)))
-        return Int(rv)
+    @inlinable func getID() -> Int {
+        let rv = Int(g_source_get_id(source_ptr))
+        return rv
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
     /// name may be `NULL` if it has never been set with `g_source_set_name()`.
-    func getName() -> String! {
-        let rv: String! = cast(g_source_get_name(cast(source_ptr)))
-        return cast(rv)
+    @inlinable func getName() -> String! {
+        let rv = g_source_get_name(source_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Gets the priority of a source.
-    func getPriority() -> Int {
-        let rv: Int = cast(g_source_get_priority(cast(source_ptr)))
-        return Int(rv)
+    @inlinable func getPriority() -> Int {
+        let rv = Int(g_source_get_priority(source_ptr))
+        return rv
     }
 
     /// Gets the "ready time" of `source`, as set by
@@ -353,9 +439,9 @@ public extension SourceProtocol {
     /// 
     /// Any time before the current monotonic time (including 0) is an
     /// indication that the source will fire immediately.
-    func getReadyTime() -> Int64 {
-        let rv = g_source_get_ready_time(cast(source_ptr))
-        return Int64(rv)
+    @inlinable func getReadyTime() -> gint64 {
+        let rv = g_source_get_ready_time(source_ptr)
+        return rv
     }
 
     /// Gets the time to be used when checking this source. The advantage of
@@ -365,9 +451,9 @@ public extension SourceProtocol {
     /// 
     /// The time here is the system monotonic time, if available, or some
     /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
-    func getTime() -> Int64 {
-        let rv = g_source_get_time(cast(source_ptr))
-        return Int64(rv)
+    @inlinable func getTime() -> gint64 {
+        let rv = g_source_get_time(source_ptr)
+        return rv
     }
 
     /// Updates the event mask to watch for the fd identified by `tag`.
@@ -381,8 +467,8 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     /// 
     /// As the name suggests, this function is not available on Windows.
-    func modifyUnixFd(tag: UnsafeMutableRawPointer, newEvents new_events: IOCondition) {
-        g_source_modify_unix_fd(cast(source_ptr), cast(tag), new_events.value)
+    @inlinable func modifyUnixFd(tag: gpointer!, newEvents: IOCondition) {
+        g_source_modify_unix_fd(source_ptr, tag, newEvents.value)
     
     }
 
@@ -396,23 +482,23 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     /// 
     /// As the name suggests, this function is not available on Windows.
-    func queryUnixFd(tag: UnsafeMutableRawPointer) -> GIOCondition {
-        let rv = g_source_query_unix_fd(cast(source_ptr), cast(tag))
-        return cast(rv)
+    @inlinable func queryUnixFd(tag: gpointer!) -> IOCondition {
+        let rv = IOCondition(g_source_query_unix_fd(source_ptr, tag))
+        return rv
     }
 
     /// Increases the reference count on a source by one.
-    @discardableResult func ref() -> UnsafeMutablePointer<GSource>! {
-        let rv: UnsafeMutablePointer<GSource>! = cast(g_source_ref(cast(source_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> SourceRef! {
+        guard let rv = SourceRef(gconstpointer: gconstpointer(g_source_ref(source_ptr))) else { return nil }
+        return rv
     }
 
     /// Detaches `child_source` from `source` and destroys it.
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
-    func remove(childSource child_source: SourceProtocol) {
-        g_source_remove_child_source(cast(source_ptr), cast(child_source.ptr))
+    @inlinable func remove<SourceT: SourceProtocol>(childSource: SourceT) {
+        g_source_remove_child_source(source_ptr, childSource.source_ptr)
     
     }
 
@@ -421,8 +507,8 @@ public extension SourceProtocol {
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
-    func removePoll(fd: PollFDProtocol) {
-        g_source_remove_poll(cast(source_ptr), cast(fd.ptr))
+    @inlinable func removePoll<PollFDT: PollFDProtocol>(fd: PollFDT) {
+        g_source_remove_poll(source_ptr, fd.pollfd_ptr)
     
     }
 
@@ -436,8 +522,8 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     /// 
     /// As the name suggests, this function is not available on Windows.
-    func removeUnixFd(tag: UnsafeMutableRawPointer) {
-        g_source_remove_unix_fd(cast(source_ptr), cast(tag))
+    @inlinable func removeUnixFd(tag: gpointer!) {
+        g_source_remove_unix_fd(source_ptr, tag)
     
     }
 
@@ -458,8 +544,8 @@ public extension SourceProtocol {
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
     /// the source is dispatched after this call returns.
-    func setCallback(func_: @escaping SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping DestroyNotify) {
-        g_source_set_callback(cast(source_ptr), func_, cast(data), notify)
+    @inlinable func setCallback(`func`: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) {
+        g_source_set_callback(source_ptr, `func`, data, notify)
     
     }
 
@@ -473,8 +559,8 @@ public extension SourceProtocol {
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
     /// the source is dispatched after this call returns.
-    func setCallbackIndirect(callbackData callback_data: UnsafeMutableRawPointer, callbackFuncs callback_funcs: SourceCallbackFuncsProtocol) {
-        g_source_set_callback_indirect(cast(source_ptr), cast(callback_data), cast(callback_funcs.ptr))
+    @inlinable func setCallbackIndirect<SourceCallbackFuncsT: SourceCallbackFuncsProtocol>(callbackData: gpointer! = nil, callbackFuncs: SourceCallbackFuncsT) {
+        g_source_set_callback_indirect(source_ptr, callbackData, callbackFuncs._ptr)
     
     }
 
@@ -482,8 +568,8 @@ public extension SourceProtocol {
     /// `true`, then while the source is being dispatched then this source
     /// will be processed normally. Otherwise, all processing of this
     /// source is blocked until the dispatch function returns.
-    func set(canRecurse can_recurse: Bool) {
-        g_source_set_can_recurse(cast(source_ptr), gboolean(can_recurse ? 1 : 0))
+    @inlinable func set(canRecurse: Bool) {
+        g_source_set_can_recurse(source_ptr, gboolean((canRecurse) ? 1 : 0))
     
     }
 
@@ -503,15 +589,15 @@ public extension SourceProtocol {
     /// `source` is already partially freed and not valid anymore.
     /// 
     /// This should only ever be called from `GSource` implementations.
-    func setDisposeFunction(dispose: @escaping SourceDisposeFunc) {
-        g_source_set_dispose_function(cast(source_ptr), dispose)
+    @inlinable func setDisposeFunction(dispose: GSourceDisposeFunc?) {
+        g_source_set_dispose_function(source_ptr, dispose)
     
     }
 
     /// Sets the source functions (can be used to override
     /// default implementations) of an unattached source.
-    func set(funcs: SourceFuncsProtocol) {
-        g_source_set_funcs(cast(source_ptr), cast(funcs.ptr))
+    @inlinable func set<SourceFuncsT: SourceFuncsProtocol>(funcs: SourceFuncsT) {
+        g_source_set_funcs(source_ptr, funcs._ptr)
     
     }
 
@@ -531,8 +617,8 @@ public extension SourceProtocol {
     /// accessing it with `g_source_get_name()`; that function does not copy
     /// the value, and changing the value will free it while the other thread
     /// may be attempting to use it.
-    func set(name: UnsafePointer<CChar>) {
-        g_source_set_name(cast(source_ptr), name)
+    @inlinable func set(name: UnsafePointer<CChar>!) {
+        g_source_set_name(source_ptr, name)
     
     }
 
@@ -544,8 +630,8 @@ public extension SourceProtocol {
     /// A child source always has the same priority as its parent.  It is not
     /// permitted to change the priority of a source once it has been added
     /// as a child of another source.
-    func set(priority: CInt) {
-        g_source_set_priority(cast(source_ptr), gint(priority))
+    @inlinable func set(priority: Int) {
+        g_source_set_priority(source_ptr, gint(priority))
     
     }
 
@@ -571,33 +657,33 @@ public extension SourceProtocol {
     /// 
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
-    func set(readyTime ready_time: Int64) {
-        g_source_set_ready_time(cast(source_ptr), gint64(ready_time))
+    @inlinable func set(readyTime: gint64) {
+        g_source_set_ready_time(source_ptr, readyTime)
     
     }
 
     /// Decreases the reference count of a source by one. If the
     /// resulting reference count is zero the source and associated
     /// memory will be destroyed.
-    func unref() {
-        g_source_unref(cast(source_ptr))
+    @inlinable func unref() {
+        g_source_unref(source_ptr)
     
     }
     /// Checks whether a source is allowed to be called recursively.
     /// see `g_source_set_can_recurse()`.
-    var canRecurse: Bool {
+    @inlinable var canRecurse: Bool {
         /// Checks whether a source is allowed to be called recursively.
         /// see `g_source_set_can_recurse()`.
         get {
-            let rv = g_source_get_can_recurse(cast(source_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_source_get_can_recurse(source_ptr)) != 0)
+            return rv
         }
         /// Sets whether a source can be called recursively. If `can_recurse` is
         /// `true`, then while the source is being dispatched then this source
         /// will be processed normally. Otherwise, all processing of this
         /// source is blocked until the dispatch function returns.
         nonmutating set {
-            g_source_set_can_recurse(cast(source_ptr), gboolean(newValue ? 1 : 0))
+            g_source_set_can_recurse(source_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -609,7 +695,7 @@ public extension SourceProtocol {
     /// always call this function on the source returned from
     /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
-    var context: UnsafeMutablePointer<GMainContext>! {
+    @inlinable var context: MainContextRef! {
         /// Gets the `GMainContext` with which the source is associated.
         /// 
         /// You can call this on a source that has been destroyed, provided
@@ -619,8 +705,8 @@ public extension SourceProtocol {
         /// `g_main_current_source()`. But calling this function on a source
         /// whose `GMainContext` has been destroyed is an error.
         get {
-            let rv: UnsafeMutablePointer<GMainContext>! = cast(g_source_get_context(cast(source_ptr)))
-            return cast(rv)
+            let rv = MainContextRef(gconstpointer: gconstpointer(g_source_get_context(source_ptr)))
+            return rv
         }
     }
 
@@ -633,7 +719,7 @@ public extension SourceProtocol {
     /// `GMainContext` instance; calling this function before `g_source_attach()`
     /// or after `g_source_destroy()` yields undefined behavior. The ID returned
     /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
-    var id: Int {
+    @inlinable var id: Int {
         /// Returns the numeric ID for a particular source. The ID of a source
         /// is a positive integer which is unique within a particular main loop
         /// context. The reverse
@@ -644,8 +730,8 @@ public extension SourceProtocol {
         /// or after `g_source_destroy()` yields undefined behavior. The ID returned
         /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
         get {
-            let rv: Int = cast(g_source_get_id(cast(source_ptr)))
-            return Int(rv)
+            let rv = Int(g_source_get_id(source_ptr))
+            return rv
         }
     }
 
@@ -717,7 +803,7 @@ public extension SourceProtocol {
     /// source could be destroyed immediately after this function returns. However,
     /// once a source is destroyed it cannot be un-destroyed, so this function can be
     /// used for opportunistic checks from any thread.
-    var isDestroyed: Bool {
+    @inlinable var isDestroyed: Bool {
         /// Returns whether `source` has been destroyed.
         /// 
         /// This is important when you operate upon your objects
@@ -787,19 +873,19 @@ public extension SourceProtocol {
         /// once a source is destroyed it cannot be un-destroyed, so this function can be
         /// used for opportunistic checks from any thread.
         get {
-            let rv = g_source_is_destroyed(cast(source_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_source_is_destroyed(source_ptr)) != 0)
+            return rv
         }
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
     /// name may be `NULL` if it has never been set with `g_source_set_name()`.
-    var name: String! {
+    @inlinable var name: String! {
         /// Gets a name for the source, used in debugging and profiling.  The
         /// name may be `NULL` if it has never been set with `g_source_set_name()`.
         get {
-            let rv: String! = cast(g_source_get_name(cast(source_ptr)))
-            return cast(rv)
+            let rv = g_source_get_name(source_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets a name for the source, used in debugging and profiling.
         /// The name defaults to `NULL`.
@@ -818,16 +904,16 @@ public extension SourceProtocol {
         /// the value, and changing the value will free it while the other thread
         /// may be attempting to use it.
         nonmutating set {
-            g_source_set_name(cast(source_ptr), cast(newValue))
+            g_source_set_name(source_ptr, newValue)
         }
     }
 
     /// Gets the priority of a source.
-    var priority: Int {
+    @inlinable var priority: Int {
         /// Gets the priority of a source.
         get {
-            let rv: Int = cast(g_source_get_priority(cast(source_ptr)))
-            return Int(rv)
+            let rv = Int(g_source_get_priority(source_ptr))
+            return rv
         }
         /// Sets the priority of a source. While the main loop is being run, a
         /// source will be dispatched if it is ready to be dispatched and no
@@ -838,7 +924,7 @@ public extension SourceProtocol {
         /// permitted to change the priority of a source once it has been added
         /// as a child of another source.
         nonmutating set {
-            g_source_set_priority(cast(source_ptr), gint(newValue))
+            g_source_set_priority(source_ptr, gint(newValue))
         }
     }
 
@@ -847,15 +933,15 @@ public extension SourceProtocol {
     /// 
     /// Any time before the current monotonic time (including 0) is an
     /// indication that the source will fire immediately.
-    var readyTime: Int64 {
+    @inlinable var readyTime: gint64 {
         /// Gets the "ready time" of `source`, as set by
         /// `g_source_set_ready_time()`.
         /// 
         /// Any time before the current monotonic time (including 0) is an
         /// indication that the source will fire immediately.
         get {
-            let rv = g_source_get_ready_time(cast(source_ptr))
-            return Int64(rv)
+            let rv = g_source_get_ready_time(source_ptr)
+            return rv
         }
         /// Sets a `GSource` to be dispatched when the given monotonic time is
         /// reached (or passed).  If the monotonic time is in the past (as it
@@ -880,7 +966,7 @@ public extension SourceProtocol {
         /// This API is only intended to be used by implementations of `GSource`.
         /// Do not call this API on a `GSource` that you did not create.
         nonmutating set {
-            g_source_set_ready_time(cast(source_ptr), gint64(newValue))
+            g_source_set_ready_time(source_ptr, newValue)
         }
     }
 
@@ -891,7 +977,7 @@ public extension SourceProtocol {
     /// 
     /// The time here is the system monotonic time, if available, or some
     /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
-    var time: Int64 {
+    @inlinable var time: gint64 {
         /// Gets the time to be used when checking this source. The advantage of
         /// calling this function over calling `g_get_monotonic_time()` directly is
         /// that when checking multiple sources, GLib can cache a single value
@@ -900,8 +986,8 @@ public extension SourceProtocol {
         /// The time here is the system monotonic time, if available, or some
         /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
         get {
-            let rv = g_source_get_time(cast(source_ptr))
-            return Int64(rv)
+            let rv = g_source_get_time(source_ptr)
+            return rv
         }
     }
 

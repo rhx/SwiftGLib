@@ -12,10 +12,11 @@ import CGLib
 /// fields and should not be directly accessed.
 public protocol OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GOptionContext` instance.
-    var _ptr: UnsafeMutablePointer<GOptionContext> { get }
+    var _ptr: UnsafeMutablePointer<GOptionContext>! { get }
+
 }
 
 /// The `OptionContextRef` type acts as a lightweight Swift reference to an underlying `GOptionContext` instance.
@@ -28,46 +29,76 @@ public protocol OptionContextProtocol {
 public struct OptionContextRef: OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension OptionContextRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GOptionContext>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GOptionContext>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GOptionContext>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GOptionContext>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GOptionContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `OptionContextProtocol`
-    init<T: OptionContextProtocol>(_ other: T) {
+    @inlinable init<T: OptionContextProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -83,95 +114,141 @@ public extension OptionContextRef {
 open class OptionContext: OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OptionContext` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GOptionContext>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GOptionContext>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GOptionContext>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionContext` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GOptionContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OptionContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GOptionContext>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GOptionContext` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `OptionContext` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GOptionContext>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GOptionContext>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `OptionContextProtocol`
     /// `GOptionContext` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `OptionContextProtocol`
-    public init<T: OptionContextProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+    @inlinable public init<T: OptionContextProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GOptionContext`.
     deinit {
-        // no reference counting for GOptionContext, cannot unref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GOptionContext, cannot ref(cast(_ptr))
+        // no reference counting for GOptionContext, cannot ref(_ptr)
     }
 
 
@@ -186,20 +263,20 @@ open class OptionContext: OptionContextProtocol {
 // MARK: OptionContext Record: OptionContextProtocol extension (methods and fields)
 public extension OptionContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOptionContext` instance.
-    var _ptr: UnsafeMutablePointer<GOptionContext> { return ptr.assumingMemoryBound(to: GOptionContext.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GOptionContext>! { return ptr?.assumingMemoryBound(to: GOptionContext.self) }
 
     /// Adds a `GOptionGroup` to the `context`, so that parsing with `context`
     /// will recognize the options in the group. Note that this will take
     /// ownership of the `group` and thus the `group` should not be freed.
-    func add(group: OptionGroupProtocol) {
-        g_option_context_add_group(cast(_ptr), cast(group.ptr))
+    @inlinable func add<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+        g_option_context_add_group(_ptr, group.option_group_ptr)
     
     }
 
     /// A convenience function which creates a main group if it doesn't
     /// exist, adds the `entries` to it and sets the translation domain.
-    func addMain(entries: UnsafePointer<GOptionEntry>, translationDomain translation_domain: UnsafePointer<gchar>) {
-        g_option_context_add_main_entries(cast(_ptr), cast(entries), translation_domain)
+    @inlinable func addMain(entries: UnsafePointer<GOptionEntry>!, translationDomain: UnsafePointer<gchar>? = nil) {
+        g_option_context_add_main_entries(_ptr, entries, translationDomain)
     
     }
 
@@ -208,15 +285,15 @@ public extension OptionContextProtocol {
     /// 
     /// Please note that parsed arguments need to be freed separately (see
     /// `GOptionEntry`).
-    func free() {
-        g_option_context_free(cast(_ptr))
+    @inlinable func free() {
+        g_option_context_free(_ptr)
     
     }
 
     /// Returns the description. See `g_option_context_set_description()`.
-    func getDescription() -> String! {
-        let rv: String! = cast(g_option_context_get_description(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getDescription() -> String! {
+        let rv = g_option_context_get_description(_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Returns a formatted, translated help text for the given context.
@@ -226,43 +303,54 @@ public extension OptionContextProtocol {
     /// `g_option_context_get_help (context, FALSE, NULL)`.
     /// To obtain the help text for an option group, call
     /// `g_option_context_get_help (context, FALSE, group)`.
-    func getHelp(mainHelp main_help: Bool, group: OptionGroupProtocol) -> String! {
-        let rv: String! = cast(g_option_context_get_help(cast(_ptr), gboolean(main_help ? 1 : 0), cast(group.ptr)))
-        return cast(rv)
+    @inlinable func getHelp(mainHelp: Bool, group: OptionGroupRef? = nil) -> String! {
+        let rv = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr).map({ String(cString: $0) })
+        return rv
+    }
+    /// Returns a formatted, translated help text for the given context.
+    /// To obtain the text produced by `--help`, call
+    /// `g_option_context_get_help (context, TRUE, NULL)`.
+    /// To obtain the text produced by `--help-all`, call
+    /// `g_option_context_get_help (context, FALSE, NULL)`.
+    /// To obtain the help text for an option group, call
+    /// `g_option_context_get_help (context, FALSE, group)`.
+    @inlinable func getHelp<OptionGroupT: OptionGroupProtocol>(mainHelp: Bool, group: OptionGroupT?) -> String! {
+        let rv = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Returns whether automatic `--help` generation
     /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
-    func getHelpEnabled() -> Bool {
-        let rv = g_option_context_get_help_enabled(cast(_ptr))
-        return Bool(rv != 0)
+    @inlinable func getHelpEnabled() -> Bool {
+        let rv = ((g_option_context_get_help_enabled(_ptr)) != 0)
+        return rv
     }
 
     /// Returns whether unknown options are ignored or not. See
     /// `g_option_context_set_ignore_unknown_options()`.
-    func getIgnoreUnknownOptions() -> Bool {
-        let rv = g_option_context_get_ignore_unknown_options(cast(_ptr))
-        return Bool(rv != 0)
+    @inlinable func getIgnoreUnknownOptions() -> Bool {
+        let rv = ((g_option_context_get_ignore_unknown_options(_ptr)) != 0)
+        return rv
     }
 
     /// Returns a pointer to the main group of `context`.
-    func getMainGroup() -> UnsafeMutablePointer<GOptionGroup>! {
-        let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_context_get_main_group(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getMainGroup() -> OptionGroupRef! {
+        let rv = OptionGroupRef(gconstpointer: gconstpointer(g_option_context_get_main_group(_ptr)))
+        return rv
     }
 
     /// Returns whether strict POSIX code is enabled.
     /// 
     /// See `g_option_context_set_strict_posix()` for more information.
-    func getStrictPosix() -> Bool {
-        let rv = g_option_context_get_strict_posix(cast(_ptr))
-        return Bool(rv != 0)
+    @inlinable func getStrictPosix() -> Bool {
+        let rv = ((g_option_context_get_strict_posix(_ptr)) != 0)
+        return rv
     }
 
     /// Returns the summary. See `g_option_context_set_summary()`.
-    func getSummary() -> String! {
-        let rv: String! = cast(g_option_context_get_summary(cast(_ptr)))
-        return cast(rv)
+    @inlinable func getSummary() -> String! {
+        let rv = g_option_context_get_summary(_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Parses the command line arguments, recognizing options
@@ -286,11 +374,11 @@ public extension OptionContextProtocol {
     /// Note that function depends on the [current locale](#setlocale) for
     /// automatic character set conversion of string and filename
     /// arguments.
-    func parse(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
+    @inlinable func parse(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_option_context_parse(cast(_ptr), cast(argc), cast(argv), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_option_context_parse(_ptr, argc, argv, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Parses the command line arguments.
@@ -309,11 +397,11 @@ public extension OptionContextProtocol {
     /// 
     /// This function is useful if you are trying to use `GOptionContext` with
     /// `GApplication`.
-    func parseStrv(arguments: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) throws -> Bool {
+    @inlinable func parseStrv(arguments: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_option_context_parse_strv(cast(_ptr), cast(arguments), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_option_context_parse_strv(_ptr, arguments, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Adds a string to be displayed in `--help` output after the list
@@ -321,8 +409,8 @@ public extension OptionContextProtocol {
     /// 
     /// Note that the summary is translated (see
     /// `g_option_context_set_translate_func()`).
-    func set(description: UnsafePointer<gchar>) {
-        g_option_context_set_description(cast(_ptr), description)
+    @inlinable func set(description: UnsafePointer<gchar>? = nil) {
+        g_option_context_set_description(_ptr, description)
     
     }
 
@@ -330,8 +418,8 @@ public extension OptionContextProtocol {
     /// By default, `g_option_context_parse()` recognizes `--help`, `-h`,
     /// `-?`, `--help-all` and `--help-groupname` and creates suitable
     /// output to stdout.
-    func set(helpEnabled help_enabled: Bool) {
-        g_option_context_set_help_enabled(cast(_ptr), gboolean(help_enabled ? 1 : 0))
+    @inlinable func set(helpEnabled: Bool) {
+        g_option_context_set_help_enabled(_ptr, gboolean((helpEnabled) ? 1 : 0))
     
     }
 
@@ -342,8 +430,8 @@ public extension OptionContextProtocol {
     /// This setting does not affect non-option arguments (i.e. arguments
     /// which don't start with a dash). But note that GOption cannot reliably
     /// determine whether a non-option belongs to a preceding unknown option.
-    func setIgnoreUnknownOptions(ignoreUnknown ignore_unknown: Bool) {
-        g_option_context_set_ignore_unknown_options(cast(_ptr), gboolean(ignore_unknown ? 1 : 0))
+    @inlinable func setIgnoreUnknownOptions(ignoreUnknown: Bool) {
+        g_option_context_set_ignore_unknown_options(_ptr, gboolean((ignoreUnknown) ? 1 : 0))
     
     }
 
@@ -351,8 +439,8 @@ public extension OptionContextProtocol {
     /// This has the same effect as calling `g_option_context_add_group()`,
     /// the only difference is that the options in the main group are
     /// treated differently when generating `--help` output.
-    func setMain(group: OptionGroupProtocol) {
-        g_option_context_set_main_group(cast(_ptr), cast(group.ptr))
+    @inlinable func setMain<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+        g_option_context_set_main_group(_ptr, group.option_group_ptr)
     
     }
 
@@ -380,8 +468,8 @@ public extension OptionContextProtocol {
     /// parsed by the relevant subcommand (which can be determined by
     /// examining the verb name, which should be present in argv[1] after
     /// parsing).
-    func set(strictPosix strict_posix: Bool) {
-        g_option_context_set_strict_posix(cast(_ptr), gboolean(strict_posix ? 1 : 0))
+    @inlinable func set(strictPosix: Bool) {
+        g_option_context_set_strict_posix(_ptr, gboolean((strictPosix) ? 1 : 0))
     
     }
 
@@ -391,8 +479,8 @@ public extension OptionContextProtocol {
     /// Note that the summary is translated (see
     /// `g_option_context_set_translate_func()` and
     /// `g_option_context_set_translation_domain()`).
-    func set(summary: UnsafePointer<gchar>) {
-        g_option_context_set_summary(cast(_ptr), summary)
+    @inlinable func set(summary: UnsafePointer<gchar>? = nil) {
+        g_option_context_set_summary(_ptr, summary)
     
     }
 
@@ -407,23 +495,23 @@ public extension OptionContextProtocol {
     /// 
     /// If you are using `gettext()`, you only need to set the translation
     /// domain, see `g_option_context_set_translation_domain()`.
-    func setTranslateFunc(func_: @escaping TranslateFunc, data: UnsafeMutableRawPointer, destroyNotify destroy_notify: @escaping DestroyNotify) {
-        g_option_context_set_translate_func(cast(_ptr), func_, cast(data), destroy_notify)
+    @inlinable func setTranslateFunc(`func`: GTranslateFunc? = nil, data: gpointer! = nil, destroyNotify: GDestroyNotify? = nil) {
+        g_option_context_set_translate_func(_ptr, `func`, data, destroyNotify)
     
     }
 
     /// A convenience function to use `gettext()` for translating
     /// user-visible strings.
-    func setTranslation(domain: UnsafePointer<gchar>) {
-        g_option_context_set_translation_domain(cast(_ptr), domain)
+    @inlinable func setTranslation(domain: UnsafePointer<gchar>!) {
+        g_option_context_set_translation_domain(_ptr, domain)
     
     }
     /// Returns the description. See `g_option_context_set_description()`.
-    var description: String! {
+    @inlinable var description: String! {
         /// Returns the description. See `g_option_context_set_description()`.
         get {
-            let rv: String! = cast(g_option_context_get_description(cast(_ptr)))
-            return cast(rv)
+            let rv = g_option_context_get_description(_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Adds a string to be displayed in `--help` output after the list
         /// of options. This text often includes a bug reporting address.
@@ -431,36 +519,36 @@ public extension OptionContextProtocol {
         /// Note that the summary is translated (see
         /// `g_option_context_set_translate_func()`).
         nonmutating set {
-            g_option_context_set_description(cast(_ptr), cast(newValue))
+            g_option_context_set_description(_ptr, newValue)
         }
     }
 
     /// Returns whether automatic `--help` generation
     /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
-    var helpEnabled: Bool {
+    @inlinable var helpEnabled: Bool {
         /// Returns whether automatic `--help` generation
         /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
         get {
-            let rv = g_option_context_get_help_enabled(cast(_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_option_context_get_help_enabled(_ptr)) != 0)
+            return rv
         }
         /// Enables or disables automatic generation of `--help` output.
         /// By default, `g_option_context_parse()` recognizes `--help`, `-h`,
         /// `-?`, `--help-all` and `--help-groupname` and creates suitable
         /// output to stdout.
         nonmutating set {
-            g_option_context_set_help_enabled(cast(_ptr), gboolean(newValue ? 1 : 0))
+            g_option_context_set_help_enabled(_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Returns whether unknown options are ignored or not. See
     /// `g_option_context_set_ignore_unknown_options()`.
-    var ignoreUnknownOptions: Bool {
+    @inlinable var ignoreUnknownOptions: Bool {
         /// Returns whether unknown options are ignored or not. See
         /// `g_option_context_set_ignore_unknown_options()`.
         get {
-            let rv = g_option_context_get_ignore_unknown_options(cast(_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_option_context_get_ignore_unknown_options(_ptr)) != 0)
+            return rv
         }
         /// Sets whether to ignore unknown options or not. If an argument is
         /// ignored, it is left in the `argv` array after parsing. By default,
@@ -470,36 +558,36 @@ public extension OptionContextProtocol {
         /// which don't start with a dash). But note that GOption cannot reliably
         /// determine whether a non-option belongs to a preceding unknown option.
         nonmutating set {
-            g_option_context_set_ignore_unknown_options(cast(_ptr), gboolean(newValue ? 1 : 0))
+            g_option_context_set_ignore_unknown_options(_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Returns a pointer to the main group of `context`.
-    var mainGroup: UnsafeMutablePointer<GOptionGroup>! {
+    @inlinable var mainGroup: OptionGroupRef! {
         /// Returns a pointer to the main group of `context`.
         get {
-            let rv: UnsafeMutablePointer<GOptionGroup>! = cast(g_option_context_get_main_group(cast(_ptr)))
-            return cast(rv)
+            let rv = OptionGroupRef(gconstpointer: gconstpointer(g_option_context_get_main_group(_ptr)))
+            return rv
         }
         /// Sets a `GOptionGroup` as main group of the `context`.
         /// This has the same effect as calling `g_option_context_add_group()`,
         /// the only difference is that the options in the main group are
         /// treated differently when generating `--help` output.
         nonmutating set {
-            g_option_context_set_main_group(cast(_ptr), cast(newValue))
+            g_option_context_set_main_group(_ptr, UnsafeMutablePointer<GOptionGroup>(newValue?.option_group_ptr))
         }
     }
 
     /// Returns whether strict POSIX code is enabled.
     /// 
     /// See `g_option_context_set_strict_posix()` for more information.
-    var strictPosix: Bool {
+    @inlinable var strictPosix: Bool {
         /// Returns whether strict POSIX code is enabled.
         /// 
         /// See `g_option_context_set_strict_posix()` for more information.
         get {
-            let rv = g_option_context_get_strict_posix(cast(_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_option_context_get_strict_posix(_ptr)) != 0)
+            return rv
         }
         /// Sets strict POSIX mode.
         /// 
@@ -526,16 +614,16 @@ public extension OptionContextProtocol {
         /// examining the verb name, which should be present in argv[1] after
         /// parsing).
         nonmutating set {
-            g_option_context_set_strict_posix(cast(_ptr), gboolean(newValue ? 1 : 0))
+            g_option_context_set_strict_posix(_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Returns the summary. See `g_option_context_set_summary()`.
-    var summary: String! {
+    @inlinable var summary: String! {
         /// Returns the summary. See `g_option_context_set_summary()`.
         get {
-            let rv: String! = cast(g_option_context_get_summary(cast(_ptr)))
-            return cast(rv)
+            let rv = g_option_context_get_summary(_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Adds a string to be displayed in `--help` output before the list
         /// of options. This is typically a summary of the program functionality.
@@ -544,7 +632,7 @@ public extension OptionContextProtocol {
         /// `g_option_context_set_translate_func()` and
         /// `g_option_context_set_translation_domain()`).
         nonmutating set {
-            g_option_context_set_summary(cast(_ptr), cast(newValue))
+            g_option_context_set_summary(_ptr, newValue)
         }
     }
 

@@ -11,10 +11,11 @@ import CGLib
 /// occurred.
 public protocol PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GPollFD` instance.
-    var pollfd_ptr: UnsafeMutablePointer<GPollFD> { get }
+    var pollfd_ptr: UnsafeMutablePointer<GPollFD>! { get }
+
 }
 
 /// The `PollFDRef` type acts as a lightweight Swift reference to an underlying `GPollFD` instance.
@@ -26,46 +27,76 @@ public protocol PollFDProtocol {
 public struct PollFDRef: PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension PollFDRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GPollFD>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GPollFD>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GPollFD>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPollFD>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GPollFD>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `PollFDProtocol`
-    init<T: PollFDProtocol>(_ other: T) {
+    @inlinable init<T: PollFDProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension PollFDRef {
 open class PollFD: PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `PollFD` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GPollFD>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GPollFD>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollFD` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GPollFD>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollFD` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollFD` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollFD` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GPollFD>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `PollFD` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GPollFD>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GPollFD` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `PollFD` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GPollFD>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GPollFD>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
     /// Reference intialiser for a related type that implements `PollFDProtocol`
     /// `GPollFD` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `PollFDProtocol`
-    public init<T: PollFDProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.pollfd_ptr)
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+    @inlinable public init<T: PollFDProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
     /// Do-nothing destructor for `GPollFD`.
     deinit {
-        // no reference counting for GPollFD, cannot unref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot unref(pollfd_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GPollFD, cannot ref(cast(pollfd_ptr))
+        // no reference counting for GPollFD, cannot ref(pollfd_ptr)
     }
 
 
@@ -183,7 +260,7 @@ open class PollFD: PollFDProtocol {
 // MARK: PollFD Record: PollFDProtocol extension (methods and fields)
 public extension PollFDProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPollFD` instance.
-    var pollfd_ptr: UnsafeMutablePointer<GPollFD> { return ptr.assumingMemoryBound(to: GPollFD.self) }
+    @inlinable var pollfd_ptr: UnsafeMutablePointer<GPollFD>! { return ptr?.assumingMemoryBound(to: GPollFD.self) }
 
     /// Polls `fds`, as with the `poll()` system call, but portably. (On
     /// systems that don't have `poll()`, it is emulated using `select()`.)
@@ -202,21 +279,21 @@ public extension PollFDProtocol {
     /// Windows. If you need to use `g_poll()` in code that has to run on
     /// Windows, the easiest solution is to construct all of your
     /// `GPollFDs` with `g_io_channel_win32_make_pollfd()`.
-    func poll(nfds: CUnsignedInt, timeout: CInt) -> Int {
-        let rv: Int = cast(g_poll(cast(pollfd_ptr), guint(nfds), gint(timeout)))
-        return Int(rv)
+    @inlinable func poll(nfds: Int, timeout: Int) -> Int {
+        let rv = Int(g_poll(pollfd_ptr, guint(nfds), gint(timeout)))
+        return rv
     }
 
     /// the file descriptor to poll (or a HANDLE on Win32)
-    var fd: Int {
+    @inlinable var fd: gint {
         /// the file descriptor to poll (or a HANDLE on Win32)
         get {
-            let rv: Int = cast(pollfd_ptr.pointee.fd)
+            let rv = pollfd_ptr.pointee.fd
             return rv
         }
         /// the file descriptor to poll (or a HANDLE on Win32)
          set {
-            pollfd_ptr.pointee.fd = gint(newValue)
+            pollfd_ptr.pointee.fd = newValue
         }
     }
 
@@ -224,13 +301,13 @@ public extension PollFDProtocol {
     ///     events should be polled for. Typically for reading from a file
     ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
     ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
-    var events: gushort {
+    @inlinable var events: gushort {
         /// a bitwise combination from `GIOCondition`, specifying which
         ///     events should be polled for. Typically for reading from a file
         ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
         ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
         get {
-            let rv: gushort = cast(pollfd_ptr.pointee.events)
+            let rv = pollfd_ptr.pointee.events
             return rv
         }
         /// a bitwise combination from `GIOCondition`, specifying which
@@ -238,23 +315,23 @@ public extension PollFDProtocol {
         ///     descriptor you would use `G_IO_IN` | `G_IO_HUP` | `G_IO_ERR`, and
         ///     for writing you would use `G_IO_OUT` | `G_IO_ERR`.
          set {
-            pollfd_ptr.pointee.events = cast(newValue)
+            pollfd_ptr.pointee.events = newValue
         }
     }
 
     /// a bitwise combination of flags from `GIOCondition`, returned
     ///     from the `poll()` function to indicate which events occurred.
-    var revents: gushort {
+    @inlinable var revents: gushort {
         /// a bitwise combination of flags from `GIOCondition`, returned
         ///     from the `poll()` function to indicate which events occurred.
         get {
-            let rv: gushort = cast(pollfd_ptr.pointee.revents)
+            let rv = pollfd_ptr.pointee.revents
             return rv
         }
         /// a bitwise combination of flags from `GIOCondition`, returned
         ///     from the `poll()` function to indicate which events occurred.
          set {
-            pollfd_ptr.pointee.revents = cast(newValue)
+            pollfd_ptr.pointee.revents = newValue
         }
     }
 

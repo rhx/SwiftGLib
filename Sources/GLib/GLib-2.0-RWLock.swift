@@ -74,10 +74,11 @@ import CGLib
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
 public protocol RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GRWLock` instance.
-    var _ptr: UnsafeMutablePointer<GRWLock> { get }
+    var _ptr: UnsafeMutablePointer<GRWLock>! { get }
+
 }
 
 /// The `RWLockRef` type acts as a lightweight Swift reference to an underlying `GRWLock` instance.
@@ -152,46 +153,76 @@ public protocol RWLockProtocol {
 public struct RWLockRef: RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension RWLockRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GRWLock>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GRWLock>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GRWLock>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GRWLock>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GRWLock>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `RWLockProtocol`
-    init<T: RWLockProtocol>(_ other: T) {
+    @inlinable init<T: RWLockProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -269,95 +300,141 @@ public extension RWLockRef {
 open class RWLock: RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RWLock` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GRWLock>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GRWLock>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RWLock` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GRWLock>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RWLock` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RWLock` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RWLock` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GRWLock>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RWLock` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GRWLock>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GRWLock` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `RWLock` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GRWLock>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GRWLock>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `RWLockProtocol`
     /// `GRWLock` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `RWLockProtocol`
-    public init<T: RWLockProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+    @inlinable public init<T: RWLockProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GRWLock`.
     deinit {
-        // no reference counting for GRWLock, cannot unref(cast(_ptr))
+        // no reference counting for GRWLock, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GRWLock, cannot ref(cast(_ptr))
+        // no reference counting for GRWLock, cannot ref(_ptr)
     }
 
 
@@ -372,7 +449,7 @@ open class RWLock: RWLockProtocol {
 // MARK: RWLock Record: RWLockProtocol extension (methods and fields)
 public extension RWLockProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GRWLock` instance.
-    var _ptr: UnsafeMutablePointer<GRWLock> { return ptr.assumingMemoryBound(to: GRWLock.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GRWLock>! { return ptr?.assumingMemoryBound(to: GRWLock.self) }
 
     /// Frees the resources allocated to a lock with `g_rw_lock_init()`.
     /// 
@@ -383,8 +460,8 @@ public extension RWLockProtocol {
     /// leads to undefined behaviour.
     /// 
     /// Sine: 2.32
-    func clear() {
-        g_rw_lock_clear(cast(_ptr))
+    @inlinable func clear() {
+        g_rw_lock_clear(_ptr)
     
     }
 
@@ -413,8 +490,8 @@ public extension RWLockProtocol {
     /// 
     /// Calling `g_rw_lock_init()` on an already initialized `GRWLock` leads
     /// to undefined behaviour.
-    func init_() {
-        g_rw_lock_init(cast(_ptr))
+    @inlinable func init_() {
+        g_rw_lock_init(_ptr)
     
     }
 
@@ -427,50 +504,50 @@ public extension RWLockProtocol {
     /// It is implementation-defined how many threads are allowed to
     /// hold read locks on the same lock simultaneously. If the limit is hit,
     /// or if a deadlock is detected, a critical warning will be emitted.
-    func readerLock() {
-        g_rw_lock_reader_lock(cast(_ptr))
+    @inlinable func readerLock() {
+        g_rw_lock_reader_lock(_ptr)
     
     }
 
     /// Tries to obtain a read lock on `rw_lock` and returns `true` if
     /// the read lock was successfully obtained. Otherwise it
     /// returns `false`.
-    func readerTrylock() -> Bool {
-        let rv = g_rw_lock_reader_trylock(cast(_ptr))
-        return Bool(rv != 0)
+    @inlinable func readerTrylock() -> Bool {
+        let rv = ((g_rw_lock_reader_trylock(_ptr)) != 0)
+        return rv
     }
 
     /// Release a read lock on `rw_lock`.
     /// 
     /// Calling `g_rw_lock_reader_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
-    func readerUnlock() {
-        g_rw_lock_reader_unlock(cast(_ptr))
+    @inlinable func readerUnlock() {
+        g_rw_lock_reader_unlock(_ptr)
     
     }
 
     /// Obtain a write lock on `rw_lock`. If any thread already holds
     /// a read or write lock on `rw_lock`, the current thread will block
     /// until all other threads have dropped their locks on `rw_lock`.
-    func writerLock() {
-        g_rw_lock_writer_lock(cast(_ptr))
+    @inlinable func writerLock() {
+        g_rw_lock_writer_lock(_ptr)
     
     }
 
     /// Tries to obtain a write lock on `rw_lock`. If any other thread holds
     /// a read or write lock on `rw_lock`, it immediately returns `false`.
     /// Otherwise it locks `rw_lock` and returns `true`.
-    func writerTrylock() -> Bool {
-        let rv = g_rw_lock_writer_trylock(cast(_ptr))
-        return Bool(rv != 0)
+    @inlinable func writerTrylock() -> Bool {
+        let rv = ((g_rw_lock_writer_trylock(_ptr)) != 0)
+        return rv
     }
 
     /// Release a write lock on `rw_lock`.
     /// 
     /// Calling `g_rw_lock_writer_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
-    func writerUnlock() {
-        g_rw_lock_writer_unlock(cast(_ptr))
+    @inlinable func writerUnlock() {
+        g_rw_lock_writer_unlock(_ptr)
     
     }
 

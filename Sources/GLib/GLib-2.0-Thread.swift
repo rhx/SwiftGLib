@@ -22,10 +22,11 @@ import CGLib
 /// accessed.
 public protocol ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GThread` instance.
-    var thread_ptr: UnsafeMutablePointer<GThread> { get }
+    var thread_ptr: UnsafeMutablePointer<GThread>! { get }
+
 }
 
 /// The `ThreadRef` type acts as a lightweight Swift reference to an underlying `GThread` instance.
@@ -48,46 +49,76 @@ public protocol ThreadProtocol {
 public struct ThreadRef: ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ThreadRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GThread>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GThread>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GThread>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GThread>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GThread>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ThreadProtocol`
-    init<T: ThreadProtocol>(_ other: T) {
+    @inlinable init<T: ThreadProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -118,9 +149,9 @@ public extension ThreadRef {
     /// inheriting the thread priority but were spawned with the default priority.
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
-    init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_new(name, func_, cast(data)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) {
+        let rv = g_thread_new(name, `func`, data)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -128,22 +159,23 @@ public extension ThreadRef {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
+    @inlinable init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_thread_try_new(name, `func`, data, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    static func tryNew(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws -> ThreadRef! {
+    @inlinable static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws -> ThreadRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { ThreadRef(cast($0)) }
+        let maybeRV = ThreadRef(gconstpointer: gconstpointer(g_thread_try_new(name, `func`, data, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// This function returns the `GThread` corresponding to the
@@ -155,9 +187,9 @@ public extension ThreadRef {
     /// APIs). This may be useful for thread identification purposes
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
-    static func self_() -> ThreadRef! {
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_self())
-        return rv.map { ThreadRef(cast($0)) }
+    @inlinable static func self_() -> ThreadRef! {
+        guard let rv = ThreadRef(gconstpointer: gconstpointer(g_thread_self())) else { return nil }
+        return rv
     }
 }
 
@@ -181,95 +213,141 @@ public extension ThreadRef {
 open class Thread: ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Thread` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GThread>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GThread>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GThread>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GThread>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Thread` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GThread>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GThread`.
     /// i.e., ownership is transferred to the `Thread` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GThread>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GThread>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_thread_ref(cast(thread_ptr))
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Reference intialiser for a related type that implements `ThreadProtocol`
     /// Will retain `GThread`.
     /// - Parameter other: an instance of a related type that implements `ThreadProtocol`
-    public init<T: ThreadProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.thread_ptr)
-        g_thread_ref(cast(thread_ptr))
+    @inlinable public init<T: ThreadProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Releases the underlying `GThread` instance using `g_thread_unref`.
     deinit {
-        g_thread_unref(cast(thread_ptr))
+        g_thread_unref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_thread_ref(cast(thread_ptr))
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_thread_ref(cast(thread_ptr))
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_thread_ref(cast(thread_ptr))
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_thread_ref(cast(thread_ptr))
+        g_thread_ref(ptr.assumingMemoryBound(to: GThread.self))
     }
 
     /// This function creates a new thread. The new thread starts by invoking
@@ -299,9 +377,9 @@ open class Thread: ThreadProtocol {
     /// inheriting the thread priority but were spawned with the default priority.
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
-    public init( name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) {
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_new(name, func_, cast(data)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) {
+        let rv = g_thread_new(name, `func`, data)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -309,11 +387,11 @@ open class Thread: ThreadProtocol {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    public init(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws {
+    @inlinable public init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = g_thread_try_new(name, `func`, data, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -321,11 +399,12 @@ open class Thread: ThreadProtocol {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    public static func tryNew(try_ name: UnsafePointer<gchar>, func_: @escaping ThreadFunc, data: UnsafeMutableRawPointer) throws -> Thread! {
+    @inlinable public static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws -> Thread! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_try_new(name, func_, cast(data), &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { Thread(cast($0)) }
+        let maybeRV = Thread(gconstpointer: gconstpointer(g_thread_try_new(name, `func`, data, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
     /// This function returns the `GThread` corresponding to the
@@ -337,9 +416,9 @@ open class Thread: ThreadProtocol {
     /// APIs). This may be useful for thread identification purposes
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
-    public static func self_() -> Thread! {
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_self())
-        return rv.map { Thread(cast($0)) }
+    @inlinable public static func self_() -> Thread! {
+        guard let rv = Thread(gconstpointer: gconstpointer(g_thread_self())) else { return nil }
+        return rv
     }
 
 }
@@ -352,7 +431,7 @@ open class Thread: ThreadProtocol {
 // MARK: Thread Record: ThreadProtocol extension (methods and fields)
 public extension ThreadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GThread` instance.
-    var thread_ptr: UnsafeMutablePointer<GThread> { return ptr.assumingMemoryBound(to: GThread.self) }
+    @inlinable var thread_ptr: UnsafeMutablePointer<GThread>! { return ptr?.assumingMemoryBound(to: GThread.self) }
 
     /// Waits until `thread` finishes, i.e. the function `func`, as
     /// given to `g_thread_new()`, returns or `g_thread_exit()` is called.
@@ -370,15 +449,15 @@ public extension ThreadProtocol {
     /// This will usually cause the `GThread` struct and associated resources
     /// to be freed. Use `g_thread_ref()` to obtain an extra reference if you
     /// want to keep the GThread alive beyond the `g_thread_join()` call.
-    func join() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_thread_join(cast(thread_ptr)))
-        return cast(rv)
+    @inlinable func join() -> gpointer! {
+        let rv = g_thread_join(thread_ptr)
+        return rv
     }
 
     /// Increase the reference count on `thread`.
-    @discardableResult func ref() -> UnsafeMutablePointer<GThread>! {
-        let rv: UnsafeMutablePointer<GThread>! = cast(g_thread_ref(cast(thread_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> ThreadRef! {
+        guard let rv = ThreadRef(gconstpointer: gconstpointer(g_thread_ref(thread_ptr))) else { return nil }
+        return rv
     }
 
     /// Decrease the reference count on `thread`, possibly freeing all
@@ -387,8 +466,8 @@ public extension ThreadProtocol {
     /// Note that each thread holds a reference to its `GThread` while
     /// it is running, so it is safe to drop your own reference to it
     /// if you don't need it anymore.
-    func unref() {
-        g_thread_unref(cast(thread_ptr))
+    @inlinable func unref() {
+        g_thread_unref(thread_ptr)
     
     }
 

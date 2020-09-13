@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3677,7 +3680,7 @@ and calls the provided <code>free_func</code> on each item in the <code>GQueue</
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">clearFull</span><span class="p">(</span><span class="n">freeFunc</span> <span class="nv">free_func</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">clearFull</span><span class="p">(</span><span class="nv">freeFunc</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3783,7 +3786,7 @@ actual data is not.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">find</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gconstpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">find</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gconstpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -3821,7 +3824,7 @@ first argument and the given user data as the second argument.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">findCustom</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gconstpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GCompareFunc</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">findCustom</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gconstpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GCompareFunc</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
@@ -3859,7 +3862,7 @@ not modify any part of the queue after that element.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">foreach</span><span class="p">(</span><span class="nv">func</span><span class="p">:</span> <span class="kt">GFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">foreach</span><span class="p">(</span><span class="nv">func</span><span class="p">:</span> <span class="kt">GFunc</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3936,7 +3939,7 @@ element from it).</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">freeFull</span><span class="p">(</span><span class="n">freeFunc</span> <span class="nv">free_func</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span></code></pre>
+<span class="kd">func</span> <span class="nf">freeFull</span><span class="p">(</span><span class="nv">freeFunc</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -4054,6 +4057,43 @@ before it can be used. Alternatively you can initialize it with
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:4GLib13QueueProtocolPAAE11insertAfter7sibling4datayAA7ListRefVSg_SvSgtF"></a>
+                    <a name="//apple_ref/swift/Method/insertAfter(sibling:data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib13QueueProtocolPAAE11insertAfter7sibling4datayAA7ListRefVSg_SvSgtF">insertAfter(sibling:data:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inserts <code>data</code> into <code>queue</code> after <code>sibling</code>.</p>
+
+<p><code>sibling</code> must be part of <code>queue</code>. Since GLib 2.44 a <code>nil</code> sibling pushes the
+data at the head of the queue.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">insertAfter</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L367-L370">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:4GLib13QueueProtocolPAAE11insertAfter7sibling4datayqd__Sg_SvSgtAA04ListC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/insertAfter(sibling:data:)" class="dashAnchor"></a>
                     <a class="token" href="#/s:4GLib13QueueProtocolPAAE11insertAfter7sibling4datayqd__Sg_SvSgtAA04ListC0Rd__lF">insertAfter(sibling:data:)</a>
@@ -4078,12 +4118,12 @@ data at the head of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">insertAfter</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">insertAfter</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L367-L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L375-L378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4114,12 +4154,49 @@ data at the head of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">insertAfterLink</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">link_</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">insertAfterLink</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?,</span> <span class="nv">link_</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L375-L378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L383-L386">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib13QueueProtocolPAAE12insertBefore7sibling4datayAA7ListRefVSg_SvSgtF"></a>
+                    <a name="//apple_ref/swift/Method/insertBefore(sibling:data:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib13QueueProtocolPAAE12insertBefore7sibling4datayAA7ListRefVSg_SvSgtF">insertBefore(sibling:data:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Inserts <code>data</code> into <code>queue</code> before <code>sibling</code>.</p>
+
+<p><code>sibling</code> must be part of <code>queue</code>. Since GLib 2.44 a <code>nil</code> sibling pushes the
+data at the tail of the queue.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">insertBefore</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L392-L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4151,12 +4228,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">insertBefore</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">insertBefore</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?,</span> <span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L384-L387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L400-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4187,12 +4264,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">insertBeforeLink</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">link_</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
+<span class="kd">func</span> <span class="n">insertBeforeLink</span><span class="o">&lt;</span><span class="kt">ListT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">sibling</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">?,</span> <span class="nv">link_</span><span class="p">:</span> <span class="kt">ListT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ListT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ListProtocol.html">ListProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L392-L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L408-L411">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4221,12 +4298,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">insertSorted</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GCompareDataFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">insertSorted</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">GCompareDataFunc</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L398-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L414-L417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4260,7 +4337,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L404-L407">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L420-L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4294,7 +4371,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L410-L413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L426-L429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4323,12 +4400,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">peekHeadLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">peekHeadLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L416-L419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L432-L435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4362,7 +4439,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L422-L425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L438-L441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4391,12 +4468,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">peekNthLink</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">peekNthLink</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L428-L431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L444-L447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4430,7 +4507,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L434-L437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L450-L453">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4459,12 +4536,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">peekTailLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">peekTailLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L440-L443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L456-L459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4498,7 +4575,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L446-L449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L462-L465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4527,12 +4604,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">popHeadLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">popHeadLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L452-L455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L468-L471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4566,7 +4643,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L458-L461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L474-L477">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4595,12 +4672,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">popNthLink</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">popNthLink</span><span class="p">(</span><span class="nv">n</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L464-L467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L480-L483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4634,7 +4711,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L470-L473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L486-L489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4663,12 +4740,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">popTailLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="nf">popTailLink</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt"><a href="../Structs/ListRef.html">ListRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L476-L479">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L492-L495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4702,7 +4779,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L482-L485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L498-L501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4736,7 +4813,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L488-L491">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L504-L507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4770,7 +4847,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L494-L497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L510-L513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4804,7 +4881,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L500-L503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L516-L519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4838,7 +4915,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L506-L509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L522-L525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4872,7 +4949,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L512-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L528-L531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4906,7 +4983,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L518-L521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L534-L537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4940,7 +5017,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L524-L527">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L540-L543">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4974,7 +5051,7 @@ data at the tail of the queue.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L530-L533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L546-L549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5003,12 +5080,12 @@ data at the tail of the queue.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">sort</span><span class="p">(</span><span class="n">compareFunc</span> <span class="nv">compare_func</span><span class="p">:</span> <span class="kt">GCompareDataFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">sort</span><span class="p">(</span><span class="nv">compareFunc</span><span class="p">:</span> <span class="kt">GCompareDataFunc</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L536-L539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L552-L555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5045,7 +5122,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L545-L548">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L561-L564">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5079,7 +5156,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L550-L556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L566-L572">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5113,7 +5190,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L559-L565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L575-L581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5147,7 +5224,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L568-L578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L584-L594">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5181,7 +5258,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L581-L591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L597-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5215,7 +5292,7 @@ The link is not freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L594-L604">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Queue.swift#L610-L620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5228,7 +5305,7 @@ The link is not freed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

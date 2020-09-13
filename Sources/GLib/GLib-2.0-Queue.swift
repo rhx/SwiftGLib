@@ -11,10 +11,11 @@ import CGLib
 /// [Queue](../Protocols/QueueProtocol.html).
 public protocol QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GQueue` instance.
-    var _ptr: UnsafeMutablePointer<GQueue> { get }
+    var _ptr: UnsafeMutablePointer<GQueue>! { get }
+
 }
 
 /// The `QueueRef` type acts as a lightweight Swift reference to an underlying `GQueue` instance.
@@ -26,46 +27,76 @@ public protocol QueueProtocol {
 public struct QueueRef: QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension QueueRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GQueue>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GQueue>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GQueue>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GQueue>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GQueue>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `QueueProtocol`
-    init<T: QueueProtocol>(_ other: T) {
+    @inlinable init<T: QueueProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension QueueRef {
 open class Queue: QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Queue` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GQueue>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GQueue>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Queue` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GQueue>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Queue` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Queue` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Queue` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GQueue>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Queue` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GQueue>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GQueue` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Queue` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GQueue>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GQueue>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `QueueProtocol`
     /// `GQueue` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `QueueProtocol`
-    public init<T: QueueProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+    @inlinable public init<T: QueueProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GQueue`.
     deinit {
-        // no reference counting for GQueue, cannot unref(cast(_ptr))
+        // no reference counting for GQueue, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GQueue, cannot ref(cast(_ptr))
+        // no reference counting for GQueue, cannot ref(_ptr)
     }
 
 
@@ -183,42 +260,42 @@ open class Queue: QueueProtocol {
 // MARK: Queue Record: QueueProtocol extension (methods and fields)
 public extension QueueProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GQueue` instance.
-    var _ptr: UnsafeMutablePointer<GQueue> { return ptr.assumingMemoryBound(to: GQueue.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GQueue>! { return ptr?.assumingMemoryBound(to: GQueue.self) }
 
     /// Removes all the elements in `queue`. If queue elements contain
     /// dynamically-allocated memory, they should be freed first.
-    func clear() {
-        g_queue_clear(cast(_ptr))
+    @inlinable func clear() {
+        g_queue_clear(_ptr)
     
     }
 
     /// Convenience method, which frees all the memory used by a `GQueue`,
     /// and calls the provided `free_func` on each item in the `GQueue`.
-    func clearFull(freeFunc free_func: @escaping DestroyNotify) {
-        g_queue_clear_full(cast(_ptr), free_func)
+    @inlinable func clearFull(freeFunc: GDestroyNotify? = nil) {
+        g_queue_clear_full(_ptr, freeFunc)
     
     }
 
     /// Copies a `queue`. Note that is a shallow copy. If the elements in the
     /// queue consist of pointers to data, the pointers are copied, but the
     /// actual data is not.
-    func copy() -> UnsafeMutablePointer<GQueue>! {
-        let rv: UnsafeMutablePointer<GQueue>! = cast(g_queue_copy(cast(_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> QueueRef! {
+        guard let rv = QueueRef(gconstpointer: gconstpointer(g_queue_copy(_ptr))) else { return nil }
+        return rv
     }
 
     /// Removes `link_` from `queue` and frees it.
     /// 
     /// `link_` must be part of `queue`.
-    func deleteLink(link_: ListProtocol) {
-        g_queue_delete_link(cast(_ptr), cast(link_.ptr))
+    @inlinable func deleteLink<ListT: ListProtocol>(link_: ListT) {
+        g_queue_delete_link(_ptr, link_._ptr)
     
     }
 
     /// Finds the first link in `queue` which contains `data`.
-    func find(data: gconstpointer) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_find(cast(_ptr), cast(data)))
-        return cast(rv)
+    @inlinable func find(data: gconstpointer! = nil) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_find(_ptr, data))
+        return rv
     }
 
     /// Finds an element in a `GQueue`, using a supplied function to find the
@@ -226,9 +303,9 @@ public extension QueueProtocol {
     /// which should return 0 when the desired element is found. The function
     /// takes two gconstpointer arguments, the `GQueue` element's data as the
     /// first argument and the given user data as the second argument.
-    func findCustom(data: gconstpointer, func_: @escaping CompareFunc) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_find_custom(cast(_ptr), cast(data), func_))
-        return cast(rv)
+    @inlinable func findCustom(data: gconstpointer! = nil, `func`: GCompareFunc?) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_find_custom(_ptr, data, `func`))
+        return rv
     }
 
     /// Calls `func` for each element in the queue passing `user_data` to the
@@ -236,8 +313,8 @@ public extension QueueProtocol {
     /// 
     /// It is safe for `func` to remove the element from `queue`, but it must
     /// not modify any part of the queue after that element.
-    func foreach(func_: @escaping Func, userData user_data: UnsafeMutableRawPointer) {
-        g_queue_foreach(cast(_ptr), func_, cast(user_data))
+    @inlinable func foreach(`func`: GFunc?, userData: gpointer! = nil) {
+        g_queue_foreach(_ptr, `func`, userData)
     
     }
 
@@ -247,8 +324,8 @@ public extension QueueProtocol {
     /// 
     /// If queue elements contain dynamically-allocated memory, you should
     /// either use `g_queue_free_full()` or free them manually first.
-    func free() {
-        g_queue_free(cast(_ptr))
+    @inlinable func free() {
+        g_queue_free(_ptr)
     
     }
 
@@ -257,29 +334,29 @@ public extension QueueProtocol {
     /// 
     /// `free_func` should not modify the queue (eg, by removing the freed
     /// element from it).
-    func freeFull(freeFunc free_func: @escaping DestroyNotify) {
-        g_queue_free_full(cast(_ptr), free_func)
+    @inlinable func freeFull(freeFunc: GDestroyNotify?) {
+        g_queue_free_full(_ptr, freeFunc)
     
     }
 
     /// Returns the number of items in `queue`.
-    func getLength() -> Int {
-        let rv: Int = cast(g_queue_get_length(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getLength() -> Int {
+        let rv = Int(g_queue_get_length(_ptr))
+        return rv
     }
 
     /// Returns the position of the first element in `queue` which contains `data`.
-    func index(data: gconstpointer) -> Int {
-        let rv: Int = cast(g_queue_index(cast(_ptr), cast(data)))
-        return Int(rv)
+    @inlinable func index(data: gconstpointer! = nil) -> Int {
+        let rv = Int(g_queue_index(_ptr, data))
+        return rv
     }
 
     /// A statically-allocated `GQueue` must be initialized with this function
     /// before it can be used. Alternatively you can initialize it with
     /// `G_QUEUE_INIT`. It is not necessary to initialize queues created with
     /// `g_queue_new()`.
-    func init_() {
-        g_queue_init(cast(_ptr))
+    @inlinable func init_() {
+        g_queue_init(_ptr)
     
     }
 
@@ -287,16 +364,24 @@ public extension QueueProtocol {
     /// 
     /// `sibling` must be part of `queue`. Since GLib 2.44 a `nil` sibling pushes the
     /// data at the head of the queue.
-    func insertAfter(sibling: ListProtocol, data: UnsafeMutableRawPointer) {
-        g_queue_insert_after(cast(_ptr), cast(sibling.ptr), cast(data))
+    @inlinable func insertAfter(sibling: ListRef? = nil, data: gpointer! = nil) {
+        g_queue_insert_after(_ptr, sibling?._ptr, data)
+    
+    }
+    /// Inserts `data` into `queue` after `sibling`.
+    /// 
+    /// `sibling` must be part of `queue`. Since GLib 2.44 a `nil` sibling pushes the
+    /// data at the head of the queue.
+    @inlinable func insertAfter<ListT: ListProtocol>(sibling: ListT?, data: gpointer! = nil) {
+        g_queue_insert_after(_ptr, sibling?._ptr, data)
     
     }
 
     /// Inserts `link_` into `queue` after `sibling`.
     /// 
     /// `sibling` must be part of `queue`.
-    func insertAfterLink(sibling: ListProtocol, link_: ListProtocol) {
-        g_queue_insert_after_link(cast(_ptr), cast(sibling.ptr), cast(link_.ptr))
+    @inlinable func insertAfterLink<ListT: ListProtocol>(sibling: ListT?, link_: ListT) {
+        g_queue_insert_after_link(_ptr, sibling?._ptr, link_._ptr)
     
     }
 
@@ -304,160 +389,168 @@ public extension QueueProtocol {
     /// 
     /// `sibling` must be part of `queue`. Since GLib 2.44 a `nil` sibling pushes the
     /// data at the tail of the queue.
-    func insertBefore(sibling: ListProtocol, data: UnsafeMutableRawPointer) {
-        g_queue_insert_before(cast(_ptr), cast(sibling.ptr), cast(data))
+    @inlinable func insertBefore(sibling: ListRef? = nil, data: gpointer! = nil) {
+        g_queue_insert_before(_ptr, sibling?._ptr, data)
+    
+    }
+    /// Inserts `data` into `queue` before `sibling`.
+    /// 
+    /// `sibling` must be part of `queue`. Since GLib 2.44 a `nil` sibling pushes the
+    /// data at the tail of the queue.
+    @inlinable func insertBefore<ListT: ListProtocol>(sibling: ListT?, data: gpointer! = nil) {
+        g_queue_insert_before(_ptr, sibling?._ptr, data)
     
     }
 
     /// Inserts `link_` into `queue` before `sibling`.
     /// 
     /// `sibling` must be part of `queue`.
-    func insertBeforeLink(sibling: ListProtocol, link_: ListProtocol) {
-        g_queue_insert_before_link(cast(_ptr), cast(sibling.ptr), cast(link_.ptr))
+    @inlinable func insertBeforeLink<ListT: ListProtocol>(sibling: ListT?, link_: ListT) {
+        g_queue_insert_before_link(_ptr, sibling?._ptr, link_._ptr)
     
     }
 
     /// Inserts `data` into `queue` using `func` to determine the new position.
-    func insertSorted(data: UnsafeMutableRawPointer, func_: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
-        g_queue_insert_sorted(cast(_ptr), cast(data), func_, cast(user_data))
+    @inlinable func insertSorted(data: gpointer! = nil, `func`: GCompareDataFunc?, userData: gpointer! = nil) {
+        g_queue_insert_sorted(_ptr, data, `func`, userData)
     
     }
 
     /// Returns the position of `link_` in `queue`.
-    func linkIndex(link_: ListProtocol) -> Int {
-        let rv: Int = cast(g_queue_link_index(cast(_ptr), cast(link_.ptr)))
-        return Int(rv)
+    @inlinable func linkIndex<ListT: ListProtocol>(link_: ListT) -> Int {
+        let rv = Int(g_queue_link_index(_ptr, link_._ptr))
+        return rv
     }
 
     /// Returns the first element of the queue.
-    func peekHead() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_head(cast(_ptr)))
-        return cast(rv)
+    @inlinable func peekHead() -> gpointer! {
+        let rv = g_queue_peek_head(_ptr)
+        return rv
     }
 
     /// Returns the first link in `queue`.
-    func peekHeadLink() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_head_link(cast(_ptr)))
-        return cast(rv)
+    @inlinable func peekHeadLink() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_peek_head_link(_ptr))
+        return rv
     }
 
     /// Returns the `n`'th element of `queue`.
-    func peekNth(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_nth(cast(_ptr), guint(n)))
-        return cast(rv)
+    @inlinable func peekNth(n: Int) -> gpointer! {
+        let rv = g_queue_peek_nth(_ptr, guint(n))
+        return rv
     }
 
     /// Returns the link at the given position
-    func peekNthLink(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_nth_link(cast(_ptr), guint(n)))
-        return cast(rv)
+    @inlinable func peekNthLink(n: Int) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_peek_nth_link(_ptr, guint(n)))
+        return rv
     }
 
     /// Returns the last element of the queue.
-    func peekTail() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_peek_tail(cast(_ptr)))
-        return cast(rv)
+    @inlinable func peekTail() -> gpointer! {
+        let rv = g_queue_peek_tail(_ptr)
+        return rv
     }
 
     /// Returns the last link in `queue`.
-    func peekTailLink() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_peek_tail_link(cast(_ptr)))
-        return cast(rv)
+    @inlinable func peekTailLink() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_peek_tail_link(_ptr))
+        return rv
     }
 
     /// Removes the first element of the queue and returns its data.
-    func popHead() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_head(cast(_ptr)))
-        return cast(rv)
+    @inlinable func popHead() -> gpointer! {
+        let rv = g_queue_pop_head(_ptr)
+        return rv
     }
 
     /// Removes and returns the first element of the queue.
-    func popHeadLink() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_head_link(cast(_ptr)))
-        return cast(rv)
+    @inlinable func popHeadLink() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_pop_head_link(_ptr))
+        return rv
     }
 
     /// Removes the `n`'th element of `queue` and returns its data.
-    func popNth(n: CUnsignedInt) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_nth(cast(_ptr), guint(n)))
-        return cast(rv)
+    @inlinable func popNth(n: Int) -> gpointer! {
+        let rv = g_queue_pop_nth(_ptr, guint(n))
+        return rv
     }
 
     /// Removes and returns the link at the given position.
-    func popNthLink(n: CUnsignedInt) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_nth_link(cast(_ptr), guint(n)))
-        return cast(rv)
+    @inlinable func popNthLink(n: Int) -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_pop_nth_link(_ptr, guint(n)))
+        return rv
     }
 
     /// Removes the last element of the queue and returns its data.
-    func popTail() -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_queue_pop_tail(cast(_ptr)))
-        return cast(rv)
+    @inlinable func popTail() -> gpointer! {
+        let rv = g_queue_pop_tail(_ptr)
+        return rv
     }
 
     /// Removes and returns the last element of the queue.
-    func popTailLink() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(g_queue_pop_tail_link(cast(_ptr)))
-        return cast(rv)
+    @inlinable func popTailLink() -> GLib.ListRef! {
+        let rv = GLib.ListRef(g_queue_pop_tail_link(_ptr))
+        return rv
     }
 
     /// Adds a new element at the head of the queue.
-    func pushHead(data: UnsafeMutableRawPointer) {
-        g_queue_push_head(cast(_ptr), cast(data))
+    @inlinable func pushHead(data: gpointer! = nil) {
+        g_queue_push_head(_ptr, data)
     
     }
 
     /// Adds a new element at the head of the queue.
-    func pushHeadLink(link_: ListProtocol) {
-        g_queue_push_head_link(cast(_ptr), cast(link_.ptr))
+    @inlinable func pushHeadLink<ListT: ListProtocol>(link_: ListT) {
+        g_queue_push_head_link(_ptr, link_._ptr)
     
     }
 
     /// Inserts a new element into `queue` at the given position.
-    func pushNth(data: UnsafeMutableRawPointer, n: CInt) {
-        g_queue_push_nth(cast(_ptr), cast(data), gint(n))
+    @inlinable func pushNth(data: gpointer! = nil, n: Int) {
+        g_queue_push_nth(_ptr, data, gint(n))
     
     }
 
     /// Inserts `link` into `queue` at the given position.
-    func pushNthLink(n: CInt, link_: ListProtocol) {
-        g_queue_push_nth_link(cast(_ptr), gint(n), cast(link_.ptr))
+    @inlinable func pushNthLink<ListT: ListProtocol>(n: Int, link_: ListT) {
+        g_queue_push_nth_link(_ptr, gint(n), link_._ptr)
     
     }
 
     /// Adds a new element at the tail of the queue.
-    func pushTail(data: UnsafeMutableRawPointer) {
-        g_queue_push_tail(cast(_ptr), cast(data))
+    @inlinable func pushTail(data: gpointer! = nil) {
+        g_queue_push_tail(_ptr, data)
     
     }
 
     /// Adds a new element at the tail of the queue.
-    func pushTailLink(link_: ListProtocol) {
-        g_queue_push_tail_link(cast(_ptr), cast(link_.ptr))
+    @inlinable func pushTailLink<ListT: ListProtocol>(link_: ListT) {
+        g_queue_push_tail_link(_ptr, link_._ptr)
     
     }
 
     /// Removes the first element in `queue` that contains `data`.
-    func remove(data: gconstpointer) -> Bool {
-        let rv = g_queue_remove(cast(_ptr), cast(data))
-        return Bool(rv != 0)
+    @inlinable func remove(data: gconstpointer! = nil) -> Bool {
+        let rv = ((g_queue_remove(_ptr, data)) != 0)
+        return rv
     }
 
     /// Remove all elements whose data equals `data` from `queue`.
-    func removeAll(data: gconstpointer) -> Int {
-        let rv: Int = cast(g_queue_remove_all(cast(_ptr), cast(data)))
-        return Int(rv)
+    @inlinable func removeAll(data: gconstpointer! = nil) -> Int {
+        let rv = Int(g_queue_remove_all(_ptr, data))
+        return rv
     }
 
     /// Reverses the order of the items in `queue`.
-    func reverse() {
-        g_queue_reverse(cast(_ptr))
+    @inlinable func reverse() {
+        g_queue_reverse(_ptr)
     
     }
 
     /// Sorts `queue` using `compare_func`.
-    func sort(compareFunc compare_func: @escaping CompareDataFunc, userData user_data: UnsafeMutableRawPointer) {
-        g_queue_sort(cast(_ptr), compare_func, cast(user_data))
+    @inlinable func sort(compareFunc: GCompareDataFunc?, userData: gpointer! = nil) {
+        g_queue_sort(_ptr, compareFunc, userData)
     
     }
 
@@ -465,64 +558,64 @@ public extension QueueProtocol {
     /// The link is not freed.
     /// 
     /// `link_` must be part of `queue`.
-    func unlink(link_: ListProtocol) {
-        g_queue_unlink(cast(_ptr), cast(link_.ptr))
+    @inlinable func unlink<ListT: ListProtocol>(link_: ListT) {
+        g_queue_unlink(_ptr, link_._ptr)
     
     }
     /// Returns `true` if the queue is empty.
-    var isEmpty: Bool {
+    @inlinable var isEmpty: Bool {
         /// Returns `true` if the queue is empty.
         get {
-            let rv = g_queue_is_empty(cast(_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_queue_is_empty(_ptr)) != 0)
+            return rv
         }
     }
 
     /// Returns the number of items in `queue`.
-    var length: Int {
+    @inlinable var length: Int {
         /// Returns the number of items in `queue`.
         get {
-            let rv: Int = cast(g_queue_get_length(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_queue_get_length(_ptr))
+            return rv
         }
     }
 
     /// a pointer to the first element of the queue
-    var head: UnsafeMutablePointer<GList> {
+    @inlinable var head: ListRef! {
         /// a pointer to the first element of the queue
         get {
-            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.head)
+            let rv = ListRef(gconstpointer: gconstpointer(_ptr.pointee.head))
             return rv
         }
         /// a pointer to the first element of the queue
          set {
-            _ptr.pointee.head = cast(newValue)
+            _ptr.pointee.head = UnsafeMutablePointer<GList>(newValue._ptr)
         }
     }
 
     /// a pointer to the last element of the queue
-    var tail: UnsafeMutablePointer<GList> {
+    @inlinable var tail: ListRef! {
         /// a pointer to the last element of the queue
         get {
-            let rv: UnsafeMutablePointer<GList> = cast(_ptr.pointee.tail)
+            let rv = ListRef(gconstpointer: gconstpointer(_ptr.pointee.tail))
             return rv
         }
         /// a pointer to the last element of the queue
          set {
-            _ptr.pointee.tail = cast(newValue)
+            _ptr.pointee.tail = UnsafeMutablePointer<GList>(newValue._ptr)
         }
     }
 
     /// the number of elements in the queue
-    var _length: Int {
+    @inlinable var _length: guint {
         /// the number of elements in the queue
         get {
-            let rv: Int = cast(_ptr.pointee.length)
+            let rv = _ptr.pointee.length
             return rv
         }
         /// the number of elements in the queue
          set {
-            _ptr.pointee.length = guint(newValue)
+            _ptr.pointee.length = newValue
         }
     }
 

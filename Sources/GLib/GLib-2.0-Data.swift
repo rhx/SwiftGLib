@@ -12,10 +12,11 @@ import CGLib
 /// accessed via the following functions.
 public protocol DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GData` instance.
-    var _ptr: UnsafeMutablePointer<GData> { get }
+    var _ptr: UnsafeMutablePointer<GData>! { get }
+
 }
 
 /// The `DataRef` type acts as a lightweight Swift reference to an underlying `GData` instance.
@@ -28,46 +29,76 @@ public protocol DataProtocol {
 public struct DataRef: DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension DataRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GData>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GData>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GData>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `DataProtocol`
-    init<T: DataProtocol>(_ other: T) {
+    @inlinable init<T: DataProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -83,95 +114,141 @@ public extension DataRef {
 open class Data: DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Data` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GData>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GData>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GData>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GData>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GData` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Data` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GData>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GData>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GData, cannot ref(cast(_ptr))
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `DataProtocol`
     /// `GData` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `DataProtocol`
-    public init<T: DataProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GData, cannot ref(cast(_ptr))
+    @inlinable public init<T: DataProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GData`.
     deinit {
-        // no reference counting for GData, cannot unref(cast(_ptr))
+        // no reference counting for GData, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GData, cannot ref(cast(_ptr))
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GData, cannot ref(cast(_ptr))
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GData, cannot ref(cast(_ptr))
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GData, cannot ref(cast(_ptr))
+        // no reference counting for GData, cannot ref(_ptr)
     }
 
 
@@ -186,126 +263,8 @@ open class Data: DataProtocol {
 // MARK: Data Record: DataProtocol extension (methods and fields)
 public extension DataProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GData` instance.
-    var _ptr: UnsafeMutablePointer<GData> { return ptr.assumingMemoryBound(to: GData.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GData>! { return ptr?.assumingMemoryBound(to: GData.self) }
 
-    /// Frees all the data elements of the datalist.
-    /// The data elements' destroy functions are called
-    /// if they have been set.
-    func datalistClear() {
-        g_datalist_clear(cast(_ptr))
-    
-    }
-
-    /// Calls the given function for each data element of the datalist. The
-    /// function is called with each data element's `GQuark` id and data,
-    /// together with the given `user_data` parameter. Note that this
-    /// function is NOT thread-safe. So unless `datalist` can be protected
-    /// from any modifications during invocation of this function, it should
-    /// not be called.
-    /// 
-    /// `func` can make changes to `datalist`, but the iteration will not
-    /// reflect changes made during the `g_datalist_foreach()` call, other
-    /// than skipping over elements that are removed.
-    func datalistForeach(func_: @escaping DataForeachFunc, userData user_data: UnsafeMutableRawPointer) {
-        g_datalist_foreach(cast(_ptr), func_, cast(user_data))
-    
-    }
-
-    /// Gets a data element, using its string identifier. This is slower than
-    /// `g_datalist_id_get_data()` because it compares strings.
-    func datalistGetData(key: UnsafePointer<gchar>) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_datalist_get_data(cast(_ptr), key))
-        return cast(rv)
-    }
-
-    /// Gets flags values packed in together with the datalist.
-    /// See `g_datalist_set_flags()`.
-    func datalistGetFlags() -> Int {
-        let rv: Int = cast(g_datalist_get_flags(cast(_ptr)))
-        return Int(rv)
-    }
-
-    /// This is a variant of `g_datalist_id_get_data()` which
-    /// returns a 'duplicate' of the value. `dup_func` defines the
-    /// meaning of 'duplicate' in this context, it could e.g.
-    /// take a reference on a ref-counted object.
-    /// 
-    /// If the `key_id` is not set in the datalist then `dup_func`
-    /// will be called with a `nil` argument.
-    /// 
-    /// Note that `dup_func` is called while the datalist is locked, so it
-    /// is not allowed to read or modify the datalist.
-    /// 
-    /// This function can be useful to avoid races when multiple
-    /// threads are using the same datalist and the same key.
-    func datalistIDDupData(keyID key_id: Quark, dupFunc dup_func: @escaping DuplicateFunc, userData user_data: UnsafeMutableRawPointer) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_dup_data(cast(_ptr), key_id, dup_func, cast(user_data)))
-        return cast(rv)
-    }
-
-    /// Retrieves the data element corresponding to `key_id`.
-    func datalistIDGetData(keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_get_data(cast(_ptr), key_id))
-        return cast(rv)
-    }
-
-    /// Removes an element, without calling its destroy notification
-    /// function.
-    func datalistIDRemoveNoNotify(keyID key_id: Quark) -> UnsafeMutableRawPointer! {
-        let rv: UnsafeMutableRawPointer! = cast(g_datalist_id_remove_no_notify(cast(_ptr), key_id))
-        return cast(rv)
-    }
-
-    /// Compares the member that is associated with `key_id` in
-    /// `datalist` to `oldval`, and if they are the same, replace
-    /// `oldval` with `newval`.
-    /// 
-    /// This is like a typical atomic compare-and-exchange
-    /// operation, for a member of `datalist`.
-    /// 
-    /// If the previous value was replaced then ownership of the
-    /// old value (`oldval`) is passed to the caller, including
-    /// the registered destroy notify for it (passed out in `old_destroy`).
-    /// Its up to the caller to free this as he wishes, which may
-    /// or may not include using `old_destroy` as sometimes replacement
-    /// should not destroy the object in the normal way.
-    func datalistIDReplaceData(keyID key_id: Quark, oldval: UnsafeMutableRawPointer, newval: UnsafeMutableRawPointer, destroy: @escaping DestroyNotify, oldDestroy old_destroy: UnsafeMutablePointer<GDestroyNotify>) -> Bool {
-        let rv = g_datalist_id_replace_data(cast(_ptr), key_id, cast(oldval), cast(newval), destroy, cast(old_destroy))
-        return Bool(rv != 0)
-    }
-
-    /// Sets the data corresponding to the given `GQuark` id, and the
-    /// function to be called when the element is removed from the datalist.
-    /// Any previous data with the same key is removed, and its destroy
-    /// function is called.
-    func datalistIDSetDataFull(keyID key_id: Quark, data: UnsafeMutableRawPointer, destroyFunc destroy_func: @escaping DestroyNotify) {
-        g_datalist_id_set_data_full(cast(_ptr), key_id, cast(data), destroy_func)
-    
-    }
-
-    /// Resets the datalist to `nil`. It does not free any memory or call
-    /// any destroy functions.
-    func datalistInit() {
-        g_datalist_init(cast(_ptr))
-    
-    }
-
-    /// Turns on flag values for a data list. This function is used
-    /// to keep a small number of boolean flags in an object with
-    /// a data list without using any additional space. It is
-    /// not generally useful except in circumstances where space
-    /// is very tight. (It is used in the base `GObject` type, for
-    /// example.)
-    func datalistSet(flags: CUnsignedInt) {
-        g_datalist_set_flags(cast(_ptr), guint(flags))
-    
-    }
-
-    /// Turns off flag values for a data list. See `g_datalist_unset_flags()`
-    func datalistUnset(flags: CUnsignedInt) {
-        g_datalist_unset_flags(cast(_ptr), guint(flags))
-    
-    }
 
 
 }

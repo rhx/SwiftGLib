@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3652,7 +3655,7 @@ The date must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">addDays</span><span class="p">(</span><span class="n">nDays</span> <span class="nv">n_days</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">addDays</span><span class="p">(</span><span class="nv">nDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3690,7 +3693,7 @@ the current day in it). The date must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">addMonths</span><span class="p">(</span><span class="n">nMonths</span> <span class="nv">n_months</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">addMonths</span><span class="p">(</span><span class="nv">nMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3727,7 +3730,7 @@ to February 28. The date must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">addYears</span><span class="p">(</span><span class="n">nYears</span> <span class="nv">n_years</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">addYears</span><span class="p">(</span><span class="nv">nYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -3765,7 +3768,7 @@ All non-<code>nil</code> dates must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="n">clamp</span><span class="o">&lt;</span><span class="kt">DateT</span><span class="o">&gt;</span><span class="p">(</span><span class="n">minDate</span> <span class="nv">min_date</span><span class="p">:</span> <span class="kt">DateT</span><span class="p">,</span> <span class="n">maxDate</span> <span class="nv">max_date</span><span class="p">:</span> <span class="kt">DateT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">DateT</span> <span class="p">:</span> <span class="kt">DateProtocol</span></code></pre>
+<span class="kd">func</span> <span class="n">clamp</span><span class="o">&lt;</span><span class="kt">DateT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">minDate</span><span class="p">:</span> <span class="kt">DateT</span><span class="p">,</span> <span class="nv">maxDate</span><span class="p">:</span> <span class="kt">DateT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">DateT</span> <span class="p">:</span> <span class="kt">DateProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -3802,7 +3805,7 @@ Validity can be tested with <code>g_date_valid()</code>.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">clear</span><span class="p">(</span><span class="n">nDates</span> <span class="nv">n_dates</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">clear</span><span class="p">(</span><span class="nv">nDates</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4399,7 +4402,7 @@ set it.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setJulian</span><span class="p">(</span><span class="n">julianDate</span> <span class="nv">julian_date</span><span class="p">:</span> <span class="n">guint32</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">setJulian</span><span class="p">(</span><span class="nv">julianDate</span><span class="p">:</span> <span class="n">guint32</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4676,7 +4679,7 @@ The date must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">subtractDays</span><span class="p">(</span><span class="n">nDays</span> <span class="nv">n_days</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">subtractDays</span><span class="p">(</span><span class="nv">nDays</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4713,7 +4716,7 @@ may change. The date must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">subtractMonths</span><span class="p">(</span><span class="n">nMonths</span> <span class="nv">n_months</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">subtractMonths</span><span class="p">(</span><span class="nv">nMonths</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -4751,7 +4754,7 @@ must be valid.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">subtractYears</span><span class="p">(</span><span class="n">nYears</span> <span class="nv">n_years</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="nf">subtractYears</span><span class="p">(</span><span class="nv">nYears</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -5523,7 +5526,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

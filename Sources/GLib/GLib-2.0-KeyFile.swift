@@ -11,10 +11,11 @@ import CGLib
 /// and should not be accessed directly.
 public protocol KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GKeyFile` instance.
-    var key_file_ptr: UnsafeMutablePointer<GKeyFile> { get }
+    var key_file_ptr: UnsafeMutablePointer<GKeyFile>! { get }
+
 }
 
 /// The `KeyFileRef` type acts as a lightweight Swift reference to an underlying `GKeyFile` instance.
@@ -26,46 +27,76 @@ public protocol KeyFileProtocol {
 public struct KeyFileRef: KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
     /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension KeyFileRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GKeyFile>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GKeyFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GKeyFile>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GKeyFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `KeyFileProtocol`
-    init<T: KeyFileProtocol>(_ other: T) {
+    @inlinable init<T: KeyFileProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -73,9 +104,9 @@ public extension KeyFileRef {
     /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
     /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
     /// read an existing key file.
-    init() {
-        let rv: UnsafeMutablePointer<GKeyFile>! = cast(g_key_file_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = g_key_file_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -88,104 +119,150 @@ public extension KeyFileRef {
 open class KeyFile: KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
     /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `KeyFile` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GKeyFile>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GKeyFile>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GKeyFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GKeyFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GKeyFile>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GKeyFile`.
     /// i.e., ownership is transferred to the `KeyFile` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GKeyFile>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GKeyFile>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_key_file_ref(cast(key_file_ptr))
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Reference intialiser for a related type that implements `KeyFileProtocol`
     /// Will retain `GKeyFile`.
     /// - Parameter other: an instance of a related type that implements `KeyFileProtocol`
-    public init<T: KeyFileProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.key_file_ptr)
-        g_key_file_ref(cast(key_file_ptr))
+    @inlinable public init<T: KeyFileProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Releases the underlying `GKeyFile` instance using `g_key_file_unref`.
     deinit {
-        g_key_file_unref(cast(key_file_ptr))
+        g_key_file_unref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_key_file_ref(cast(key_file_ptr))
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_key_file_ref(cast(key_file_ptr))
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_key_file_ref(cast(key_file_ptr))
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_key_file_ref(cast(key_file_ptr))
+        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
     }
 
     /// Creates a new empty `GKeyFile` object. Use
     /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
     /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
     /// read an existing key file.
-    public init() {
-        let rv: UnsafeMutablePointer<GKeyFile>! = cast(g_key_file_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init() {
+        let rv = g_key_file_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -199,13 +276,13 @@ open class KeyFile: KeyFileProtocol {
 // MARK: KeyFile Record: KeyFileProtocol extension (methods and fields)
 public extension KeyFileProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GKeyFile` instance.
-    var key_file_ptr: UnsafeMutablePointer<GKeyFile> { return ptr.assumingMemoryBound(to: GKeyFile.self) }
+    @inlinable var key_file_ptr: UnsafeMutablePointer<GKeyFile>! { return ptr?.assumingMemoryBound(to: GKeyFile.self) }
 
     /// Clears all keys and groups from `key_file`, and decreases the
     /// reference count by 1. If the reference count reaches zero,
     /// frees the key file and all its allocated memory.
-    func free() {
-        g_key_file_free(cast(key_file_ptr))
+    @inlinable func free() {
+        g_key_file_free(key_file_ptr)
     
     }
 
@@ -216,11 +293,11 @@ public extension KeyFileProtocol {
     /// to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the value
     /// associated with `key` cannot be interpreted as a boolean then `false`
     /// is returned and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getBoolean(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func getBoolean(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_boolean(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_get_boolean(key_file_ptr, groupName, key, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the values associated with `key` under `group_name` as
@@ -230,11 +307,11 @@ public extension KeyFileProtocol {
     /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the values associated
     /// with `key` cannot be interpreted as booleans then `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getBooleanList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<Bool>! {
+    @inlinable func getBooleanList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gboolean>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<Bool>! = cast(g_key_file_get_boolean_list(cast(key_file_ptr), group_name, key, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_boolean_list(key_file_ptr, groupName, key, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves a comment above `key` from `group_name`.
@@ -245,11 +322,11 @@ public extension KeyFileProtocol {
     /// Note that the returned string does not include the '#' comment markers,
     /// but does include any whitespace after them (on each line). It includes
     /// the line breaks between lines, but does not include the final line break.
-    func getComment(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_key_file_get_comment(cast(key_file_ptr), group_name, key, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_comment(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the value associated with `key` under `group_name` as a
@@ -259,11 +336,11 @@ public extension KeyFileProtocol {
     /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the value associated
     /// with `key` cannot be interpreted as a double then 0.0 is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getDouble(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Double {
+    @inlinable func getDouble(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Double {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Double = cast(g_key_file_get_double(cast(key_file_ptr), group_name, key, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = Double(g_key_file_get_double(key_file_ptr, groupName, key, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the values associated with `key` under `group_name` as
@@ -273,29 +350,29 @@ public extension KeyFileProtocol {
     /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the values associated
     /// with `key` cannot be interpreted as doubles then `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getDoubleList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gdouble>! {
+    @inlinable func getDoubleList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gdouble>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<gdouble>! = cast(g_key_file_get_double_list(cast(key_file_ptr), group_name, key, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_double_list(key_file_ptr, groupName, key, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns all groups in the key file loaded with `key_file`.
     /// The array of returned groups will be `nil`-terminated, so
     /// `length` may optionally be `nil`.
-    func getGroups(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_key_file_get_groups(cast(key_file_ptr), cast(length)))
-        return cast(rv)
+    @inlinable func getGroups(length: UnsafeMutablePointer<gsize>! = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_key_file_get_groups(key_file_ptr, length)
+        return rv
     }
 
     /// Returns the value associated with `key` under `group_name` as a signed
     /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
     /// 64-bit results without truncation.
-    func getInt64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Int64 {
+    @inlinable func getInt64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> gint64 {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_int64(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return Int64(rv)
+        let rv = g_key_file_get_int64(key_file_ptr, groupName, key, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the value associated with `key` under `group_name` as an
@@ -306,11 +383,11 @@ public extension KeyFileProtocol {
     /// with `key` cannot be interpreted as an integer, or is out of range
     /// for a `gint`, then 0 is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getInteger(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Int {
+    @inlinable func getInteger(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Int {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_key_file_get_integer(cast(key_file_ptr), group_name, key, &error))
-        if let error = error { throw ErrorType(error) }
-        return Int(rv)
+        let rv = Int(g_key_file_get_integer(key_file_ptr, groupName, key, &error))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the values associated with `key` under `group_name` as
@@ -321,11 +398,11 @@ public extension KeyFileProtocol {
     /// with `key` cannot be interpreted as integers, or are out of range for
     /// `gint`, then `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    func getIntegerList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<CInt>! {
+    @inlinable func getIntegerList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gint>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<CInt>! = cast(g_key_file_get_integer_list(cast(key_file_ptr), group_name, key, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_integer_list(key_file_ptr, groupName, key, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns all keys for the group name `group_name`.  The array of
@@ -333,11 +410,11 @@ public extension KeyFileProtocol {
     /// optionally be `nil`. In the event that the `group_name` cannot
     /// be found, `nil` is returned and `error` is set to
     /// `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    func getKeys(groupName group_name: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func getKeys(groupName: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_key_file_get_keys(cast(key_file_ptr), group_name, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_keys(key_file_ptr, groupName, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the actual locale which the result of
@@ -349,9 +426,9 @@ public extension KeyFileProtocol {
     /// `group_name`, `key` and `locale`, the result of those functions will
     /// have originally been tagged with the locale that is the result of
     /// this function.
-    func getLocaleForKey(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, locale: UnsafePointer<gchar>) -> String! {
-        let rv: String! = cast(g_key_file_get_locale_for_key(cast(key_file_ptr), group_name, key, locale))
-        return cast(rv)
+    @inlinable func getLocaleForKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil) -> String! {
+        let rv = g_key_file_get_locale_for_key(key_file_ptr, groupName, key, locale).map({ String(cString: $0) })
+        return rv
     }
 
     /// Returns the value associated with `key` under `group_name`
@@ -366,11 +443,11 @@ public extension KeyFileProtocol {
     /// to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. If the value associated
     /// with `key` cannot be interpreted or no suitable translation can
     /// be found then the untranslated value is returned.
-    func getLocaleString(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, locale: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getLocaleString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_key_file_get_locale_string(cast(key_file_ptr), group_name, key, locale, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_locale_string(key_file_ptr, groupName, key, locale, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the values associated with `key` under `group_name`
@@ -387,17 +464,17 @@ public extension KeyFileProtocol {
     /// can be found then the untranslated values are returned. The
     /// returned array is `nil`-terminated, so `length` may optionally
     /// be `nil`.
-    func getLocaleStringList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, locale: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func getLocaleStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_key_file_get_locale_string_list(cast(key_file_ptr), group_name, key, locale, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_locale_string_list(key_file_ptr, groupName, key, locale, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the name of the start group of the file.
-    func getStartGroup() -> String! {
-        let rv: String! = cast(g_key_file_get_start_group(cast(key_file_ptr)))
-        return cast(rv)
+    @inlinable func getStartGroup() -> String! {
+        let rv = g_key_file_get_start_group(key_file_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Returns the string value associated with `key` under `group_name`.
@@ -408,11 +485,11 @@ public extension KeyFileProtocol {
     /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
     /// event that the `group_name` cannot be found, `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    func getString(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_key_file_get_string(cast(key_file_ptr), group_name, key, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_string(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the values associated with `key` under `group_name`.
@@ -421,21 +498,21 @@ public extension KeyFileProtocol {
     /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
     /// event that the `group_name` cannot be found, `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    func getStringList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func getStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_key_file_get_string_list(cast(key_file_ptr), group_name, key, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_string_list(key_file_ptr, groupName, key, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the value associated with `key` under `group_name` as an unsigned
     /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
     /// large positive results without truncation.
-    func getUint64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> UInt64 {
+    @inlinable func getUint64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> guint64 {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_uint64(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return UInt64(rv)
+        let rv = g_key_file_get_uint64(key_file_ptr, groupName, key, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns the raw value associated with `key` under `group_name`.
@@ -445,17 +522,17 @@ public extension KeyFileProtocol {
     /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
     /// event that the `group_name` cannot be found, `nil` is returned
     /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    func getValue(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getValue(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_key_file_get_value(cast(key_file_ptr), group_name, key, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_get_value(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Looks whether the key file has the group `group_name`.
-    func hasGroup(groupName group_name: UnsafePointer<gchar>) -> Bool {
-        let rv = g_key_file_has_group(cast(key_file_ptr), group_name)
-        return Bool(rv != 0)
+    @inlinable func hasGroup(groupName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_key_file_has_group(key_file_ptr, groupName)) != 0)
+        return rv
     }
 
     /// Looks whether the key file has the key `key` in the group
@@ -468,29 +545,29 @@ public extension KeyFileProtocol {
     /// 
     /// Language bindings should use `g_key_file_get_value()` to test whether
     /// or not a key exists.
-    func hasKey(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func hasKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_has_key(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_has_key(key_file_ptr, groupName, key, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Loads a key file from the data in `bytes` into an empty `GKeyFile` structure.
     /// If the object cannot be created then `error` is set to a `GKeyFileError`.
-    func loadFrom(bytes: BytesProtocol, flags: KeyFileFlags) throws -> Bool {
+    @inlinable func loadFrom<BytesT: BytesProtocol>(bytes: BytesT, flags: KeyFileFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_load_from_bytes(cast(key_file_ptr), cast(bytes.ptr), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_load_from_bytes(key_file_ptr, bytes.bytes_ptr, flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Loads a key file from memory into an empty `GKeyFile` structure.
     /// If the object cannot be created then `error` is set to a `GKeyFileError`.
-    func loadFrom(data: UnsafePointer<gchar>, length: Int, flags: KeyFileFlags) throws -> Bool {
+    @inlinable func loadFrom(data: UnsafePointer<gchar>!, length: Int, flags: KeyFileFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_load_from_data(cast(key_file_ptr), data, gsize(length), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_load_from_data(key_file_ptr, data, gsize(length), flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// This function looks for a key file named `file` in the paths
@@ -498,11 +575,11 @@ public extension KeyFileProtocol {
     /// loads the file into `key_file` and returns the file's full path in
     /// `full_path`.  If the file could not be loaded then an `error` is
     /// set to either a `GFileError` or `GKeyFileError`.
-    func loadFromDataDirs(file: UnsafePointer<gchar>, fullPath full_path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: KeyFileFlags) throws -> Bool {
+    @inlinable func loadFromDataDirs(file: UnsafePointer<gchar>!, fullPath: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: KeyFileFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_load_from_data_dirs(cast(key_file_ptr), file, cast(full_path), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_load_from_data_dirs(key_file_ptr, file, fullPath, flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// This function looks for a key file named `file` in the paths
@@ -514,11 +591,11 @@ public extension KeyFileProtocol {
     /// the file is found but the OS returns an error when opening or reading the
     /// file, a `G_FILE_ERROR` is returned. If there is a problem parsing the file, a
     /// `G_KEY_FILE_ERROR` is returned.
-    func loadFromDirs(file: UnsafePointer<gchar>, searchDirs search_dirs: UnsafePointer<UnsafePointer<gchar>>, fullPath full_path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, flags: KeyFileFlags) throws -> Bool {
+    @inlinable func loadFromDirs(file: UnsafePointer<gchar>!, searchDirs: UnsafeMutablePointer<UnsafePointer<gchar>?>!, fullPath: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: KeyFileFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_load_from_dirs(cast(key_file_ptr), file, cast(search_dirs), cast(full_path), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_load_from_dirs(key_file_ptr, file, searchDirs, fullPath, flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Loads a key file into an empty `GKeyFile` structure.
@@ -529,45 +606,45 @@ public extension KeyFileProtocol {
     /// 
     /// This function will never return a `G_KEY_FILE_ERROR_NOT_FOUND` error. If the
     /// `file` is not found, `G_FILE_ERROR_NOENT` is returned.
-    func loadFrom(file: UnsafePointer<gchar>, flags: KeyFileFlags) throws -> Bool {
+    @inlinable func loadFrom(file: UnsafePointer<gchar>!, flags: KeyFileFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_load_from_file(cast(key_file_ptr), file, flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_load_from_file(key_file_ptr, file, flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Increases the reference count of `key_file`.
-    @discardableResult func ref() -> UnsafeMutablePointer<GKeyFile>! {
-        let rv: UnsafeMutablePointer<GKeyFile>! = cast(g_key_file_ref(cast(key_file_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> KeyFileRef! {
+        guard let rv = KeyFileRef(gconstpointer: gconstpointer(g_key_file_ref(key_file_ptr))) else { return nil }
+        return rv
     }
 
     /// Removes a comment above `key` from `group_name`.
     /// If `key` is `nil` then `comment` will be removed above `group_name`.
     /// If both `key` and `group_name` are `nil`, then `comment` will
     /// be removed above the first group in the file.
-    func removeComment(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_remove_comment(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_remove_comment(key_file_ptr, groupName, key, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes the specified group, `group_name`,
     /// from the key file.
-    func removeGroup(groupName group_name: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeGroup(groupName: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_remove_group(cast(key_file_ptr), group_name, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_remove_group(key_file_ptr, groupName, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes `key` in `group_name` from the key file.
-    func removeKey(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_remove_key(cast(key_file_ptr), group_name, key, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_remove_key(key_file_ptr, groupName, key, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Writes the contents of `key_file` to `filename` using
@@ -575,25 +652,25 @@ public extension KeyFileProtocol {
     /// 
     /// This function can fail for any of the reasons that
     /// `g_file_set_contents()` may fail.
-    func saveToFile(String_: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func saveToFile(filename: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_save_to_file(cast(key_file_ptr), String_, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_save_to_file(key_file_ptr, filename, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Associates a new boolean value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setBoolean(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: Bool) {
-        g_key_file_set_boolean(cast(key_file_ptr), group_name, key, gboolean(value ? 1 : 0))
+    @inlinable func setBoolean(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Bool) {
+        g_key_file_set_boolean(key_file_ptr, groupName, key, gboolean((value) ? 1 : 0))
     
     }
 
     /// Associates a list of boolean values with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
     /// If `group_name` is `nil`, the start_group is used.
-    func setBooleanList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, list: UnsafeMutablePointer<Bool>, length: Int) {
-        g_key_file_set_boolean_list(cast(key_file_ptr), group_name, key, cast(list), gsize(length))
+    @inlinable func setBooleanList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gboolean>!, length: Int) {
+        g_key_file_set_boolean_list(key_file_ptr, groupName, key, list, gsize(length))
     
     }
 
@@ -605,68 +682,68 @@ public extension KeyFileProtocol {
     /// 
     /// Note that this function prepends a '#' comment marker to
     /// each line of `comment`.
-    func setComment(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, comment: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func setComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil, comment: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_set_comment(cast(key_file_ptr), group_name, key, comment, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_key_file_set_comment(key_file_ptr, groupName, key, comment, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Associates a new double value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setDouble(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: gdouble) {
-        g_key_file_set_double(cast(key_file_ptr), group_name, key, value)
+    @inlinable func setDouble(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Double) {
+        g_key_file_set_double(key_file_ptr, groupName, key, gdouble(value))
     
     }
 
     /// Associates a list of double values with `key` under
     /// `group_name`.  If `key` cannot be found then it is created.
-    func setDoubleList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, list: UnsafeMutablePointer<gdouble>, length: Int) {
-        g_key_file_set_double_list(cast(key_file_ptr), group_name, key, cast(list), gsize(length))
+    @inlinable func setDoubleList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gdouble>!, length: Int) {
+        g_key_file_set_double_list(key_file_ptr, groupName, key, list, gsize(length))
     
     }
 
     /// Associates a new integer value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setInt64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: Int64) {
-        g_key_file_set_int64(cast(key_file_ptr), group_name, key, gint64(value))
+    @inlinable func setInt64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: gint64) {
+        g_key_file_set_int64(key_file_ptr, groupName, key, value)
     
     }
 
     /// Associates a new integer value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setInteger(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: CInt) {
-        g_key_file_set_integer(cast(key_file_ptr), group_name, key, gint(value))
+    @inlinable func setInteger(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Int) {
+        g_key_file_set_integer(key_file_ptr, groupName, key, gint(value))
     
     }
 
     /// Associates a list of integer values with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setIntegerList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, list: UnsafeMutablePointer<CInt>, length: Int) {
-        g_key_file_set_integer_list(cast(key_file_ptr), group_name, key, cast(list), gsize(length))
+    @inlinable func setIntegerList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gint>!, length: Int) {
+        g_key_file_set_integer_list(key_file_ptr, groupName, key, list, gsize(length))
     
     }
 
     /// Sets the character which is used to separate
     /// values in lists. Typically ';' or ',' are used
     /// as separators. The default list separator is ';'.
-    func setList(separator: gchar) {
-        g_key_file_set_list_separator(cast(key_file_ptr), separator)
+    @inlinable func setList(separator: gchar) {
+        g_key_file_set_list_separator(key_file_ptr, separator)
     
     }
 
     /// Associates a string value for `key` and `locale` under `group_name`.
     /// If the translation for `key` cannot be found then it is created.
-    func setLocaleString(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, locale: UnsafePointer<gchar>, string: UnsafePointer<gchar>) {
-        g_key_file_set_locale_string(cast(key_file_ptr), group_name, key, locale, string)
+    @inlinable func setLocaleString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>!, string: UnsafePointer<gchar>!) {
+        g_key_file_set_locale_string(key_file_ptr, groupName, key, locale, string)
     
     }
 
     /// Associates a list of string values for `key` and `locale` under
     /// `group_name`.  If the translation for `key` cannot be found then
     /// it is created.
-    func setLocaleStringList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, locale: UnsafePointer<gchar>, list: UnsafePointer<UnsafePointer<gchar>>, length: Int) {
-        g_key_file_set_locale_string_list(cast(key_file_ptr), group_name, key, locale, cast(list), gsize(length))
+    @inlinable func setLocaleStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>!, list: UnsafePointer<UnsafePointer<gchar>?>!, length: Int) {
+        g_key_file_set_locale_string_list(key_file_ptr, groupName, key, locale, list, gsize(length))
     
     }
 
@@ -675,23 +752,23 @@ public extension KeyFileProtocol {
     /// If `group_name` cannot be found then it is created.
     /// Unlike `g_key_file_set_value()`, this function handles characters
     /// that need escaping, such as newlines.
-    func setString(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, string: UnsafePointer<gchar>) {
-        g_key_file_set_string(cast(key_file_ptr), group_name, key, string)
+    @inlinable func setString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, string: UnsafePointer<gchar>!) {
+        g_key_file_set_string(key_file_ptr, groupName, key, string)
     
     }
 
     /// Associates a list of string values for `key` under `group_name`.
     /// If `key` cannot be found then it is created.
     /// If `group_name` cannot be found then it is created.
-    func setStringList(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, list: UnsafePointer<UnsafePointer<gchar>>, length: Int) {
-        g_key_file_set_string_list(cast(key_file_ptr), group_name, key, cast(list), gsize(length))
+    @inlinable func setStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafePointer<UnsafePointer<gchar>?>!, length: Int) {
+        g_key_file_set_string_list(key_file_ptr, groupName, key, list, gsize(length))
     
     }
 
     /// Associates a new integer value with `key` under `group_name`.
     /// If `key` cannot be found then it is created.
-    func setUint64(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: UInt64) {
-        g_key_file_set_uint64(cast(key_file_ptr), group_name, key, guint64(value))
+    @inlinable func setUint64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: guint64) {
+        g_key_file_set_uint64(key_file_ptr, groupName, key, value)
     
     }
 
@@ -701,8 +778,8 @@ public extension KeyFileProtocol {
     /// be found then it is created. To set an UTF-8 string which may contain
     /// characters that need escaping (such as newlines or spaces), use
     /// `g_key_file_set_string()`.
-    func setValue(groupName group_name: UnsafePointer<gchar>, key: UnsafePointer<gchar>, value: UnsafePointer<gchar>) {
-        g_key_file_set_value(cast(key_file_ptr), group_name, key, value)
+    @inlinable func setValue(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: UnsafePointer<gchar>!) {
+        g_key_file_set_value(key_file_ptr, groupName, key, value)
     
     }
 
@@ -710,25 +787,25 @@ public extension KeyFileProtocol {
     /// 
     /// Note that this function never reports an error,
     /// so it is safe to pass `nil` as `error`.
-    func toData(length: UnsafeMutablePointer<Int>) throws -> String! {
+    @inlinable func toData(length: UnsafeMutablePointer<gsize>! = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_key_file_to_data(cast(key_file_ptr), cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_key_file_to_data(key_file_ptr, length, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Decreases the reference count of `key_file` by 1. If the reference count
     /// reaches zero, frees the key file and all its allocated memory.
-    func unref() {
-        g_key_file_unref(cast(key_file_ptr))
+    @inlinable func unref() {
+        g_key_file_unref(key_file_ptr)
     
     }
     /// Returns the name of the start group of the file.
-    var startGroup: String! {
+    @inlinable var startGroup: String! {
         /// Returns the name of the start group of the file.
         get {
-            let rv: String! = cast(g_key_file_get_start_group(cast(key_file_ptr)))
-            return cast(rv)
+            let rv = g_key_file_get_start_group(key_file_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 

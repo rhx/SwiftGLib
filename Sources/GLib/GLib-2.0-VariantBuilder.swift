@@ -16,10 +16,11 @@ import CGLib
 /// access it from more than one thread.
 public protocol VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GVariantBuilder` instance.
-    var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder> { get }
+    var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder>! { get }
+
 }
 
 /// The `VariantBuilderRef` type acts as a lightweight Swift reference to an underlying `GVariantBuilder` instance.
@@ -36,46 +37,76 @@ public protocol VariantBuilderProtocol {
 public struct VariantBuilderRef: VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension VariantBuilderRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GVariantBuilder>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GVariantBuilder>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GVariantBuilder>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GVariantBuilder>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GVariantBuilder>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `VariantBuilderProtocol`
-    init<T: VariantBuilderProtocol>(_ other: T) {
+    @inlinable init<T: VariantBuilderProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -88,9 +119,9 @@ public extension VariantBuilderRef {
     /// In most cases it is easier to place a `GVariantBuilder` directly on
     /// the stack of the calling function and initialise it with
     /// `g_variant_builder_init()`.
-    init( type: VariantTypeProtocol) {
-        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_new(cast(type.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<VariantTypeT: VariantTypeProtocol>( type: VariantTypeT) {
+        let rv = g_variant_builder_new(type.variant_type_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -108,95 +139,141 @@ public extension VariantBuilderRef {
 open class VariantBuilder: VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `VariantBuilder` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GVariantBuilder>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GVariantBuilder>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GVariantBuilder>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GVariantBuilder>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GVariantBuilder>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVariantBuilder`.
     /// i.e., ownership is transferred to the `VariantBuilder` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GVariantBuilder>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GVariantBuilder>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_variant_builder_ref(cast(variant_builder_ptr))
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Reference intialiser for a related type that implements `VariantBuilderProtocol`
     /// Will retain `GVariantBuilder`.
     /// - Parameter other: an instance of a related type that implements `VariantBuilderProtocol`
-    public init<T: VariantBuilderProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.variant_builder_ptr)
-        g_variant_builder_ref(cast(variant_builder_ptr))
+    @inlinable public init<T: VariantBuilderProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Releases the underlying `GVariantBuilder` instance using `g_variant_builder_unref`.
     deinit {
-        g_variant_builder_unref(cast(variant_builder_ptr))
+        g_variant_builder_unref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_variant_builder_ref(cast(variant_builder_ptr))
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_variant_builder_ref(cast(variant_builder_ptr))
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_variant_builder_ref(cast(variant_builder_ptr))
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_variant_builder_ref(cast(variant_builder_ptr))
+        g_variant_builder_ref(ptr.assumingMemoryBound(to: GVariantBuilder.self))
     }
 
     /// Allocates and initialises a new `GVariantBuilder`.
@@ -208,9 +285,9 @@ open class VariantBuilder: VariantBuilderProtocol {
     /// In most cases it is easier to place a `GVariantBuilder` directly on
     /// the stack of the calling function and initialise it with
     /// `g_variant_builder_init()`.
-    public init( type: VariantTypeProtocol) {
-        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_new(cast(type.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init<VariantTypeT: VariantTypeProtocol>( type: VariantTypeT) {
+        let rv = g_variant_builder_new(type.variant_type_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -224,7 +301,7 @@ open class VariantBuilder: VariantBuilderProtocol {
 // MARK: VariantBuilder Record: VariantBuilderProtocol extension (methods and fields)
 public extension VariantBuilderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantBuilder` instance.
-    var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder> { return ptr.assumingMemoryBound(to: GVariantBuilder.self) }
+    @inlinable var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder>! { return ptr?.assumingMemoryBound(to: GVariantBuilder.self) }
 
 
     // *** add() is not available because it has a varargs (...) parameter!
@@ -244,8 +321,8 @@ public extension VariantBuilderProtocol {
     /// 
     /// If `value` is a floating reference (see `g_variant_ref_sink()`),
     /// the `builder` instance takes ownership of `value`.
-    func add(value: VariantProtocol) {
-        g_variant_builder_add_value(cast(variant_builder_ptr), cast(value.ptr))
+    @inlinable func add<VariantT: VariantProtocol>(value: VariantT) {
+        g_variant_builder_add_value(variant_builder_ptr, value.variant_ptr)
     
     }
 
@@ -263,8 +340,8 @@ public extension VariantBuilderProtocol {
     /// It is valid to call this function on either an initialised
     /// `GVariantBuilder` or one that is set to all-zeros but it is not valid
     /// to call this function on uninitialised memory.
-    func clear() {
-        g_variant_builder_clear(cast(variant_builder_ptr))
+    @inlinable func clear() {
+        g_variant_builder_clear(variant_builder_ptr)
     
     }
 
@@ -274,8 +351,8 @@ public extension VariantBuilderProtocol {
     /// It is an error to call this function in any way that would create an
     /// inconsistent value to be constructed (ie: too few values added to the
     /// subcontainer).
-    func close() {
-        g_variant_builder_close(cast(variant_builder_ptr))
+    @inlinable func close() {
+        g_variant_builder_close(variant_builder_ptr)
     
     }
 
@@ -296,9 +373,9 @@ public extension VariantBuilderProtocol {
     /// was created with an indefinite array or maybe type and no children
     /// have been added; in this case it is impossible to infer the type of
     /// the empty array.
-    func end() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_builder_end(cast(variant_builder_ptr)))
-        return cast(rv)
+    @inlinable func end() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_variant_builder_end(variant_builder_ptr)))
+        return rv
     }
 
     /// Initialises a `GVariantBuilder` structure.
@@ -330,8 +407,8 @@ public extension VariantBuilderProtocol {
     /// should assume that the person receiving that reference may try to use
     /// reference counting; you should use `g_variant_builder_new()` instead of
     /// this function.
-    func init_(type: VariantTypeProtocol) {
-        g_variant_builder_init(cast(variant_builder_ptr), cast(type.ptr))
+    @inlinable func init_<VariantTypeT: VariantTypeProtocol>(type: VariantTypeT) {
+        g_variant_builder_init(variant_builder_ptr, type.variant_type_ptr)
     
     }
 
@@ -373,8 +450,8 @@ public extension VariantBuilderProtocol {
     /// output = g_variant_builder_end (&builder);
     /// ```
     /// 
-    func open(type: VariantTypeProtocol) {
-        g_variant_builder_open(cast(variant_builder_ptr), cast(type.ptr))
+    @inlinable func open<VariantTypeT: VariantTypeProtocol>(type: VariantTypeT) {
+        g_variant_builder_open(variant_builder_ptr, type.variant_type_ptr)
     
     }
 
@@ -382,9 +459,9 @@ public extension VariantBuilderProtocol {
     /// 
     /// Don't call this on stack-allocated `GVariantBuilder` instances or bad
     /// things will happen.
-    @discardableResult func ref() -> UnsafeMutablePointer<GVariantBuilder>! {
-        let rv: UnsafeMutablePointer<GVariantBuilder>! = cast(g_variant_builder_ref(cast(variant_builder_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> VariantBuilderRef! {
+        guard let rv = VariantBuilderRef(gconstpointer: gconstpointer(g_variant_builder_ref(variant_builder_ptr))) else { return nil }
+        return rv
     }
 
     /// Decreases the reference count on `builder`.
@@ -394,8 +471,8 @@ public extension VariantBuilderProtocol {
     /// 
     /// Don't call this on stack-allocated `GVariantBuilder` instances or bad
     /// things will happen.
-    func unref() {
-        g_variant_builder_unref(cast(variant_builder_ptr))
+    @inlinable func unref() {
+        g_variant_builder_unref(variant_builder_ptr)
     
     }
 

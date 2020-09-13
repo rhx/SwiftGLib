@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3619,633 +3622,6 @@ Alternatively, use <code><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE6append4data3lenAA0bC3RefVSgSPys5UInt8VGSg_SitF"></a>
-                    <a name="//apple_ref/swift/Method/append(data:len:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE6append4data3lenAA0bC3RefVSgSPys5UInt8VGSg_SitF">append(data:len:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds the given bytes to the end of the <code>GByteArray</code>.
-The array will grow in size automatically if necessary.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">append</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">len</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L294-L297">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE4free0E7SegmentSpys5UInt8VGSgSb_tF"></a>
-                    <a name="//apple_ref/swift/Method/free(freeSegment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE4free0E7SegmentSpys5UInt8VGSgSb_tF">free(freeSegment:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Frees the memory allocated by the <code>GByteArray</code>. If <code>free_segment</code> is
-<code>true</code> it frees the actual byte data. If the reference count of
-<code>array</code> is greater than one, the <code>GByteArray</code> wrapper is preserved but
-the size of <code>array</code> will be set to zero.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">free</span><span class="p">(</span><span class="n">freeSegment</span> <span class="nv">free_segment</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L303-L306">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE11freeToBytesAA0G3RefVSgyF"></a>
-                    <a name="//apple_ref/swift/Method/freeToBytes()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE11freeToBytesAA0G3RefVSgyF">freeToBytes()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Transfers the data from the <code>GByteArray</code> into a new immutable <code>GBytes</code>.</p>
-
-<p>The <code>GByteArray</code> is freed unless the reference count of <code>array</code> is greater
-than one, the <code>GByteArray</code> wrapper is preserved but the size of <code>array</code>
-will be set to zero.</p>
-
-<p>This is identical to using <code>g_bytes_new_take()</code> and <code>g_byte_array_free()</code>
-together.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">freeToBytes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BytesRef.html">BytesRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L316-L319">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE7prepend4data3lenAA0bC3RefVSgSPys5UInt8VGSg_SitF"></a>
-                    <a name="//apple_ref/swift/Method/prepend(data:len:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE7prepend4data3lenAA0bC3RefVSgSPys5UInt8VGSg_SitF">prepend(data:len:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds the given data to the start of the <code>GByteArray</code>.
-The array will grow in size automatically if necessary.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">prepend</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">len</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L323-L326">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE3refAA0bC3RefVSgyF"></a>
-                    <a name="//apple_ref/swift/Method/ref()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE3refAA0bC3RefVSgyF">ref()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Atomically increments the reference count of <code>array</code> by one.
-This function is thread-safe and may be called from any thread.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">ref</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L330-L333">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE11removeIndex6index_AA0bC3RefVSgSi_tF"></a>
-                    <a name="//apple_ref/swift/Method/removeIndex(index_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE11removeIndex6index_AA0bC3RefVSgSi_tF">removeIndex(index_:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Removes the byte at the given index from a <code>GByteArray</code>.
-The following bytes are moved down one place.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">removeIndex</span><span class="p">(</span><span class="nv">index_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L337-L340">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE15removeIndexFast6index_AA0bC3RefVSgSi_tF"></a>
-                    <a name="//apple_ref/swift/Method/removeIndexFast(index_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE15removeIndexFast6index_AA0bC3RefVSgSi_tF">removeIndexFast(index_:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Removes the byte at the given index from a <code>GByteArray</code>. The last
-element in the array is used to fill in the space, so this function
-does not preserve the order of the <code>GByteArray</code>. But it is faster
-than <code>g_byte_array_remove_index()</code>.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">removeIndexFast</span><span class="p">(</span><span class="nv">index_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L346-L349">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE11removeRange6index_6lengthAA0bC3RefVSgSi_SitF"></a>
-                    <a name="//apple_ref/swift/Method/removeRange(index_:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE11removeRange6index_6lengthAA0bC3RefVSgSi_SitF">removeRange(index_:length:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Removes the given number of bytes starting at the given index from a
-<code>GByteArray</code>.  The following elements are moved to close the gap.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">removeRange</span><span class="p">(</span><span class="nv">index_</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L353-L356">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE7setSize6lengthAA0bC3RefVSgSi_tF"></a>
-                    <a name="//apple_ref/swift/Method/setSize(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE7setSize6lengthAA0bC3RefVSgSi_tF">setSize(length:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Sets the size of the <code>GByteArray</code>, expanding it if necessary.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setSize</span><span class="p">(</span><span class="nv">length</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/ByteArrayRef.html">ByteArrayRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L359-L362">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE4sort11compareFuncys5Int32VSVSg_AHtXCSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/sort(compareFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE4sort11compareFuncys5Int32VSVSg_AHtXCSg_tF">sort(compareFunc:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Sorts a byte array, using <code>compare_func</code> which should be a
-<code>qsort()</code>-style comparison function (returns less than zero for first
-arg is less than second arg, zero for equal, greater than zero if
-first arg is greater than second arg).</p>
-
-<p>If two array elements compare equal, their order in the sorted array
-is undefined. If you want equal elements to keep their order (i.e.
-you want a stable sort) you can write a comparison function that,
-if two elements would otherwise compare equal, compares them by
-their addresses.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">sort</span><span class="p">(</span><span class="n">compareFunc</span> <span class="nv">compare_func</span><span class="p">:</span> <span class="kt">GCompareFunc</span><span class="p">?)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L374-L377">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE12sortWithData11compareFunc04userG0ys5Int32VSVSg_AISvSgtXCSg_AJtF"></a>
-                    <a name="//apple_ref/swift/Method/sortWithData(compareFunc:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE12sortWithData11compareFunc04userG0ys5Int32VSVSg_AISvSgtXCSg_AJtF">sortWithData(compareFunc:userData:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Like <code>g_byte_array_sort()</code>, but the comparison function takes an extra
-user data argument.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">sortWithData</span><span class="p">(</span><span class="n">compareFunc</span> <span class="nv">compare_func</span><span class="p">:</span> <span class="kt">GCompareDataFunc</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L381-L384">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE5steal3lenSpys5UInt8VGSgSpySuGSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/steal(len:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE5steal3lenSpys5UInt8VGSgSpySuGSg_tF">steal(len:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Frees the data in the array and resets the size to zero, while
-the underlying array is preserved for use elsewhere and returned
-to the caller.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">steal</span><span class="p">(</span><span class="nv">len</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L389-L392">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE5unrefyyF"></a>
-                    <a name="//apple_ref/swift/Method/unref()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE5unrefyyF">unref()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Atomically decrements the reference count of <code>array</code> by one. If the
-reference count drops to 0, all memory allocated by the array is
-released. This function is thread-safe and may be called from any
-thread.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">unref</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L398-L401">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE04byteC4Free11freeSegmentSpys5UInt8VGSgSb_tF"></a>
-                    <a name="//apple_ref/swift/Method/byteArrayFree(freeSegment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE04byteC4Free11freeSegmentSpys5UInt8VGSgSb_tF">byteArrayFree(freeSegment:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Frees the memory allocated by the <code>GByteArray</code>. If <code>free_segment</code> is
-<code>true</code> it frees the actual byte data. If the reference count of
-<code>array</code> is greater than one, the <code>GByteArray</code> wrapper is preserved but
-the size of <code>array</code> will be set to zero.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">byteArrayFree</span><span class="p">(</span><span class="n">freeSegment</span> <span class="nv">free_segment</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L407-L410">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE04byteC11FreeToBytesAA0H3RefVSgyF"></a>
-                    <a name="//apple_ref/swift/Method/byteArrayFreeToBytes()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE04byteC11FreeToBytesAA0H3RefVSgyF">byteArrayFreeToBytes()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Transfers the data from the <code>GByteArray</code> into a new immutable <code>GBytes</code>.</p>
-
-<p>The <code>GByteArray</code> is freed unless the reference count of <code>array</code> is greater
-than one, the <code>GByteArray</code> wrapper is preserved but the size of <code>array</code>
-will be set to zero.</p>
-
-<p>This is identical to using <code>g_bytes_new_take()</code> and <code>g_byte_array_free()</code>
-together.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">byteArrayFreeToBytes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/BytesRef.html">BytesRef</a></span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L420-L423">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE04byteC5Steal3lenSpys5UInt8VGSgSpySuGSg_tF"></a>
-                    <a name="//apple_ref/swift/Method/byteArraySteal(len:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE04byteC5Steal3lenSpys5UInt8VGSgSpySuGSg_tF">byteArraySteal(len:)</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Frees the data in the array and resets the size to zero, while
-the underlying array is preserved for use elsewhere and returned
-to the caller.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">byteArraySteal</span><span class="p">(</span><span class="nv">len</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gsize</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint8</span><span class="o">&gt;!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L428-L431">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib17ByteArrayProtocolPAAE04byteC5UnrefyyF"></a>
-                    <a name="//apple_ref/swift/Method/byteArrayUnref()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE04byteC5UnrefyyF">byteArrayUnref()</a>
-                    </code>
-                      <span class="declaration-note">
-                        Extension method
-                      </span>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Atomically decrements the reference count of <code>array</code> by one. If the
-reference count drops to 0, all memory allocated by the array is
-released. This function is thread-safe and may be called from any
-thread.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">byteArrayUnref</span><span class="p">()</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L437-L440">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:4GLib17ByteArrayProtocolPAAE4dataSpys5UInt8VGSgvp"></a>
                     <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
                     <a class="token" href="#/s:4GLib17ByteArrayProtocolPAAE4dataSpys5UInt8VGSgvp">data</a>
@@ -4273,7 +3649,7 @@ thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L444-L456">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L265-L277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4307,7 +3683,7 @@ thread.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L459-L469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-ByteArray.swift#L280-L290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4320,7 +3696,7 @@ thread.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

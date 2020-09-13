@@ -10,10 +10,11 @@ import CGLib
 
 public protocol TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTestLogMsg` instance.
-    var _ptr: UnsafeMutablePointer<GTestLogMsg> { get }
+    var _ptr: UnsafeMutablePointer<GTestLogMsg>! { get }
+
 }
 
 /// The `TestLogMsgRef` type acts as a lightweight Swift reference to an underlying `GTestLogMsg` instance.
@@ -24,46 +25,76 @@ public protocol TestLogMsgProtocol {
 public struct TestLogMsgRef: TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TestLogMsgRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GTestLogMsg>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GTestLogMsg>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTestLogMsg>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTestLogMsg>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTestLogMsg>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TestLogMsgProtocol`
-    init<T: TestLogMsgProtocol>(_ other: T) {
+    @inlinable init<T: TestLogMsgProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -77,95 +108,141 @@ public extension TestLogMsgRef {
 open class TestLogMsg: TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TestLogMsg` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GTestLogMsg>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GTestLogMsg>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestLogMsg` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTestLogMsg>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestLogMsg` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestLogMsg` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestLogMsg` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTestLogMsg>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestLogMsg` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTestLogMsg>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GTestLogMsg` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `TestLogMsg` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GTestLogMsg>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTestLogMsg>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `TestLogMsgProtocol`
     /// `GTestLogMsg` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `TestLogMsgProtocol`
-    public init<T: TestLogMsgProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+    @inlinable public init<T: TestLogMsgProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GTestLogMsg`.
     deinit {
-        // no reference counting for GTestLogMsg, cannot unref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GTestLogMsg, cannot ref(cast(_ptr))
+        // no reference counting for GTestLogMsg, cannot ref(_ptr)
     }
 
 
@@ -180,61 +257,61 @@ open class TestLogMsg: TestLogMsgProtocol {
 // MARK: TestLogMsg Record: TestLogMsgProtocol extension (methods and fields)
 public extension TestLogMsgProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestLogMsg` instance.
-    var _ptr: UnsafeMutablePointer<GTestLogMsg> { return ptr.assumingMemoryBound(to: GTestLogMsg.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GTestLogMsg>! { return ptr?.assumingMemoryBound(to: GTestLogMsg.self) }
 
     /// Internal function for gtester to free test log messages, no ABI guarantees provided.
-    func free() {
-        g_test_log_msg_free(cast(_ptr))
+    @inlinable func free() {
+        g_test_log_msg_free(_ptr)
     
     }
 
-    var logType: GTestLogType {
+    @inlinable var logType: GTestLogType {
         get {
-            let rv: GTestLogType = cast(_ptr.pointee.log_type)
+            let rv = _ptr.pointee.log_type
             return rv
         }
          set {
-            _ptr.pointee.log_type = cast(newValue)
+            _ptr.pointee.log_type = newValue
         }
     }
 
-    var nStrings: Int {
+    @inlinable var nStrings: guint {
         get {
-            let rv: Int = cast(_ptr.pointee.n_strings)
+            let rv = _ptr.pointee.n_strings
             return rv
         }
          set {
-            _ptr.pointee.n_strings = guint(newValue)
+            _ptr.pointee.n_strings = newValue
         }
     }
 
-    var strings: UnsafeMutablePointer<UnsafeMutablePointer<gchar>> {
+    @inlinable var strings: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         get {
-            let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>> = cast(_ptr.pointee.strings)
+            let rv = _ptr.pointee.strings
             return rv
         }
          set {
-            _ptr.pointee.strings = cast(newValue)
+            _ptr.pointee.strings = newValue
         }
     }
 
-    var nNums: Int {
+    @inlinable var nNums: guint {
         get {
-            let rv: Int = cast(_ptr.pointee.n_nums)
+            let rv = _ptr.pointee.n_nums
             return rv
         }
          set {
-            _ptr.pointee.n_nums = guint(newValue)
+            _ptr.pointee.n_nums = newValue
         }
     }
 
-    var nums: UnsafeMutablePointer<Float80> {
+    @inlinable var nums: UnsafeMutablePointer<CLongDouble>! {
         get {
-            let rv: UnsafeMutablePointer<Float80> = cast(_ptr.pointee.nums)
+            let rv = _ptr.pointee.nums
             return rv
         }
          set {
-            _ptr.pointee.nums = cast(newValue)
+            _ptr.pointee.nums = newValue
         }
     }
 

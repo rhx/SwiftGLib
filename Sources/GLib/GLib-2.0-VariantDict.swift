@@ -101,10 +101,11 @@ import CGLib
 /// 
 public protocol VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GVariantDict` instance.
-    var variant_dict_ptr: UnsafeMutablePointer<GVariantDict> { get }
+    var variant_dict_ptr: UnsafeMutablePointer<GVariantDict>! { get }
+
 }
 
 /// The `VariantDictRef` type acts as a lightweight Swift reference to an underlying `GVariantDict` instance.
@@ -206,46 +207,76 @@ public protocol VariantDictProtocol {
 public struct VariantDictRef: VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension VariantDictRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GVariantDict>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GVariantDict>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GVariantDict>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GVariantDict>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GVariantDict>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `VariantDictProtocol`
-    init<T: VariantDictProtocol>(_ other: T) {
+    @inlinable init<T: VariantDictProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -259,9 +290,9 @@ public extension VariantDictRef {
     /// the stack of the calling function and initialise it with
     /// `g_variant_dict_init()`.  This is particularly useful when you are
     /// using `GVariantDict` to construct a `GVariant`.
-    init( from_asv: VariantProtocol) {
-        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_new(cast(from_asv.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<VariantT: VariantProtocol>( asv: VariantT?) {
+        let rv = g_variant_dict_new(asv?.variant_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -364,95 +395,141 @@ public extension VariantDictRef {
 open class VariantDict: VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `VariantDict` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GVariantDict>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GVariantDict>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GVariantDict>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GVariantDict>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `VariantDict` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GVariantDict>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GVariantDict`.
     /// i.e., ownership is transferred to the `VariantDict` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GVariantDict>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GVariantDict>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_variant_dict_ref(cast(variant_dict_ptr))
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Reference intialiser for a related type that implements `VariantDictProtocol`
     /// Will retain `GVariantDict`.
     /// - Parameter other: an instance of a related type that implements `VariantDictProtocol`
-    public init<T: VariantDictProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.variant_dict_ptr)
-        g_variant_dict_ref(cast(variant_dict_ptr))
+    @inlinable public init<T: VariantDictProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Releases the underlying `GVariantDict` instance using `g_variant_dict_unref`.
     deinit {
-        g_variant_dict_unref(cast(variant_dict_ptr))
+        g_variant_dict_unref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_variant_dict_ref(cast(variant_dict_ptr))
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_variant_dict_ref(cast(variant_dict_ptr))
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_variant_dict_ref(cast(variant_dict_ptr))
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_variant_dict_ref(cast(variant_dict_ptr))
+        g_variant_dict_ref(ptr.assumingMemoryBound(to: GVariantDict.self))
     }
 
     /// Allocates and initialises a new `GVariantDict`.
@@ -465,9 +542,9 @@ open class VariantDict: VariantDictProtocol {
     /// the stack of the calling function and initialise it with
     /// `g_variant_dict_init()`.  This is particularly useful when you are
     /// using `GVariantDict` to construct a `GVariant`.
-    public init( from_asv: VariantProtocol) {
-        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_new(cast(from_asv.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init<VariantT: VariantProtocol>( asv: VariantT?) {
+        let rv = g_variant_dict_new(asv?.variant_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -481,7 +558,7 @@ open class VariantDict: VariantDictProtocol {
 // MARK: VariantDict Record: VariantDictProtocol extension (methods and fields)
 public extension VariantDictProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GVariantDict` instance.
-    var variant_dict_ptr: UnsafeMutablePointer<GVariantDict> { return ptr.assumingMemoryBound(to: GVariantDict.self) }
+    @inlinable var variant_dict_ptr: UnsafeMutablePointer<GVariantDict>! { return ptr?.assumingMemoryBound(to: GVariantDict.self) }
 
     /// Releases all memory associated with a `GVariantDict` without freeing
     /// the `GVariantDict` structure itself.
@@ -497,15 +574,15 @@ public extension VariantDictProtocol {
     /// `GVariantDict` or one that was previously cleared by an earlier call
     /// to `g_variant_dict_clear()` but it is not valid to call this function
     /// on uninitialised memory.
-    func clear() {
-        g_variant_dict_clear(cast(variant_dict_ptr))
+    @inlinable func clear() {
+        g_variant_dict_clear(variant_dict_ptr)
     
     }
 
     /// Checks if `key` exists in `dict`.
-    func contains(key: UnsafePointer<gchar>) -> Bool {
-        let rv = g_variant_dict_contains(cast(variant_dict_ptr), key)
-        return Bool(rv != 0)
+    @inlinable func contains(key: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_variant_dict_contains(variant_dict_ptr, key)) != 0)
+        return rv
     }
 
     /// Returns the current value of `dict` as a `GVariant` of type
@@ -515,9 +592,9 @@ public extension VariantDictProtocol {
     /// for reference counting operations (in the case of a heap-allocated
     /// `GVariantDict`) or by reinitialising it with `g_variant_dict_init()` (in
     /// the case of stack-allocated).
-    func end() -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_dict_end(cast(variant_dict_ptr)))
-        return cast(rv)
+    @inlinable func end() -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_variant_dict_end(variant_dict_ptr)))
+        return rv
     }
 
     /// Initialises a `GVariantDict` structure.
@@ -536,8 +613,28 @@ public extension VariantDictProtocol {
     /// own code then you should assume that the person receiving that
     /// reference may try to use reference counting; you should use
     /// `g_variant_dict_new()` instead of this function.
-    func init_(fromAsv from_asv: VariantProtocol) {
-        g_variant_dict_init(cast(variant_dict_ptr), cast(from_asv.ptr))
+    @inlinable func init_(from asv: VariantRef? = nil) {
+        g_variant_dict_init(variant_dict_ptr, asv?.variant_ptr)
+    
+    }
+    /// Initialises a `GVariantDict` structure.
+    /// 
+    /// If `from_asv` is given, it is used to initialise the dictionary.
+    /// 
+    /// This function completely ignores the previous contents of `dict`.  On
+    /// one hand this means that it is valid to pass in completely
+    /// uninitialised memory.  On the other hand, this means that if you are
+    /// initialising over top of an existing `GVariantDict` you need to first
+    /// call `g_variant_dict_clear()` in order to avoid leaking memory.
+    /// 
+    /// You must not call `g_variant_dict_ref()` or `g_variant_dict_unref()` on a
+    /// `GVariantDict` that was initialised with this function.  If you ever
+    /// pass a reference to a `GVariantDict` outside of the control of your
+    /// own code then you should assume that the person receiving that
+    /// reference may try to use reference counting; you should use
+    /// `g_variant_dict_new()` instead of this function.
+    @inlinable func init_<VariantT: VariantProtocol>(from asv: VariantT?) {
+        g_variant_dict_init(variant_dict_ptr, asv?.variant_ptr)
     
     }
 
@@ -548,8 +645,8 @@ public extension VariantDictProtocol {
     /// Inserts (or replaces) a key in a `GVariantDict`.
     /// 
     /// `value` is consumed if it is floating.
-    func insertValue(key: UnsafePointer<gchar>, value: VariantProtocol) {
-        g_variant_dict_insert_value(cast(variant_dict_ptr), key, cast(value.ptr))
+    @inlinable func insertValue<VariantT: VariantProtocol>(key: UnsafePointer<gchar>!, value: VariantT) {
+        g_variant_dict_insert_value(variant_dict_ptr, key, value.variant_ptr)
     
     }
 
@@ -568,24 +665,39 @@ public extension VariantDictProtocol {
     /// If the key is found and the value has the correct type, it is
     /// returned.  If `expected_type` was specified then any non-`nil` return
     /// value will have this type.
-    func lookupValue(key: UnsafePointer<gchar>, expectedType expected_type: VariantTypeProtocol) -> UnsafeMutablePointer<GVariant>! {
-        let rv: UnsafeMutablePointer<GVariant>! = cast(g_variant_dict_lookup_value(cast(variant_dict_ptr), key, cast(expected_type.ptr)))
-        return cast(rv)
+    @inlinable func lookupValue(key: UnsafePointer<gchar>!, expectedType: VariantTypeRef? = nil) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_variant_dict_lookup_value(variant_dict_ptr, key, expectedType?.variant_type_ptr)))
+        return rv
+    }
+    /// Looks up a value in a `GVariantDict`.
+    /// 
+    /// If `key` is not found in `dictionary`, `nil` is returned.
+    /// 
+    /// The `expected_type` string specifies what type of value is expected.
+    /// If the value associated with `key` has a different type then `nil` is
+    /// returned.
+    /// 
+    /// If the key is found and the value has the correct type, it is
+    /// returned.  If `expected_type` was specified then any non-`nil` return
+    /// value will have this type.
+    @inlinable func lookupValue<VariantTypeT: VariantTypeProtocol>(key: UnsafePointer<gchar>!, expectedType: VariantTypeT?) -> VariantRef! {
+        let rv = VariantRef(gconstpointer: gconstpointer(g_variant_dict_lookup_value(variant_dict_ptr, key, expectedType?.variant_type_ptr)))
+        return rv
     }
 
     /// Increases the reference count on `dict`.
     /// 
     /// Don't call this on stack-allocated `GVariantDict` instances or bad
     /// things will happen.
-    @discardableResult func ref() -> UnsafeMutablePointer<GVariantDict>! {
-        let rv: UnsafeMutablePointer<GVariantDict>! = cast(g_variant_dict_ref(cast(variant_dict_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> VariantDictRef! {
+        guard let rv = VariantDictRef(gconstpointer: gconstpointer(g_variant_dict_ref(variant_dict_ptr))) else { return nil }
+        return rv
     }
 
     /// Removes a key and its associated value from a `GVariantDict`.
-    func remove(key: UnsafePointer<gchar>) -> Bool {
-        let rv = g_variant_dict_remove(cast(variant_dict_ptr), key)
-        return Bool(rv != 0)
+    @inlinable func remove(key: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_variant_dict_remove(variant_dict_ptr, key)) != 0)
+        return rv
     }
 
     /// Decreases the reference count on `dict`.
@@ -595,8 +707,8 @@ public extension VariantDictProtocol {
     /// 
     /// Don't call this on stack-allocated `GVariantDict` instances or bad
     /// things will happen.
-    func unref() {
-        g_variant_dict_unref(cast(variant_dict_ptr))
+    @inlinable func unref() {
+        g_variant_dict_unref(variant_dict_ptr)
     
     }
 

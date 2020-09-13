@@ -11,10 +11,11 @@ import CGLib
 /// matches.
 public protocol MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GMatchInfo` instance.
-    var match_info_ptr: UnsafeMutablePointer<GMatchInfo> { get }
+    var match_info_ptr: UnsafeMutablePointer<GMatchInfo>! { get }
+
 }
 
 /// The `MatchInfoRef` type acts as a lightweight Swift reference to an underlying `GMatchInfo` instance.
@@ -26,46 +27,76 @@ public protocol MatchInfoProtocol {
 public struct MatchInfoRef: MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MatchInfoRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GMatchInfo>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GMatchInfo>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMatchInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMatchInfo>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMatchInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MatchInfoProtocol`
-    init<T: MatchInfoProtocol>(_ other: T) {
+    @inlinable init<T: MatchInfoProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension MatchInfoRef {
 open class MatchInfo: MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MatchInfo` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GMatchInfo>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GMatchInfo>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MatchInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMatchInfo>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MatchInfo` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MatchInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MatchInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMatchInfo>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MatchInfo` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMatchInfo>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GMatchInfo`.
     /// i.e., ownership is transferred to the `MatchInfo` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GMatchInfo>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMatchInfo>) {
         ptr = UnsafeMutableRawPointer(op)
-        g_match_info_ref(cast(match_info_ptr))
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Reference intialiser for a related type that implements `MatchInfoProtocol`
     /// Will retain `GMatchInfo`.
     /// - Parameter other: an instance of a related type that implements `MatchInfoProtocol`
-    public init<T: MatchInfoProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.match_info_ptr)
-        g_match_info_ref(cast(match_info_ptr))
+    @inlinable public init<T: MatchInfoProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Releases the underlying `GMatchInfo` instance using `g_match_info_unref`.
     deinit {
-        g_match_info_unref(cast(match_info_ptr))
+        g_match_info_unref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        g_match_info_ref(cast(match_info_ptr))
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_match_info_ref(cast(match_info_ptr))
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        g_match_info_ref(cast(match_info_ptr))
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        g_match_info_ref(cast(match_info_ptr))
+        g_match_info_ref(ptr.assumingMemoryBound(to: GMatchInfo.self))
     }
 
 
@@ -183,7 +260,7 @@ open class MatchInfo: MatchInfoProtocol {
 // MARK: MatchInfo Record: MatchInfoProtocol extension (methods and fields)
 public extension MatchInfoProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GMatchInfo` instance.
-    var match_info_ptr: UnsafeMutablePointer<GMatchInfo> { return ptr.assumingMemoryBound(to: GMatchInfo.self) }
+    @inlinable var match_info_ptr: UnsafeMutablePointer<GMatchInfo>! { return ptr?.assumingMemoryBound(to: GMatchInfo.self) }
 
     /// Returns a new string containing the text in `string_to_expand` with
     /// references and escape sequences expanded. References refer to the last
@@ -202,11 +279,11 @@ public extension MatchInfoProtocol {
     /// while to expand "\0" (whole match) one needs the result of a match.
     /// Use `g_regex_check_replacement()` to find out whether `string_to_expand`
     /// contains references.
-    func expandReferences(stringToExpand string_to_expand: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func expandReferences(stringToExpand: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_match_info_expand_references(cast(match_info_ptr), string_to_expand, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_match_info_expand_references(match_info_ptr, stringToExpand, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves the text matching the `match_num`'th capturing
@@ -225,9 +302,9 @@ public extension MatchInfoProtocol {
     /// 
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
-    func fetch(matchNum match_num: CInt) -> String! {
-        let rv: String! = cast(g_match_info_fetch(cast(match_info_ptr), gint(match_num)))
-        return cast(rv)
+    @inlinable func fetch(matchNum: Int) -> String! {
+        let rv = g_match_info_fetch(match_info_ptr, gint(matchNum)).map({ String(cString: $0) })
+        return rv
     }
 
     /// Bundles up pointers to each of the matching substrings from a match
@@ -246,9 +323,9 @@ public extension MatchInfoProtocol {
     /// 
     /// The strings are fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
-    func fetchAll() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_match_info_fetch_all(cast(match_info_ptr)))
-        return cast(rv)
+    @inlinable func fetchAll() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_match_info_fetch_all(match_info_ptr)
+        return rv
     }
 
     /// Retrieves the text matching the capturing parentheses named `name`.
@@ -259,9 +336,9 @@ public extension MatchInfoProtocol {
     /// 
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
-    func fetchNamed(name: UnsafePointer<gchar>) -> String! {
-        let rv: String! = cast(g_match_info_fetch_named(cast(match_info_ptr), name))
-        return cast(rv)
+    @inlinable func fetchNamed(name: UnsafePointer<gchar>!) -> String! {
+        let rv = g_match_info_fetch_named(match_info_ptr, name).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the position in bytes of the capturing parentheses named `name`.
@@ -269,9 +346,9 @@ public extension MatchInfoProtocol {
     /// If `name` is a valid sub pattern name but it didn't match anything
     /// (e.g. sub pattern "X", matching "b" against "(?P<X>a)?b")
     /// then `start_pos` and `end_pos` are set to -1 and `true` is returned.
-    func fetchNamedPos(name: UnsafePointer<gchar>, startPos start_pos: UnsafeMutablePointer<CInt>, endPos end_pos: UnsafeMutablePointer<CInt>) -> Bool {
-        let rv = g_match_info_fetch_named_pos(cast(match_info_ptr), name, cast(start_pos), cast(end_pos))
-        return Bool(rv != 0)
+    @inlinable func fetchNamedPos(name: UnsafePointer<gchar>!, startPos: UnsafeMutablePointer<gint>! = nil, endPos: UnsafeMutablePointer<gint>! = nil) -> Bool {
+        let rv = ((g_match_info_fetch_named_pos(match_info_ptr, name, startPos, endPos)) != 0)
+        return rv
     }
 
     /// Retrieves the position in bytes of the `match_num`'th capturing
@@ -287,15 +364,15 @@ public extension MatchInfoProtocol {
     /// position is not that of a set of parentheses but that of a matched
     /// substring. Substrings are matched in reverse order of length, so
     /// 0 is the longest match.
-    func fetchPos(matchNum match_num: CInt, startPos start_pos: UnsafeMutablePointer<CInt>, endPos end_pos: UnsafeMutablePointer<CInt>) -> Bool {
-        let rv = g_match_info_fetch_pos(cast(match_info_ptr), gint(match_num), cast(start_pos), cast(end_pos))
-        return Bool(rv != 0)
+    @inlinable func fetchPos(matchNum: Int, startPos: UnsafeMutablePointer<gint>! = nil, endPos: UnsafeMutablePointer<gint>! = nil) -> Bool {
+        let rv = ((g_match_info_fetch_pos(match_info_ptr, gint(matchNum), startPos, endPos)) != 0)
+        return rv
     }
 
     /// If `match_info` is not `nil`, calls `g_match_info_unref()`; otherwise does
     /// nothing.
-    func free() {
-        g_match_info_free(cast(match_info_ptr))
+    @inlinable func free() {
+        g_match_info_free(match_info_ptr)
     
     }
 
@@ -307,31 +384,31 @@ public extension MatchInfoProtocol {
     /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
-    func getMatchCount() -> Int {
-        let rv: Int = cast(g_match_info_get_match_count(cast(match_info_ptr)))
-        return Int(rv)
+    @inlinable func getMatchCount() -> Int {
+        let rv = Int(g_match_info_get_match_count(match_info_ptr))
+        return rv
     }
 
     /// Returns `GRegex` object used in `match_info`. It belongs to Glib
     /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
-    func getRegex() -> UnsafeMutablePointer<GRegex>! {
-        let rv: UnsafeMutablePointer<GRegex>! = cast(g_match_info_get_regex(cast(match_info_ptr)))
-        return cast(rv)
+    @inlinable func getRegex() -> RegexRef! {
+        let rv = RegexRef(gconstpointer: gconstpointer(g_match_info_get_regex(match_info_ptr)))
+        return rv
     }
 
     /// Returns the string searched with `match_info`. This is the
     /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
-    func getString() -> String! {
-        let rv: String! = cast(g_match_info_get_string(cast(match_info_ptr)))
-        return cast(rv)
+    @inlinable func getString() -> String! {
+        let rv = g_match_info_get_string(match_info_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Returns whether the previous match operation succeeded.
-    func matches() -> Bool {
-        let rv = g_match_info_matches(cast(match_info_ptr))
-        return Bool(rv != 0)
+    @inlinable func matches() -> Bool {
+        let rv = ((g_match_info_matches(match_info_ptr)) != 0)
+        return rv
     }
 
     /// Scans for the next match using the same parameters of the previous
@@ -340,23 +417,23 @@ public extension MatchInfoProtocol {
     /// 
     /// The match is done on the string passed to the match function, so you
     /// cannot free it before calling this function.
-    func next() throws -> Bool {
+    @inlinable func next() throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_match_info_next(cast(match_info_ptr), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_match_info_next(match_info_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Increases reference count of `match_info` by 1.
-    @discardableResult func ref() -> UnsafeMutablePointer<GMatchInfo>! {
-        let rv: UnsafeMutablePointer<GMatchInfo>! = cast(g_match_info_ref(cast(match_info_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> MatchInfoRef! {
+        guard let rv = MatchInfoRef(gconstpointer: gconstpointer(g_match_info_ref(match_info_ptr))) else { return nil }
+        return rv
     }
 
     /// Decreases reference count of `match_info` by 1. When reference count drops
     /// to zero, it frees all the memory associated with the match_info structure.
-    func unref() {
-        g_match_info_unref(cast(match_info_ptr))
+    @inlinable func unref() {
+        g_match_info_unref(match_info_ptr)
     
     }
     /// Usually if the string passed to g_regex_match*() matches as far as
@@ -392,7 +469,7 @@ public extension MatchInfoProtocol {
     /// The restrictions no longer apply.
     /// 
     /// See `pcrepartial(3)` for more information on partial matching.
-    var isPartialMatch: Bool {
+    @inlinable var isPartialMatch: Bool {
         /// Usually if the string passed to g_regex_match*() matches as far as
         /// it goes, but is too short to match the entire pattern, `false` is
         /// returned. There are circumstances where it might be helpful to
@@ -427,8 +504,8 @@ public extension MatchInfoProtocol {
         /// 
         /// See `pcrepartial(3)` for more information on partial matching.
         get {
-            let rv = g_match_info_is_partial_match(cast(match_info_ptr))
-            return Bool(rv != 0)
+            let rv = ((g_match_info_is_partial_match(match_info_ptr)) != 0)
+            return rv
         }
     }
 
@@ -440,7 +517,7 @@ public extension MatchInfoProtocol {
     /// using `g_regex_match_all()` or `g_regex_match_all_full()`, the retrieved
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
-    var matchCount: Int {
+    @inlinable var matchCount: Int {
         /// Retrieves the number of matched substrings (including substring 0,
         /// that is the whole matched text), so 1 is returned if the pattern
         /// has no substrings in it and 0 is returned if the match failed.
@@ -450,34 +527,34 @@ public extension MatchInfoProtocol {
         /// count is not that of the number of capturing parentheses but that of
         /// the number of matched substrings.
         get {
-            let rv: Int = cast(g_match_info_get_match_count(cast(match_info_ptr)))
-            return Int(rv)
+            let rv = Int(g_match_info_get_match_count(match_info_ptr))
+            return rv
         }
     }
 
     /// Returns `GRegex` object used in `match_info`. It belongs to Glib
     /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
-    var regex: UnsafeMutablePointer<GRegex>! {
+    @inlinable var regex: RegexRef! {
         /// Returns `GRegex` object used in `match_info`. It belongs to Glib
         /// and must not be freed. Use `g_regex_ref()` if you need to keep it
         /// after you free `match_info` object.
         get {
-            let rv: UnsafeMutablePointer<GRegex>! = cast(g_match_info_get_regex(cast(match_info_ptr)))
-            return cast(rv)
+            let rv = RegexRef(gconstpointer: gconstpointer(g_match_info_get_regex(match_info_ptr)))
+            return rv
         }
     }
 
     /// Returns the string searched with `match_info`. This is the
     /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
-    var string: String! {
+    @inlinable var string: String! {
         /// Returns the string searched with `match_info`. This is the
         /// string passed to `g_regex_match()` or `g_regex_replace()` so
         /// you may not free it before calling this function.
         get {
-            let rv: String! = cast(g_match_info_get_string(cast(match_info_ptr)))
-            return cast(rv)
+            let rv = g_match_info_get_string(match_info_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 

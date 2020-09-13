@@ -1146,13 +1146,13 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib20computeHmacForString10digestType3key0H3Len3str6lengthSSSgSo09GChecksumG0a_SPys5UInt8VGSgSiSPys4Int8VGSgSitF">computeHmacForString(digestType:key:keyLen:str:length:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset04fromF09bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:fromCodeset:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7convert3str3len9toCodeset4from9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiA2MSpySuGSgAOtKF">convert(str:len:toCodeset:from:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib17convertErrorQuarks6UInt32VyF">convertErrorQuark()</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset04fromH08fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:fromCodeset:fallback:bytesRead:bytesWritten:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19convertWithFallback3str3len9toCodeset4from8fallback9bytesRead0K7WrittenSSSgSPys4Int8VGSg_SiA3NSpySuGSgAPtKF">convertWithFallback(str:len:toCodeset:from:fallback:bytesRead:bytesWritten:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16convertWithIconv3str3len9converter9bytesRead0H7WrittenSSSgSPys4Int8VGSg_SiSpySo7_GIConvVGSpySuGSgAQtKF">convertWithIconv(str:len:converter:bytesRead:bytesWritten:)</a>
@@ -1539,7 +1539,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib5iconv9converter5inbuf11inbytesLeft6outbuf08outbytesF0SiSpySo7_GIConvVG_SpySpys4Int8VGSgGSgSpySuGSgApRtF">iconv(converter:inbuf:inbytesLeft:outbuf:outbytesLeft:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset04fromE0SpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:fromCodeset:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib9iconvOpen9toCodeset4fromSpySo7_GIConvVGSgSPys4Int8VGSg_ALtF">iconvOpen(toCodeset:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7idleAdd8function4dataSis5Int32VSvSgXCSg_AGtF">idleAdd(function:data:)</a>
@@ -2046,7 +2046,7 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14strMatchString10searchTerm12potentialHit16acceptAlternatesSbSPys4Int8VGSg_AISbtF">strMatchString(searchTerm:potentialHit:acceptAlternates:)</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B010fromLocaleSSSgSPys4Int8VGSg_AItF">strToAscii(str:fromLocale:)</a>
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10strToAscii0B04fromSSSgSPys4Int8VGSg_AItF">strToAscii(str:from:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18strTokenizeAndFold6string14translitLocale15asciiAlternatesSpySpys4Int8VGSgGSgSPyAGGSg_AMSpyAKGSgtF">strTokenizeAndFold(string:translitLocale:asciiAlternates:)</a>
@@ -2623,6 +2623,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18variantIsSignature6stringSbSPys4Int8VGSg_tF">variantIsSignature(string:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgAA0h4TypeI0VSg_SPys4Int8VGSgAPSpyAPGSgtKF">variantParse(type:text:limit:endptr:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib12variantParse4type4text5limit6endptrAA10VariantRefVSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0H12TypeProtocolRzlF">variantParse(type:text:limit:endptr:)</a>
@@ -3521,7 +3524,7 @@
 
                 </div>
               </div>
-            <p>The <code>PtrArray</code> type acts as a reference-counted owner of an underlying <code>GPtrArray</code> instance.
+            <p>The <code>PtrArray</code> type acts as an owner of an underlying <code>GPtrArray</code> instance.
 It provides the methods that can operate on this data type through <code><a href="../Protocols/PtrArrayProtocol.html">PtrArrayProtocol</a></code> conformance.
 Use <code>PtrArray</code> as a strong reference or owner of a <code>GPtrArray</code> instance.</p>
 
@@ -3562,7 +3565,7 @@ Use <code>PtrArray</code> as a strong reference or owner of a <code>GPtrArray</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L111">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3614,7 +3617,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L146-L148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L117-L119">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3666,7 +3669,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L154-L156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L125-L127">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3719,7 +3722,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L163-L166">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L134-L137">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3772,7 +3775,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L173-L176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L144-L147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3824,7 +3827,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L182-L185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L153-L156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3876,7 +3879,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L191-L194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L162-L165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3895,7 +3898,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Designated initialiser from the underlying <code>C</code> data type.
-Will retain <code>GPtrArray</code>.
+<code>GPtrArray</code> does not allow reference counting, so despite the name no actual retaining will occur.
 i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
 
                       </div>
@@ -3928,7 +3931,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L200-L203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L171-L174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3947,7 +3950,7 @@ i.e., ownership is transferred to the <code>PtrArray</code> instance.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Reference intialiser for a related type that implements <code><a href="../Protocols/PtrArrayProtocol.html">PtrArrayProtocol</a></code>
-Will retain <code>GPtrArray</code>.</p>
+<code>GPtrArray</code> does not allow reference counting.</p>
 
                       </div>
                       <div class="declaration">
@@ -3979,7 +3982,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L208-L211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L179-L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4030,7 +4033,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L221-L223">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L192-L194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4081,7 +4084,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L228-L231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L199-L202">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4132,7 +4135,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L236-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L207-L209">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4164,7 +4167,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L242-L245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L213-L216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4215,7 +4218,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L250-L252">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L221-L223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4266,7 +4269,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L257-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L228-L231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4317,7 +4320,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L265-L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L236-L238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4368,112 +4371,7 @@ Will retain <code>GPtrArray</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L272-L275">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib8PtrArrayC3new4full15elementFreeFuncACSgSi_ySvSgXCSgtFZ"></a>
-                    <a name="//apple_ref/swift/Method/new(full:elementFreeFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8PtrArrayC3new4full15elementFreeFuncACSgSi_ySvSgXCSgtFZ">new(full:elementFreeFunc:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a new <code>GPtrArray</code> with <code>reserved_size</code> pointers preallocated
-and a reference count of 1. This avoids frequent reallocation, if
-you are going to add many pointers to the array. Note however that
-the size of the array is still 0. It also set <code>element_free_func</code>
-for freeing each element when the array is destroyed either via
-<code>g_ptr_array_unref()</code>, when <code>g_ptr_array_free()</code> is called with
-<code>free_segment</code> set to <code>true</code> or when removing elements.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">new</span><span class="p">(</span><span class="n">full</span> <span class="nv">reserved_size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">elementFreeFunc</span> <span class="nv">element_free_func</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PtrArray</span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L285-L288">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib8PtrArrayC7newWith8freeFuncACSgySvSgXCSg_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/newWith(freeFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8PtrArrayC7newWith8freeFuncACSgySvSgXCSg_tFZ">newWith(freeFunc:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a new <code>GPtrArray</code> with a reference count of 1 and use
-<code>element_free_func</code> for freeing each element when the array is destroyed
-either via <code>g_ptr_array_unref()</code>, when <code>g_ptr_array_free()</code> is called with
-<code>free_segment</code> set to <code>true</code> or when removing elements.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">newWith</span><span class="p">(</span><span class="n">freeFunc</span> <span class="nv">element_free_func</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PtrArray</span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L294-L297">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:4GLib8PtrArrayC8sizedNew0D0ACSgSi_tFZ"></a>
-                    <a name="//apple_ref/swift/Method/sizedNew(sized:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8PtrArrayC8sizedNew0D0ACSgSi_tFZ">sizedNew(sized:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Creates a new <code>GPtrArray</code> with <code>reserved_size</code> pointers preallocated
-and a reference count of 1. This avoids frequent reallocation, if
-you are going to add many pointers to the array. Note however that
-the size of the array is still 0.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">sizedNew</span><span class="p">(</span><span class="n">sized</span> <span class="nv">reserved_size</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PtrArray</span><span class="o">!</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L303-L306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-PtrArray.swift#L243-L246">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4486,7 +4384,7 @@ the size of the array is still 0.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-05)</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

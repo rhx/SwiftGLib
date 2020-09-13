@@ -11,10 +11,11 @@ import CGLib
 /// private data and should not be directly accessed.
 public protocol BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GBookmarkFile` instance.
-    var _ptr: UnsafeMutablePointer<GBookmarkFile> { get }
+    var _ptr: UnsafeMutablePointer<GBookmarkFile>! { get }
+
 }
 
 /// The `BookmarkFileRef` type acts as a lightweight Swift reference to an underlying `GBookmarkFile` instance.
@@ -26,46 +27,76 @@ public protocol BookmarkFileProtocol {
 public struct BookmarkFileRef: BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension BookmarkFileRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GBookmarkFile>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GBookmarkFile>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GBookmarkFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GBookmarkFile>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GBookmarkFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `BookmarkFileProtocol`
-    init<T: BookmarkFileProtocol>(_ other: T) {
+    @inlinable init<T: BookmarkFileProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension BookmarkFileRef {
 open class BookmarkFile: BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `BookmarkFile` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GBookmarkFile>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GBookmarkFile>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BookmarkFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GBookmarkFile>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BookmarkFile` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BookmarkFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BookmarkFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GBookmarkFile>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `BookmarkFile` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GBookmarkFile>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GBookmarkFile` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `BookmarkFile` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GBookmarkFile>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GBookmarkFile>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `BookmarkFileProtocol`
     /// `GBookmarkFile` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `BookmarkFileProtocol`
-    public init<T: BookmarkFileProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+    @inlinable public init<T: BookmarkFileProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GBookmarkFile`.
     deinit {
-        // no reference counting for GBookmarkFile, cannot unref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GBookmarkFile, cannot ref(cast(_ptr))
+        // no reference counting for GBookmarkFile, cannot ref(_ptr)
     }
 
 
@@ -183,7 +260,7 @@ open class BookmarkFile: BookmarkFileProtocol {
 // MARK: BookmarkFile Record: BookmarkFileProtocol extension (methods and fields)
 public extension BookmarkFileProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GBookmarkFile` instance.
-    var _ptr: UnsafeMutablePointer<GBookmarkFile> { return ptr.assumingMemoryBound(to: GBookmarkFile.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GBookmarkFile>! { return ptr?.assumingMemoryBound(to: GBookmarkFile.self) }
 
     /// Adds the application with `name` and `exec` to the list of
     /// applications that have registered a bookmark for `uri` into
@@ -207,8 +284,8 @@ public extension BookmarkFileProtocol {
     /// `uri` inside `bookmark`.
     /// 
     /// If no bookmark for `uri` is found, one is created.
-    func addApplication(uri: UnsafePointer<gchar>, name: UnsafePointer<gchar>, exec: UnsafePointer<gchar>) {
-        g_bookmark_file_add_application(cast(_ptr), uri, name, exec)
+    @inlinable func addApplication(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>? = nil, exec: UnsafePointer<gchar>? = nil) {
+        g_bookmark_file_add_application(_ptr, uri, name, exec)
     
     }
 
@@ -216,14 +293,14 @@ public extension BookmarkFileProtocol {
     /// belongs to.
     /// 
     /// If no bookmark for `uri` is found then it is created.
-    func addGroup(uri: UnsafePointer<gchar>, group: UnsafePointer<gchar>) {
-        g_bookmark_file_add_group(cast(_ptr), uri, group)
+    @inlinable func addGroup(uri: UnsafePointer<gchar>!, group: UnsafePointer<gchar>!) {
+        g_bookmark_file_add_group(_ptr, uri, group)
     
     }
 
     /// Frees a `GBookmarkFile`.
-    func free() {
-        g_bookmark_file_free(cast(_ptr))
+    @inlinable func free() {
+        g_bookmark_file_free(_ptr)
     
     }
 
@@ -231,11 +308,11 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getAdded(uri: UnsafePointer<gchar>) throws -> time_t {
+    @inlinable func getAdded(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_bookmark_file_get_added(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_added(_ptr, uri, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the registration information of `app_name` for the bookmark for
@@ -251,11 +328,11 @@ public extension BookmarkFileProtocol {
     /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`. In the event that unquoting
     /// the command line fails, an error of the `G_SHELL_ERROR` domain is
     /// set and `false` is returned.
-    func getAppInfo(uri: UnsafePointer<gchar>, name: UnsafePointer<gchar>, exec: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, count: UnsafeMutablePointer<CUnsignedInt>, stamp: UnsafeMutablePointer<time_t>) throws -> Bool {
+    @inlinable func getAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, count: UnsafeMutablePointer<guint>! = nil, stamp: UnsafeMutablePointer<time_t>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_get_app_info(cast(_ptr), uri, name, cast(exec), cast(count), cast(stamp), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_get_app_info(_ptr, uri, name, exec, count, stamp, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves the names of the applications that have registered the
@@ -263,22 +340,22 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, `nil` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getApplications(uri: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func getApplications(uri: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_bookmark_file_get_applications(cast(_ptr), uri, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_applications(_ptr, uri, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves the description of the bookmark for `uri`.
     /// 
     /// In the event the URI cannot be found, `nil` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getDescription(uri: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getDescription(uri: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_bookmark_file_get_description(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_description(_ptr, uri, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves the list of group names of the bookmark for `uri`.
@@ -288,22 +365,22 @@ public extension BookmarkFileProtocol {
     /// 
     /// The returned array is `nil` terminated, so `length` may optionally
     /// be `nil`.
-    func getGroups(uri: UnsafePointer<gchar>, length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
+    @inlinable func getGroups(uri: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_bookmark_file_get_groups(cast(_ptr), uri, cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_groups(_ptr, uri, length, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the icon of the bookmark for `uri`.
     /// 
     /// In the event the URI cannot be found, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getIcon(uri: UnsafePointer<gchar>, href: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>, mimeType mime_type: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> Bool {
+    @inlinable func getIcon(uri: UnsafePointer<gchar>!, href: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, mimeType: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_get_icon(cast(_ptr), uri, cast(href), cast(mime_type), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_get_icon(_ptr, uri, href, mimeType, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets whether the private flag of the bookmark for `uri` is set.
@@ -312,11 +389,11 @@ public extension BookmarkFileProtocol {
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.  In the
     /// event that the private flag cannot be found, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_INVALID_VALUE`.
-    func getIsPrivate(uri: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func getIsPrivate(uri: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_get_is_private(cast(_ptr), uri, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_get_is_private(_ptr, uri, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Retrieves the MIME type of the resource pointed by `uri`.
@@ -325,28 +402,28 @@ public extension BookmarkFileProtocol {
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.  In the
     /// event that the MIME type cannot be found, `nil` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_INVALID_VALUE`.
-    func getMimeType(uri: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getMimeType(uri: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_bookmark_file_get_mime_type(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_mime_type(_ptr, uri, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the time when the bookmark for `uri` was last modified.
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getModified(uri: UnsafePointer<gchar>) throws -> time_t {
+    @inlinable func getModified(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_bookmark_file_get_modified(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_modified(_ptr, uri, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Gets the number of bookmarks inside `bookmark`.
-    func getSize() -> Int {
-        let rv: Int = cast(g_bookmark_file_get_size(cast(_ptr)))
-        return Int(rv)
+    @inlinable func getSize() -> Int {
+        let rv = Int(g_bookmark_file_get_size(_ptr))
+        return rv
     }
 
     /// Returns the title of the bookmark for `uri`.
@@ -355,30 +432,30 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, `nil` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getTitle(uri: UnsafePointer<gchar>) throws -> String! {
+    @inlinable func getTitle(uri: UnsafePointer<gchar>? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: String! = cast(g_bookmark_file_get_title(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_title(_ptr, uri, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Returns all URIs of the bookmarks in the bookmark file `bookmark`.
     /// The array of returned URIs will be `nil`-terminated, so `length` may
     /// optionally be `nil`.
-    func getURIs(length: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(g_bookmark_file_get_uris(cast(_ptr), cast(length)))
-        return cast(rv)
+    @inlinable func getURIs(length: UnsafeMutablePointer<gsize>! = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = g_bookmark_file_get_uris(_ptr, length)
+        return rv
     }
 
     /// Gets the time the bookmark for `uri` was last visited.
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func getVisited(uri: UnsafePointer<gchar>) throws -> time_t {
+    @inlinable func getVisited(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
-        let rv: Int = cast(g_bookmark_file_get_visited(cast(_ptr), uri, &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_get_visited(_ptr, uri, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks whether the bookmark for `uri` inside `bookmark` has been
@@ -386,11 +463,11 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func hasApplication(uri: UnsafePointer<gchar>, name: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func hasApplication(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_has_application(cast(_ptr), uri, name, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_has_application(_ptr, uri, name, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Checks whether `group` appears in the list of groups to which
@@ -398,27 +475,27 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func hasGroup(uri: UnsafePointer<gchar>, group: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func hasGroup(uri: UnsafePointer<gchar>!, group: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_has_group(cast(_ptr), uri, group, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_has_group(_ptr, uri, group, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Looks whether the desktop bookmark has an item with its URI set to `uri`.
-    func hasItem(uri: UnsafePointer<gchar>) -> Bool {
-        let rv = g_bookmark_file_has_item(cast(_ptr), uri)
-        return Bool(rv != 0)
+    @inlinable func hasItem(uri: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_bookmark_file_has_item(_ptr, uri)) != 0)
+        return rv
     }
 
     /// Loads a bookmark file from memory into an empty `GBookmarkFile`
     /// structure.  If the object cannot be created then `error` is set to a
     /// `GBookmarkFileError`.
-    func loadFrom(data: UnsafePointer<gchar>, length: Int) throws -> Bool {
+    @inlinable func loadFrom(data: UnsafePointer<gchar>!, length: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_load_from_data(cast(_ptr), cast(data), gsize(length), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_load_from_data(_ptr, data, gsize(length), &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// This function looks for a desktop bookmark file named `file` in the
@@ -426,21 +503,21 @@ public extension BookmarkFileProtocol {
     /// loads the file into `bookmark` and returns the file's full path in
     /// `full_path`.  If the file could not be loaded then `error` is
     /// set to either a `GFileError` or `GBookmarkFileError`.
-    func loadFromDataDirs(file: UnsafePointer<gchar>, fullPath full_path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>) throws -> Bool {
+    @inlinable func loadFromDataDirs(file: UnsafePointer<gchar>!, fullPath: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_load_from_data_dirs(cast(_ptr), file, cast(full_path), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_load_from_data_dirs(_ptr, file, fullPath, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Loads a desktop bookmark file into an empty `GBookmarkFile` structure.
     /// If the file could not be loaded then `error` is set to either a `GFileError`
     /// or `GBookmarkFileError`.
-    func loadFromFile(String_: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func loadFromFile(filename: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_load_from_file(cast(_ptr), String_, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_load_from_file(_ptr, filename, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Changes the URI of a bookmark item from `old_uri` to `new_uri`.  Any
@@ -449,11 +526,11 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    func moveItem(oldURI old_uri: UnsafePointer<gchar>, newURI new_uri: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func moveItem(oldURI: UnsafePointer<gchar>!, newURI: UnsafePointer<gchar>? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_move_item(cast(_ptr), old_uri, new_uri, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_move_item(_ptr, oldURI, newURI, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes application registered with `name` from the list of applications
@@ -464,11 +541,11 @@ public extension BookmarkFileProtocol {
     /// In the event that no application with name `app_name` has registered
     /// a bookmark for `uri`,  `false` is returned and error is set to
     /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`.
-    func removeApplication(uri: UnsafePointer<gchar>, name: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeApplication(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_remove_application(cast(_ptr), uri, name, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_remove_application(_ptr, uri, name, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes `group` from the list of groups to which the bookmark
@@ -478,26 +555,26 @@ public extension BookmarkFileProtocol {
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
     /// In the event no group was defined, `false` is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_INVALID_VALUE`.
-    func removeGroup(uri: UnsafePointer<gchar>, group: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeGroup(uri: UnsafePointer<gchar>!, group: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_remove_group(cast(_ptr), uri, group, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_remove_group(_ptr, uri, group, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Removes the bookmark for `uri` from the bookmark file `bookmark`.
-    func removeItem(uri: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func removeItem(uri: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_remove_item(cast(_ptr), uri, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_remove_item(_ptr, uri, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the time the bookmark for `uri` was added into `bookmark`.
     /// 
     /// If no bookmark for `uri` is found then it is created.
-    func setAdded(uri: UnsafePointer<gchar>, added: CLong) {
-        g_bookmark_file_set_added(cast(_ptr), uri, added)
+    @inlinable func setAdded(uri: UnsafePointer<gchar>!, added: time_t) {
+        g_bookmark_file_set_added(_ptr, uri, added)
     
     }
 
@@ -529,11 +606,11 @@ public extension BookmarkFileProtocol {
     /// for `uri`,  `false` is returned and error is set to
     /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`.  Otherwise, if no bookmark
     /// for `uri` is found, one is created.
-    func setAppInfo(uri: UnsafePointer<gchar>, name: UnsafePointer<gchar>, exec: UnsafePointer<gchar>, count: CInt, stamp: CLong) throws -> Bool {
+    @inlinable func setAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafePointer<gchar>!, count: Int, stamp: time_t) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_set_app_info(cast(_ptr), uri, name, exec, gint(count), stamp, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_set_app_info(_ptr, uri, name, exec, gint(count), stamp, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `description` as the description of the bookmark for `uri`.
@@ -541,8 +618,8 @@ public extension BookmarkFileProtocol {
     /// If `uri` is `nil`, the description of `bookmark` is set.
     /// 
     /// If a bookmark for `uri` cannot be found then it is created.
-    func setDescription(uri: UnsafePointer<gchar>, description: UnsafePointer<gchar>) {
-        g_bookmark_file_set_description(cast(_ptr), uri, description)
+    @inlinable func setDescription(uri: UnsafePointer<gchar>? = nil, description: UnsafePointer<gchar>!) {
+        g_bookmark_file_set_description(_ptr, uri, description)
     
     }
 
@@ -550,8 +627,8 @@ public extension BookmarkFileProtocol {
     /// set group name list is removed.
     /// 
     /// If `uri` cannot be found then an item for it is created.
-    func setGroups(uri: UnsafePointer<gchar>, groups: UnsafePointer<UnsafePointer<gchar>>, length: Int) {
-        g_bookmark_file_set_groups(cast(_ptr), uri, cast(groups), gsize(length))
+    @inlinable func setGroups(uri: UnsafePointer<gchar>!, groups: UnsafeMutablePointer<UnsafePointer<gchar>?>! = nil, length: Int) {
+        g_bookmark_file_set_groups(_ptr, uri, groups, gsize(length))
     
     }
 
@@ -560,24 +637,24 @@ public extension BookmarkFileProtocol {
     /// file or the icon name following the Icon Naming specification.
     /// 
     /// If no bookmark for `uri` is found one is created.
-    func setIcon(uri: UnsafePointer<gchar>, href: UnsafePointer<gchar>, mimeType mime_type: UnsafePointer<gchar>) {
-        g_bookmark_file_set_icon(cast(_ptr), uri, href, mime_type)
+    @inlinable func setIcon(uri: UnsafePointer<gchar>!, href: UnsafePointer<gchar>? = nil, mimeType: UnsafePointer<gchar>!) {
+        g_bookmark_file_set_icon(_ptr, uri, href, mimeType)
     
     }
 
     /// Sets the private flag of the bookmark for `uri`.
     /// 
     /// If a bookmark for `uri` cannot be found then it is created.
-    func setIsPrivate(uri: UnsafePointer<gchar>, isPrivate is_private: Bool) {
-        g_bookmark_file_set_is_private(cast(_ptr), uri, gboolean(is_private ? 1 : 0))
+    @inlinable func setIsPrivate(uri: UnsafePointer<gchar>!, isPrivate: Bool) {
+        g_bookmark_file_set_is_private(_ptr, uri, gboolean((isPrivate) ? 1 : 0))
     
     }
 
     /// Sets `mime_type` as the MIME type of the bookmark for `uri`.
     /// 
     /// If a bookmark for `uri` cannot be found then it is created.
-    func setMimeType(uri: UnsafePointer<gchar>, mimeType mime_type: UnsafePointer<gchar>) {
-        g_bookmark_file_set_mime_type(cast(_ptr), uri, mime_type)
+    @inlinable func setMimeType(uri: UnsafePointer<gchar>!, mimeType: UnsafePointer<gchar>!) {
+        g_bookmark_file_set_mime_type(_ptr, uri, mimeType)
     
     }
 
@@ -589,8 +666,8 @@ public extension BookmarkFileProtocol {
     /// was actually changed.  Every function of `GBookmarkFile` that
     /// modifies a bookmark also changes the modification time, except for
     /// `g_bookmark_file_set_visited()`.
-    func setModified(uri: UnsafePointer<gchar>, modified: CLong) {
-        g_bookmark_file_set_modified(cast(_ptr), uri, modified)
+    @inlinable func setModified(uri: UnsafePointer<gchar>!, modified: time_t) {
+        g_bookmark_file_set_modified(_ptr, uri, modified)
     
     }
 
@@ -600,8 +677,8 @@ public extension BookmarkFileProtocol {
     /// If `uri` is `nil`, the title of `bookmark` is set.
     /// 
     /// If a bookmark for `uri` cannot be found then it is created.
-    func setTitle(uri: UnsafePointer<gchar>, title: UnsafePointer<gchar>) {
-        g_bookmark_file_set_title(cast(_ptr), uri, title)
+    @inlinable func setTitle(uri: UnsafePointer<gchar>? = nil, title: UnsafePointer<gchar>!) {
+        g_bookmark_file_set_title(_ptr, uri, title)
     
     }
 
@@ -614,33 +691,33 @@ public extension BookmarkFileProtocol {
     /// or by the default application for the bookmark's MIME type, retrieved
     /// using `g_bookmark_file_get_mime_type()`.  Changing the "visited" time
     /// does not affect the "modified" time.
-    func setVisited(uri: UnsafePointer<gchar>, visited: CLong) {
-        g_bookmark_file_set_visited(cast(_ptr), uri, visited)
+    @inlinable func setVisited(uri: UnsafePointer<gchar>!, visited: time_t) {
+        g_bookmark_file_set_visited(_ptr, uri, visited)
     
     }
 
     /// This function outputs `bookmark` as a string.
-    func toData(length: UnsafeMutablePointer<Int>) throws -> UnsafeMutablePointer<gchar>! {
+    @inlinable func toData(length: UnsafeMutablePointer<gsize>! = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<gchar>! = cast(g_bookmark_file_to_data(cast(_ptr), cast(length), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = g_bookmark_file_to_data(_ptr, length, &error).map({ String(cString: $0) })
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// This function outputs `bookmark` into a file.  The write process is
     /// guaranteed to be atomic by using `g_file_set_contents()` internally.
-    func toFile(String_: UnsafePointer<gchar>) throws -> Bool {
+    @inlinable func toFile(filename: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_bookmark_file_to_file(cast(_ptr), String_, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((g_bookmark_file_to_file(_ptr, filename, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
     /// Gets the number of bookmarks inside `bookmark`.
-    var size: Int {
+    @inlinable var size: Int {
         /// Gets the number of bookmarks inside `bookmark`.
         get {
-            let rv: Int = cast(g_bookmark_file_get_size(cast(_ptr)))
-            return Int(rv)
+            let rv = Int(g_bookmark_file_get_size(_ptr))
+            return rv
         }
     }
 

@@ -10,10 +10,11 @@ import CGLib
 /// The `GHookList` struct represents a list of hook functions.
 public protocol HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GHookList` instance.
-    var _ptr: UnsafeMutablePointer<GHookList> { get }
+    var _ptr: UnsafeMutablePointer<GHookList>! { get }
+
 }
 
 /// The `HookListRef` type acts as a lightweight Swift reference to an underlying `GHookList` instance.
@@ -24,46 +25,76 @@ public protocol HookListProtocol {
 public struct HookListRef: HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension HookListRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GHookList>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GHookList>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GHookList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GHookList>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GHookList>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `HookListProtocol`
-    init<T: HookListProtocol>(_ other: T) {
+    @inlinable init<T: HookListProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -77,95 +108,141 @@ public extension HookListRef {
 open class HookList: HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `HookList` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GHookList>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GHookList>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HookList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GHookList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HookList` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HookList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HookList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GHookList>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `HookList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GHookList>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GHookList` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `HookList` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GHookList>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GHookList>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `HookListProtocol`
     /// `GHookList` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `HookListProtocol`
-    public init<T: HookListProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+    @inlinable public init<T: HookListProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GHookList`.
     deinit {
-        // no reference counting for GHookList, cannot unref(cast(_ptr))
+        // no reference counting for GHookList, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GHookList, cannot ref(cast(_ptr))
+        // no reference counting for GHookList, cannot ref(_ptr)
     }
 
 
@@ -180,169 +257,180 @@ open class HookList: HookListProtocol {
 // MARK: HookList Record: HookListProtocol extension (methods and fields)
 public extension HookListProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHookList` instance.
-    var _ptr: UnsafeMutablePointer<GHookList> { return ptr.assumingMemoryBound(to: GHookList.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GHookList>! { return ptr?.assumingMemoryBound(to: GHookList.self) }
 
     /// Removes all the `GHook` elements from a `GHookList`.
-    func clear() {
-        g_hook_list_clear(cast(_ptr))
+    @inlinable func clear() {
+        g_hook_list_clear(_ptr)
     
     }
 
     /// Initializes a `GHookList`.
     /// This must be called before the `GHookList` is used.
-    func init_(hookSize hook_size: CUnsignedInt) {
-        g_hook_list_init(cast(_ptr), guint(hook_size))
+    @inlinable func init_(hookSize: Int) {
+        g_hook_list_init(_ptr, guint(hookSize))
     
     }
 
     /// Calls all of the `GHook` functions in a `GHookList`.
-    func invoke(mayRecurse may_recurse: Bool) {
-        g_hook_list_invoke(cast(_ptr), gboolean(may_recurse ? 1 : 0))
+    @inlinable func invoke(mayRecurse: Bool) {
+        g_hook_list_invoke(_ptr, gboolean((mayRecurse) ? 1 : 0))
     
     }
 
     /// Calls all of the `GHook` functions in a `GHookList`.
     /// Any function which returns `false` is removed from the `GHookList`.
-    func invokeCheck(mayRecurse may_recurse: Bool) {
-        g_hook_list_invoke_check(cast(_ptr), gboolean(may_recurse ? 1 : 0))
+    @inlinable func invokeCheck(mayRecurse: Bool) {
+        g_hook_list_invoke_check(_ptr, gboolean((mayRecurse) ? 1 : 0))
     
     }
 
     /// Calls a function on each valid `GHook`.
-    func marshal(mayRecurse may_recurse: Bool, marshaller: @escaping HookMarshaller, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_hook_list_marshal(cast(_ptr), gboolean(may_recurse ? 1 : 0), marshaller, cast(marshal_data))
+    @inlinable func marshal(mayRecurse: Bool, marshaller: GHookMarshaller?, marshalData: gpointer! = nil) {
+        g_hook_list_marshal(_ptr, gboolean((mayRecurse) ? 1 : 0), marshaller, marshalData)
     
     }
 
     /// Calls a function on each valid `GHook` and destroys it if the
     /// function returns `false`.
-    func marshalCheck(mayRecurse may_recurse: Bool, marshaller: @escaping HookCheckMarshaller, marshalData marshal_data: UnsafeMutableRawPointer) {
-        g_hook_list_marshal_check(cast(_ptr), gboolean(may_recurse ? 1 : 0), marshaller, cast(marshal_data))
+    @inlinable func marshalCheck(mayRecurse: Bool, marshaller: GHookCheckMarshaller?, marshalData: gpointer! = nil) {
+        g_hook_list_marshal_check(_ptr, gboolean((mayRecurse) ? 1 : 0), marshaller, marshalData)
     
     }
 
     /// Destroys a `GHook`, given its ID.
-    func hookDestroy(hookID hook_id: CUnsignedLong) -> Bool {
-        let rv = g_hook_destroy(cast(_ptr), gulong(hook_id))
-        return Bool(rv != 0)
+    @inlinable func hookDestroy(hookID: Int) -> Bool {
+        let rv = ((g_hook_destroy(_ptr, gulong(hookID))) != 0)
+        return rv
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
     /// inactive and calling `g_hook_unref()` on it.
-    func hookDestroyLink(hook: HookProtocol) {
-        g_hook_destroy_link(cast(_ptr), cast(hook.ptr))
+    @inlinable func hookDestroyLink<HookT: HookProtocol>(hook: HookT) {
+        g_hook_destroy_link(_ptr, hook._ptr)
     
     }
 
     /// Calls the `GHookList` `finalize_hook` function if it exists,
     /// and frees the memory allocated for the `GHook`.
-    func hookFree(hook: HookProtocol) {
-        g_hook_free(cast(_ptr), cast(hook.ptr))
+    @inlinable func hookFree<HookT: HookProtocol>(hook: HookT) {
+        g_hook_free(_ptr, hook._ptr)
     
     }
 
     /// Inserts a `GHook` into a `GHookList`, before a given `GHook`.
-    func hookInsertBefore(sibling: HookProtocol, hook: HookProtocol) {
-        g_hook_insert_before(cast(_ptr), cast(sibling.ptr), cast(hook.ptr))
+    @inlinable func hookInsertBefore<HookT: HookProtocol>(sibling: HookT?, hook: HookT) {
+        g_hook_insert_before(_ptr, sibling?._ptr, hook._ptr)
     
     }
 
     /// Prepends a `GHook` on the start of a `GHookList`.
-    func hookPrepend(hook: HookProtocol) {
-        g_hook_prepend(cast(_ptr), cast(hook.ptr))
+    @inlinable func hookPrepend<HookT: HookProtocol>(hook: HookT) {
+        g_hook_prepend(_ptr, hook._ptr)
     
     }
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
     /// from the `GHookList` and `g_hook_free()` is called to free it.
-    func hookUnref(hook: HookProtocol) {
-        g_hook_unref(cast(_ptr), cast(hook.ptr))
+    @inlinable func hookUnref<HookT: HookProtocol>(hook: HookT) {
+        g_hook_unref(_ptr, hook._ptr)
     
     }
 
     /// the next free `GHook` id
-    var seqID: Int {
+    @inlinable var seqID: gulong {
         /// the next free `GHook` id
         get {
-            let rv: Int = cast(_ptr.pointee.seq_id)
+            let rv = _ptr.pointee.seq_id
             return rv
         }
         /// the next free `GHook` id
          set {
-            _ptr.pointee.seq_id = gulong(newValue)
+            _ptr.pointee.seq_id = newValue
         }
     }
 
     /// the size of the `GHookList` elements, in bytes
-    var hookSize: Int {
+    @inlinable var hookSize: guint {
         /// the size of the `GHookList` elements, in bytes
         get {
-            let rv: Int = cast(_ptr.pointee.hook_size)
+            let rv = _ptr.pointee.hook_size
             return rv
         }
         /// the size of the `GHookList` elements, in bytes
          set {
-            _ptr.pointee.hook_size = guint(newValue)
+            _ptr.pointee.hook_size = newValue
         }
     }
 
     /// 1 if the `GHookList` has been initialized
-    var isSetup: Int {
+    @inlinable var isSetup: guint {
         /// 1 if the `GHookList` has been initialized
         get {
-            let rv: Int = cast(_ptr.pointee.is_setup)
+            let rv = _ptr.pointee.is_setup
             return rv
         }
         /// 1 if the `GHookList` has been initialized
          set {
-            _ptr.pointee.is_setup = guint(newValue)
+            _ptr.pointee.is_setup = newValue
         }
     }
 
     /// the first `GHook` element in the list
-    var hooks: UnsafeMutablePointer<GHook> {
+    @inlinable var hooks: HookRef! {
         /// the first `GHook` element in the list
         get {
-            let rv: UnsafeMutablePointer<GHook> = cast(_ptr.pointee.hooks)
+            let rv = HookRef(gconstpointer: gconstpointer(_ptr.pointee.hooks))
             return rv
         }
         /// the first `GHook` element in the list
          set {
-            _ptr.pointee.hooks = cast(newValue)
+            _ptr.pointee.hooks = UnsafeMutablePointer<GHook>(newValue._ptr)
         }
     }
 
     /// unused
-    var dummy3: UnsafeMutableRawPointer {
+    @inlinable var dummy3: gpointer! {
         /// unused
         get {
-            let rv: UnsafeMutableRawPointer = cast(_ptr.pointee.dummy3)
+            let rv = _ptr.pointee.dummy3
             return rv
         }
         /// unused
          set {
-            _ptr.pointee.dummy3 = cast(newValue)
+            _ptr.pointee.dummy3 = newValue
         }
     }
 
     /// the function to call to finalize a `GHook` element.
     ///     The default behaviour is to call the hooks `destroy` function
-    var finalizeHook: GHookFinalizeFunc {
+    @inlinable var finalizeHook: GHookFinalizeFunc! {
         /// the function to call to finalize a `GHook` element.
         ///     The default behaviour is to call the hooks `destroy` function
         get {
-            let rv: GHookFinalizeFunc = cast(_ptr.pointee.finalize_hook)
+            let rv = _ptr.pointee.finalize_hook
             return rv
         }
         /// the function to call to finalize a `GHook` element.
         ///     The default behaviour is to call the hooks `destroy` function
          set {
-            _ptr.pointee.finalize_hook = cast(newValue)
+            _ptr.pointee.finalize_hook = newValue
         }
     }
 
-    // var dummy is unavailable because dummy is void
+    /// unused
+    @inlinable var dummy: (gpointer?, gpointer?) {
+        /// unused
+        get {
+            let rv = _ptr.pointee.dummy
+            return rv
+        }
+        /// unused
+         set {
+            _ptr.pointee.dummy = newValue
+        }
+    }
 
 }
 

@@ -11,10 +11,11 @@ import CGLib
 /// It should only be accessed by using the following functions.
 public protocol StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GStringChunk` instance.
-    var _ptr: UnsafeMutablePointer<GStringChunk> { get }
+    var _ptr: UnsafeMutablePointer<GStringChunk>! { get }
+
 }
 
 /// The `StringChunkRef` type acts as a lightweight Swift reference to an underlying `GStringChunk` instance.
@@ -26,46 +27,76 @@ public protocol StringChunkProtocol {
 public struct StringChunkRef: StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StringChunkRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GStringChunk>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GStringChunk>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GStringChunk>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GStringChunk>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GStringChunk>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StringChunkProtocol`
-    init<T: StringChunkProtocol>(_ other: T) {
+    @inlinable init<T: StringChunkProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -80,95 +111,141 @@ public extension StringChunkRef {
 open class StringChunk: StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StringChunk` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GStringChunk>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GStringChunk>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StringChunk` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GStringChunk>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StringChunk` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StringChunk` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StringChunk` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GStringChunk>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StringChunk` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GStringChunk>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GStringChunk` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StringChunk` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GStringChunk>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GStringChunk>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StringChunkProtocol`
     /// `GStringChunk` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StringChunkProtocol`
-    public init<T: StringChunkProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+    @inlinable public init<T: StringChunkProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GStringChunk`.
     deinit {
-        // no reference counting for GStringChunk, cannot unref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GStringChunk, cannot ref(cast(_ptr))
+        // no reference counting for GStringChunk, cannot ref(_ptr)
     }
 
 
@@ -183,21 +260,21 @@ open class StringChunk: StringChunkProtocol {
 // MARK: StringChunk Record: StringChunkProtocol extension (methods and fields)
 public extension StringChunkProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GStringChunk` instance.
-    var _ptr: UnsafeMutablePointer<GStringChunk> { return ptr.assumingMemoryBound(to: GStringChunk.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GStringChunk>! { return ptr?.assumingMemoryBound(to: GStringChunk.self) }
 
     /// Frees all strings contained within the `GStringChunk`.
     /// After calling `g_string_chunk_clear()` it is not safe to
     /// access any of the strings which were contained within it.
-    func clear() {
-        g_string_chunk_clear(cast(_ptr))
+    @inlinable func clear() {
+        g_string_chunk_clear(_ptr)
     
     }
 
     /// Frees all memory allocated by the `GStringChunk`.
     /// After calling `g_string_chunk_free()` it is not safe to
     /// access any of the strings which were contained within it.
-    func free() {
-        g_string_chunk_free(cast(_ptr))
+    @inlinable func free() {
+        g_string_chunk_free(_ptr)
     
     }
 
@@ -212,9 +289,9 @@ public extension StringChunkProtocol {
     /// with `g_string_chunk_insert()` will not be searched
     /// by `g_string_chunk_insert_const()` when looking for
     /// duplicates.
-    func insert(string: UnsafePointer<gchar>) -> String! {
-        let rv: String! = cast(g_string_chunk_insert(cast(_ptr), string))
-        return cast(rv)
+    @inlinable func insert(string: UnsafePointer<gchar>!) -> String! {
+        let rv = g_string_chunk_insert(_ptr, string).map({ String(cString: $0) })
+        return rv
     }
 
     /// Adds a copy of `string` to the `GStringChunk`, unless the same
@@ -230,9 +307,9 @@ public extension StringChunkProtocol {
     /// Note that `g_string_chunk_insert_const()` will not return a
     /// pointer to a string added with `g_string_chunk_insert()`, even
     /// if they do match.
-    func insertConst(string: UnsafePointer<gchar>) -> String! {
-        let rv: String! = cast(g_string_chunk_insert_const(cast(_ptr), string))
-        return cast(rv)
+    @inlinable func insertConst(string: UnsafePointer<gchar>!) -> String! {
+        let rv = g_string_chunk_insert_const(_ptr, string).map({ String(cString: $0) })
+        return rv
     }
 
     /// Adds a copy of the first `len` bytes of `string` to the `GStringChunk`.
@@ -244,9 +321,9 @@ public extension StringChunkProtocol {
     /// 
     /// The characters in the returned string can be changed, if necessary,
     /// though you should not change anything after the end of the string.
-    func insertLen(string: UnsafePointer<gchar>, len: gssize) -> String! {
-        let rv: String! = cast(g_string_chunk_insert_len(cast(_ptr), string, len))
-        return cast(rv)
+    @inlinable func insertLen(string: UnsafePointer<gchar>!, len: gssize) -> String! {
+        let rv = g_string_chunk_insert_len(_ptr, string, len).map({ String(cString: $0) })
+        return rv
     }
 
 
