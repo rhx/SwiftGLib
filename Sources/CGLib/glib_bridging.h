@@ -312,6 +312,10 @@ typedef enum {
 #include <gio/gunixsocketaddress.h>
 #include <gio/gsettingsbackend.h>
 
+#ifndef G_VALUE_INTERNED_STRING
+#define G_VALUE_INTERNED_STRING (1 << 28)
+#endif
+
 typedef void (*GObjectNotifyQueueDispatcher) (GObject *object, guint n_pspecs, GParamSpec **pspecs);
 
 typedef struct _GObjectNotifyContext
