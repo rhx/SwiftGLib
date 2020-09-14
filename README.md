@@ -15,6 +15,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ### Notable changes
 
+ * Parameters use idiomatic Swift names (e.g. camel case instead of snake case, splitting out of "for", "from", etc.)
  * Requires Swift 5.2 or later
  * Wrapper code is now `@inlinable` to enable the compiler to optimise away most of the wrappers
  * Parameters and return types use more idiomatic Swift (e.g. `Ref` wrappers instead of pointers, `Int` instead of `gint`, etc.)
@@ -40,7 +41,7 @@ on macOS, or on Linux you should get something like:
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, and 2.64.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, and 2.66.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 

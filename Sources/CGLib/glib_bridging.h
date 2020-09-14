@@ -42,6 +42,7 @@ struct _GUnixFDMessagePrivate {};
 struct _GUnixInputStreamPrivate {};
 struct _GUnixOutputStreamPrivate {};
 struct _GUnixSocketAddressPrivate {};
+struct _GUri {};
 struct _GVariant {};
 struct _GVariantType {};
 struct GMainContextPusher {};
@@ -245,6 +246,49 @@ struct _GDtlsServerConnection {};
 #include <glib/gtimezone.h>
 #include <glib/gtimer.h>
 #include <glib/gtree.h>
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION >= 66
+#include <glib/guri.h>
+#else
+struct _GUriParamsIter {};
+typedef struct _GUriParamsIter GUriParamsIter;
+typedef enum {
+    G_URI_ERROR_FAILED,
+    G_URI_ERROR_BAD_SCHEME,
+    G_URI_ERROR_BAD_USER,
+    G_URI_ERROR_BAD_PASSWORD,
+    G_URI_ERROR_BAD_AUTH_PARAMS,
+    G_URI_ERROR_BAD_HOST,
+    G_URI_ERROR_BAD_PORT,
+    G_URI_ERROR_BAD_PATH,
+    G_URI_ERROR_BAD_QUERY,
+    G_URI_ERROR_BAD_FRAGMENT,
+} GUriError;
+typedef enum {
+    G_URI_FLAGS_NONE            = 0,
+    G_URI_FLAGS_PARSE_RELAXED   = 1 << 0,
+    G_URI_FLAGS_HAS_PASSWORD    = 1 << 1,
+    G_URI_FLAGS_HAS_AUTH_PARAMS = 1 << 2,
+    G_URI_FLAGS_ENCODED         = 1 << 3,
+    G_URI_FLAGS_NON_DNS         = 1 << 4,
+    G_URI_FLAGS_ENCODED_QUERY   = 1 << 5,
+    G_URI_FLAGS_ENCODED_PATH    = 1 << 6,
+    G_URI_FLAGS_ENCODED_FRAGMENT = 1 << 7,
+} GUriFlags;
+typedef enum {
+    G_URI_PARAMS_NONE             = 0,
+    G_URI_PARAMS_CASE_INSENSITIVE = 1 << 0,
+    G_URI_PARAMS_WWW_FORM         = 1 << 1,
+    G_URI_PARAMS_PARSE_RELAXED    = 1 << 2,
+} GUriParamsFlags;
+typedef enum {
+    G_URI_HIDE_NONE        = 0,
+    G_URI_HIDE_USERINFO    = 1 << 0,
+    G_URI_HIDE_PASSWORD    = 1 << 1,
+    G_URI_HIDE_AUTH_PARAMS = 1 << 2,
+    G_URI_HIDE_QUERY       = 1 << 3,
+    G_URI_HIDE_FRAGMENT    = 1 << 4,
+} GUriHideFlags;
+#endif
 #include <glib/gvariant.h>
 #include <glib/gvarianttype.h>
 #include <gio/gio.h>
@@ -293,3 +337,12 @@ typedef void (*GDesktopAppLaunchCallback) (GDesktopAppInfo  *appinfo,
                                            GPid              pid,
                                            gpointer          user_data);
 #endif
+//
+// Type aliases for idiomatic Swift
+//
+typedef struct _GUri GURI;
+typedef struct _GUriParamsIter GURIParamsIter;
+typedef GUriError GURIError;
+typedef GUriFlags GURIFlags;
+typedef GUriParamsFlags GURIParamsFlags;
+typedef GUriHideFlags GURIHideFlags;
