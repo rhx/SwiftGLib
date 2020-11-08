@@ -5,6 +5,9 @@ import PackageDescription
 let package = Package(
     name: "GLib",
     products: [ .library(name: "GLib", targets: ["GLib"]) ],
+    dependencies: [
+        .package(name: "gir2swift", url: "https://github.com/mikolasstuchlik/gir2swift.git", .branch("master"))
+    ],
     targets: [
         .systemLibrary(name: "CGLib", pkgConfig: "gio-unix-2.0",
             providers: [
