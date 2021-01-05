@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>Variant</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">Variant</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/VariantProtocol.html">VariantProtocol</a></span></code></pre>
 
                 </div>
@@ -3765,6 +3859,9 @@ would use more memory for the serialised data and buffer
 management for those dictionaries, but the type information would
 be shared.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Variant.swift#L1559-L2300">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3810,7 +3907,7 @@ be shared.</p>
                     <code>
                     <a name="/s:4GLib7VariantCyACSpySo9_GVariantVGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantCyACSpySo9_GVariantVGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7VariantCyACSpySo9_GVariantVGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3862,7 +3959,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantCyACSPySo9_GVariantVGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantCyACSPySo9_GVariantVGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7VariantCyACSPySo9_GVariantVGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3914,7 +4011,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantC8gpointerACSgSvSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC8gpointerACSgSvSg_tcfc">init(gpointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC8gpointerACSgSvSg_tcfc">init(gpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3967,7 +4064,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantC13gconstpointerACSgSVSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gconstpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4020,7 +4117,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantCyACSgSPySo9_GVariantVGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantCyACSgSPySo9_GVariantVGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7VariantCyACSgSPySo9_GVariantVGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4072,7 +4169,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantCyACSgSpySo9_GVariantVGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantCyACSgSpySo9_GVariantVGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7VariantCyACSgSpySo9_GVariantVGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4124,7 +4221,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantC9retainingACSpySo9_GVariantVG_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC9retainingACSpySo9_GVariantVG_tcfc">init(retaining:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC9retainingACSpySo9_GVariantVG_tcfc">init(retaining:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4176,7 +4273,7 @@ i.e., ownership is transferred to the <code>Variant</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7VariantCyACxcAA0B8ProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantCyACxcAA0B8ProtocolRzlufc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7VariantCyACxcAA0B8ProtocolRzlufc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4227,7 +4324,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC8cPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(cPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC8cPointerACSpyxG_tclufc">init(cPointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC8cPointerACSpyxG_tclufc">init(cPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4278,7 +4375,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC17retainingCPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4329,7 +4426,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3rawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3rawACSV_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3rawACSV_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4380,7 +4477,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC12retainingRawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC12retainingRawACSV_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4412,7 +4509,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3rawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3rawACSv_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3rawACSv_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4463,7 +4560,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC12retainingRawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC12retainingRawACSv_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4514,7 +4611,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC13opaquePointerACs06OpaqueD0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(opaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC13opaquePointerACs06OpaqueD0V_tcfc">init(opaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC13opaquePointerACs06OpaqueD0V_tcfc">init(opaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4565,7 +4662,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC22retainingOpaquePointerACs0dE0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC22retainingOpaquePointerACs0dE0V_tcfc">init(retainingOpaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC22retainingOpaquePointerACs0dE0V_tcfc">init(retainingOpaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4616,7 +4713,7 @@ Will retain <code>GVariant</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5array8children9nChildrenACxSg_SPySpySo9_GVariantVGSgGSgSitcAA0B12TypeProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(array:children:nChildren:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5array8children9nChildrenACxSg_SPySpySo9_GVariantVGSgGSgSitcAA0B12TypeProtocolRzlufc">init(array:children:nChildren:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5array8children9nChildrenACxSg_SPySpySo9_GVariantVGSgGSgSitcAA0B12TypeProtocolRzlufc">init(array:<wbr>children:<wbr>nChildren:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4661,7 +4758,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC7booleanACSb_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(boolean:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7booleanACSb_tcfc">init(boolean:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7booleanACSb_tcfc">init(boolean:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4692,7 +4789,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC4byteACs5UInt8V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(byte:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC4byteACs5UInt8V_tcfc">init(byte:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC4byteACs5UInt8V_tcfc">init(byte:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4723,7 +4820,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC10bytestringACSPys4Int8VGSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(bytestring:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC10bytestringACSPys4Int8VGSg_tcfc">init(bytestring:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC10bytestringACSPys4Int8VGSg_tcfc">init(bytestring:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4759,7 +4856,7 @@ the array.</p>
                     <code>
                     <a name="/s:4GLib7VariantC16bytestring_array6lengthACSPySPys4Int8VGSgGSg_Sitcfc"></a>
                     <a name="//apple_ref/swift/Method/init(bytestring_array:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC16bytestring_array6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(bytestring_array:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC16bytestring_array6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(bytestring_array:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4793,7 +4890,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC7CDoubleACSd_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(CDouble:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7CDoubleACSd_tcfc">init(CDouble:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7CDoubleACSd_tcfc">init(CDouble:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4824,7 +4921,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC11fixed_array8elements9nElements11elementSizeACx_SVSgS2itcAA0B12TypeProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(fixed_array:elements:nElements:elementSize:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC11fixed_array8elements9nElements11elementSizeACx_SVSgS2itcAA0B12TypeProtocolRzlufc">init(fixed_array:elements:nElements:elementSize:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC11fixed_array8elements9nElements11elementSizeACx_SVSgS2itcAA0B12TypeProtocolRzlufc">init(fixed_array:<wbr>elements:<wbr>nElements:<wbr>elementSize:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4867,7 +4964,7 @@ expectation.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5bytesAD7trustedACq__xSbtcAA13BytesProtocolRzAA0b4TypeF0R_r0_lufc"></a>
                     <a name="//apple_ref/swift/Method/init(bytes:bytes:trusted:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5bytesAD7trustedACq__xSbtcAA13BytesProtocolRzAA0b4TypeF0R_r0_lufc">init(bytes:bytes:trusted:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5bytesAD7trustedACq__xSbtcAA13BytesProtocolRzAA0b4TypeF0R_r0_lufc">init(bytes:<wbr>bytes:<wbr>trusted:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4906,7 +5003,7 @@ GLib 2.60) or (in older versions) fail and exit the process.</p>
                     <code>
                     <a name="/s:4GLib7VariantC4dataAD4size7trusted6notify8userDataACx_SVSgSiSbySvSgXCSgAJtcAA0B12TypeProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(data:data:size:trusted:notify:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC4dataAD4size7trusted6notify8userDataACx_SVSgSiSbySvSgXCSgAJtcAA0B12TypeProtocolRzlufc">init(data:data:size:trusted:notify:userData:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC4dataAD4size7trusted6notify8userDataACx_SVSgSiSbySvSgXCSgAJtcAA0B12TypeProtocolRzlufc">init(data:<wbr>data:<wbr>size:<wbr>trusted:<wbr>notify:<wbr>userData:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4965,7 +5062,7 @@ process.</p>
                     <code>
                     <a name="/s:4GLib7VariantC6handleACs5Int32V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(handle:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC6handleACs5Int32V_tcfc">init(handle:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC6handleACs5Int32V_tcfc">init(handle:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5000,7 +5097,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5int16ACs5Int16V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(int16:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5int16ACs5Int16V_tcfc">init(int16:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5int16ACs5Int16V_tcfc">init(int16:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5031,7 +5128,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5int32ACs5Int32V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(int32:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5int32ACs5Int32V_tcfc">init(int32:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5int32ACs5Int32V_tcfc">init(int32:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5062,7 +5159,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5int64ACs5Int64V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(int64:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5int64ACs5Int64V_tcfc">init(int64:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5int64ACs5Int64V_tcfc">init(int64:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5093,7 +5190,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5maybe5childACq_Sg_xSgtcAA0B8ProtocolRzAA0b4TypeE0R_r0_lufc"></a>
                     <a name="//apple_ref/swift/Method/init(maybe:child:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5maybe5childACq_Sg_xSgtcAA0B8ProtocolRzAA0b4TypeE0R_r0_lufc">init(maybe:child:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5maybe5childACq_Sg_xSgtcAA0B8ProtocolRzAA0b4TypeE0R_r0_lufc">init(maybe:<wbr>child:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5133,7 +5230,7 @@ instance takes ownership of <code>child</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC10objectPathACSPys4Int8VGSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(objectPath:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC10objectPathACSPys4Int8VGSg_tcfc">init(objectPath:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC10objectPathACSPys4Int8VGSg_tcfc">init(objectPath:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5166,7 +5263,7 @@ instance takes ownership of <code>child</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC4objv6lengthACSPySPys4Int8VGSgGSg_Sitcfc"></a>
                     <a name="//apple_ref/swift/Method/init(objv:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC4objv6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(objv:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC4objv6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(objv:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5203,7 +5300,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC9signatureACSPys4Int8VGSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(signature:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC9signatureACSPys4Int8VGSg_tcfc">init(signature:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC9signatureACSPys4Int8VGSg_tcfc">init(signature:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5236,7 +5333,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC6stringACSPys4Int8VGSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC6stringACSPys4Int8VGSg_tcfc">init(string:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC6stringACSPys4Int8VGSg_tcfc">init(string:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5271,7 +5368,7 @@ potentially-<code>nil</code> strings, use <code>g_variant_new()</code> with <cod
                     <code>
                     <a name="/s:4GLib7VariantC4strv6lengthACSPySPys4Int8VGSgGSg_Sitcfc"></a>
                     <a name="//apple_ref/swift/Method/init(strv:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC4strv6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(strv:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC4strv6lengthACSPySPys4Int8VGSgGSg_Sitcfc">init(strv:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5305,7 +5402,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC11take_stringACSpys4Int8VGSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(take_string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC11take_stringACSpys4Int8VGSg_tcfc">init(take_string:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC11take_stringACSpys4Int8VGSg_tcfc">init(take_string:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5346,7 +5443,7 @@ freed.</p>
                     <code>
                     <a name="/s:4GLib7VariantC5tuple9nChildrenACSPySpySo9_GVariantVGSgGSg_Sitcfc"></a>
                     <a name="//apple_ref/swift/Method/init(tuple:nChildren:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5tuple9nChildrenACSPySpySo9_GVariantVGSgGSg_Sitcfc">init(tuple:nChildren:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5tuple9nChildrenACSPySpySo9_GVariantVGSgGSg_Sitcfc">init(tuple:<wbr>nChildren:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5384,7 +5481,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC6uint16ACs6UInt16V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(uint16:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC6uint16ACs6UInt16V_tcfc">init(uint16:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC6uint16ACs6UInt16V_tcfc">init(uint16:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5415,7 +5512,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC6uint32ACs6UInt32V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(uint32:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC6uint32ACs6UInt32V_tcfc">init(uint32:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC6uint32ACs6UInt32V_tcfc">init(uint32:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5446,7 +5543,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC6uint64ACs6UInt64V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(uint64:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC6uint64ACs6UInt64V_tcfc">init(uint64:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC6uint64ACs6UInt64V_tcfc">init(uint64:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5477,7 +5574,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new5array8children9nChildrenACSgxSg_SPySpySo9_GVariantVGSgGSgSitAA0B12TypeProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/new(array:children:nChildren:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5array8children9nChildrenACSgxSg_SPySpySo9_GVariantVGSgGSgSitAA0B12TypeProtocolRzlFZ">new(array:children:nChildren:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5array8children9nChildrenACSgxSg_SPySpySo9_GVariantVGSgGSgSitAA0B12TypeProtocolRzlFZ">new(array:<wbr>children:<wbr>nChildren:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5522,7 +5619,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new7booleanACSgSb_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(boolean:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new7booleanACSgSb_tFZ">new(boolean:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new7booleanACSgSb_tFZ">new(boolean:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5553,7 +5650,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new4byteACSgs5UInt8V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(byte:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new4byteACSgs5UInt8V_tFZ">new(byte:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new4byteACSgs5UInt8V_tFZ">new(byte:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5584,7 +5681,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC7newByte10bytestringACSgSPys4Int8VGSg_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newByte(bytestring:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7newByte10bytestringACSgSPys4Int8VGSg_tFZ">newByte(bytestring:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7newByte10bytestringACSgSPys4Int8VGSg_tFZ">newByte(bytestring:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5620,7 +5717,7 @@ the array.</p>
                     <code>
                     <a name="/s:4GLib7VariantC18newBytestringArray16bytestring_array6lengthACSgSPySPys4Int8VGSgGSg_SitFZ"></a>
                     <a name="//apple_ref/swift/Method/newBytestringArray(bytestring_array:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC18newBytestringArray16bytestring_array6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">newBytestringArray(bytestring_array:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC18newBytestringArray16bytestring_array6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">newBytestringArray(bytestring_array:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5654,7 +5751,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC9newDouble7CDoubleACSgSd_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newDouble(CDouble:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC9newDouble7CDoubleACSgSd_tFZ">newDouble(CDouble:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC9newDouble7CDoubleACSgSd_tFZ">newDouble(CDouble:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5685,7 +5782,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC13newFixedArray11fixed_array8elements9nElements11elementSizeACSgx_SVSgS2itAA0B12TypeProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/newFixedArray(fixed_array:elements:nElements:elementSize:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC13newFixedArray11fixed_array8elements9nElements11elementSizeACSgx_SVSgS2itAA0B12TypeProtocolRzlFZ">newFixedArray(fixed_array:elements:nElements:elementSize:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC13newFixedArray11fixed_array8elements9nElements11elementSizeACSgx_SVSgS2itAA0B12TypeProtocolRzlFZ">newFixedArray(fixed_array:<wbr>elements:<wbr>nElements:<wbr>elementSize:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5728,7 +5825,7 @@ expectation.</p>
                     <code>
                     <a name="/s:4GLib7VariantC7newFrom5bytesAE7trustedACSgq__xSbtAA13BytesProtocolRzAA0b4TypeH0R_r0_lFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(bytes:bytes:trusted:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7newFrom5bytesAE7trustedACSgq__xSbtAA13BytesProtocolRzAA0b4TypeH0R_r0_lFZ">newFrom(bytes:bytes:trusted:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7newFrom5bytesAE7trustedACSgq__xSbtAA13BytesProtocolRzAA0b4TypeH0R_r0_lFZ">newFrom(bytes:<wbr>bytes:<wbr>trusted:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5767,7 +5864,7 @@ GLib 2.60) or (in older versions) fail and exit the process.</p>
                     <code>
                     <a name="/s:4GLib7VariantC7newFrom4dataAE4size7trusted6notify8userDataACSgx_SVSgSiSbySvSgXCSgALtAA0B12TypeProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(data:data:size:trusted:notify:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7newFrom4dataAE4size7trusted6notify8userDataACSgx_SVSgSiSbySvSgXCSgALtAA0B12TypeProtocolRzlFZ">newFrom(data:data:size:trusted:notify:userData:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7newFrom4dataAE4size7trusted6notify8userDataACSgx_SVSgSiSbySvSgXCSgALtAA0B12TypeProtocolRzlFZ">newFrom(data:<wbr>data:<wbr>size:<wbr>trusted:<wbr>notify:<wbr>userData:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5826,7 +5923,7 @@ process.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new6handleACSgs5Int32V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(handle:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new6handleACSgs5Int32V_tFZ">new(handle:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new6handleACSgs5Int32V_tFZ">new(handle:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5861,7 +5958,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new5int16ACSgs5Int16V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(int16:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5int16ACSgs5Int16V_tFZ">new(int16:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5int16ACSgs5Int16V_tFZ">new(int16:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5892,7 +5989,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new5int32ACSgs5Int32V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(int32:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5int32ACSgs5Int32V_tFZ">new(int32:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5int32ACSgs5Int32V_tFZ">new(int32:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5923,7 +6020,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new5int64ACSgs5Int64V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(int64:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5int64ACSgs5Int64V_tFZ">new(int64:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5int64ACSgs5Int64V_tFZ">new(int64:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5954,7 +6051,7 @@ with D-Bus, you probably don&rsquo;t need them.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new5maybe5childACSgq_Sg_xSgtAA0B8ProtocolRzAA0b4TypeF0R_r0_lFZ"></a>
                     <a name="//apple_ref/swift/Method/new(maybe:child:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5maybe5childACSgq_Sg_xSgtAA0B8ProtocolRzAA0b4TypeF0R_r0_lFZ">new(maybe:child:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5maybe5childACSgq_Sg_xSgtAA0B8ProtocolRzAA0b4TypeF0R_r0_lFZ">new(maybe:<wbr>child:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5994,7 +6091,7 @@ instance takes ownership of <code>child</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new10objectPathACSgSPys4Int8VGSg_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(objectPath:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new10objectPathACSgSPys4Int8VGSg_tFZ">new(objectPath:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new10objectPathACSgSPys4Int8VGSg_tFZ">new(objectPath:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6027,7 +6124,7 @@ instance takes ownership of <code>child</code>.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new4objv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ"></a>
                     <a name="//apple_ref/swift/Method/new(objv:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new4objv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">new(objv:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new4objv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">new(objv:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6064,7 +6161,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new9signatureACSgSPys4Int8VGSg_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(signature:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new9signatureACSgSPys4Int8VGSg_tFZ">new(signature:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new9signatureACSgSPys4Int8VGSg_tFZ">new(signature:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6097,7 +6194,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new6stringACSgSPys4Int8VGSg_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new6stringACSgSPys4Int8VGSg_tFZ">new(string:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new6stringACSgSPys4Int8VGSg_tFZ">new(string:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6132,7 +6229,7 @@ potentially-<code>nil</code> strings, use <code>g_variant_new()</code> with <cod
                     <code>
                     <a name="/s:4GLib7VariantC3new4strv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ"></a>
                     <a name="//apple_ref/swift/Method/new(strv:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new4strv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">new(strv:length:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new4strv6lengthACSgSPySPys4Int8VGSgGSg_SitFZ">new(strv:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6166,7 +6263,7 @@ strings.</p>
                     <code>
                     <a name="/s:4GLib7VariantC7newTake11take_stringACSgSpys4Int8VGSg_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newTake(take_string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC7newTake11take_stringACSgSpys4Int8VGSg_tFZ">newTake(take_string:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC7newTake11take_stringACSgSpys4Int8VGSg_tFZ">newTake(take_string:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6207,7 +6304,7 @@ freed.</p>
                     <code>
                     <a name="/s:4GLib7VariantC3new5tuple9nChildrenACSgSPySpySo9_GVariantVGSgGSg_SitFZ"></a>
                     <a name="//apple_ref/swift/Method/new(tuple:nChildren:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new5tuple9nChildrenACSgSPySpySo9_GVariantVGSgGSg_SitFZ">new(tuple:nChildren:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new5tuple9nChildrenACSgSPySpySo9_GVariantVGSgGSg_SitFZ">new(tuple:<wbr>nChildren:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6245,7 +6342,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new6uint16ACSgs6UInt16V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(uint16:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new6uint16ACSgs6UInt16V_tFZ">new(uint16:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new6uint16ACSgs6UInt16V_tFZ">new(uint16:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6276,7 +6373,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new6uint32ACSgs6UInt32V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(uint32:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new6uint32ACSgs6UInt32V_tFZ">new(uint32:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new6uint32ACSgs6UInt32V_tFZ">new(uint32:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6307,7 +6404,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC3new6uint64ACSgs6UInt64V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/new(uint64:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC3new6uint64ACSgs6UInt64V_tFZ">new(uint64:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC3new6uint64ACSgs6UInt64V_tFZ">new(uint64:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6338,7 +6435,7 @@ new instance takes ownership of them as if via <code>g_variant_ref_sink()</code>
                     <code>
                     <a name="/s:4GLib7VariantC5parse4type4text5limit6endptrACSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0B12TypeProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/parse(type:text:limit:endptr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7VariantC5parse4type4text5limit6endptrACSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0B12TypeProtocolRzlFZ">parse(type:text:limit:endptr:)</a>
+                    <a class="token" href="#/s:4GLib7VariantC5parse4type4text5limit6endptrACSgxSg_SPys4Int8VGSgANSpyANGSgtKAA0B12TypeProtocolRzlFZ">parse(type:<wbr>text:<wbr>limit:<wbr>endptr:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -6406,8 +6503,8 @@ guaranteed to handle nesting up to at least 64 levels.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

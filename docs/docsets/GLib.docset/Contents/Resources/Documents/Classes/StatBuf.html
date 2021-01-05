@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>StatBuf</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">StatBuf</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/StatBufProtocol.html">StatBufProtocol</a></span></code></pre>
 
                 </div>
@@ -3533,6 +3627,9 @@ system call, depending on the platform and/or compiler being used.</p>
 
 <p>See <code>g_stat()</code> for more information.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-StatBuf.swift#L117-L259">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3578,7 +3675,7 @@ system call, depending on the platform and/or compiler being used.</p>
                     <code>
                     <a name="/s:4GLib7StatBufCyACSpySo4statVGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufCyACSpySo4statVGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufCyACSpySo4statVGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3630,7 +3727,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufCyACSPySo4statVGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufCyACSPySo4statVGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufCyACSPySo4statVGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3682,7 +3779,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC8gpointerACSgSvSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC8gpointerACSgSvSg_tcfc">init(gpointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC8gpointerACSgSvSg_tcfc">init(gpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3735,7 +3832,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC13gconstpointerACSgSVSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gconstpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3788,7 +3885,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufCyACSgSPySo4statVGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufCyACSgSPySo4statVGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufCyACSgSPySo4statVGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3840,7 +3937,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufCyACSgSpySo4statVGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufCyACSgSpySo4statVGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufCyACSgSpySo4statVGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3892,7 +3989,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC9retainingACSpySo4statVG_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC9retainingACSpySo4statVG_tcfc">init(retaining:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC9retainingACSpySo4statVG_tcfc">init(retaining:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3944,7 +4041,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufCyACxcAA0bC8ProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufCyACxcAA0bC8ProtocolRzlufc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufCyACxcAA0bC8ProtocolRzlufc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3995,7 +4092,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC8cPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(cPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC8cPointerACSpyxG_tclufc">init(cPointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC8cPointerACSpyxG_tclufc">init(cPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4046,7 +4143,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC17retainingCPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4097,7 +4194,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC3rawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC3rawACSV_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC3rawACSV_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4148,7 +4245,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC12retainingRawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC12retainingRawACSV_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4180,7 +4277,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC3rawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC3rawACSv_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC3rawACSv_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4231,7 +4328,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC12retainingRawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC12retainingRawACSv_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4282,7 +4379,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC13opaquePointerACs06OpaqueE0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(opaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC13opaquePointerACs06OpaqueE0V_tcfc">init(opaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC13opaquePointerACs06OpaqueE0V_tcfc">init(opaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4333,7 +4430,7 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
                     <code>
                     <a name="/s:4GLib7StatBufC22retainingOpaquePointerACs0eF0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib7StatBufC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib7StatBufC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4387,8 +4484,8 @@ i.e., ownership is transferred to the <code>StatBuf</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

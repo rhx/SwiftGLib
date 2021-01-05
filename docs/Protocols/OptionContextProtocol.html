@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>OptionContextProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">OptionContextProtocol</span></code></pre>
 
                 </div>
@@ -3533,6 +3627,9 @@ Alternatively, use <code><a href="../Structs/OptionContextRef.html">OptionContex
 are accepted by the commandline option parser. The struct has only private
 fields and should not be directly accessed.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-OptionContext.swift#L13-L20">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3612,10 +3709,10 @@ fields and should not be directly accessed.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/OptionContext%20Record:%20OptionContextProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/OptionContext%20Record%3A%20OptionContextProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/OptionContext Record: OptionContextProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/OptionContext%20Record:%20OptionContextProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/OptionContext%20Record%3A%20OptionContextProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>OptionContext Record: OptionContextProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3626,7 +3723,7 @@ fields and should not be directly accessed.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE3add5groupyqd___tAA0b5GroupD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3add5groupyqd___tAA0b5GroupD0Rd__lF">add(group:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3add5groupyqd___tAA0b5GroupD0Rd__lF">add(group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3662,7 +3759,7 @@ ownership of the <code>group</code> and thus the <code>group</code> should not b
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainySPySo13_GOptionEntryVGSg_SPys4Int8VGSgtF"></a>
                     <a name="//apple_ref/swift/Method/addMain(entries:translationDomain:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainySPySo13_GOptionEntryVGSg_SPys4Int8VGSgtF">addMain(entries:translationDomain:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7addMain7entries17translationDomainySPySo13_GOptionEntryVGSg_SPys4Int8VGSgtF">addMain(entries:<wbr>translationDomain:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3769,7 +3866,7 @@ added to it.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_AA0B8GroupRefVSgtF"></a>
                     <a name="//apple_ref/swift/Method/getHelp(mainHelp:group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_AA0B8GroupRefVSgtF">getHelp(mainHelp:group:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_AA0B8GroupRefVSgtF">getHelp(mainHelp:<wbr>group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3809,7 +3906,7 @@ To obtain the help text for an option group, call
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_qd__SgtAA0b5GroupD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/getHelp(mainHelp:group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_qd__SgtAA0b5GroupD0Rd__lF">getHelp(mainHelp:group:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7getHelp04mainF05groupSSSgSb_qd__SgtAA0b5GroupD0Rd__lF">getHelp(mainHelp:<wbr>group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4023,7 +4120,7 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE5parse4argc4argvSbSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/parse(argc:argv:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE5parse4argc4argvSbSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtKF">parse(argc:argv:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE5parse4argc4argvSbSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtKF">parse(argc:<wbr>argv:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4077,7 +4174,7 @@ arguments.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE9parseStrv9argumentsSbSpySpySpys4Int8VGSgGSgGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/parseStrv(arguments:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE9parseStrv9argumentsSbSpySpySpys4Int8VGSgGSgGSg_tKF">parseStrv(arguments:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE9parseStrv9argumentsSbSpySpySpys4Int8VGSgGSgGSg_tKF">parseStrv(arguments:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4126,7 +4223,7 @@ See <code>g_win32_get_command_line()</code> for a solution.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE3set11descriptionySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/set(description:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11descriptionySPys4Int8VGSg_tF">set(description:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11descriptionySPys4Int8VGSg_tF">set(description:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4164,7 +4261,7 @@ of options. This text often includes a bug reporting address.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE3set11helpEnabledySb_tF"></a>
                     <a name="//apple_ref/swift/Method/set(helpEnabled:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11helpEnabledySb_tF">set(helpEnabled:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11helpEnabledySb_tF">set(helpEnabled:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4201,7 +4298,7 @@ output to stdout.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE23setIgnoreUnknownOptions06ignoreG0ySb_tF"></a>
                     <a name="//apple_ref/swift/Method/setIgnoreUnknownOptions(ignoreUnknown:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE23setIgnoreUnknownOptions06ignoreG0ySb_tF">setIgnoreUnknownOptions(ignoreUnknown:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE23setIgnoreUnknownOptions06ignoreG0ySb_tF">setIgnoreUnknownOptions(ignoreUnknown:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4241,7 +4338,7 @@ determine whether a non-option belongs to a preceding unknown option.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE7setMain5groupyqd___tAA0b5GroupD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/setMain(group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7setMain5groupyqd___tAA0b5GroupD0Rd__lF">setMain(group:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE7setMain5groupyqd___tAA0b5GroupD0Rd__lF">setMain(group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4278,7 +4375,7 @@ treated differently when generating <code>--help</code> output.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE3set11strictPosixySb_tF"></a>
                     <a name="//apple_ref/swift/Method/set(strictPosix:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11strictPosixySb_tF">set(strictPosix:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set11strictPosixySb_tF">set(strictPosix:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4335,7 +4432,7 @@ parsing).</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE3set7summaryySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/set(summary:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set7summaryySPys4Int8VGSg_tF">set(summary:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE3set7summaryySPys4Int8VGSg_tF">set(summary:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4374,7 +4471,7 @@ of options. This is typically a summary of the program functionality.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE16setTranslateFunc4func4data13destroyNotifyySPys4Int8VGSgAK_SvSgtXCSg_ALyALXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/setTranslateFunc(func:data:destroyNotify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE16setTranslateFunc4func4data13destroyNotifyySPys4Int8VGSgAK_SvSgtXCSg_ALyALXCSgtF">setTranslateFunc(func:data:destroyNotify:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE16setTranslateFunc4func4data13destroyNotifyySPys4Int8VGSgAK_SvSgtXCSg_ALyALXCSgtF">setTranslateFunc(func:<wbr>data:<wbr>destroyNotify:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4418,7 +4515,7 @@ domain, see <code>g_option_context_set_translation_domain()</code>.</p>
                     <code>
                     <a name="/s:4GLib21OptionContextProtocolPAAE14setTranslation6domainySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/setTranslation(domain:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE14setTranslation6domainySPys4Int8VGSg_tF">setTranslation(domain:)</a>
+                    <a class="token" href="#/s:4GLib21OptionContextProtocolPAAE14setTranslation6domainySPys4Int8VGSg_tF">setTranslation(domain:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4664,8 +4761,8 @@ is turned on for <code>context</code>. See <code>g_option_context_set_help_enabl
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

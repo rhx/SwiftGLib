@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>TreeProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">TreeProtocol</span></code></pre>
 
                 </div>
@@ -3533,6 +3627,9 @@ Alternatively, use <code><a href="../Structs/TreeRef.html">TreeRef</a></code> as
 <a href="../Protocols/TreeProtocol.html">balanced binary tree</a>. It should be
 accessed only by using the following functions.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L13-L20">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3612,10 +3709,10 @@ accessed only by using the following functions.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Tree%20Record:%20TreeProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Tree%20Record%3A%20TreeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Tree Record: TreeProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Tree%20Record:%20TreeProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Tree%20Record%3A%20TreeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Tree Record: TreeProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3665,7 +3762,7 @@ the <code>GTree</code>.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE7foreach4func8userDatays5Int32VSvSg_A2ItXCSg_AItF"></a>
                     <a name="//apple_ref/swift/Method/foreach(func:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE7foreach4func8userDatays5Int32VSvSg_A2ItXCSg_AItF">foreach(func:userData:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE7foreach4func8userDatays5Int32VSvSg_A2ItXCSg_AItF">foreach(func:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3744,7 +3841,7 @@ If the root node has children the height is 2, etc.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE6insert3key5valueySvSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/insert(key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6insert3key5valueySvSg_AGtF">insert(key:value:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6insert3key5valueySvSg_AGtF">insert(key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3764,7 +3861,10 @@ you supplied a <code>key_destroy_func</code> when creating the <code>GTree</code
 key is freed using that function.</p>
 
 <p>The tree is automatically &lsquo;balanced&rsquo; as new key/value pairs are added,
-so that the distance from the root to every leaf is as small as possible.</p>
+so that the distance from the root to every leaf is as small as possible.
+The cost of maintaining a balanced tree while inserting new key/value
+result in a <code>O(n log(n)</code>) operation where most of the other operations
+are <code>O(log(n)</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -3777,7 +3877,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L340-L343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L343-L346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3787,7 +3887,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE6lookup3keySvSgSVSg_tF"></a>
                     <a name="//apple_ref/swift/Method/lookup(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6lookup3keySvSgSVSg_tF">lookup(key:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6lookup3keySvSgSVSg_tF">lookup(key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3813,7 +3913,7 @@ is <code>O(log n)</code> (where n is the number of key/value pairs in the tree).
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L348-L351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L351-L354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3823,7 +3923,7 @@ is <code>O(log n)</code> (where n is the number of key/value pairs in the tree).
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE14lookupExtended0D3Key04origF05valueSbSVSg_SpySvSgGSgAKtF"></a>
                     <a name="//apple_ref/swift/Method/lookupExtended(lookupKey:origKey:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE14lookupExtended0D3Key04origF05valueSbSVSg_SpySvSgGSgAKtF">lookupExtended(lookupKey:origKey:value:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE14lookupExtended0D3Key04origF05valueSbSVSg_SpySvSgGSgAKtF">lookupExtended(lookupKey:<wbr>origKey:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3850,7 +3950,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L357-L360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L360-L363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3884,7 +3984,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L363-L366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L366-L369">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3921,7 +4021,7 @@ allocated for the original key, for example before calling
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L371-L374">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L374-L377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3931,7 +4031,7 @@ allocated for the original key, for example before calling
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE6remove3keySbSVSg_tF"></a>
                     <a name="//apple_ref/swift/Method/remove(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6remove3keySbSVSg_tF">remove(key:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6remove3keySbSVSg_tF">remove(key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3949,6 +4049,10 @@ are freed using the supplied destroy functions, otherwise you have to
 make sure that any dynamically allocated values are freed yourself.
 If the key does not exist in the <code>GTree</code>, the function does nothing.</p>
 
+<p>The cost of maintaining a balanced tree while removing a key/value
+result in a <code>O(n log(n)</code>) operation where most of the other operations
+are <code>O(log(n)</code>).</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -3960,7 +4064,7 @@ If the key does not exist in the <code>GTree</code>, the function does nothing.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L382-L385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L389-L392">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3970,7 +4074,7 @@ If the key does not exist in the <code>GTree</code>, the function does nothing.<
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE7replace3key5valueySvSg_AGtF"></a>
                     <a name="//apple_ref/swift/Method/replace(key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE7replace3key5valueySvSg_AGtF">replace(key:value:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE7replace3key5valueySvSg_AGtF">replace(key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4002,7 +4106,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L396-L399">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L403-L406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4012,7 +4116,7 @@ so that the distance from the root to every leaf is as small as possible.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE6search0D4Func8userDataSvSgs5Int32VSVSg_AJtXCSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/search(searchFunc:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6search0D4Func8userDataSvSgs5Int32VSVSg_AJtXCSg_AJtF">search(searchFunc:userData:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE6search0D4Func8userDataSvSgs5Int32VSVSg_AJtXCSg_AJtF">search(searchFunc:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4044,7 +4148,7 @@ pairs that have a larger key.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L410-L413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L417-L420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4054,7 +4158,7 @@ pairs that have a larger key.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE5steal3keySbSVSg_tF"></a>
                     <a name="//apple_ref/swift/Method/steal(key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE5steal3keySbSVSg_tF">steal(key:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE5steal3keySbSVSg_tF">steal(key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4081,7 +4185,7 @@ the key and value destroy functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L419-L422">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L426-L429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4091,7 +4195,7 @@ the key and value destroy functions.</p>
                     <code>
                     <a name="/s:4GLib12TreeProtocolPAAE8traverse0D4Func0D4Type8userDatays5Int32VSvSg_A2JtXCSg_So09GTraverseF0aAJtF"></a>
                     <a name="//apple_ref/swift/Method/traverse(traverseFunc:traverseType:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE8traverse0D4Func0D4Type8userDatays5Int32VSvSg_A2JtXCSg_So09GTraverseF0aAJtF">traverse(traverseFunc:traverseType:userData:)</a>
+                    <a class="token" href="#/s:4GLib12TreeProtocolPAAE8traverse0D4Func0D4Type8userDatays5Int32VSvSg_A2JtXCSg_So09GTraverseF0aAJtF">traverse(traverseFunc:<wbr>traverseType:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4122,7 +4226,7 @@ The order of a balanced tree is somewhat arbitrary.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L431-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L438-L441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4161,7 +4265,7 @@ memory allocated by <code>tree</code> will be released.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L442-L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Tree.swift#L449-L452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4174,8 +4278,8 @@ memory allocated by <code>tree</code> will be released.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

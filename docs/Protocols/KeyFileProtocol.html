@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>KeyFileProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">KeyFileProtocol</span></code></pre>
 
                 </div>
@@ -3532,6 +3626,9 @@ Alternatively, use <code><a href="../Structs/KeyFileRef.html">KeyFileRef</a></co
 <p>The GKeyFile struct contains only private data
 and should not be accessed directly.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L12-L19">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3611,10 +3708,10 @@ and should not be accessed directly.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/KeyFile%20Record:%20KeyFileProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/KeyFile%20Record%3A%20KeyFileProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/KeyFile Record: KeyFileProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/KeyFile%20Record:%20KeyFileProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/KeyFile%20Record%3A%20KeyFileProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>KeyFile Record: KeyFileProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3661,7 +3758,7 @@ frees the key file and all its allocated memory.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10getBoolean9groupName3keySbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/getBoolean(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getBoolean9groupName3keySbSPys4Int8VGSg_AJtKF">getBoolean(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getBoolean9groupName3keySbSPys4Int8VGSg_AJtKF">getBoolean(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3701,7 +3798,7 @@ is returned and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALU
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE14getBooleanList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getBooleanList(groupName:key:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14getBooleanList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF">getBooleanList(groupName:key:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14getBooleanList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF">getBooleanList(groupName:<wbr>key:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3741,7 +3838,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALUE</code>.</p
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10getComment9groupName3keySSSgSPys4Int8VGSg_AKtKF"></a>
                     <a name="//apple_ref/swift/Method/getComment(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getComment9groupName3keySSSgSPys4Int8VGSg_AKtKF">getComment(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getComment9groupName3keySSSgSPys4Int8VGSg_AKtKF">getComment(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3782,7 +3879,7 @@ the line breaks between lines, but does not include the final line break.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9getDouble9groupName3keySdSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/getDouble(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getDouble9groupName3keySdSPys4Int8VGSg_AJtKF">getDouble(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getDouble9groupName3keySdSPys4Int8VGSg_AJtKF">getDouble(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3822,7 +3919,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALUE</code>.</p
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE13getDoubleList9groupName3key6lengthSpySdGSgSPys4Int8VGSg_AMSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getDoubleList(groupName:key:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13getDoubleList9groupName3key6lengthSpySdGSgSPys4Int8VGSg_AMSpySuGSgtKF">getDoubleList(groupName:key:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13getDoubleList9groupName3key6lengthSpySdGSgSPys4Int8VGSg_AMSpySuGSgtKF">getDoubleList(groupName:<wbr>key:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3862,7 +3959,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALUE</code>.</p
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9getGroups6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/getGroups(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getGroups6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF">getGroups(length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getGroups6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF">getGroups(length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3898,7 +3995,7 @@ The array of returned groups will be <code>nil</code>-terminated, so
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8getInt649groupName3keys0F0VSPys4Int8VGSg_ALtKF"></a>
                     <a name="//apple_ref/swift/Method/getInt64(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8getInt649groupName3keys0F0VSPys4Int8VGSg_ALtKF">getInt64(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8getInt649groupName3keys0F0VSPys4Int8VGSg_ALtKF">getInt64(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3934,7 +4031,7 @@ The array of returned groups will be <code>nil</code>-terminated, so
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10getInteger9groupName3keySiSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/getInteger(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getInteger9groupName3keySiSPys4Int8VGSg_AJtKF">getInteger(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10getInteger9groupName3keySiSPys4Int8VGSg_AJtKF">getInteger(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3975,7 +4072,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALUE</code>.</p
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE14getIntegerList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getIntegerList(groupName:key:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14getIntegerList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF">getIntegerList(groupName:key:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14getIntegerList9groupName3key6lengthSpys5Int32VGSgSPys4Int8VGSg_AOSpySuGSgtKF">getIntegerList(groupName:<wbr>key:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4016,7 +4113,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_INVALID_VALUE</code>.</p
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE7getKeys9groupName6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getKeys(groupName:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE7getKeys9groupName6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getKeys(groupName:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE7getKeys9groupName6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getKeys(groupName:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4054,7 +4151,7 @@ be found, <code>nil</code> is returned and <code>error</code> is set to
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE012getLocaleForB09groupName3key6localeSSSgSPys4Int8VGSg_A2LtF"></a>
                     <a name="//apple_ref/swift/Method/getLocaleForKey(groupName:key:locale:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE012getLocaleForB09groupName3key6localeSSSgSPys4Int8VGSg_A2LtF">getLocaleForKey(groupName:key:locale:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE012getLocaleForB09groupName3key6localeSSSgSPys4Int8VGSg_A2LtF">getLocaleForKey(groupName:<wbr>key:<wbr>locale:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4096,7 +4193,7 @@ this function.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE15getLocaleString9groupName3key6localeSSSgSPys4Int8VGSg_A2LtKF"></a>
                     <a name="//apple_ref/swift/Method/getLocaleString(groupName:key:locale:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE15getLocaleString9groupName3key6localeSSSgSPys4Int8VGSg_A2LtKF">getLocaleString(groupName:key:locale:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE15getLocaleString9groupName3key6localeSSSgSPys4Int8VGSg_A2LtKF">getLocaleString(groupName:<wbr>key:<wbr>locale:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4141,7 +4238,7 @@ be found then the untranslated value is returned.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE19getLocaleStringList9groupName3key6locale6lengthSpySpys4Int8VGSgGSgSPyAJGSg_A2PSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getLocaleStringList(groupName:key:locale:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE19getLocaleStringList9groupName3key6locale6lengthSpySpys4Int8VGSgGSgSPyAJGSg_A2PSpySuGSgtKF">getLocaleStringList(groupName:key:locale:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE19getLocaleStringList9groupName3key6locale6lengthSpySpys4Int8VGSgGSgSPyAJGSg_A2PSpySuGSgtKF">getLocaleStringList(groupName:<wbr>key:<wbr>locale:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4222,7 +4319,7 @@ be <code>nil</code>.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9getString9groupName3keySSSgSPys4Int8VGSg_AKtKF"></a>
                     <a name="//apple_ref/swift/Method/getString(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getString9groupName3keySSSgSPys4Int8VGSg_AKtKF">getString(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getString9groupName3keySSSgSPys4Int8VGSg_AKtKF">getString(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4263,7 +4360,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_GROUP_NOT_FOUND</code>.<
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE13getStringList9groupName3key6lengthSpySpys4Int8VGSgGSgSPyAIGSg_AOSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getStringList(groupName:key:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13getStringList9groupName3key6lengthSpySpys4Int8VGSgGSgSPyAIGSg_AOSpySuGSgtKF">getStringList(groupName:key:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13getStringList9groupName3key6lengthSpySpys4Int8VGSgGSgSPyAIGSg_AOSpySuGSgtKF">getStringList(groupName:<wbr>key:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4302,7 +4399,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_GROUP_NOT_FOUND</code>.<
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9getUint649groupName3keys6UInt64VSPys4Int8VGSg_ALtKF"></a>
                     <a name="//apple_ref/swift/Method/getUint64(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getUint649groupName3keys6UInt64VSPys4Int8VGSg_ALtKF">getUint64(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9getUint649groupName3keys6UInt64VSPys4Int8VGSg_ALtKF">getUint64(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4338,7 +4435,7 @@ large positive results without truncation.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8getValue9groupName3keySSSgSPys4Int8VGSg_AKtKF"></a>
                     <a name="//apple_ref/swift/Method/getValue(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8getValue9groupName3keySSSgSPys4Int8VGSg_AKtKF">getValue(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8getValue9groupName3keySSSgSPys4Int8VGSg_AKtKF">getValue(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4378,7 +4475,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_GROUP_NOT_FOUND</code>.<
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8hasGroup9groupNameSbSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/hasGroup(groupName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8hasGroup9groupNameSbSPys4Int8VGSg_tF">hasGroup(groupName:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8hasGroup9groupNameSbSPys4Int8VGSg_tF">hasGroup(groupName:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4412,7 +4509,7 @@ and <code>error</code> is set to <code>G_KEY_FILE_ERROR_GROUP_NOT_FOUND</code>.<
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE03hasB09groupName3keySbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/hasKey(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE03hasB09groupName3keySbSPys4Int8VGSg_AJtKF">hasKey(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE03hasB09groupName3keySbSPys4Int8VGSg_AJtKF">hasKey(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4455,7 +4552,7 @@ or not a key exists.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8loadFrom5bytes5flagsSbqd___AA0bC5FlagsVtKAA05BytesD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/loadFrom(bytes:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom5bytes5flagsSbqd___AA0bC5FlagsVtKAA05BytesD0Rd__lF">loadFrom(bytes:flags:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom5bytes5flagsSbqd___AA0bC5FlagsVtKAA05BytesD0Rd__lF">loadFrom(bytes:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4490,7 +4587,7 @@ If the object cannot be created then <code>error</code> is set to a <code>GKeyFi
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8loadFrom4data6length5flagsSbSPys4Int8VGSg_SiAA0bC5FlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/loadFrom(data:length:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom4data6length5flagsSbSPys4Int8VGSg_SiAA0bC5FlagsVtKF">loadFrom(data:length:flags:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom4data6length5flagsSbSPys4Int8VGSg_SiAA0bC5FlagsVtKF">loadFrom(data:<wbr>length:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4525,7 +4622,7 @@ If the object cannot be created then <code>error</code> is set to a <code>GKeyFi
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE16loadFromDataDirs4file8fullPath5flagsSbSPys4Int8VGSg_SpySpyAIGSgGSgAA0bC5FlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/loadFromDataDirs(file:fullPath:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE16loadFromDataDirs4file8fullPath5flagsSbSPys4Int8VGSg_SpySpyAIGSgGSgAA0bC5FlagsVtKF">loadFromDataDirs(file:fullPath:flags:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE16loadFromDataDirs4file8fullPath5flagsSbSPys4Int8VGSg_SpySpyAIGSgGSgAA0bC5FlagsVtKF">loadFromDataDirs(file:<wbr>fullPath:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4563,7 +4660,7 @@ set to either a <code>GFileError</code> or <code>GKeyFileError</code>.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE12loadFromDirs4file06searchG08fullPath5flagsSbSPys4Int8VGSg_SpyALGSgSpySpyAJGSgGSgAA0bC5FlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/loadFromDirs(file:searchDirs:fullPath:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE12loadFromDirs4file06searchG08fullPath5flagsSbSPys4Int8VGSg_SpyALGSgSpySpyAJGSgGSgAA0bC5FlagsVtKF">loadFromDirs(file:searchDirs:fullPath:flags:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE12loadFromDirs4file06searchG08fullPath5flagsSbSPys4Int8VGSg_SpyALGSgSpySpyAJGSgGSgAA0bC5FlagsVtKF">loadFromDirs(file:<wbr>searchDirs:<wbr>fullPath:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4605,7 +4702,7 @@ file, a <code>G_FILE_ERROR</code> is returned. If there is a problem parsing the
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8loadFrom4file5flagsSbSPys4Int8VGSg_AA0bC5FlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/loadFrom(file:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom4file5flagsSbSPys4Int8VGSg_AA0bC5FlagsVtKF">loadFrom(file:flags:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8loadFrom4file5flagsSbSPys4Int8VGSg_AA0bC5FlagsVtKF">loadFrom(file:<wbr>flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4681,7 +4778,7 @@ file, a <code>G_FILE_ERROR</code> is returned. If there is a problem parsing the
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE13removeComment9groupName3keySbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/removeComment(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13removeComment9groupName3keySbSPys4Int8VGSg_AJtKF">removeComment(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13removeComment9groupName3keySbSPys4Int8VGSg_AJtKF">removeComment(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4718,7 +4815,7 @@ be removed above the first group in the file.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE11removeGroup9groupNameSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/removeGroup(groupName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE11removeGroup9groupNameSbSPys4Int8VGSg_tKF">removeGroup(groupName:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE11removeGroup9groupNameSbSPys4Int8VGSg_tKF">removeGroup(groupName:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4753,7 +4850,7 @@ from the key file.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE06removeB09groupName3keySbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/removeKey(groupName:key:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE06removeB09groupName3keySbSPys4Int8VGSg_AJtKF">removeKey(groupName:key:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE06removeB09groupName3keySbSPys4Int8VGSg_AJtKF">removeKey(groupName:<wbr>key:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4787,7 +4884,7 @@ from the key file.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE06saveToC08filenameSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/saveToFile(filename:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE06saveToC08filenameSbSPys4Int8VGSg_tKF">saveToFile(filename:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE06saveToC08filenameSbSPys4Int8VGSg_tKF">saveToFile(filename:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4799,7 +4896,9 @@ from the key file.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Writes the contents of <code>key_file</code> to <code>filename</code> using
-<code>g_file_set_contents()</code>.</p>
+<code>g_file_set_contents()</code>. If you need stricter guarantees about durability of
+the written file than are provided by <code>g_file_set_contents()</code>, use
+<code>g_file_set_contents_full()</code> with the return value of <code>g_key_file_to_data()</code>.</p>
 
 <p>This function can fail for any of the reasons that
 <code>g_file_set_contents()</code> may fail.</p>
@@ -4815,7 +4914,7 @@ from the key file.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L655-L660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L657-L662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4825,7 +4924,7 @@ from the key file.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10setBoolean9groupName3key5valueySPys4Int8VGSg_AKSbtF"></a>
                     <a name="//apple_ref/swift/Method/setBoolean(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setBoolean9groupName3key5valueySPys4Int8VGSg_AKSbtF">setBoolean(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setBoolean9groupName3key5valueySPys4Int8VGSg_AKSbtF">setBoolean(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4850,7 +4949,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L664-L667">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L666-L669">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4860,7 +4959,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE14setBooleanList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setBooleanList(groupName:key:list:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14setBooleanList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF">setBooleanList(groupName:key:list:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14setBooleanList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF">setBooleanList(groupName:<wbr>key:<wbr>list:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4886,7 +4985,7 @@ If <code>group_name</code> is <code>nil</code>, the start_group is used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L672-L675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L674-L677">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4896,7 +4995,7 @@ If <code>group_name</code> is <code>nil</code>, the start_group is used.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10setComment9groupName3key7commentSbSPys4Int8VGSg_A2KtKF"></a>
                     <a name="//apple_ref/swift/Method/setComment(groupName:key:comment:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setComment9groupName3key7commentSbSPys4Int8VGSg_A2KtKF">setComment(groupName:key:comment:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setComment9groupName3key7commentSbSPys4Int8VGSg_A2KtKF">setComment(groupName:<wbr>key:<wbr>comment:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4927,7 +5026,7 @@ each line of <code>comment</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L685-L690">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L687-L692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4937,7 +5036,7 @@ each line of <code>comment</code>.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9setDouble9groupName3key5valueySPys4Int8VGSg_AKSdtF"></a>
                     <a name="//apple_ref/swift/Method/setDouble(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setDouble9groupName3key5valueySPys4Int8VGSg_AKSdtF">setDouble(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setDouble9groupName3key5valueySPys4Int8VGSg_AKSdtF">setDouble(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4962,7 +5061,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L694-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L696-L699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4972,7 +5071,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE13setDoubleList9groupName3key4list6lengthySPys4Int8VGSg_ALSpySdGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setDoubleList(groupName:key:list:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13setDoubleList9groupName3key4list6lengthySPys4Int8VGSg_ALSpySdGSgSitF">setDoubleList(groupName:key:list:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13setDoubleList9groupName3key4list6lengthySPys4Int8VGSg_ALSpySdGSgSitF">setDoubleList(groupName:<wbr>key:<wbr>list:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4997,7 +5096,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L701-L704">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L703-L706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5007,7 +5106,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8setInt649groupName3key5valueySPys4Int8VGSg_AKs0F0VtF"></a>
                     <a name="//apple_ref/swift/Method/setInt64(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8setInt649groupName3key5valueySPys4Int8VGSg_AKs0F0VtF">setInt64(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8setInt649groupName3key5valueySPys4Int8VGSg_AKs0F0VtF">setInt64(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5032,7 +5131,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L708-L711">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L710-L713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5042,7 +5141,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE10setInteger9groupName3key5valueySPys4Int8VGSg_AKSitF"></a>
                     <a name="//apple_ref/swift/Method/setInteger(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setInteger9groupName3key5valueySPys4Int8VGSg_AKSitF">setInteger(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE10setInteger9groupName3key5valueySPys4Int8VGSg_AKSitF">setInteger(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5067,7 +5166,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L715-L718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L717-L720">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5077,7 +5176,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE14setIntegerList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setIntegerList(groupName:key:list:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14setIntegerList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF">setIntegerList(groupName:key:list:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE14setIntegerList9groupName3key4list6lengthySPys4Int8VGSg_ALSpys5Int32VGSgSitF">setIntegerList(groupName:<wbr>key:<wbr>list:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5102,7 +5201,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L722-L725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L724-L727">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5112,7 +5211,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE7setList9separatorys4Int8V_tF"></a>
                     <a name="//apple_ref/swift/Method/setList(separator:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE7setList9separatorys4Int8V_tF">setList(separator:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE7setList9separatorys4Int8V_tF">setList(separator:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5138,7 +5237,7 @@ as separators. The default list separator is &lsquo;;&rsquo;.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L730-L733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L732-L735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5148,7 +5247,7 @@ as separators. The default list separator is &lsquo;;&rsquo;.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE15setLocaleString9groupName3key6locale6stringySPys4Int8VGSg_A3LtF"></a>
                     <a name="//apple_ref/swift/Method/setLocaleString(groupName:key:locale:string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE15setLocaleString9groupName3key6locale6stringySPys4Int8VGSg_A3LtF">setLocaleString(groupName:key:locale:string:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE15setLocaleString9groupName3key6locale6stringySPys4Int8VGSg_A3LtF">setLocaleString(groupName:<wbr>key:<wbr>locale:<wbr>string:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5173,7 +5272,7 @@ If the translation for <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L737-L740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L739-L742">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5183,7 +5282,7 @@ If the translation for <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE19setLocaleStringList9groupName3key6locale4list6lengthySPys4Int8VGSg_A2MSPyAMGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setLocaleStringList(groupName:key:locale:list:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE19setLocaleStringList9groupName3key6locale4list6lengthySPys4Int8VGSg_A2MSPyAMGSgSitF">setLocaleStringList(groupName:key:locale:list:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE19setLocaleStringList9groupName3key6locale4list6lengthySPys4Int8VGSg_A2MSPyAMGSgSitF">setLocaleStringList(groupName:<wbr>key:<wbr>locale:<wbr>list:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5209,7 +5308,7 @@ it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L745-L748">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L747-L750">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5219,7 +5318,7 @@ it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9setString9groupName3key6stringySPys4Int8VGSg_A2KtF"></a>
                     <a name="//apple_ref/swift/Method/setString(groupName:key:string:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setString9groupName3key6stringySPys4Int8VGSg_A2KtF">setString(groupName:key:string:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setString9groupName3key6stringySPys4Int8VGSg_A2KtF">setString(groupName:<wbr>key:<wbr>string:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5247,7 +5346,7 @@ that need escaping, such as newlines.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L755-L758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L757-L760">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5257,7 +5356,7 @@ that need escaping, such as newlines.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE13setStringList9groupName3key4list6lengthySPys4Int8VGSg_ALSPyALGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setStringList(groupName:key:list:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13setStringList9groupName3key4list6lengthySPys4Int8VGSg_ALSPyALGSgSitF">setStringList(groupName:key:list:length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE13setStringList9groupName3key4list6lengthySPys4Int8VGSg_ALSPyALGSgSitF">setStringList(groupName:<wbr>key:<wbr>list:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5283,7 +5382,7 @@ If <code>group_name</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L763-L766">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L765-L768">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5293,7 +5392,7 @@ If <code>group_name</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE9setUint649groupName3key5valueySPys4Int8VGSg_AKs6UInt64VtF"></a>
                     <a name="//apple_ref/swift/Method/setUint64(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setUint649groupName3key5valueySPys4Int8VGSg_AKs6UInt64VtF">setUint64(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE9setUint649groupName3key5valueySPys4Int8VGSg_AKs6UInt64VtF">setUint64(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5318,7 +5417,7 @@ If <code>key</code> cannot be found then it is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L770-L773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L772-L775">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5328,7 +5427,7 @@ If <code>key</code> cannot be found then it is created.</p>
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE8setValue9groupName3key5valueySPys4Int8VGSg_A2KtF"></a>
                     <a name="//apple_ref/swift/Method/setValue(groupName:key:value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8setValue9groupName3key5valueySPys4Int8VGSg_A2KtF">setValue(groupName:key:value:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE8setValue9groupName3key5valueySPys4Int8VGSg_A2KtF">setValue(groupName:<wbr>key:<wbr>value:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5357,7 +5456,7 @@ characters that need escaping (such as newlines or spaces), use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L781-L784">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L783-L786">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5367,7 +5466,7 @@ characters that need escaping (such as newlines or spaces), use
                     <code>
                     <a name="/s:4GLib15KeyFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/toData(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF">toData(length:)</a>
+                    <a class="token" href="#/s:4GLib15KeyFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF">toData(length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5394,7 +5493,7 @@ so it is safe to pass <code>nil</code> as <code>error</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L790-L795">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L792-L797">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5429,7 +5528,7 @@ reaches zero, frees the key file and all its allocated memory.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L799-L802">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L801-L804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5463,7 +5562,7 @@ reaches zero, frees the key file and all its allocated memory.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L804-L810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-KeyFile.swift#L806-L812">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5476,8 +5575,8 @@ reaches zero, frees the key file and all its allocated memory.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

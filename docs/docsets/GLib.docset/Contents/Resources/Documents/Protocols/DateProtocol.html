@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>DateProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DateProtocol</span></code></pre>
 
                 </div>
@@ -3537,10 +3631,13 @@ to mutate but invalid and thus not safe for calendrical computations.</p>
 
 <p>If it&rsquo;s declared on the stack, it will contain garbage so must be
 initialized with <code>g_date_clear()</code>. <code>g_date_clear()</code> makes the date invalid
-but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s &ldquo;empty.&rdquo; A date
+but safe. An invalid date doesn&rsquo;t represent a day, it&rsquo;s &ldquo;empty.&rdquo; A date
 becomes valid after you set it to a Julian day or you set a day, month,
 and year.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Date.swift#L21-L28">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3620,10 +3717,10 @@ and year.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Date%20Record:%20DateProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Date%20Record%3A%20DateProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Date Record: DateProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Date%20Record:%20DateProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Date%20Record%3A%20DateProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Date Record: DateProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3634,7 +3731,7 @@ and year.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE7addDays01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/addDays(nDays:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7addDays01nE0ySi_tF">addDays(nDays:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7addDays01nE0ySi_tF">addDays(nDays:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3670,7 +3767,7 @@ The date must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE9addMonths01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/addMonths(nMonths:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE9addMonths01nE0ySi_tF">addMonths(nMonths:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE9addMonths01nE0ySi_tF">addMonths(nMonths:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3708,7 +3805,7 @@ the current day in it). The date must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE8addYears01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/addYears(nYears:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8addYears01nE0ySi_tF">addYears(nYears:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8addYears01nE0ySi_tF">addYears(nYears:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3745,7 +3842,7 @@ to February 28. The date must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE5clamp03minB003maxB0yqd___qd__tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/clamp(minDate:maxDate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5clamp03minB003maxB0yqd___qd__tAaBRd__lF">clamp(minDate:maxDate:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5clamp03minB003maxB0yqd___qd__tAaBRd__lF">clamp(minDate:<wbr>maxDate:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3783,7 +3880,7 @@ All non-<code>nil</code> dates must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE5clear6nDatesySi_tF"></a>
                     <a name="//apple_ref/swift/Method/clear(nDates:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5clear6nDatesySi_tF">clear(nDates:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5clear6nDatesySi_tF">clear(nDates:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3794,7 +3891,7 @@ All non-<code>nil</code> dates must be valid.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initializes one or more <code>GDate</code> structs to a sane but invalid
+                        <p>Initializes one or more <code>GDate</code> structs to a safe but invalid
 state. The cleared dates will not represent an existing date, but will
 not contain garbage. Useful to init a date declared on the stack.
 Validity can be tested with <code>g_date_valid()</code>.</p>
@@ -3820,7 +3917,7 @@ Validity can be tested with <code>g_date_valid()</code>.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE7compare3rhsSiqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/compare(rhs:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7compare3rhsSiqd___tAaBRd__lF">compare(rhs:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7compare3rhsSiqd___tAaBRd__lF">compare(rhs:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3891,7 +3988,7 @@ as is into the new object.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE11daysBetween5date2Siqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/daysBetween(date2:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE11daysBetween5date2Siqd___tAaBRd__lF">daysBetween(date2:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE11daysBetween5date2Siqd___tAaBRd__lF">daysBetween(date2:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4276,7 +4373,7 @@ Can return 0 if the day is before the first Sunday of the year.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE5order5date2yqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/order(date2:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5order5date2yqd___tAaBRd__lF">order(date2:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE5order5date2yqd___tAaBRd__lF">order(date2:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4311,7 +4408,7 @@ and swap the values if this is not the case.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE3set3dayys5UInt8V_tF"></a>
                     <a name="//apple_ref/swift/Method/set(day:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set3dayys5UInt8V_tF">set(day:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set3dayys5UInt8V_tF">set(day:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4346,7 +4443,7 @@ day-month-year triplet is invalid, the date will be invalid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE6setDmy3day5month1yys5UInt8V_So10GDateMonthas6UInt16VtF"></a>
                     <a name="//apple_ref/swift/Method/setDmy(day:month:y:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE6setDmy3day5month1yys5UInt8V_So10GDateMonthas6UInt16VtF">setDmy(day:month:y:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE6setDmy3day5month1yys5UInt8V_So10GDateMonthas6UInt16VtF">setDmy(day:<wbr>month:<wbr>y:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4383,7 +4480,7 @@ set it.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE9setJulian06julianB0ys6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Method/setJulian(julianDate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE9setJulian06julianB0ys6UInt32V_tF">setJulian(julianDate:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE9setJulian06julianB0ys6UInt32V_tF">setJulian(julianDate:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4417,7 +4514,7 @@ set it.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE3set5monthySo10GDateMontha_tF"></a>
                     <a name="//apple_ref/swift/Method/set(month:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set5monthySo10GDateMontha_tF">set(month:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set5monthySo10GDateMontha_tF">set(month:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4452,7 +4549,7 @@ day-month-year triplet is invalid, the date will be invalid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE8setParse3strySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/setParse(str:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8setParse3strySPys4Int8VGSg_tF">setParse(str:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8setParse3strySPys4Int8VGSg_tF">setParse(str:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4496,7 +4593,7 @@ capacity).</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE7setTime5time_ys5Int32V_tF"></a>
                     <a name="//apple_ref/swift/Method/setTime(time_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7setTime5time_ys5Int32V_tF">setTime(time_:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE7setTime5time_ys5Int32V_tF">setTime(time_:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4535,7 +4632,7 @@ Use g_date_set_time_t() instead.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE8setTimeT5timetySi_tF"></a>
                     <a name="//apple_ref/swift/Method/setTimeT(timet:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8setTimeT5timetySi_tF">setTimeT(timet:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8setTimeT5timetySi_tF">setTimeT(timet:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4579,7 +4676,7 @@ the user&rsquo;s current timezone.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE10setTimeVal7timevalyqd___tAA0efC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/setTimeVal(timeval:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE10setTimeVal7timevalyqd___tAA0efC0Rd__lF">setTimeVal(timeval:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE10setTimeVal7timevalyqd___tAA0efC0Rd__lF">setTimeVal(timeval:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4623,7 +4720,7 @@ additional precision.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE3set4yearys6UInt16V_tF"></a>
                     <a name="//apple_ref/swift/Method/set(year:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set4yearys6UInt16V_tF">set(year:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE3set4yearys6UInt16V_tF">set(year:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4658,7 +4755,7 @@ triplet is invalid, the date will be invalid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE12subtractDays01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/subtractDays(nDays:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE12subtractDays01nE0ySi_tF">subtractDays(nDays:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE12subtractDays01nE0ySi_tF">subtractDays(nDays:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4694,7 +4791,7 @@ The date must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE14subtractMonths01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/subtractMonths(nMonths:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE14subtractMonths01nE0ySi_tF">subtractMonths(nMonths:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE14subtractMonths01nE0ySi_tF">subtractMonths(nMonths:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4731,7 +4828,7 @@ may change. The date must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE13subtractYears01nE0ySi_tF"></a>
                     <a name="//apple_ref/swift/Method/subtractYears(nYears:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE13subtractYears01nE0ySi_tF">subtractYears(nYears:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE13subtractYears01nE0ySi_tF">subtractYears(nYears:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4769,7 +4866,7 @@ must be valid.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE8toStruct2tmySpySoAEVGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/toStruct(tm:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8toStruct2tmySpySoAEVGSg_tF">toStruct(tm:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8toStruct2tmySpySoAEVGSg_tF">toStruct(tm:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4781,7 +4878,7 @@ must be valid.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Fills in the date-related bits of a struct tm using the <code>date</code> value.
-Initializes the non-date parts with something sane but meaningless.</p>
+Initializes the non-date parts with something safe but meaningless.</p>
 
                       </div>
                       <div class="declaration">
@@ -4840,7 +4937,7 @@ if it wasn&rsquo;t allocated by one of the <code>g_date_new()</code> variants.</
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE8strftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF"></a>
                     <a name="//apple_ref/swift/Method/strftime(s:slen:format:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8strftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF">strftime(s:slen:format:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE8strftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF">strftime(s:<wbr>slen:<wbr>format:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4886,7 +4983,7 @@ where the C library only complies to C89.</p>
                     <code>
                     <a name="/s:4GLib12DateProtocolPAAE12dateStrftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF"></a>
                     <a name="//apple_ref/swift/Method/dateStrftime(s:slen:format:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12DateProtocolPAAE12dateStrftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF">dateStrftime(s:slen:format:)</a>
+                    <a class="token" href="#/s:4GLib12DateProtocolPAAE12dateStrftime1s4slen6formatSiSpys4Int8VGSg_SiSPyAIGSgtF">dateStrftime(s:<wbr>slen:<wbr>format:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5526,8 +5623,8 @@ Can return 0 if the day is before the first Sunday of the year.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

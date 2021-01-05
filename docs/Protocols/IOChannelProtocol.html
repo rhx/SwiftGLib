@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>IOChannelProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">IOChannelProtocol</span></code></pre>
 
                 </div>
@@ -3533,6 +3627,9 @@ Alternatively, use <code><a href="../Structs/IOChannelRef.html">IOChannelRef</a>
 considered private and should only be accessed with the following
 functions.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-IOChannel.swift#L13-L20">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3612,10 +3709,10 @@ functions.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/IOChannel%20Record:%20IOChannelProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/IOChannel%20Record%3A%20IOChannelProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/IOChannel Record: IOChannelProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/IOChannel%20Record:%20IOChannelProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/IOChannel%20Record%3A%20IOChannelProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>IOChannel Record: IOChannelProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3919,7 +4016,7 @@ the internal values of these flags.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE11getLineTerm6lengthSSSgSpys5Int32VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/getLineTerm(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE11getLineTerm6lengthSSSgSpys5Int32VGSg_tF">getLineTerm(length:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE11getLineTerm6lengthSSSgSpys5Int32VGSg_tF">getLineTerm(length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3993,7 +4090,7 @@ programmer (unless you are creating a new type of <code>GIOChannel</code>).</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE4read3buf5count9bytesReadSo8GIOErroraSpys4Int8VGSg_SiSpySuGSgtF"></a>
                     <a name="//apple_ref/swift/Method/read(buf:count:bytesRead:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE4read3buf5count9bytesReadSo8GIOErroraSpys4Int8VGSg_SiSpySuGSgtF">read(buf:count:bytesRead:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE4read3buf5count9bytesReadSo8GIOErroraSpys4Int8VGSg_SiSpySuGSgtF">read(buf:<wbr>count:<wbr>bytesRead:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4031,7 +4128,7 @@ Use g_io_channel_read_chars() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE9readChars3buf5count9bytesReadSo9GIOStatusaSpys4Int8VGSg_SiSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/readChars(buf:count:bytesRead:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9readChars3buf5count9bytesReadSo9GIOStatusaSpys4Int8VGSg_SiSpySuGSgtKF">readChars(buf:count:bytesRead:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9readChars3buf5count9bytesReadSo9GIOStatusaSpys4Int8VGSg_SiSpySuGSgtKF">readChars(buf:<wbr>count:<wbr>bytesRead:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4065,7 +4162,7 @@ Use g_io_channel_read_chars() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE8readLine9strReturn6length13terminatorPosSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgAQtKF"></a>
                     <a name="//apple_ref/swift/Method/readLine(strReturn:length:terminatorPos:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE8readLine9strReturn6length13terminatorPosSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgAQtKF">readLine(strReturn:length:terminatorPos:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE8readLine9strReturn6length13terminatorPosSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgAQtKF">readLine(strReturn:<wbr>length:<wbr>terminatorPos:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4102,7 +4199,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE14readLineString6buffer13terminatorPosSo9GIOStatusaqd___SpySuGSgtKAA0fC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/readLineString(buffer:terminatorPos:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE14readLineString6buffer13terminatorPosSo9GIOStatusaqd___SpySuGSgtKAA0fC0Rd__lF">readLineString(buffer:terminatorPos:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE14readLineString6buffer13terminatorPosSo9GIOStatusaqd___SpySuGSgtKAA0fC0Rd__lF">readLineString(buffer:<wbr>terminatorPos:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4136,7 +4233,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE9readToEnd9strReturn6lengthSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/readToEnd(strReturn:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9readToEnd9strReturn6lengthSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgtKF">readToEnd(strReturn:length:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9readToEnd9strReturn6lengthSo9GIOStatusaSpySpys4Int8VGSgGSg_SpySuGSgtKF">readToEnd(strReturn:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4170,7 +4267,7 @@ is <code>G_IO_STATUS_NORMAL</code>.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE11readUnichar7thecharSo9GIOStatusaSpys6UInt32VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/readUnichar(thechar:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE11readUnichar7thecharSo9GIOStatusaSpys6UInt32VGSg_tKF">readUnichar(thechar:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE11readUnichar7thecharSo9GIOStatusaSpys6UInt32VGSg_tKF">readUnichar(thechar:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4240,7 +4337,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE4seek6offset4typeSo8GIOErroras5Int64V_So9GSeekTypeatF"></a>
                     <a name="//apple_ref/swift/Method/seek(offset:type:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE4seek6offset4typeSo8GIOErroras5Int64V_So9GSeekTypeatF">seek(offset:type:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE4seek6offset4typeSo8GIOErroras5Int64V_So9GSeekTypeatF">seek(offset:<wbr>type:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4279,7 +4376,7 @@ Use g_io_channel_seek_position() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE12seekPosition6offset4typeSo9GIOStatusas5Int64V_So9GSeekTypeatKF"></a>
                     <a name="//apple_ref/swift/Method/seekPosition(offset:type:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE12seekPosition6offset4typeSo9GIOStatusas5Int64V_So9GSeekTypeatKF">seekPosition(offset:type:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE12seekPosition6offset4typeSo9GIOStatusas5Int64V_So9GSeekTypeatKF">seekPosition(offset:<wbr>type:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4313,7 +4410,7 @@ Use g_io_channel_seek_position() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE9setBuffer4sizeySi_tF"></a>
                     <a name="//apple_ref/swift/Method/setBuffer(size:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9setBuffer4sizeySi_tF">setBuffer(size:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE9setBuffer4sizeySi_tF">setBuffer(size:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4347,7 +4444,7 @@ Use g_io_channel_seek_position() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE3set8bufferedySb_tF"></a>
                     <a name="//apple_ref/swift/Method/set(buffered:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8bufferedySb_tF">set(buffered:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8bufferedySb_tF">set(buffered:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4399,7 +4496,7 @@ maintaining old code.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE15setCloseOnUnref02doE0ySb_tF"></a>
                     <a name="//apple_ref/swift/Method/setCloseOnUnref(doClose:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE15setCloseOnUnref02doE0ySb_tF">setCloseOnUnref(doClose:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE15setCloseOnUnref02doE0ySb_tF">setCloseOnUnref(doClose:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4438,7 +4535,7 @@ can cause problems when the final reference to the <code>GIOChannel</code> is dr
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE3set8encodingSo9GIOStatusaSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/set(encoding:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8encodingSo9GIOStatusaSPys4Int8VGSg_tKF">set(encoding:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8encodingSo9GIOStatusaSPys4Int8VGSg_tKF">set(encoding:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4502,7 +4599,7 @@ calling one of the API &ldquo;read&rdquo; functions.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE3set5flagsSo9GIOStatusaAA7IOFlagsV_tKF"></a>
                     <a name="//apple_ref/swift/Method/set(flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set5flagsSo9GIOStatusaAA7IOFlagsV_tKF">set(flags:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set5flagsSo9GIOStatusaAA7IOFlagsV_tKF">set(flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4536,7 +4633,7 @@ calling one of the API &ldquo;read&rdquo; functions.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE3set8lineTerm6lengthySPys4Int8VGSg_SitF"></a>
                     <a name="//apple_ref/swift/Method/set(lineTerm:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8lineTerm6lengthySPys4Int8VGSg_SitF">set(lineTerm:length:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE3set8lineTerm6lengthySPys4Int8VGSg_SitF">set(lineTerm:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4571,7 +4668,7 @@ where in the file a line break occurs.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE8shutdown5flushSo9GIOStatusaSb_tKF"></a>
                     <a name="//apple_ref/swift/Method/shutdown(flush:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE8shutdown5flushSo9GIOStatusaSb_tKF">shutdown(flush:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE8shutdown5flushSo9GIOStatusaSb_tKF">shutdown(flush:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4678,7 +4775,7 @@ the <code>GIOChannel</code>.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE5write3buf5count12bytesWrittenSo8GIOErroraSPys4Int8VGSg_SiSpySuGSgtF"></a>
                     <a name="//apple_ref/swift/Method/write(buf:count:bytesWritten:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE5write3buf5count12bytesWrittenSo8GIOErroraSPys4Int8VGSg_SiSpySuGSgtF">write(buf:count:bytesWritten:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE5write3buf5count12bytesWrittenSo8GIOErroraSPys4Int8VGSg_SiSpySuGSgtF">write(buf:<wbr>count:<wbr>bytesWritten:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4716,7 +4813,7 @@ Use g_io_channel_write_chars() instead.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE10writeChars3buf5count12bytesWrittenSo9GIOStatusaSPys4Int8VGSg_SiSpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/writeChars(buf:count:bytesWritten:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE10writeChars3buf5count12bytesWrittenSo9GIOStatusaSPys4Int8VGSg_SiSpySuGSgtKF">writeChars(buf:count:bytesWritten:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE10writeChars3buf5count12bytesWrittenSo9GIOStatusaSPys4Int8VGSg_SiSpySuGSgtKF">writeChars(buf:<wbr>count:<wbr>bytesWritten:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4755,7 +4852,7 @@ cases described in the documentation for g_io_channel_set_encoding ().</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE12writeUnichar7thecharSo9GIOStatusas6UInt32V_tKF"></a>
                     <a name="//apple_ref/swift/Method/writeUnichar(thechar:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE12writeUnichar7thecharSo9GIOStatusas6UInt32V_tKF">writeUnichar(thechar:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE12writeUnichar7thecharSo9GIOStatusas6UInt32V_tKF">writeUnichar(thechar:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4790,7 +4887,7 @@ This function cannot be called on a channel with <code>nil</code> encoding.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE10ioAddWatch9condition4func8userDataSiAA11IOConditionV_s5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgARtF"></a>
                     <a name="//apple_ref/swift/Method/ioAddWatch(condition:func:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE10ioAddWatch9condition4func8userDataSiAA11IOConditionV_s5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgARtF">ioAddWatch(condition:func:userData:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE10ioAddWatch9condition4func8userDataSiAA11IOConditionV_s5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgARtF">ioAddWatch(condition:<wbr>func:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4825,7 +4922,7 @@ with the default priority.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE14ioAddWatchFull8priority9condition4func8userData6notifyS2i_AA11IOConditionVs5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgATyATXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/ioAddWatchFull(priority:condition:func:userData:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE14ioAddWatchFull8priority9condition4func8userData6notifyS2i_AA11IOConditionVs5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgATyATXCSgtF">ioAddWatchFull(priority:condition:func:userData:notify:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE14ioAddWatchFull8priority9condition4func8userData6notifyS2i_AA11IOConditionVs5Int32VSpySo11_GIOChannelVGSg_So12GIOConditionaSvSgtXCSgATyATXCSgtF">ioAddWatchFull(priority:<wbr>condition:<wbr>func:<wbr>userData:<wbr>notify:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4864,7 +4961,7 @@ You can do these steps manually if you need greater control.</p>
                     <code>
                     <a name="/s:4GLib17IOChannelProtocolPAAE13ioCreateWatch9conditionAA9SourceRefVSgAA11IOConditionV_tF"></a>
                     <a name="//apple_ref/swift/Method/ioCreateWatch(condition:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE13ioCreateWatch9conditionAA9SourceRefVSgAA11IOConditionV_tF">ioCreateWatch(condition:)</a>
+                    <a class="token" href="#/s:4GLib17IOChannelProtocolPAAE13ioCreateWatch9conditionAA9SourceRefVSgAA11IOConditionV_tF">ioCreateWatch(condition:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5133,8 +5230,8 @@ the internal values of these flags.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

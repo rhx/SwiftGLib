@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>RegexProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">RegexProtocol</span></code></pre>
 
                 </div>
@@ -3595,6 +3689,9 @@ the excellent
 <a href="http://www.pcre.org/">PCRE</a>
 library written by Philip Hazel.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Regex.swift#L75-L82">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3674,10 +3771,10 @@ library written by Philip Hazel.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Regex%20Record:%20RegexProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Regex%20Record%3A%20RegexProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Regex Record: RegexProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Regex%20Record:%20RegexProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Regex%20Record%3A%20RegexProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Regex Record: RegexProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3935,7 +4032,7 @@ the string passed to <code>g_regex_new()</code>.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE15getStringNumber4nameSiSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/getStringNumber(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE15getStringNumber4nameSiSPys4Int8VGSg_tF">getStringNumber(name:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE15getStringNumber4nameSiSPys4Int8VGSg_tF">getStringNumber(name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3969,7 +4066,7 @@ the string passed to <code>g_regex_new()</code>.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE5match6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchG0VGSgGSgtF"></a>
                     <a name="//apple_ref/swift/Method/match(string:matchOptions:matchInfo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE5match6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchG0VGSgGSgtF">match(string:matchOptions:matchInfo:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE5match6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchG0VGSgGSgtF">match(string:<wbr>matchOptions:<wbr>matchInfo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4042,7 +4139,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE8matchAll6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchH0VGSgGSgtF"></a>
                     <a name="//apple_ref/swift/Method/matchAll(string:matchOptions:matchInfo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE8matchAll6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchH0VGSgGSgtF">matchAll(string:matchOptions:matchInfo:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE8matchAll6string0D7Options0D4InfoSbSPys4Int8VGSg_AA0B10MatchFlagsVSpySpySo07_GMatchH0VGSgGSgtF">matchAll(string:<wbr>matchOptions:<wbr>matchInfo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4089,7 +4186,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE12matchAllFull6string0G3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchL0VGSgGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/matchAllFull(string:stringLen:startPosition:matchOptions:matchInfo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE12matchAllFull6string0G3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchL0VGSgGSgtKF">matchAllFull(string:stringLen:startPosition:matchOptions:matchInfo:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE12matchAllFull6string0G3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchL0VGSgGSgtKF">matchAllFull(string:<wbr>stringLen:<wbr>startPosition:<wbr>matchOptions:<wbr>matchInfo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4160,7 +4257,7 @@ freeing or modifying <code>string</code> then the behaviour is undefined.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE9matchFull6string0F3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchK0VGSgGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/matchFull(string:stringLen:startPosition:matchOptions:matchInfo:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE9matchFull6string0F3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchK0VGSgGSgtKF">matchFull(string:stringLen:startPosition:matchOptions:matchInfo:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE9matchFull6string0F3Len13startPosition0D7Options0D4InfoSbSPys4Int8VGSg_S2iAA0B10MatchFlagsVSpySpySo07_GMatchK0VGSgGSgtKF">matchFull(string:<wbr>stringLen:<wbr>startPosition:<wbr>matchOptions:<wbr>matchInfo:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4279,7 +4376,7 @@ print_uppercase_words (const gchar *string)
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE7replace6string0E3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/replace(string:stringLen:startPosition:replacement:matchOptions:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE7replace6string0E3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF">replace(string:stringLen:startPosition:replacement:matchOptions:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE7replace6string0E3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF">replace(string:<wbr>stringLen:<wbr>startPosition:<wbr>replacement:<wbr>matchOptions:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4312,7 +4409,7 @@ replacement, write &lsquo;\&rsquo;.</p>
 <p>If you do not need to use backreferences use <code>g_regex_replace_literal()</code>.</p>
 
 <p>The <code>replacement</code> string must be UTF-8 encoded even if <code>G_REGEX_RAW</code> was
-passed to <code>g_regex_new()</code>. If you want to use not UTF-8 encoded stings
+passed to <code>g_regex_new()</code>. If you want to use not UTF-8 encoded strings
 you can use <code>g_regex_replace_literal()</code>.</p>
 
 <p>Setting <code>start_position</code> differs from just passing over a shortened
@@ -4340,7 +4437,7 @@ begins with any kind of lookbehind assertion, such as &ldquo;\b&rdquo;.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE11replaceEval6string0F3Len13startPosition12matchOptions4eval8userDataSSSgSPys4Int8VGSg_S2iAA0B10MatchFlagsVs5Int32VSPySo11_GMatchInfoVGSg_SpySo8_GStringVGSgSvSgtXCSgA0_tKF"></a>
                     <a name="//apple_ref/swift/Method/replaceEval(string:stringLen:startPosition:matchOptions:eval:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE11replaceEval6string0F3Len13startPosition12matchOptions4eval8userDataSSSgSPys4Int8VGSg_S2iAA0B10MatchFlagsVs5Int32VSPySo11_GMatchInfoVGSg_SpySo8_GStringVGSgSvSgtXCSgA0_tKF">replaceEval(string:stringLen:startPosition:matchOptions:eval:userData:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE11replaceEval6string0F3Len13startPosition12matchOptions4eval8userDataSSSgSPys4Int8VGSg_S2iAA0B10MatchFlagsVs5Int32VSPySo11_GMatchInfoVGSg_SpySo8_GStringVGSgSvSgtXCSgA0_tKF">replaceEval(string:<wbr>stringLen:<wbr>startPosition:<wbr>matchOptions:<wbr>eval:<wbr>userData:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4418,7 +4515,7 @@ g_hash_table_destroy (h);
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE14replaceLiteral6string0F3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF"></a>
                     <a name="//apple_ref/swift/Method/replaceLiteral(string:stringLen:startPosition:replacement:matchOptions:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE14replaceLiteral6string0F3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF">replaceLiteral(string:stringLen:startPosition:replacement:matchOptions:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE14replaceLiteral6string0F3Len13startPosition11replacement12matchOptionsSSSgSPys4Int8VGSg_S2iAnA0B10MatchFlagsVtKF">replaceLiteral(string:<wbr>stringLen:<wbr>startPosition:<wbr>replacement:<wbr>matchOptions:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4459,7 +4556,7 @@ assertion, such as &ldquo;\b&rdquo;.</p>
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE5split6string12matchOptionsSpySpys4Int8VGSgGSgSPyAHGSg_AA0B10MatchFlagsVtF"></a>
                     <a name="//apple_ref/swift/Method/split(string:matchOptions:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE5split6string12matchOptionsSpySpys4Int8VGSgGSgSPyAHGSg_AA0B10MatchFlagsVtF">split(string:matchOptions:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE5split6string12matchOptionsSpySpys4Int8VGSgGSgSPyAHGSg_AA0B10MatchFlagsVtF">split(string:<wbr>matchOptions:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4509,7 +4606,7 @@ For example splitting &ldquo;ab c&rdquo; using as a separator &ldquo;\s*&rdquo;,
                     <code>
                     <a name="/s:4GLib13RegexProtocolPAAE9splitFull6string0F3Len13startPosition12matchOptions9maxTokensSpySpys4Int8VGSgGSgSPyAKGSg_S2iAA0B10MatchFlagsVSitKF"></a>
                     <a name="//apple_ref/swift/Method/splitFull(string:stringLen:startPosition:matchOptions:maxTokens:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE9splitFull6string0F3Len13startPosition12matchOptions9maxTokensSpySpys4Int8VGSgGSgSPyAKGSg_S2iAA0B10MatchFlagsVSitKF">splitFull(string:stringLen:startPosition:matchOptions:maxTokens:)</a>
+                    <a class="token" href="#/s:4GLib13RegexProtocolPAAE9splitFull6string0F3Len13startPosition12matchOptions9maxTokensSpySpys4Int8VGSgGSgSPyAKGSg_S2iAA0B10MatchFlagsVSitKF">splitFull(string:<wbr>stringLen:<wbr>startPosition:<wbr>matchOptions:<wbr>maxTokens:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4848,8 +4945,8 @@ the string passed to <code>g_regex_new()</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

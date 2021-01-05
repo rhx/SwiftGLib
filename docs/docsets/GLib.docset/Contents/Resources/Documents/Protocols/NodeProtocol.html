@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>NodeProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">NodeProtocol</span></code></pre>
 
                 </div>
@@ -3531,6 +3625,9 @@ Alternatively, use <code><a href="../Structs/NodeRef.html">NodeRef</a></code> as
 
 <p>The <code>GNode</code> struct represents one node in a <a href="../Protocols/NodeProtocol.html">n-ary tree</a>.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Node.swift#L11-L18">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3610,10 +3707,10 @@ Alternatively, use <code><a href="../Structs/NodeRef.html">NodeRef</a></code> as
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Node%20Record:%20NodeProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Node%20Record%3A%20NodeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Node Record: NodeProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Node%20Record:%20NodeProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Node%20Record%3A%20NodeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Node Record: NodeProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3624,7 +3721,7 @@ Alternatively, use <code><a href="../Structs/NodeRef.html">NodeRef</a></code> as
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE10childIndex4dataSiSvSg_tF"></a>
                     <a name="//apple_ref/swift/Method/childIndex(data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE10childIndex4dataSiSvSg_tF">childIndex(data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE10childIndex4dataSiSvSg_tF">childIndex(data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3659,7 +3756,7 @@ which contains the given data.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE13childPosition0D0Siqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/childPosition(child:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE13childPosition0D0Siqd___tAaBRd__lF">childPosition(child:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE13childPosition0D0Siqd___tAaBRd__lF">childPosition(child:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3695,7 +3792,7 @@ the second 1, and so on.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE15childrenForeach5flags4func4datayAA13TraverseFlagsV_ySpySo6_GNodeVGSg_SvSgtXCSgANtF"></a>
                     <a name="//apple_ref/swift/Method/childrenForeach(flags:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE15childrenForeach5flags4func4datayAA13TraverseFlagsV_ySpySo6_GNodeVGSg_SvSgtXCSgANtF">childrenForeach(flags:func:data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE15childrenForeach5flags4func4datayAA13TraverseFlagsV_ySpySo6_GNodeVGSg_SvSgtXCSgANtF">childrenForeach(flags:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3766,7 +3863,7 @@ nodes, see <code>g_node_copy_deep()</code> if you need that).</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE8copyDeep0D4Func4dataAA0B3RefVSgSvSgSVSg_AJtXCSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/copyDeep(copyFunc:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8copyDeep0D4Func4dataAA0B3RefVSgSvSgSVSg_AJtXCSg_AJtF">copyDeep(copyFunc:data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8copyDeep0D4Func4dataAA0B3RefVSgSvSgSVSg_AJtXCSg_AJtF">copyDeep(copyFunc:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3872,7 +3969,7 @@ allocated.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE4find5order5flags4dataAA0B3RefVSgSo13GTraverseTypea_AA13TraverseFlagsVSvSgtF"></a>
                     <a name="//apple_ref/swift/Method/find(order:flags:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE4find5order5flags4dataAA0B3RefVSgSo13GTraverseTypea_AA13TraverseFlagsVSvSgtF">find(order:flags:data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE4find5order5flags4dataAA0B3RefVSgSo13GTraverseTypea_AA13TraverseFlagsVSvSgtF">find(order:<wbr>flags:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3906,7 +4003,7 @@ allocated.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE9findChild5flags4dataAA0B3RefVSgAA13TraverseFlagsV_SvSgtF"></a>
                     <a name="//apple_ref/swift/Method/findChild(flags:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE9findChild5flags4dataAA0B3RefVSgAA13TraverseFlagsV_SvSgtF">findChild(flags:data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE9findChild5flags4dataAA0B3RefVSgAA13TraverseFlagsV_SvSgtF">findChild(flags:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4009,7 +4106,7 @@ This could possibly be the node itself.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE6insert8position4nodeAA0B3RefVSgSi_qd__tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/insert(position:node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE6insert8position4nodeAA0B3RefVSgSi_qd__tAaBRd__lF">insert(position:node:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE6insert8position4nodeAA0B3RefVSgSi_qd__tAaBRd__lF">insert(position:<wbr>node:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4043,7 +4140,7 @@ This could possibly be the node itself.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE11insertAfter7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/insertAfter(sibling:node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE11insertAfter7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF">insertAfter(sibling:node:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE11insertAfter7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF">insertAfter(sibling:<wbr>node:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4077,7 +4174,7 @@ This could possibly be the node itself.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE12insertBefore7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/insertBefore(sibling:node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE12insertBefore7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF">insertBefore(sibling:node:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE12insertBefore7sibling4nodeAA0B3RefVSgqd___qd__tAaBRd__lF">insertBefore(sibling:<wbr>node:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4111,7 +4208,7 @@ This could possibly be the node itself.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE10isAncestor10descendantSbqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/isAncestor(descendant:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE10isAncestor10descendantSbqd___tAaBRd__lF">isAncestor(descendant:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE10isAncestor10descendantSbqd___tAaBRd__lF">isAncestor(descendant:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4288,7 +4385,7 @@ This is the maximum distance from the <code>GNode</code> to all leaf nodes.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE6nNodes5flagsSiAA13TraverseFlagsV_tF"></a>
                     <a name="//apple_ref/swift/Method/nNodes(flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE6nNodes5flagsSiAA13TraverseFlagsV_tF">nNodes(flags:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE6nNodes5flagsSiAA13TraverseFlagsV_tF">nNodes(flags:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4322,7 +4419,7 @@ This is the maximum distance from the <code>GNode</code> to all leaf nodes.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE8nthChild1nAA0B3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/nthChild(n:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8nthChild1nAA0B3RefVSgSi_tF">nthChild(n:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8nthChild1nAA0B3RefVSgSi_tF">nthChild(n:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4358,7 +4455,7 @@ too big, <code>nil</code> is returned.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE7prepend4nodeAA0B3RefVSgqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/prepend(node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE7prepend4nodeAA0B3RefVSgqd___tAaBRd__lF">prepend(node:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE7prepend4nodeAA0B3RefVSgqd___tAaBRd__lF">prepend(node:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4427,7 +4524,7 @@ too big, <code>nil</code> is returned.</p>
                     <code>
                     <a name="/s:4GLib12NodeProtocolPAAE8traverse5order5flags8maxDepth4func4dataySo13GTraverseTypea_AA13TraverseFlagsVSis5Int32VSpySo6_GNodeVGSg_SvSgtXCSgATtF"></a>
                     <a name="//apple_ref/swift/Method/traverse(order:flags:maxDepth:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8traverse5order5flags8maxDepth4func4dataySo13GTraverseTypea_AA13TraverseFlagsVSis5Int32VSpySo6_GNodeVGSg_SvSgtXCSgATtF">traverse(order:flags:maxDepth:func:data:)</a>
+                    <a class="token" href="#/s:4GLib12NodeProtocolPAAE8traverse5order5flags8maxDepth4func4dataySo13GTraverseTypea_AA13TraverseFlagsVSis5Int32VSpySo6_GNodeVGSg_SvSgtXCSgATtF">traverse(order:<wbr>flags:<wbr>maxDepth:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4709,8 +4806,8 @@ The traversal can be halted at any point by returning <code>true</code> from <co
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

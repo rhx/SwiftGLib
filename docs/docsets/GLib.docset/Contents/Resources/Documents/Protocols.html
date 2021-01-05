@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3484,6 +3574,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib5Type_a">Type_</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib8URIErrora">URIError</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
@@ -4049,7 +4142,7 @@ to mutate but invalid and thus not safe for calendrical computations.</p>
 
 <p>If it&rsquo;s declared on the stack, it will contain garbage so must be
 initialized with <code>g_date_clear()</code>. <code>g_date_clear()</code> makes the date invalid
-but sane. An invalid date doesn&rsquo;t represent a day, it&rsquo;s &ldquo;empty.&rdquo; A date
+but safe. An invalid date doesn&rsquo;t represent a day, it&rsquo;s &ldquo;empty.&rdquo; A date
 becomes valid after you set it to a Julian day or you set a day, month,
 and year.</p>
 
@@ -7288,6 +7381,213 @@ accessed only by using the following functions.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/URI%20Record"></a>
+                <a name="//apple_ref/swift/Section/URI Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/URI%20Record"></a>
+                  <h3 class="section-name"><p>URI Record</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib11URIProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/URIProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib11URIProtocolP">URIProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>URIProtocol</code> protocol exposes the methods and properties of an underlying <code>GUri</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/URI.html">URI</a></code>.
+Alternatively, use <code><a href="Structs/URIRef.html">URIRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+<p>The <code>GUri</code> type and related functions can be used to parse URIs into
+their components, and build valid URIs from individual components.</p>
+
+<p>Note that <code>GUri</code> scope is to help manipulate URIs in various applications,
+following <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. In particular,
+it doesn&rsquo;t intend to cover web browser needs, and doesn&rsquo;t implement the
+<a href="https://url.spec.whatwg.org/">WHATWG URL</a> standard. No APIs are provided to
+help prevent
+<a href="https://en.wikipedia.org/wiki/IDN_homograph_attack">homograph attacks</a>, so
+<code>GUri</code> is not suitable for formatting URIs for display to the user for making
+security-sensitive decisions.</p>
+<h2 id='relative-and-absolute-uris-a-name-relative-absolute-uris-a' class='heading'>Relative and absolute URIs # <a name="relative-absolute-uris"></a></h2>
+
+<p>As defined in <a href="https://tools.ietf.org/html/rfc3986%60section%60-4">RFC 3986</a>, the
+hierarchical nature of URIs means that they can either be ‘relative
+references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
+clarity, ‘URIs’ are referred to in this documentation as
+‘absolute URIs’ — although
+<a href="https://tools.ietf.org/html/rfc3986%60section%60-4.3">in constrast to RFC 3986</a>,
+fragment identifiers are always allowed).</p>
+
+<p>Relative references have one or more components of the URI missing. In
+particular, they have no scheme. Any other component, such as hostname,
+query, etc. may be missing, apart from a path, which has to be specified (but
+may be empty). The path may be relative, starting with <code>./</code> rather than <code>/</code>.</p>
+
+<p>For example, a valid relative reference is <code>./path?query</code>,
+<code>/?query</code>fragment`<code>or</code>//example.com`.</p>
+
+<p>Absolute URIs have a scheme specified. Any other components of the URI which
+are missing are specified as explicitly unset in the URI, rather than being
+resolved relative to a base URI using <code>g_uri_parse_relative()</code>.</p>
+
+<p>For example, a valid absolute URI is <code>file:///home/bob</code> or
+<code>https://search.com?query=string</code>.</p>
+
+<p>A <code>GUri</code> instance is always an absolute URI. A string may be an absolute URI
+or a relative reference; see the documentation for individual functions as to
+what forms they accept.</p>
+<h2 id='parsing-uris' class='heading'>Parsing URIs</h2>
+
+<p>The most minimalist APIs for parsing URIs are <code>g_uri_split()</code> and
+<code>g_uri_split_with_user()</code>. These split a URI into its component
+parts, and return the parts; the difference between the two is that
+<code>g_uri_split()</code> treats the ‘userinfo’ component of the URI as a
+single element, while <code>g_uri_split_with_user()</code> can (depending on the
+<code>GUriFlags</code> you pass) treat it as containing a username, password,
+and authentication parameters. Alternatively, <code>g_uri_split_network()</code>
+can be used when you are only interested in the components that are
+needed to initiate a network connection to the service (scheme,
+host, and port).</p>
+
+<p><code>g_uri_parse()</code> is similar to <code>g_uri_split()</code>, but instead of returning
+individual strings, it returns a <code>GUri</code> structure (and it requires
+that the URI be an absolute URI).</p>
+
+<p><code>g_uri_resolve_relative()</code> and <code>g_uri_parse_relative()</code> allow you to
+resolve a relative URI relative to a base URI.
+<code>g_uri_resolve_relative()</code> takes two strings and returns a string,
+and <code>g_uri_parse_relative()</code> takes a <code>GUri</code> and a string and returns a
+<code>GUri</code>.</p>
+
+<p>All of the parsing functions take a <code>GUriFlags</code> argument describing
+exactly how to parse the URI; see the documentation for that type
+for more details on the specific flags that you can pass. If you
+need to choose different flags based on the type of URI, you can
+use <code>g_uri_peek_scheme()</code> on the URI string to check the scheme
+first, and use that to decide what flags to parse it with.</p>
+
+<p>For example, you might want to use <code>G_URI_PARAMS_WWW_FORM</code> when parsing the
+params for a web URI, so compare the result of <code>g_uri_peek_scheme()</code> against
+<code>http</code> and <code>https</code>.</p>
+<h2 id='building-uris' class='heading'>Building URIs</h2>
+
+<p><code>g_uri_join()</code> and <code>g_uri_join_with_user()</code> can be used to construct
+valid URI strings from a set of component strings. They are the
+inverse of <code>g_uri_split()</code> and <code>g_uri_split_with_user()</code>.</p>
+
+<p>Similarly, <code>g_uri_build()</code> and <code>g_uri_build_with_user()</code> can be used to
+construct a <code>GUri</code> from a set of component strings.</p>
+
+<p>As with the parsing functions, the building functions take a
+<code>GUriFlags</code> argument. In particular, it is important to keep in mind
+whether the URI components you are using are already &ldquo;`<code>-encoded. If so,
+you must pass the</code>G_URI_FLAGS_ENCODED` flag.</p>
+<h2 id='code-file-code-uris' class='heading'><code>file://</code> URIs</h2>
+
+<p>Note that Windows and Unix both define special rules for parsing
+<code>file://</code> URIs (involving non-UTF-8 character sets on Unix, and the
+interpretation of path separators on Windows). <code>GUri</code> does not
+implement these rules. Use <code>g_filename_from_uri()</code> and
+<code>g_filename_to_uri()</code> if you want to properly convert between
+<code>file://</code> URIs and local filenames.</p>
+<h2 id='uri-equality' class='heading'>URI Equality</h2>
+
+<p>Note that there is no <code>g_uri_equal ()</code> function, because comparing
+URIs usefully requires scheme-specific knowledge that <code>GUri</code> does
+not have. For example, <code>http://example.com/</code> and
+<code>http://EXAMPLE.COM:80</code> have exactly the same meaning according
+to the HTTP specification, and <code>data:,foo</code> and
+<code>data:;base64,Zm9v</code> resolve to the same thing according to the
+<code>data:</code> URI specification.</p>
+
+                        <a href="Protocols/URIProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">URIProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Uri.swift#L117-L124">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/URIParamsIter%20Record"></a>
+                <a name="//apple_ref/swift/Section/URIParamsIter Record" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/URIParamsIter%20Record"></a>
+                  <h3 class="section-name"><p>URIParamsIter Record</p>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib21URIParamsIterProtocolP"></a>
+                    <a name="//apple_ref/swift/Protocol/URIParamsIterProtocol" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib21URIParamsIterProtocolP">URIParamsIterProtocol</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>URIParamsIterProtocol</code> protocol exposes the methods and properties of an underlying <code>GUriParamsIter</code> instance.
+The default implementation of these can be found in the protocol extension below.
+For a concrete class that implements these methods and properties, see <code><a href="Classes/URIParamsIter.html">URIParamsIter</a></code>.
+Alternatively, use <code><a href="Structs/URIParamsIterRef.html">URIParamsIterRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
+
+<p>Many URI schemes include one or more attribute/value pairs as part of the URI
+value. For example <code>scheme://server/path?query=string&amp;is=there</code> has two
+attributes – <code>query=string</code> and <code>is=there</code> – in its query part.</p>
+
+<p>A <code>GUriParamsIter</code> structure represents an iterator that can be used to
+iterate over the attribute/value pairs of a URI query string. <code>GUriParamsIter</code>
+structures are typically allocated on the stack and then initialized with
+<code>g_uri_params_iter_init()</code>. See the documentation for <code>g_uri_params_iter_init()</code>
+for a usage example.</p>
+
+                        <a href="Protocols/URIParamsIterProtocol.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">URIParamsIterProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-UriParamsIter.swift#L19-L26">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Variant%20Record"></a>
                 <a name="//apple_ref/swift/Section/Variant Record" class="dashAnchor"></a>
                 <div class="section-name-container">
@@ -8261,8 +8561,8 @@ Alternatively, use <code><a href="Structs/TokenValueRef.html">TokenValueRef</a><
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

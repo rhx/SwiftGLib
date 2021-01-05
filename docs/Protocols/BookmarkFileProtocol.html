@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>BookmarkFileProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">BookmarkFileProtocol</span></code></pre>
 
                 </div>
@@ -3532,6 +3626,9 @@ Alternatively, use <code><a href="../Structs/BookmarkFileRef.html">BookmarkFileR
 <p>The <code>GBookmarkFile</code> structure contains only
 private data and should not be directly accessed.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L12-L19">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3611,10 +3708,10 @@ private data and should not be directly accessed.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/BookmarkFile%20Record:%20BookmarkFileProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/BookmarkFile%20Record%3A%20BookmarkFileProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/BookmarkFile Record: BookmarkFileProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/BookmarkFile%20Record:%20BookmarkFileProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/BookmarkFile%20Record%3A%20BookmarkFileProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>BookmarkFile Record: BookmarkFileProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3625,7 +3722,7 @@ private data and should not be directly accessed.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE14addApplication3uri4name4execySPys4Int8VGSg_A2KtF"></a>
                     <a name="//apple_ref/swift/Method/addApplication(uri:name:exec:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14addApplication3uri4name4execySPys4Int8VGSg_A2KtF">addApplication(uri:name:exec:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14addApplication3uri4name4execySPys4Int8VGSg_A2KtF">addApplication(uri:<wbr>name:<wbr>exec:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3680,7 +3777,7 @@ with the same <code>name</code> had already registered a bookmark for
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8addGroup3uri5groupySPys4Int8VGSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/addGroup(uri:group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8addGroup3uri5groupySPys4Int8VGSg_AJtF">addGroup(uri:group:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8addGroup3uri5groupySPys4Int8VGSg_AJtF">addGroup(uri:<wbr>group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3751,7 +3848,7 @@ belongs to.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8getAdded3uriSiSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getAdded(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8getAdded3uriSiSPys4Int8VGSg_tKF">getAdded(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8getAdded3uriSiSPys4Int8VGSg_tKF">getAdded(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3767,18 +3864,60 @@ belongs to.</p>
 <p>In the event the URI cannot be found, -1 is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
 
+<p><strong>get_added is deprecated:</strong>
+Use g_bookmark_file_get_added_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">getAdded</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L315-L320">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE16getAddedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF"></a>
+                    <a name="//apple_ref/swift/Method/getAddedDateTime(uri:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE16getAddedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF">getAddedDateTime(uri:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the time the bookmark for <code>uri</code> was added to <code>bookmark</code></p>
+
+<p>In the event the URI cannot be found, <code>nil</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getAdded</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+<span class="kd">func</span> <span class="nf">getAddedDateTime</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DateTimeRef.html">DateTimeRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L311-L316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L326-L331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3788,7 +3927,7 @@ belongs to.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE10getAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_AMSpySpyAKGSgGSgSpys6UInt32VGSgSpySiGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getAppInfo(uri:name:exec:count:stamp:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10getAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_AMSpySpyAKGSgGSgSpys6UInt32VGSgSpySiGSgtKF">getAppInfo(uri:name:exec:count:stamp:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10getAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_AMSpySpyAKGSgGSgSpys6UInt32VGSgSpySiGSgtKF">getAppInfo(uri:<wbr>name:<wbr>exec:<wbr>count:<wbr>stamp:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3800,7 +3939,58 @@ belongs to.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the registration information of <code>app_name</code> for the bookmark for
-<code>uri</code>.  See <code>g_bookmark_file_set_app_info()</code> for more information about
+<code>uri</code>.  See <code>g_bookmark_file_set_application_info()</code> for more information about
+the returned data.</p>
+
+<p>The string returned in <code>app_exec</code> must be freed.</p>
+
+<p>In the event the URI cannot be found, <code>false</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.  In the
+event that no application with name <code>app_name</code> has registered a bookmark
+for <code>uri</code>,  <code>false</code> is returned and error is set to
+<code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code>. In the event that unquoting
+the command line fails, an error of the <code>G_SHELL_ERROR</code> domain is
+set and <code>false</code> is returned.</p>
+
+<p><strong>get_app_info is deprecated:</strong>
+Use g_bookmark_file_get_application_info() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">getAppInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">time_t</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L350-L355">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE18getApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_AMSpySpyAKGSgGSgSpys6UInt32VGSgSpySpySo10_GDateTimeVGSgGSgtKF"></a>
+                    <a name="//apple_ref/swift/Method/getApplicationInfo(uri:name:exec:count:stamp:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE18getApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_AMSpySpyAKGSgGSgSpys6UInt32VGSgSpySpySo10_GDateTimeVGSgGSgtKF">getApplicationInfo(uri:<wbr>name:<wbr>exec:<wbr>count:<wbr>stamp:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the registration information of <code>app_name</code> for the bookmark for
+<code>uri</code>.  See <code>g_bookmark_file_set_application_info()</code> for more information about
 the returned data.</p>
 
 <p>The string returned in <code>app_exec</code> must be freed.</p>
@@ -3819,12 +4009,12 @@ set and <code>false</code> is returned.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getAppInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">time_t</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">getApplicationInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GDateTime</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L331-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L370-L375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3834,7 +4024,7 @@ set and <code>false</code> is returned.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE15getApplications3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getApplications(uri:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE15getApplications3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getApplications(uri:length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE15getApplications3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getApplications(uri:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3862,7 +4052,7 @@ bookmark for <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L343-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L382-L387">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3872,7 +4062,7 @@ bookmark for <code>uri</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE14getDescription3uriSSSgSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getDescription(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14getDescription3uriSSSgSPys4Int8VGSg_tKF">getDescription(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14getDescription3uriSSSgSPys4Int8VGSg_tKF">getDescription(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3899,7 +4089,7 @@ bookmark for <code>uri</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L354-L359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L393-L398">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3909,7 +4099,7 @@ bookmark for <code>uri</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE9getGroups3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/getGroups(uri:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE9getGroups3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getGroups(uri:length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE9getGroups3uri6lengthSpySpys4Int8VGSgGSgSPyAHGSg_SpySuGSgtKF">getGroups(uri:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3939,7 +4129,7 @@ be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L368-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L407-L412">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3949,7 +4139,7 @@ be <code>nil</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE7getIcon3uri4href8mimeTypeSbSPys4Int8VGSg_SpySpyAIGSgGSgAOtKF"></a>
                     <a name="//apple_ref/swift/Method/getIcon(uri:href:mimeType:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7getIcon3uri4href8mimeTypeSbSPys4Int8VGSg_SpySpyAIGSgGSgAOtKF">getIcon(uri:href:mimeType:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7getIcon3uri4href8mimeTypeSbSPys4Int8VGSg_SpySpyAIGSgGSgAOtKF">getIcon(uri:<wbr>href:<wbr>mimeType:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3976,7 +4166,7 @@ be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L379-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L418-L423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3986,7 +4176,7 @@ be <code>nil</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE12getIsPrivate3uriSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getIsPrivate(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE12getIsPrivate3uriSbSPys4Int8VGSg_tKF">getIsPrivate(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE12getIsPrivate3uriSbSPys4Int8VGSg_tKF">getIsPrivate(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4015,7 +4205,7 @@ event that the private flag cannot be found, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L392-L397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L431-L436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4025,7 +4215,7 @@ event that the private flag cannot be found, <code>false</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE11getMimeType3uriSSSgSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getMimeType(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11getMimeType3uriSSSgSPys4Int8VGSg_tKF">getMimeType(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11getMimeType3uriSSSgSPys4Int8VGSg_tKF">getMimeType(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4054,7 +4244,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L405-L410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L444-L449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4064,7 +4254,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE11getModified3uriSiSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getModified(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11getModified3uriSiSPys4Int8VGSg_tKF">getModified(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11getModified3uriSiSPys4Int8VGSg_tKF">getModified(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4080,18 +4270,60 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
 <p>In the event the URI cannot be found, -1 is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
 
+<p><strong>get_modified is deprecated:</strong>
+Use g_bookmark_file_get_modified_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">getModified</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L459-L464">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE19getModifiedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF"></a>
+                    <a name="//apple_ref/swift/Method/getModifiedDateTime(uri:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE19getModifiedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF">getModifiedDateTime(uri:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the time when the bookmark for <code>uri</code> was last modified.</p>
+
+<p>In the event the URI cannot be found, <code>nil</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getModified</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+<span class="kd">func</span> <span class="nf">getModifiedDateTime</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DateTimeRef.html">DateTimeRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L416-L421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L470-L475">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4125,7 +4357,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L424-L427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L478-L481">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4135,7 +4367,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8getTitle3uriSSSgSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getTitle(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8getTitle3uriSSSgSPys4Int8VGSg_tKF">getTitle(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8getTitle3uriSSSgSPys4Int8VGSg_tKF">getTitle(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4164,7 +4396,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L435-L440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L489-L494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4174,7 +4406,7 @@ event that the MIME type cannot be found, <code>nil</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE7getURIs6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/getURIs(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7getURIs6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF">getURIs(length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7getURIs6lengthSpySpys4Int8VGSgGSgSpySuGSg_tF">getURIs(length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4200,7 +4432,7 @@ optionally be <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L445-L448">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L499-L502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4210,7 +4442,7 @@ optionally be <code>nil</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE10getVisited3uriSiSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/getVisited(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10getVisited3uriSiSPys4Int8VGSg_tKF">getVisited(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10getVisited3uriSiSPys4Int8VGSg_tKF">getVisited(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4226,18 +4458,60 @@ optionally be <code>nil</code>.</p>
 <p>In the event the URI cannot be found, -1 is returned and
 <code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
 
+<p><strong>get_visited is deprecated:</strong>
+Use g_bookmark_file_get_visited_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">getVisited</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L512-L517">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE18getVisitedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF"></a>
+                    <a name="//apple_ref/swift/Method/getVisitedDateTime(uri:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE18getVisitedDateTime3uriAA0gH3RefVSgSPys4Int8VGSg_tKF">getVisitedDateTime(uri:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the time the bookmark for <code>uri</code> was last visited.</p>
+
+<p>In the event the URI cannot be found, <code>nil</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">getVisited</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="n">time_t</span></code></pre>
+<span class="kd">func</span> <span class="nf">getVisitedDateTime</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/DateTimeRef.html">DateTimeRef</a></span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L454-L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L523-L528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4247,7 +4521,7 @@ optionally be <code>nil</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE14hasApplication3uri4nameSbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/hasApplication(uri:name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14hasApplication3uri4nameSbSPys4Int8VGSg_AJtKF">hasApplication(uri:name:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14hasApplication3uri4nameSbSPys4Int8VGSg_AJtKF">hasApplication(uri:<wbr>name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4275,7 +4549,7 @@ registered by application <code>name</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L466-L471">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L535-L540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4285,7 +4559,7 @@ registered by application <code>name</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8hasGroup3uri5groupSbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/hasGroup(uri:group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8hasGroup3uri5groupSbSPys4Int8VGSg_AJtKF">hasGroup(uri:group:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8hasGroup3uri5groupSbSPys4Int8VGSg_AJtKF">hasGroup(uri:<wbr>group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4313,7 +4587,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L478-L483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L547-L552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4323,7 +4597,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE7hasItem3uriSbSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/hasItem(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7hasItem3uriSbSPys4Int8VGSg_tF">hasItem(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7hasItem3uriSbSPys4Int8VGSg_tF">hasItem(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4347,7 +4621,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L486-L489">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L555-L558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4357,7 +4631,7 @@ the bookmark for <code>uri</code> belongs to.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8loadFrom4data6lengthSbSPys4Int8VGSg_SitKF"></a>
                     <a name="//apple_ref/swift/Method/loadFrom(data:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8loadFrom4data6lengthSbSPys4Int8VGSg_SitKF">loadFrom(data:length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8loadFrom4data6lengthSbSPys4Int8VGSg_SitKF">loadFrom(data:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4383,7 +4657,7 @@ structure.  If the object cannot be created then <code>error</code> is set to a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L494-L499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L563-L568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4393,7 +4667,7 @@ structure.  If the object cannot be created then <code>error</code> is set to a
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE16loadFromDataDirs4file8fullPathSbSPys4Int8VGSg_SpySpyAHGSgGSgtKF"></a>
                     <a name="//apple_ref/swift/Method/loadFromDataDirs(file:fullPath:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE16loadFromDataDirs4file8fullPathSbSPys4Int8VGSg_SpySpyAHGSgGSgtKF">loadFromDataDirs(file:fullPath:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE16loadFromDataDirs4file8fullPathSbSPys4Int8VGSg_SpySpyAHGSgGSgtKF">loadFromDataDirs(file:<wbr>fullPath:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4421,7 +4695,7 @@ set to either a <code>GFileError</code> or <code>GBookmarkFileError</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L506-L511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L575-L580">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4431,7 +4705,7 @@ set to either a <code>GFileError</code> or <code>GBookmarkFileError</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE08loadFromC08filenameSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/loadFromFile(filename:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE08loadFromC08filenameSbSPys4Int8VGSg_tKF">loadFromFile(filename:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE08loadFromC08filenameSbSPys4Int8VGSg_tKF">loadFromFile(filename:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4457,7 +4731,7 @@ or <code>GBookmarkFileError</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L516-L521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L585-L590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4467,7 +4741,7 @@ or <code>GBookmarkFileError</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8moveItem6oldURI03newH0SbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/moveItem(oldURI:newURI:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8moveItem6oldURI03newH0SbSPys4Int8VGSg_AJtKF">moveItem(oldURI:newURI:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8moveItem6oldURI03newH0SbSPys4Int8VGSg_AJtKF">moveItem(oldURI:<wbr>newURI:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4496,7 +4770,7 @@ existing bookmark for <code>new_uri</code> will be overwritten.  If <code>new_ur
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L529-L534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L598-L603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4506,7 +4780,7 @@ existing bookmark for <code>new_uri</code> will be overwritten.  If <code>new_ur
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE17removeApplication3uri4nameSbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/removeApplication(uri:name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE17removeApplication3uri4nameSbSPys4Int8VGSg_AJtKF">removeApplication(uri:name:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE17removeApplication3uri4nameSbSPys4Int8VGSg_AJtKF">removeApplication(uri:<wbr>name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4537,7 +4811,7 @@ a bookmark for <code>uri</code>,  <code>false</code> is returned and error is se
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L544-L549">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L613-L618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4547,7 +4821,7 @@ a bookmark for <code>uri</code>,  <code>false</code> is returned and error is se
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE11removeGroup3uri5groupSbSPys4Int8VGSg_AJtKF"></a>
                     <a name="//apple_ref/swift/Method/removeGroup(uri:group:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11removeGroup3uri5groupSbSPys4Int8VGSg_AJtKF">removeGroup(uri:group:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11removeGroup3uri5groupSbSPys4Int8VGSg_AJtKF">removeGroup(uri:<wbr>group:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4577,7 +4851,7 @@ In the event no group was defined, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L558-L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L627-L632">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4587,7 +4861,7 @@ In the event no group was defined, <code>false</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE10removeItem3uriSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/removeItem(uri:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10removeItem3uriSbSPys4Int8VGSg_tKF">removeItem(uri:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10removeItem3uriSbSPys4Int8VGSg_tKF">removeItem(uri:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4611,7 +4885,7 @@ In the event no group was defined, <code>false</code> is returned and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L566-L571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L635-L640">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4621,7 +4895,48 @@ In the event no group was defined, <code>false</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8setAdded3uri5addedySPys4Int8VGSg_SitF"></a>
                     <a name="//apple_ref/swift/Method/setAdded(uri:added:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8setAdded3uri5addedySPys4Int8VGSg_SitF">setAdded(uri:added:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8setAdded3uri5addedySPys4Int8VGSg_SitF">setAdded(uri:<wbr>added:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the time the bookmark for <code>uri</code> was added into <code>bookmark</code>.</p>
+
+<p>If no bookmark for <code>uri</code> is found then it is created.</p>
+
+<p><strong>set_added is deprecated:</strong>
+Use g_bookmark_file_set_added_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">setAdded</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">added</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L649-L652">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE16setAddedDateTime3uri5addedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/setAddedDateTime(uri:added:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE16setAddedDateTime3uri5addedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF">setAddedDateTime(uri:<wbr>added:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4642,12 +4957,12 @@ In the event no group was defined, <code>false</code> is returned and
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setAdded</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">added</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="n">setAddedDateTime</span><span class="o">&lt;</span><span class="kt">DateTimeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">added</span><span class="p">:</span> <span class="kt">DateTimeT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">DateTimeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DateTimeProtocol.html">DateTimeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L576-L579">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L657-L660">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4657,7 +4972,7 @@ In the event no group was defined, <code>false</code> is returned and
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE10setAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MS2itKF"></a>
                     <a name="//apple_ref/swift/Method/setAppInfo(uri:name:exec:count:stamp:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10setAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MS2itKF">setAppInfo(uri:name:exec:count:stamp:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10setAppInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MS2itKF">setAppInfo(uri:<wbr>name:<wbr>exec:<wbr>count:<wbr>stamp:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4681,7 +4996,7 @@ application.
 be expanded as the local file name retrieved from the bookmark&#39;s
 URI; &quot;\</code>u<code>&quot;, which will be expanded as the bookmark&#39;s URI.
 The expansion is done automatically when retrieving the stored
-command line using the</code>g_bookmark_file_get_app_info()<code>function.
+command line using the</code>g_bookmark_file_get_application_info()<code>function.
 </code>count<code>is the number of times the application has registered the
 bookmark; if is &lt; 0, the current registration count will be increased
 by one, if is 0, the application with</code>name<code>will be removed from
@@ -4697,18 +5012,143 @@ for <code>uri</code>,  <code>false</code> is returned and error is set to
 <code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code>.  Otherwise, if no bookmark
 for <code>uri</code> is found, one is created.</p>
 
+<p><strong>set_app_info is deprecated:</strong>
+Use g_bookmark_file_set_application_info() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">setAppInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L694-L699">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE18setApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MSiAA11DateTimeRefVSgtKF"></a>
+                    <a name="//apple_ref/swift/Method/setApplicationInfo(uri:name:exec:count:stamp:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE18setApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MSiAA11DateTimeRefVSgtKF">setApplicationInfo(uri:<wbr>name:<wbr>exec:<wbr>count:<wbr>stamp:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the meta-data of application <code>name</code> inside the list of
+applications that have registered a bookmark for <code>uri</code> inside
+<code>bookmark</code>.</p>
+
+<p>You should rarely use this function; use <code>g_bookmark_file_add_application()</code>
+and <code>g_bookmark_file_remove_application()</code> instead.</p>
+
+<p><code>name</code> can be any UTF-8 encoded string used to identify an
+application.
+<code>exec</code> can have one of these two modifiers: &ldquo;`f<code>&quot;, which will
+be expanded as the local file name retrieved from the bookmark&#39;s
+URI; &quot;\</code>u<code>&quot;, which will be expanded as the bookmark&#39;s URI.
+The expansion is done automatically when retrieving the stored
+command line using the</code>g_bookmark_file_get_application_info()<code>function.
+</code>count<code>is the number of times the application has registered the
+bookmark; if is &lt; 0, the current registration count will be increased
+by one, if is 0, the application with</code>name<code>will be removed from
+the list of registered applications.
+</code>stamp` is the Unix time of the last registration.</p>
+
+<p>If you try to remove an application by setting its registration count to
+zero, and no bookmark for <code>uri</code> is found, <code>false</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>; similarly,
+in the event that no application <code>name</code> has registered a bookmark
+for <code>uri</code>,  <code>false</code> is returned and error is set to
+<code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code>.  Otherwise, if no bookmark
+for <code>uri</code> is found, one is created.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setAppInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">func</span> <span class="nf">setApplicationInfo</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="kt"><a href="../Structs/DateTimeRef.html">DateTimeRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L609-L614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L728-L733">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE18setApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MSiqd__SgtKAA08DateTimeD0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/setApplicationInfo(uri:name:exec:count:stamp:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE18setApplicationInfo3uri4name4exec5count5stampSbSPys4Int8VGSg_A2MSiqd__SgtKAA08DateTimeD0Rd__lF">setApplicationInfo(uri:<wbr>name:<wbr>exec:<wbr>count:<wbr>stamp:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the meta-data of application <code>name</code> inside the list of
+applications that have registered a bookmark for <code>uri</code> inside
+<code>bookmark</code>.</p>
+
+<p>You should rarely use this function; use <code>g_bookmark_file_add_application()</code>
+and <code>g_bookmark_file_remove_application()</code> instead.</p>
+
+<p><code>name</code> can be any UTF-8 encoded string used to identify an
+application.
+<code>exec</code> can have one of these two modifiers: &ldquo;`f<code>&quot;, which will
+be expanded as the local file name retrieved from the bookmark&#39;s
+URI; &quot;\</code>u<code>&quot;, which will be expanded as the bookmark&#39;s URI.
+The expansion is done automatically when retrieving the stored
+command line using the</code>g_bookmark_file_get_application_info()<code>function.
+</code>count<code>is the number of times the application has registered the
+bookmark; if is &lt; 0, the current registration count will be increased
+by one, if is 0, the application with</code>name<code>will be removed from
+the list of registered applications.
+</code>stamp` is the Unix time of the last registration.</p>
+
+<p>If you try to remove an application by setting its registration count to
+zero, and no bookmark for <code>uri</code> is found, <code>false</code> is returned and
+<code>error</code> is set to <code>G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND</code>; similarly,
+in the event that no application <code>name</code> has registered a bookmark
+for <code>uri</code>,  <code>false</code> is returned and error is set to
+<code>G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED</code>.  Otherwise, if no bookmark
+for <code>uri</code> is found, one is created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="n">setApplicationInfo</span><span class="o">&lt;</span><span class="kt">DateTimeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">exec</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stamp</span><span class="p">:</span> <span class="kt">DateTimeT</span><span class="p">?)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="k">where</span> <span class="kt">DateTimeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DateTimeProtocol.html">DateTimeProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L761-L766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4718,7 +5158,7 @@ for <code>uri</code> is found, one is created.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE14setDescription3uri11descriptionySPys4Int8VGSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/setDescription(uri:description:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14setDescription3uri11descriptionySPys4Int8VGSg_AJtF">setDescription(uri:description:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE14setDescription3uri11descriptionySPys4Int8VGSg_AJtF">setDescription(uri:<wbr>description:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4746,7 +5186,7 @@ for <code>uri</code> is found, one is created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L621-L624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L773-L776">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4756,7 +5196,7 @@ for <code>uri</code> is found, one is created.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE9setGroups3uri6groups6lengthySPys4Int8VGSg_SpyAKGSgSitF"></a>
                     <a name="//apple_ref/swift/Method/setGroups(uri:groups:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE9setGroups3uri6groups6lengthySPys4Int8VGSg_SpyAKGSgSitF">setGroups(uri:groups:length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE9setGroups3uri6groups6lengthySPys4Int8VGSg_SpyAKGSgSitF">setGroups(uri:<wbr>groups:<wbr>length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4783,7 +5223,7 @@ set group name list is removed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L630-L633">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L782-L785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4793,7 +5233,7 @@ set group name list is removed.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE7setIcon3uri4href8mimeTypeySPys4Int8VGSg_A2KtF"></a>
                     <a name="//apple_ref/swift/Method/setIcon(uri:href:mimeType:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7setIcon3uri4href8mimeTypeySPys4Int8VGSg_A2KtF">setIcon(uri:href:mimeType:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE7setIcon3uri4href8mimeTypeySPys4Int8VGSg_A2KtF">setIcon(uri:<wbr>href:<wbr>mimeType:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4821,7 +5261,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L640-L643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L792-L795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4831,7 +5271,7 @@ file or the icon name following the Icon Naming specification.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE12setIsPrivate3uri02isG0ySPys4Int8VGSg_SbtF"></a>
                     <a name="//apple_ref/swift/Method/setIsPrivate(uri:isPrivate:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE12setIsPrivate3uri02isG0ySPys4Int8VGSg_SbtF">setIsPrivate(uri:isPrivate:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE12setIsPrivate3uri02isG0ySPys4Int8VGSg_SbtF">setIsPrivate(uri:<wbr>isPrivate:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4857,7 +5297,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L648-L651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L800-L803">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4867,7 +5307,7 @@ file or the icon name following the Icon Naming specification.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE11setMimeType3uri04mimeG0ySPys4Int8VGSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/setMimeType(uri:mimeType:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11setMimeType3uri04mimeG0ySPys4Int8VGSg_AJtF">setMimeType(uri:mimeType:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11setMimeType3uri04mimeG0ySPys4Int8VGSg_AJtF">setMimeType(uri:<wbr>mimeType:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4893,7 +5333,7 @@ file or the icon name following the Icon Naming specification.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L656-L659">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L808-L811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4903,7 +5343,7 @@ file or the icon name following the Icon Naming specification.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE11setModified3uri8modifiedySPys4Int8VGSg_SitF"></a>
                     <a name="//apple_ref/swift/Method/setModified(uri:modified:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11setModified3uri8modifiedySPys4Int8VGSg_SitF">setModified(uri:modified:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE11setModified3uri8modifiedySPys4Int8VGSg_SitF">setModified(uri:<wbr>modified:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4921,7 +5361,53 @@ file or the icon name following the Icon Naming specification.</p>
 <p>The &ldquo;modified&rdquo; time should only be set when the bookmark&rsquo;s meta-data
 was actually changed.  Every function of <code>GBookmarkFile</code> that
 modifies a bookmark also changes the modification time, except for
-<code>g_bookmark_file_set_visited()</code>.</p>
+<code>g_bookmark_file_set_visited_date_time()</code>.</p>
+
+<p><strong>set_modified is deprecated:</strong>
+Use g_bookmark_file_set_modified_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">setModified</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">modified</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L825-L828">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE19setModifiedDateTime3uri8modifiedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/setModifiedDateTime(uri:modified:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE19setModifiedDateTime3uri8modifiedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF">setModifiedDateTime(uri:<wbr>modified:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the last time the bookmark for <code>uri</code> was last modified.</p>
+
+<p>If no bookmark for <code>uri</code> is found then it is created.</p>
+
+<p>The &ldquo;modified&rdquo; time should only be set when the bookmark&rsquo;s meta-data
+was actually changed.  Every function of <code>GBookmarkFile</code> that
+modifies a bookmark also changes the modification time, except for
+<code>g_bookmark_file_set_visited_date_time()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -4929,12 +5415,12 @@ modifies a bookmark also changes the modification time, except for
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setModified</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">modified</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="n">setModifiedDateTime</span><span class="o">&lt;</span><span class="kt">DateTimeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">modified</span><span class="p">:</span> <span class="kt">DateTimeT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">DateTimeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DateTimeProtocol.html">DateTimeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L669-L672">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L838-L841">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4944,7 +5430,7 @@ modifies a bookmark also changes the modification time, except for
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE8setTitle3uri5titleySPys4Int8VGSg_AJtF"></a>
                     <a name="//apple_ref/swift/Method/setTitle(uri:title:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8setTitle3uri5titleySPys4Int8VGSg_AJtF">setTitle(uri:title:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE8setTitle3uri5titleySPys4Int8VGSg_AJtF">setTitle(uri:<wbr>title:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4973,7 +5459,7 @@ bookmark file <code>bookmark</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L680-L683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L849-L852">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4983,7 +5469,7 @@ bookmark file <code>bookmark</code>.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE10setVisited3uri7visitedySPys4Int8VGSg_SitF"></a>
                     <a name="//apple_ref/swift/Method/setVisited(uri:visited:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10setVisited3uri7visitedySPys4Int8VGSg_SitF">setVisited(uri:visited:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE10setVisited3uri7visitedySPys4Int8VGSg_SitF">setVisited(uri:<wbr>visited:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4999,7 +5485,54 @@ bookmark file <code>bookmark</code>.</p>
 <p>If no bookmark for <code>uri</code> is found then it is created.</p>
 
 <p>The &ldquo;visited&rdquo; time should only be set if the bookmark was launched,
-either using the command line retrieved by <code>g_bookmark_file_get_app_info()</code>
+either using the command line retrieved by <code>g_bookmark_file_get_application_info()</code>
+or by the default application for the bookmark&rsquo;s MIME type, retrieved
+using <code>g_bookmark_file_get_mime_type()</code>.  Changing the &ldquo;visited&rdquo; time
+does not affect the &ldquo;modified&rdquo; time.</p>
+
+<p><strong>set_visited is deprecated:</strong>
+Use g_bookmark_file_set_visited_date_time() instead, as
+   <code>time_t</code> is deprecated due to the year 2038 problem.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">setVisited</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">visited</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L867-L870">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4GLib20BookmarkFileProtocolPAAE18setVisitedDateTime3uri7visitedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF"></a>
+                    <a name="//apple_ref/swift/Method/setVisitedDateTime(uri:visited:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE18setVisitedDateTime3uri7visitedySPys4Int8VGSg_qd__tAA0ghD0Rd__lF">setVisitedDateTime(uri:<wbr>visited:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the time the bookmark for <code>uri</code> was last visited.</p>
+
+<p>If no bookmark for <code>uri</code> is found then it is created.</p>
+
+<p>The &ldquo;visited&rdquo; time should only be set if the bookmark was launched,
+either using the command line retrieved by <code>g_bookmark_file_get_application_info()</code>
 or by the default application for the bookmark&rsquo;s MIME type, retrieved
 using <code>g_bookmark_file_get_mime_type()</code>.  Changing the &ldquo;visited&rdquo; time
 does not affect the &ldquo;modified&rdquo; time.</p>
@@ -5010,12 +5543,12 @@ does not affect the &ldquo;modified&rdquo; time.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">func</span> <span class="nf">setVisited</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">visited</span><span class="p">:</span> <span class="n">time_t</span><span class="p">)</span></code></pre>
+<span class="kd">func</span> <span class="n">setVisitedDateTime</span><span class="o">&lt;</span><span class="kt">DateTimeT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">visited</span><span class="p">:</span> <span class="kt">DateTimeT</span><span class="p">)</span> <span class="k">where</span> <span class="kt">DateTimeT</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DateTimeProtocol.html">DateTimeProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L694-L697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L881-L884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5025,7 +5558,7 @@ does not affect the &ldquo;modified&rdquo; time.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/toData(length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF">toData(length:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE6toData6lengthSSSgSpySuGSg_tKF">toData(length:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5049,7 +5582,7 @@ does not affect the &ldquo;modified&rdquo; time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L700-L705">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L887-L892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5059,7 +5592,7 @@ does not affect the &ldquo;modified&rdquo; time.</p>
                     <code>
                     <a name="/s:4GLib20BookmarkFileProtocolPAAE02toC08filenameSbSPys4Int8VGSg_tKF"></a>
                     <a name="//apple_ref/swift/Method/toFile(filename:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE02toC08filenameSbSPys4Int8VGSg_tKF">toFile(filename:)</a>
+                    <a class="token" href="#/s:4GLib20BookmarkFileProtocolPAAE02toC08filenameSbSPys4Int8VGSg_tKF">toFile(filename:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5084,7 +5617,7 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L709-L714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L896-L901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5118,7 +5651,7 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L716-L722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-BookmarkFile.swift#L903-L909">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5131,8 +5664,8 @@ guaranteed to be atomic by using <code>g_file_set_contents()</code> internally.<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

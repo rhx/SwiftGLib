@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>SourceProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">SourceProtocol</span></code></pre>
 
                 </div>
@@ -3532,6 +3626,9 @@ Alternatively, use <code><a href="../Structs/SourceRef.html">SourceRef</a></code
 <p>The <code>GSource</code> struct is an opaque data type
 representing an event source.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-Source.swift#L12-L19">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3611,10 +3708,10 @@ representing an event source.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/Source%20Record:%20SourceProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/Source%20Record%3A%20SourceProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/Source Record: SourceProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/Source%20Record:%20SourceProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/Source%20Record%3A%20SourceProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>Source Record: SourceProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3625,7 +3722,7 @@ representing an event source.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3add05childB0yqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/add(childSource:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3add05childB0yqd___tAaBRd__lF">add(childSource:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3add05childB0yqd___tAaBRd__lF">add(childSource:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3675,7 +3772,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE7addPoll2fdyqd___tAA0E10FDProtocolRd__lF"></a>
                     <a name="//apple_ref/swift/Method/addPoll(fd:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE7addPoll2fdyqd___tAA0E10FDProtocolRd__lF">addPoll(fd:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE7addPoll2fdyqd___tAA0E10FDProtocolRd__lF">addPoll(fd:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3720,7 +3817,7 @@ main loop iteration.  Newly-written event sources should try to use
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE7addUnix2fd6eventsSvSgSi_AA11IOConditionVtF"></a>
                     <a name="//apple_ref/swift/Method/addUnix(fd:events:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE7addUnix2fd6eventsSvSgSi_AA11IOConditionVtF">addUnix(fd:events:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE7addUnix2fd6eventsSvSgSi_AA11IOConditionVtF">addUnix(fd:<wbr>events:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3766,7 +3863,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE6attach7contextSiAA14MainContextRefVSg_tF"></a>
                     <a name="//apple_ref/swift/Method/attach(context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6attach7contextSiAA14MainContextRefVSg_tF">attach(context:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6attach7contextSiAA14MainContextRefVSg_tF">attach(context:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3804,7 +3901,7 @@ the <code><a href="../Protocols/SourceProtocol.html#/s:4GLib14SourceProtocolPAAE
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE6attach7contextSiqd__Sg_tAA011MainContextC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/attach(context:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6attach7contextSiqd__Sg_tAA011MainContextC0Rd__lF">attach(context:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6attach7contextSiqd__Sg_tAA011MainContextC0Rd__lF">attach(context:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3961,7 +4058,7 @@ whose <code>GMainContext</code> has been destroyed is an error.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE14getCurrentTime7timevalyqd___tAA0f3ValC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/getCurrentTime(timeval:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE14getCurrentTime7timevalyqd___tAA0f3ValC0Rd__lF">getCurrentTime(timeval:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE14getCurrentTime7timevalyqd___tAA0f3ValC0Rd__lF">getCurrentTime(timeval:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4189,7 +4286,7 @@ other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE12modifyUnixFd3tag9newEventsySvSg_AA11IOConditionVtF"></a>
                     <a name="//apple_ref/swift/Method/modifyUnixFd(tag:newEvents:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE12modifyUnixFd3tag9newEventsySvSg_AA11IOConditionVtF">modifyUnixFd(tag:newEvents:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE12modifyUnixFd3tag9newEventsySvSg_AA11IOConditionVtF">modifyUnixFd(tag:<wbr>newEvents:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4233,7 +4330,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE11queryUnixFd3tagAA11IOConditionVSvSg_tF"></a>
                     <a name="//apple_ref/swift/Method/queryUnixFd(tag:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE11queryUnixFd3tagAA11IOConditionVSvSg_tF">queryUnixFd(tag:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE11queryUnixFd3tagAA11IOConditionVSvSg_tF">queryUnixFd(tag:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4311,7 +4408,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE6remove05childB0yqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/remove(childSource:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6remove05childB0yqd___tAaBRd__lF">remove(childSource:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE6remove05childB0yqd___tAaBRd__lF">remove(childSource:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4348,7 +4445,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE10removePoll2fdyqd___tAA0E10FDProtocolRd__lF"></a>
                     <a name="//apple_ref/swift/Method/removePoll(fd:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE10removePoll2fdyqd___tAA0E10FDProtocolRd__lF">removePoll(fd:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE10removePoll2fdyqd___tAA0E10FDProtocolRd__lF">removePoll(fd:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4386,7 +4483,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE12removeUnixFd3tagySvSg_tF"></a>
                     <a name="//apple_ref/swift/Method/removeUnixFd(tag:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE12removeUnixFd3tagySvSg_tF">removeUnixFd(tag:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE12removeUnixFd3tagySvSg_tF">removeUnixFd(tag:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4429,7 +4526,7 @@ Do not call this API on a <code>GSource</code> that you did not create.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE11setCallback4func4data6notifyys5Int32VSvSgXCSg_AJyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Method/setCallback(func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE11setCallback4func4data6notifyys5Int32VSvSgXCSg_AJyAJXCSgtF">setCallback(func:data:notify:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE11setCallback4func4data6notifyys5Int32VSvSgXCSg_AJyAJXCSgtF">setCallback(func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4479,7 +4576,7 @@ the source is dispatched after this call returns.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE19setCallbackIndirect12callbackData0G5FuncsySvSg_qd__tAA0beiC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/setCallbackIndirect(callbackData:callbackFuncs:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE19setCallbackIndirect12callbackData0G5FuncsySvSg_qd__tAA0beiC0Rd__lF">setCallbackIndirect(callbackData:callbackFuncs:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE19setCallbackIndirect12callbackData0G5FuncsySvSg_qd__tAA0beiC0Rd__lF">setCallbackIndirect(callbackData:<wbr>callbackFuncs:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4522,7 +4619,7 @@ the source is dispatched after this call returns.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3set10canRecurseySb_tF"></a>
                     <a name="//apple_ref/swift/Method/set(canRecurse:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set10canRecurseySb_tF">set(canRecurse:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set10canRecurseySb_tF">set(canRecurse:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4559,7 +4656,7 @@ source is blocked until the dispatch function returns.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE18setDisposeFunction7disposeyySpySo8_GSourceVGSgXCSg_tF"></a>
                     <a name="//apple_ref/swift/Method/setDisposeFunction(dispose:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE18setDisposeFunction7disposeyySpySo8_GSourceVGSgXCSg_tF">setDisposeFunction(dispose:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE18setDisposeFunction7disposeyySpySo8_GSourceVGSgXCSg_tF">setDisposeFunction(dispose:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4608,7 +4705,7 @@ it is being freed.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3set5funcsyqd___tAA0b5FuncsC0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/set(funcs:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set5funcsyqd___tAA0b5FuncsC0Rd__lF">set(funcs:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set5funcsyqd___tAA0b5FuncsC0Rd__lF">set(funcs:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4643,7 +4740,7 @@ default implementations) of an unattached source.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3set4nameySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/set(name:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set4nameySPys4Int8VGSg_tF">set(name:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set4nameySPys4Int8VGSg_tF">set(name:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4692,7 +4789,7 @@ may be attempting to use it.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3set8priorityySi_tF"></a>
                     <a name="//apple_ref/swift/Method/set(priority:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set8priorityySi_tF">set(priority:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set8priorityySi_tF">set(priority:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4733,7 +4830,7 @@ as a child of another source.</p>
                     <code>
                     <a name="/s:4GLib14SourceProtocolPAAE3set9readyTimeys5Int64V_tF"></a>
                     <a name="//apple_ref/swift/Method/set(readyTime:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set9readyTimeys5Int64V_tF">set(readyTime:)</a>
+                    <a class="token" href="#/s:4GLib14SourceProtocolPAAE3set9readyTimeys5Int64V_tF">set(readyTime:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -5191,8 +5288,8 @@ other reasonable alternative otherwise.  See <code>g_get_monotonic_time()</code>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

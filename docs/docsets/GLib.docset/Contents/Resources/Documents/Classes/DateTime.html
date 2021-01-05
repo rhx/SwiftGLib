@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>DateTime</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">DateTime</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/DateTimeProtocol.html">DateTimeProtocol</a></span></code></pre>
 
                 </div>
@@ -3531,6 +3625,9 @@ Use <code>DateTime</code> as a strong reference or owner of a <code>GDateTime</c
 <p><code>GDateTime</code> is an opaque structure whose members
 cannot be accessed directly.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L467-L965">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3566,7 +3663,7 @@ cannot be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L472">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3576,7 +3673,7 @@ cannot be accessed directly.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeCyACSpySo06_GDateC0VGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeCyACSpySo06_GDateC0VGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeCyACSpySo06_GDateC0VGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3618,7 +3715,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L478-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L476-L478">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3628,7 +3725,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeCyACSPySo06_GDateC0VGcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeCyACSPySo06_GDateC0VGcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeCyACSPySo06_GDateC0VGcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3670,7 +3767,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L486-L488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L484-L486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3680,7 +3777,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC8gpointerACSgSvSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC8gpointerACSgSvSg_tcfc">init(gpointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC8gpointerACSgSvSg_tcfc">init(gpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3723,7 +3820,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L495-L498">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L493-L496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3733,7 +3830,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC13gconstpointerACSgSVSg_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(gconstpointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC13gconstpointerACSgSVSg_tcfc">init(gconstpointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3776,7 +3873,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L505-L508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L503-L506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3786,7 +3883,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeCyACSgSPySo06_GDateC0VGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeCyACSgSPySo06_GDateC0VGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeCyACSgSPySo06_GDateC0VGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3828,7 +3925,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L514-L517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L512-L515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3838,7 +3935,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeCyACSgSpySo06_GDateC0VGSgcfc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeCyACSgSpySo06_GDateC0VGSgcfc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeCyACSgSpySo06_GDateC0VGSgcfc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3880,7 +3977,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L523-L526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L521-L524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3890,7 +3987,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC9retainingACSpySo06_GDateC0VG_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retaining:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC9retainingACSpySo06_GDateC0VG_tcfc">init(retaining:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC9retainingACSpySo06_GDateC0VG_tcfc">init(retaining:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3932,7 +4029,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L532-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L530-L533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3942,7 +4039,7 @@ i.e., ownership is transferred to the <code>DateTime</code> instance.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeCyACxcAA0bC8ProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeCyACxcAA0bC8ProtocolRzlufc">init(_:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeCyACxcAA0bC8ProtocolRzlufc">init(_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -3983,7 +4080,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L540-L543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L538-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3993,7 +4090,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC8cPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(cPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC8cPointerACSpyxG_tclufc">init(cPointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC8cPointerACSpyxG_tclufc">init(cPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4034,7 +4131,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L553-L555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L551-L553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4044,7 +4141,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC17retainingCPointerACSpyxG_tclufc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingCPointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC17retainingCPointerACSpyxG_tclufc">init(retainingCPointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4085,7 +4182,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L560-L563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L558-L561">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4095,7 +4192,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3rawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3rawACSV_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3rawACSV_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4136,7 +4233,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L568-L570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L566-L568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4146,7 +4243,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC12retainingRawACSV_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC12retainingRawACSV_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC12retainingRawACSV_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4168,7 +4265,7 @@ Will retain <code>GDateTime</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L574-L577">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L572-L575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4178,7 +4275,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3rawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3rawACSv_tcfc">init(raw:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3rawACSv_tcfc">init(raw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4219,7 +4316,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L582-L584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L580-L582">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4229,7 +4326,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC12retainingRawACSv_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingRaw:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC12retainingRawACSv_tcfc">init(retainingRaw:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC12retainingRawACSv_tcfc">init(retainingRaw:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4270,7 +4367,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L589-L592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L587-L590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4280,7 +4377,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC13opaquePointerACs06OpaqueE0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(opaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC13opaquePointerACs06OpaqueE0V_tcfc">init(opaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC13opaquePointerACs06OpaqueE0V_tcfc">init(opaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4321,7 +4418,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L597-L599">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L595-L597">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4331,7 +4428,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC22retainingOpaquePointerACs0eF0V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(retainingOpaquePointer:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC22retainingOpaquePointerACs0eF0V_tcfc">init(retainingOpaquePointer:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4372,7 +4469,7 @@ Will retain <code>GDateTime</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L604-L607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L602-L605">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4382,7 +4479,7 @@ Will retain <code>GDateTime</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC2tz4year5month3day4hour6minute7secondsACx_S5iSdtcAA0C12ZoneProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(tz:year:month:day:hour:minute:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC2tz4year5month3day4hour6minute7secondsACx_S5iSdtcAA0C12ZoneProtocolRzlufc">init(tz:year:month:day:hour:minute:seconds:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC2tz4year5month3day4hour6minute7secondsACx_S5iSdtcAA0C12ZoneProtocolRzlufc">init(tz:<wbr>year:<wbr>month:<wbr>day:<wbr>hour:<wbr>minute:<wbr>seconds:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4430,7 +4527,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L637-L640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L635-L638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4440,7 +4537,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7iso86019defaultTzACSPys4Int8VGSg_xSgtcAA0C12ZoneProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(iso8601:defaultTz:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7iso86019defaultTzACSPys4Int8VGSg_xSgtcAA0C12ZoneProtocolRzlufc">init(iso8601:defaultTz:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7iso86019defaultTzACSPys4Int8VGSg_xSgtcAA0C12ZoneProtocolRzlufc">init(iso8601:<wbr>defaultTz:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4509,7 +4606,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L685-L688">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L683-L686">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4519,7 +4616,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC12timevalLocalACx_tcAA0C11ValProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(timevalLocal:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC12timevalLocalACx_tcAA0C11ValProtocolRzlufc">init(timevalLocal:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC12timevalLocalACx_tcAA0C11ValProtocolRzlufc">init(timevalLocal:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4557,7 +4654,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L706-L709">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L704-L707">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4567,7 +4664,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC10timevalUTCACx_tcAA0C11ValProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(timevalUTC:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC10timevalUTCACx_tcAA0C11ValProtocolRzlufc">init(timevalUTC:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC10timevalUTCACx_tcAA0C11ValProtocolRzlufc">init(timevalUTC:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4603,7 +4700,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L725-L728">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L723-L726">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4613,7 +4710,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC9unixLocalACs5Int64V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(unixLocal:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC9unixLocalACs5Int64V_tcfc">init(unixLocal:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC9unixLocalACs5Int64V_tcfc">init(unixLocal:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4644,7 +4741,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L741-L744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L739-L742">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4654,7 +4751,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7unixUTCACs5Int64V_tcfc"></a>
                     <a name="//apple_ref/swift/Method/init(unixUTC:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7unixUTCACs5Int64V_tcfc">init(unixUTC:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7unixUTCACs5Int64V_tcfc">init(unixUTC:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4684,7 +4781,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L756-L759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L754-L757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4694,7 +4791,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC5local5month3day4hour6minute7secondsACSi_S4iSdtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(local:month:day:hour:minute:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC5local5month3day4hour6minute7secondsACSi_S4iSdtcfc">init(local:month:day:hour:minute:seconds:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC5local5month3day4hour6minute7secondsACSi_S4iSdtcfc">init(local:<wbr>month:<wbr>day:<wbr>hour:<wbr>minute:<wbr>seconds:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4719,7 +4816,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L766-L769">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L764-L767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4729,7 +4826,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3nowACx_tcAA0C12ZoneProtocolRzlufc"></a>
                     <a name="//apple_ref/swift/Method/init(now:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3nowACx_tcAA0C12ZoneProtocolRzlufc">init(now:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3nowACx_tcAA0C12ZoneProtocolRzlufc">init(now:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4741,9 +4838,8 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
 time zone <code>tz</code>.  The time is as accurate as the system allows, to a
 maximum accuracy of 1 microsecond.</p>
 
-<p>This function will always succeed unless the system clock is set to
-truly insane values (or unless GLib is still being used after the
-year 9999).</p>
+<p>This function will always succeed unless GLib is still being used after the
+year 9999.</p>
 
 <p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
@@ -4759,7 +4855,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L781-L784">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L778-L781">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4769,7 +4865,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3utc5month3day4hour6minute7secondsACSi_S4iSdtcfc"></a>
                     <a name="//apple_ref/swift/Method/init(utc:month:day:hour:minute:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3utc5month3day4hour6minute7secondsACSi_S4iSdtcfc">init(utc:month:day:hour:minute:seconds:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3utc5month3day4hour6minute7secondsACSi_S4iSdtcfc">init(utc:<wbr>month:<wbr>day:<wbr>hour:<wbr>minute:<wbr>seconds:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4794,7 +4890,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L791-L794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L788-L791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4804,7 +4900,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7newFrom7iso86019defaultTzACSgSPys4Int8VGSg_xSgtAA0C12ZoneProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(iso8601:defaultTz:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom7iso86019defaultTzACSgSPys4Int8VGSg_xSgtAA0C12ZoneProtocolRzlFZ">newFrom(iso8601:defaultTz:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom7iso86019defaultTzACSgSPys4Int8VGSg_xSgtAA0C12ZoneProtocolRzlFZ">newFrom(iso8601:<wbr>defaultTz:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4873,7 +4969,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L839-L842">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L836-L839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4883,7 +4979,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7newFrom12timevalLocalACSgx_tAA0C11ValProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(timevalLocal:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom12timevalLocalACSgx_tAA0C11ValProtocolRzlFZ">newFrom(timevalLocal:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom12timevalLocalACSgx_tAA0C11ValProtocolRzlFZ">newFrom(timevalLocal:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4921,7 +5017,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L860-L863">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L857-L860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4931,7 +5027,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7newFrom10timevalUTCACSgx_tAA0C11ValProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(timevalUTC:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom10timevalUTCACSgx_tAA0C11ValProtocolRzlFZ">newFrom(timevalUTC:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom10timevalUTCACSgx_tAA0C11ValProtocolRzlFZ">newFrom(timevalUTC:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -4967,7 +5063,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L879-L882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L876-L879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4977,7 +5073,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7newFrom9unixLocalACSgs5Int64V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(unixLocal:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom9unixLocalACSgs5Int64V_tFZ">newFrom(unixLocal:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom9unixLocalACSgs5Int64V_tFZ">newFrom(unixLocal:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5008,7 +5104,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L895-L898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L892-L895">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5018,7 +5114,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC7newFrom7unixUTCACSgs5Int64V_tFZ"></a>
                     <a name="//apple_ref/swift/Method/newFrom(unixUTC:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom7unixUTCACSgs5Int64V_tFZ">newFrom(unixUTC:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC7newFrom7unixUTCACSgs5Int64V_tFZ">newFrom(unixUTC:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5048,7 +5144,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L910-L913">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L907-L910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5058,7 +5154,7 @@ when you are done with it.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3new5local5month3day4hour6minute7secondsACSgSi_S4iSdtFZ"></a>
                     <a name="//apple_ref/swift/Method/new(local:month:day:hour:minute:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3new5local5month3day4hour6minute7secondsACSgSi_S4iSdtFZ">new(local:month:day:hour:minute:seconds:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3new5local5month3day4hour6minute7secondsACSgSi_S4iSdtFZ">new(local:<wbr>month:<wbr>day:<wbr>hour:<wbr>minute:<wbr>seconds:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5083,7 +5179,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L920-L923">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L917-L920">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5093,7 +5189,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3new3nowACSgx_tAA0C12ZoneProtocolRzlFZ"></a>
                     <a name="//apple_ref/swift/Method/new(now:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3new3nowACSgx_tAA0C12ZoneProtocolRzlFZ">new(now:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3new3nowACSgx_tAA0C12ZoneProtocolRzlFZ">new(now:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5105,9 +5201,8 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
 time zone <code>tz</code>.  The time is as accurate as the system allows, to a
 maximum accuracy of 1 microsecond.</p>
 
-<p>This function will always succeed unless the system clock is set to
-truly insane values (or unless GLib is still being used after the
-year 9999).</p>
+<p>This function will always succeed unless GLib is still being used after the
+year 9999.</p>
 
 <p>You should release the return value by calling <code>g_date_time_unref()</code>
 when you are done with it.</p>
@@ -5123,7 +5218,7 @@ when you are done with it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L935-L938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L931-L934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5158,7 +5253,7 @@ zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L945-L948">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L941-L944">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5192,7 +5287,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L954-L957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L950-L953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5202,7 +5297,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                     <code>
                     <a name="/s:4GLib8DateTimeC3new3utc5month3day4hour6minute7secondsACSgSi_S4iSdtFZ"></a>
                     <a name="//apple_ref/swift/Method/new(utc:month:day:hour:minute:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib8DateTimeC3new3utc5month3day4hour6minute7secondsACSgSi_S4iSdtFZ">new(utc:month:day:hour:minute:seconds:)</a>
+                    <a class="token" href="#/s:4GLib8DateTimeC3new3utc5month3day4hour6minute7secondsACSgSi_S4iSdtFZ">new(utc:<wbr>month:<wbr>day:<wbr>hour:<wbr>minute:<wbr>seconds:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -5227,7 +5322,7 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L964-L967">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L960-L963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -5240,8 +5335,8 @@ zone returned by <code>g_time_zone_new_utc()</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

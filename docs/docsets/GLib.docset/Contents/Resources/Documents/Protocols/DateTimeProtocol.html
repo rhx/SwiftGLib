@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          GLib 2.64.4 Docs
+          GLib 2.66.0 Docs
         </a>
          (97% documented)
       </p>
@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftGLib%2Fdocsets%2FGLib%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftGLib%2Fdocsets%2FGLib.xml">
             <img class="header-icon" src="../img/dash.png"/>
             Install in Dash
           </a>
@@ -283,6 +283,12 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Tree.html">Tree</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URI.html">URI</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/URIParamsIter.html">URIParamsIter</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Variant.html">Variant</a>
@@ -841,6 +847,9 @@
                 <a class="nav-group-task-link" href="../Extensions/TraverseType.html">TraverseType</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/URIError.html">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Extensions/UnicodeBreakType.html">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -1306,6 +1315,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15fileSetContents8filename8contents6lengthSbSPys4Int8VGSg_AISitKF">fileSetContents(filename:contents:length:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib19fileSetContentsFull8filename8contents6length5flags4modeSbSPys4Int8VGSg_AKSiAA04FilecD5FlagsVSitKF">fileSetContentsFull(filename:contents:length:flags:mode:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8fileTest8filename4testSbSPys4Int8VGSg_AA04FileC0VtF">fileTest(filename:test:)</a>
@@ -2508,13 +2520,58 @@
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8unsetenv8variableySPys4Int8VGSg_tF">unsetenv(variable:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriBuild5flags6scheme8userinfo4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA2SSiA3StF">uriBuild(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriBuildWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentAA6URIRefVSgAA8URIFlagsV_SPys4Int8VGSgA4USiA3UtF">uriBuildWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriErrorQuarks6UInt32VyF">uriErrorQuark()</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriEscapeBytes9unescaped6length20reservedCharsAllowedSSSgSPys5UInt8VGSg_SiSPys4Int8VGSgtF">uriEscapeBytes(unescaped:length:reservedCharsAllowed:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriEscapeString9unescaped20reservedCharsAllowed9allowUTF8SSSgSPys4Int8VGSg_AJSbtF">uriEscapeString(unescaped:reservedCharsAllowed:allowUTF8:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib10uriIsValid0B6String5flagsSbSPys4Int8VGSg_AA8URIFlagsVtKF">uriIsValid(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib7uriJoin5flags6scheme8userinfo4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA2QSiA3QtF">uriJoin(flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriJoinWithUser5flags6scheme4user8password10authParams4host4port4path5query8fragmentSSSgAA8URIFlagsV_SPys4Int8VGSgA4SSiA3StF">uriJoinWithUser(flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriListExtractURIs0bC0SpySpys4Int8VGSgGSgSPyAEGSg_tF">uriListExtractURIs(uriList:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse6params6length10separators5flagsAA12HashTableRefVSgSPys4Int8VGSg_SiAmA14URIParamsFlagsVtKF">uriParse(params:length:separators:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriParse0B6String5flagsAA6URIRefVSgSPys4Int8VGSg_AA8URIFlagsVtKF">uriParse(uriString:flags:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib14uriParseScheme0B0SSSgSPys4Int8VGSg_tF">uriParseScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib13uriPeekScheme0B0SSSgSPys4Int8VGSg_tF">uriPeekScheme(uri:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriResolveRelative13baseURIString0B3Ref5flagsSSSgSPys4Int8VGSg_AjA8URIFlagsVtKF">uriResolveRelative(baseURIString:uriRef:flags:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib8uriSplit0B3Ref5flags6scheme8userinfo4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAMGSgGSgA2USpys5Int32VGSgA3UtKF">uriSplit(uriRef:flags:scheme:userinfo:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib15uriSplitNetwork0B6String5flags6scheme4host4portSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAIGSgGSgAQSpys5Int32VGSgtKF">uriSplitNetwork(uriString:flags:scheme:host:port:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriSplitWithUser0B3Ref5flags6scheme4user8password10authParams4host4port4path5query8fragmentSbSPys4Int8VGSg_AA8URIFlagsVSpySpyAOGSgGSgA4WSpys5Int32VGSgA3WtKF">uriSplitWithUser(uriRef:flags:scheme:user:password:authParams:host:port:path:query:fragment:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4GLib16uriUnescapeBytes13escapedString6length17illegalCharactersAA0D3RefVSgSPys4Int8VGSg_SiALtKF">uriUnescapeBytes(escapedString:length:illegalCharacters:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Functions.html#/s:4GLib18uriUnescapeSegment13escapedString0eF3End17illegalCharactersSSSgSPys4Int8VGSg_A2JtF">uriUnescapeSegment(escapedString:escapedStringEnd:illegalCharacters:)</a>
@@ -2894,6 +2951,12 @@
                 <a class="nav-group-task-link" href="../Protocols/TreeProtocol.html">TreeProtocol</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIParamsIterProtocol.html">URIParamsIterProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/URIProtocol.html">URIProtocol</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/VariantBuilderProtocol.html">VariantBuilderProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -2959,6 +3022,9 @@
                 <a class="nav-group-task-link" href="../Structs/ErrorRef.html">ErrorRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/FileSetContentsFlags.html">FileSetContentsFlags</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/FileTest.html">FileTest</a>
               </li>
               <li class="nav-group-task">
@@ -3008,6 +3074,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/KeyFileRef.html">KeyFileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/ListIterator.html">ListIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/ListRef.html">ListRef</a>
@@ -3100,6 +3169,9 @@
                 <a class="nav-group-task-link" href="../Structs/RegexRef.html">RegexRef</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SListIterator.html">SListIterator</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SListRef.html">SListRef</a>
               </li>
               <li class="nav-group-task">
@@ -3110,6 +3182,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceIterRef.html">SequenceIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/SequenceIterator.html">SequenceIterator</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/SequenceRef.html">SequenceRef</a>
@@ -3185,6 +3260,21 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/TreeRef.html">TreeRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIFlags.html">URIFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIHideFlags.html">URIHideFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsFlags.html">URIParamsFlags</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIParamsIterRef.html">URIParamsIterRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/URIRef.html">URIRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/VariantBuilderRef.html">VariantBuilderRef</a>
@@ -3486,6 +3576,9 @@
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib5Type_a">Type_</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib8URIErrora">URIError</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Typealiases.html#/s:4GLib16UnicodeBreakTypea">UnicodeBreakType</a>
               </li>
               <li class="nav-group-task">
@@ -3520,6 +3613,7 @@
             <h1>DateTimeProtocol</h1>
               <div class="declaration">
                 <div class="language">
+                  
                   <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">DateTimeProtocol</span></code></pre>
 
                 </div>
@@ -3532,6 +3626,9 @@ Alternatively, use <code><a href="../Structs/DateTimeRef.html">DateTimeRef</a></
 <p><code>GDateTime</code> is an opaque structure whose members
 cannot be accessed directly.</p>
 
+              <div class="slightly-smaller">
+                <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L12-L19">Show on GitHub</a>
+              </div>
           </div>
         </section>
 
@@ -3611,10 +3708,10 @@ cannot be accessed directly.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/DateTime%20Record:%20DateTimeProtocol%20extension%20(methods%20and%20fields)"></a>
+                <a name="/DateTime%20Record%3A%20DateTimeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                 <a name="//apple_ref/swift/Section/DateTime Record: DateTimeProtocol extension (methods and fields)" class="dashAnchor"></a>
                 <div class="section-name-container">
-                  <a class="section-name-link" href="#/DateTime%20Record:%20DateTimeProtocol%20extension%20(methods%20and%20fields)"></a>
+                  <a class="section-name-link" href="#/DateTime%20Record%3A%20DateTimeProtocol%20extension%20%28methods%20and%20fields%29"></a>
                   <h3 class="section-name"><p>DateTime Record: DateTimeProtocol extension (methods and fields)</p>
 </h3>
                 </div>
@@ -3625,7 +3722,7 @@ cannot be accessed directly.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add8timespanAA0bC3RefVSgs5Int64V_tF"></a>
                     <a name="//apple_ref/swift/Method/add(timespan:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add8timespanAA0bC3RefVSgs5Int64V_tF">add(timespan:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add8timespanAA0bC3RefVSgs5Int64V_tF">add(timespan:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3649,7 +3746,7 @@ cannot be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L982-L985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L978-L981">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3659,7 +3756,7 @@ cannot be accessed directly.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add4daysAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(days:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add4daysAA0bC3RefVSgSi_tF">add(days:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add4daysAA0bC3RefVSgSi_tF">add(days:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3684,7 +3781,7 @@ copy. Add negative values to subtract days.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L989-L992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L985-L988">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3694,7 +3791,7 @@ copy. Add negative values to subtract days.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE7addFull5years6months4days5hours7minutes7secondsAA0bC3RefVSgSi_S4iSdtF"></a>
                     <a name="//apple_ref/swift/Method/addFull(years:months:days:hours:minutes:seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE7addFull5years6months4days5hours7minutes7secondsAA0bC3RefVSgSi_S4iSdtF">addFull(years:months:days:hours:minutes:seconds:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE7addFull5years6months4days5hours7minutes7secondsAA0bC3RefVSgSi_S4iSdtF">addFull(years:<wbr>months:<wbr>days:<wbr>hours:<wbr>minutes:<wbr>seconds:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3719,7 +3816,7 @@ time in <code>datetime</code>. Add negative values to subtract.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L996-L999">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L992-L995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3729,7 +3826,7 @@ time in <code>datetime</code>. Add negative values to subtract.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add5hoursAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(hours:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5hoursAA0bC3RefVSgSi_tF">add(hours:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5hoursAA0bC3RefVSgSi_tF">add(hours:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3754,7 +3851,7 @@ Add negative values to subtract hours.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1003-L1006">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L999-L1002">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3764,7 +3861,7 @@ Add negative values to subtract hours.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add7minutesAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(minutes:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add7minutesAA0bC3RefVSgSi_tF">add(minutes:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add7minutesAA0bC3RefVSgSi_tF">add(minutes:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3789,7 +3886,7 @@ Add negative values to subtract minutes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1010-L1013">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1006-L1009">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3799,7 +3896,7 @@ Add negative values to subtract minutes.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add6monthsAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(months:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add6monthsAA0bC3RefVSgSi_tF">add(months:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add6monthsAA0bC3RefVSgSi_tF">add(months:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3829,7 +3926,7 @@ year), the result would be 29th February.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1022-L1025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1018-L1021">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3839,7 +3936,7 @@ year), the result would be 29th February.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add7secondsAA0bC3RefVSgSd_tF"></a>
                     <a name="//apple_ref/swift/Method/add(seconds:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add7secondsAA0bC3RefVSgSd_tF">add(seconds:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add7secondsAA0bC3RefVSgSd_tF">add(seconds:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3864,7 +3961,7 @@ Add negative values to subtract seconds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1029-L1032">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1025-L1028">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3874,7 +3971,7 @@ Add negative values to subtract seconds.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add5weeksAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(weeks:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5weeksAA0bC3RefVSgSi_tF">add(weeks:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5weeksAA0bC3RefVSgSi_tF">add(weeks:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3899,7 +3996,7 @@ copy. Add negative values to subtract weeks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1036-L1039">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1032-L1035">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3909,7 +4006,7 @@ copy. Add negative values to subtract weeks.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE3add5yearsAA0bC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Method/add(years:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5yearsAA0bC3RefVSgSi_tF">add(years:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE3add5yearsAA0bC3RefVSgSi_tF">add(years:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3937,7 +4034,7 @@ February on a non-leap year, the day will be clamped to 28th February.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1046-L1049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1042-L1045">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3947,7 +4044,7 @@ February on a non-leap year, the day will be clamped to 28th February.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE10difference5begins5Int64Vqd___tAaBRd__lF"></a>
                     <a name="//apple_ref/swift/Method/difference(begin:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE10difference5begins5Int64Vqd___tAaBRd__lF">difference(begin:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE10difference5begins5Int64Vqd___tAaBRd__lF">difference(begin:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3973,7 +4070,7 @@ positive if the first parameter is larger).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1054-L1057">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1050-L1053">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -3983,7 +4080,7 @@ positive if the first parameter is larger).</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE6formatADSSSgSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Method/format(format:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE6formatADSSSgSPys4Int8VGSg_tF">format(format:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE6formatADSSSgSPys4Int8VGSg_tF">format(format:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -3999,8 +4096,8 @@ positive if the first parameter is larger).</p>
 <p>The format strings understood by this function are a subset of the
 <code>strftime()</code> format language as specified by C99.  The `D<code>, \</code>U<code>and \</code>W<code>
 conversions are not supported, nor is the &#39;E&#39; modifier.  The GNU
-extensions \</code>k<code>, \</code>l<code>, \</code>s<code>and \</code>P` are supported, however, as are the
-&lsquo;0&rsquo;, &lsquo;_&rsquo; and &lsquo;-&rsquo; modifiers.</p>
+extensions \</code>k<code>, \</code>l<code>, \</code>s<code>and \</code>P<code>are supported, however, as are the
+&#39;0&#39;, &#39;_&#39; and &#39;-&#39; modifiers. The Python extension \</code>f` is also supported.</p>
 
 <p>In contrast to <code>strftime()</code>, this function always produces a UTF-8
 string, regardless of the current locale.  Note that the rendering of
@@ -4033,12 +4130,17 @@ single digits are preceded by a blank</li>
 single digits are preceded by a blank</li>
 <li>`m:` the month as a decimal number (range 01 to 12)</li>
 <li>`M:` the minute as a decimal number (range 00 to 59)</li>
-<li>`p:` either &ldquo;AM&rdquo; or &ldquo;PM&rdquo; according to the given time value, or the
+<li>`f:` the microsecond as a decimal number (range 000000 to 999999)</li>
+<li>`p:<code>either &quot;AM&quot; or &quot;PM&quot; according to the given time value, or the
 corresponding  strings for the current locale.  Noon is treated as
-&ldquo;PM&rdquo; and midnight as &ldquo;AM&rdquo;.</li>
-<li>`P:<code>like \</code>p` but lowercase: &ldquo;am&rdquo; or &ldquo;pm&rdquo; or a corresponding string for
-the current locale</li>
-<li>`r:` the time in a.m. or p.m. notation</li>
+&quot;PM&quot; and midnight as &quot;AM&quot;. Use of this format specifier is discouraged, as
+many locales have no concept of AM/PM formatting. Use \</code>c<code>or \</code>X` instead.</li>
+<li>`P:<code>like \</code>p<code>but lowercase: &quot;am&quot; or &quot;pm&quot; or a corresponding string for
+the current locale. Use of this format specifier is discouraged, as
+many locales have no concept of AM/PM formatting. Use \</code>c<code>or \</code>X` instead.</li>
+<li>`r:<code>the time in a.m. or p.m. notation. Use of this format specifier is
+discouraged, as many locales have no concept of AM/PM formatting. Use \</code>c<code>
+or \</code>X` instead.</li>
 <li>`R:<code>the time in 24-hour notation (\</code>H:<code>\</code>M`)</li>
 <li>`s:` the number of seconds since the Epoch, that is, since 1970-01-01
 00:00:00 UTC</li>
@@ -4104,7 +4206,7 @@ rules. For other languages there is no difference. `OB<code>is a GNU and BSD
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1153-L1156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1154-L1157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4129,6 +4231,8 @@ rules. For other languages there is no difference. `OB<code>is a GNU and BSD
 including the date, time and time zone, and return that as a UTF-8 encoded
 string.</p>
 
+<p>Since GLib 2.66, this will output to sub-second precision if needed.</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -4140,7 +4244,7 @@ string.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1161-L1164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1164-L1167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4175,7 +4279,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1168-L1171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1171-L1174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4210,7 +4314,7 @@ Monday, 2 is Tuesday&hellip; 7 is Sunday).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1175-L1178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1178-L1181">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4245,7 +4349,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1182-L1185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1185-L1188">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4279,7 +4383,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1188-L1191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1191-L1194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4313,7 +4417,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1194-L1197">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1197-L1200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4347,7 +4451,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1200-L1203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1203-L1206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4382,7 +4486,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1207-L1210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1210-L1213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4416,7 +4520,7 @@ calendar.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1213-L1216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1216-L1219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4451,7 +4555,7 @@ including the fractional part.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1220-L1223">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1223-L1226">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4485,7 +4589,7 @@ including the fractional part.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1226-L1229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1229-L1232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4524,7 +4628,7 @@ time is in effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1237-L1240">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1240-L1243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4565,7 +4669,7 @@ zones west of GMT, positive numbers for east).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1250-L1253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1253-L1256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4629,7 +4733,7 @@ Monday, so this function never returns 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1286-L1289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1289-L1292">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4677,7 +4781,7 @@ if 4 or more days of that week are contained within the new year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1306-L1309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1309-L1312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4711,7 +4815,7 @@ if 4 or more days of that week are contained within the new year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1312-L1315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1315-L1318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4721,7 +4825,7 @@ if 4 or more days of that week are contained within the new year.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE6getYmd4year5month3dayySpys5Int32VGSg_A2KtF"></a>
                     <a name="//apple_ref/swift/Method/getYmd(year:month:day:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE6getYmd4year5month3dayySpys5Int32VGSg_A2KtF">getYmd(year:month:day:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE6getYmd4year5month3dayySpys5Int32VGSg_A2KtF">getYmd(year:<wbr>month:<wbr>day:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4745,7 +4849,7 @@ if 4 or more days of that week are contained within the new year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1318-L1321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1321-L1324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4780,7 +4884,7 @@ if 4 or more days of that week are contained within the new year.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1324-L1327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1327-L1330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4818,7 +4922,7 @@ time zone returned by <code>g_time_zone_new_local()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1334-L1337">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1337-L1340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4828,7 +4932,7 @@ time zone returned by <code>g_time_zone_new_local()</code>.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE9toTimeval2tvSbqd___tAA0c3ValD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/toTimeval(tv:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE9toTimeval2tvSbqd___tAA0c3ValD0Rd__lF">toTimeval(tv:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE9toTimeval2tvSbqd___tAA0c3ValD0Rd__lF">toTimeval(tv:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4870,7 +4974,7 @@ out of range.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1356-L1359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGLib/tree/generated/Sources/GLib/GLib-2.0-DateTime.swift#L1359-L1362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -4880,7 +4984,7 @@ out of range.</p>
                     <code>
                     <a name="/s:4GLib16DateTimeProtocolPAAE10toTimezone2tzAA0bC3RefVSgqd___tAA0c4ZoneD0Rd__lF"></a>
                     <a name="//apple_ref/swift/Method/toTimezone(tz:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE10toTimezone2tzAA0bC3RefVSgqd___tAA0c4ZoneD0Rd__lF">toTimezone(tz:)</a>
+                    <a class="token" href="#/s:4GLib16DateTimeProtocolPAAE10toTimezone2tzAA0bC3RefVSgqd___tAA0c4ZoneD0Rd__lF">toTimezone(tz:<wbr>)</a>
                     </code>
                       <span class="declaration-note">
                         Extension method
@@ -4897,9 +5001,6 @@ out of range.</p>
 <p>This call can fail in the case that the time goes out of bounds.  For
 example, converting 0001-01-01 00:00:00 UTC to a time zone west of
 Greenwich will fail (due to the year 0 being out of range).</p>
-
-<p>You should release the return value by calling <code>g_date_time_unref()</code>
-when you are done with it.</p>
 
                       </div>
                       <div class="declaration">
@@ -5644,8 +5745,8 @@ if 4 or more days of that week are contained within the new year.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-13)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-05)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
