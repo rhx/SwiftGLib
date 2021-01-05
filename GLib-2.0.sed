@@ -1,5 +1,5 @@
 s/Ucs/UCS/g
-s/Uri/URI/g
+s/\([^G]\)Uri/\1URI/g
 s/Utc/UTC/g
 s/Utf/UTF/g
 s/Id/ID/g
@@ -29,7 +29,7 @@ s|unexpEof|unexpectedEOF|g
 s|UnsafePointer<UnsafePointer<GVariant>|UnsafePointer<UnsafeMutablePointer<GVariant>|g
 s|g_option_context_set_main_group(_ptr, UnsafeMutablePointer<GOptionGroup>.(newValue?.option_group_ptr))|g_option_context_set_main_group(_ptr, UnsafeMutablePointer<GOptionGroup>(newValue?.option_group_ptr))|
 s|@inlinable var nums: UnsafeMutablePointer<CLong>|@inlinable var nums: UnsafeMutablePointer<CLongDouble>|
-s|search_dirs: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|search_dirs: UnsafeMutablePointer<UnsafePointer<gchar>|
+s|searchDirs: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|searchDirs: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|groups: UnsafeMutablePointer<UnsafeMutablePointer<gchar>|groups: UnsafeMutablePointer<UnsafePointer<gchar>|
 s|list: Bool|list: UnsafeMutablePointer<gboolean>!|
 s|list: Double|list: UnsafeMutablePointer<gdouble>!|
