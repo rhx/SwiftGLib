@@ -401,7 +401,7 @@ public extension IOError {
 
 
 
-/// Stati returned by most of the `GIOFuncs` functions.
+/// Statuses returned by most of the `GIOFuncs` functions.
 public typealias IOStatus = GIOStatus
 
 public extension IOStatus {
@@ -1139,7 +1139,7 @@ public extension TokenType {
 
 
 
-/// Specifies the type of traveral performed by `g_tree_traverse()`,
+/// Specifies the type of traversal performed by `g_tree_traverse()`,
 /// `g_node_traverse()` and `g_node_find()`. The different orders are
 /// illustrated here:
 /// - In order: A, B, C, D, E, F, G, H, I
@@ -1613,6 +1613,14 @@ public extension UnicodeScript {
     static let nyiakengPuachueHmong = G_UNICODE_SCRIPT_NYIAKENG_PUACHUE_HMONG // 151
     /// Wcho. Since: 2.62
     static let wancho = G_UNICODE_SCRIPT_WANCHO // 152
+    /// Chorasmian. Since: 2.66
+    static let chorasmian = G_UNICODE_SCRIPT_CHORASMIAN // 153
+    /// Dives Akuru. Since: 2.66
+    static let divesAkuru = G_UNICODE_SCRIPT_DIVES_AKURU // 154
+    /// Khitan small script. Since: 2.66
+    static let khitanSmallScript = G_UNICODE_SCRIPT_KHITAN_SMALL_SCRIPT // 155
+    /// Yezidi. Since: 2.66
+    static let yezidi = G_UNICODE_SCRIPT_YEZIDI // 156
 }
 
 
@@ -1690,6 +1698,42 @@ public extension UnicodeType {
     static let paragraphSeparator = G_UNICODE_PARAGRAPH_SEPARATOR // 28
     /// General category "Separator, Space" (Zs)
     static let spaceSeparator = G_UNICODE_SPACE_SEPARATOR // 29
+}
+
+
+
+/// Error codes returned by `GUri` methods.
+public typealias URIError = GUriError
+
+public extension URIError {
+    /// Cast constructor, converting any binary integer to a
+    /// `URIError`.
+    /// - Parameter raw: The raw integer value to initialise the enum from
+    @inlinable init!<I: BinaryInteger>(_ raw: I) {
+        func castToURIErrorInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+        self.init(rawValue: castToURIErrorInt(raw))
+    }
+    /// Generic error if no more specific error is available.
+    ///     See the error message for details.
+    static let failed = G_URI_ERROR_FAILED // 0
+    /// The scheme of a URI could not be parsed.
+    static let badScheme = G_URI_ERROR_BAD_SCHEME // 1
+    /// The user/userinfo of a URI could not be parsed.
+    static let badUser = G_URI_ERROR_BAD_USER // 2
+    /// The password of a URI could not be parsed.
+    static let badPassword = G_URI_ERROR_BAD_PASSWORD // 3
+    /// The authentication parameters of a URI could not be parsed.
+    static let badAuthParams = G_URI_ERROR_BAD_AUTH_PARAMS // 4
+    /// The host of a URI could not be parsed.
+    static let badHost = G_URI_ERROR_BAD_HOST // 5
+    /// The port of a URI could not be parsed.
+    static let badPort = G_URI_ERROR_BAD_PORT // 6
+    /// The path of a URI could not be parsed.
+    static let badPath = G_URI_ERROR_BAD_PATH // 7
+    /// The query of a URI could not be parsed.
+    static let badQuery = G_URI_ERROR_BAD_QUERY // 8
+    /// The fragment of a URI could not be parsed.
+    static let badFragment = G_URI_ERROR_BAD_FRAGMENT // 9
 }
 
 

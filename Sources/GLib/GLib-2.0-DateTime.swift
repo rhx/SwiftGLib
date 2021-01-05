@@ -266,9 +266,8 @@ public extension DateTimeRef {
     /// time zone `tz`.  The time is as accurate as the system allows, to a
     /// maximum accuracy of 1 microsecond.
     /// 
-    /// This function will always succeed unless the system clock is set to
-    /// truly insane values (or unless GLib is still being used after the
-    /// year 9999).
+    /// This function will always succeed unless GLib is still being used after the
+    /// year 9999.
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
@@ -419,9 +418,8 @@ public extension DateTimeRef {
     /// time zone `tz`.  The time is as accurate as the system allows, to a
     /// maximum accuracy of 1 microsecond.
     /// 
-    /// This function will always succeed unless the system clock is set to
-    /// truly insane values (or unless GLib is still being used after the
-    /// year 9999).
+    /// This function will always succeed unless GLib is still being used after the
+    /// year 9999.
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
@@ -772,9 +770,8 @@ open class DateTime: DateTimeProtocol {
     /// time zone `tz`.  The time is as accurate as the system allows, to a
     /// maximum accuracy of 1 microsecond.
     /// 
-    /// This function will always succeed unless the system clock is set to
-    /// truly insane values (or unless GLib is still being used after the
-    /// year 9999).
+    /// This function will always succeed unless GLib is still being used after the
+    /// year 9999.
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
@@ -926,9 +923,8 @@ open class DateTime: DateTimeProtocol {
     /// time zone `tz`.  The time is as accurate as the system allows, to a
     /// maximum accuracy of 1 microsecond.
     /// 
-    /// This function will always succeed unless the system clock is set to
-    /// truly insane values (or unless GLib is still being used after the
-    /// year 9999).
+    /// This function will always succeed unless GLib is still being used after the
+    /// year 9999.
     /// 
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
@@ -1062,7 +1058,7 @@ public extension DateTimeProtocol {
     /// `strftime()` format language as specified by C99.  The \`D`, \`U` and \`W`
     /// conversions are not supported, nor is the 'E' modifier.  The GNU
     /// extensions \`k`, \`l`, \`s` and \`P` are supported, however, as are the
-    /// '0', '_' and '-' modifiers.
+    /// '0', '_' and '-' modifiers. The Python extension \`f` is also supported.
     /// 
     /// In contrast to `strftime()`, this function always produces a UTF-8
     /// string, regardless of the current locale.  Note that the rendering of
@@ -1094,12 +1090,17 @@ public extension DateTimeProtocol {
     ///   single digits are preceded by a blank
     /// - \`m:` the month as a decimal number (range 01 to 12)
     /// - \`M:` the minute as a decimal number (range 00 to 59)
+    /// - \`f:` the microsecond as a decimal number (range 000000 to 999999)
     /// - \`p:` either "AM" or "PM" according to the given time value, or the
     ///   corresponding  strings for the current locale.  Noon is treated as
-    ///   "PM" and midnight as "AM".
+    ///   "PM" and midnight as "AM". Use of this format specifier is discouraged, as
+    ///   many locales have no concept of AM/PM formatting. Use \`c` or \`X` instead.
     /// - \`P:` like \`p` but lowercase: "am" or "pm" or a corresponding string for
-    ///   the current locale
-    /// - \`r:` the time in a.m. or p.m. notation
+    ///   the current locale. Use of this format specifier is discouraged, as
+    ///   many locales have no concept of AM/PM formatting. Use \`c` or \`X` instead.
+    /// - \`r:` the time in a.m. or p.m. notation. Use of this format specifier is
+    ///   discouraged, as many locales have no concept of AM/PM formatting. Use \`c`
+    ///   or \`X` instead.
     /// - \`R:` the time in 24-hour notation (\`H:`\`M`)
     /// - \`s:` the number of seconds since the Epoch, that is, since 1970-01-01
     ///   00:00:00 UTC
@@ -1158,6 +1159,8 @@ public extension DateTimeProtocol {
     /// Format `datetime` in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601),
     /// including the date, time and time zone, and return that as a UTF-8 encoded
     /// string.
+    /// 
+    /// Since GLib 2.66, this will output to sub-second precision if needed.
     @inlinable func formatIso8601() -> String! {
         let rv = g_date_time_format_iso8601(date_time_ptr).map({ String(cString: $0) })
         return rv
@@ -1364,9 +1367,6 @@ public extension DateTimeProtocol {
     /// This call can fail in the case that the time goes out of bounds.  For
     /// example, converting 0001-01-01 00:00:00 UTC to a time zone west of
     /// Greenwich will fail (due to the year 0 being out of range).
-    /// 
-    /// You should release the return value by calling `g_date_time_unref()`
-    /// when you are done with it.
     @inlinable func toTimezone<TimeZoneT: TimeZoneProtocol>(tz: TimeZoneT) -> DateTimeRef! {
         guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_to_timezone(date_time_ptr, tz.time_zone_ptr))) else { return nil }
         return rv

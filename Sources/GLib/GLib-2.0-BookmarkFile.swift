@@ -308,15 +308,30 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    @inlinable func getAdded(uri: UnsafePointer<gchar>!) throws -> time_t {
+    ///
+    /// **get_added is deprecated:**
+    /// Use g_bookmark_file_get_added_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func getAdded(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_bookmark_file_get_added(_ptr, uri, &error)
         if let error = error { throw GLibError(error) }
         return rv
     }
 
+    /// Gets the time the bookmark for `uri` was added to `bookmark`
+    /// 
+    /// In the event the URI cannot be found, `nil` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
+    @inlinable func getAddedDateTime(uri: UnsafePointer<CChar>!) throws -> DateTimeRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DateTimeRef(gconstpointer: gconstpointer(g_bookmark_file_get_added_date_time(_ptr, uri, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
     /// Gets the registration information of `app_name` for the bookmark for
-    /// `uri`.  See `g_bookmark_file_set_app_info()` for more information about
+    /// `uri`.  See `g_bookmark_file_set_application_info()` for more information about
     /// the returned data.
     /// 
     /// The string returned in `app_exec` must be freed.
@@ -328,9 +343,33 @@ public extension BookmarkFileProtocol {
     /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`. In the event that unquoting
     /// the command line fails, an error of the `G_SHELL_ERROR` domain is
     /// set and `false` is returned.
-    @inlinable func getAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, count: UnsafeMutablePointer<guint>! = nil, stamp: UnsafeMutablePointer<time_t>! = nil) throws -> Bool {
+    ///
+    /// **get_app_info is deprecated:**
+    /// Use g_bookmark_file_get_application_info() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func getAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, count: UnsafeMutablePointer<guint>! = nil, stamp: UnsafeMutablePointer<time_t>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_bookmark_file_get_app_info(_ptr, uri, name, exec, count, stamp, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
+    /// Gets the registration information of `app_name` for the bookmark for
+    /// `uri`.  See `g_bookmark_file_set_application_info()` for more information about
+    /// the returned data.
+    /// 
+    /// The string returned in `app_exec` must be freed.
+    /// 
+    /// In the event the URI cannot be found, `false` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.  In the
+    /// event that no application with name `app_name` has registered a bookmark
+    /// for `uri`,  `false` is returned and error is set to
+    /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`. In the event that unquoting
+    /// the command line fails, an error of the `G_SHELL_ERROR` domain is
+    /// set and `false` is returned.
+    @inlinable func getApplicationInfo(uri: UnsafePointer<CChar>!, name: UnsafePointer<CChar>!, exec: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>! = nil, count: UnsafeMutablePointer<guint>! = nil, stamp: UnsafeMutablePointer<UnsafeMutablePointer<GDateTime>?>! = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_bookmark_file_get_application_info(_ptr, uri, name, exec, count, stamp, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -413,9 +452,24 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    @inlinable func getModified(uri: UnsafePointer<gchar>!) throws -> time_t {
+    ///
+    /// **get_modified is deprecated:**
+    /// Use g_bookmark_file_get_modified_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func getModified(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_bookmark_file_get_modified(_ptr, uri, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
+    /// Gets the time when the bookmark for `uri` was last modified.
+    /// 
+    /// In the event the URI cannot be found, `nil` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
+    @inlinable func getModifiedDateTime(uri: UnsafePointer<CChar>!) throws -> DateTimeRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DateTimeRef(gconstpointer: gconstpointer(g_bookmark_file_get_modified_date_time(_ptr, uri, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -451,9 +505,24 @@ public extension BookmarkFileProtocol {
     /// 
     /// In the event the URI cannot be found, -1 is returned and
     /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
-    @inlinable func getVisited(uri: UnsafePointer<gchar>!) throws -> time_t {
+    ///
+    /// **get_visited is deprecated:**
+    /// Use g_bookmark_file_get_visited_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func getVisited(uri: UnsafePointer<gchar>!) throws -> time_t {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_bookmark_file_get_visited(_ptr, uri, &error)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
+    /// Gets the time the bookmark for `uri` was last visited.
+    /// 
+    /// In the event the URI cannot be found, `nil` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`.
+    @inlinable func getVisitedDateTime(uri: UnsafePointer<CChar>!) throws -> DateTimeRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = DateTimeRef(gconstpointer: gconstpointer(g_bookmark_file_get_visited_date_time(_ptr, uri, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -573,8 +642,20 @@ public extension BookmarkFileProtocol {
     /// Sets the time the bookmark for `uri` was added into `bookmark`.
     /// 
     /// If no bookmark for `uri` is found then it is created.
-    @inlinable func setAdded(uri: UnsafePointer<gchar>!, added: time_t) {
+    ///
+    /// **set_added is deprecated:**
+    /// Use g_bookmark_file_set_added_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func setAdded(uri: UnsafePointer<gchar>!, added: time_t) {
         g_bookmark_file_set_added(_ptr, uri, added)
+    
+    }
+
+    /// Sets the time the bookmark for `uri` was added into `bookmark`.
+    /// 
+    /// If no bookmark for `uri` is found then it is created.
+    @inlinable func setAddedDateTime<DateTimeT: DateTimeProtocol>(uri: UnsafePointer<CChar>!, added: DateTimeT) {
+        g_bookmark_file_set_added_date_time(_ptr, uri, added.date_time_ptr)
     
     }
 
@@ -591,7 +672,7 @@ public extension BookmarkFileProtocol {
     /// be expanded as the local file name retrieved from the bookmark's
     /// URI; "\`u`", which will be expanded as the bookmark's URI.
     /// The expansion is done automatically when retrieving the stored
-    /// command line using the `g_bookmark_file_get_app_info()` function.
+    /// command line using the `g_bookmark_file_get_application_info()` function.
     /// `count` is the number of times the application has registered the
     /// bookmark; if is < 0, the current registration count will be increased
     /// by one, if is 0, the application with `name` will be removed from
@@ -606,9 +687,80 @@ public extension BookmarkFileProtocol {
     /// for `uri`,  `false` is returned and error is set to
     /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`.  Otherwise, if no bookmark
     /// for `uri` is found, one is created.
-    @inlinable func setAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafePointer<gchar>!, count: Int, stamp: time_t) throws -> Bool {
+    ///
+    /// **set_app_info is deprecated:**
+    /// Use g_bookmark_file_set_application_info() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func setAppInfo(uri: UnsafePointer<gchar>!, name: UnsafePointer<gchar>!, exec: UnsafePointer<gchar>!, count: Int, stamp: time_t) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((g_bookmark_file_set_app_info(_ptr, uri, name, exec, gint(count), stamp, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+
+    /// Sets the meta-data of application `name` inside the list of
+    /// applications that have registered a bookmark for `uri` inside
+    /// `bookmark`.
+    /// 
+    /// You should rarely use this function; use `g_bookmark_file_add_application()`
+    /// and `g_bookmark_file_remove_application()` instead.
+    /// 
+    /// `name` can be any UTF-8 encoded string used to identify an
+    /// application.
+    /// `exec` can have one of these two modifiers: "\`f`", which will
+    /// be expanded as the local file name retrieved from the bookmark's
+    /// URI; "\`u`", which will be expanded as the bookmark's URI.
+    /// The expansion is done automatically when retrieving the stored
+    /// command line using the `g_bookmark_file_get_application_info()` function.
+    /// `count` is the number of times the application has registered the
+    /// bookmark; if is < 0, the current registration count will be increased
+    /// by one, if is 0, the application with `name` will be removed from
+    /// the list of registered applications.
+    /// `stamp` is the Unix time of the last registration.
+    /// 
+    /// If you try to remove an application by setting its registration count to
+    /// zero, and no bookmark for `uri` is found, `false` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`; similarly,
+    /// in the event that no application `name` has registered a bookmark
+    /// for `uri`,  `false` is returned and error is set to
+    /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`.  Otherwise, if no bookmark
+    /// for `uri` is found, one is created.
+    @inlinable func setApplicationInfo(uri: UnsafePointer<CChar>!, name: UnsafePointer<CChar>!, exec: UnsafePointer<CChar>!, count: Int, stamp: DateTimeRef? = nil) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_bookmark_file_set_application_info(_ptr, uri, name, exec, gint(count), stamp?.date_time_ptr, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
+    }
+    /// Sets the meta-data of application `name` inside the list of
+    /// applications that have registered a bookmark for `uri` inside
+    /// `bookmark`.
+    /// 
+    /// You should rarely use this function; use `g_bookmark_file_add_application()`
+    /// and `g_bookmark_file_remove_application()` instead.
+    /// 
+    /// `name` can be any UTF-8 encoded string used to identify an
+    /// application.
+    /// `exec` can have one of these two modifiers: "\`f`", which will
+    /// be expanded as the local file name retrieved from the bookmark's
+    /// URI; "\`u`", which will be expanded as the bookmark's URI.
+    /// The expansion is done automatically when retrieving the stored
+    /// command line using the `g_bookmark_file_get_application_info()` function.
+    /// `count` is the number of times the application has registered the
+    /// bookmark; if is < 0, the current registration count will be increased
+    /// by one, if is 0, the application with `name` will be removed from
+    /// the list of registered applications.
+    /// `stamp` is the Unix time of the last registration.
+    /// 
+    /// If you try to remove an application by setting its registration count to
+    /// zero, and no bookmark for `uri` is found, `false` is returned and
+    /// `error` is set to `G_BOOKMARK_FILE_ERROR_URI_NOT_FOUND`; similarly,
+    /// in the event that no application `name` has registered a bookmark
+    /// for `uri`,  `false` is returned and error is set to
+    /// `G_BOOKMARK_FILE_ERROR_APP_NOT_REGISTERED`.  Otherwise, if no bookmark
+    /// for `uri` is found, one is created.
+    @inlinable func setApplicationInfo<DateTimeT: DateTimeProtocol>(uri: UnsafePointer<CChar>!, name: UnsafePointer<CChar>!, exec: UnsafePointer<CChar>!, count: Int, stamp: DateTimeT?) throws -> Bool {
+        var error: UnsafeMutablePointer<GError>?
+        let rv = ((g_bookmark_file_set_application_info(_ptr, uri, name, exec, gint(count), stamp?.date_time_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -665,9 +817,26 @@ public extension BookmarkFileProtocol {
     /// The "modified" time should only be set when the bookmark's meta-data
     /// was actually changed.  Every function of `GBookmarkFile` that
     /// modifies a bookmark also changes the modification time, except for
-    /// `g_bookmark_file_set_visited()`.
-    @inlinable func setModified(uri: UnsafePointer<gchar>!, modified: time_t) {
+    /// `g_bookmark_file_set_visited_date_time()`.
+    ///
+    /// **set_modified is deprecated:**
+    /// Use g_bookmark_file_set_modified_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func setModified(uri: UnsafePointer<gchar>!, modified: time_t) {
         g_bookmark_file_set_modified(_ptr, uri, modified)
+    
+    }
+
+    /// Sets the last time the bookmark for `uri` was last modified.
+    /// 
+    /// If no bookmark for `uri` is found then it is created.
+    /// 
+    /// The "modified" time should only be set when the bookmark's meta-data
+    /// was actually changed.  Every function of `GBookmarkFile` that
+    /// modifies a bookmark also changes the modification time, except for
+    /// `g_bookmark_file_set_visited_date_time()`.
+    @inlinable func setModifiedDateTime<DateTimeT: DateTimeProtocol>(uri: UnsafePointer<CChar>!, modified: DateTimeT) {
+        g_bookmark_file_set_modified_date_time(_ptr, uri, modified.date_time_ptr)
     
     }
 
@@ -687,12 +856,30 @@ public extension BookmarkFileProtocol {
     /// If no bookmark for `uri` is found then it is created.
     /// 
     /// The "visited" time should only be set if the bookmark was launched,
-    /// either using the command line retrieved by `g_bookmark_file_get_app_info()`
+    /// either using the command line retrieved by `g_bookmark_file_get_application_info()`
     /// or by the default application for the bookmark's MIME type, retrieved
     /// using `g_bookmark_file_get_mime_type()`.  Changing the "visited" time
     /// does not affect the "modified" time.
-    @inlinable func setVisited(uri: UnsafePointer<gchar>!, visited: time_t) {
+    ///
+    /// **set_visited is deprecated:**
+    /// Use g_bookmark_file_set_visited_date_time() instead, as
+    ///    `time_t` is deprecated due to the year 2038 problem.
+    @available(*, deprecated) @inlinable func setVisited(uri: UnsafePointer<gchar>!, visited: time_t) {
         g_bookmark_file_set_visited(_ptr, uri, visited)
+    
+    }
+
+    /// Sets the time the bookmark for `uri` was last visited.
+    /// 
+    /// If no bookmark for `uri` is found then it is created.
+    /// 
+    /// The "visited" time should only be set if the bookmark was launched,
+    /// either using the command line retrieved by `g_bookmark_file_get_application_info()`
+    /// or by the default application for the bookmark's MIME type, retrieved
+    /// using `g_bookmark_file_get_mime_type()`.  Changing the "visited" time
+    /// does not affect the "modified" time.
+    @inlinable func setVisitedDateTime<DateTimeT: DateTimeProtocol>(uri: UnsafePointer<CChar>!, visited: DateTimeT) {
+        g_bookmark_file_set_visited_date_time(_ptr, uri, visited.date_time_ptr)
     
     }
 

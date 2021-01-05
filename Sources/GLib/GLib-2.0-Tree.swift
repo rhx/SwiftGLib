@@ -337,6 +337,9 @@ public extension TreeProtocol {
     /// 
     /// The tree is automatically 'balanced' as new key/value pairs are added,
     /// so that the distance from the root to every leaf is as small as possible.
+    /// The cost of maintaining a balanced tree while inserting new key/value
+    /// result in a `O(n log(n)`) operation where most of the other operations
+    /// are `O(log(n)`).
     @inlinable func insert(key: gpointer! = nil, value: gpointer! = nil) {
         g_tree_insert(_ptr, key, value)
     
@@ -379,6 +382,10 @@ public extension TreeProtocol {
     /// are freed using the supplied destroy functions, otherwise you have to
     /// make sure that any dynamically allocated values are freed yourself.
     /// If the key does not exist in the `GTree`, the function does nothing.
+    /// 
+    /// The cost of maintaining a balanced tree while removing a key/value
+    /// result in a `O(n log(n)`) operation where most of the other operations
+    /// are `O(log(n)`).
     @inlinable func remove(key: gconstpointer! = nil) -> Bool {
         let rv = ((g_tree_remove(_ptr, key)) != 0)
         return rv

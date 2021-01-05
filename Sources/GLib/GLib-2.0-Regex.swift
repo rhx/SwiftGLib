@@ -720,7 +720,7 @@ public extension RegexProtocol {
     /// If you do not need to use backreferences use `g_regex_replace_literal()`.
     /// 
     /// The `replacement` string must be UTF-8 encoded even if `G_REGEX_RAW` was
-    /// passed to `g_regex_new()`. If you want to use not UTF-8 encoded stings
+    /// passed to `g_regex_new()`. If you want to use not UTF-8 encoded strings
     /// you can use `g_regex_replace_literal()`.
     /// 
     /// Setting `start_position` differs from just passing over a shortened

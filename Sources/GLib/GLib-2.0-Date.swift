@@ -15,7 +15,7 @@ import CGLib
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
 /// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
-/// but sane. An invalid date doesn't represent a day, it's "empty." A date
+/// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 public protocol DateProtocol {
@@ -39,7 +39,7 @@ public protocol DateProtocol {
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
 /// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
-/// but sane. An invalid date doesn't represent a day, it's "empty." A date
+/// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 public struct DateRef: DateProtocol {
@@ -119,7 +119,7 @@ public extension DateRef {
     }
 
         /// Allocates a `GDate` and initializes
-    /// it to a sane state. The new date will
+    /// it to a safe state. The new date will
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     @inlinable init() {
@@ -171,7 +171,7 @@ public extension DateRef {
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
 /// initialized with `g_date_clear()`. `g_date_clear()` makes the date invalid
-/// but sane. An invalid date doesn't represent a day, it's "empty." A date
+/// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
 open class Date: DateProtocol {
@@ -315,7 +315,7 @@ open class Date: DateProtocol {
     }
 
     /// Allocates a `GDate` and initializes
-    /// it to a sane state. The new date will
+    /// it to a safe state. The new date will
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     @inlinable public init() {
@@ -404,7 +404,7 @@ public extension DateProtocol {
     
     }
 
-    /// Initializes one or more `GDate` structs to a sane but invalid
+    /// Initializes one or more `GDate` structs to a safe but invalid
     /// state. The cleared dates will not represent an existing date, but will
     /// not contain garbage. Useful to init a date declared on the stack.
     /// Validity can be tested with `g_date_valid()`.
@@ -634,7 +634,7 @@ public extension DateProtocol {
     }
 
     /// Fills in the date-related bits of a struct tm using the `date` value.
-    /// Initializes the non-date parts with something sane but meaningless.
+    /// Initializes the non-date parts with something safe but meaningless.
     @inlinable func toStruct(tm: UnsafeMutablePointer<tm>!) {
         g_date_to_struct_tm(date_ptr, tm)
     

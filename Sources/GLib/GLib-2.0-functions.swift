@@ -307,7 +307,7 @@ import CGLib
 
 
 
-/// Determines the numeric value of a character as a hexidecimal
+/// Determines the numeric value of a character as a hexadecimal
 /// digit. Differs from `g_unichar_xdigit_value()` because it takes
 /// a char, so there's no worry about sign extension if characters
 /// are signed.
@@ -672,7 +672,7 @@ import CGLib
 
 
 /// Allocates `block_size` bytes of memory, and adds atomic
-/// referenc counting semantics to it.
+/// reference counting semantics to it.
 /// 
 /// The contents of the returned data is set to zero.
 /// 
@@ -2189,11 +2189,37 @@ import CGLib
 
 
 
+/// Writes all of `contents` to a file named `filename`. This is a convenience
+/// wrapper around calling `g_file_set_contents()` with `flags` set to
+/// `G_FILE_SET_CONTENTS_CONSISTENT | G_FILE_SET_CONTENTS_ONLY_EXISTING` and
+/// `mode` set to `0666`.
+@inlinable public func fileSetContents(filename: UnsafePointer<gchar>!, contents: UnsafePointer<gchar>!, length: gssize) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_file_set_contents(filename, contents, length, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+
+
+
+
 /// Writes all of `contents` to a file named `filename`, with good error checking.
 /// If a file called `filename` already exists it will be overwritten.
 /// 
-/// This write is atomic in the sense that it is first written to a temporary
-/// file which is then renamed to the final name. Notes:
+/// `flags` control the properties of the write operation: whether it’s atomic,
+/// and what the tradeoff is between returning quickly or being resilient to
+/// system crashes.
+/// 
+/// As this function performs file I/O, it is recommended to not call it anywhere
+/// where blocking would cause problems, such as in the main loop of a graphical
+/// application. In particular, if `flags` has any value other than
+/// `G_FILE_SET_CONTENTS_NONE` then this function may call ``fsync()``.
+/// 
+/// If `G_FILE_SET_CONTENTS_CONSISTENT` is set in `flags`, the operation is atomic
+/// in the sense that it is first written to a temporary file which is then
+/// renamed to the final name.
+/// 
+/// Notes:
 /// 
 /// - On UNIX, if `filename` already exists hard links to `filename` will break.
 ///   Also since the file is recreated, existing permissions, access control
@@ -2201,15 +2227,17 @@ import CGLib
 ///   the link itself will be replaced, not the linked file.
 /// 
 /// - On UNIX, if `filename` already exists and is non-empty, and if the system
-///   supports it (via a journalling filesystem or equivalent), the `fsync()`
-///   call (or equivalent) will be used to ensure atomic replacement: `filename`
+///   supports it (via a journalling filesystem or equivalent), and if
+///   `G_FILE_SET_CONTENTS_CONSISTENT` is set in `flags`, the ``fsync()`` call (or
+///   equivalent) will be used to ensure atomic replacement: `filename`
 ///   will contain either its old contents or `contents`, even in the face of
 ///   system power loss, the disk being unsafely removed, etc.
 /// 
 /// - On UNIX, if `filename` does not already exist or is empty, there is a
 ///   possibility that system power loss etc. after calling this function will
 ///   leave `filename` empty or full of NUL bytes, depending on the underlying
-///   filesystem.
+///   filesystem, unless `G_FILE_SET_CONTENTS_DURABLE` and
+///   `G_FILE_SET_CONTENTS_CONSISTENT` are set in `flags`.
 /// 
 /// - On Windows renaming a file will not remove an existing file with the
 ///   new name, so on Windows there is a race condition between the existing
@@ -2225,9 +2253,13 @@ import CGLib
 /// 
 /// Note that the name for the temporary file is constructed by appending up
 /// to 7 characters to `filename`.
-@inlinable public func fileSetContents(filename: UnsafePointer<gchar>!, contents: UnsafePointer<gchar>!, length: gssize) throws -> Bool {
+/// 
+/// If the file didn’t exist before and is created, it will be given the
+/// permissions from `mode`. Otherwise, the permissions of the existing file may
+/// be changed to `mode` depending on `flags`, or they may remain unchanged.
+@inlinable public func fileSetContentsFull(filename: UnsafePointer<gchar>!, contents: UnsafePointer<gchar>!, length: gssize, flags: FileSetContentsFlags, mode: Int) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((g_file_set_contents(filename, contents, length, &error)) != 0)
+    let rv = ((g_file_set_contents_full(filename, contents, length, flags.value, gint(mode), &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -3352,6 +3384,8 @@ import CGLib
 
 /// Tests if `hostname` is the string form of an IPv4 or IPv6 address.
 /// (Eg, "192.168.0.1".)
+/// 
+/// Since 2.66, IPv6 addresses with a zone-id are accepted (RFC6874).
 @inlinable public func hostnameIsIpAddress(hostname: UnsafePointer<gchar>!) -> Bool {
     let rv = ((g_hostname_is_ip_address(hostname)) != 0)
     return rv
@@ -3740,7 +3774,7 @@ import CGLib
 /// 
 /// - `G_MESSAGES_PREFIXED`: A :-separated list of log levels for which
 ///   messages should be prefixed by the program name and PID of the
-///   aplication.
+///   application.
 /// 
 /// - `G_MESSAGES_DEBUG`: A space-separated list of log domains for
 ///   which debug and informational messages are printed. By default
@@ -7157,8 +7191,11 @@ import CGLib
 
 
 
-/// Create a new `GTestCase`, named `test_name`, this API is fairly
-/// low level, calling `g_test_add()` or `g_test_add_func()` is preferable.
+/// Create a new `GTestCase`, named `test_name`.
+/// 
+/// This API is fairly low level, and calling `g_test_add()` or `g_test_add_func()`
+/// is preferable.
+/// 
 /// When this test is executed, a fixture structure of size `data_size`
 /// will be automatically allocated and filled with zeros. Then `data_setup` is
 /// called to initialize the fixture. After fixture setup, the actual test
@@ -7167,10 +7204,10 @@ import CGLib
 /// after that the memory is automatically released by the test framework.
 /// 
 /// Splitting up a test run into fixture setup, test function and
-/// fixture teardown is most useful if the same fixture is used for
+/// fixture teardown is most useful if the same fixture type is used for
 /// multiple tests. In this cases, `g_test_create_case()` will be
-/// called with the same fixture, but varying `test_name` and
-/// `data_test` arguments.
+/// called with the same type of fixture (the `data_size` argument), but varying
+/// `test_name` and `data_test` arguments.
 @inlinable public func testCreateCase(testName: UnsafePointer<CChar>!, dataSize: Int, testData: gconstpointer! = nil, dataSetup: GTestFixtureFunc?, dataTest: GTestFixtureFunc?, dataTeardown: GTestFixtureFunc?) -> TestCaseRef! {
     guard let rv = TestCaseRef(gconstpointer: gconstpointer(g_test_create_case(testName, gsize(dataSize), testData, dataSetup, dataTest, dataTeardown))) else { return nil }
     return rv
@@ -7510,16 +7547,14 @@ import CGLib
 
 
 
-/// Changes the behaviour of `g_assert_cmpstr()`, `g_assert_cmpint()`,
-/// `g_assert_cmpuint()`, `g_assert_cmphex()`, `g_assert_cmpfloat()`,
-/// `g_assert_true()`, `g_assert_false()`, `g_assert_null()`, `g_assert_no_error()`,
-/// `g_assert_error()`, `g_test_assert_expected_messages()` and the various
-/// g_test_trap_assert_*() macros to not abort to program, but instead
+/// Changes the behaviour of the various `g_assert_*()` macros,
+/// `g_test_assert_expected_messages()` and the various
+/// `g_test_trap_assert_*()` macros to not abort to program, but instead
 /// call `g_test_fail()` and continue. (This also changes the behavior of
 /// `g_test_fail()` so that it will not cause the test program to abort
 /// after completing the failed test.)
 /// 
-/// Note that the `g_assert_not_reached()` and `g_assert()` are not
+/// Note that the `g_assert_not_reached()` and `g_assert()` macros are not
 /// affected by this.
 /// 
 /// This function can only be called after `g_test_init()`.
@@ -8566,7 +8601,7 @@ import CGLib
 
 
 
-/// Determines if a character is a hexidecimal digit.
+/// Determines if a character is a hexadecimal digit.
 @inlinable public func unicharIsxdigit(c: gunichar) -> Bool {
     let rv = ((g_unichar_isxdigit(c)) != 0)
     return rv
@@ -8648,7 +8683,7 @@ import CGLib
 
 
 
-/// Determines the numeric value of a character as a hexidecimal
+/// Determines the numeric value of a character as a hexadecimal
 /// digit.
 @inlinable public func unicharXdigitValue(c: gunichar) -> Int {
     let rv = Int(g_unichar_xdigit_value(c))
@@ -8919,16 +8954,128 @@ import CGLib
 
 
 
+/// Creates a new `GUri` from the given components according to `flags`.
+/// 
+/// See also `g_uri_build_with_user()`, which allows specifying the
+/// components of the "userinfo" separately.
+@inlinable public func uriBuild(flags: URIFlags, scheme: UnsafePointer<gchar>!, userinfo: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URIRef! {
+    guard let rv = URIRef(gconstpointer: gconstpointer(g_uri_build(flags.value, scheme, userinfo, host, gint(port), path, query, fragment))) else { return nil }
+    return rv
+}
+
+
+
+
+/// Creates a new `GUri` from the given components according to `flags`
+/// (`G_URI_FLAGS_HAS_PASSWORD` is added unconditionally). The `flags` must be
+/// coherent with the passed values, in particular use ````-encoded values with
+/// `G_URI_FLAGS_ENCODED`.
+/// 
+/// In contrast to `g_uri_build()`, this allows specifying the components
+/// of the ‘userinfo’ field separately. Note that `user` must be non-`nil`
+/// if either `password` or `auth_params` is non-`nil`.
+@inlinable public func uriBuildWithUser(flags: URIFlags, scheme: UnsafePointer<gchar>!, user: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil, authParams: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URIRef! {
+    guard let rv = URIRef(gconstpointer: gconstpointer(g_uri_build_with_user(flags.value, scheme, user, password, authParams, host, gint(port), path, query, fragment))) else { return nil }
+    return rv
+}
+
+
+
+
+@inlinable public func uriErrorQuark() -> GQuark {
+    let rv = g_uri_error_quark()
+    return rv
+}
+
+
+
+
+/// Escapes arbitrary data for use in a URI.
+/// 
+/// Normally all characters that are not ‘unreserved’ (i.e. ASCII
+/// alphanumerical characters plus dash, dot, underscore and tilde) are
+/// escaped. But if you specify characters in `reserved_chars_allowed`
+/// they are not escaped. This is useful for the ‘reserved’ characters
+/// in the URI specification, since those are allowed unescaped in some
+/// portions of a URI.
+/// 
+/// Though technically incorrect, this will also allow escaping nul
+/// bytes as `````00`.
+@inlinable public func uriEscapeBytes(unescaped: UnsafePointer<guint8>!, length: Int, reservedCharsAllowed: UnsafePointer<CChar>? = nil) -> String! {
+    guard let rv = g_uri_escape_bytes(unescaped, gsize(length), reservedCharsAllowed).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
 /// Escapes a string for use in a URI.
 /// 
-/// Normally all characters that are not "unreserved" (i.e. ASCII alphanumerical
-/// characters plus dash, dot, underscore and tilde) are escaped.
-/// But if you specify characters in `reserved_chars_allowed` they are not
-/// escaped. This is useful for the "reserved" characters in the URI
-/// specification, since those are allowed unescaped in some portions of
-/// a URI.
+/// Normally all characters that are not "unreserved" (i.e. ASCII
+/// alphanumerical characters plus dash, dot, underscore and tilde) are
+/// escaped. But if you specify characters in `reserved_chars_allowed`
+/// they are not escaped. This is useful for the "reserved" characters
+/// in the URI specification, since those are allowed unescaped in some
+/// portions of a URI.
 @inlinable public func uriEscapeString(unescaped: UnsafePointer<CChar>!, reservedCharsAllowed: UnsafePointer<CChar>? = nil, allowUTF8: Bool) -> String! {
     guard let rv = g_uri_escape_string(unescaped, reservedCharsAllowed, gboolean((allowUTF8) ? 1 : 0)).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
+/// Parses `uri_string` according to `flags`, to determine whether it is a valid
+/// [absolute URI](#relative-absolute-uris), i.e. it does not need to be resolved
+/// relative to another URI using `g_uri_parse_relative()`.
+/// 
+/// If it’s not a valid URI, an error is returned explaining how it’s invalid.
+/// 
+/// See `g_uri_split()`, and the definition of `GUriFlags`, for more
+/// information on the effect of `flags`.
+@inlinable public func uriIsValid(uriString: UnsafePointer<gchar>!, flags: URIFlags) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_uri_is_valid(uriString, flags.value, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+
+
+
+
+/// Joins the given components together according to `flags` to create
+/// an absolute URI string. `path` may not be `nil` (though it may be the empty
+/// string).
+/// 
+/// When `host` is present, `path` must either be empty or begin with a slash (`/`)
+/// character. When `host` is not present, `path` cannot begin with two slash
+///    characters (`//`). See
+/// [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986`section`-3).
+/// 
+/// See also `g_uri_join_with_user()`, which allows specifying the
+/// components of the ‘userinfo’ separately.
+/// 
+/// `G_URI_FLAGS_HAS_PASSWORD` and `G_URI_FLAGS_HAS_AUTH_PARAMS` are ignored if set
+/// in `flags`.
+@inlinable public func uriJoin(flags: URIFlags, scheme: UnsafePointer<gchar>? = nil, userinfo: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> String! {
+    guard let rv = g_uri_join(flags.value, scheme, userinfo, host, gint(port), path, query, fragment).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
+/// Joins the given components together according to `flags` to create
+/// an absolute URI string. `path` may not be `nil` (though it may be the empty
+/// string).
+/// 
+/// In contrast to `g_uri_join()`, this allows specifying the components
+/// of the ‘userinfo’ separately. It otherwise behaves the same.
+/// 
+/// `G_URI_FLAGS_HAS_PASSWORD` and `G_URI_FLAGS_HAS_AUTH_PARAMS` are ignored if set
+/// in `flags`.
+@inlinable public func uriJoinWithUser(flags: URIFlags, scheme: UnsafePointer<gchar>? = nil, user: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil, authParams: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> String! {
+    guard let rv = g_uri_join_with_user(flags.value, scheme, user, password, authParams, host, gint(port), path, query, fragment).map({ String(cString: $0) }) else { return nil }
     return rv
 }
 
@@ -8946,11 +9093,62 @@ import CGLib
 
 
 
-/// Gets the scheme portion of a URI string. RFC 3986 decodes the scheme as:
+/// Parses `uri_string` according to `flags`. If the result is not a
+/// valid [absolute URI](#relative-absolute-uris), it will be discarded, and an
+/// error returned.
+@inlinable public func uriParse(uriString: UnsafePointer<gchar>!, flags: URIFlags) throws -> URIRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = URIRef(gconstpointer: gconstpointer(g_uri_parse(uriString, flags.value, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+
+
+
+
+/// Many URI schemes include one or more attribute/value pairs as part of the URI
+/// value. This method can be used to parse them into a hash table. When an
+/// attribute has multiple occurrences, the last value is the final returned
+/// value. If you need to handle repeated attributes differently, use
+/// `GUriParamsIter`.
+/// 
+/// The `params` string is assumed to still be ````-encoded, but the returned
+/// values will be fully decoded. (Thus it is possible that the returned values
+/// may contain `=` or `separators`, if the value was encoded in the input.)
+/// Invalid ````-encoding is treated as with the `G_URI_FLAGS_PARSE_RELAXED`
+/// rules for `g_uri_parse()`. (However, if `params` is the path or query string
+/// from a `GUri` that was parsed without `G_URI_FLAGS_PARSE_RELAXED` and
+/// `G_URI_FLAGS_ENCODED`, then you already know that it does not contain any
+/// invalid encoding.)
+/// 
+/// `G_URI_PARAMS_WWW_FORM` is handled as documented for `g_uri_params_iter_init()`.
+/// 
+/// If `G_URI_PARAMS_CASE_INSENSITIVE` is passed to `flags`, attributes will be
+/// compared case-insensitively, so a params string `attr=123&Attr=456` will only
+/// return a single attribute–value pair, `Attr=456`. Case will be preserved in
+/// the returned attributes.
+/// 
+/// If `params` cannot be parsed (for example, it contains two `separators`
+/// characters in a row), then `error` is set and `nil` is returned.
+@inlinable public func uriParse(params: UnsafePointer<gchar>!, length: gssize, separators: UnsafePointer<gchar>!, flags: URIParamsFlags) throws -> GLib.HashTableRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = GLib.HashTableRef(g_uri_parse_params(params, length, separators, flags.value, &error))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+
+
+
+
+/// Gets the scheme portion of a URI string.
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-3) decodes the scheme
+/// as:
 /// ```
 /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
 /// ```
-/// Common schemes include "file", "http", "svn+ssh", etc.
+/// Common schemes include `file`, `https`, `svn+ssh`, etc.
 @inlinable public func uriParseScheme(uri: UnsafePointer<CChar>!) -> String! {
     guard let rv = g_uri_parse_scheme(uri).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -8959,13 +9157,136 @@ import CGLib
 
 
 
+/// Gets the scheme portion of a URI string.
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-3) decodes the scheme
+/// as:
+/// ```
+/// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+/// ```
+/// Common schemes include `file`, `https`, `svn+ssh`, etc.
+/// 
+/// Unlike `g_uri_parse_scheme()`, the returned scheme is normalized to
+/// all-lowercase and does not need to be freed.
+@inlinable public func uriPeekScheme(uri: UnsafePointer<CChar>!) -> String! {
+    guard let rv = g_uri_peek_scheme(uri).map({ String(cString: $0) }) else { return nil }
+    return rv
+}
+
+
+
+
+/// Parses `uri_ref` according to `flags` and, if it is a
+/// [relative URI](#relative-absolute-uris), resolves it relative to
+/// `base_uri_string`. If the result is not a valid absolute URI, it will be
+/// discarded, and an error returned.
+/// 
+/// (If `base_uri_string` is `nil`, this just returns `uri_ref`, or
+/// `nil` if `uri_ref` is invalid or not absolute.)
+@inlinable public func uriResolveRelative(baseURIString: UnsafePointer<gchar>? = nil, uriRef: UnsafePointer<gchar>!, flags: URIFlags) throws -> String! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = g_uri_resolve_relative(baseURIString, uriRef, flags.value, &error).map({ String(cString: $0) })
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+
+
+
+
+/// Parses `uri_ref` (which can be an
+/// [absolute or relative URI](#relative-absolute-uris)) according to `flags`, and
+/// returns the pieces. Any component that doesn't appear in `uri_ref` will be
+/// returned as `nil` (but note that all URIs always have a path component,
+/// though it may be the empty string).
+/// 
+/// If `flags` contains `G_URI_FLAGS_ENCODED`, then ````-encoded characters in
+/// `uri_ref` will remain encoded in the output strings. (If not,
+/// then all such characters will be decoded.) Note that decoding will
+/// only work if the URI components are ASCII or UTF-8, so you will
+/// need to use `G_URI_FLAGS_ENCODED` if they are not.
+/// 
+/// Note that the `G_URI_FLAGS_HAS_PASSWORD` and
+/// `G_URI_FLAGS_HAS_AUTH_PARAMS` `flags` are ignored by `g_uri_split()`,
+/// since it always returns only the full userinfo; use
+/// `g_uri_split_with_user()` if you want it split up.
+@inlinable public func uriSplit(uriRef: UnsafePointer<gchar>!, flags: URIFlags, scheme: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, userinfo: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, host: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, port: UnsafeMutablePointer<gint>! = nil, path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, query: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, fragment: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_uri_split(uriRef, flags.value, scheme, userinfo, host, port, path, query, fragment, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+
+
+
+
+/// Parses `uri_string` (which must be an [absolute URI](#relative-absolute-uris))
+/// according to `flags`, and returns the pieces relevant to connecting to a host.
+/// See the documentation for `g_uri_split()` for more details; this is
+/// mostly a wrapper around that function with simpler arguments.
+/// However, it will return an error if `uri_string` is a relative URI,
+/// or does not contain a hostname component.
+@inlinable public func uriSplitNetwork(uriString: UnsafePointer<gchar>!, flags: URIFlags, scheme: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, host: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, port: UnsafeMutablePointer<gint>! = nil) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_uri_split_network(uriString, flags.value, scheme, host, port, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+
+
+
+
+/// Parses `uri_ref` (which can be an
+/// [absolute or relative URI](#relative-absolute-uris)) according to `flags`, and
+/// returns the pieces. Any component that doesn't appear in `uri_ref` will be
+/// returned as `nil` (but note that all URIs always have a path component,
+/// though it may be the empty string).
+/// 
+/// See `g_uri_split()`, and the definition of `GUriFlags`, for more
+/// information on the effect of `flags`. Note that `password` will only
+/// be parsed out if `flags` contains `G_URI_FLAGS_HAS_PASSWORD`, and
+/// `auth_params` will only be parsed out if `flags` contains
+/// `G_URI_FLAGS_HAS_AUTH_PARAMS`.
+@inlinable public func uriSplitWithUser(uriRef: UnsafePointer<gchar>!, flags: URIFlags, scheme: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, user: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, password: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, authParams: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, host: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, port: UnsafeMutablePointer<gint>! = nil, path: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, query: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil, fragment: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>? = nil) throws -> Bool {
+    var error: UnsafeMutablePointer<GError>?
+    let rv = ((g_uri_split_with_user(uriRef, flags.value, scheme, user, password, authParams, host, port, path, query, fragment, &error)) != 0)
+    if let error = error { throw GLibError(error) }
+    return rv
+}
+
+
+
+
+/// Unescapes a segment of an escaped string as binary data.
+/// 
+/// Note that in contrast to `g_uri_unescape_string()`, this does allow
+/// nul bytes to appear in the output.
+/// 
+/// If any of the characters in `illegal_characters` appears as an escaped
+/// character in `escaped_string`, then that is an error and `nil` will be
+/// returned. This is useful if you want to avoid for instance having a slash
+/// being expanded in an escaped path element, which might confuse pathname
+/// handling.
+@inlinable public func uriUnescapeBytes(escapedString: UnsafePointer<CChar>!, length: gssize, illegalCharacters: UnsafePointer<CChar>? = nil) throws -> BytesRef! {
+    var error: UnsafeMutablePointer<GError>?
+    let maybeRV = BytesRef(gconstpointer: gconstpointer(g_uri_unescape_bytes(escapedString, length, illegalCharacters, &error)))
+    if let error = error { throw GLibError(error) }
+    guard let rv = maybeRV else { return nil }
+    return rv
+}
+
+
+
+
 /// Unescapes a segment of an escaped string.
 /// 
-/// If any of the characters in `illegal_characters` or the character zero appears
-/// as an escaped character in `escaped_string` then that is an error and `nil`
-/// will be returned. This is useful it you want to avoid for instance having a
-/// slash being expanded in an escaped path element, which might confuse pathname
-/// handling.
+/// If any of the characters in `illegal_characters` or the NUL
+/// character appears as an escaped character in `escaped_string`, then
+/// that is an error and `nil` will be returned. This is useful if you
+/// want to avoid for instance having a slash being expanded in an
+/// escaped path element, which might confuse pathname handling.
+/// 
+/// Note: `NUL` byte is not accepted in the output, in contrast to
+/// `g_uri_unescape_bytes()`.
 @inlinable public func uriUnescapeSegment(escapedString: UnsafePointer<CChar>? = nil, escapedStringEnd: UnsafePointer<CChar>? = nil, illegalCharacters: UnsafePointer<CChar>? = nil) -> String! {
     guard let rv = g_uri_unescape_segment(escapedString, escapedStringEnd, illegalCharacters).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -8976,11 +9297,11 @@ import CGLib
 
 /// Unescapes a whole escaped string.
 /// 
-/// If any of the characters in `illegal_characters` or the character zero appears
-/// as an escaped character in `escaped_string` then that is an error and `nil`
-/// will be returned. This is useful it you want to avoid for instance having a
-/// slash being expanded in an escaped path element, which might confuse pathname
-/// handling.
+/// If any of the characters in `illegal_characters` or the NUL
+/// character appears as an escaped character in `escaped_string`, then
+/// that is an error and `nil` will be returned. This is useful if you
+/// want to avoid for instance having a slash being expanded in an
+/// escaped path element, which might confuse pathname handling.
 @inlinable public func uriUnescapeString(escapedString: UnsafePointer<CChar>!, illegalCharacters: UnsafePointer<CChar>? = nil) -> String! {
     guard let rv = g_uri_unescape_string(escapedString, illegalCharacters).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -9022,13 +9343,13 @@ import CGLib
 /// Note that the input is expected to be already in native endianness,
 /// an initial byte-order-mark character is not handled specially.
 /// `g_convert()` can be used to convert a byte buffer of UTF-16 data of
-/// ambiguous endianess.
+/// ambiguous endianness.
 /// 
 /// Further note that this function does not validate the result
 /// string; it may e.g. include embedded NUL characters. The only
 /// validation done by this function is to ensure that the input can
 /// be correctly interpreted as UTF-16, i.e. it doesn't contain
-/// things unpaired surrogates.
+/// unpaired surrogates or partial character sequences.
 @inlinable public func utf16ToUTF8(str: UnsafePointer<gunichar2>!, len: Int, itemsRead: UnsafeMutablePointer<glong>! = nil, itemsWritten: UnsafeMutablePointer<glong>! = nil) throws -> String! {
     var error: UnsafeMutablePointer<GError>?
     let maybeRV = g_utf16_to_utf8(str, glong(len), itemsRead, itemsWritten, &error).map({ String(cString: $0) })

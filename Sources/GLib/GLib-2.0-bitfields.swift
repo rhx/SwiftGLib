@@ -38,6 +38,55 @@ public struct AsciiType: OptionSet {
 
 
 
+/// Flags to pass to `g_file_set_contents_full()` to affect its safety and
+/// performance.
+public struct FileSetContentsFlags: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    @inlinable public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    @inlinable public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GFileSetContentsFlags` enum value
+    @inlinable public var value: GFileSetContentsFlags {
+        get {
+            func castToGFileSetContentsFlagsInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+            return GFileSetContentsFlags(rawValue: castToGFileSetContentsFlagsInt(rawValue))
+        }
+        set { rawValue = UInt32(newValue.rawValue) }
+    }
+
+    /// Creates a new instance with the specified raw value
+    @inlinable public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GFileSetContentsFlags` enum value
+    @inlinable public init(_ enumValue: GFileSetContentsFlags) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
+
+    /// No guarantees about file consistency or durability.
+    ///    The most dangerous setting, which is slightly faster than other settings.
+    public static let `none` = FileSetContentsFlags(0) // G_FILE_SET_CONTENTS_NONE
+    /// Guarantee file consistency: after a crash,
+    ///    either the old version of the file or the new version of the file will be
+    ///    available, but not a mixture. On Unix systems this equates to an ``fsync()``
+    ///    on the file and use of an atomic ``rename()`` of the new version of the file
+    ///    over the old.
+    public static let consistent = FileSetContentsFlags(1) // G_FILE_SET_CONTENTS_CONSISTENT
+    /// Guarantee file durability: after a crash, the
+    ///    new version of the file will be available. On Unix systems this equates to
+    ///    an ``fsync()`` on the file (if `G_FILE_SET_CONTENTS_CONSISTENT` is unset), or
+    ///    the effects of `G_FILE_SET_CONTENTS_CONSISTENT` plus an ``fsync()`` on the
+    ///    directory containing the file after calling ``rename()``.
+    public static let durable = FileSetContentsFlags(2) // G_FILE_SET_CONTENTS_DURABLE
+    /// Only apply consistency and durability
+    ///    guarantees if the file already exists. This may speed up file operations
+    ///    if the file doesn’t currently exist, but may result in a corrupted version
+    ///    of the new file if the system crashes while writing it.
+    public static let onlyExisting = FileSetContentsFlags(4) // G_FILE_SET_CONTENTS_ONLY_EXISTING
+}
+
+
+
 /// A test to perform on a file using `g_file_test()`.
 public struct FileTest: OptionSet {
     /// The corresponding value of the raw type
@@ -781,7 +830,7 @@ public struct SpawnFlags: OptionSet {
     ///     to pass to the file. Normally `g_spawn_async_with_pipes()` uses `argv[0]`
     ///     as the file to execute, and passes all of `argv` to the child.
     public static let fileAndArgvZero = SpawnFlags(64) // G_SPAWN_FILE_AND_ARGV_ZERO
-    /// if `argv[0]` is not an abolute path,
+    /// if `argv[0]` is not an absolute path,
     ///     it will be looked for in the `PATH` from the passed child environment.
     ///     Since: 2.34
     public static let searchPathFromEnvp = SpawnFlags(128) // G_SPAWN_SEARCH_PATH_FROM_ENVP
@@ -926,5 +975,153 @@ public struct TraverseFlags: OptionSet {
     public static let leafs = TraverseFlags(1) // G_TRAVERSE_LEAFS
     /// identical to `G_TRAVERSE_NON_LEAVES`.
     public static let nonLeafs = TraverseFlags(2) // G_TRAVERSE_NON_LEAFS
+}
+
+
+
+/// Flags that describe a URI.
+/// 
+/// When parsing a URI, if you need to choose different flags based on
+/// the type of URI, you can use `g_uri_peek_scheme()` on the URI string
+/// to check the scheme first, and use that to decide what flags to
+/// parse it with.
+public struct URIFlags: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    @inlinable public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    @inlinable public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GUriFlags` enum value
+    @inlinable public var value: GUriFlags {
+        get {
+            func castToGUriFlagsInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+            return GUriFlags(rawValue: castToGUriFlagsInt(rawValue))
+        }
+        set { rawValue = UInt32(newValue.rawValue) }
+    }
+
+    /// Creates a new instance with the specified raw value
+    @inlinable public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GUriFlags` enum value
+    @inlinable public init(_ enumValue: GUriFlags) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
+
+    /// No flags set.
+    public static let `none` = URIFlags(0) // G_URI_FLAGS_NONE
+    /// Parse the URI more relaxedly than the
+    ///     [RFC 3986](https://tools.ietf.org/html/rfc3986) grammar specifies,
+    ///     fixing up or ignoring common mistakes in URIs coming from external
+    ///     sources. This is also needed for some obscure URI schemes where `;`
+    ///     separates the host from the path. Don’t use this flag unless you need to.
+    public static let parseRelaxed = URIFlags(1) // G_URI_FLAGS_PARSE_RELAXED
+    /// The userinfo field may contain a password,
+    ///     which will be separated from the username by `:`.
+    public static let hasPassword = URIFlags(2) // G_URI_FLAGS_HAS_PASSWORD
+    /// The userinfo may contain additional
+    ///     authentication-related parameters, which will be separated from
+    ///     the username and/or password by `;`.
+    public static let hasAuthParams = URIFlags(4) // G_URI_FLAGS_HAS_AUTH_PARAMS
+    /// When parsing a URI, this indicates that ````-encoded
+    ///     characters in the userinfo, path, query, and fragment fields
+    ///     should not be decoded. (And likewise the host field if
+    ///     `G_URI_FLAGS_NON_DNS` is also set.) When building a URI, it indicates
+    ///     that you have already ````-encoded the components, and so `GUri`
+    ///     should not do any encoding itself.
+    public static let encoded = URIFlags(8) // G_URI_FLAGS_ENCODED
+    /// The host component should not be assumed to be a
+    ///     DNS hostname or IP address (for example, for `smb` URIs with NetBIOS
+    ///     hostnames).
+    public static let nonDns = URIFlags(16) // G_URI_FLAGS_NON_DNS
+    /// Same as `G_URI_FLAGS_ENCODED`, for the query
+    ///     field only.
+    public static let encodedQuery = URIFlags(32) // G_URI_FLAGS_ENCODED_QUERY
+    /// Same as `G_URI_FLAGS_ENCODED`, for the path only.
+    public static let encodedPath = URIFlags(64) // G_URI_FLAGS_ENCODED_PATH
+    /// Same as `G_URI_FLAGS_ENCODED`, for the
+    ///     fragment only.
+    public static let encodedFragment = URIFlags(128) // G_URI_FLAGS_ENCODED_FRAGMENT
+}
+
+
+
+/// Flags describing what parts of the URI to hide in
+/// `g_uri_to_string_partial()`. Note that `G_URI_HIDE_PASSWORD` and
+/// `G_URI_HIDE_AUTH_PARAMS` will only work if the `GUri` was parsed with
+/// the corresponding flags.
+public struct URIHideFlags: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    @inlinable public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    @inlinable public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GUriHideFlags` enum value
+    @inlinable public var value: GUriHideFlags {
+        get {
+            func castToGUriHideFlagsInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+            return GUriHideFlags(rawValue: castToGUriHideFlagsInt(rawValue))
+        }
+        set { rawValue = UInt32(newValue.rawValue) }
+    }
+
+    /// Creates a new instance with the specified raw value
+    @inlinable public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GUriHideFlags` enum value
+    @inlinable public init(_ enumValue: GUriHideFlags) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
+
+    /// No flags set.
+    public static let `none` = URIHideFlags(0) // G_URI_HIDE_NONE
+    /// Hide the userinfo.
+    public static let userinfo = URIHideFlags(1) // G_URI_HIDE_USERINFO
+    /// Hide the password.
+    public static let password = URIHideFlags(2) // G_URI_HIDE_PASSWORD
+    /// Hide the auth_params.
+    public static let authParams = URIHideFlags(4) // G_URI_HIDE_AUTH_PARAMS
+    /// Hide the query.
+    public static let query = URIHideFlags(8) // G_URI_HIDE_QUERY
+    /// Hide the fragment.
+    public static let fragment = URIHideFlags(16) // G_URI_HIDE_FRAGMENT
+}
+
+
+
+/// Flags modifying the way parameters are handled by `g_uri_parse_params()` and
+/// `GUriParamsIter`.
+public struct URIParamsFlags: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    @inlinable public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    @inlinable public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GUriParamsFlags` enum value
+    @inlinable public var value: GUriParamsFlags {
+        get {
+            func castToGUriParamsFlagsInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
+            return GUriParamsFlags(rawValue: castToGUriParamsFlagsInt(rawValue))
+        }
+        set { rawValue = UInt32(newValue.rawValue) }
+    }
+
+    /// Creates a new instance with the specified raw value
+    @inlinable public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GUriParamsFlags` enum value
+    @inlinable public init(_ enumValue: GUriParamsFlags) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
+
+    /// No flags set.
+    public static let `none` = URIParamsFlags(0) // G_URI_PARAMS_NONE
+    /// Parameter names are case insensitive.
+    public static let caseInsensitive = URIParamsFlags(1) // G_URI_PARAMS_CASE_INSENSITIVE
+    /// Replace `+` with space character. Only useful for
+    ///     URLs on the web, using the `https` or `http` schemas.
+    public static let wwwForm = URIParamsFlags(2) // G_URI_PARAMS_WWW_FORM
+    /// See `G_URI_FLAGS_PARSE_RELAXED`.
+    public static let parseRelaxed = URIParamsFlags(4) // G_URI_PARAMS_PARSE_RELAXED
 }
 

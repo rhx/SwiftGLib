@@ -2523,6 +2523,12 @@ public extension VariantProtocol {
     /// The returned value is never floating.  You should free it with
     /// `g_variant_unref()` when you're done with it.
     /// 
+    /// Note that values borrowed from the returned child are not guaranteed to
+    /// still be valid after the child is freed even if you still hold a reference
+    /// to `value`, if `value` has not been serialised at the time this function is
+    /// called. To avoid this, you can serialize `value` by calling
+    /// `g_variant_get_data()` and optionally ignoring the return value.
+    /// 
     /// There may be implementation specific restrictions on deeply nested values,
     /// which would result in the unit tuple being returned as the child value,
     /// instead of further nested children. `GVariant` is guaranteed to handle
@@ -2723,11 +2729,15 @@ public extension VariantProtocol {
     /// type.  This includes the types `G_VARIANT_TYPE_STRING`,
     /// `G_VARIANT_TYPE_OBJECT_PATH` and `G_VARIANT_TYPE_SIGNATURE`.
     /// 
-    /// The string will always be UTF-8 encoded, and will never be `nil`.
+    /// The string will always be UTF-8 encoded, will never be `nil`, and will never
+    /// contain nul bytes.
     /// 
     /// If `length` is non-`nil` then the length of the string (in bytes) is
     /// returned there.  For trusted values, this information is already
-    /// known.  For untrusted values, a `strlen()` will be performed.
+    /// known.  Untrusted values will be validated and, if valid, a `strlen()` will be
+    /// performed. If invalid, a default value will be returned — for
+    /// `G_VARIANT_TYPE_OBJECT_PATH`, this is `"/"`, and for other types it is the
+    /// empty string.
     /// 
     /// It is an error to call this function with a `value` of any type
     /// other than those three.
@@ -3037,7 +3047,7 @@ public extension VariantProtocol {
     /// 
     /// Using this function on the return value of the user's callback allows
     /// the user to do whichever is more convenient for them.  The caller
-    /// will alway receives exactly one full reference to the value: either
+    /// will always receives exactly one full reference to the value: either
     /// the one that was returned in the first place, or a floating reference
     /// that has been converted to a full reference.
     /// 

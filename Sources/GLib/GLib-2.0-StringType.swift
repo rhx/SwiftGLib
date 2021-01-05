@@ -298,7 +298,7 @@ public extension StringProtocol {
         return rv
     }
 
-    /// Appends `unescaped` to `string`, escaped any characters that
+    /// Appends `unescaped` to `string`, escaping any characters that
     /// are reserved in URIs using URI-style escape sequences.
     @inlinable func appendURIEscaped(unescaped: UnsafePointer<gchar>!, reservedCharsAllowed: UnsafePointer<gchar>!, allowUTF8: Bool) -> StringRef! {
         guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append_uri_escaped(gstring_ptr, unescaped, reservedCharsAllowed, gboolean((allowUTF8) ? 1 : 0)))) else { return nil }

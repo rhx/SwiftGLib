@@ -411,7 +411,7 @@ public let MAXUINT8 = 255 // G_MAXUINT8
 /// Like `gtk_micro_version`, but from the headers used at
 /// application compile time, rather than from the library
 /// linked against at application run time.
-public let MICRO_VERSION = GLIB_MICRO_VERSION // 3
+public let MICRO_VERSION = GLIB_MICRO_VERSION // 2
 
 /// The minimum value which can be held in a `gint16`.
 public let MININT16 = G_MININT16 // -32768
@@ -430,7 +430,7 @@ public let MININT8 = G_MININT8 // -128
 /// Like `gtk_minor_version`, but from the headers used at
 /// application compile time, rather than from the library
 /// linked against at application run time.
-public let MINOR_VERSION = GLIB_MINOR_VERSION // 64
+public let MINOR_VERSION = GLIB_MINOR_VERSION // 66
 
 public let MODULE_SUFFIX = G_MODULE_SUFFIX // 86
 
@@ -585,10 +585,12 @@ public let TIME_SPAN_SECOND = 1000000 // G_TIME_SPAN_SECOND
 /// This is as defined by Unicode 6.1.
 public let UNICHAR_MAX_DECOMPOSITION_LENGTH = G_UNICHAR_MAX_DECOMPOSITION_LENGTH // 18
 
-/// Generic delimiters characters as defined in RFC 3986. Includes ":/?#[]@".
+/// Generic delimiters characters as defined in
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986). Includes `:/?#[]@`.
 public let URI_RESERVED_CHARS_GENERIC_DELIMITERS = G_URI_RESERVED_CHARS_GENERIC_DELIMITERS // 122
 
-/// Subcomponent delimiter characters as defined in RFC 3986. Includes "!$&'()*+,;=".
+/// Subcomponent delimiter characters as defined in
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986). Includes `!$&'()*+,;=`.
 public let URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS = G_URI_RESERVED_CHARS_SUBCOMPONENT_DELIMITERS // 123
 
 /// Number of microseconds in one second (1 million).

@@ -273,10 +273,10 @@ public extension ThreadPoolProtocol {
     /// processing a task. Instead at least all still running threads
     /// can finish their tasks before the `pool` is freed.
     /// 
-    /// If `wait_` is `true`, the functions does not return before all
+    /// If `wait_` is `true`, this function does not return before all
     /// tasks to be processed (dependent on `immediate`, whether all
     /// or only the currently running) are ready.
-    /// Otherwise the function returns immediately.
+    /// Otherwise this function returns immediately.
     /// 
     /// After calling this function `pool` must not be used anymore.
     @inlinable func free(immediate: Bool, wait_: Bool) {
