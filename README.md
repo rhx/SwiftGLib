@@ -5,7 +5,7 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
-The current version introduces a new build system and signal generation code contributed bby Mikoláš Stuchlík (see the **Building** Section below).
+The current version introduces a new build system and signal generation code contributed by Mikoláš Stuchlík (see the **Building** Section below).
 
 ### Other nobable changes
 
