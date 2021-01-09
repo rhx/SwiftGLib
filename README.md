@@ -7,7 +7,7 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 The current version introduces a new build system and signal generation code contributed by Mikoláš Stuchlík (see the **Building** Section below).
 
-### Other nobable changes
+### Other notable changes
 
 Version 11 introduces a new type system into `gir2swift`,
 to ensure it has a representation of the underlying types.
