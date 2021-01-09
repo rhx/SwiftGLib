@@ -68,8 +68,26 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 	brew install glib glib-networking gobject-introspection pkg-config jq
 
 
+## Usage
+
+Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
+
+```Swift
+// swift-tools-version:5.3
+
+import PackageDescription
+
+let package = Package(name: "MyPackage",
+    dependencies: [
+        .package(name: "GLib", url: "https://github.com/rhx/SwiftGLib.git", .branch("main")),
+    ],
+    targets: [.target(name: "MyPackage", dependencies: ["GLib"])]
+)
+```
+
+
 ## Building
-Normally, you don't build this package directly, but you embed it into your own project (see 'Embedding' below).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
+Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' above).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
 	git clone https://github.com/rhx/SwiftGLib.git
 	cd SwiftGLib
