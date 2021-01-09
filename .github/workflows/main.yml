@@ -81,7 +81,7 @@ jobs:
         with:
           path: SwiftGLib
 
-      - name: Build current gir2swift
+      - name: Build current SwiftGLib
         run: |
           cd SwiftGLib
           ./run-gir2swift.sh
