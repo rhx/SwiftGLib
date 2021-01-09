@@ -85,8 +85,8 @@ let package = Package(name: "MyPackage",
 )
 ```
 
-
 ## Building
+
 Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' above).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
 
 	git clone https://github.com/rhx/SwiftGLib.git
@@ -136,6 +136,8 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 
 ### Known Issues
 
- * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).  As a workaround, use the old build scripts, e.g. `./build.sh` instead of `run-gir2swift.sh` and `swift build` to build a package.
- * BUILD_DIR is not suported in the current build system.
-
+ * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
+ * BUILD_DIR is not supported in the current build system.
+ 
+As a workaround, you can use the old build scripts, e.g. `./build.sh` instead of `run-gir2swift.sh` and `swift build` to build a package.
+ 
