@@ -74,12 +74,15 @@ Normally, you don't build this package directly, but you embed it into your own 
 	git clone https://github.com/rhx/SwiftGLib.git
 	cd SwiftGLib
     ./run-gir2swift.sh
+    ./run-gir2swift.sh
     swift build
+    swift test
 
 Please note that on macOS, due to a bug currently in the Swift Package Manager,
-you need to pass in the build flags manually, i.e. instead of `swift build` you can run
+you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
 
     swift build `./run-gir2swift.sh flags -noUpdate`
+    swift test  `./run-gir2swift.sh flags -noUpdate`
 
 ### Xcode
 
