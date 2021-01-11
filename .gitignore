@@ -4,6 +4,7 @@
 /docs
 /Packages
 /GLib.xcodeproj
+/.swiftpm
 Package.pins
 Package.resolved
 *.tgz
