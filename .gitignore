@@ -1,6 +1,7 @@
 .DS_Store
 /.build
 /.docs.old
+/docs
 /Packages
 /GLib.xcodeproj
 /.swiftpm
@@ -8,5 +9,4 @@ Package.pins
 Package.resolved
 *.tgz
 undocumented.json
-*-*.swift
 *-*.swift.out
