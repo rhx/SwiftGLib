@@ -2,7 +2,7 @@
 #
 # Patch the generated wrapper Swift code to handle special cases
 #
-BEGIN { etpInit = 0 ; vaptrptr = 0 }
+BEGIN { etpInit = 0 ; vaptrptr = 0 ; longdouble = 0 }
 /public convenience init.T: ErrorTypeProtocol./ {
 	etpInit = 1
 	print "    /// Convenience copy constructor, creating a unique copy"
@@ -31,17 +31,23 @@ BEGIN { etpInit = 0 ; vaptrptr = 0 }
 }
 /Pointer<va_list>/ {
 	vaptrptr = 1
-	print "#if !os(Linux)"
+	print "#if !os(Linux) && !arch(arm64)"
+}
+/CLongDouble/ {
+	longdouble = 1
+	print "#if !(os(Linux) && arch(arm64))"
 }
 /^$/ {
-	if (vaptrptr) {
+	if (vaptrptr || longdouble) {
 		print "#endif"
+		longdouble = 0
 		vaptrptr = 0
 	}
 }
 /\/\/\// {
-	if (vaptrptr) {
+	if (vaptrptr || longdouble) {
 		print "#endif"
+		longdouble = 0
 		vaptrptr = 0
 	}
 }
