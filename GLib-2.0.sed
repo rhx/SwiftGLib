@@ -43,3 +43,5 @@ s|\(func getObjv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1
 s|\(func getStrv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1UnsafePointer<gchar>|
 s|\(func get.*Names.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
 s|\(func get.*Dirs.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
+s|\GStrv\s|\GStrv!|
+s|(\sidentifier:|(identifierOrUtc identifier:|
