@@ -79,6 +79,8 @@ public protocol RWLockProtocol {
     /// Typed pointer to the underlying `GRWLock` instance.
     var _ptr: UnsafeMutablePointer<GRWLock>! { get }
 
+    /// Required Initialiser for types conforming to `RWLockProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RWLockRef` type acts as a lightweight Swift reference to an underlying `GRWLock` instance.
@@ -410,7 +412,7 @@ open class RWLock: RWLockProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RWLockProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -496,13 +498,19 @@ public extension RWLockProtocol {
     }
 
     /// Obtain a read lock on `rw_lock`. If another thread currently holds
-    /// the write lock on `rw_lock`, the current thread will block. If another thread
-    /// does not hold the write lock, but is waiting for it, it is implementation
-    /// defined whether the reader or writer will block. Read locks can be taken
+    /// the write lock on `rw_lock`, the current thread will block until the
+    /// write lock was (held and) released. If another thread does not hold
+    /// the write lock, but is waiting for it, it is implementation defined
+    /// whether the reader or writer will block. Read locks can be taken
     /// recursively.
     /// 
-    /// It is implementation-defined how many threads are allowed to
-    /// hold read locks on the same lock simultaneously. If the limit is hit,
+    /// Calling `g_rw_lock_reader_lock()` while the current thread already
+    /// owns a write lock leads to undefined behaviour. Read locks however
+    /// can be taken recursively, in which case you need to make sure to
+    /// call `g_rw_lock_reader_unlock()` the same amount of times.
+    /// 
+    /// It is implementation-defined how many read locks are allowed to be
+    /// held on the same lock simultaneously. If the limit is hit,
     /// or if a deadlock is detected, a critical warning will be emitted.
     @inlinable func readerLock() {
         g_rw_lock_reader_lock(_ptr)
@@ -526,16 +534,20 @@ public extension RWLockProtocol {
     
     }
 
-    /// Obtain a write lock on `rw_lock`. If any thread already holds
+    /// Obtain a write lock on `rw_lock`. If another thread currently holds
     /// a read or write lock on `rw_lock`, the current thread will block
     /// until all other threads have dropped their locks on `rw_lock`.
+    /// 
+    /// Calling `g_rw_lock_writer_lock()` while the current thread already
+    /// owns a read or write lock on `rw_lock` leads to undefined behaviour.
     @inlinable func writerLock() {
         g_rw_lock_writer_lock(_ptr)
     
     }
 
-    /// Tries to obtain a write lock on `rw_lock`. If any other thread holds
-    /// a read or write lock on `rw_lock`, it immediately returns `false`.
+    /// Tries to obtain a write lock on `rw_lock`. If another thread
+    /// currently holds a read or write lock on `rw_lock`, it immediately
+    /// returns `false`.
     /// Otherwise it locks `rw_lock` and returns `true`.
     @inlinable func writerTrylock() -> Bool {
         let rv = ((g_rw_lock_writer_trylock(_ptr)) != 0)
@@ -575,6 +587,8 @@ public protocol RandProtocol {
     /// Typed pointer to the underlying `GRand` instance.
     var _ptr: UnsafeMutablePointer<GRand>! { get }
 
+    /// Required Initialiser for types conforming to `RandProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RandRef` type acts as a lightweight Swift reference to an underlying `GRand` instance.
@@ -791,7 +805,7 @@ open class Rand: RandProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RandProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -879,7 +893,7 @@ public extension RandProtocol {
     }
 
     /// Returns the next random `gint32` from `rand_` equally distributed over
-    /// the range [`begin.`.`end`-1].
+    /// the range [`begin.`.`end-1`].
     @inlinable func intRange(begin: gint32, end: gint32) -> gint32 {
         let rv = g_rand_int_range(_ptr, begin, end)
         return rv
@@ -932,6 +946,8 @@ public protocol RecMutexProtocol {
     /// Typed pointer to the underlying `GRecMutex` instance.
     var _ptr: UnsafeMutablePointer<GRecMutex>! { get }
 
+    /// Required Initialiser for types conforming to `RecMutexProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RecMutexRef` type acts as a lightweight Swift reference to an underlying `GRecMutex` instance.
@@ -1157,7 +1173,7 @@ open class RecMutex: RecMutexProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RecMutexProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1362,6 +1378,8 @@ public protocol RegexProtocol {
     /// Typed pointer to the underlying `GRegex` instance.
     var regex_ptr: UnsafeMutablePointer<GRegex>! { get }
 
+    /// Required Initialiser for types conforming to `RegexProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RegexRef` type acts as a lightweight Swift reference to an underlying `GRegex` instance.
@@ -1701,7 +1719,7 @@ open class Regex: RegexProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RegexProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1875,15 +1893,15 @@ public extension RegexProtocol {
     /// Using the standard algorithm for regular expression matching only
     /// the longest match in the `string` is retrieved, it is not possible
     /// to obtain all the available matches. For instance matching
-    /// "<a> <b> <c>" against the pattern "<.*>"
-    /// you get "<a> <b> <c>".
+    /// "&lt;a&gt; &lt;b&gt; &lt;c&gt;" against the pattern "&lt;.*&gt;"
+    /// you get "&lt;a&gt; &lt;b&gt; &lt;c&gt;".
     /// 
     /// This function uses a different algorithm (called DFA, i.e. deterministic
     /// finite automaton), so it can retrieve all the possible matches, all
     /// starting at the same point in the string. For instance matching
-    /// "<a> <b> <c>" against the pattern "<.*>;"
-    /// you would obtain three matches: "<a> <b> <c>",
-    /// "<a> <b>" and "<a>".
+    /// "&lt;a&gt; &lt;b&gt; &lt;c&gt;" against the pattern "&lt;.*&gt;;"
+    /// you would obtain three matches: "&lt;a&gt; &lt;b&gt; &lt;c&gt;",
+    /// "&lt;a&gt; &lt;b&gt;" and "&lt;a&gt;".
     /// 
     /// The number of matched strings is retrieved using
     /// `g_match_info_get_match_count()`. To obtain the matched strings and
@@ -1985,8 +2003,8 @@ public extension RegexProtocol {
 
     /// Replaces all occurrences of the pattern in `regex` with the
     /// replacement text. Backreferences of the form '\number' or
-    /// '\g<number>' in the replacement text are interpolated by the
-    /// number-th captured subexpression of the match, '\g<name>' refers
+    /// '\g&lt;number&gt;' in the replacement text are interpolated by the
+    /// number-th captured subexpression of the match, '\g&lt;name&gt;' refers
     /// to the captured subexpression with the given name. '\0' refers
     /// to the complete match, but '\0' followed by a number is the octal
     /// representation of a character. To include a literal '\' in the
@@ -2243,6 +2261,8 @@ public protocol SListProtocol {
     /// Typed pointer to the underlying `GSList` instance.
     var _ptr: UnsafeMutablePointer<GSList>! { get }
 
+    /// Required Initialiser for types conforming to `SListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SListRef` type acts as a lightweight Swift reference to an underlying `GSList` instance.
@@ -2448,7 +2468,7 @@ open class SList: SListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

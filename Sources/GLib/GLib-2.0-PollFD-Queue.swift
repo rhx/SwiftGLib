@@ -16,6 +16,8 @@ public protocol PollFDProtocol {
     /// Typed pointer to the underlying `GPollFD` instance.
     var pollfd_ptr: UnsafeMutablePointer<GPollFD>! { get }
 
+    /// Required Initialiser for types conforming to `PollFDProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PollFDRef` type acts as a lightweight Swift reference to an underlying `GPollFD` instance.
@@ -221,7 +223,7 @@ open class PollFD: PollFDProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PollFDProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -370,6 +372,8 @@ public protocol PrivateProtocol {
     /// Typed pointer to the underlying `GPrivate` instance.
     var _ptr: UnsafeMutablePointer<GPrivate>! { get }
 
+    /// Required Initialiser for types conforming to `PrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PrivateRef` type acts as a lightweight Swift reference to an underlying `GPrivate` instance.
@@ -605,7 +609,7 @@ open class Private: PrivateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -702,6 +706,8 @@ public protocol PtrArrayProtocol {
     /// Typed pointer to the underlying `GPtrArray` instance.
     var ptr_array_ptr: UnsafeMutablePointer<GPtrArray>! { get }
 
+    /// Required Initialiser for types conforming to `PtrArrayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PtrArrayRef` type acts as a lightweight Swift reference to an underlying `GPtrArray` instance.
@@ -905,7 +911,7 @@ open class PtrArray: PtrArrayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PtrArrayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -996,6 +1002,8 @@ public protocol QueueProtocol {
     /// Typed pointer to the underlying `GQueue` instance.
     var _ptr: UnsafeMutablePointer<GQueue>! { get }
 
+    /// Required Initialiser for types conforming to `QueueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `QueueRef` type acts as a lightweight Swift reference to an underlying `GQueue` instance.
@@ -1201,7 +1209,7 @@ open class Queue: QueueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `QueueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -28,6 +28,8 @@ public protocol ScannerProtocol {
     /// Typed pointer to the underlying `GScanner` instance.
     var _ptr: UnsafeMutablePointer<GScanner>! { get }
 
+    /// Required Initialiser for types conforming to `ScannerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScannerRef` type acts as a lightweight Swift reference to an underlying `GScanner` instance.
@@ -257,7 +259,7 @@ open class Scanner: ScannerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScannerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -691,6 +693,8 @@ public protocol ScannerConfigProtocol {
     /// Typed pointer to the underlying `GScannerConfig` instance.
     var _ptr: UnsafeMutablePointer<GScannerConfig>! { get }
 
+    /// Required Initialiser for types conforming to `ScannerConfigProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScannerConfigRef` type acts as a lightweight Swift reference to an underlying `GScannerConfig` instance.
@@ -898,7 +902,7 @@ open class ScannerConfig: ScannerConfigProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScannerConfigProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1390,6 +1394,8 @@ public protocol SequenceProtocol {
     /// Typed pointer to the underlying `GSequence` instance.
     var _ptr: UnsafeMutablePointer<GSequence>! { get }
 
+    /// Required Initialiser for types conforming to `SequenceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SequenceRef` type acts as a lightweight Swift reference to an underlying `GSequence` instance.
@@ -1595,7 +1601,7 @@ open class Sequence: SequenceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1676,9 +1682,9 @@ public extension SequenceProtocol {
         return rv
     }
 
-    /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
-    /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
-    /// when comparing the length to zero.
+    /// Returns the positive length (&gt;= 0) of `seq`. Note that this method is
+    /// `O(h)` where `h' is the height of the tree. It is thus more efficient
+    /// to use `g_sequence_is_empty()` when comparing the length to zero.
     @inlinable func getLength() -> Int {
         let rv = Int(g_sequence_get_length(_ptr))
         return rv
@@ -1850,13 +1856,13 @@ public extension SequenceProtocol {
         }
     }
 
-    /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
-    /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
-    /// when comparing the length to zero.
+    /// Returns the positive length (&gt;= 0) of `seq`. Note that this method is
+    /// `O(h)` where `h' is the height of the tree. It is thus more efficient
+    /// to use `g_sequence_is_empty()` when comparing the length to zero.
     @inlinable var length: Int {
-        /// Returns the length of `seq`. Note that this method is `O(h)` where `h' is the
-        /// height of the tree. It is thus more efficient to use `g_sequence_is_empty()`
-        /// when comparing the length to zero.
+        /// Returns the positive length (&gt;= 0) of `seq`. Note that this method is
+        /// `O(h)` where `h' is the height of the tree. It is thus more efficient
+        /// to use `g_sequence_is_empty()` when comparing the length to zero.
         get {
             let rv = Int(g_sequence_get_length(_ptr))
             return rv
@@ -1884,6 +1890,8 @@ public protocol SequenceIterProtocol {
     /// Typed pointer to the underlying `GSequenceIter` instance.
     var _ptr: UnsafeMutablePointer<GSequenceIter>! { get }
 
+    /// Required Initialiser for types conforming to `SequenceIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SequenceIterRef` type acts as a lightweight Swift reference to an underlying `GSequenceIter` instance.
@@ -2089,7 +2097,7 @@ open class SequenceIter: SequenceIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SequenceIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2309,6 +2317,8 @@ public protocol SourceProtocol {
     /// Typed pointer to the underlying `GSource` instance.
     var source_ptr: UnsafeMutablePointer<GSource>! { get }
 
+    /// Required Initialiser for types conforming to `SourceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SourceRef` type acts as a lightweight Swift reference to an underlying `GSource` instance.
@@ -2526,7 +2536,7 @@ open class Source: SourceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2846,8 +2856,8 @@ public extension SourceProtocol {
     /// "object". This is used internally. Note that calling
     /// `g_source_set_callback_indirect()` assumes
     /// an initial reference count on `callback_data`, and thus
-    /// `callback_funcs`->unref will eventually be called once more
-    /// than `callback_funcs`->ref.
+    /// `callback_funcs-`&gt;unref will eventually be called once more
+    /// than `callback_funcs-`&gt;ref.
     /// 
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
@@ -3041,10 +3051,10 @@ public extension SourceProtocol {
     /// {
     ///   SomeWidget *self = data;
     ///    
-    ///   GDK_THREADS_ENTER ();
+    ///   g_mutex_lock (&self->idle_id_mutex);
     ///   // do stuff with self
     ///   self->idle_id = 0;
-    ///   GDK_THREADS_LEAVE ();
+    ///   g_mutex_unlock (&self->idle_id_mutex);
     ///    
     ///   return G_SOURCE_REMOVE;
     /// }
@@ -3052,9 +3062,19 @@ public extension SourceProtocol {
     /// static void
     /// some_widget_do_stuff_later (SomeWidget *self)
     /// {
+    ///   g_mutex_lock (&self->idle_id_mutex);
     ///   self->idle_id = g_idle_add (idle_callback, self);
+    ///   g_mutex_unlock (&self->idle_id_mutex);
     /// }
     ///  
+    /// static void
+    /// some_widget_init (SomeWidget *self)
+    /// {
+    ///   g_mutex_init (&self->idle_id_mutex);
+    /// 
+    ///   // ...
+    /// }
+    /// 
     /// static void
     /// some_widget_finalize (GObject *object)
     /// {
@@ -3063,6 +3083,8 @@ public extension SourceProtocol {
     ///   if (self->idle_id)
     ///     g_source_remove (self->idle_id);
     ///    
+    ///   g_mutex_clear (&self->idle_id_mutex);
+    /// 
     ///   G_OBJECT_CLASS (parent_class)->finalize (object);
     /// }
     /// ```
@@ -3080,12 +3102,12 @@ public extension SourceProtocol {
     /// {
     ///   SomeWidget *self = data;
     ///   
-    ///   GDK_THREADS_ENTER ();
+    ///   g_mutex_lock (&self->idle_id_mutex);
     ///   if (!g_source_is_destroyed (g_main_current_source ()))
     ///     {
     ///       // do stuff with self
     ///     }
-    ///   GDK_THREADS_LEAVE ();
+    ///   g_mutex_unlock (&self->idle_id_mutex);
     ///   
     ///   return FALSE;
     /// }
@@ -3110,10 +3132,10 @@ public extension SourceProtocol {
         /// {
         ///   SomeWidget *self = data;
         ///    
-        ///   GDK_THREADS_ENTER ();
+        ///   g_mutex_lock (&self->idle_id_mutex);
         ///   // do stuff with self
         ///   self->idle_id = 0;
-        ///   GDK_THREADS_LEAVE ();
+        ///   g_mutex_unlock (&self->idle_id_mutex);
         ///    
         ///   return G_SOURCE_REMOVE;
         /// }
@@ -3121,9 +3143,19 @@ public extension SourceProtocol {
         /// static void
         /// some_widget_do_stuff_later (SomeWidget *self)
         /// {
+        ///   g_mutex_lock (&self->idle_id_mutex);
         ///   self->idle_id = g_idle_add (idle_callback, self);
+        ///   g_mutex_unlock (&self->idle_id_mutex);
         /// }
         ///  
+        /// static void
+        /// some_widget_init (SomeWidget *self)
+        /// {
+        ///   g_mutex_init (&self->idle_id_mutex);
+        /// 
+        ///   // ...
+        /// }
+        /// 
         /// static void
         /// some_widget_finalize (GObject *object)
         /// {
@@ -3132,6 +3164,8 @@ public extension SourceProtocol {
         ///   if (self->idle_id)
         ///     g_source_remove (self->idle_id);
         ///    
+        ///   g_mutex_clear (&self->idle_id_mutex);
+        /// 
         ///   G_OBJECT_CLASS (parent_class)->finalize (object);
         /// }
         /// ```
@@ -3149,12 +3183,12 @@ public extension SourceProtocol {
         /// {
         ///   SomeWidget *self = data;
         ///   
-        ///   GDK_THREADS_ENTER ();
+        ///   g_mutex_lock (&self->idle_id_mutex);
         ///   if (!g_source_is_destroyed (g_main_current_source ()))
         ///     {
         ///       // do stuff with self
         ///     }
-        ///   GDK_THREADS_LEAVE ();
+        ///   g_mutex_unlock (&self->idle_id_mutex);
         ///   
         ///   return FALSE;
         /// }
@@ -3330,6 +3364,8 @@ public protocol SourceCallbackFuncsProtocol {
     /// Typed pointer to the underlying `GSourceCallbackFuncs` instance.
     var _ptr: UnsafeMutablePointer<GSourceCallbackFuncs>! { get }
 
+    /// Required Initialiser for types conforming to `SourceCallbackFuncsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SourceCallbackFuncsRef` type acts as a lightweight Swift reference to an underlying `GSourceCallbackFuncs` instance.
@@ -3535,7 +3571,7 @@ open class SourceCallbackFuncs: SourceCallbackFuncsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceCallbackFuncsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3621,6 +3657,8 @@ public protocol SourceFuncsProtocol {
     /// Typed pointer to the underlying `GSourceFuncs` instance.
     var _ptr: UnsafeMutablePointer<GSourceFuncs>! { get }
 
+    /// Required Initialiser for types conforming to `SourceFuncsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SourceFuncsRef` type acts as a lightweight Swift reference to an underlying `GSourceFuncs` instance.
@@ -3862,7 +3900,7 @@ open class SourceFuncs: SourceFuncsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourceFuncsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3942,6 +3980,8 @@ public protocol SourcePrivateProtocol {
     /// Typed pointer to the underlying `GSourcePrivate` instance.
     var _ptr: UnsafeMutablePointer<GSourcePrivate>! { get }
 
+    /// Required Initialiser for types conforming to `SourcePrivateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SourcePrivateRef` type acts as a lightweight Swift reference to an underlying `GSourcePrivate` instance.
@@ -4145,7 +4185,7 @@ open class SourcePrivate: SourcePrivateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SourcePrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4210,6 +4250,8 @@ public protocol StatBufProtocol {
     /// Typed pointer to the underlying `GStatBuf` instance.
     var _ptr: UnsafeMutablePointer<GStatBuf>! { get }
 
+    /// Required Initialiser for types conforming to `StatBufProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StatBufRef` type acts as a lightweight Swift reference to an underlying `GStatBuf` instance.
@@ -4419,7 +4461,7 @@ open class StatBuf: StatBufProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatBufProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4481,6 +4523,8 @@ public protocol StringProtocol {
     /// Typed pointer to the underlying `GString` instance.
     var gstring_ptr: UnsafeMutablePointer<GString>! { get }
 
+    /// Required Initialiser for types conforming to `StringProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StringRef` type acts as a lightweight Swift reference to an underlying `GString` instance.
@@ -4684,7 +4728,7 @@ open class StringType: StringProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4945,7 +4989,7 @@ public extension StringProtocol {
     /// the current length, the string will be truncated. If the
     /// length is greater than the current length, the contents
     /// of the newly added area are undefined. (However, as
-    /// always, string->str[string->len] will be a nul byte.)
+    /// always, string-&gt;str[string-&gt;len] will be a nul byte.)
     @inlinable func setSize(len: Int) -> StringRef! {
         guard let rv = StringRef(gconstpointer: gconstpointer(g_string_set_size(gstring_ptr, gsize(len)))) else { return nil }
         return rv
@@ -5047,6 +5091,8 @@ public protocol StringChunkProtocol {
     /// Typed pointer to the underlying `GStringChunk` instance.
     var _ptr: UnsafeMutablePointer<GStringChunk>! { get }
 
+    /// Required Initialiser for types conforming to `StringChunkProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StringChunkRef` type acts as a lightweight Swift reference to an underlying `GStringChunk` instance.
@@ -5252,7 +5298,7 @@ open class StringChunk: StringChunkProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StringChunkProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5377,6 +5423,8 @@ public protocol TestCaseProtocol {
     /// Typed pointer to the underlying `GTestCase` instance.
     var _ptr: UnsafeMutablePointer<GTestCase>! { get }
 
+    /// Required Initialiser for types conforming to `TestCaseProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestCaseRef` type acts as a lightweight Swift reference to an underlying `GTestCase` instance.
@@ -5580,7 +5628,7 @@ open class TestCase: TestCaseProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

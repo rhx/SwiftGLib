@@ -17,6 +17,8 @@ public protocol OnceProtocol {
     /// Typed pointer to the underlying `GOnce` instance.
     var _ptr: UnsafeMutablePointer<GOnce>! { get }
 
+    /// Required Initialiser for types conforming to `OnceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OnceRef` type acts as a lightweight Swift reference to an underlying `GOnce` instance.
@@ -224,7 +226,7 @@ open class Once: OnceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OnceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -320,6 +322,8 @@ public protocol OptionContextProtocol {
     /// Typed pointer to the underlying `GOptionContext` instance.
     var _ptr: UnsafeMutablePointer<GOptionContext>! { get }
 
+    /// Required Initialiser for types conforming to `OptionContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OptionContextRef` type acts as a lightweight Swift reference to an underlying `GOptionContext` instance.
@@ -527,7 +531,7 @@ open class OptionContext: OptionContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -961,6 +965,8 @@ public protocol OptionEntryProtocol {
     /// Typed pointer to the underlying `GOptionEntry` instance.
     var _ptr: UnsafeMutablePointer<GOptionEntry>! { get }
 
+    /// Required Initialiser for types conforming to `OptionEntryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OptionEntryRef` type acts as a lightweight Swift reference to an underlying `GOptionEntry` instance.
@@ -1168,7 +1174,7 @@ open class OptionEntry: OptionEntryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionEntryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1410,6 +1416,8 @@ public protocol OptionGroupProtocol {
     /// Typed pointer to the underlying `GOptionGroup` instance.
     var option_group_ptr: UnsafeMutablePointer<GOptionGroup>! { get }
 
+    /// Required Initialiser for types conforming to `OptionGroupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OptionGroupRef` type acts as a lightweight Swift reference to an underlying `GOptionGroup` instance.
@@ -1630,7 +1638,7 @@ open class OptionGroup: OptionGroupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OptionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1767,6 +1775,8 @@ public protocol PatternSpecProtocol {
     /// Typed pointer to the underlying `GPatternSpec` instance.
     var _ptr: UnsafeMutablePointer<GPatternSpec>! { get }
 
+    /// Required Initialiser for types conforming to `PatternSpecProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PatternSpecRef` type acts as a lightweight Swift reference to an underlying `GPatternSpec` instance.
@@ -1972,7 +1982,7 @@ open class PatternSpec: PatternSpecProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

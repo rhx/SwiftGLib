@@ -487,7 +487,7 @@ public struct MarkupParseFlags: OptionSet {
     /// When this flag is set, CDATA marked
     ///     sections are not passed literally to the `passthrough` function of
     ///     the parser. Instead, the content of the section (without the
-    ///     `<![CDATA[` and `]]>`) is
+    ///     `&lt;![CDATA[` and `]]&gt;`) is
     ///     passed to the `text` function. This flag was added in GLib 2.12
     public static let treatCdataAsText = MarkupParseFlags(2) // G_MARKUP_TREAT_CDATA_AS_TEXT
     /// Normally errors caught by GMarkup

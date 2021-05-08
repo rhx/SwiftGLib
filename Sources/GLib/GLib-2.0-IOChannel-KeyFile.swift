@@ -17,6 +17,8 @@ public protocol IOChannelProtocol {
     /// Typed pointer to the underlying `GIOChannel` instance.
     var io_channel_ptr: UnsafeMutablePointer<GIOChannel>! { get }
 
+    /// Required Initialiser for types conforming to `IOChannelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOChannelRef` type acts as a lightweight Swift reference to an underlying `GIOChannel` instance.
@@ -301,7 +303,7 @@ open class IOChannel: IOChannelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOChannelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -997,6 +999,8 @@ public protocol IOFuncsProtocol {
     /// Typed pointer to the underlying `GIOFuncs` instance.
     var _ptr: UnsafeMutablePointer<GIOFuncs>! { get }
 
+    /// Required Initialiser for types conforming to `IOFuncsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IOFuncsRef` type acts as a lightweight Swift reference to an underlying `GIOFuncs` instance.
@@ -1202,7 +1206,7 @@ open class IOFuncs: IOFuncsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IOFuncsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1280,6 +1284,8 @@ public protocol KeyFileProtocol {
     /// Typed pointer to the underlying `GKeyFile` instance.
     var key_file_ptr: UnsafeMutablePointer<GKeyFile>! { get }
 
+    /// Required Initialiser for types conforming to `KeyFileProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyFileRef` type acts as a lightweight Swift reference to an underlying `GKeyFile` instance.
@@ -1493,7 +1499,7 @@ open class KeyFile: KeyFileProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1586,7 +1592,7 @@ public extension KeyFileProtocol {
     /// Note that the returned string does not include the '#' comment markers,
     /// but does include any whitespace after them (on each line). It includes
     /// the line breaks between lines, but does not include the final line break.
-    @inlinable func getComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>!) throws -> String! {
+    @inlinable func getComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
         let rv = g_key_file_get_comment(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }

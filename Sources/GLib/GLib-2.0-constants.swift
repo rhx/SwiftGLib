@@ -197,7 +197,7 @@ public let HAVE_ISO_VARARGS = G_HAVE_ISO_VARARGS // 1
 
 /// The position of the first bit which is not reserved for internal
 /// use be the `GHook` implementation, i.e.
-/// `1 << G_HOOK_FLAG_USER_SHIFT` is the first
+/// `1 &lt;&lt; G_HOOK_FLAG_USER_SHIFT` is the first
 /// bit which can be used for application-defined flags.
 public let HOOK_FLAG_USER_SHIFT = G_HOOK_FLAG_USER_SHIFT // 4
 
@@ -340,7 +340,7 @@ public let LN2 = G_LN2 // 66
 /// Multiplying the base 2 exponent by this number yields the base 10 exponent.
 public let LOG_2_BASE_10 = G_LOG_2_BASE_10 // 67
 
-/// Defines the log domain. See [Log Domains](`log`-domains).
+/// Defines the log domain. See [Log Domains](`log-domains`).
 /// 
 /// Libraries should define this so that any messages
 /// which they log can be differentiated from messages from other
@@ -371,7 +371,7 @@ public let LOG_DOMAIN = 0 // G_LOG_DOMAIN
 /// [Using Structured Logging](#using-structured-logging).
 public let LOG_FATAL_MASK = 5 // G_LOG_FATAL_MASK
 
-/// Log levels below 1<<G_LOG_LEVEL_USER_SHIFT are used by GLib.
+/// Log levels below 1&lt;&lt;G_LOG_LEVEL_USER_SHIFT are used by GLib.
 /// Higher bits can be used for user-defined log levels.
 public let LOG_LEVEL_USER_SHIFT = G_LOG_LEVEL_USER_SHIFT // 8
 
@@ -411,7 +411,7 @@ public let MAXUINT8 = 255 // G_MAXUINT8
 /// Like `gtk_micro_version`, but from the headers used at
 /// application compile time, rather than from the library
 /// linked against at application run time.
-public let MICRO_VERSION = GLIB_MICRO_VERSION // 2
+public let MICRO_VERSION = GLIB_MICRO_VERSION // 7
 
 /// The minimum value which can be held in a `gint16`.
 public let MININT16 = G_MININT16 // -32768

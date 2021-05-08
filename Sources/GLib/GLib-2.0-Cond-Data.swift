@@ -80,6 +80,8 @@ public protocol CondProtocol {
     /// Typed pointer to the underlying `GCond` instance.
     var _ptr: UnsafeMutablePointer<GCond>! { get }
 
+    /// Required Initialiser for types conforming to `CondProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CondRef` type acts as a lightweight Swift reference to an underlying `GCond` instance.
@@ -413,7 +415,7 @@ open class Cond: CondProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CondProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -598,6 +600,8 @@ public protocol DataProtocol {
     /// Typed pointer to the underlying `GData` instance.
     var _ptr: UnsafeMutablePointer<GData>! { get }
 
+    /// Required Initialiser for types conforming to `DataProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DataRef` type acts as a lightweight Swift reference to an underlying `GData` instance.
@@ -805,7 +809,7 @@ open class Data: DataProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

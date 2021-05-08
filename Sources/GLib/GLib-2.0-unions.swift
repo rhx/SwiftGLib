@@ -19,6 +19,8 @@ public protocol DoubleIEEE754Protocol {
     /// Typed pointer to the underlying `GDoubleIEEE754` instance.
     var _ptr: UnsafeMutablePointer<GDoubleIEEE754>! { get }
 
+    /// Required Initialiser for types conforming to `DoubleIEEE754Protocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DoubleIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GDoubleIEEE754` instance.
@@ -230,7 +232,7 @@ open class DoubleIEEE754: DoubleIEEE754Protocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DoubleIEEE754Protocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -313,6 +315,8 @@ public protocol FloatIEEE754Protocol {
     /// Typed pointer to the underlying `GFloatIEEE754` instance.
     var _ptr: UnsafeMutablePointer<GFloatIEEE754>! { get }
 
+    /// Required Initialiser for types conforming to `FloatIEEE754Protocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FloatIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GFloatIEEE754` instance.
@@ -524,7 +528,7 @@ open class FloatIEEE754: FloatIEEE754Protocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FloatIEEE754Protocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -648,6 +652,8 @@ public protocol MutexProtocol {
     /// Typed pointer to the underlying `GMutex` instance.
     var _ptr: UnsafeMutablePointer<GMutex>! { get }
 
+    /// Required Initialiser for types conforming to `MutexProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MutexRef` type acts as a lightweight Swift reference to an underlying `GMutex` instance.
@@ -941,7 +947,7 @@ open class Mutex: MutexProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MutexProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1085,6 +1091,8 @@ public protocol TokenValueProtocol {
     /// Typed pointer to the underlying `GTokenValue` instance.
     var _ptr: UnsafeMutablePointer<GTokenValue>! { get }
 
+    /// Required Initialiser for types conforming to `TokenValueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TokenValueRef` type acts as a lightweight Swift reference to an underlying `GTokenValue` instance.
@@ -1288,7 +1296,7 @@ open class TokenValue: TokenValueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TokenValueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

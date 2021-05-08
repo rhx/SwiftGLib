@@ -15,6 +15,8 @@ public protocol ListProtocol {
     /// Typed pointer to the underlying `GList` instance.
     var _ptr: UnsafeMutablePointer<GList>! { get }
 
+    /// Required Initialiser for types conforming to `ListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListRef` type acts as a lightweight Swift reference to an underlying `GList` instance.
@@ -218,7 +220,7 @@ open class List: ListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -330,6 +332,8 @@ public protocol LogFieldProtocol {
     /// Typed pointer to the underlying `GLogField` instance.
     var _ptr: UnsafeMutablePointer<GLogField>! { get }
 
+    /// Required Initialiser for types conforming to `LogFieldProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LogFieldRef` type acts as a lightweight Swift reference to an underlying `GLogField` instance.
@@ -545,7 +549,7 @@ open class LogField: LogFieldProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LogFieldProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -646,6 +650,8 @@ public protocol MainContextProtocol {
     /// Typed pointer to the underlying `GMainContext` instance.
     var main_context_ptr: UnsafeMutablePointer<GMainContext>! { get }
 
+    /// Required Initialiser for types conforming to `MainContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MainContextRef` type acts as a lightweight Swift reference to an underlying `GMainContext` instance.
@@ -891,7 +897,7 @@ open class MainContext: MainContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -995,7 +1001,10 @@ public extension MainContextProtocol {
     
     }
 
-    /// Passes the results of polling back to the main loop.
+    /// Passes the results of polling back to the main loop. You should be
+    /// careful to pass `fds` and its length `n_fds` as received from
+    /// `g_main_context_query()`, as this functions relies on assumptions
+    /// on how `fds` is filled.
     /// 
     /// You must have successfully acquired the context with
     /// `g_main_context_acquire()` before you may call this function.
@@ -1175,7 +1184,10 @@ public extension MainContextProtocol {
     
     }
 
-    /// Determines information necessary to poll this main loop.
+    /// Determines information necessary to poll this main loop. You should
+    /// be careful to pass the resulting `fds` array and its length `n_fds`
+    /// as is when calling `g_main_context_check()`, as this function relies
+    /// on assumptions made when the array is filled.
     /// 
     /// You must have successfully acquired the context with
     /// `g_main_context_acquire()` before you may call this function.
@@ -1253,7 +1265,7 @@ public extension MainContextProtocol {
     /// (C Language Example):
     /// ```C
     ///   #define NUM_TASKS 10
-    ///   static volatile gint tasks_remaining = NUM_TASKS;
+    ///   static gint tasks_remaining = NUM_TASKS;  // (atomic)
     ///   ...
     ///  
     ///   while (g_atomic_int_get (&tasks_remaining) != 0)

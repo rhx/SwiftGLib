@@ -15,6 +15,8 @@ public protocol ByteArrayProtocol {
     /// Typed pointer to the underlying `GByteArray` instance.
     var byte_array_ptr: UnsafeMutablePointer<GByteArray>! { get }
 
+    /// Required Initialiser for types conforming to `ByteArrayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ByteArrayRef` type acts as a lightweight Swift reference to an underlying `GByteArray` instance.
@@ -218,7 +220,7 @@ open class ByteArray: ByteArrayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ByteArrayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -331,6 +333,8 @@ public protocol BytesProtocol {
     /// Typed pointer to the underlying `GBytes` instance.
     var bytes_ptr: UnsafeMutablePointer<GBytes>! { get }
 
+    /// Required Initialiser for types conforming to `BytesProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BytesRef` type acts as a lightweight Swift reference to an underlying `GBytes` instance.
@@ -666,7 +670,7 @@ open class Bytes: BytesProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BytesProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -882,6 +886,10 @@ public extension BytesProtocol {
     /// if this was the last reference to bytes and bytes was created with
     /// `g_bytes_new()`, `g_bytes_new_take()` or `g_byte_array_free_to_bytes()`. In all
     /// other cases the data is copied.
+    /// 
+    /// Do not use it if `bytes` contains more than `G_MAXUINT`
+    /// bytes. `GByteArray` stores the length of its data in `guint`, which
+    /// may be shorter than `gsize`, that `bytes` is using.
     @inlinable func unrefToArray() -> GLib.ByteArrayRef! {
         let rv = GLib.ByteArrayRef(g_bytes_unref_to_array(bytes_ptr))
         return rv
@@ -953,6 +961,8 @@ public protocol ChecksumProtocol {
     /// Typed pointer to the underlying `GChecksum` instance.
     var checksum_ptr: UnsafeMutablePointer<GChecksum>! { get }
 
+    /// Required Initialiser for types conforming to `ChecksumProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ChecksumRef` type acts as a lightweight Swift reference to an underlying `GChecksum` instance.
@@ -1177,7 +1187,7 @@ open class Checksum: ChecksumProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChecksumProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

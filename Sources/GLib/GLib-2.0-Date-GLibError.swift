@@ -10,7 +10,7 @@ import CGLib
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
+/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -25,6 +25,8 @@ public protocol DateProtocol {
     /// Typed pointer to the underlying `GDate` instance.
     var date_ptr: UnsafeMutablePointer<GDate>! { get }
 
+    /// Required Initialiser for types conforming to `DateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DateRef` type acts as a lightweight Swift reference to an underlying `GDate` instance.
@@ -34,7 +36,7 @@ public protocol DateProtocol {
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
+/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -166,7 +168,7 @@ public extension DateRef {
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate`-struct is obtained from `g_date_new()`, it will be safe
+/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -287,7 +289,7 @@ open class Date: DateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -927,6 +929,8 @@ public protocol DateTimeProtocol {
     /// Typed pointer to the underlying `GDateTime` instance.
     var date_time_ptr: UnsafeMutablePointer<GDateTime>! { get }
 
+    /// Required Initialiser for types conforming to `DateTimeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DateTimeRef` type acts as a lightweight Swift reference to an underlying `GDateTime` instance.
@@ -1046,7 +1050,7 @@ public extension DateTimeRef {
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// `text`. ISO 8601 strings of the form &lt;date&gt;&lt;sep&gt;&lt;time&gt;&lt;tz&gt; are supported, with
     /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
     /// mentioned below.
     /// 
@@ -1054,11 +1058,11 @@ public extension DateTimeRef {
     /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
     /// `23:59:59`.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// &lt;sep&gt; is the separator and can be either 'T', 't' or ' '. The latter two
     /// separators are an extension from
-    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section-5.6`).
     /// 
-    /// <date> is in the form:
+    /// &lt;date&gt; is in the form:
     /// 
     /// - `YYYY-MM-DD` - Year/month/day, e.g. 2016-08-24.
     /// - `YYYYMMDD` - Same as above without dividers.
@@ -1068,12 +1072,12 @@ public extension DateTimeRef {
     ///   e.g. 2016-W34-3.
     /// - `YYYYWwwD` - Same as above without dividers.
     /// 
-    /// <time> is in the form:
+    /// &lt;time&gt; is in the form:
     /// 
     /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
-    /// <tz> is an optional timezone suffix of the form:
+    /// &lt;tz&gt; is an optional timezone suffix of the form:
     /// 
     /// - `Z` - UTC.
     /// - `+hh:mm` or `-hh:mm` - Offset from UTC in hours and minutes, e.g. +12:00.
@@ -1198,7 +1202,7 @@ public extension DateTimeRef {
     }
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// `text`. ISO 8601 strings of the form &lt;date&gt;&lt;sep&gt;&lt;time&gt;&lt;tz&gt; are supported, with
     /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
     /// mentioned below.
     /// 
@@ -1206,11 +1210,11 @@ public extension DateTimeRef {
     /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
     /// `23:59:59`.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// &lt;sep&gt; is the separator and can be either 'T', 't' or ' '. The latter two
     /// separators are an extension from
-    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section-5.6`).
     /// 
-    /// <date> is in the form:
+    /// &lt;date&gt; is in the form:
     /// 
     /// - `YYYY-MM-DD` - Year/month/day, e.g. 2016-08-24.
     /// - `YYYYMMDD` - Same as above without dividers.
@@ -1220,12 +1224,12 @@ public extension DateTimeRef {
     ///   e.g. 2016-W34-3.
     /// - `YYYYWwwD` - Same as above without dividers.
     /// 
-    /// <time> is in the form:
+    /// &lt;time&gt; is in the form:
     /// 
     /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
-    /// <tz> is an optional timezone suffix of the form:
+    /// &lt;tz&gt; is an optional timezone suffix of the form:
     /// 
     /// - `Z` - UTC.
     /// - `+hh:mm` or `-hh:mm` - Offset from UTC in hours and minutes, e.g. +12:00.
@@ -1488,7 +1492,7 @@ open class DateTime: DateTimeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DateTimeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1550,7 +1554,7 @@ open class DateTime: DateTimeProtocol {
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// `text`. ISO 8601 strings of the form &lt;date&gt;&lt;sep&gt;&lt;time&gt;&lt;tz&gt; are supported, with
     /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
     /// mentioned below.
     /// 
@@ -1558,11 +1562,11 @@ open class DateTime: DateTimeProtocol {
     /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
     /// `23:59:59`.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// &lt;sep&gt; is the separator and can be either 'T', 't' or ' '. The latter two
     /// separators are an extension from
-    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section-5.6`).
     /// 
-    /// <date> is in the form:
+    /// &lt;date&gt; is in the form:
     /// 
     /// - `YYYY-MM-DD` - Year/month/day, e.g. 2016-08-24.
     /// - `YYYYMMDD` - Same as above without dividers.
@@ -1572,12 +1576,12 @@ open class DateTime: DateTimeProtocol {
     ///   e.g. 2016-W34-3.
     /// - `YYYYWwwD` - Same as above without dividers.
     /// 
-    /// <time> is in the form:
+    /// &lt;time&gt; is in the form:
     /// 
     /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
-    /// <tz> is an optional timezone suffix of the form:
+    /// &lt;tz&gt; is an optional timezone suffix of the form:
     /// 
     /// - `Z` - UTC.
     /// - `+hh:mm` or `-hh:mm` - Offset from UTC in hours and minutes, e.g. +12:00.
@@ -1703,7 +1707,7 @@ open class DateTime: DateTimeProtocol {
 
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
-    /// `text`. ISO 8601 strings of the form <date><sep><time><tz> are supported, with
+    /// `text`. ISO 8601 strings of the form &lt;date&gt;&lt;sep&gt;&lt;time&gt;&lt;tz&gt; are supported, with
     /// some extensions from [RFC 3339](https://tools.ietf.org/html/rfc3339) as
     /// mentioned below.
     /// 
@@ -1711,11 +1715,11 @@ open class DateTime: DateTimeProtocol {
     /// in an ISO-8601 string will be ignored, so a `23:59:60` time would be parsed as
     /// `23:59:59`.
     /// 
-    /// <sep> is the separator and can be either 'T', 't' or ' '. The latter two
+    /// &lt;sep&gt; is the separator and can be either 'T', 't' or ' '. The latter two
     /// separators are an extension from
-    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section`-5.6).
+    /// [RFC 3339](https://tools.ietf.org/html/rfc3339`section-5.6`).
     /// 
-    /// <date> is in the form:
+    /// &lt;date&gt; is in the form:
     /// 
     /// - `YYYY-MM-DD` - Year/month/day, e.g. 2016-08-24.
     /// - `YYYYMMDD` - Same as above without dividers.
@@ -1725,12 +1729,12 @@ open class DateTime: DateTimeProtocol {
     ///   e.g. 2016-W34-3.
     /// - `YYYYWwwD` - Same as above without dividers.
     /// 
-    /// <time> is in the form:
+    /// &lt;time&gt; is in the form:
     /// 
     /// - `hh:mm:`ss(.sss)`` - Hours, minutes, seconds (subseconds), e.g. 22:10:42.123.
     /// - ``hhmmss(.sss)`` - Same as above without dividers.
     /// 
-    /// <tz> is an optional timezone suffix of the form:
+    /// &lt;tz&gt; is an optional timezone suffix of the form:
     /// 
     /// - `Z` - UTC.
     /// - `+hh:mm` or `-hh:mm` - Offset from UTC in hours and minutes, e.g. +12:00.
@@ -1955,11 +1959,27 @@ public extension DateTimeProtocol {
         return rv
     }
 
+    /// A comparison function for `GDateTimes` that is suitable
+    /// as a `GCompareFunc`. Both `GDateTimes` must be non-`nil`.
+    @inlinable func compare<DateTimeT: DateTimeProtocol>(dt2: DateTimeT) -> Int {
+        let rv = Int(g_date_time_compare(date_time_ptr, dt2.date_time_ptr))
+        return rv
+    }
+
     /// Calculates the difference in time between `end` and `begin`.  The
     /// `GTimeSpan` that is returned is effectively `end` - `begin` (ie:
     /// positive if the first parameter is larger).
     @inlinable func difference<DateTimeT: DateTimeProtocol>(begin: DateTimeT) -> GTimeSpan {
         let rv = g_date_time_difference(date_time_ptr, begin.date_time_ptr)
+        return rv
+    }
+
+    /// Checks to see if `dt1` and `dt2` are equal.
+    /// 
+    /// Equal here means that they represent the same moment after converting
+    /// them to the same time zone.
+    @inlinable func equal<DateTimeT: DateTimeProtocol>(dt2: DateTimeT) -> Bool {
+        let rv = ((g_date_time_equal(date_time_ptr, dt2.date_time_ptr)) != 0)
         return rv
     }
 
@@ -1986,7 +2006,7 @@ public extension DateTimeProtocol {
     /// - \`C:` the century number (year/100) as a 2-digit integer (00-99)
     /// - \`d:` the day of the month as a decimal number (range 01 to 31)
     /// - \`e:` the day of the month as a decimal number (range  1 to 31)
-    /// - \`F:` equivalent to ``Y`-`m`-`d`` (the ISO 8601 date format)
+    /// - \`F:` equivalent to ``Y-``m-``d`` (the ISO 8601 date format)
     /// - \`g:` the last two digits of the ISO 8601 week-based year as a
     ///   decimal number (00-99). This works well with \`V` and \`u`.
     /// - \`G:` the ISO 8601 week-based year as a decimal number. This works
@@ -2232,6 +2252,12 @@ public extension DateTimeProtocol {
     @inlinable func getYmd(year: UnsafeMutablePointer<gint>! = nil, month: UnsafeMutablePointer<gint>! = nil, day: UnsafeMutablePointer<gint>! = nil) {
         g_date_time_get_ymd(date_time_ptr, year, month, day)
     
+    }
+
+    /// Hashes `datetime` into a `guint`, suitable for use within `GHashTable`.
+    @inlinable func hash() -> Int {
+        let rv = Int(g_date_time_hash(date_time_ptr))
+        return rv
     }
 
     /// Atomically increments the reference count of `datetime` by one.
@@ -2600,6 +2626,8 @@ public protocol DebugKeyProtocol {
     /// Typed pointer to the underlying `GDebugKey` instance.
     var _ptr: UnsafeMutablePointer<GDebugKey>! { get }
 
+    /// Required Initialiser for types conforming to `DebugKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DebugKeyRef` type acts as a lightweight Swift reference to an underlying `GDebugKey` instance.
@@ -2805,7 +2833,7 @@ open class DebugKey: DebugKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DebugKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2892,6 +2920,8 @@ public protocol DirProtocol {
     /// Typed pointer to the underlying `GDir` instance.
     var _ptr: UnsafeMutablePointer<GDir>! { get }
 
+    /// Required Initialiser for types conforming to `DirProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DirRef` type acts as a lightweight Swift reference to an underlying `GDir` instance.
@@ -3105,7 +3135,7 @@ open class Dir: DirProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DirProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3208,6 +3238,8 @@ public protocol ErrorProtocol: Error {
     /// Typed pointer to the underlying `GError` instance.
     var error_ptr: UnsafeMutablePointer<GError>! { get }
 
+    /// Required Initialiser for types conforming to `ErrorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ErrorRef` type acts as a lightweight Swift reference to an underlying `GError` instance.
@@ -3443,7 +3475,7 @@ open class GLibError: ErrorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

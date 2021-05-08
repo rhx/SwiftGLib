@@ -16,6 +16,8 @@ public protocol MainLoopProtocol {
     /// Typed pointer to the underlying `GMainLoop` instance.
     var main_loop_ptr: UnsafeMutablePointer<GMainLoop>! { get }
 
+    /// Required Initialiser for types conforming to `MainLoopProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MainLoopRef` type acts as a lightweight Swift reference to an underlying `GMainLoop` instance.
@@ -226,7 +228,7 @@ open class MainLoop: MainLoopProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainLoopProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -349,6 +351,8 @@ public protocol MappedFileProtocol {
     /// Typed pointer to the underlying `GMappedFile` instance.
     var mapped_file_ptr: UnsafeMutablePointer<GMappedFile>! { get }
 
+    /// Required Initialiser for types conforming to `MappedFileProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MappedFileRef` type acts as a lightweight Swift reference to an underlying `GMappedFile` instance.
@@ -614,7 +618,7 @@ open class MappedFile: MappedFileProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MappedFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -830,6 +834,8 @@ public protocol MarkupParseContextProtocol {
     /// Typed pointer to the underlying `GMarkupParseContext` instance.
     var markup_parse_context_ptr: UnsafeMutablePointer<GMarkupParseContext>! { get }
 
+    /// Required Initialiser for types conforming to `MarkupParseContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MarkupParseContextRef` type acts as a lightweight Swift reference to an underlying `GMarkupParseContext` instance.
@@ -1050,7 +1056,7 @@ open class MarkupParseContext: MarkupParseContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParseContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1425,6 +1431,8 @@ public protocol MarkupParserProtocol {
     /// Typed pointer to the underlying `GMarkupParser` instance.
     var _ptr: UnsafeMutablePointer<GMarkupParser>! { get }
 
+    /// Required Initialiser for types conforming to `MarkupParserProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MarkupParserRef` type acts as a lightweight Swift reference to an underlying `GMarkupParser` instance.
@@ -1640,7 +1648,7 @@ open class MarkupParser: MarkupParserProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarkupParserProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1712,6 +1720,8 @@ public protocol MatchInfoProtocol {
     /// Typed pointer to the underlying `GMatchInfo` instance.
     var match_info_ptr: UnsafeMutablePointer<GMatchInfo>! { get }
 
+    /// Required Initialiser for types conforming to `MatchInfoProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MatchInfoRef` type acts as a lightweight Swift reference to an underlying `GMatchInfo` instance.
@@ -1917,7 +1927,7 @@ open class MatchInfo: MatchInfoProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatchInfoProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2027,7 +2037,7 @@ public extension MatchInfoProtocol {
     /// Retrieves the text matching the capturing parentheses named `name`.
     /// 
     /// If `name` is a valid sub pattern name but it didn't match anything
-    /// (e.g. sub pattern "X", matching "b" against "(?P<X>a)?b")
+    /// (e.g. sub pattern "X", matching "b" against "(?P&lt;X&gt;a)?b")
     /// then an empty string is returned.
     /// 
     /// The string is fetched from the string passed to the match function,
@@ -2040,7 +2050,7 @@ public extension MatchInfoProtocol {
     /// Retrieves the position in bytes of the capturing parentheses named `name`.
     /// 
     /// If `name` is a valid sub pattern name but it didn't match anything
-    /// (e.g. sub pattern "X", matching "b" against "(?P<X>a)?b")
+    /// (e.g. sub pattern "X", matching "b" against "(?P&lt;X&gt;a)?b")
     /// then `start_pos` and `end_pos` are set to -1 and `true` is returned.
     @inlinable func fetchNamedPos(name: UnsafePointer<gchar>!, startPos: UnsafeMutablePointer<gint>! = nil, endPos: UnsafeMutablePointer<gint>! = nil) -> Bool {
         let rv = ((g_match_info_fetch_named_pos(match_info_ptr, name, startPos, endPos)) != 0)
@@ -2278,6 +2288,8 @@ public protocol MemVTableProtocol {
     /// Typed pointer to the underlying `GMemVTable` instance.
     var _ptr: UnsafeMutablePointer<GMemVTable>! { get }
 
+    /// Required Initialiser for types conforming to `MemVTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemVTableRef` type acts as a lightweight Swift reference to an underlying `GMemVTable` instance.
@@ -2489,7 +2501,7 @@ open class MemVTable: MemVTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemVTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2574,6 +2586,8 @@ public protocol NodeProtocol {
     /// Typed pointer to the underlying `GNode` instance.
     var _ptr: UnsafeMutablePointer<GNode>! { get }
 
+    /// Required Initialiser for types conforming to `NodeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `NodeRef` type acts as a lightweight Swift reference to an underlying `GNode` instance.
@@ -2777,7 +2791,7 @@ open class Node: NodeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

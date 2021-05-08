@@ -708,7 +708,7 @@ public extension RegexError {
     /// Nothing to repeat. Since 2.16
     static let nothingToRepeat = G_REGEX_ERROR_NOTHING_TO_REPEAT // 109
     /// Unrecognized character after "(?",
-    ///     "(?<" or "(?P". Since 2.16
+    ///     "(?&lt;" or "(?P". Since 2.16
     static let unrecognizedCharacter = G_REGEX_ERROR_UNRECOGNIZED_CHARACTER // 112
     /// POSIX named classes are
     ///     supported only within a class. Since 2.16
@@ -947,7 +947,7 @@ public extension SpawnError {
     /// `execv()` returned `ELIBBAD`
     static let libbad = G_SPAWN_ERROR_LIBBAD // 18
     /// Some other fatal failure,
-    ///   `error->message` should explain.
+    ///   `error-&gt;message` should explain.
     static let failed = G_SPAWN_ERROR_FAILED // 19
 }
 

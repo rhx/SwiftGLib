@@ -15,6 +15,8 @@ public protocol ArrayProtocol {
     /// Typed pointer to the underlying `GArray` instance.
     var array_ptr: UnsafeMutablePointer<GArray>! { get }
 
+    /// Required Initialiser for types conforming to `ArrayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ArrayRef` type acts as a lightweight Swift reference to an underlying `GArray` instance.
@@ -218,7 +220,7 @@ open class ArrayType: ArrayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ArrayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -313,6 +315,8 @@ public protocol AsyncQueueProtocol {
     /// Typed pointer to the underlying `GAsyncQueue` instance.
     var _ptr: UnsafeMutablePointer<GAsyncQueue>! { get }
 
+    /// Required Initialiser for types conforming to `AsyncQueueProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AsyncQueueRef` type acts as a lightweight Swift reference to an underlying `GAsyncQueue` instance.
@@ -527,7 +531,7 @@ open class AsyncQueue: AsyncQueueProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AsyncQueueProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -901,6 +905,8 @@ public protocol BookmarkFileProtocol {
     /// Typed pointer to the underlying `GBookmarkFile` instance.
     var _ptr: UnsafeMutablePointer<GBookmarkFile>! { get }
 
+    /// Required Initialiser for types conforming to `BookmarkFileProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BookmarkFileRef` type acts as a lightweight Swift reference to an underlying `GBookmarkFile` instance.
@@ -1106,7 +1112,7 @@ open class BookmarkFile: BookmarkFileProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BookmarkFileProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1559,7 +1565,7 @@ public extension BookmarkFileProtocol {
     /// The expansion is done automatically when retrieving the stored
     /// command line using the `g_bookmark_file_get_application_info()` function.
     /// `count` is the number of times the application has registered the
-    /// bookmark; if is < 0, the current registration count will be increased
+    /// bookmark; if is &lt; 0, the current registration count will be increased
     /// by one, if is 0, the application with `name` will be removed from
     /// the list of registered applications.
     /// `stamp` is the Unix time of the last registration; if it is -1, the
@@ -1598,7 +1604,7 @@ public extension BookmarkFileProtocol {
     /// The expansion is done automatically when retrieving the stored
     /// command line using the `g_bookmark_file_get_application_info()` function.
     /// `count` is the number of times the application has registered the
-    /// bookmark; if is < 0, the current registration count will be increased
+    /// bookmark; if is &lt; 0, the current registration count will be increased
     /// by one, if is 0, the application with `name` will be removed from
     /// the list of registered applications.
     /// `stamp` is the Unix time of the last registration.
@@ -1631,7 +1637,7 @@ public extension BookmarkFileProtocol {
     /// The expansion is done automatically when retrieving the stored
     /// command line using the `g_bookmark_file_get_application_info()` function.
     /// `count` is the number of times the application has registered the
-    /// bookmark; if is < 0, the current registration count will be increased
+    /// bookmark; if is &lt; 0, the current registration count will be increased
     /// by one, if is 0, the application with `name` will be removed from
     /// the list of registered applications.
     /// `stamp` is the Unix time of the last registration.

@@ -17,6 +17,8 @@ public protocol HashTableProtocol {
     /// Typed pointer to the underlying `GHashTable` instance.
     var hash_table_ptr: UnsafeMutablePointer<GHashTable>! { get }
 
+    /// Required Initialiser for types conforming to `HashTableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HashTableRef` type acts as a lightweight Swift reference to an underlying `GHashTable` instance.
@@ -224,7 +226,7 @@ open class HashTable: HashTableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -292,6 +294,8 @@ public protocol HashTableIterProtocol {
     /// Typed pointer to the underlying `GHashTableIter` instance.
     var _ptr: UnsafeMutablePointer<GHashTableIter>! { get }
 
+    /// Required Initialiser for types conforming to `HashTableIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HashTableIterRef` type acts as a lightweight Swift reference to an underlying `GHashTableIter` instance.
@@ -507,7 +511,7 @@ open class HashTableIter: HashTableIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -673,6 +677,8 @@ public protocol HmacProtocol {
     /// Typed pointer to the underlying `GHmac` instance.
     var _ptr: UnsafeMutablePointer<GHmac>! { get }
 
+    /// Required Initialiser for types conforming to `HmacProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HmacRef` type acts as a lightweight Swift reference to an underlying `GHmac` instance.
@@ -880,7 +886,7 @@ open class Hmac: HmacProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HmacProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1016,6 +1022,8 @@ public protocol HookProtocol {
     /// Typed pointer to the underlying `GHook` instance.
     var _ptr: UnsafeMutablePointer<GHook>! { get }
 
+    /// Required Initialiser for types conforming to `HookProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HookRef` type acts as a lightweight Swift reference to an underlying `GHook` instance.
@@ -1279,7 +1287,7 @@ open class Hook: HookProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1608,6 +1616,8 @@ public protocol HookListProtocol {
     /// Typed pointer to the underlying `GHookList` instance.
     var _ptr: UnsafeMutablePointer<GHookList>! { get }
 
+    /// Required Initialiser for types conforming to `HookListProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `HookListRef` type acts as a lightweight Swift reference to an underlying `GHookList` instance.
@@ -1811,7 +1821,7 @@ open class HookList: HookListProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HookListProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2045,6 +2055,8 @@ public protocol IConvProtocol {
     /// Typed pointer to the underlying `GIConv` instance.
     var _ptr: GIConv! { get }
 
+    /// Required Initialiser for types conforming to `IConvProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IConvRef` type acts as a lightweight Swift reference to an underlying `GIConv` instance.
@@ -2250,7 +2262,7 @@ open class IConv: IConvProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

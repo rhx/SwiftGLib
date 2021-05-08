@@ -21,6 +21,8 @@ public protocol VariantBuilderProtocol {
     /// Typed pointer to the underlying `GVariantBuilder` instance.
     var variant_builder_ptr: UnsafeMutablePointer<GVariantBuilder>! { get }
 
+    /// Required Initialiser for types conforming to `VariantBuilderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VariantBuilderRef` type acts as a lightweight Swift reference to an underlying `GVariantBuilder` instance.
@@ -249,7 +251,7 @@ open class VariantBuilder: VariantBuilderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantBuilderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -587,6 +589,8 @@ public protocol VariantDictProtocol {
     /// Typed pointer to the underlying `GVariantDict` instance.
     var variant_dict_ptr: UnsafeMutablePointer<GVariantDict>! { get }
 
+    /// Required Initialiser for types conforming to `VariantDictProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VariantDictRef` type acts as a lightweight Swift reference to an underlying `GVariantDict` instance.
@@ -986,7 +990,7 @@ open class VariantDict: VariantDictProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantDictProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1214,6 +1218,8 @@ public protocol VariantIterProtocol {
     /// Typed pointer to the underlying `GVariantIter` instance.
     var _ptr: UnsafeMutablePointer<GVariantIter>! { get }
 
+    /// Required Initialiser for types conforming to `VariantIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VariantIterRef` type acts as a lightweight Swift reference to an underlying `GVariantIter` instance.
@@ -1419,7 +1425,7 @@ open class VariantIter: VariantIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1586,7 +1592,7 @@ public extension VariantIterProtocol {
 /// 
 /// Just as in D-Bus, GVariant types are described with strings ("type
 /// strings").  Subject to the differences mentioned above, these strings
-/// are of the same form as those found in DBus.  Note, however: D-Bus
+/// are of the same form as those found in D-Bus.  Note, however: D-Bus
 /// always works in terms of messages and therefore individual type
 /// strings appear nowhere in its interface.  Instead, "signatures"
 /// are a concatenation of the strings of the type of each argument in a
@@ -1713,6 +1719,8 @@ public protocol VariantTypeProtocol {
     /// Typed pointer to the underlying `GVariantType` instance.
     var variant_type_ptr: UnsafeMutablePointer<GVariantType>! { get }
 
+    /// Required Initialiser for types conforming to `VariantTypeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VariantTypeRef` type acts as a lightweight Swift reference to an underlying `GVariantType` instance.
@@ -1746,7 +1754,7 @@ public protocol VariantTypeProtocol {
 /// 
 /// Just as in D-Bus, GVariant types are described with strings ("type
 /// strings").  Subject to the differences mentioned above, these strings
-/// are of the same form as those found in DBus.  Note, however: D-Bus
+/// are of the same form as those found in D-Bus.  Note, however: D-Bus
 /// always works in terms of messages and therefore individual type
 /// strings appear nowhere in its interface.  Instead, "signatures"
 /// are a concatenation of the strings of the type of each argument in a
@@ -2011,7 +2019,7 @@ public extension VariantTypeRef {
 /// 
 /// Just as in D-Bus, GVariant types are described with strings ("type
 /// strings").  Subject to the differences mentioned above, these strings
-/// are of the same form as those found in DBus.  Note, however: D-Bus
+/// are of the same form as those found in D-Bus.  Note, however: D-Bus
 /// always works in terms of messages and therefore individual type
 /// strings appear nowhere in its interface.  Instead, "signatures"
 /// are a concatenation of the strings of the type of each argument in a
@@ -2244,7 +2252,7 @@ open class VariantType: VariantTypeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantTypeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

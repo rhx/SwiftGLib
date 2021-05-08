@@ -23,6 +23,8 @@ public protocol URIParamsIterProtocol {
     /// Typed pointer to the underlying `GUriParamsIter` instance.
     var _ptr: UnsafeMutablePointer<GUriParamsIter>! { get }
 
+    /// Required Initialiser for types conforming to `URIParamsIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `URIParamsIterRef` type acts as a lightweight Swift reference to an underlying `GUriParamsIter` instance.
@@ -242,7 +244,7 @@ open class URIParamsIter: URIParamsIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIParamsIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -367,7 +369,7 @@ public extension URIParamsIterProtocol {
 /// its type nor its content can be modified further.
 /// 
 /// GVariant is useful whenever data needs to be serialized, for example when
-/// sending method parameters in DBus, or when saving settings using GSettings.
+/// sending method parameters in D-Bus, or when saving settings using GSettings.
 /// 
 /// When creating a new `GVariant`, you pass the data you want to store in it
 /// along with a string representing the type of data you wish to pass to it.
@@ -608,6 +610,8 @@ public protocol VariantProtocol {
     /// Typed pointer to the underlying `GVariant` instance.
     var variant_ptr: UnsafeMutablePointer<GVariant>! { get }
 
+    /// Required Initialiser for types conforming to `VariantProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VariantRef` type acts as a lightweight Swift reference to an underlying `GVariant` instance.
@@ -623,7 +627,7 @@ public protocol VariantProtocol {
 /// its type nor its content can be modified further.
 /// 
 /// GVariant is useful whenever data needs to be serialized, for example when
-/// sending method parameters in DBus, or when saving settings using GSettings.
+/// sending method parameters in D-Bus, or when saving settings using GSettings.
 /// 
 /// When creating a new `GVariant`, you pass the data you want to store in it
 /// along with a string representing the type of data you wish to pass to it.
@@ -1149,7 +1153,7 @@ public extension VariantRef {
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
     /// or by passing it to another `g_variant_new()` call.
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
     @inlinable init(parsed_va format: UnsafePointer<gchar>!, app: UnsafeMutablePointer<va_list>!) {
         let rv = g_variant_new_parsed_va(format, app)
         ptr = UnsafeMutableRawPointer(rv)
@@ -1270,7 +1274,7 @@ public extension VariantRef {
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
     /// or by passing it to another `g_variant_new()` call.
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
     @inlinable init(va formatString: UnsafePointer<gchar>!, endptr: UnsafeMutablePointer<UnsafePointer<gchar>?>? = nil, app: UnsafeMutablePointer<va_list>!) {
         let rv = g_variant_new_va(formatString, endptr, app)
         ptr = UnsafeMutableRawPointer(rv)
@@ -1488,7 +1492,7 @@ public extension VariantRef {
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
     /// or by passing it to another `g_variant_new()` call.
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
     @inlinable static func newParsedVa(parsed_va format: UnsafePointer<gchar>!, app: UnsafeMutablePointer<va_list>!) -> VariantRef! {
         guard let rv = VariantRef(gconstpointer: gconstpointer(g_variant_new_parsed_va(format, app))) else { return nil }
         return rv
@@ -1609,7 +1613,7 @@ public extension VariantRef {
     /// At this point, the caller will have their own full reference to the
     /// result.  This can also be done by adding the result to a container,
     /// or by passing it to another `g_variant_new()` call.
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
     @inlinable static func new(va formatString: UnsafePointer<gchar>!, endptr: UnsafeMutablePointer<UnsafePointer<gchar>?>? = nil, app: UnsafeMutablePointer<va_list>!) -> VariantRef! {
         guard let rv = VariantRef(gconstpointer: gconstpointer(g_variant_new_va(formatString, endptr, app))) else { return nil }
         return rv
@@ -1673,7 +1677,7 @@ public extension VariantRef {
 /// its type nor its content can be modified further.
 /// 
 /// GVariant is useful whenever data needs to be serialized, for example when
-/// sending method parameters in DBus, or when saving settings using GSettings.
+/// sending method parameters in D-Bus, or when saving settings using GSettings.
 /// 
 /// When creating a new `GVariant`, you pass the data you want to store in it
 /// along with a string representing the type of data you wish to pass to it.
@@ -2020,7 +2024,7 @@ open class Variant: VariantProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VariantProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3182,7 +3186,7 @@ public extension VariantProtocol {
     /// the values and also determines if the values are copied or borrowed,
     /// see the section on
     /// [GVariant format strings](#gvariant-format-strings-pointers).
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
     @inlinable func getVa(formatString: UnsafePointer<gchar>!, endptr: UnsafeMutablePointer<UnsafePointer<gchar>?>? = nil, app: UnsafeMutablePointer<va_list>!) {
         g_variant_get_va(variant_ptr, formatString, endptr, app)
     

@@ -411,6 +411,9 @@ import CGLib
 /// 
 /// Before version 2.30, this function did not return a value
 /// (but `g_atomic_int_exchange_and_add()` did, and had the same meaning).
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntAdd(atomic: UnsafeMutablePointer<gint>!, val: Int) -> Int {
     let rv = Int(g_atomic_int_add(atomic, gint(val)))
     return rv
@@ -426,6 +429,9 @@ import CGLib
 /// 
 /// Think of this operation as an atomic version of
 /// `{ tmp = *atomic; *atomic &= val; return tmp; }`.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntAnd(atomic: UnsafeMutablePointer<guint>!, val: Int) -> Int {
     let rv = Int(g_atomic_int_and(atomic, guint(val)))
     return rv
@@ -443,6 +449,9 @@ import CGLib
 /// `{ if (*atomic == oldval) { *atomic = newval; return TRUE; } else return FALSE; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntCompareAndExchange(atomic: UnsafeMutablePointer<gint>!, oldval: Int, newval: Int) -> Bool {
     let rv = ((g_atomic_int_compare_and_exchange(atomic, gint(oldval), gint(newval))) != 0)
     return rv
@@ -457,6 +466,9 @@ import CGLib
 /// `{ *atomic -= 1; return (*atomic == 0); }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntDecAndTest(atomic: UnsafeMutablePointer<gint>!) -> Bool {
     let rv = ((g_atomic_int_dec_and_test(atomic)) != 0)
     return rv
@@ -483,6 +495,9 @@ import CGLib
 /// 
 /// This call acts as a full compiler and hardware
 /// memory barrier (before the get).
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntGet(atomic: UnsafePointer<gint>!) -> Int {
     let rv = Int(g_atomic_int_get(atomic))
     return rv
@@ -496,6 +511,9 @@ import CGLib
 /// Think of this operation as an atomic version of `{ *atomic += 1; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntInc(atomic: UnsafeMutablePointer<gint>!) {
     g_atomic_int_inc(atomic)
 
@@ -511,6 +529,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic |= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntOr(atomic: UnsafeMutablePointer<guint>!, val: Int) -> Int {
     let rv = Int(g_atomic_int_or(atomic, guint(val)))
     return rv
@@ -523,6 +544,9 @@ import CGLib
 /// 
 /// This call acts as a full compiler and hardware
 /// memory barrier (after the set).
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntSet(atomic: UnsafeMutablePointer<gint>!, newval: Int) {
     g_atomic_int_set(atomic, gint(newval))
 
@@ -538,6 +562,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic ^= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicIntXor(atomic: UnsafeMutablePointer<guint>!, val: Int) -> Int {
     let rv = Int(g_atomic_int_xor(atomic, guint(val)))
     return rv
@@ -552,6 +579,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic += val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerAdd(atomic: UnsafeMutableRawPointer!, val: gssize) -> gssize {
     let rv = g_atomic_pointer_add(atomic, val)
     return rv
@@ -567,6 +597,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic &= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerAnd(atomic: UnsafeMutableRawPointer!, val: Int) -> Int {
     let rv = Int(g_atomic_pointer_and(atomic, gsize(val)))
     return rv
@@ -584,6 +617,9 @@ import CGLib
 /// `{ if (*atomic == oldval) { *atomic = newval; return TRUE; } else return FALSE; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerCompareAndExchange(atomic: UnsafeMutableRawPointer!, oldval: gpointer! = nil, newval: gpointer! = nil) -> Bool {
     let rv = ((g_atomic_pointer_compare_and_exchange(atomic, oldval, newval)) != 0)
     return rv
@@ -596,6 +632,9 @@ import CGLib
 /// 
 /// This call acts as a full compiler and hardware
 /// memory barrier (before the get).
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerGet(atomic: UnsafeMutableRawPointer!) -> gpointer! {
     guard let rv = g_atomic_pointer_get(atomic) else { return nil }
     return rv
@@ -611,6 +650,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic |= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerOr(atomic: UnsafeMutableRawPointer!, val: Int) -> Int {
     let rv = Int(g_atomic_pointer_or(atomic, gsize(val)))
     return rv
@@ -623,6 +665,9 @@ import CGLib
 /// 
 /// This call acts as a full compiler and hardware
 /// memory barrier (after the set).
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerSet(atomic: UnsafeMutableRawPointer!, newval: gpointer! = nil) {
     g_atomic_pointer_set(atomic, newval)
 
@@ -638,6 +683,9 @@ import CGLib
 /// `{ tmp = *atomic; *atomic ^= val; return tmp; }`.
 /// 
 /// This call acts as a full compiler and hardware memory barrier.
+/// 
+/// While `atomic` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func atomicPointerXor(atomic: UnsafeMutableRawPointer!, val: Int) -> Int {
     let rv = Int(g_atomic_pointer_xor(atomic, gsize(val)))
     return rv
@@ -883,7 +931,7 @@ import CGLib
 /// Attempting to lock on two different bits within the same integer is
 /// not supported and will very probably cause deadlocks.
 /// 
-/// The value of the bit that is set is (1u << `bit`).  If `bit` is not
+/// The value of the bit that is set is (1u &lt;&lt; `bit`).  If `bit` is not
 /// between 0 and 31 then the result is undefined.
 /// 
 /// This function accesses `address` atomically.  All other accesses to
@@ -938,7 +986,7 @@ import CGLib
 /// Attempting to lock on two different bits within the same integer is
 /// not supported.
 /// 
-/// The value of the bit that is set is (1u << `bit`).  If `bit` is not
+/// The value of the bit that is set is (1u &lt;&lt; `bit`).  If `bit` is not
 /// between 0 and 31 then the result is undefined.
 /// 
 /// This function accesses `address` atomically.  All other accesses to
@@ -984,7 +1032,7 @@ import CGLib
 
 /// Behaves exactly like `g_build_filename()`, but takes the path elements
 /// as a va_list. This function is mainly meant for language bindings.
-#if !os(Linux)
+#if !os(Linux) && !arch(arm64)
 @inlinable public func buildFilenameValist(firstElement: UnsafePointer<gchar>!, args: UnsafeMutablePointer<va_list>!) -> String! {
     guard let rv = g_build_filename_valist(firstElement, args).map({ String(cString: $0) }) else { return nil }
     return rv
@@ -1062,6 +1110,10 @@ import CGLib
 
 /// Create byte array containing the data. The data will be owned by the array
 /// and will be freed with `g_free()`, i.e. it could be allocated using `g_strdup()`.
+/// 
+/// Do not use it if `len` is greater than `G_MAXUINT`. `GByteArray`
+/// stores the length of its data in `guint`, which may be shorter than
+/// `gsize`.
 @inlinable public func byteArrayNewTake(data: UnsafeMutablePointer<guint8>!, len: Int) -> GLib.ByteArrayRef! {
     guard let rv = GLib.ByteArrayRef(g_byte_array_new_take(data, gsize(len))) else { return nil }
     return rv
@@ -1242,7 +1294,7 @@ import CGLib
 /// * the application must not wait for `pid` to exit by any other
 ///   mechanism, including ``waitpid(pid, ...)`` or a second child-watch
 ///   source for the same `pid`
-/// * the application must not ignore SIGCHILD
+/// * the application must not ignore `SIGCHLD`
 /// 
 /// If any of those conditions are not met, this and related APIs will
 /// not work correctly. This can often be diagnosed via a GLib warning
@@ -1801,37 +1853,6 @@ import CGLib
 
 
 
-/// A comparison function for `GDateTimes` that is suitable
-/// as a `GCompareFunc`. Both `GDateTimes` must be non-`nil`.
-@inlinable public func dateTimeCompare(dt1: gconstpointer, dt2: gconstpointer) -> Int {
-    let rv = Int(g_date_time_compare(dt1, dt2))
-    return rv
-}
-
-
-
-
-/// Checks to see if `dt1` and `dt2` are equal.
-/// 
-/// Equal here means that they represent the same moment after converting
-/// them to the same time zone.
-@inlinable public func dateTimeEqual(dt1: gconstpointer, dt2: gconstpointer) -> Bool {
-    let rv = ((g_date_time_equal(dt1, dt2)) != 0)
-    return rv
-}
-
-
-
-
-/// Hashes `datetime` into a `guint`, suitable for use within `GHashTable`.
-@inlinable public func dateTimeHash(datetime: gconstpointer) -> Int {
-    let rv = Int(g_date_time_hash(datetime))
-    return rv
-}
-
-
-
-
 /// Returns `true` if the day of the month is valid (a day is valid if it's
 /// between 1 and 31 inclusive).
 @inlinable public func dateValid(day: GDateDay) -> Bool {
@@ -2190,7 +2211,7 @@ import CGLib
 
 
 /// Writes all of `contents` to a file named `filename`. This is a convenience
-/// wrapper around calling `g_file_set_contents()` with `flags` set to
+/// wrapper around calling `g_file_set_contents_full()` with `flags` set to
 /// `G_FILE_SET_CONTENTS_CONSISTENT | G_FILE_SET_CONTENTS_ONLY_EXISTING` and
 /// `mode` set to `0666`.
 @inlinable public func fileSetContents(filename: UnsafePointer<gchar>!, contents: UnsafePointer<gchar>!, length: gssize) throws -> Bool {
@@ -2911,6 +2932,9 @@ import CGLib
 /// a spell-check dictionary, a database of clip art, or a log file in the
 /// CSIDL_COMMON_APPDATA folder. This information will not roam and is available
 /// to anyone using the computer.
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getSystemConfigDirs() -> UnsafePointer<UnsafePointer<gchar>?>! {
     guard let rv = g_get_system_config_dirs() else { return nil }
     return rv
@@ -2950,6 +2974,9 @@ import CGLib
 /// 
 /// Note that on Windows the returned list can vary depending on where
 /// this function is called.
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getSystemDataDirs() -> UnsafePointer<UnsafePointer<gchar>?>! {
     guard let rv = g_get_system_data_dirs() else { return nil }
     return rv
@@ -2993,6 +3020,9 @@ import CGLib
 /// repository for temporary Internet files is used instead. A typical path is
 /// `C:\Documents and Settings\username\Local Settings\Temporary Internet Files`.
 /// See the [documentation for `CSIDL_INTERNET_CACHE`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_internet_cache`).
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getUserCacheDir() -> String! {
     guard let rv = g_get_user_cache_dir().map({ String(cString: $0) }) else { return nil }
     return rv
@@ -3015,6 +3045,9 @@ import CGLib
 /// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_local_appdata`).
 /// Note that in this case on Windows it will be  the same
 /// as what `g_get_user_data_dir()` returns.
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getUserConfigDir() -> String! {
     guard let rv = g_get_user_config_dir().map({ String(cString: $0) }) else { return nil }
     return rv
@@ -3037,6 +3070,9 @@ import CGLib
 /// [documentation for `CSIDL_LOCAL_APPDATA`](https://msdn.microsoft.com/en-us/library/windows/desktop/bb762494`28v`=vs.85`29.aspx``csidl_local_appdata`).
 /// Note that in this case on Windows it will be the same
 /// as what `g_get_user_config_dir()` returns.
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getUserDataDir() -> String! {
     guard let rv = g_get_user_data_dir().map({ String(cString: $0) }) else { return nil }
     return rv
@@ -3067,6 +3103,9 @@ import CGLib
 /// specified in the `XDG_RUNTIME_DIR` environment variable.
 /// In the case that this variable is not set, we return the value of
 /// `g_get_user_cache_dir()`, after verifying that it exists.
+/// 
+/// The return value is cached and modifying it at runtime is not supported, as
+/// it’s not thread-safe to modify environment variables at runtime.
 @inlinable public func getUserRuntimeDir() -> String! {
     guard let rv = g_get_user_runtime_dir().map({ String(cString: $0) }) else { return nil }
     return rv
@@ -3782,7 +3821,8 @@ import CGLib
 /// 
 /// stderr is used for levels `G_LOG_LEVEL_ERROR`, `G_LOG_LEVEL_CRITICAL`,
 /// `G_LOG_LEVEL_WARNING` and `G_LOG_LEVEL_MESSAGE`. stdout is used for
-/// the rest.
+/// the rest, unless stderr was requested by
+/// `g_log_writer_default_set_use_stderr()`.
 /// 
 /// This has no effect if structured logging is enabled; see
 /// [Using Structured Logging](#using-structured-logging).
@@ -4005,6 +4045,10 @@ import CGLib
 /// As with `g_log_default_handler()`, this function drops debug and informational
 /// messages unless their log domain (or `all`) is listed in the space-separated
 /// `G_MESSAGES_DEBUG` environment variable.
+/// 
+/// `g_log_writer_default()` uses the mask set by `g_log_set_always_fatal()` to
+/// determine which messages are fatal. When using a custom writer func instead it is
+/// up to the writer function to determine which log messages are fatal.
 @inlinable public func logWriterDefault(logLevel: LogLevelFlags, fields: UnsafePointer<GLogField>!, nFields: Int, userData: gpointer! = nil) -> GLogWriterOutput {
     let rv = g_log_writer_default(logLevel.value, fields, gsize(nFields), userData)
     return rv
@@ -4068,7 +4112,9 @@ import CGLib
 
 /// Format a structured log message and print it to either `stdout` or `stderr`,
 /// depending on its log level. `G_LOG_LEVEL_INFO` and `G_LOG_LEVEL_DEBUG` messages
-/// are sent to `stdout`; all other log levels are sent to `stderr`. Only fields
+/// are sent to `stdout`, or to `stderr` if requested by
+/// `g_log_writer_default_set_use_stderr()`;
+/// all other log levels are sent to `stderr`. Only fields
 /// which are understood by this function are included in the formatted string
 /// which is printed.
 /// 
@@ -4426,7 +4472,12 @@ import CGLib
 
 /// Allocates `byte_size` bytes of memory, and copies `byte_size` bytes into it
 /// from `mem`. If `mem` is `nil` it returns `nil`.
-@inlinable public func memdup(mem: gconstpointer! = nil, byteSize: Int) -> gpointer! {
+///
+/// **memdup is deprecated:**
+/// Use g_memdup2() instead, as it accepts a #gsize argument
+///     for @byte_size, avoiding the possibility of overflow in a #gsize → #guint
+///     conversion
+@available(*, deprecated) @inlinable public func memdup(mem: gconstpointer! = nil, byteSize: Int) -> gpointer! {
     guard let rv = g_memdup(mem, guint(byteSize)) else { return nil }
     return rv
 }
@@ -4644,6 +4695,8 @@ import CGLib
 ///   // use initialization_value here
 /// ```
 /// 
+/// While `location` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func onceInitEnter(location: UnsafeMutableRawPointer!) -> Bool {
     let rv = ((g_once_init_enter(location)) != 0)
     return rv
@@ -4657,6 +4710,9 @@ import CGLib
 /// other than 0. Sets the variable to the initialization value, and
 /// releases concurrent threads blocking in `g_once_init_enter()` on this
 /// initialization variable.
+/// 
+/// While `location` has a `volatile` qualifier, this is a historical artifact and
+/// the pointer passed to it should not be `volatile`.
 @inlinable public func onceInitLeave(location: UnsafeMutableRawPointer!, result: Int) {
     g_once_init_leave(location, gsize(result))
 
@@ -5075,7 +5131,7 @@ import CGLib
 
 
 /// Returns a random `gint32` equally distributed over the range
-/// [`begin.`.`end`-1].
+/// [`begin.`.`end-1`].
 @inlinable public func randomIntRange(begin: gint32, end: gint32) -> gint32 {
     let rv = g_random_int_range(begin, end)
     return rv
@@ -5965,24 +6021,8 @@ import CGLib
 
 
 
-/// IDentical to `g_spawn_async_with_pipes()` but instead of
-/// creating pipes for the stdin/stdout/stderr, you can pass existing
-/// file descriptors into this function through the `stdin_fd`,
-/// `stdout_fd` and `stderr_fd` parameters. The following `flags`
-/// also have their behaviour slightly tweaked as a result:
-/// 
-/// `G_SPAWN_STDOUT_TO_DEV_NULL` means that the child's standard output
-/// will be discarded, instead of going to the same location as the parent's
-/// standard output. If you use this flag, `standard_output` must be -1.
-/// `G_SPAWN_STDERR_TO_DEV_NULL` means that the child's standard error
-/// will be discarded, instead of going to the same location as the parent's
-/// standard error. If you use this flag, `standard_error` must be -1.
-/// `G_SPAWN_CHILD_INHERITS_STDIN` means that the child will inherit the parent's
-/// standard input (by default, the child's standard input is attached to
-/// /dev/null). If you use this flag, `standard_input` must be -1.
-/// 
-/// It is valid to pass the same fd in multiple parameters (e.g. you can pass
-/// a single fd for both stdout and stderr).
+/// IDentical to `g_spawn_async_with_pipes_and_fds()` but with `n_fds` set to zero,
+/// so no FD assignments are used.
 @inlinable public func spawnAsyncWithFds(workingDirectory: UnsafePointer<gchar>? = nil, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: SpawnFlags, childSetup: GSpawnChildSetupFunc? = nil, userData: gpointer! = nil, childPid: UnsafeMutablePointer<GPid>! = nil, stdinFd: Int, stdoutFd: Int, stderrFd: Int) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
     let rv = ((g_spawn_async_with_fds(workingDirectory, argv, envp, flags.value, childSetup, userData, childPid, gint(stdinFd), gint(stdoutFd), gint(stderrFd), &error)) != 0)
@@ -5993,172 +6033,8 @@ import CGLib
 
 
 
-/// Executes a child program asynchronously (your program will not
-/// block waiting for the child to exit). The child program is
-/// specified by the only argument that must be provided, `argv`.
-/// `argv` should be a `nil`-terminated array of strings, to be passed
-/// as the argument vector for the child. The first string in `argv`
-/// is of course the name of the program to execute. By default, the
-/// name of the program must be a full path. If `flags` contains the
-/// `G_SPAWN_SEARCH_PATH` flag, the `PATH` environment variable is
-/// used to search for the executable. If `flags` contains the
-/// `G_SPAWN_SEARCH_PATH_FROM_ENVP` flag, the `PATH` variable from
-/// `envp` is used to search for the executable. If both the
-/// `G_SPAWN_SEARCH_PATH` and `G_SPAWN_SEARCH_PATH_FROM_ENVP` flags
-/// are set, the `PATH` variable from `envp` takes precedence over
-/// the environment variable.
-/// 
-/// If the program name is not a full path and `G_SPAWN_SEARCH_PATH` flag is not
-/// used, then the program will be run from the current directory (or
-/// `working_directory`, if specified); this might be unexpected or even
-/// dangerous in some cases when the current directory is world-writable.
-/// 
-/// On Windows, note that all the string or string vector arguments to
-/// this function and the other g_spawn*() functions are in UTF-8, the
-/// GLib file name encoding. Unicode characters that are not part of
-/// the system codepage passed in these arguments will be correctly
-/// available in the spawned program only if it uses wide character API
-/// to retrieve its command line. For C programs built with Microsoft's
-/// tools it is enough to make the program have a `wmain()` instead of
-/// `main()`. `wmain()` has a wide character argument vector as parameter.
-/// 
-/// At least currently, mingw doesn't support `wmain()`, so if you use
-/// mingw to develop the spawned program, it should call
-/// `g_win32_get_command_line()` to get arguments in UTF-8.
-/// 
-/// On Windows the low-level child process creation API `CreateProcess()`
-/// doesn't use argument vectors, but a command line. The C runtime
-/// library's spawn*() family of functions (which `g_spawn_async_with_pipes()`
-/// eventually calls) paste the argument vector elements together into
-/// a command line, and the C runtime startup code does a corresponding
-/// reconstruction of an argument vector from the command line, to be
-/// passed to `main()`. Complications arise when you have argument vector
-/// elements that contain spaces or double quotes. The `spawn*()` functions
-/// don't do any quoting or escaping, but on the other hand the startup
-/// code does do unquoting and unescaping in order to enable receiving
-/// arguments with embedded spaces or double quotes. To work around this
-/// asymmetry, `g_spawn_async_with_pipes()` will do quoting and escaping on
-/// argument vector elements that need it before calling the C runtime
-/// `spawn()` function.
-/// 
-/// The returned `child_pid` on Windows is a handle to the child
-/// process, not its identifier. Process handles and process
-/// identifiers are different concepts on Windows.
-/// 
-/// `envp` is a `nil`-terminated array of strings, where each string
-/// has the form `KEY=VALUE`. This will become the child's environment.
-/// If `envp` is `nil`, the child inherits its parent's environment.
-/// 
-/// `flags` should be the bitwise OR of any flags you want to affect the
-/// function's behaviour. The `G_SPAWN_DO_NOT_REAP_CHILD` means that the
-/// child will not automatically be reaped; you must use a child watch
-/// (`g_child_watch_add()`) to be notified about the death of the child process,
-/// otherwise it will stay around as a zombie process until this process exits.
-/// Eventually you must call `g_spawn_close_pid()` on the `child_pid`, in order to
-/// free resources which may be associated with the child process. (On Unix,
-/// using a child watch is equivalent to calling `waitpid()` or handling
-/// the `SIGCHLD` signal manually. On Windows, calling `g_spawn_close_pid()`
-/// is equivalent to calling `CloseHandle()` on the process handle returned
-/// in `child_pid`). See `g_child_watch_add()`.
-/// 
-/// Open UNIX file descriptors marked as `FD_CLOEXEC` will be automatically
-/// closed in the child process. `G_SPAWN_LEAVE_DESCRIPTORS_OPEN` means that
-/// other open file descriptors will be inherited by the child; otherwise all
-/// descriptors except stdin/stdout/stderr will be closed before calling `exec()`
-/// in the child. `G_SPAWN_SEARCH_PATH` means that `argv`[0] need not be an
-/// absolute path, it will be looked for in the `PATH` environment
-/// variable. `G_SPAWN_SEARCH_PATH_FROM_ENVP` means need not be an
-/// absolute path, it will be looked for in the `PATH` variable from
-/// `envp`. If both `G_SPAWN_SEARCH_PATH` and `G_SPAWN_SEARCH_PATH_FROM_ENVP`
-/// are used, the value from `envp` takes precedence over the environment.
-/// `G_SPAWN_STDOUT_TO_DEV_NULL` means that the child's standard output
-/// will be discarded, instead of going to the same location as the parent's
-/// standard output. If you use this flag, `standard_output` must be `nil`.
-/// `G_SPAWN_STDERR_TO_DEV_NULL` means that the child's standard error
-/// will be discarded, instead of going to the same location as the parent's
-/// standard error. If you use this flag, `standard_error` must be `nil`.
-/// `G_SPAWN_CHILD_INHERITS_STDIN` means that the child will inherit the parent's
-/// standard input (by default, the child's standard input is attached to
-/// `/dev/null`). If you use this flag, `standard_input` must be `nil`.
-/// `G_SPAWN_FILE_AND_ARGV_ZERO` means that the first element of `argv` is
-/// the file to execute, while the remaining elements are the actual
-/// argument vector to pass to the file. Normally `g_spawn_async_with_pipes()`
-/// uses `argv`[0] as the file to execute, and passes all of `argv` to the child.
-/// 
-/// `child_setup` and `user_data` are a function and user data. On POSIX
-/// platforms, the function is called in the child after GLib has
-/// performed all the setup it plans to perform (including creating
-/// pipes, closing file descriptors, etc.) but before calling `exec()`.
-/// That is, `child_setup` is called just before calling `exec()` in the
-/// child. Obviously actions taken in this function will only affect
-/// the child, not the parent.
-/// 
-/// On Windows, there is no separate `fork()` and `exec()` functionality.
-/// Child processes are created and run with a single API call,
-/// `CreateProcess()`. There is no sensible thing `child_setup`
-/// could be used for on Windows so it is ignored and not called.
-/// 
-/// If non-`nil`, `child_pid` will on Unix be filled with the child's
-/// process ID. You can use the process ID to send signals to the child,
-/// or to use `g_child_watch_add()` (or `waitpid()`) if you specified the
-/// `G_SPAWN_DO_NOT_REAP_CHILD` flag. On Windows, `child_pid` will be
-/// filled with a handle to the child process only if you specified the
-/// `G_SPAWN_DO_NOT_REAP_CHILD` flag. You can then access the child
-/// process using the Win32 API, for example wait for its termination
-/// with the WaitFor*() functions, or examine its exit code with
-/// `GetExitCodeProcess()`. You should close the handle with `CloseHandle()`
-/// or `g_spawn_close_pid()` when you no longer need it.
-/// 
-/// If non-`nil`, the `standard_input`, `standard_output`, `standard_error`
-/// locations will be filled with file descriptors for writing to the child's
-/// standard input or reading from its standard output or standard error.
-/// The caller of `g_spawn_async_with_pipes()` must close these file descriptors
-/// when they are no longer in use. If these parameters are `nil`, the
-/// corresponding pipe won't be created.
-/// 
-/// If `standard_input` is `nil`, the child's standard input is attached to
-/// `/dev/null` unless `G_SPAWN_CHILD_INHERITS_STDIN` is set.
-/// 
-/// If `standard_error` is NULL, the child's standard error goes to the same
-/// location as the parent's standard error unless `G_SPAWN_STDERR_TO_DEV_NULL`
-/// is set.
-/// 
-/// If `standard_output` is NULL, the child's standard output goes to the same
-/// location as the parent's standard output unless `G_SPAWN_STDOUT_TO_DEV_NULL`
-/// is set.
-/// 
-/// `error` can be `nil` to ignore errors, or non-`nil` to report errors.
-/// If an error is set, the function returns `false`. Errors are reported
-/// even if they occur in the child (for example if the executable in
-/// `argv`[0] is not found). Typically the `message` field of returned
-/// errors should be displayed to users. Possible errors are those from
-/// the `G_SPAWN_ERROR` domain.
-/// 
-/// If an error occurs, `child_pid`, `standard_input`, `standard_output`,
-/// and `standard_error` will not be filled with valid values.
-/// 
-/// If `child_pid` is not `nil` and an error does not occur then the returned
-/// process reference must be closed using `g_spawn_close_pid()`.
-/// 
-/// On modern UNIX platforms, GLib can use an efficient process launching
-/// codepath driven internally by `posix_spawn()`. This has the advantage of
-/// avoiding the fork-time performance costs of cloning the parent process
-/// address space, and avoiding associated memory overcommit checks that are
-/// not relevant in the context of immediately executing a distinct process.
-/// This optimized codepath will be used provided that the following conditions
-/// are met:
-/// 
-/// 1. `G_SPAWN_DO_NOT_REAP_CHILD` is set
-/// 2. `G_SPAWN_LEAVE_DESCRIPTORS_OPEN` is set
-/// 3. `G_SPAWN_SEARCH_PATH_FROM_ENVP` is not set
-/// 4. `working_directory` is `nil`
-/// 5. `child_setup` is `nil`
-/// 6. The program is of a recognised binary format, or has a shebang. Otherwise, GLib will have to execute the program through the shell, which is not done using the optimized codepath.
-/// 
-/// If you are writing a GTK+ application, and the program you are spawning is a
-/// graphical application too, then to ensure that the spawned program opens its
-/// windows on the right screen, you may want to use `GdkAppLaunchContext`,
-/// `GAppLaunchContext`, or set the `DISPLAY` environment variable.
+/// IDentical to `g_spawn_async_with_pipes_and_fds()` but with `n_fds` set to zero,
+/// so no FD assignments are used.
 @inlinable public func spawnAsyncWithPipes(workingDirectory: UnsafePointer<gchar>? = nil, argv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, envp: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: SpawnFlags, childSetup: GSpawnChildSetupFunc? = nil, userData: gpointer! = nil, childPid: UnsafeMutablePointer<GPid>! = nil, standardInput: UnsafeMutablePointer<gint>! = nil, standardOutput: UnsafeMutablePointer<gint>! = nil, standardError: UnsafeMutablePointer<gint>! = nil) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
     let rv = ((g_spawn_async_with_pipes(workingDirectory, argv, envp, flags.value, childSetup, userData, childPid, standardInput, standardOutput, standardError, &error)) != 0)
@@ -6831,7 +6707,7 @@ import CGLib
 /// (unless `dest_size` is 0). This function does not allocate memory. Unlike
 /// `strncpy()`, this function doesn't pad `dest` (so it's often faster). It
 /// returns the size of the attempted result, strlen (src), so if
-/// `retval` >= `dest_size`, truncation occurred.
+/// `retval` &gt;= `dest_size`, truncation occurred.
 /// 
 /// Caveat: `strlcpy()` is supposedly more secure than `strcpy()` or `strncpy()`,
 /// but if you really want to avoid screwups, `g_strdup()` is an even better
@@ -8301,7 +8177,7 @@ import CGLib
 /// No composition can have either of `a` or `b` equal to zero.
 /// To be precise, this function composes if and only if
 /// there exists a Primary Composite P which is canonically
-/// equivalent to the sequence <`a`,`b`>.  See the Unicode
+/// equivalent to the sequence &lt;`a`,`b`&gt;.  See the Unicode
 /// Standard for the definition of Primary Composite.
 /// 
 /// If `a` and `b` do not compose a new character, `ch` is set to zero.
@@ -9050,7 +8926,7 @@ import CGLib
 /// When `host` is present, `path` must either be empty or begin with a slash (`/`)
 /// character. When `host` is not present, `path` cannot begin with two slash
 ///    characters (`//`). See
-/// [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986`section`-3).
+/// [RFC 3986, section 3](https://tools.ietf.org/html/rfc3986`section-3`).
 /// 
 /// See also `g_uri_join_with_user()`, which allows specifying the
 /// components of the ‘userinfo’ separately.
@@ -9143,7 +9019,7 @@ import CGLib
 
 
 /// Gets the scheme portion of a URI string.
-/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-3) decodes the scheme
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section-3`) decodes the scheme
 /// as:
 /// ```
 /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
@@ -9158,7 +9034,7 @@ import CGLib
 
 
 /// Gets the scheme portion of a URI string.
-/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-3) decodes the scheme
+/// [RFC 3986](https://tools.ietf.org/html/rfc3986`section-3`) decodes the scheme
 /// as:
 /// ```
 /// URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]

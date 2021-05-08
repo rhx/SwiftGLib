@@ -281,7 +281,7 @@ public typealias TestLogFatalFunc = GTestLogFatalFunc
 public typealias ThreadFunc = GThreadFunc
 
 /// The type of functions which are used to translate user-visible
-/// strings, for <option>--help</option> output.
+/// strings, for &lt;option&gt;--help&lt;/option&gt; output.
 public typealias TranslateFunc = GTranslateFunc
 
 /// Specifies the type of function passed to `g_tree_traverse()`. It is

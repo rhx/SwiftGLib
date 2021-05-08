@@ -15,6 +15,8 @@ public protocol TestConfigProtocol {
     /// Typed pointer to the underlying `GTestConfig` instance.
     var _ptr: UnsafeMutablePointer<GTestConfig>! { get }
 
+    /// Required Initialiser for types conforming to `TestConfigProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestConfigRef` type acts as a lightweight Swift reference to an underlying `GTestConfig` instance.
@@ -218,7 +220,7 @@ open class TestConfig: TestConfigProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestConfigProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -339,6 +341,8 @@ public protocol TestLogBufferProtocol {
     /// Typed pointer to the underlying `GTestLogBuffer` instance.
     var _ptr: UnsafeMutablePointer<GTestLogBuffer>! { get }
 
+    /// Required Initialiser for types conforming to `TestLogBufferProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestLogBufferRef` type acts as a lightweight Swift reference to an underlying `GTestLogBuffer` instance.
@@ -542,7 +546,7 @@ open class TestLogBuffer: TestLogBufferProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogBufferProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -624,6 +628,8 @@ public protocol TestLogMsgProtocol {
     /// Typed pointer to the underlying `GTestLogMsg` instance.
     var _ptr: UnsafeMutablePointer<GTestLogMsg>! { get }
 
+    /// Required Initialiser for types conforming to `TestLogMsgProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestLogMsgRef` type acts as a lightweight Swift reference to an underlying `GTestLogMsg` instance.
@@ -827,7 +833,7 @@ open class TestLogMsg: TestLogMsgProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestLogMsgProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -914,6 +920,7 @@ public extension TestLogMsgProtocol {
         }
     }
 
+#if !(os(Linux) && arch(arm64))
     @inlinable var nums: UnsafeMutablePointer<CLongDouble>! {
         get {
             let rv = _ptr.pointee.nums
@@ -923,6 +930,7 @@ public extension TestLogMsgProtocol {
             _ptr.pointee.nums = newValue
         }
     }
+#endif
 
 }
 
@@ -943,6 +951,8 @@ public protocol TestSuiteProtocol {
     /// Typed pointer to the underlying `GTestSuite` instance.
     var _ptr: UnsafeMutablePointer<GTestSuite>! { get }
 
+    /// Required Initialiser for types conforming to `TestSuiteProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TestSuiteRef` type acts as a lightweight Swift reference to an underlying `GTestSuite` instance.
@@ -1146,7 +1156,7 @@ open class TestSuite: TestSuiteProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestSuiteProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1244,6 +1254,8 @@ public protocol ThreadProtocol {
     /// Typed pointer to the underlying `GThread` instance.
     var thread_ptr: UnsafeMutablePointer<GThread>! { get }
 
+    /// Required Initialiser for types conforming to `ThreadProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThreadRef` type acts as a lightweight Swift reference to an underlying `GThread` instance.
@@ -1540,7 +1552,7 @@ open class Thread: ThreadProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1710,6 +1722,8 @@ public protocol ThreadPoolProtocol {
     /// Typed pointer to the underlying `GThreadPool` instance.
     var _ptr: UnsafeMutablePointer<GThreadPool>! { get }
 
+    /// Required Initialiser for types conforming to `ThreadPoolProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ThreadPoolRef` type acts as a lightweight Swift reference to an underlying `GThreadPool` instance.
@@ -1917,7 +1931,7 @@ open class ThreadPool: ThreadPoolProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ThreadPoolProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2172,6 +2186,8 @@ public protocol TimeValProtocol {
     /// Typed pointer to the underlying `GTimeVal` instance.
     var _ptr: UnsafeMutablePointer<GTimeVal>! { get }
 
+    /// Required Initialiser for types conforming to `TimeValProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimeValRef` type acts as a lightweight Swift reference to an underlying `GTimeVal` instance.
@@ -2391,7 +2407,7 @@ open class TimeVal: TimeValProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeValProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2599,6 +2615,8 @@ public protocol TimeZoneProtocol {
     /// Typed pointer to the underlying `GTimeZone` instance.
     var time_zone_ptr: UnsafeMutablePointer<GTimeZone>! { get }
 
+    /// Required Initialiser for types conforming to `TimeZoneProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimeZoneRef` type acts as a lightweight Swift reference to an underlying `GTimeZone` instance.
@@ -2683,71 +2701,17 @@ public extension TimeZoneRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a `GTimeZone` corresponding to `identifier`.
+        /// A version of `g_time_zone_new_identifier()` which returns the UTC time zone
+    /// if `identifier` could not be parsed or loaded.
     /// 
-    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
-    /// something that would pass as a valid value for the `TZ` environment
-    /// variable (including `nil`).
-    /// 
-    /// In Windows, `identifier` can also be the unlocalized name of a time
-    /// zone for standard time, for example "Pacific Standard Time".
-    /// 
-    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
-    /// `"±hh:mm"`.  ISO 8601 additionally specifies
-    /// `"±hhmm"` and `"±hh"`.  Offsets are
-    /// time values to be added to Coordinated Universal Time (UTC) to get
-    /// the local time.
-    /// 
-    /// In UNIX, the `TZ` environment variable typically corresponds
-    /// to the name of a file in the zoneinfo database, an absolute path to a file
-    /// somewhere else, or a string in
-    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
-    /// There  are  no spaces in the specification. The name of standard
-    /// and daylight savings time zone must be three or more alphabetic
-    /// characters. Offsets are time values to be added to local time to
-    /// get Coordinated Universal Time (UTC) and should be
-    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
-    /// `"Jn"` (Julian day with n between 1 and 365, leap
-    /// years not counted), `"n"` (zero-based Julian day
-    /// with n between 0 and 365) or `"Mm.w.d"` (day d
-    /// (0 <= d <= 6) of week w (1 <= w <= 5) of month m (1 <= m <= 12), day
-    /// 0 is a Sunday).  Times are in local wall clock time, the default is
-    /// 02:00:00.
-    /// 
-    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
-    /// accepts POSIX format.  The Windows format uses US rules for all time
-    /// zones; daylight savings time is 60 minutes behind the standard time
-    /// with date and time of change taken from Pacific Standard Time.
-    /// Offsets are time values to be added to the local time to get
-    /// Coordinated Universal Time (UTC).
-    /// 
-    /// `g_time_zone_new_local()` calls this function with the value of the
-    /// `TZ` environment variable. This function itself is independent of
-    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
-    /// will be consulted to discover the correct time zone on UNIX and the
-    /// registry will be consulted or `GetTimeZoneInformation()` will be used
-    /// to get the local time zone on Windows.
-    /// 
-    /// If intervals are not available, only time zone rules from `TZ`
-    /// environment variable or other means, then they will be computed
-    /// from year 1900 to 2037.  If the maximum year for the rules is
-    /// available and it is greater than 2037, then it will followed
-    /// instead.
-    /// 
-    /// See
-    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section`-5.6)
-    /// for a precise definition of valid RFC3339 time offsets
-    /// (the `time-offset` expansion) and ISO 8601 for the
-    /// full list of valid time offsets.  See
-    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
-    /// for an explanation of the possible
-    /// values of the `TZ` environment variable. See
-    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
-    /// for the list of time zones on Windows.
-    /// 
-    /// You should release the return value by calling `g_time_zone_unref()`
-    /// when you are done with it.
-    @inlinable init( identifier: UnsafePointer<gchar>? = nil) {
+    /// If you need to check whether `identifier` was loaded successfully, use
+    /// `g_time_zone_new_identifier()`.
+    ///
+    /// **new is deprecated:**
+    /// Use g_time_zone_new_identifier() instead, as it provides
+    ///     error reporting. Change your code to handle a potentially %NULL return
+    ///     value.
+    @available(*, deprecated) @inlinable init(identifierOrUtc identifier: UnsafePointer<gchar>? = nil) {
         let rv = g_time_zone_new(identifier)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2917,7 +2881,7 @@ open class TimeZone: TimeZoneProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeZoneProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2944,71 +2908,17 @@ open class TimeZone: TimeZoneProtocol {
         g_time_zone_ref(ptr.assumingMemoryBound(to: GTimeZone.self))
     }
 
-    /// Creates a `GTimeZone` corresponding to `identifier`.
+    /// A version of `g_time_zone_new_identifier()` which returns the UTC time zone
+    /// if `identifier` could not be parsed or loaded.
     /// 
-    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
-    /// something that would pass as a valid value for the `TZ` environment
-    /// variable (including `nil`).
-    /// 
-    /// In Windows, `identifier` can also be the unlocalized name of a time
-    /// zone for standard time, for example "Pacific Standard Time".
-    /// 
-    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
-    /// `"±hh:mm"`.  ISO 8601 additionally specifies
-    /// `"±hhmm"` and `"±hh"`.  Offsets are
-    /// time values to be added to Coordinated Universal Time (UTC) to get
-    /// the local time.
-    /// 
-    /// In UNIX, the `TZ` environment variable typically corresponds
-    /// to the name of a file in the zoneinfo database, an absolute path to a file
-    /// somewhere else, or a string in
-    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
-    /// There  are  no spaces in the specification. The name of standard
-    /// and daylight savings time zone must be three or more alphabetic
-    /// characters. Offsets are time values to be added to local time to
-    /// get Coordinated Universal Time (UTC) and should be
-    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
-    /// `"Jn"` (Julian day with n between 1 and 365, leap
-    /// years not counted), `"n"` (zero-based Julian day
-    /// with n between 0 and 365) or `"Mm.w.d"` (day d
-    /// (0 <= d <= 6) of week w (1 <= w <= 5) of month m (1 <= m <= 12), day
-    /// 0 is a Sunday).  Times are in local wall clock time, the default is
-    /// 02:00:00.
-    /// 
-    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
-    /// accepts POSIX format.  The Windows format uses US rules for all time
-    /// zones; daylight savings time is 60 minutes behind the standard time
-    /// with date and time of change taken from Pacific Standard Time.
-    /// Offsets are time values to be added to the local time to get
-    /// Coordinated Universal Time (UTC).
-    /// 
-    /// `g_time_zone_new_local()` calls this function with the value of the
-    /// `TZ` environment variable. This function itself is independent of
-    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
-    /// will be consulted to discover the correct time zone on UNIX and the
-    /// registry will be consulted or `GetTimeZoneInformation()` will be used
-    /// to get the local time zone on Windows.
-    /// 
-    /// If intervals are not available, only time zone rules from `TZ`
-    /// environment variable or other means, then they will be computed
-    /// from year 1900 to 2037.  If the maximum year for the rules is
-    /// available and it is greater than 2037, then it will followed
-    /// instead.
-    /// 
-    /// See
-    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section`-5.6)
-    /// for a precise definition of valid RFC3339 time offsets
-    /// (the `time-offset` expansion) and ISO 8601 for the
-    /// full list of valid time offsets.  See
-    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
-    /// for an explanation of the possible
-    /// values of the `TZ` environment variable. See
-    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
-    /// for the list of time zones on Windows.
-    /// 
-    /// You should release the return value by calling `g_time_zone_unref()`
-    /// when you are done with it.
-    @inlinable public init( identifier: UnsafePointer<gchar>? = nil) {
+    /// If you need to check whether `identifier` was loaded successfully, use
+    /// `g_time_zone_new_identifier()`.
+    ///
+    /// **new is deprecated:**
+    /// Use g_time_zone_new_identifier() instead, as it provides
+    ///     error reporting. Change your code to handle a potentially %NULL return
+    ///     value.
+    @available(*, deprecated) @inlinable public init(identiferOrUtc identifier: UnsafePointer<gchar>? = nil) {
         let rv = g_time_zone_new(identifier)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -3211,6 +3121,8 @@ public protocol TimerProtocol {
     /// Typed pointer to the underlying `GTimer` instance.
     var _ptr: UnsafeMutablePointer<GTimer>! { get }
 
+    /// Required Initialiser for types conforming to `TimerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimerRef` type acts as a lightweight Swift reference to an underlying `GTimer` instance.
@@ -3414,7 +3326,7 @@ open class Timer: TimerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3533,6 +3445,8 @@ public protocol TrashStackProtocol {
     /// Typed pointer to the underlying `GTrashStack` instance.
     var _ptr: UnsafeMutablePointer<GTrashStack>! { get }
 
+    /// Required Initialiser for types conforming to `TrashStackProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TrashStackRef` type acts as a lightweight Swift reference to an underlying `GTrashStack` instance.
@@ -3738,7 +3652,7 @@ open class TrashStack: TrashStackProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TrashStackProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3820,6 +3734,8 @@ public protocol TreeProtocol {
     /// Typed pointer to the underlying `GTree` instance.
     var _ptr: UnsafeMutablePointer<GTree>! { get }
 
+    /// Required Initialiser for types conforming to `TreeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TreeRef` type acts as a lightweight Swift reference to an underlying `GTree` instance.
@@ -4041,7 +3957,7 @@ open class Tree: TreeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4132,17 +4048,8 @@ public extension TreeProtocol {
 
     /// Inserts a key/value pair into a `GTree`.
     /// 
-    /// If the given key already exists in the `GTree` its corresponding value
-    /// is set to the new value. If you supplied a `value_destroy_func` when
-    /// creating the `GTree`, the old value is freed using that function. If
-    /// you supplied a `key_destroy_func` when creating the `GTree`, the passed
-    /// key is freed using that function.
-    /// 
-    /// The tree is automatically 'balanced' as new key/value pairs are added,
-    /// so that the distance from the root to every leaf is as small as possible.
-    /// The cost of maintaining a balanced tree while inserting new key/value
-    /// result in a `O(n log(n)`) operation where most of the other operations
-    /// are `O(log(n)`).
+    /// Inserts a new key and value into a `GTree` as `g_tree_insert_node()` does,
+    /// only this function does not return the inserted or set node.
     @inlinable func insert(key: gpointer! = nil, value: gpointer! = nil) {
         g_tree_insert(_ptr, key, value)
     
@@ -4194,15 +4101,8 @@ public extension TreeProtocol {
         return rv
     }
 
-    /// Inserts a new key and value into a `GTree` similar to `g_tree_insert()`.
-    /// The difference is that if the key already exists in the `GTree`, it gets
-    /// replaced by the new key. If you supplied a `value_destroy_func` when
-    /// creating the `GTree`, the old value is freed using that function. If you
-    /// supplied a `key_destroy_func` when creating the `GTree`, the old key is
-    /// freed using that function.
-    /// 
-    /// The tree is automatically 'balanced' as new key/value pairs are added,
-    /// so that the distance from the root to every leaf is as small as possible.
+    /// Inserts a new key and value into a `GTree` as `g_tree_replace_node()` does,
+    /// only this function does not return the inserted or set node.
     @inlinable func replace(key: gpointer! = nil, value: gpointer! = nil) {
         g_tree_replace(_ptr, key, value)
     
@@ -4280,12 +4180,12 @@ public extension TreeProtocol {
 /// 
 /// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
 /// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4), the
+/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
 /// hierarchical nature of URIs means that they can either be ‘relative
 /// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
 /// clarity, ‘URIs’ are referred to in this documentation as
 /// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4.3),
+/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
 /// fragment identifiers are always allowed).
 /// 
 /// Relative references have one or more components of the URI missing. In
@@ -4368,11 +4268,12 @@ public extension TreeProtocol {
 /// 
 /// Note that there is no `g_uri_equal ()` function, because comparing
 /// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. For example, `http://example.com/` and
-/// `http://EXAMPLE.COM:80` have exactly the same meaning according
-/// to the HTTP specification, and `data:,foo` and
-/// `data:;base64,Zm9v` resolve to the same thing according to the
-/// `data:` URI specification.
+/// not have. `GUri` can help with normalization if you use the various
+/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
+/// it is not comprehensive.
+/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
+/// thing according to the `data:` URI specification which GLib does not
+/// handle.
 public protocol URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4380,6 +4281,8 @@ public protocol URIProtocol {
     /// Typed pointer to the underlying `GUri` instance.
     var uri_ptr: UnsafeMutablePointer<GUri>! { get }
 
+    /// Required Initialiser for types conforming to `URIProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `URIRef` type acts as a lightweight Swift reference to an underlying `GUri` instance.
@@ -4400,12 +4303,12 @@ public protocol URIProtocol {
 /// 
 /// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
 /// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4), the
+/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
 /// hierarchical nature of URIs means that they can either be ‘relative
 /// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
 /// clarity, ‘URIs’ are referred to in this documentation as
 /// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4.3),
+/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
 /// fragment identifiers are always allowed).
 /// 
 /// Relative references have one or more components of the URI missing. In
@@ -4488,11 +4391,12 @@ public protocol URIProtocol {
 /// 
 /// Note that there is no `g_uri_equal ()` function, because comparing
 /// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. For example, `http://example.com/` and
-/// `http://EXAMPLE.COM:80` have exactly the same meaning according
-/// to the HTTP specification, and `data:,foo` and
-/// `data:;base64,Zm9v` resolve to the same thing according to the
-/// `data:` URI specification.
+/// not have. `GUri` can help with normalization if you use the various
+/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
+/// it is not comprehensive.
+/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
+/// thing according to the `data:` URI specification which GLib does not
+/// handle.
 public struct URIRef: URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.
@@ -4621,12 +4525,12 @@ public extension URIRef {
 /// 
 /// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
 /// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4), the
+/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
 /// hierarchical nature of URIs means that they can either be ‘relative
 /// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
 /// clarity, ‘URIs’ are referred to in this documentation as
 /// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section`-4.3),
+/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
 /// fragment identifiers are always allowed).
 /// 
 /// Relative references have one or more components of the URI missing. In
@@ -4709,11 +4613,12 @@ public extension URIRef {
 /// 
 /// Note that there is no `g_uri_equal ()` function, because comparing
 /// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. For example, `http://example.com/` and
-/// `http://EXAMPLE.COM:80` have exactly the same meaning according
-/// to the HTTP specification, and `data:,foo` and
-/// `data:;base64,Zm9v` resolve to the same thing according to the
-/// `data:` URI specification.
+/// not have. `GUri` can help with normalization if you use the various
+/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
+/// it is not comprehensive.
+/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
+/// thing according to the `data:` URI specification which GLib does not
+/// handle.
 open class URI: URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.
@@ -4827,7 +4732,7 @@ open class URI: URIProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
