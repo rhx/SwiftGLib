@@ -212,6 +212,9 @@ struct _GDtlsClientConnection {};
 struct _GDtlsConnection {};
 struct _GDtlsServerConnection {};
 
+struct _GTreeNode {};
+struct _GStrvBuilder {};
+
 #define GLIB_DISABLE_DEPRECATION_WARNINGS
 #define G_SETTINGS_ENABLE_BACKEND
 #include <unistd.h>
@@ -350,3 +353,5 @@ typedef GUriError GURIError;
 typedef GUriFlags GURIFlags;
 typedef GUriParamsFlags GURIParamsFlags;
 typedef GUriHideFlags GURIHideFlags;
+typedef struct _GTreeNode GTreeNode;
+typedef struct _GStrvBuilder GStrvBuilder;
