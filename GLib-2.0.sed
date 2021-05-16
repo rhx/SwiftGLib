@@ -43,3 +43,6 @@ s|\(func getObjv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1
 s|\(func getStrv(length: .*UnsafeMutablePointer<\)UnsafeMutablePointer<gchar>|\1UnsafePointer<gchar>|
 s|\(func get.*Names.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
 s|\(func get.*Dirs.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafePointer<UnsafePointer<gchar>|
+s|\GStrv\s|\GStrv!|
+s|@available(\*, deprecated) @inlinable init( identifier: UnsafePointer<gchar>? = nil)|@available(\*, deprecated) @inlinable init(identifierOrUtc identifier: UnsafePointer<gchar>? = nil)|g
+s|@available(\*, deprecated) @inlinable public init( identifier: UnsafePointer<gchar>? = nil)|@available(\*, deprecated) @inlinable public init(identiferOrUtc identifier: UnsafePointer<gchar>? = nil)|g

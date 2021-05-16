@@ -61,7 +61,7 @@ on macOS, or on Linux you should get something like:
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, and 2.66.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, and 2.68.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -114,8 +114,9 @@ Normally, you don't build this package directly, but you embed it into your own 
     swift build
     swift test
 
-Please note that on macOS, due to a bug currently in the Swift Package Manager,
-you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+Please note that on macOS, due to a bug in the Swift Package Manager prior to Swift 5.4,
+if you have Xcode-12.4 or older, you need to pass in the build flags manually,
+i.e. instead of `swift build` and `swift test` you can run
 
     swift build `./run-gir2swift.sh flags -noUpdate`
     swift test  `./run-gir2swift.sh flags -noUpdate`
@@ -135,6 +136,12 @@ You can find reference documentation inside the [docs](https://rhx.github.io/Swi
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+
+	brew install sourcekitten
+	sudo gem install jazzy
+	./run-gir2swift.sh
+	./generate-documentation.sh
 
 ## Troubleshooting
 Here are some common errors you might encounter and how to fix them.
