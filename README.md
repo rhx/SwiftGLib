@@ -47,7 +47,7 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 
 ### Swift
 
-To build, you need at least Swift 5.2 (Swift 5.3+ should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 5.2 (but some Linux distributions have issues and seem to **require at least Swift 5.5**), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
@@ -146,13 +146,20 @@ Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [ja
 ## Troubleshooting
 Here are some common errors you might encounter and how to fix them.
 
-### Old Swift toolchain or Xcode
+### Missing `.gir` Files
 If you get an error such as
 
-	$ ./build.sh 
-	error: unable to invoke subcommand: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swift-package (No such file or directory)
+	Girs located at
+	Cannot open '/GLib-2.0.gir': No such file or directory
+
+Make sure that you have the relevant `gobject-introspection` packages installed (as per the Pre-requisites section), including their `.gir` and `.pc` files.
+
+### Old Swift toolchain or Xcode
+If, when you run `swift build`, you get a `Segmentation fault (core dumped)` or circular dependency error such as
+
+	warning: circular dependency detected while parsing pangocairo: harfbuzz -> freetype2 -> harfbuzz
 	
-this probably means that your Swift toolchain is too old.  Make sure the latest toolchain is installed (see above).
+this probably means that your Swift toolchain is too old, particularly on Linux (at the time of this writing, some Linux distributions require at least Swift 5.5).  Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
 
