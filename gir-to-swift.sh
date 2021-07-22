@@ -35,7 +35,7 @@ for src in Sources/${Mod}/*-*.swift Sources/CGLib/glib_bridging.h ; do
 	done
 	for ver in 2.60.0 ; do
 		if pkg-config --max-version=$ver glib-2.0 ; then
-			sed -f ${Module}-$ver.sed < ${src} > ${src}.out
+			sed -f "${Module}<=$ver.sed" < ${src} > ${src}.out
 			mv -f ${src}.out ${src}
 		fi
 	done
