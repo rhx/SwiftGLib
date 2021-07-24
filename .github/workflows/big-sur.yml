@@ -68,5 +68,5 @@ jobs:
         with:
           name: build-artefact-big-sur
           path: |
-            SwiftGLib/
+            SwiftGLib/Sources/
           retention-days: 1
