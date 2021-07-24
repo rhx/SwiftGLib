@@ -22,8 +22,8 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-gir2swift -o Sources/${Mod} -s -m ${Module}.module "${GIR}"
-for src in Sources/${Mod}/*-*.swift Sources/CGLib/glib_bridging.h ; do
+gir2swift -o Sources/${Mod} --alpha-names -m ${Module}.module "${GIR}"
+for src in Sources/CGLib/glib_bridging.h ; do
 	sed -f ${Module}.sed < ${src} | awk -f ${Module}.awk > ${src}.out
 	mv -f ${src}.out ${src}
 	for ver in 2.62.0 ; do
