@@ -17,7 +17,7 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     
     bash -c "${G2S_EXEC} --alpha-names -o Sources/${NAME} -m ${GIR_NAME}.module ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
 
-    for src in Sources/${NAME}/*-*.swift Sources/CGLib/glib_bridging.h ; do
+    for src in Sources/CGLib/glib_bridging.h ; do
         sed -f ${GIR_NAME}.sed < ${src} | awk -f ${GIR_NAME}.awk > ${src}.out
         mv -f ${src}.out ${src}
         for ver in 2.62.0 ; do
