@@ -22,5 +22,5 @@ if [ ! -e "${GIR}" ] ; then
 	echo "and can be found in /usr /usr/local or by pkg-config!"
 	exit 1
 fi
-gir2swift -o Sources/${Mod} --alpha-names --post-process Sources/CGLib/glib_bridging.h"${GIR}"
+gir2swift -o Sources/${Mod} --alpha-names --post-process Sources/CGLib/glib_bridging.h "${GIR}"
 touch Sources/${Mod}/${Module}.swift
