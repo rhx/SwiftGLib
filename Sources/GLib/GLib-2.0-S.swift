@@ -2,11 +2,6 @@ import CGLib
 
 // MARK: - Scanner Record
 
-/// The `ScannerProtocol` protocol exposes the methods and properties of an underlying `GScanner` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Scanner`.
-/// Alternatively, use `ScannerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The data structure representing a lexical scanner.
 /// 
 /// You should set `input_name` after creating the scanner, since
@@ -21,6 +16,12 @@ import CGLib
 /// If you want to use your own message handler you can set the
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
+///
+/// The `ScannerProtocol` protocol exposes the methods and properties of an underlying `GScanner` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Scanner`.
+/// Alternatively, use `ScannerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ScannerProtocol {
         /// Untyped pointer to the underlying `GScanner` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -32,10 +33,6 @@ public protocol ScannerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ScannerRef` type acts as a lightweight Swift reference to an underlying `GScanner` instance.
-/// It exposes methods that can operate on this data type through `ScannerProtocol` conformance.
-/// Use `ScannerRef` only as an `unowned` reference to an existing `GScanner` instance.
-///
 /// The data structure representing a lexical scanner.
 /// 
 /// You should set `input_name` after creating the scanner, since
@@ -50,6 +47,11 @@ public protocol ScannerProtocol {
 /// If you want to use your own message handler you can set the
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
+///
+/// The `ScannerRef` type acts as a lightweight Swift reference to an underlying `GScanner` instance.
+/// It exposes methods that can operate on this data type through `ScannerProtocol` conformance.
+/// Use `ScannerRef` only as an `unowned` reference to an existing `GScanner` instance.
+///
 public struct ScannerRef: ScannerProtocol {
         /// Untyped pointer to the underlying `GScanner` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -128,10 +130,6 @@ public extension ScannerRef {
 
     }
 
-/// The `Scanner` type acts as an owner of an underlying `GScanner` instance.
-/// It provides the methods that can operate on this data type through `ScannerProtocol` conformance.
-/// Use `Scanner` as a strong reference or owner of a `GScanner` instance.
-///
 /// The data structure representing a lexical scanner.
 /// 
 /// You should set `input_name` after creating the scanner, since
@@ -146,6 +144,11 @@ public extension ScannerRef {
 /// If you want to use your own message handler you can set the
 /// `msg_handler` field. The type of the message handler function
 /// is declared by `GScannerMsgFunc`.
+///
+/// The `Scanner` type acts as an owner of an underlying `GScanner` instance.
+/// It provides the methods that can operate on this data type through `ScannerProtocol` conformance.
+/// Use `Scanner` as a strong reference or owner of a `GScanner` instance.
+///
 open class Scanner: ScannerProtocol {
         /// Untyped pointer to the underlying `GScanner` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -678,14 +681,15 @@ public extension ScannerProtocol {
 
 // MARK: - ScannerConfig Record
 
+/// Specifies the `GScanner` parser configuration. Most settings can
+/// be changed during the parsing phase and will affect the lexical
+/// parsing of the next unpeeked token.
+///
 /// The `ScannerConfigProtocol` protocol exposes the methods and properties of an underlying `GScannerConfig` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ScannerConfig`.
 /// Alternatively, use `ScannerConfigRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Specifies the `GScanner` parser configuration. Most settings can
-/// be changed during the parsing phase and will affect the lexical
-/// parsing of the next unpeeked token.
 public protocol ScannerConfigProtocol {
         /// Untyped pointer to the underlying `GScannerConfig` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -697,13 +701,14 @@ public protocol ScannerConfigProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Specifies the `GScanner` parser configuration. Most settings can
+/// be changed during the parsing phase and will affect the lexical
+/// parsing of the next unpeeked token.
+///
 /// The `ScannerConfigRef` type acts as a lightweight Swift reference to an underlying `GScannerConfig` instance.
 /// It exposes methods that can operate on this data type through `ScannerConfigProtocol` conformance.
 /// Use `ScannerConfigRef` only as an `unowned` reference to an existing `GScannerConfig` instance.
 ///
-/// Specifies the `GScanner` parser configuration. Most settings can
-/// be changed during the parsing phase and will affect the lexical
-/// parsing of the next unpeeked token.
 public struct ScannerConfigRef: ScannerConfigProtocol {
         /// Untyped pointer to the underlying `GScannerConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -782,13 +787,14 @@ public extension ScannerConfigRef {
 
     }
 
+/// Specifies the `GScanner` parser configuration. Most settings can
+/// be changed during the parsing phase and will affect the lexical
+/// parsing of the next unpeeked token.
+///
 /// The `ScannerConfig` type acts as an owner of an underlying `GScannerConfig` instance.
 /// It provides the methods that can operate on this data type through `ScannerConfigProtocol` conformance.
 /// Use `ScannerConfig` as a strong reference or owner of a `GScannerConfig` instance.
 ///
-/// Specifies the `GScanner` parser configuration. Most settings can
-/// be changed during the parsing phase and will affect the lexical
-/// parsing of the next unpeeked token.
 open class ScannerConfig: ScannerConfigProtocol {
         /// Untyped pointer to the underlying `GScannerConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1380,13 +1386,14 @@ public extension ScannerConfigProtocol {
 
 // MARK: - Sequence Record
 
+/// The `GSequence` struct is an opaque data type representing a
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
+///
 /// The `SequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Sequence`.
 /// Alternatively, use `SequenceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSequence` struct is an opaque data type representing a
-/// [sequence](../Protocols/SequenceProtocol.html) data type.
 public protocol SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1398,12 +1405,13 @@ public protocol SequenceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSequence` struct is an opaque data type representing a
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
+///
 /// The `SequenceRef` type acts as a lightweight Swift reference to an underlying `GSequence` instance.
 /// It exposes methods that can operate on this data type through `SequenceProtocol` conformance.
 /// Use `SequenceRef` only as an `unowned` reference to an existing `GSequence` instance.
 ///
-/// The `GSequence` struct is an opaque data type representing a
-/// [sequence](../Protocols/SequenceProtocol.html) data type.
 public struct SequenceRef: SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1482,12 +1490,13 @@ public extension SequenceRef {
 
     }
 
+/// The `GSequence` struct is an opaque data type representing a
+/// [sequence](../Protocols/SequenceProtocol.html) data type.
+///
 /// The `Sequence` type acts as an owner of an underlying `GSequence` instance.
 /// It provides the methods that can operate on this data type through `SequenceProtocol` conformance.
 /// Use `Sequence` as a strong reference or owner of a `GSequence` instance.
 ///
-/// The `GSequence` struct is an opaque data type representing a
-/// [sequence](../Protocols/SequenceProtocol.html) data type.
 open class Sequence: SequenceProtocol {
         /// Untyped pointer to the underlying `GSequence` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1876,13 +1885,14 @@ public extension SequenceProtocol {
 
 // MARK: - SequenceIter Record
 
+/// The `GSequenceIter` struct is an opaque data type representing an
+/// iterator pointing into a `GSequence`.
+///
 /// The `SequenceIterProtocol` protocol exposes the methods and properties of an underlying `GSequenceIter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SequenceIter`.
 /// Alternatively, use `SequenceIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSequenceIter` struct is an opaque data type representing an
-/// iterator pointing into a `GSequence`.
 public protocol SequenceIterProtocol {
         /// Untyped pointer to the underlying `GSequenceIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1894,12 +1904,13 @@ public protocol SequenceIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSequenceIter` struct is an opaque data type representing an
+/// iterator pointing into a `GSequence`.
+///
 /// The `SequenceIterRef` type acts as a lightweight Swift reference to an underlying `GSequenceIter` instance.
 /// It exposes methods that can operate on this data type through `SequenceIterProtocol` conformance.
 /// Use `SequenceIterRef` only as an `unowned` reference to an existing `GSequenceIter` instance.
 ///
-/// The `GSequenceIter` struct is an opaque data type representing an
-/// iterator pointing into a `GSequence`.
 public struct SequenceIterRef: SequenceIterProtocol {
         /// Untyped pointer to the underlying `GSequenceIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1978,12 +1989,13 @@ public extension SequenceIterRef {
 
     }
 
+/// The `GSequenceIter` struct is an opaque data type representing an
+/// iterator pointing into a `GSequence`.
+///
 /// The `SequenceIter` type acts as an owner of an underlying `GSequenceIter` instance.
 /// It provides the methods that can operate on this data type through `SequenceIterProtocol` conformance.
 /// Use `SequenceIter` as a strong reference or owner of a `GSequenceIter` instance.
 ///
-/// The `GSequenceIter` struct is an opaque data type representing an
-/// iterator pointing into a `GSequence`.
 open class SequenceIter: SequenceIterProtocol {
         /// Untyped pointer to the underlying `GSequenceIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2303,13 +2315,14 @@ public extension SequenceIterProtocol {
 
 // MARK: - Source Record
 
+/// The `GSource` struct is an opaque data type
+/// representing an event source.
+///
 /// The `SourceProtocol` protocol exposes the methods and properties of an underlying `GSource` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Source`.
 /// Alternatively, use `SourceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSource` struct is an opaque data type
-/// representing an event source.
 public protocol SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2321,12 +2334,13 @@ public protocol SourceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSource` struct is an opaque data type
+/// representing an event source.
+///
 /// The `SourceRef` type acts as a lightweight Swift reference to an underlying `GSource` instance.
 /// It exposes methods that can operate on this data type through `SourceProtocol` conformance.
 /// Use `SourceRef` only as an `unowned` reference to an existing `GSource` instance.
 ///
-/// The `GSource` struct is an opaque data type
-/// representing an event source.
 public struct SourceRef: SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
@@ -2417,12 +2431,13 @@ public extension SourceRef {
     }
 }
 
+/// The `GSource` struct is an opaque data type
+/// representing an event source.
+///
 /// The `Source` type acts as a reference-counted owner of an underlying `GSource` instance.
 /// It provides the methods that can operate on this data type through `SourceProtocol` conformance.
 /// Use `Source` as a strong reference or owner of a `GSource` instance.
 ///
-/// The `GSource` struct is an opaque data type
-/// representing an event source.
 open class Source: SourceProtocol {
         /// Untyped pointer to the underlying `GSource` instance.
     /// For type-safe access, use the generated, typed pointer `source_ptr` property instead.
@@ -2675,6 +2690,10 @@ public extension SourceProtocol {
     /// 
     /// This function is safe to call from any thread, regardless of which thread
     /// the `GMainContext` is running in.
+    /// 
+    /// If the source is currently attached to a `GMainContext`, destroying it
+    /// will effectively unset the callback similar to calling `g_source_set_callback()`.
+    /// This can mean, that the data's `GDestroyNotify` gets called right away.
     @inlinable func destroy() {
         g_source_destroy(source_ptr)
     
@@ -2847,6 +2866,9 @@ public extension SourceProtocol {
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
     /// the source is dispatched after this call returns.
+    /// 
+    /// Note that `g_source_destroy()` for a currently attached source has the effect
+    /// of also unsetting the callback.
     @inlinable func setCallback(`func`: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) {
         g_source_set_callback(source_ptr, `func`, data, notify)
     
@@ -2920,6 +2942,8 @@ public extension SourceProtocol {
     /// accessing it with `g_source_get_name()`; that function does not copy
     /// the value, and changing the value will free it while the other thread
     /// may be attempting to use it.
+    /// 
+    /// Also see `g_source_set_static_name()`.
     @inlinable func set(name: UnsafePointer<CChar>!) {
         g_source_set_name(source_ptr, name)
     
@@ -2962,6 +2986,14 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     @inlinable func set(readyTime: gint64) {
         g_source_set_ready_time(source_ptr, readyTime)
+    
+    }
+
+    /// A variant of `g_source_set_name()` that does not
+    /// duplicate the `name`, and can only be used with
+    /// string literals.
+    @inlinable func setStatic(name: UnsafePointer<CChar>!) {
+        g_source_set_static_name(source_ptr, name)
     
     }
 
@@ -3230,6 +3262,8 @@ public extension SourceProtocol {
         /// accessing it with `g_source_get_name()`; that function does not copy
         /// the value, and changing the value will free it while the other thread
         /// may be attempting to use it.
+        /// 
+        /// Also see `g_source_set_static_name()`.
         nonmutating set {
             g_source_set_name(source_ptr, newValue)
         }
@@ -3350,13 +3384,14 @@ public extension SourceProtocol {
 
 // MARK: - SourceCallbackFuncs Record
 
+/// The `GSourceCallbackFuncs` struct contains
+/// functions for managing callback objects.
+///
 /// The `SourceCallbackFuncsProtocol` protocol exposes the methods and properties of an underlying `GSourceCallbackFuncs` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SourceCallbackFuncs`.
 /// Alternatively, use `SourceCallbackFuncsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSourceCallbackFuncs` struct contains
-/// functions for managing callback objects.
 public protocol SourceCallbackFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3368,12 +3403,13 @@ public protocol SourceCallbackFuncsProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSourceCallbackFuncs` struct contains
+/// functions for managing callback objects.
+///
 /// The `SourceCallbackFuncsRef` type acts as a lightweight Swift reference to an underlying `GSourceCallbackFuncs` instance.
 /// It exposes methods that can operate on this data type through `SourceCallbackFuncsProtocol` conformance.
 /// Use `SourceCallbackFuncsRef` only as an `unowned` reference to an existing `GSourceCallbackFuncs` instance.
 ///
-/// The `GSourceCallbackFuncs` struct contains
-/// functions for managing callback objects.
 public struct SourceCallbackFuncsRef: SourceCallbackFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3452,12 +3488,13 @@ public extension SourceCallbackFuncsRef {
 
     }
 
+/// The `GSourceCallbackFuncs` struct contains
+/// functions for managing callback objects.
+///
 /// The `SourceCallbackFuncs` type acts as an owner of an underlying `GSourceCallbackFuncs` instance.
 /// It provides the methods that can operate on this data type through `SourceCallbackFuncsProtocol` conformance.
 /// Use `SourceCallbackFuncs` as a strong reference or owner of a `GSourceCallbackFuncs` instance.
 ///
-/// The `GSourceCallbackFuncs` struct contains
-/// functions for managing callback objects.
 open class SourceCallbackFuncs: SourceCallbackFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceCallbackFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3625,11 +3662,6 @@ public extension SourceCallbackFuncsProtocol {
 
 // MARK: - SourceFuncs Record
 
-/// The `SourceFuncsProtocol` protocol exposes the methods and properties of an underlying `GSourceFuncs` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SourceFuncs`.
-/// Alternatively, use `SourceFuncsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GSourceFuncs` struct contains a table of
 /// functions used to handle event sources in a generic manner.
 /// 
@@ -3650,6 +3682,12 @@ public extension SourceCallbackFuncsProtocol {
 /// indicate that it doesn't mind how long the `poll()` call blocks. In the
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
+///
+/// The `SourceFuncsProtocol` protocol exposes the methods and properties of an underlying `GSourceFuncs` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SourceFuncs`.
+/// Alternatively, use `SourceFuncsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol SourceFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceFuncs` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3661,10 +3699,6 @@ public protocol SourceFuncsProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `SourceFuncsRef` type acts as a lightweight Swift reference to an underlying `GSourceFuncs` instance.
-/// It exposes methods that can operate on this data type through `SourceFuncsProtocol` conformance.
-/// Use `SourceFuncsRef` only as an `unowned` reference to an existing `GSourceFuncs` instance.
-///
 /// The `GSourceFuncs` struct contains a table of
 /// functions used to handle event sources in a generic manner.
 /// 
@@ -3685,6 +3719,11 @@ public protocol SourceFuncsProtocol {
 /// indicate that it doesn't mind how long the `poll()` call blocks. In the
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
+///
+/// The `SourceFuncsRef` type acts as a lightweight Swift reference to an underlying `GSourceFuncs` instance.
+/// It exposes methods that can operate on this data type through `SourceFuncsProtocol` conformance.
+/// Use `SourceFuncsRef` only as an `unowned` reference to an existing `GSourceFuncs` instance.
+///
 public struct SourceFuncsRef: SourceFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3763,10 +3802,6 @@ public extension SourceFuncsRef {
 
     }
 
-/// The `SourceFuncs` type acts as an owner of an underlying `GSourceFuncs` instance.
-/// It provides the methods that can operate on this data type through `SourceFuncsProtocol` conformance.
-/// Use `SourceFuncs` as a strong reference or owner of a `GSourceFuncs` instance.
-///
 /// The `GSourceFuncs` struct contains a table of
 /// functions used to handle event sources in a generic manner.
 /// 
@@ -3787,6 +3822,11 @@ public extension SourceFuncsRef {
 /// indicate that it doesn't mind how long the `poll()` call blocks. In the
 /// check function, it tests the results of the `poll()` call to see if the
 /// required condition has been met, and returns `true` if so.
+///
+/// The `SourceFuncs` type acts as an owner of an underlying `GSourceFuncs` instance.
+/// It provides the methods that can operate on this data type through `SourceFuncsProtocol` conformance.
+/// Use `SourceFuncs` as a strong reference or owner of a `GSourceFuncs` instance.
+///
 open class SourceFuncs: SourceFuncsProtocol {
         /// Untyped pointer to the underlying `GSourceFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3967,12 +4007,13 @@ public extension SourceFuncsProtocol {
 
 // MARK: - SourcePrivate Record
 
+
+///
 /// The `SourcePrivateProtocol` protocol exposes the methods and properties of an underlying `GSourcePrivate` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SourcePrivate`.
 /// Alternatively, use `SourcePrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol SourcePrivateProtocol {
         /// Untyped pointer to the underlying `GSourcePrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3984,11 +4025,12 @@ public protocol SourcePrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `SourcePrivateRef` type acts as a lightweight Swift reference to an underlying `GSourcePrivate` instance.
 /// It exposes methods that can operate on this data type through `SourcePrivateProtocol` conformance.
 /// Use `SourcePrivateRef` only as an `unowned` reference to an existing `GSourcePrivate` instance.
 ///
-
 public struct SourcePrivateRef: SourcePrivateProtocol {
         /// Untyped pointer to the underlying `GSourcePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4067,11 +4109,12 @@ public extension SourcePrivateRef {
 
     }
 
+
+///
 /// The `SourcePrivate` type acts as an owner of an underlying `GSourcePrivate` instance.
 /// It provides the methods that can operate on this data type through `SourcePrivateProtocol` conformance.
 /// Use `SourcePrivate` as a strong reference or owner of a `GSourcePrivate` instance.
 ///
-
 open class SourcePrivate: SourcePrivateProtocol {
         /// Untyped pointer to the underlying `GSourcePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4234,15 +4277,16 @@ public extension SourcePrivateProtocol {
 
 // MARK: - StatBuf Record
 
+/// A type corresponding to the appropriate struct type for the `stat()`
+/// system call, depending on the platform and/or compiler being used.
+/// 
+/// See `g_stat()` for more information.
+///
 /// The `StatBufProtocol` protocol exposes the methods and properties of an underlying `GStatBuf` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StatBuf`.
 /// Alternatively, use `StatBufRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A type corresponding to the appropriate struct type for the `stat()`
-/// system call, depending on the platform and/or compiler being used.
-/// 
-/// See `g_stat()` for more information.
 public protocol StatBufProtocol {
         /// Untyped pointer to the underlying `GStatBuf` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4254,14 +4298,15 @@ public protocol StatBufProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `StatBufRef` type acts as a lightweight Swift reference to an underlying `GStatBuf` instance.
-/// It exposes methods that can operate on this data type through `StatBufProtocol` conformance.
-/// Use `StatBufRef` only as an `unowned` reference to an existing `GStatBuf` instance.
-///
 /// A type corresponding to the appropriate struct type for the `stat()`
 /// system call, depending on the platform and/or compiler being used.
 /// 
 /// See `g_stat()` for more information.
+///
+/// The `StatBufRef` type acts as a lightweight Swift reference to an underlying `GStatBuf` instance.
+/// It exposes methods that can operate on this data type through `StatBufProtocol` conformance.
+/// Use `StatBufRef` only as an `unowned` reference to an existing `GStatBuf` instance.
+///
 public struct StatBufRef: StatBufProtocol {
         /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4340,14 +4385,15 @@ public extension StatBufRef {
 
     }
 
-/// The `StatBuf` type acts as an owner of an underlying `GStatBuf` instance.
-/// It provides the methods that can operate on this data type through `StatBufProtocol` conformance.
-/// Use `StatBuf` as a strong reference or owner of a `GStatBuf` instance.
-///
 /// A type corresponding to the appropriate struct type for the `stat()`
 /// system call, depending on the platform and/or compiler being used.
 /// 
 /// See `g_stat()` for more information.
+///
+/// The `StatBuf` type acts as an owner of an underlying `GStatBuf` instance.
+/// It provides the methods that can operate on this data type through `StatBufProtocol` conformance.
+/// Use `StatBuf` as a strong reference or owner of a `GStatBuf` instance.
+///
 open class StatBuf: StatBufProtocol {
         /// Untyped pointer to the underlying `GStatBuf` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -4510,12 +4556,13 @@ public extension StatBufProtocol {
 
 // MARK: - String Record
 
+/// The GString struct contains the public fields of a GString.
+///
 /// The `StringProtocol` protocol exposes the methods and properties of an underlying `GString` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StringType`.
 /// Alternatively, use `StringRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GString struct contains the public fields of a GString.
 public protocol StringProtocol {
         /// Untyped pointer to the underlying `GString` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4527,11 +4574,12 @@ public protocol StringProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GString struct contains the public fields of a GString.
+///
 /// The `StringRef` type acts as a lightweight Swift reference to an underlying `GString` instance.
 /// It exposes methods that can operate on this data type through `StringProtocol` conformance.
 /// Use `StringRef` only as an `unowned` reference to an existing `GString` instance.
 ///
-/// The GString struct contains the public fields of a GString.
 public struct StringRef: StringProtocol {
         /// Untyped pointer to the underlying `GString` instance.
     /// For type-safe access, use the generated, typed pointer `gstring_ptr` property instead.
@@ -4608,13 +4656,60 @@ public extension StringRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// Creates a new `GString`, initialized with the given string.
+    @inlinable init( `init`: UnsafePointer<gchar>? = nil) {
+        let rv = g_string_new(`init`)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
+    /// Creates a new `GString` with `len` bytes of the `init` buffer.
+    /// Because a length is provided, `init` need not be nul-terminated,
+    /// and can contain embedded nul bytes.
+    /// 
+    /// Since this function does not stop at nul bytes, it is the caller's
+    /// responsibility to ensure that `init` has at least `len` addressable
+    /// bytes.
+    @inlinable init(len `init`: UnsafePointer<gchar>!, len: gssize) {
+        let rv = g_string_new_len(`init`, len)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GString`, with enough space for `dfl_size`
+    /// bytes. This is useful if you are going to add a lot of
+    /// text to the string and don't want it to be reallocated
+    /// too often.
+    @inlinable init(sized dflSize: Int) {
+        let rv = g_string_sized_new(gsize(dflSize))
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+    /// Creates a new `GString` with `len` bytes of the `init` buffer.
+    /// Because a length is provided, `init` need not be nul-terminated,
+    /// and can contain embedded nul bytes.
+    /// 
+    /// Since this function does not stop at nul bytes, it is the caller's
+    /// responsibility to ensure that `init` has at least `len` addressable
+    /// bytes.
+    @inlinable static func new(len `init`: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
+        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_new_len(`init`, len))) else { return nil }
+        return rv
+    }
+
+    /// Creates a new `GString`, with enough space for `dfl_size`
+    /// bytes. This is useful if you are going to add a lot of
+    /// text to the string and don't want it to be reallocated
+    /// too often.
+    @inlinable static func sizedNew(sized dflSize: Int) -> StringRef! {
+        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_sized_new(gsize(dflSize)))) else { return nil }
+        return rv
+    }
+}
+
+/// The GString struct contains the public fields of a GString.
+///
 /// The `StringType` type acts as an owner of an underlying `GString` instance.
 /// It provides the methods that can operate on this data type through `StringProtocol` conformance.
 /// Use `StringType` as a strong reference or owner of a `GString` instance.
 ///
-/// The GString struct contains the public fields of a GString.
 open class StringType: StringProtocol {
         /// Untyped pointer to the underlying `GString` instance.
     /// For type-safe access, use the generated, typed pointer `gstring_ptr` property instead.
@@ -4755,7 +4850,53 @@ open class StringType: StringProtocol {
         // no reference counting for GString, cannot ref(gstring_ptr)
     }
 
+    /// Creates a new `GString`, initialized with the given string.
+    @inlinable public init( `init`: UnsafePointer<gchar>? = nil) {
+        let rv = g_string_new(`init`)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
 
+    /// Creates a new `GString` with `len` bytes of the `init` buffer.
+    /// Because a length is provided, `init` need not be nul-terminated,
+    /// and can contain embedded nul bytes.
+    /// 
+    /// Since this function does not stop at nul bytes, it is the caller's
+    /// responsibility to ensure that `init` has at least `len` addressable
+    /// bytes.
+    @inlinable public init(len `init`: UnsafePointer<gchar>!, len: gssize) {
+        let rv = g_string_new_len(`init`, len)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GString`, with enough space for `dfl_size`
+    /// bytes. This is useful if you are going to add a lot of
+    /// text to the string and don't want it to be reallocated
+    /// too often.
+    @inlinable public init(sized dflSize: Int) {
+        let rv = g_string_sized_new(gsize(dflSize))
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GString` with `len` bytes of the `init` buffer.
+    /// Because a length is provided, `init` need not be nul-terminated,
+    /// and can contain embedded nul bytes.
+    /// 
+    /// Since this function does not stop at nul bytes, it is the caller's
+    /// responsibility to ensure that `init` has at least `len` addressable
+    /// bytes.
+    @inlinable public static func new(len `init`: UnsafePointer<gchar>!, len: gssize) -> StringType! {
+        guard let rv = StringType(gconstpointer: gconstpointer(g_string_new_len(`init`, len))) else { return nil }
+        return rv
+    }
+
+    /// Creates a new `GString`, with enough space for `dfl_size`
+    /// bytes. This is useful if you are going to add a lot of
+    /// text to the string and don't want it to be reallocated
+    /// too often.
+    @inlinable public static func sizedNew(sized dflSize: Int) -> StringType! {
+        guard let rv = StringType(gconstpointer: gconstpointer(g_string_sized_new(gsize(dflSize)))) else { return nil }
+        return rv
+    }
 
 }
 
@@ -4985,6 +5126,20 @@ public extension StringProtocol {
     // *** printf() is not available because it has a varargs (...) parameter!
 
 
+    /// Replaces the string `find` with the string `replace` in a `GString` up to
+    /// `limit` times. If the number of instances of `find` in the `GString` is
+    /// less than `limit`, all instances are replaced. If `limit` is `0`,
+    /// all instances of `find` are replaced.
+    /// 
+    /// If `find` is the empty string, since versions 2.69.1 and 2.68.4 the
+    /// replacement will be inserted no more than once per possible position
+    /// (beginning of string, end of string and between characters). This did
+    /// not work correctly in earlier versions.
+    @inlinable func replace(find: UnsafePointer<gchar>!, replace: UnsafePointer<gchar>!, limit: Int) -> Int {
+        let rv = Int(g_string_replace(gstring_ptr, find, replace, guint(limit)))
+        return rv
+    }
+
     /// Sets the length of a `GString`. If the length is less than
     /// the current length, the string will be truncated. If the
     /// length is greater than the current length, the contents
@@ -5077,13 +5232,14 @@ public extension StringProtocol {
 
 // MARK: - StringChunk Record
 
+/// An opaque data structure representing String Chunks.
+/// It should only be accessed by using the following functions.
+///
 /// The `StringChunkProtocol` protocol exposes the methods and properties of an underlying `GStringChunk` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `StringChunk`.
 /// Alternatively, use `StringChunkRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque data structure representing String Chunks.
-/// It should only be accessed by using the following functions.
 public protocol StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5095,12 +5251,13 @@ public protocol StringChunkProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque data structure representing String Chunks.
+/// It should only be accessed by using the following functions.
+///
 /// The `StringChunkRef` type acts as a lightweight Swift reference to an underlying `GStringChunk` instance.
 /// It exposes methods that can operate on this data type through `StringChunkProtocol` conformance.
 /// Use `StringChunkRef` only as an `unowned` reference to an existing `GStringChunk` instance.
 ///
-/// An opaque data structure representing String Chunks.
-/// It should only be accessed by using the following functions.
 public struct StringChunkRef: StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5179,12 +5336,13 @@ public extension StringChunkRef {
 
     }
 
+/// An opaque data structure representing String Chunks.
+/// It should only be accessed by using the following functions.
+///
 /// The `StringChunk` type acts as an owner of an underlying `GStringChunk` instance.
 /// It provides the methods that can operate on this data type through `StringChunkProtocol` conformance.
 /// Use `StringChunk` as a strong reference or owner of a `GStringChunk` instance.
 ///
-/// An opaque data structure representing String Chunks.
-/// It should only be accessed by using the following functions.
 open class StringChunk: StringChunkProtocol {
         /// Untyped pointer to the underlying `GStringChunk` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5408,14 +5566,364 @@ public extension StringChunkProtocol {
 
 
 
+// MARK: - StrvBuilder Record
+
+/// `GStrvBuilder` is a method of easily building dynamically sized
+/// NULL-terminated string arrays.
+/// 
+/// The following example shows how to build a two element array:
+/// 
+/// (C Language Example):
+/// ```C
+///   g_autoptr(GStrvBuilder) builder = g_strv_builder_new ();
+///   g_strv_builder_add (builder, "hello");
+///   g_strv_builder_add (builder, "world");
+///   g_auto(GStrv) array = g_strv_builder_end (builder);
+/// ```
+/// 
+///
+/// The `StrvBuilderProtocol` protocol exposes the methods and properties of an underlying `GStrvBuilder` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `StrvBuilder`.
+/// Alternatively, use `StrvBuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol StrvBuilderProtocol {
+        /// Untyped pointer to the underlying `GStrvBuilder` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GStrvBuilder` instance.
+    var _ptr: UnsafeMutablePointer<GStrvBuilder>! { get }
+
+    /// Required Initialiser for types conforming to `StrvBuilderProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// `GStrvBuilder` is a method of easily building dynamically sized
+/// NULL-terminated string arrays.
+/// 
+/// The following example shows how to build a two element array:
+/// 
+/// (C Language Example):
+/// ```C
+///   g_autoptr(GStrvBuilder) builder = g_strv_builder_new ();
+///   g_strv_builder_add (builder, "hello");
+///   g_strv_builder_add (builder, "world");
+///   g_auto(GStrv) array = g_strv_builder_end (builder);
+/// ```
+/// 
+///
+/// The `StrvBuilderRef` type acts as a lightweight Swift reference to an underlying `GStrvBuilder` instance.
+/// It exposes methods that can operate on this data type through `StrvBuilderProtocol` conformance.
+/// Use `StrvBuilderRef` only as an `unowned` reference to an existing `GStrvBuilder` instance.
+///
+public struct StrvBuilderRef: StrvBuilderProtocol {
+        /// Untyped pointer to the underlying `GStrvBuilder` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension StrvBuilderRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GStrvBuilder>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GStrvBuilder>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GStrvBuilder>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GStrvBuilder>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `StrvBuilderProtocol`
+    @inlinable init<T: StrvBuilderProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// `GStrvBuilder` is a method of easily building dynamically sized
+/// NULL-terminated string arrays.
+/// 
+/// The following example shows how to build a two element array:
+/// 
+/// (C Language Example):
+/// ```C
+///   g_autoptr(GStrvBuilder) builder = g_strv_builder_new ();
+///   g_strv_builder_add (builder, "hello");
+///   g_strv_builder_add (builder, "world");
+///   g_auto(GStrv) array = g_strv_builder_end (builder);
+/// ```
+/// 
+///
+/// The `StrvBuilder` type acts as a reference-counted owner of an underlying `GStrvBuilder` instance.
+/// It provides the methods that can operate on this data type through `StrvBuilderProtocol` conformance.
+/// Use `StrvBuilder` as a strong reference or owner of a `GStrvBuilder` instance.
+///
+open class StrvBuilder: StrvBuilderProtocol {
+        /// Untyped pointer to the underlying `GStrvBuilder` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GStrvBuilder>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GStrvBuilder>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GStrvBuilder>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GStrvBuilder>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// Will retain `GStrvBuilder`.
+    /// i.e., ownership is transferred to the `StrvBuilder` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GStrvBuilder>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Reference intialiser for a related type that implements `StrvBuilderProtocol`
+    /// Will retain `GStrvBuilder`.
+    /// - Parameter other: an instance of a related type that implements `StrvBuilderProtocol`
+    @inlinable public init<T: StrvBuilderProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Releases the underlying `GStrvBuilder` instance using `g_strv_builder_unref`.
+    deinit {
+        g_strv_builder_unref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `StrvBuilderProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_strv_builder_ref(ptr.assumingMemoryBound(to: GStrvBuilder.self))
+    }
+
+
+
+}
+
+// MARK: no StrvBuilder properties
+
+// MARK: no StrvBuilder signals
+
+// MARK: StrvBuilder has no signals
+// MARK: StrvBuilder Record: StrvBuilderProtocol extension (methods and fields)
+public extension StrvBuilderProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GStrvBuilder` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GStrvBuilder>! { return ptr?.assumingMemoryBound(to: GStrvBuilder.self) }
+
+    /// Add a string to the end of the array.
+    /// 
+    /// Since 2.68
+    @inlinable func add(value: UnsafePointer<CChar>!) {
+        g_strv_builder_add(_ptr, value)
+    
+    }
+
+
+    // *** addMany() is not available because it has a varargs (...) parameter!
+
+
+    /// Appends all the strings in the given vector to the builder.
+    /// 
+    /// Since 2.70
+    @inlinable func addv(value: UnsafeMutablePointer<UnsafePointer<CChar>?>!) {
+        g_strv_builder_addv(_ptr, value)
+    
+    }
+
+    /// Ends the builder process and returns the constructed NULL-terminated string
+    /// array. The returned value should be freed with `g_strfreev()` when no longer
+    /// needed.
+    @inlinable func end() -> GStrv! {
+        let rv = g_strv_builder_end(_ptr)
+        return rv
+    }
+
+    /// Atomically increments the reference count of `builder` by one.
+    /// This function is thread-safe and may be called from any thread.
+    @discardableResult @inlinable func ref() -> StrvBuilderRef! {
+        guard let rv = StrvBuilderRef(gconstpointer: gconstpointer(g_strv_builder_ref(_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Decreases the reference count on `builder`.
+    /// 
+    /// In the event that there are no more references, releases all memory
+    /// associated with the `GStrvBuilder`.
+    @inlinable func unref() {
+        g_strv_builder_unref(_ptr)
+    
+    }
+
+
+}
+
+
+
 // MARK: - TestCase Record
 
+/// An opaque structure representing a test case.
+///
 /// The `TestCaseProtocol` protocol exposes the methods and properties of an underlying `GTestCase` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TestCase`.
 /// Alternatively, use `TestCaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a test case.
 public protocol TestCaseProtocol {
         /// Untyped pointer to the underlying `GTestCase` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5427,11 +5935,12 @@ public protocol TestCaseProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing a test case.
+///
 /// The `TestCaseRef` type acts as a lightweight Swift reference to an underlying `GTestCase` instance.
 /// It exposes methods that can operate on this data type through `TestCaseProtocol` conformance.
 /// Use `TestCaseRef` only as an `unowned` reference to an existing `GTestCase` instance.
 ///
-/// An opaque structure representing a test case.
 public struct TestCaseRef: TestCaseProtocol {
         /// Untyped pointer to the underlying `GTestCase` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5510,11 +6019,12 @@ public extension TestCaseRef {
 
     }
 
+/// An opaque structure representing a test case.
+///
 /// The `TestCase` type acts as an owner of an underlying `GTestCase` instance.
 /// It provides the methods that can operate on this data type through `TestCaseProtocol` conformance.
 /// Use `TestCase` as a strong reference or owner of a `GTestCase` instance.
 ///
-/// An opaque structure representing a test case.
 open class TestCase: TestCaseProtocol {
         /// Untyped pointer to the underlying `GTestCase` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -5669,6 +6179,11 @@ public extension TestCaseProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTestCase` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GTestCase>! { return ptr?.assumingMemoryBound(to: GTestCase.self) }
 
+    /// Free the `test_case`.
+    @inlinable func free() {
+        g_test_case_free(_ptr)
+    
+    }
 
 
 }

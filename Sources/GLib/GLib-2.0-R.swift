@@ -2,11 +2,6 @@ import CGLib
 
 // MARK: - RWLock Record
 
-/// The `RWLockProtocol` protocol exposes the methods and properties of an underlying `GRWLock` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RWLock`.
-/// Alternatively, use `RWLockRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GRWLock struct is an opaque data structure to represent a
 /// reader-writer lock. It is similar to a `GMutex` in that it allows
 /// multiple threads to coordinate access to a shared resource.
@@ -72,6 +67,12 @@ import CGLib
 /// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
+///
+/// The `RWLockProtocol` protocol exposes the methods and properties of an underlying `GRWLock` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RWLock`.
+/// Alternatively, use `RWLockRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -83,10 +84,6 @@ public protocol RWLockProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RWLockRef` type acts as a lightweight Swift reference to an underlying `GRWLock` instance.
-/// It exposes methods that can operate on this data type through `RWLockProtocol` conformance.
-/// Use `RWLockRef` only as an `unowned` reference to an existing `GRWLock` instance.
-///
 /// The GRWLock struct is an opaque data structure to represent a
 /// reader-writer lock. It is similar to a `GMutex` in that it allows
 /// multiple threads to coordinate access to a shared resource.
@@ -152,6 +149,11 @@ public protocol RWLockProtocol {
 /// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
+///
+/// The `RWLockRef` type acts as a lightweight Swift reference to an underlying `GRWLock` instance.
+/// It exposes methods that can operate on this data type through `RWLockProtocol` conformance.
+/// Use `RWLockRef` only as an `unowned` reference to an existing `GRWLock` instance.
+///
 public struct RWLockRef: RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -230,10 +232,6 @@ public extension RWLockRef {
 
     }
 
-/// The `RWLock` type acts as an owner of an underlying `GRWLock` instance.
-/// It provides the methods that can operate on this data type through `RWLockProtocol` conformance.
-/// Use `RWLock` as a strong reference or owner of a `GRWLock` instance.
-///
 /// The GRWLock struct is an opaque data structure to represent a
 /// reader-writer lock. It is similar to a `GMutex` in that it allows
 /// multiple threads to coordinate access to a shared resource.
@@ -299,6 +297,11 @@ public extension RWLockRef {
 /// `g_rw_lock_init()` on it and `g_rw_lock_clear()` when done.
 /// 
 /// A GRWLock should only be accessed with the g_rw_lock_ functions.
+///
+/// The `RWLock` type acts as an owner of an underlying `GRWLock` instance.
+/// It provides the methods that can operate on this data type through `RWLockProtocol` conformance.
+/// Use `RWLock` as a strong reference or owner of a `GRWLock` instance.
+///
 open class RWLock: RWLockProtocol {
         /// Untyped pointer to the underlying `GRWLock` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -573,13 +576,14 @@ public extension RWLockProtocol {
 
 // MARK: - Rand Record
 
+/// The GRand struct is an opaque data structure. It should only be
+/// accessed through the g_rand_* functions.
+///
 /// The `RandProtocol` protocol exposes the methods and properties of an underlying `GRand` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Rand`.
 /// Alternatively, use `RandRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GRand struct is an opaque data structure. It should only be
-/// accessed through the g_rand_* functions.
 public protocol RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -591,12 +595,13 @@ public protocol RandProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GRand struct is an opaque data structure. It should only be
+/// accessed through the g_rand_* functions.
+///
 /// The `RandRef` type acts as a lightweight Swift reference to an underlying `GRand` instance.
 /// It exposes methods that can operate on this data type through `RandProtocol` conformance.
 /// Use `RandRef` only as an `unowned` reference to an existing `GRand` instance.
 ///
-/// The GRand struct is an opaque data structure. It should only be
-/// accessed through the g_rand_* functions.
 public struct RandRef: RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -686,12 +691,13 @@ public extension RandRef {
     }
 }
 
+/// The GRand struct is an opaque data structure. It should only be
+/// accessed through the g_rand_* functions.
+///
 /// The `Rand` type acts as an owner of an underlying `GRand` instance.
 /// It provides the methods that can operate on this data type through `RandProtocol` conformance.
 /// Use `Rand` as a strong reference or owner of a `GRand` instance.
 ///
-/// The GRand struct is an opaque data structure. It should only be
-/// accessed through the g_rand_* functions.
 open class Rand: RandProtocol {
         /// Untyped pointer to the underlying `GRand` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -922,11 +928,6 @@ public extension RandProtocol {
 
 // MARK: - RecMutex Record
 
-/// The `RecMutexProtocol` protocol exposes the methods and properties of an underlying `GRecMutex` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `RecMutex`.
-/// Alternatively, use `RecMutexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The GRecMutex struct is an opaque data structure to represent a
 /// recursive mutex. It is similar to a `GMutex` with the difference
 /// that it is possible to lock a GRecMutex multiple times in the same
@@ -939,6 +940,12 @@ public extension RandProtocol {
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
+///
+/// The `RecMutexProtocol` protocol exposes the methods and properties of an underlying `GRecMutex` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `RecMutex`.
+/// Alternatively, use `RecMutexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RecMutexProtocol {
         /// Untyped pointer to the underlying `GRecMutex` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -950,10 +957,6 @@ public protocol RecMutexProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RecMutexRef` type acts as a lightweight Swift reference to an underlying `GRecMutex` instance.
-/// It exposes methods that can operate on this data type through `RecMutexProtocol` conformance.
-/// Use `RecMutexRef` only as an `unowned` reference to an existing `GRecMutex` instance.
-///
 /// The GRecMutex struct is an opaque data structure to represent a
 /// recursive mutex. It is similar to a `GMutex` with the difference
 /// that it is possible to lock a GRecMutex multiple times in the same
@@ -966,6 +969,11 @@ public protocol RecMutexProtocol {
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
+///
+/// The `RecMutexRef` type acts as a lightweight Swift reference to an underlying `GRecMutex` instance.
+/// It exposes methods that can operate on this data type through `RecMutexProtocol` conformance.
+/// Use `RecMutexRef` only as an `unowned` reference to an existing `GRecMutex` instance.
+///
 public struct RecMutexRef: RecMutexProtocol {
         /// Untyped pointer to the underlying `GRecMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1044,10 +1052,6 @@ public extension RecMutexRef {
 
     }
 
-/// The `RecMutex` type acts as an owner of an underlying `GRecMutex` instance.
-/// It provides the methods that can operate on this data type through `RecMutexProtocol` conformance.
-/// Use `RecMutex` as a strong reference or owner of a `GRecMutex` instance.
-///
 /// The GRecMutex struct is an opaque data structure to represent a
 /// recursive mutex. It is similar to a `GMutex` with the difference
 /// that it is possible to lock a GRecMutex multiple times in the same
@@ -1060,6 +1064,11 @@ public extension RecMutexRef {
 /// 
 /// A GRecMutex should only be accessed with the
 /// g_rec_mutex_ functions.
+///
+/// The `RecMutex` type acts as an owner of an underlying `GRecMutex` instance.
+/// It provides the methods that can operate on this data type through `RecMutexProtocol` conformance.
+/// Use `RecMutex` as a strong reference or owner of a `GRecMutex` instance.
+///
 open class RecMutex: RecMutexProtocol {
         /// Untyped pointer to the underlying `GRecMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1301,11 +1310,6 @@ public extension RecMutexProtocol {
 
 // MARK: - Regex Record
 
-/// The `RegexProtocol` protocol exposes the methods and properties of an underlying `GRegex` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Regex`.
-/// Alternatively, use `RegexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The g_regex_*() functions implement regular
 /// expression pattern matching using syntax and semantics similar to
 /// Perl regular expression.
@@ -1371,6 +1375,12 @@ public extension RecMutexProtocol {
 /// the excellent
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
+///
+/// The `RegexProtocol` protocol exposes the methods and properties of an underlying `GRegex` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Regex`.
+/// Alternatively, use `RegexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol RegexProtocol {
         /// Untyped pointer to the underlying `GRegex` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1382,10 +1392,6 @@ public protocol RegexProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `RegexRef` type acts as a lightweight Swift reference to an underlying `GRegex` instance.
-/// It exposes methods that can operate on this data type through `RegexProtocol` conformance.
-/// Use `RegexRef` only as an `unowned` reference to an existing `GRegex` instance.
-///
 /// The g_regex_*() functions implement regular
 /// expression pattern matching using syntax and semantics similar to
 /// Perl regular expression.
@@ -1451,6 +1457,11 @@ public protocol RegexProtocol {
 /// the excellent
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
+///
+/// The `RegexRef` type acts as a lightweight Swift reference to an underlying `GRegex` instance.
+/// It exposes methods that can operate on this data type through `RegexProtocol` conformance.
+/// Use `RegexRef` only as an `unowned` reference to an existing `GRegex` instance.
+///
 public struct RegexRef: RegexProtocol {
         /// Untyped pointer to the underlying `GRegex` instance.
     /// For type-safe access, use the generated, typed pointer `regex_ptr` property instead.
@@ -1537,10 +1548,6 @@ public extension RegexRef {
     }
 }
 
-/// The `Regex` type acts as a reference-counted owner of an underlying `GRegex` instance.
-/// It provides the methods that can operate on this data type through `RegexProtocol` conformance.
-/// Use `Regex` as a strong reference or owner of a `GRegex` instance.
-///
 /// The g_regex_*() functions implement regular
 /// expression pattern matching using syntax and semantics similar to
 /// Perl regular expression.
@@ -1606,6 +1613,11 @@ public extension RegexRef {
 /// the excellent
 /// [PCRE](http://www.pcre.org/)
 /// library written by Philip Hazel.
+///
+/// The `Regex` type acts as a reference-counted owner of an underlying `GRegex` instance.
+/// It provides the methods that can operate on this data type through `RegexProtocol` conformance.
+/// Use `Regex` as a strong reference or owner of a `GRegex` instance.
+///
 open class Regex: RegexProtocol {
         /// Untyped pointer to the underlying `GRegex` instance.
     /// For type-safe access, use the generated, typed pointer `regex_ptr` property instead.
@@ -2247,13 +2259,14 @@ public extension RegexProtocol {
 
 // MARK: - SList Record
 
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
 /// The `SListProtocol` protocol exposes the methods and properties of an underlying `GSList` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `SList`.
 /// Alternatively, use `SListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
 public protocol SListProtocol {
         /// Untyped pointer to the underlying `GSList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2265,12 +2278,13 @@ public protocol SListProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
 /// The `SListRef` type acts as a lightweight Swift reference to an underlying `GSList` instance.
 /// It exposes methods that can operate on this data type through `SListProtocol` conformance.
 /// Use `SListRef` only as an `unowned` reference to an existing `GSList` instance.
 ///
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
 public struct SListRef: SListProtocol {
         /// Untyped pointer to the underlying `GSList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2349,12 +2363,13 @@ public extension SListRef {
 
     }
 
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
 /// The `SList` type acts as an owner of an underlying `GSList` instance.
 /// It provides the methods that can operate on this data type through `SListProtocol` conformance.
 /// Use `SList` as a strong reference or owner of a `GSList` instance.
 ///
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
 open class SList: SListProtocol {
         /// Untyped pointer to the underlying `GSList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -2,15 +2,10 @@ import CGLib
 
 // MARK: - Date Record
 
-/// The `DateProtocol` protocol exposes the methods and properties of an underlying `GDate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Date`.
-/// Alternatively, use `DateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
+/// If the `GDate` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -18,6 +13,12 @@ import CGLib
 /// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
+///
+/// The `DateProtocol` protocol exposes the methods and properties of an underlying `GDate` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Date`.
+/// Alternatively, use `DateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol DateProtocol {
         /// Untyped pointer to the underlying `GDate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -29,14 +30,10 @@ public protocol DateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DateRef` type acts as a lightweight Swift reference to an underlying `GDate` instance.
-/// It exposes methods that can operate on this data type through `DateProtocol` conformance.
-/// Use `DateRef` only as an `unowned` reference to an existing `GDate` instance.
-///
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
+/// If the `GDate` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -44,6 +41,11 @@ public protocol DateProtocol {
 /// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
+///
+/// The `DateRef` type acts as a lightweight Swift reference to an underlying `GDate` instance.
+/// It exposes methods that can operate on this data type through `DateProtocol` conformance.
+/// Use `DateRef` only as an `unowned` reference to an existing `GDate` instance.
+///
 public struct DateRef: DateProtocol {
         /// Untyped pointer to the underlying `GDate` instance.
     /// For type-safe access, use the generated, typed pointer `date_ptr` property instead.
@@ -161,14 +163,10 @@ public extension DateRef {
     }
 }
 
-/// The `Date` type acts as an owner of an underlying `GDate` instance.
-/// It provides the methods that can operate on this data type through `DateProtocol` conformance.
-/// Use `Date` as a strong reference or owner of a `GDate` instance.
-///
 /// Represents a day between January 1, Year 1 and a few thousand years in
 /// the future. None of its members should be accessed directly.
 /// 
-/// If the `GDate-struct` is obtained from `g_date_new()`, it will be safe
+/// If the `GDate` is obtained from `g_date_new()`, it will be safe
 /// to mutate but invalid and thus not safe for calendrical computations.
 /// 
 /// If it's declared on the stack, it will contain garbage so must be
@@ -176,6 +174,11 @@ public extension DateRef {
 /// but safe. An invalid date doesn't represent a day, it's "empty." A date
 /// becomes valid after you set it to a Julian day or you set a day, month,
 /// and year.
+///
+/// The `Date` type acts as an owner of an underlying `GDate` instance.
+/// It provides the methods that can operate on this data type through `DateProtocol` conformance.
+/// Use `Date` as a strong reference or owner of a `GDate` instance.
+///
 open class Date: DateProtocol {
         /// Untyped pointer to the underlying `GDate` instance.
     /// For type-safe access, use the generated, typed pointer `date_ptr` property instead.
@@ -564,8 +567,8 @@ public extension DateProtocol {
     ///
     /// **set_time is deprecated:**
     /// Use g_date_set_time_t() instead.
-    @available(*, deprecated) @inlinable func setTime(time_: GTime) {
-        g_date_set_time(date_ptr, time_)
+    @available(*, deprecated) @inlinable func set(time: GTime) {
+        g_date_set_time(date_ptr, time)
     
     }
 
@@ -865,32 +868,32 @@ public extension DateProtocol {
     }
 
     /// the day of the day-month-year representation of the date,
-    ///     as a number between 1 and 31
+    ///   as a number between 1 and 31
     @inlinable var _day: guint {
         /// the day of the day-month-year representation of the date,
-        ///     as a number between 1 and 31
+        ///   as a number between 1 and 31
         get {
             let rv = date_ptr.pointee.day
             return rv
         }
         /// the day of the day-month-year representation of the date,
-        ///     as a number between 1 and 31
+        ///   as a number between 1 and 31
          set {
             date_ptr.pointee.day = newValue
         }
     }
 
     /// the day of the day-month-year representation of the date,
-    ///     as a number between 1 and 12
+    ///   as a number between 1 and 12
     @inlinable var _month: guint {
         /// the day of the day-month-year representation of the date,
-        ///     as a number between 1 and 12
+        ///   as a number between 1 and 12
         get {
             let rv = date_ptr.pointee.month
             return rv
         }
         /// the day of the day-month-year representation of the date,
-        ///     as a number between 1 and 12
+        ///   as a number between 1 and 12
          set {
             date_ptr.pointee.month = newValue
         }
@@ -915,13 +918,13 @@ public extension DateProtocol {
 
 // MARK: - DateTime Record
 
+/// An opaque structure that represents a date and time, including a time zone.
+///
 /// The `DateTimeProtocol` protocol exposes the methods and properties of an underlying `GDateTime` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DateTime`.
 /// Alternatively, use `DateTimeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GDateTime` is an opaque structure whose members
-/// cannot be accessed directly.
 public protocol DateTimeProtocol {
         /// Untyped pointer to the underlying `GDateTime` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -933,12 +936,12 @@ public protocol DateTimeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure that represents a date and time, including a time zone.
+///
 /// The `DateTimeRef` type acts as a lightweight Swift reference to an underlying `GDateTime` instance.
 /// It exposes methods that can operate on this data type through `DateTimeProtocol` conformance.
 /// Use `DateTimeRef` only as an `unowned` reference to an existing `GDateTime` instance.
 ///
-/// `GDateTime` is an opaque structure whose members
-/// cannot be accessed directly.
 public struct DateTimeRef: DateTimeProtocol {
         /// Untyped pointer to the underlying `GDateTime` instance.
     /// For type-safe access, use the generated, typed pointer `date_time_ptr` property instead.
@@ -1373,12 +1376,12 @@ public extension DateTimeRef {
     }
 }
 
+/// An opaque structure that represents a date and time, including a time zone.
+///
 /// The `DateTime` type acts as a reference-counted owner of an underlying `GDateTime` instance.
 /// It provides the methods that can operate on this data type through `DateTimeProtocol` conformance.
 /// Use `DateTime` as a strong reference or owner of a `GDateTime` instance.
 ///
-/// `GDateTime` is an opaque structure whose members
-/// cannot be accessed directly.
 open class DateTime: DateTimeProtocol {
         /// Untyped pointer to the underlying `GDateTime` instance.
     /// For type-safe access, use the generated, typed pointer `date_time_ptr` property instead.
@@ -2612,13 +2615,14 @@ public extension DateTimeProtocol {
 
 // MARK: - DebugKey Record
 
+/// Associates a string with a bit flag.
+/// Used in `g_parse_debug_string()`.
+///
 /// The `DebugKeyProtocol` protocol exposes the methods and properties of an underlying `GDebugKey` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DebugKey`.
 /// Alternatively, use `DebugKeyRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Associates a string with a bit flag.
-/// Used in `g_parse_debug_string()`.
 public protocol DebugKeyProtocol {
         /// Untyped pointer to the underlying `GDebugKey` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2630,12 +2634,13 @@ public protocol DebugKeyProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Associates a string with a bit flag.
+/// Used in `g_parse_debug_string()`.
+///
 /// The `DebugKeyRef` type acts as a lightweight Swift reference to an underlying `GDebugKey` instance.
 /// It exposes methods that can operate on this data type through `DebugKeyProtocol` conformance.
 /// Use `DebugKeyRef` only as an `unowned` reference to an existing `GDebugKey` instance.
 ///
-/// Associates a string with a bit flag.
-/// Used in `g_parse_debug_string()`.
 public struct DebugKeyRef: DebugKeyProtocol {
         /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2714,12 +2719,13 @@ public extension DebugKeyRef {
 
     }
 
+/// Associates a string with a bit flag.
+/// Used in `g_parse_debug_string()`.
+///
 /// The `DebugKey` type acts as an owner of an underlying `GDebugKey` instance.
 /// It provides the methods that can operate on this data type through `DebugKeyProtocol` conformance.
 /// Use `DebugKey` as a strong reference or owner of a `GDebugKey` instance.
 ///
-/// Associates a string with a bit flag.
-/// Used in `g_parse_debug_string()`.
 open class DebugKey: DebugKeyProtocol {
         /// Untyped pointer to the underlying `GDebugKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2907,12 +2913,13 @@ public extension DebugKeyProtocol {
 
 // MARK: - Dir Record
 
+/// An opaque structure representing an opened directory.
+///
 /// The `DirProtocol` protocol exposes the methods and properties of an underlying `GDir` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Dir`.
 /// Alternatively, use `DirRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing an opened directory.
 public protocol DirProtocol {
         /// Untyped pointer to the underlying `GDir` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2924,11 +2931,12 @@ public protocol DirProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing an opened directory.
+///
 /// The `DirRef` type acts as a lightweight Swift reference to an underlying `GDir` instance.
 /// It exposes methods that can operate on this data type through `DirProtocol` conformance.
 /// Use `DirRef` only as an `unowned` reference to an existing `GDir` instance.
 ///
-/// An opaque structure representing an opened directory.
 public struct DirRef: DirProtocol {
         /// Untyped pointer to the underlying `GDir` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3017,11 +3025,12 @@ public extension DirRef {
     }
 }
 
+/// An opaque structure representing an opened directory.
+///
 /// The `Dir` type acts as an owner of an underlying `GDir` instance.
 /// It provides the methods that can operate on this data type through `DirProtocol` conformance.
 /// Use `Dir` as a strong reference or owner of a `GDir` instance.
 ///
-/// An opaque structure representing an opened directory.
 open class Dir: DirProtocol {
         /// Untyped pointer to the underlying `GDir` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3224,13 +3233,14 @@ public extension DirProtocol {
 
 // MARK: - Error Record
 
+/// The `GError` structure contains information about
+/// an error that has occurred.
+///
 /// The `ErrorProtocol` protocol exposes the methods and properties of an underlying `GError` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `GLibError`.
 /// Alternatively, use `ErrorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GError` structure contains information about
-/// an error that has occurred.
 public protocol ErrorProtocol: Error {
         /// Untyped pointer to the underlying `GError` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3242,12 +3252,13 @@ public protocol ErrorProtocol: Error {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GError` structure contains information about
+/// an error that has occurred.
+///
 /// The `ErrorRef` type acts as a lightweight Swift reference to an underlying `GError` instance.
 /// It exposes methods that can operate on this data type through `ErrorProtocol` conformance.
 /// Use `ErrorRef` only as an `unowned` reference to an existing `GError` instance.
 ///
-/// The `GError` structure contains information about
-/// an error that has occurred.
 public struct ErrorRef: ErrorProtocol {
         /// Untyped pointer to the underlying `GError` instance.
     /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.
@@ -3360,12 +3371,13 @@ public extension ErrorRef {
     }
 }
 
+/// The `GError` structure contains information about
+/// an error that has occurred.
+///
 /// The `GLibError` type acts as an owner of an underlying `GError` instance.
 /// It provides the methods that can operate on this data type through `ErrorProtocol` conformance.
 /// Use `GLibError` as a strong reference or owner of a `GError` instance.
 ///
-/// The `GError` structure contains information about
-/// an error that has occurred.
 open class GLibError: ErrorProtocol {
         /// Untyped pointer to the underlying `GError` instance.
     /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.

@@ -2,12 +2,13 @@ import CGLib
 
 // MARK: - Array Record
 
+/// Contains the public fields of a GArray.
+///
 /// The `ArrayProtocol` protocol exposes the methods and properties of an underlying `GArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ArrayType`.
 /// Alternatively, use `ArrayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains the public fields of a GArray.
 public protocol ArrayProtocol {
         /// Untyped pointer to the underlying `GArray` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19,11 +20,12 @@ public protocol ArrayProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Contains the public fields of a GArray.
+///
 /// The `ArrayRef` type acts as a lightweight Swift reference to an underlying `GArray` instance.
 /// It exposes methods that can operate on this data type through `ArrayProtocol` conformance.
 /// Use `ArrayRef` only as an `unowned` reference to an existing `GArray` instance.
 ///
-/// Contains the public fields of a GArray.
 public struct ArrayRef: ArrayProtocol {
         /// Untyped pointer to the underlying `GArray` instance.
     /// For type-safe access, use the generated, typed pointer `array_ptr` property instead.
@@ -102,11 +104,12 @@ public extension ArrayRef {
 
     }
 
+/// Contains the public fields of a GArray.
+///
 /// The `ArrayType` type acts as an owner of an underlying `GArray` instance.
 /// It provides the methods that can operate on this data type through `ArrayProtocol` conformance.
 /// Use `ArrayType` as a strong reference or owner of a `GArray` instance.
 ///
-/// Contains the public fields of a GArray.
 open class ArrayType: ArrayProtocol {
         /// Untyped pointer to the underlying `GArray` instance.
     /// For type-safe access, use the generated, typed pointer `array_ptr` property instead.
@@ -300,14 +303,15 @@ public extension ArrayProtocol {
 
 // MARK: - AsyncQueue Record
 
+/// An opaque data structure which represents an asynchronous queue.
+/// 
+/// It should only be accessed through the `g_async_queue_*` functions.
+///
 /// The `AsyncQueueProtocol` protocol exposes the methods and properties of an underlying `GAsyncQueue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `AsyncQueue`.
 /// Alternatively, use `AsyncQueueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GAsyncQueue struct is an opaque data structure which represents
-/// an asynchronous queue. It should only be accessed through the
-/// g_async_queue_* functions.
 public protocol AsyncQueueProtocol {
         /// Untyped pointer to the underlying `GAsyncQueue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -319,13 +323,14 @@ public protocol AsyncQueueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque data structure which represents an asynchronous queue.
+/// 
+/// It should only be accessed through the `g_async_queue_*` functions.
+///
 /// The `AsyncQueueRef` type acts as a lightweight Swift reference to an underlying `GAsyncQueue` instance.
 /// It exposes methods that can operate on this data type through `AsyncQueueProtocol` conformance.
 /// Use `AsyncQueueRef` only as an `unowned` reference to an existing `GAsyncQueue` instance.
 ///
-/// The GAsyncQueue struct is an opaque data structure which represents
-/// an asynchronous queue. It should only be accessed through the
-/// g_async_queue_* functions.
 public struct AsyncQueueRef: AsyncQueueProtocol {
         /// Untyped pointer to the underlying `GAsyncQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -405,19 +410,20 @@ public extension AsyncQueueRef {
         /// Creates a new asynchronous queue and sets up a destroy notify
     /// function that is used to free any remaining queue items when
     /// the queue is destroyed after the final unref.
-    @inlinable static func new(full itemFreeFunc: GDestroyNotify?) -> AsyncQueueRef! {
+    @inlinable static func new(full itemFreeFunc: GDestroyNotify? = nil) -> AsyncQueueRef! {
         guard let rv = AsyncQueueRef(gconstpointer: gconstpointer(g_async_queue_new_full(itemFreeFunc))) else { return nil }
         return rv
     }
 }
 
+/// An opaque data structure which represents an asynchronous queue.
+/// 
+/// It should only be accessed through the `g_async_queue_*` functions.
+///
 /// The `AsyncQueue` type acts as a reference-counted owner of an underlying `GAsyncQueue` instance.
 /// It provides the methods that can operate on this data type through `AsyncQueueProtocol` conformance.
 /// Use `AsyncQueue` as a strong reference or owner of a `GAsyncQueue` instance.
 ///
-/// The GAsyncQueue struct is an opaque data structure which represents
-/// an asynchronous queue. It should only be accessed through the
-/// g_async_queue_* functions.
 open class AsyncQueue: AsyncQueueProtocol {
         /// Untyped pointer to the underlying `GAsyncQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -562,7 +568,7 @@ open class AsyncQueue: AsyncQueueProtocol {
     /// Creates a new asynchronous queue and sets up a destroy notify
     /// function that is used to free any remaining queue items when
     /// the queue is destroyed after the final unref.
-    @inlinable public static func new(full itemFreeFunc: GDestroyNotify?) -> AsyncQueue! {
+    @inlinable public static func new(full itemFreeFunc: GDestroyNotify? = nil) -> AsyncQueue! {
         guard let rv = AsyncQueue(gconstpointer: gconstpointer(g_async_queue_new_full(itemFreeFunc))) else { return nil }
         return rv
     }
@@ -891,13 +897,13 @@ public extension AsyncQueueProtocol {
 
 // MARK: - BookmarkFile Record
 
+/// An opaque data structure representing a set of bookmarks.
+///
 /// The `BookmarkFileProtocol` protocol exposes the methods and properties of an underlying `GBookmarkFile` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `BookmarkFile`.
 /// Alternatively, use `BookmarkFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GBookmarkFile` structure contains only
-/// private data and should not be directly accessed.
 public protocol BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -909,12 +915,12 @@ public protocol BookmarkFileProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque data structure representing a set of bookmarks.
+///
 /// The `BookmarkFileRef` type acts as a lightweight Swift reference to an underlying `GBookmarkFile` instance.
 /// It exposes methods that can operate on this data type through `BookmarkFileProtocol` conformance.
 /// Use `BookmarkFileRef` only as an `unowned` reference to an existing `GBookmarkFile` instance.
 ///
-/// The `GBookmarkFile` structure contains only
-/// private data and should not be directly accessed.
 public struct BookmarkFileRef: BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -993,12 +999,12 @@ public extension BookmarkFileRef {
 
     }
 
+/// An opaque data structure representing a set of bookmarks.
+///
 /// The `BookmarkFile` type acts as an owner of an underlying `GBookmarkFile` instance.
 /// It provides the methods that can operate on this data type through `BookmarkFileProtocol` conformance.
 /// Use `BookmarkFile` as a strong reference or owner of a `GBookmarkFile` instance.
 ///
-/// The `GBookmarkFile` structure contains only
-/// private data and should not be directly accessed.
 open class BookmarkFile: BookmarkFileProtocol {
         /// Untyped pointer to the underlying `GBookmarkFile` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

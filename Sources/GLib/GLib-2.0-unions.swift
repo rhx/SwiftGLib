@@ -2,15 +2,16 @@ import CGLib
 
 // MARK: - DoubleIEEE754 Union
 
+/// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
+/// mantissa and exponent of IEEE floats and doubles. These unions are defined
+/// as appropriate for a given platform. IEEE floats and doubles are supported
+/// (used for storage) by at least Intel, PPC and Sparc.
+///
 /// The `DoubleIEEE754Protocol` protocol exposes the methods and properties of an underlying `GDoubleIEEE754` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `DoubleIEEE754`.
 /// Alternatively, use `DoubleIEEE754Ref` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
-/// mantissa and exponent of IEEE floats and doubles. These unions are defined
-/// as appropriate for a given platform. IEEE floats and doubles are supported
-/// (used for storage) by at least Intel, PPC and Sparc.
 public protocol DoubleIEEE754Protocol {
     typealias Mpn = GDoubleIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GDoubleIEEE754` instance.
@@ -23,14 +24,15 @@ public protocol DoubleIEEE754Protocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `DoubleIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GDoubleIEEE754` instance.
-/// It exposes methods that can operate on this data type through `DoubleIEEE754Protocol` conformance.
-/// Use `DoubleIEEE754Ref` only as an `unowned` reference to an existing `GDoubleIEEE754` instance.
-///
 /// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
 /// mantissa and exponent of IEEE floats and doubles. These unions are defined
 /// as appropriate for a given platform. IEEE floats and doubles are supported
 /// (used for storage) by at least Intel, PPC and Sparc.
+///
+/// The `DoubleIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GDoubleIEEE754` instance.
+/// It exposes methods that can operate on this data type through `DoubleIEEE754Protocol` conformance.
+/// Use `DoubleIEEE754Ref` only as an `unowned` reference to an existing `GDoubleIEEE754` instance.
+///
 public struct DoubleIEEE754Ref: DoubleIEEE754Protocol {
     typealias Mpn = GDoubleIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GDoubleIEEE754` instance.
@@ -110,14 +112,15 @@ public extension DoubleIEEE754Ref {
 
     }
 
-/// The `DoubleIEEE754` type acts as an owner of an underlying `GDoubleIEEE754` instance.
-/// It provides the methods that can operate on this data type through `DoubleIEEE754Protocol` conformance.
-/// Use `DoubleIEEE754` as a strong reference or owner of a `GDoubleIEEE754` instance.
-///
 /// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
 /// mantissa and exponent of IEEE floats and doubles. These unions are defined
 /// as appropriate for a given platform. IEEE floats and doubles are supported
 /// (used for storage) by at least Intel, PPC and Sparc.
+///
+/// The `DoubleIEEE754` type acts as an owner of an underlying `GDoubleIEEE754` instance.
+/// It provides the methods that can operate on this data type through `DoubleIEEE754Protocol` conformance.
+/// Use `DoubleIEEE754` as a strong reference or owner of a `GDoubleIEEE754` instance.
+///
 open class DoubleIEEE754: DoubleIEEE754Protocol {
     public typealias Mpn = GDoubleIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GDoubleIEEE754` instance.
@@ -298,15 +301,16 @@ public extension DoubleIEEE754Protocol {
 
 // MARK: - FloatIEEE754 Union
 
+/// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
+/// mantissa and exponent of IEEE floats and doubles. These unions are defined
+/// as appropriate for a given platform. IEEE floats and doubles are supported
+/// (used for storage) by at least Intel, PPC and Sparc.
+///
 /// The `FloatIEEE754Protocol` protocol exposes the methods and properties of an underlying `GFloatIEEE754` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `FloatIEEE754`.
 /// Alternatively, use `FloatIEEE754Ref` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
-/// mantissa and exponent of IEEE floats and doubles. These unions are defined
-/// as appropriate for a given platform. IEEE floats and doubles are supported
-/// (used for storage) by at least Intel, PPC and Sparc.
 public protocol FloatIEEE754Protocol {
     typealias Mpn = GFloatIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GFloatIEEE754` instance.
@@ -319,14 +323,15 @@ public protocol FloatIEEE754Protocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `FloatIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GFloatIEEE754` instance.
-/// It exposes methods that can operate on this data type through `FloatIEEE754Protocol` conformance.
-/// Use `FloatIEEE754Ref` only as an `unowned` reference to an existing `GFloatIEEE754` instance.
-///
 /// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
 /// mantissa and exponent of IEEE floats and doubles. These unions are defined
 /// as appropriate for a given platform. IEEE floats and doubles are supported
 /// (used for storage) by at least Intel, PPC and Sparc.
+///
+/// The `FloatIEEE754Ref` type acts as a lightweight Swift reference to an underlying `GFloatIEEE754` instance.
+/// It exposes methods that can operate on this data type through `FloatIEEE754Protocol` conformance.
+/// Use `FloatIEEE754Ref` only as an `unowned` reference to an existing `GFloatIEEE754` instance.
+///
 public struct FloatIEEE754Ref: FloatIEEE754Protocol {
     typealias Mpn = GFloatIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GFloatIEEE754` instance.
@@ -406,14 +411,15 @@ public extension FloatIEEE754Ref {
 
     }
 
-/// The `FloatIEEE754` type acts as an owner of an underlying `GFloatIEEE754` instance.
-/// It provides the methods that can operate on this data type through `FloatIEEE754Protocol` conformance.
-/// Use `FloatIEEE754` as a strong reference or owner of a `GFloatIEEE754` instance.
-///
 /// The `GFloatIEEE754` and `GDoubleIEEE754` unions are used to access the sign,
 /// mantissa and exponent of IEEE floats and doubles. These unions are defined
 /// as appropriate for a given platform. IEEE floats and doubles are supported
 /// (used for storage) by at least Intel, PPC and Sparc.
+///
+/// The `FloatIEEE754` type acts as an owner of an underlying `GFloatIEEE754` instance.
+/// It provides the methods that can operate on this data type through `FloatIEEE754Protocol` conformance.
+/// Use `FloatIEEE754` as a strong reference or owner of a `GFloatIEEE754` instance.
+///
 open class FloatIEEE754: FloatIEEE754Protocol {
     public typealias Mpn = GFloatIEEE754.__Unnamed_struct_mpn
     /// Untyped pointer to the underlying `GFloatIEEE754` instance.
@@ -594,11 +600,6 @@ public extension FloatIEEE754Protocol {
 
 // MARK: - Mutex Union
 
-/// The `MutexProtocol` protocol exposes the methods and properties of an underlying `GMutex` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Mutex`.
-/// Alternatively, use `MutexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GMutex` struct is an opaque data structure to represent a mutex
 /// (mutual exclusion). It can be used to protect data against shared
 /// access.
@@ -645,6 +646,12 @@ public extension FloatIEEE754Protocol {
 /// then it must be explicitly initialised using `g_mutex_init()`.
 /// 
 /// A `GMutex` should only be accessed via g_mutex_ functions.
+///
+/// The `MutexProtocol` protocol exposes the methods and properties of an underlying `GMutex` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Mutex`.
+/// Alternatively, use `MutexRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MutexProtocol {
         /// Untyped pointer to the underlying `GMutex` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -656,10 +663,6 @@ public protocol MutexProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MutexRef` type acts as a lightweight Swift reference to an underlying `GMutex` instance.
-/// It exposes methods that can operate on this data type through `MutexProtocol` conformance.
-/// Use `MutexRef` only as an `unowned` reference to an existing `GMutex` instance.
-///
 /// The `GMutex` struct is an opaque data structure to represent a mutex
 /// (mutual exclusion). It can be used to protect data against shared
 /// access.
@@ -706,6 +709,11 @@ public protocol MutexProtocol {
 /// then it must be explicitly initialised using `g_mutex_init()`.
 /// 
 /// A `GMutex` should only be accessed via g_mutex_ functions.
+///
+/// The `MutexRef` type acts as a lightweight Swift reference to an underlying `GMutex` instance.
+/// It exposes methods that can operate on this data type through `MutexProtocol` conformance.
+/// Use `MutexRef` only as an `unowned` reference to an existing `GMutex` instance.
+///
 public struct MutexRef: MutexProtocol {
         /// Untyped pointer to the underlying `GMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -784,10 +792,6 @@ public extension MutexRef {
 
     }
 
-/// The `Mutex` type acts as an owner of an underlying `GMutex` instance.
-/// It provides the methods that can operate on this data type through `MutexProtocol` conformance.
-/// Use `Mutex` as a strong reference or owner of a `GMutex` instance.
-///
 /// The `GMutex` struct is an opaque data structure to represent a mutex
 /// (mutual exclusion). It can be used to protect data against shared
 /// access.
@@ -834,6 +838,11 @@ public extension MutexRef {
 /// then it must be explicitly initialised using `g_mutex_init()`.
 /// 
 /// A `GMutex` should only be accessed via g_mutex_ functions.
+///
+/// The `Mutex` type acts as an owner of an underlying `GMutex` instance.
+/// It provides the methods that can operate on this data type through `MutexProtocol` conformance.
+/// Use `Mutex` as a strong reference or owner of a `GMutex` instance.
+///
 open class Mutex: MutexProtocol {
         /// Untyped pointer to the underlying `GMutex` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1078,12 +1087,13 @@ public extension MutexProtocol {
 
 // MARK: - TokenValue Union
 
+/// A union holding the value of the token.
+///
 /// The `TokenValueProtocol` protocol exposes the methods and properties of an underlying `GTokenValue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TokenValue`.
 /// Alternatively, use `TokenValueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A union holding the value of the token.
 public protocol TokenValueProtocol {
         /// Untyped pointer to the underlying `GTokenValue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1095,11 +1105,12 @@ public protocol TokenValueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A union holding the value of the token.
+///
 /// The `TokenValueRef` type acts as a lightweight Swift reference to an underlying `GTokenValue` instance.
 /// It exposes methods that can operate on this data type through `TokenValueProtocol` conformance.
 /// Use `TokenValueRef` only as an `unowned` reference to an existing `GTokenValue` instance.
 ///
-/// A union holding the value of the token.
 public struct TokenValueRef: TokenValueProtocol {
         /// Untyped pointer to the underlying `GTokenValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1178,11 +1189,12 @@ public extension TokenValueRef {
 
     }
 
+/// A union holding the value of the token.
+///
 /// The `TokenValue` type acts as an owner of an underlying `GTokenValue` instance.
 /// It provides the methods that can operate on this data type through `TokenValueProtocol` conformance.
 /// Use `TokenValue` as a strong reference or owner of a `GTokenValue` instance.
 ///
-/// A union holding the value of the token.
 open class TokenValue: TokenValueProtocol {
         /// Untyped pointer to the underlying `GTokenValue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

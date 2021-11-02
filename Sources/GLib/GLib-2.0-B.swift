@@ -2,12 +2,13 @@ import CGLib
 
 // MARK: - ByteArray Record
 
+/// Contains the public fields of a GByteArray.
+///
 /// The `ByteArrayProtocol` protocol exposes the methods and properties of an underlying `GByteArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ByteArray`.
 /// Alternatively, use `ByteArrayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains the public fields of a GByteArray.
 public protocol ByteArrayProtocol {
         /// Untyped pointer to the underlying `GByteArray` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19,11 +20,12 @@ public protocol ByteArrayProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Contains the public fields of a GByteArray.
+///
 /// The `ByteArrayRef` type acts as a lightweight Swift reference to an underlying `GByteArray` instance.
 /// It exposes methods that can operate on this data type through `ByteArrayProtocol` conformance.
 /// Use `ByteArrayRef` only as an `unowned` reference to an existing `GByteArray` instance.
 ///
-/// Contains the public fields of a GByteArray.
 public struct ByteArrayRef: ByteArrayProtocol {
         /// Untyped pointer to the underlying `GByteArray` instance.
     /// For type-safe access, use the generated, typed pointer `byte_array_ptr` property instead.
@@ -102,11 +104,12 @@ public extension ByteArrayRef {
 
     }
 
+/// Contains the public fields of a GByteArray.
+///
 /// The `ByteArray` type acts as an owner of an underlying `GByteArray` instance.
 /// It provides the methods that can operate on this data type through `ByteArrayProtocol` conformance.
 /// Use `ByteArray` as a strong reference or owner of a `GByteArray` instance.
 ///
-/// Contains the public fields of a GByteArray.
 open class ByteArray: ByteArrayProtocol {
         /// Untyped pointer to the underlying `GByteArray` instance.
     /// For type-safe access, use the generated, typed pointer `byte_array_ptr` property instead.
@@ -297,11 +300,6 @@ public extension ByteArrayProtocol {
 
 // MARK: - Bytes Record
 
-/// The `BytesProtocol` protocol exposes the methods and properties of an underlying `GBytes` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Bytes`.
-/// Alternatively, use `BytesRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A simple refcounted data type representing an immutable sequence of zero or
 /// more bytes from an unspecified origin.
 /// 
@@ -326,6 +324,12 @@ public extension ByteArrayProtocol {
 /// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
+///
+/// The `BytesProtocol` protocol exposes the methods and properties of an underlying `GBytes` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Bytes`.
+/// Alternatively, use `BytesRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol BytesProtocol {
         /// Untyped pointer to the underlying `GBytes` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -337,10 +341,6 @@ public protocol BytesProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `BytesRef` type acts as a lightweight Swift reference to an underlying `GBytes` instance.
-/// It exposes methods that can operate on this data type through `BytesProtocol` conformance.
-/// Use `BytesRef` only as an `unowned` reference to an existing `GBytes` instance.
-///
 /// A simple refcounted data type representing an immutable sequence of zero or
 /// more bytes from an unspecified origin.
 /// 
@@ -365,6 +365,11 @@ public protocol BytesProtocol {
 /// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
+///
+/// The `BytesRef` type acts as a lightweight Swift reference to an underlying `GBytes` instance.
+/// It exposes methods that can operate on this data type through `BytesProtocol` conformance.
+/// Use `BytesRef` only as an `unowned` reference to an existing `GBytes` instance.
+///
 public struct BytesRef: BytesProtocol {
         /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
@@ -529,10 +534,6 @@ public extension BytesRef {
     }
 }
 
-/// The `Bytes` type acts as a reference-counted owner of an underlying `GBytes` instance.
-/// It provides the methods that can operate on this data type through `BytesProtocol` conformance.
-/// Use `Bytes` as a strong reference or owner of a `GBytes` instance.
-///
 /// A simple refcounted data type representing an immutable sequence of zero or
 /// more bytes from an unspecified origin.
 /// 
@@ -557,6 +558,11 @@ public extension BytesRef {
 /// array of bytes see `GByteArray`. Use `g_bytes_unref_to_array()` to create a
 /// mutable array for a `GBytes` sequence. To create an immutable `GBytes` from
 /// a mutable `GByteArray`, use the `g_byte_array_free_to_bytes()` function.
+///
+/// The `Bytes` type acts as a reference-counted owner of an underlying `GBytes` instance.
+/// It provides the methods that can operate on this data type through `BytesProtocol` conformance.
+/// Use `Bytes` as a strong reference or owner of a `GBytes` instance.
+///
 open class Bytes: BytesProtocol {
         /// Untyped pointer to the underlying `GBytes` instance.
     /// For type-safe access, use the generated, typed pointer `bytes_ptr` property instead.
@@ -833,6 +839,31 @@ public extension BytesProtocol {
         return rv
     }
 
+    /// Gets a pointer to a region in `bytes`.
+    /// 
+    /// The region starts at `offset` many bytes from the start of the data
+    /// and contains `n_elements` many elements of `element_size` size.
+    /// 
+    /// `n_elements` may be zero, but `element_size` must always be non-zero.
+    /// IDeally, `element_size` is a static constant (eg: sizeof a struct).
+    /// 
+    /// This function does careful bounds checking (including checking for
+    /// arithmetic overflows) and returns a non-`nil` pointer if the
+    /// specified region lies entirely within the `bytes`. If the region is
+    /// in some way out of range, or if an overflow has occurred, then `nil`
+    /// is returned.
+    /// 
+    /// Note: it is possible to have a valid zero-size region. In this case,
+    /// the returned pointer will be equal to the base pointer of the data of
+    /// `bytes`, plus `offset`.  This will be non-`nil` except for the case
+    /// where `bytes` itself was a zero-sized region.  Since it is unlikely
+    /// that you will be using this function to check for a zero-sized region
+    /// in a zero-sized `bytes`, `nil` effectively always means "error".
+    @inlinable func getRegion(elementSize: Int, offset: Int, nElements: Int) -> gconstpointer! {
+        let rv = g_bytes_get_region(bytes_ptr, gsize(elementSize), gsize(offset), gsize(nElements))
+        return rv
+    }
+
     /// Get the size of the byte data in the `GBytes`.
     /// 
     /// This function will always return the same value for a given `GBytes`.
@@ -946,14 +977,16 @@ public extension BytesProtocol {
 
 // MARK: - Checksum Record
 
+/// An opaque structure representing a checksumming operation.
+/// 
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
+///
 /// The `ChecksumProtocol` protocol exposes the methods and properties of an underlying `GChecksum` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Checksum`.
 /// Alternatively, use `ChecksumRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use `g_checksum_new()`. To free
-/// a GChecksum, use `g_checksum_free()`.
 public protocol ChecksumProtocol {
         /// Untyped pointer to the underlying `GChecksum` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -965,13 +998,15 @@ public protocol ChecksumProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing a checksumming operation.
+/// 
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
+///
 /// The `ChecksumRef` type acts as a lightweight Swift reference to an underlying `GChecksum` instance.
 /// It exposes methods that can operate on this data type through `ChecksumProtocol` conformance.
 /// Use `ChecksumRef` only as an `unowned` reference to an existing `GChecksum` instance.
 ///
-/// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use `g_checksum_new()`. To free
-/// a GChecksum, use `g_checksum_free()`.
 public struct ChecksumRef: ChecksumProtocol {
         /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.
@@ -1067,13 +1102,15 @@ public extension ChecksumRef {
     }
 }
 
+/// An opaque structure representing a checksumming operation.
+/// 
+/// To create a new GChecksum, use `g_checksum_new()`. To free
+/// a GChecksum, use `g_checksum_free()`.
+///
 /// The `Checksum` type acts as an owner of an underlying `GChecksum` instance.
 /// It provides the methods that can operate on this data type through `ChecksumProtocol` conformance.
 /// Use `Checksum` as a strong reference or owner of a `GChecksum` instance.
 ///
-/// An opaque structure representing a checksumming operation.
-/// To create a new GChecksum, use `g_checksum_new()`. To free
-/// a GChecksum, use `g_checksum_free()`.
 open class Checksum: ChecksumProtocol {
         /// Untyped pointer to the underlying `GChecksum` instance.
     /// For type-safe access, use the generated, typed pointer `checksum_ptr` property instead.

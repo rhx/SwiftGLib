@@ -2,13 +2,14 @@ import CGLib
 
 // MARK: - MainLoop Record
 
+/// The `GMainLoop` struct is an opaque data type
+/// representing the main event loop of a GLib or GTK+ application.
+///
 /// The `MainLoopProtocol` protocol exposes the methods and properties of an underlying `GMainLoop` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MainLoop`.
 /// Alternatively, use `MainLoopRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GMainLoop` struct is an opaque data type
-/// representing the main event loop of a GLib or GTK+ application.
 public protocol MainLoopProtocol {
         /// Untyped pointer to the underlying `GMainLoop` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20,12 +21,13 @@ public protocol MainLoopProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GMainLoop` struct is an opaque data type
+/// representing the main event loop of a GLib or GTK+ application.
+///
 /// The `MainLoopRef` type acts as a lightweight Swift reference to an underlying `GMainLoop` instance.
 /// It exposes methods that can operate on this data type through `MainLoopProtocol` conformance.
 /// Use `MainLoopRef` only as an `unowned` reference to an existing `GMainLoop` instance.
 ///
-/// The `GMainLoop` struct is an opaque data type
-/// representing the main event loop of a GLib or GTK+ application.
 public struct MainLoopRef: MainLoopProtocol {
         /// Untyped pointer to the underlying `GMainLoop` instance.
     /// For type-safe access, use the generated, typed pointer `main_loop_ptr` property instead.
@@ -109,12 +111,13 @@ public extension MainLoopRef {
     }
 }
 
+/// The `GMainLoop` struct is an opaque data type
+/// representing the main event loop of a GLib or GTK+ application.
+///
 /// The `MainLoop` type acts as a reference-counted owner of an underlying `GMainLoop` instance.
 /// It provides the methods that can operate on this data type through `MainLoopProtocol` conformance.
 /// Use `MainLoop` as a strong reference or owner of a `GMainLoop` instance.
 ///
-/// The `GMainLoop` struct is an opaque data type
-/// representing the main event loop of a GLib or GTK+ application.
 open class MainLoop: MainLoopProtocol {
         /// Untyped pointer to the underlying `GMainLoop` instance.
     /// For type-safe access, use the generated, typed pointer `main_loop_ptr` property instead.
@@ -336,14 +339,15 @@ public extension MainLoopProtocol {
 
 // MARK: - MappedFile Record
 
+/// The `GMappedFile` represents a file mapping created with
+/// `g_mapped_file_new()`. It has only private members and should
+/// not be accessed directly.
+///
 /// The `MappedFileProtocol` protocol exposes the methods and properties of an underlying `GMappedFile` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MappedFile`.
 /// Alternatively, use `MappedFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GMappedFile` represents a file mapping created with
-/// `g_mapped_file_new()`. It has only private members and should
-/// not be accessed directly.
 public protocol MappedFileProtocol {
         /// Untyped pointer to the underlying `GMappedFile` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -355,13 +359,14 @@ public protocol MappedFileProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GMappedFile` represents a file mapping created with
+/// `g_mapped_file_new()`. It has only private members and should
+/// not be accessed directly.
+///
 /// The `MappedFileRef` type acts as a lightweight Swift reference to an underlying `GMappedFile` instance.
 /// It exposes methods that can operate on this data type through `MappedFileProtocol` conformance.
 /// Use `MappedFileRef` only as an `unowned` reference to an existing `GMappedFile` instance.
 ///
-/// The `GMappedFile` represents a file mapping created with
-/// `g_mapped_file_new()`. It has only private members and should
-/// not be accessed directly.
 public struct MappedFileRef: MappedFileProtocol {
         /// Untyped pointer to the underlying `GMappedFile` instance.
     /// For type-safe access, use the generated, typed pointer `mapped_file_ptr` property instead.
@@ -498,13 +503,14 @@ public extension MappedFileRef {
     }
 }
 
+/// The `GMappedFile` represents a file mapping created with
+/// `g_mapped_file_new()`. It has only private members and should
+/// not be accessed directly.
+///
 /// The `MappedFile` type acts as a reference-counted owner of an underlying `GMappedFile` instance.
 /// It provides the methods that can operate on this data type through `MappedFileProtocol` conformance.
 /// Use `MappedFile` as a strong reference or owner of a `GMappedFile` instance.
 ///
-/// The `GMappedFile` represents a file mapping created with
-/// `g_mapped_file_new()`. It has only private members and should
-/// not be accessed directly.
 open class MappedFile: MappedFileProtocol {
         /// Untyped pointer to the underlying `GMappedFile` instance.
     /// For type-safe access, use the generated, typed pointer `mapped_file_ptr` property instead.
@@ -817,16 +823,17 @@ public extension MappedFileProtocol {
 
 // MARK: - MarkupParseContext Record
 
-/// The `MarkupParseContextProtocol` protocol exposes the methods and properties of an underlying `GMarkupParseContext` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MarkupParseContext`.
-/// Alternatively, use `MarkupParseContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
+///
+/// The `MarkupParseContextProtocol` protocol exposes the methods and properties of an underlying `GMarkupParseContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MarkupParseContext`.
+/// Alternatively, use `MarkupParseContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MarkupParseContextProtocol {
         /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -838,15 +845,16 @@ public protocol MarkupParseContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MarkupParseContextRef` type acts as a lightweight Swift reference to an underlying `GMarkupParseContext` instance.
-/// It exposes methods that can operate on this data type through `MarkupParseContextProtocol` conformance.
-/// Use `MarkupParseContextRef` only as an `unowned` reference to an existing `GMarkupParseContext` instance.
-///
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
+///
+/// The `MarkupParseContextRef` type acts as a lightweight Swift reference to an underlying `GMarkupParseContext` instance.
+/// It exposes methods that can operate on this data type through `MarkupParseContextProtocol` conformance.
+/// Use `MarkupParseContextRef` only as an `unowned` reference to an existing `GMarkupParseContext` instance.
+///
 public struct MarkupParseContextRef: MarkupParseContextProtocol {
         /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `markup_parse_context_ptr` property instead.
@@ -934,15 +942,16 @@ public extension MarkupParseContextRef {
     }
 }
 
-/// The `MarkupParseContext` type acts as a reference-counted owner of an underlying `GMarkupParseContext` instance.
-/// It provides the methods that can operate on this data type through `MarkupParseContextProtocol` conformance.
-/// Use `MarkupParseContext` as a strong reference or owner of a `GMarkupParseContext` instance.
-///
 /// A parse context is used to parse a stream of bytes that
 /// you expect to contain marked-up text.
 /// 
 /// See `g_markup_parse_context_new()`, `GMarkupParser`, and so
 /// on for more details.
+///
+/// The `MarkupParseContext` type acts as a reference-counted owner of an underlying `GMarkupParseContext` instance.
+/// It provides the methods that can operate on this data type through `MarkupParseContextProtocol` conformance.
+/// Use `MarkupParseContext` as a strong reference or owner of a `GMarkupParseContext` instance.
+///
 open class MarkupParseContext: MarkupParseContextProtocol {
         /// Untyped pointer to the underlying `GMarkupParseContext` instance.
     /// For type-safe access, use the generated, typed pointer `markup_parse_context_ptr` property instead.
@@ -1412,11 +1421,6 @@ public extension MarkupParseContextProtocol {
 
 // MARK: - MarkupParser Record
 
-/// The `MarkupParserProtocol` protocol exposes the methods and properties of an underlying `GMarkupParser` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MarkupParser`.
-/// Alternatively, use `MarkupParserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Any of the fields in `GMarkupParser` can be `nil`, in which case they
 /// will be ignored. Except for the `error` function, any of these callbacks
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
@@ -1424,6 +1428,12 @@ public extension MarkupParseContextProtocol {
 /// errors are intended to be set from these callbacks. If you set an error
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
+///
+/// The `MarkupParserProtocol` protocol exposes the methods and properties of an underlying `GMarkupParser` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MarkupParser`.
+/// Alternatively, use `MarkupParserRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MarkupParserProtocol {
         /// Untyped pointer to the underlying `GMarkupParser` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1435,10 +1445,6 @@ public protocol MarkupParserProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MarkupParserRef` type acts as a lightweight Swift reference to an underlying `GMarkupParser` instance.
-/// It exposes methods that can operate on this data type through `MarkupParserProtocol` conformance.
-/// Use `MarkupParserRef` only as an `unowned` reference to an existing `GMarkupParser` instance.
-///
 /// Any of the fields in `GMarkupParser` can be `nil`, in which case they
 /// will be ignored. Except for the `error` function, any of these callbacks
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
@@ -1446,6 +1452,11 @@ public protocol MarkupParserProtocol {
 /// errors are intended to be set from these callbacks. If you set an error
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
+///
+/// The `MarkupParserRef` type acts as a lightweight Swift reference to an underlying `GMarkupParser` instance.
+/// It exposes methods that can operate on this data type through `MarkupParserProtocol` conformance.
+/// Use `MarkupParserRef` only as an `unowned` reference to an existing `GMarkupParser` instance.
+///
 public struct MarkupParserRef: MarkupParserProtocol {
         /// Untyped pointer to the underlying `GMarkupParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1524,10 +1535,6 @@ public extension MarkupParserRef {
 
     }
 
-/// The `MarkupParser` type acts as an owner of an underlying `GMarkupParser` instance.
-/// It provides the methods that can operate on this data type through `MarkupParserProtocol` conformance.
-/// Use `MarkupParser` as a strong reference or owner of a `GMarkupParser` instance.
-///
 /// Any of the fields in `GMarkupParser` can be `nil`, in which case they
 /// will be ignored. Except for the `error` function, any of these callbacks
 /// can set an error; in particular the `G_MARKUP_ERROR_UNKNOWN_ELEMENT`,
@@ -1535,6 +1542,11 @@ public extension MarkupParserRef {
 /// errors are intended to be set from these callbacks. If you set an error
 /// from a callback, `g_markup_parse_context_parse()` will report that error
 /// back to its caller.
+///
+/// The `MarkupParser` type acts as an owner of an underlying `GMarkupParser` instance.
+/// It provides the methods that can operate on this data type through `MarkupParserProtocol` conformance.
+/// Use `MarkupParser` as a strong reference or owner of a `GMarkupParser` instance.
+///
 open class MarkupParser: MarkupParserProtocol {
         /// Untyped pointer to the underlying `GMarkupParser` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1706,13 +1718,14 @@ public extension MarkupParserProtocol {
 
 // MARK: - MatchInfo Record
 
+/// A GMatchInfo is an opaque struct used to return information about
+/// matches.
+///
 /// The `MatchInfoProtocol` protocol exposes the methods and properties of an underlying `GMatchInfo` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MatchInfo`.
 /// Alternatively, use `MatchInfoRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GMatchInfo is an opaque struct used to return information about
-/// matches.
 public protocol MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1724,12 +1737,13 @@ public protocol MatchInfoProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A GMatchInfo is an opaque struct used to return information about
+/// matches.
+///
 /// The `MatchInfoRef` type acts as a lightweight Swift reference to an underlying `GMatchInfo` instance.
 /// It exposes methods that can operate on this data type through `MatchInfoProtocol` conformance.
 /// Use `MatchInfoRef` only as an `unowned` reference to an existing `GMatchInfo` instance.
 ///
-/// A GMatchInfo is an opaque struct used to return information about
-/// matches.
 public struct MatchInfoRef: MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
@@ -1808,12 +1822,13 @@ public extension MatchInfoRef {
 
     }
 
+/// A GMatchInfo is an opaque struct used to return information about
+/// matches.
+///
 /// The `MatchInfo` type acts as a reference-counted owner of an underlying `GMatchInfo` instance.
 /// It provides the methods that can operate on this data type through `MatchInfoProtocol` conformance.
 /// Use `MatchInfo` as a strong reference or owner of a `GMatchInfo` instance.
 ///
-/// A GMatchInfo is an opaque struct used to return information about
-/// matches.
 open class MatchInfo: MatchInfoProtocol {
         /// Untyped pointer to the underlying `GMatchInfo` instance.
     /// For type-safe access, use the generated, typed pointer `match_info_ptr` property instead.
@@ -2271,16 +2286,17 @@ public extension MatchInfoProtocol {
 
 // MARK: - MemVTable Record
 
-/// The `MemVTableProtocol` protocol exposes the methods and properties of an underlying `GMemVTable` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `MemVTable`.
-/// Alternatively, use `MemVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
 /// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
+///
+/// The `MemVTableProtocol` protocol exposes the methods and properties of an underlying `GMemVTable` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MemVTable`.
+/// Alternatively, use `MemVTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol MemVTableProtocol {
         /// Untyped pointer to the underlying `GMemVTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2292,15 +2308,16 @@ public protocol MemVTableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `MemVTableRef` type acts as a lightweight Swift reference to an underlying `GMemVTable` instance.
-/// It exposes methods that can operate on this data type through `MemVTableProtocol` conformance.
-/// Use `MemVTableRef` only as an `unowned` reference to an existing `GMemVTable` instance.
-///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
 /// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
+///
+/// The `MemVTableRef` type acts as a lightweight Swift reference to an underlying `GMemVTable` instance.
+/// It exposes methods that can operate on this data type through `MemVTableProtocol` conformance.
+/// Use `MemVTableRef` only as an `unowned` reference to an existing `GMemVTable` instance.
+///
 public struct MemVTableRef: MemVTableProtocol {
         /// Untyped pointer to the underlying `GMemVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2379,15 +2396,16 @@ public extension MemVTableRef {
 
     }
 
-/// The `MemVTable` type acts as an owner of an underlying `GMemVTable` instance.
-/// It provides the methods that can operate on this data type through `MemVTableProtocol` conformance.
-/// Use `MemVTable` as a strong reference or owner of a `GMemVTable` instance.
-///
 /// A set of functions used to perform memory allocation. The same `GMemVTable` must
 /// be used for all allocations in the same program; a call to `g_mem_set_vtable()`,
 /// if it exists, should be prior to any use of GLib.
 /// 
 /// This functions related to this has been deprecated in 2.46, and no longer work.
+///
+/// The `MemVTable` type acts as an owner of an underlying `GMemVTable` instance.
+/// It provides the methods that can operate on this data type through `MemVTableProtocol` conformance.
+/// Use `MemVTable` as a strong reference or owner of a `GMemVTable` instance.
+///
 open class MemVTable: MemVTableProtocol {
         /// Untyped pointer to the underlying `GMemVTable` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2573,12 +2591,13 @@ public extension MemVTableProtocol {
 
 // MARK: - Node Record
 
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
+///
 /// The `NodeProtocol` protocol exposes the methods and properties of an underlying `GNode` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Node`.
 /// Alternatively, use `NodeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 public protocol NodeProtocol {
         /// Untyped pointer to the underlying `GNode` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2590,11 +2609,12 @@ public protocol NodeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
+///
 /// The `NodeRef` type acts as a lightweight Swift reference to an underlying `GNode` instance.
 /// It exposes methods that can operate on this data type through `NodeProtocol` conformance.
 /// Use `NodeRef` only as an `unowned` reference to an existing `GNode` instance.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 public struct NodeRef: NodeProtocol {
         /// Untyped pointer to the underlying `GNode` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2673,11 +2693,12 @@ public extension NodeRef {
 
     }
 
+/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
+///
 /// The `Node` type acts as an owner of an underlying `GNode` instance.
 /// It provides the methods that can operate on this data type through `NodeProtocol` conformance.
 /// Use `Node` as a strong reference or owner of a `GNode` instance.
 ///
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
 open class Node: NodeProtocol {
         /// Untyped pointer to the underlying `GNode` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

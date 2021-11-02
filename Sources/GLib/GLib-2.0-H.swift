@@ -2,14 +2,15 @@ import CGLib
 
 // MARK: - HashTable Record
 
+/// The `GHashTable` struct is an opaque data structure to represent a
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
+/// following functions.
+///
 /// The `HashTableProtocol` protocol exposes the methods and properties of an underlying `GHashTable` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HashTable`.
 /// Alternatively, use `HashTableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
-/// following functions.
 public protocol HashTableProtocol {
         /// Untyped pointer to the underlying `GHashTable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,13 +22,14 @@ public protocol HashTableProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GHashTable` struct is an opaque data structure to represent a
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
+/// following functions.
+///
 /// The `HashTableRef` type acts as a lightweight Swift reference to an underlying `GHashTable` instance.
 /// It exposes methods that can operate on this data type through `HashTableProtocol` conformance.
 /// Use `HashTableRef` only as an `unowned` reference to an existing `GHashTable` instance.
 ///
-/// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
-/// following functions.
 public struct HashTableRef: HashTableProtocol {
         /// Untyped pointer to the underlying `GHashTable` instance.
     /// For type-safe access, use the generated, typed pointer `hash_table_ptr` property instead.
@@ -106,13 +108,14 @@ public extension HashTableRef {
 
     }
 
+/// The `GHashTable` struct is an opaque data structure to represent a
+/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
+/// following functions.
+///
 /// The `HashTable` type acts as an owner of an underlying `GHashTable` instance.
 /// It provides the methods that can operate on this data type through `HashTableProtocol` conformance.
 /// Use `HashTable` as a strong reference or owner of a `GHashTable` instance.
 ///
-/// The `GHashTable` struct is an opaque data structure to represent a
-/// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
-/// following functions.
 open class HashTable: HashTableProtocol {
         /// Untyped pointer to the underlying `GHashTable` instance.
     /// For type-safe access, use the generated, typed pointer `hash_table_ptr` property instead.
@@ -275,11 +278,6 @@ public extension HashTableProtocol {
 
 // MARK: - HashTableIter Record
 
-/// The `HashTableIterProtocol` protocol exposes the methods and properties of an underlying `GHashTableIter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `HashTableIter`.
-/// Alternatively, use `HashTableIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
@@ -287,6 +285,12 @@ public extension HashTableProtocol {
 /// 
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
+///
+/// The `HashTableIterProtocol` protocol exposes the methods and properties of an underlying `GHashTableIter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `HashTableIter`.
+/// Alternatively, use `HashTableIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol HashTableIterProtocol {
         /// Untyped pointer to the underlying `GHashTableIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -298,10 +302,6 @@ public protocol HashTableIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `HashTableIterRef` type acts as a lightweight Swift reference to an underlying `GHashTableIter` instance.
-/// It exposes methods that can operate on this data type through `HashTableIterProtocol` conformance.
-/// Use `HashTableIterRef` only as an `unowned` reference to an existing `GHashTableIter` instance.
-///
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
@@ -309,6 +309,11 @@ public protocol HashTableIterProtocol {
 /// 
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
+///
+/// The `HashTableIterRef` type acts as a lightweight Swift reference to an underlying `GHashTableIter` instance.
+/// It exposes methods that can operate on this data type through `HashTableIterProtocol` conformance.
+/// Use `HashTableIterRef` only as an `unowned` reference to an existing `GHashTableIter` instance.
+///
 public struct HashTableIterRef: HashTableIterProtocol {
         /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -387,10 +392,6 @@ public extension HashTableIterRef {
 
     }
 
-/// The `HashTableIter` type acts as an owner of an underlying `GHashTableIter` instance.
-/// It provides the methods that can operate on this data type through `HashTableIterProtocol` conformance.
-/// Use `HashTableIter` as a strong reference or owner of a `GHashTableIter` instance.
-///
 /// A GHashTableIter structure represents an iterator that can be used
 /// to iterate over the elements of a `GHashTable`. GHashTableIter
 /// structures are typically allocated on the stack and then initialized
@@ -398,6 +399,11 @@ public extension HashTableIterRef {
 /// 
 /// The iteration order of a `GHashTableIter` over the keys/values in a hash
 /// table is not defined.
+///
+/// The `HashTableIter` type acts as an owner of an underlying `GHashTableIter` instance.
+/// It provides the methods that can operate on this data type through `HashTableIterProtocol` conformance.
+/// Use `HashTableIter` as a strong reference or owner of a `GHashTableIter` instance.
+///
 open class HashTableIter: HashTableIterProtocol {
         /// Untyped pointer to the underlying `GHashTableIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -662,14 +668,15 @@ public extension HashTableIterProtocol {
 
 // MARK: - Hmac Record
 
+/// An opaque structure representing a HMAC operation.
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
+///
 /// The `HmacProtocol` protocol exposes the methods and properties of an underlying `GHmac` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Hmac`.
 /// Alternatively, use `HmacRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use `g_hmac_new()`. To free
-/// a GHmac, use `g_hmac_unref()`.
 public protocol HmacProtocol {
         /// Untyped pointer to the underlying `GHmac` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -681,13 +688,14 @@ public protocol HmacProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing a HMAC operation.
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
+///
 /// The `HmacRef` type acts as a lightweight Swift reference to an underlying `GHmac` instance.
 /// It exposes methods that can operate on this data type through `HmacProtocol` conformance.
 /// Use `HmacRef` only as an `unowned` reference to an existing `GHmac` instance.
 ///
-/// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use `g_hmac_new()`. To free
-/// a GHmac, use `g_hmac_unref()`.
 public struct HmacRef: HmacProtocol {
         /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -766,13 +774,14 @@ public extension HmacRef {
 
     }
 
+/// An opaque structure representing a HMAC operation.
+/// To create a new GHmac, use `g_hmac_new()`. To free
+/// a GHmac, use `g_hmac_unref()`.
+///
 /// The `Hmac` type acts as a reference-counted owner of an underlying `GHmac` instance.
 /// It provides the methods that can operate on this data type through `HmacProtocol` conformance.
 /// Use `Hmac` as a strong reference or owner of a `GHmac` instance.
 ///
-/// An opaque structure representing a HMAC operation.
-/// To create a new GHmac, use `g_hmac_new()`. To free
-/// a GHmac, use `g_hmac_unref()`.
 open class Hmac: HmacProtocol {
         /// Untyped pointer to the underlying `GHmac` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1009,12 +1018,13 @@ public extension HmacProtocol {
 
 // MARK: - Hook Record
 
+/// The `GHook` struct represents a single hook function in a `GHookList`.
+///
 /// The `HookProtocol` protocol exposes the methods and properties of an underlying `GHook` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Hook`.
 /// Alternatively, use `HookRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GHook` struct represents a single hook function in a `GHookList`.
 public protocol HookProtocol {
         /// Untyped pointer to the underlying `GHook` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1026,11 +1036,12 @@ public protocol HookProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GHook` struct represents a single hook function in a `GHookList`.
+///
 /// The `HookRef` type acts as a lightweight Swift reference to an underlying `GHook` instance.
 /// It exposes methods that can operate on this data type through `HookProtocol` conformance.
 /// Use `HookRef` only as an `unowned` reference to an existing `GHook` instance.
 ///
-/// The `GHook` struct represents a single hook function in a `GHookList`.
 public struct HookRef: HookProtocol {
         /// Untyped pointer to the underlying `GHook` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1169,11 +1180,12 @@ public extension HookRef {
     }
 }
 
+/// The `GHook` struct represents a single hook function in a `GHookList`.
+///
 /// The `Hook` type acts as an owner of an underlying `GHook` instance.
 /// It provides the methods that can operate on this data type through `HookProtocol` conformance.
 /// Use `Hook` as a strong reference or owner of a `GHook` instance.
 ///
-/// The `GHook` struct represents a single hook function in a `GHookList`.
 open class Hook: HookProtocol {
         /// Untyped pointer to the underlying `GHook` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1603,12 +1615,13 @@ public extension HookProtocol {
 
 // MARK: - HookList Record
 
+/// The `GHookList` struct represents a list of hook functions.
+///
 /// The `HookListProtocol` protocol exposes the methods and properties of an underlying `GHookList` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `HookList`.
 /// Alternatively, use `HookListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GHookList` struct represents a list of hook functions.
 public protocol HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1620,11 +1633,12 @@ public protocol HookListProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GHookList` struct represents a list of hook functions.
+///
 /// The `HookListRef` type acts as a lightweight Swift reference to an underlying `GHookList` instance.
 /// It exposes methods that can operate on this data type through `HookListProtocol` conformance.
 /// Use `HookListRef` only as an `unowned` reference to an existing `GHookList` instance.
 ///
-/// The `GHookList` struct represents a list of hook functions.
 public struct HookListRef: HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1703,11 +1717,12 @@ public extension HookListRef {
 
     }
 
+/// The `GHookList` struct represents a list of hook functions.
+///
 /// The `HookList` type acts as an owner of an underlying `GHookList` instance.
 /// It provides the methods that can operate on this data type through `HookListProtocol` conformance.
 /// Use `HookList` as a strong reference or owner of a `GHookList` instance.
 ///
-/// The `GHookList` struct represents a list of hook functions.
 open class HookList: HookListProtocol {
         /// Untyped pointer to the underlying `GHookList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2041,13 +2056,14 @@ public extension HookListProtocol {
 
 // MARK: - IConv Record
 
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
 /// The `IConvProtocol` protocol exposes the methods and properties of an underlying `GIConv` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IConv`.
 /// Alternatively, use `IConvRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
 public protocol IConvProtocol {
         /// Untyped pointer to the underlying `GIConv` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2059,12 +2075,13 @@ public protocol IConvProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
 /// The `IConvRef` type acts as a lightweight Swift reference to an underlying `GIConv` instance.
 /// It exposes methods that can operate on this data type through `IConvProtocol` conformance.
 /// Use `IConvRef` only as an `unowned` reference to an existing `GIConv` instance.
 ///
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
 public struct IConvRef: IConvProtocol {
         /// Untyped pointer to the underlying `GIConv` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2143,12 +2160,13 @@ public extension IConvRef {
 
     }
 
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
 /// The `IConv` type acts as an owner of an underlying `GIConv` instance.
 /// It provides the methods that can operate on this data type through `IConvProtocol` conformance.
 /// Use `IConv` as a strong reference or owner of a `GIConv` instance.
 ///
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
 open class IConv: IConvProtocol {
         /// Untyped pointer to the underlying `GIConv` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

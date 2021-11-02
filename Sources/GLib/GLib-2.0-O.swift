@@ -2,14 +2,15 @@ import CGLib
 
 // MARK: - Once Record
 
+/// A `GOnce` struct controls a one-time initialization function. Any
+/// one-time initialization function must have its own unique `GOnce`
+/// struct.
+///
 /// The `OnceProtocol` protocol exposes the methods and properties of an underlying `GOnce` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Once`.
 /// Alternatively, use `OnceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GOnce` struct controls a one-time initialization function. Any
-/// one-time initialization function must have its own unique `GOnce`
-/// struct.
 public protocol OnceProtocol {
         /// Untyped pointer to the underlying `GOnce` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,13 +22,14 @@ public protocol OnceProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GOnce` struct controls a one-time initialization function. Any
+/// one-time initialization function must have its own unique `GOnce`
+/// struct.
+///
 /// The `OnceRef` type acts as a lightweight Swift reference to an underlying `GOnce` instance.
 /// It exposes methods that can operate on this data type through `OnceProtocol` conformance.
 /// Use `OnceRef` only as an `unowned` reference to an existing `GOnce` instance.
 ///
-/// A `GOnce` struct controls a one-time initialization function. Any
-/// one-time initialization function must have its own unique `GOnce`
-/// struct.
 public struct OnceRef: OnceProtocol {
         /// Untyped pointer to the underlying `GOnce` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -106,13 +108,14 @@ public extension OnceRef {
 
     }
 
+/// A `GOnce` struct controls a one-time initialization function. Any
+/// one-time initialization function must have its own unique `GOnce`
+/// struct.
+///
 /// The `Once` type acts as an owner of an underlying `GOnce` instance.
 /// It provides the methods that can operate on this data type through `OnceProtocol` conformance.
 /// Use `Once` as a strong reference or owner of a `GOnce` instance.
 ///
-/// A `GOnce` struct controls a one-time initialization function. Any
-/// one-time initialization function must have its own unique `GOnce`
-/// struct.
 open class Once: OnceProtocol {
         /// Untyped pointer to the underlying `GOnce` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -307,14 +310,15 @@ public extension OnceProtocol {
 
 // MARK: - OptionContext Record
 
+/// A `GOptionContext` struct defines which options
+/// are accepted by the commandline option parser. The struct has only private
+/// fields and should not be directly accessed.
+///
 /// The `OptionContextProtocol` protocol exposes the methods and properties of an underlying `GOptionContext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OptionContext`.
 /// Alternatively, use `OptionContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GOptionContext` struct defines which options
-/// are accepted by the commandline option parser. The struct has only private
-/// fields and should not be directly accessed.
 public protocol OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -326,13 +330,14 @@ public protocol OptionContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A `GOptionContext` struct defines which options
+/// are accepted by the commandline option parser. The struct has only private
+/// fields and should not be directly accessed.
+///
 /// The `OptionContextRef` type acts as a lightweight Swift reference to an underlying `GOptionContext` instance.
 /// It exposes methods that can operate on this data type through `OptionContextProtocol` conformance.
 /// Use `OptionContextRef` only as an `unowned` reference to an existing `GOptionContext` instance.
 ///
-/// A `GOptionContext` struct defines which options
-/// are accepted by the commandline option parser. The struct has only private
-/// fields and should not be directly accessed.
 public struct OptionContextRef: OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -411,13 +416,14 @@ public extension OptionContextRef {
 
     }
 
+/// A `GOptionContext` struct defines which options
+/// are accepted by the commandline option parser. The struct has only private
+/// fields and should not be directly accessed.
+///
 /// The `OptionContext` type acts as an owner of an underlying `GOptionContext` instance.
 /// It provides the methods that can operate on this data type through `OptionContextProtocol` conformance.
 /// Use `OptionContext` as a strong reference or owner of a `GOptionContext` instance.
 ///
-/// A `GOptionContext` struct defines which options
-/// are accepted by the commandline option parser. The struct has only private
-/// fields and should not be directly accessed.
 open class OptionContext: OptionContextProtocol {
         /// Untyped pointer to the underlying `GOptionContext` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -950,14 +956,15 @@ public extension OptionContextProtocol {
 
 // MARK: - OptionEntry Record
 
+/// A GOptionEntry struct defines a single option. To have an effect, they
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
+///
 /// The `OptionEntryProtocol` protocol exposes the methods and properties of an underlying `GOptionEntry` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `OptionEntry`.
 /// Alternatively, use `OptionEntryRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
-/// or `g_option_group_add_entries()`.
 public protocol OptionEntryProtocol {
         /// Untyped pointer to the underlying `GOptionEntry` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -969,13 +976,14 @@ public protocol OptionEntryProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A GOptionEntry struct defines a single option. To have an effect, they
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
+///
 /// The `OptionEntryRef` type acts as a lightweight Swift reference to an underlying `GOptionEntry` instance.
 /// It exposes methods that can operate on this data type through `OptionEntryProtocol` conformance.
 /// Use `OptionEntryRef` only as an `unowned` reference to an existing `GOptionEntry` instance.
 ///
-/// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
-/// or `g_option_group_add_entries()`.
 public struct OptionEntryRef: OptionEntryProtocol {
         /// Untyped pointer to the underlying `GOptionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1054,13 +1062,14 @@ public extension OptionEntryRef {
 
     }
 
+/// A GOptionEntry struct defines a single option. To have an effect, they
+/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
+/// or `g_option_group_add_entries()`.
+///
 /// The `OptionEntry` type acts as an owner of an underlying `GOptionEntry` instance.
 /// It provides the methods that can operate on this data type through `OptionEntryProtocol` conformance.
 /// Use `OptionEntry` as a strong reference or owner of a `GOptionEntry` instance.
 ///
-/// A GOptionEntry struct defines a single option. To have an effect, they
-/// must be added to a `GOptionGroup` with `g_option_context_add_main_entries()`
-/// or `g_option_group_add_entries()`.
 open class OptionEntry: OptionEntryProtocol {
         /// Untyped pointer to the underlying `GOptionEntry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1397,11 +1406,6 @@ public extension OptionEntryProtocol {
 
 // MARK: - OptionGroup Record
 
-/// The `OptionGroupProtocol` protocol exposes the methods and properties of an underlying `GOptionGroup` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `OptionGroup`.
-/// Alternatively, use `OptionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A `GOptionGroup` struct defines the options in a single
 /// group. The struct has only private fields and should not be directly accessed.
 /// 
@@ -1409,6 +1413,12 @@ public extension OptionEntryProtocol {
 /// need to parse commandline options are expected to provide a function for
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
+///
+/// The `OptionGroupProtocol` protocol exposes the methods and properties of an underlying `GOptionGroup` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `OptionGroup`.
+/// Alternatively, use `OptionGroupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol OptionGroupProtocol {
         /// Untyped pointer to the underlying `GOptionGroup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1420,10 +1430,6 @@ public protocol OptionGroupProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `OptionGroupRef` type acts as a lightweight Swift reference to an underlying `GOptionGroup` instance.
-/// It exposes methods that can operate on this data type through `OptionGroupProtocol` conformance.
-/// Use `OptionGroupRef` only as an `unowned` reference to an existing `GOptionGroup` instance.
-///
 /// A `GOptionGroup` struct defines the options in a single
 /// group. The struct has only private fields and should not be directly accessed.
 /// 
@@ -1431,6 +1437,11 @@ public protocol OptionGroupProtocol {
 /// need to parse commandline options are expected to provide a function for
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
+///
+/// The `OptionGroupRef` type acts as a lightweight Swift reference to an underlying `GOptionGroup` instance.
+/// It exposes methods that can operate on this data type through `OptionGroupProtocol` conformance.
+/// Use `OptionGroupRef` only as an `unowned` reference to an existing `GOptionGroup` instance.
+///
 public struct OptionGroupRef: OptionGroupProtocol {
         /// Untyped pointer to the underlying `GOptionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `option_group_ptr` property instead.
@@ -1514,10 +1525,6 @@ public extension OptionGroupRef {
     }
 }
 
-/// The `OptionGroup` type acts as a reference-counted owner of an underlying `GOptionGroup` instance.
-/// It provides the methods that can operate on this data type through `OptionGroupProtocol` conformance.
-/// Use `OptionGroup` as a strong reference or owner of a `GOptionGroup` instance.
-///
 /// A `GOptionGroup` struct defines the options in a single
 /// group. The struct has only private fields and should not be directly accessed.
 /// 
@@ -1525,6 +1532,11 @@ public extension OptionGroupRef {
 /// need to parse commandline options are expected to provide a function for
 /// getting a `GOptionGroup` holding their options, which
 /// the application can then add to its `GOptionContext`.
+///
+/// The `OptionGroup` type acts as a reference-counted owner of an underlying `GOptionGroup` instance.
+/// It provides the methods that can operate on this data type through `OptionGroupProtocol` conformance.
+/// Use `OptionGroup` as a strong reference or owner of a `GOptionGroup` instance.
+///
 open class OptionGroup: OptionGroupProtocol {
         /// Untyped pointer to the underlying `GOptionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `option_group_ptr` property instead.
@@ -1761,33 +1773,35 @@ public extension OptionGroupProtocol {
 
 // MARK: - PatternSpec Record
 
+/// A GPatternSpec struct is the 'compiled' form of a pattern. This
+/// structure is opaque and its fields cannot be accessed directly.
+///
 /// The `PatternSpecProtocol` protocol exposes the methods and properties of an underlying `GPatternSpec` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PatternSpec`.
 /// Alternatively, use `PatternSpecRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
 public protocol PatternSpecProtocol {
         /// Untyped pointer to the underlying `GPatternSpec` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GPatternSpec` instance.
-    var _ptr: UnsafeMutablePointer<GPatternSpec>! { get }
+    var pattern_spec_ptr: UnsafeMutablePointer<GPatternSpec>! { get }
 
     /// Required Initialiser for types conforming to `PatternSpecProtocol`
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A GPatternSpec struct is the 'compiled' form of a pattern. This
+/// structure is opaque and its fields cannot be accessed directly.
+///
 /// The `PatternSpecRef` type acts as a lightweight Swift reference to an underlying `GPatternSpec` instance.
 /// It exposes methods that can operate on this data type through `PatternSpecProtocol` conformance.
 /// Use `PatternSpecRef` only as an `unowned` reference to an existing `GPatternSpec` instance.
 ///
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
 public struct PatternSpecRef: PatternSpecProtocol {
         /// Untyped pointer to the underlying `GPatternSpec` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `pattern_spec_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 }
 
@@ -1861,17 +1875,23 @@ public extension PatternSpecRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// Compiles a pattern to a `GPatternSpec`.
+    @inlinable init( pattern: UnsafePointer<gchar>!) {
+        let rv = g_pattern_spec_new(pattern)
+        ptr = UnsafeMutableRawPointer(rv)
     }
+}
 
+/// A GPatternSpec struct is the 'compiled' form of a pattern. This
+/// structure is opaque and its fields cannot be accessed directly.
+///
 /// The `PatternSpec` type acts as an owner of an underlying `GPatternSpec` instance.
 /// It provides the methods that can operate on this data type through `PatternSpecProtocol` conformance.
 /// Use `PatternSpec` as a strong reference or owner of a `GPatternSpec` instance.
 ///
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
 open class PatternSpec: PatternSpecProtocol {
         /// Untyped pointer to the underlying `GPatternSpec` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `pattern_spec_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
@@ -1934,7 +1954,7 @@ open class PatternSpec: PatternSpecProtocol {
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(retaining op: UnsafeMutablePointer<GPatternSpec>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
     /// Reference intialiser for a related type that implements `PatternSpecProtocol`
@@ -1942,12 +1962,12 @@ open class PatternSpec: PatternSpecProtocol {
     /// - Parameter other: an instance of a related type that implements `PatternSpecProtocol`
     @inlinable public init<T: PatternSpecProtocol>(_ other: T) {
         ptr = other.ptr
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
     /// Do-nothing destructor for `GPatternSpec`.
     deinit {
-        // no reference counting for GPatternSpec, cannot unref(_ptr)
+        // no reference counting for GPatternSpec, cannot unref(pattern_spec_ptr)
     }
 
     /// Unsafe typed initialiser.
@@ -1962,7 +1982,7 @@ open class PatternSpec: PatternSpecProtocol {
     /// - Parameter cPointer: pointer to the underlying object
     @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
     /// Unsafe untyped initialiser.
@@ -1976,7 +1996,7 @@ open class PatternSpec: PatternSpecProtocol {
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
     @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
     /// Unsafe untyped initialiser.
@@ -1991,7 +2011,7 @@ open class PatternSpec: PatternSpecProtocol {
     /// - Parameter raw: mutable raw pointer to the underlying object
     @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
     /// Unsafe untyped initialiser.
@@ -2006,9 +2026,14 @@ open class PatternSpec: PatternSpecProtocol {
     /// - Parameter p: opaque pointer to the underlying object
     @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GPatternSpec, cannot ref(_ptr)
+        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
     }
 
+    /// Compiles a pattern to a `GPatternSpec`.
+    @inlinable public init( pattern: UnsafePointer<gchar>!) {
+        let rv = g_pattern_spec_new(pattern)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
 
 
 }
@@ -2021,18 +2046,24 @@ open class PatternSpec: PatternSpecProtocol {
 // MARK: PatternSpec Record: PatternSpecProtocol extension (methods and fields)
 public extension PatternSpecProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GPatternSpec` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GPatternSpec>! { return ptr?.assumingMemoryBound(to: GPatternSpec.self) }
+    @inlinable var pattern_spec_ptr: UnsafeMutablePointer<GPatternSpec>! { return ptr?.assumingMemoryBound(to: GPatternSpec.self) }
+
+    /// Copies `pspec` in a new `GPatternSpec`.
+    @inlinable func copy() -> PatternSpecRef! {
+        guard let rv = PatternSpecRef(gconstpointer: gconstpointer(g_pattern_spec_copy(pattern_spec_ptr))) else { return nil }
+        return rv
+    }
 
     /// Compares two compiled pattern specs and returns whether they will
     /// match the same set of strings.
     @inlinable func equal<PatternSpecT: PatternSpecProtocol>(pspec2: PatternSpecT) -> Bool {
-        let rv = ((g_pattern_spec_equal(_ptr, pspec2._ptr)) != 0)
+        let rv = ((g_pattern_spec_equal(pattern_spec_ptr, pspec2.pattern_spec_ptr)) != 0)
         return rv
     }
 
     /// Frees the memory allocated for the `GPatternSpec`.
     @inlinable func free() {
-        g_pattern_spec_free(_ptr)
+        g_pattern_spec_free(pattern_spec_ptr)
     
     }
 
@@ -2053,16 +2084,52 @@ public extension PatternSpecProtocol {
     /// not be obtained by `g_strreverse()`. This works only if the string
     /// does not contain any multibyte characters. GLib offers the
     /// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
-    @inlinable func patternMatch(stringLength: Int, string: UnsafePointer<gchar>!, stringReversed: UnsafePointer<gchar>? = nil) -> Bool {
-        let rv = ((g_pattern_match(_ptr, guint(stringLength), string, stringReversed)) != 0)
+    @inlinable func match(stringLength: Int, string: UnsafePointer<gchar>!, stringReversed: UnsafePointer<gchar>? = nil) -> Bool {
+        let rv = ((g_pattern_spec_match(pattern_spec_ptr, gsize(stringLength), string, stringReversed)) != 0)
         return rv
     }
 
     /// Matches a string against a compiled pattern. If the string is to be
     /// matched against more than one pattern, consider using
     /// `g_pattern_match()` instead while supplying the reversed string.
-    @inlinable func patternMatch(string: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_pattern_match_string(_ptr, string)) != 0)
+    @inlinable func match(string: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_pattern_spec_match_string(pattern_spec_ptr, string)) != 0)
+        return rv
+    }
+
+    /// Matches a string against a compiled pattern. Passing the correct
+    /// length of the string given is mandatory. The reversed string can be
+    /// omitted by passing `nil`, this is more efficient if the reversed
+    /// version of the string to be matched is not at hand, as
+    /// `g_pattern_match()` will only construct it if the compiled pattern
+    /// requires reverse matches.
+    /// 
+    /// Note that, if the user code will (possibly) match a string against a
+    /// multitude of patterns containing wildcards, chances are high that
+    /// some patterns will require a reversed string. In this case, it's
+    /// more efficient to provide the reversed string to avoid multiple
+    /// constructions thereof in the various calls to `g_pattern_match()`.
+    /// 
+    /// Note also that the reverse of a UTF-8 encoded string can in general
+    /// not be obtained by `g_strreverse()`. This works only if the string
+    /// does not contain any multibyte characters. GLib offers the
+    /// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
+    ///
+    /// **pattern_match is deprecated:**
+    /// Use g_pattern_spec_match() instead
+    @available(*, deprecated) @inlinable func patternMatch(stringLength: Int, string: UnsafePointer<gchar>!, stringReversed: UnsafePointer<gchar>? = nil) -> Bool {
+        let rv = ((g_pattern_match(pattern_spec_ptr, guint(stringLength), string, stringReversed)) != 0)
+        return rv
+    }
+
+    /// Matches a string against a compiled pattern. If the string is to be
+    /// matched against more than one pattern, consider using
+    /// `g_pattern_match()` instead while supplying the reversed string.
+    ///
+    /// **pattern_match_string is deprecated:**
+    /// Use g_pattern_spec_match_string() instead
+    @available(*, deprecated) @inlinable func patternMatch(string: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((g_pattern_match_string(pattern_spec_ptr, string)) != 0)
         return rv
     }
 

@@ -2,11 +2,6 @@ import CGLib
 
 // MARK: - VariantBuilder Record
 
-/// The `VariantBuilderProtocol` protocol exposes the methods and properties of an underlying `GVariantBuilder` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `VariantBuilder`.
-/// Alternatively, use `VariantBuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// A utility type for constructing container-type `GVariant` instances.
 /// 
 /// This is an opaque structure and may only be accessed using the
@@ -14,6 +9,12 @@ import CGLib
 /// 
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
+///
+/// The `VariantBuilderProtocol` protocol exposes the methods and properties of an underlying `GVariantBuilder` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `VariantBuilder`.
+/// Alternatively, use `VariantBuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -25,10 +26,6 @@ public protocol VariantBuilderProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VariantBuilderRef` type acts as a lightweight Swift reference to an underlying `GVariantBuilder` instance.
-/// It exposes methods that can operate on this data type through `VariantBuilderProtocol` conformance.
-/// Use `VariantBuilderRef` only as an `unowned` reference to an existing `GVariantBuilder` instance.
-///
 /// A utility type for constructing container-type `GVariant` instances.
 /// 
 /// This is an opaque structure and may only be accessed using the
@@ -36,6 +33,11 @@ public protocol VariantBuilderProtocol {
 /// 
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
+///
+/// The `VariantBuilderRef` type acts as a lightweight Swift reference to an underlying `GVariantBuilder` instance.
+/// It exposes methods that can operate on this data type through `VariantBuilderProtocol` conformance.
+/// Use `VariantBuilderRef` only as an `unowned` reference to an existing `GVariantBuilder` instance.
+///
 public struct VariantBuilderRef: VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
@@ -127,10 +129,6 @@ public extension VariantBuilderRef {
     }
 }
 
-/// The `VariantBuilder` type acts as a reference-counted owner of an underlying `GVariantBuilder` instance.
-/// It provides the methods that can operate on this data type through `VariantBuilderProtocol` conformance.
-/// Use `VariantBuilder` as a strong reference or owner of a `GVariantBuilder` instance.
-///
 /// A utility type for constructing container-type `GVariant` instances.
 /// 
 /// This is an opaque structure and may only be accessed using the
@@ -138,6 +136,11 @@ public extension VariantBuilderRef {
 /// 
 /// `GVariantBuilder` is not threadsafe in any way.  Do not attempt to
 /// access it from more than one thread.
+///
+/// The `VariantBuilder` type acts as a reference-counted owner of an underlying `GVariantBuilder` instance.
+/// It provides the methods that can operate on this data type through `VariantBuilderProtocol` conformance.
+/// Use `VariantBuilder` as a strong reference or owner of a `GVariantBuilder` instance.
+///
 open class VariantBuilder: VariantBuilderProtocol {
         /// Untyped pointer to the underlying `GVariantBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `variant_builder_ptr` property instead.
@@ -485,11 +488,6 @@ public extension VariantBuilderProtocol {
 
 // MARK: - VariantDict Record
 
-/// The `VariantDictProtocol` protocol exposes the methods and properties of an underlying `GVariantDict` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `VariantDict`.
-/// Alternatively, use `VariantDictRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GVariantDict` is a mutable interface to `GVariant` dictionaries.
 /// 
 /// It can be used for doing a sequence of dictionary lookups in an
@@ -582,6 +580,12 @@ public extension VariantBuilderProtocol {
 ///   }
 /// ```
 /// 
+///
+/// The `VariantDictProtocol` protocol exposes the methods and properties of an underlying `GVariantDict` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `VariantDict`.
+/// Alternatively, use `VariantDictRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -593,10 +597,6 @@ public protocol VariantDictProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VariantDictRef` type acts as a lightweight Swift reference to an underlying `GVariantDict` instance.
-/// It exposes methods that can operate on this data type through `VariantDictProtocol` conformance.
-/// Use `VariantDictRef` only as an `unowned` reference to an existing `GVariantDict` instance.
-///
 /// `GVariantDict` is a mutable interface to `GVariant` dictionaries.
 /// 
 /// It can be used for doing a sequence of dictionary lookups in an
@@ -689,6 +689,11 @@ public protocol VariantDictProtocol {
 ///   }
 /// ```
 /// 
+///
+/// The `VariantDictRef` type acts as a lightweight Swift reference to an underlying `GVariantDict` instance.
+/// It exposes methods that can operate on this data type through `VariantDictProtocol` conformance.
+/// Use `VariantDictRef` only as an `unowned` reference to an existing `GVariantDict` instance.
+///
 public struct VariantDictRef: VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
@@ -781,10 +786,6 @@ public extension VariantDictRef {
     }
 }
 
-/// The `VariantDict` type acts as a reference-counted owner of an underlying `GVariantDict` instance.
-/// It provides the methods that can operate on this data type through `VariantDictProtocol` conformance.
-/// Use `VariantDict` as a strong reference or owner of a `GVariantDict` instance.
-///
 /// `GVariantDict` is a mutable interface to `GVariant` dictionaries.
 /// 
 /// It can be used for doing a sequence of dictionary lookups in an
@@ -877,6 +878,11 @@ public extension VariantDictRef {
 ///   }
 /// ```
 /// 
+///
+/// The `VariantDict` type acts as a reference-counted owner of an underlying `GVariantDict` instance.
+/// It provides the methods that can operate on this data type through `VariantDictProtocol` conformance.
+/// Use `VariantDict` as a strong reference or owner of a `GVariantDict` instance.
+///
 open class VariantDict: VariantDictProtocol {
         /// Untyped pointer to the underlying `GVariantDict` instance.
     /// For type-safe access, use the generated, typed pointer `variant_dict_ptr` property instead.
@@ -1204,13 +1210,14 @@ public extension VariantDictProtocol {
 
 // MARK: - VariantIter Record
 
+/// `GVariantIter` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `VariantIterProtocol` protocol exposes the methods and properties of an underlying `GVariantIter` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `VariantIter`.
 /// Alternatively, use `VariantIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GVariantIter` is an opaque data structure and can only be accessed
-/// using the following functions.
 public protocol VariantIterProtocol {
         /// Untyped pointer to the underlying `GVariantIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1222,12 +1229,13 @@ public protocol VariantIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GVariantIter` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `VariantIterRef` type acts as a lightweight Swift reference to an underlying `GVariantIter` instance.
 /// It exposes methods that can operate on this data type through `VariantIterProtocol` conformance.
 /// Use `VariantIterRef` only as an `unowned` reference to an existing `GVariantIter` instance.
 ///
-/// `GVariantIter` is an opaque data structure and can only be accessed
-/// using the following functions.
 public struct VariantIterRef: VariantIterProtocol {
         /// Untyped pointer to the underlying `GVariantIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1306,12 +1314,13 @@ public extension VariantIterRef {
 
     }
 
+/// `GVariantIter` is an opaque data structure and can only be accessed
+/// using the following functions.
+///
 /// The `VariantIter` type acts as an owner of an underlying `GVariantIter` instance.
 /// It provides the methods that can operate on this data type through `VariantIterProtocol` conformance.
 /// Use `VariantIter` as a strong reference or owner of a `GVariantIter` instance.
 ///
-/// `GVariantIter` is an opaque data structure and can only be accessed
-/// using the following functions.
 open class VariantIter: VariantIterProtocol {
         /// Untyped pointer to the underlying `GVariantIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1560,11 +1569,6 @@ public extension VariantIterProtocol {
 
 // MARK: - VariantType Record
 
-/// The `VariantTypeProtocol` protocol exposes the methods and properties of an underlying `GVariantType` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `VariantType`.
-/// Alternatively, use `VariantTypeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// This section introduces the GVariant type system. It is based, in
 /// large part, on the D-Bus type system, with two major changes and
 /// some minor lifting of restrictions. The
@@ -1712,6 +1716,12 @@ public extension VariantIterProtocol {
 /// so this type string corresponds to `G_VARIANT_TYPE_DICTIONARY`. Note
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
+///
+/// The `VariantTypeProtocol` protocol exposes the methods and properties of an underlying `GVariantType` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `VariantType`.
+/// Alternatively, use `VariantTypeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VariantTypeProtocol {
         /// Untyped pointer to the underlying `GVariantType` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1723,10 +1733,6 @@ public protocol VariantTypeProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VariantTypeRef` type acts as a lightweight Swift reference to an underlying `GVariantType` instance.
-/// It exposes methods that can operate on this data type through `VariantTypeProtocol` conformance.
-/// Use `VariantTypeRef` only as an `unowned` reference to an existing `GVariantType` instance.
-///
 /// This section introduces the GVariant type system. It is based, in
 /// large part, on the D-Bus type system, with two major changes and
 /// some minor lifting of restrictions. The
@@ -1874,6 +1880,11 @@ public protocol VariantTypeProtocol {
 /// so this type string corresponds to `G_VARIANT_TYPE_DICTIONARY`. Note
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
+///
+/// The `VariantTypeRef` type acts as a lightweight Swift reference to an underlying `GVariantType` instance.
+/// It exposes methods that can operate on this data type through `VariantTypeProtocol` conformance.
+/// Use `VariantTypeRef` only as an `unowned` reference to an existing `GVariantType` instance.
+///
 public struct VariantTypeRef: VariantTypeProtocol {
         /// Untyped pointer to the underlying `GVariantType` instance.
     /// For type-safe access, use the generated, typed pointer `variant_type_ptr` property instead.
@@ -1982,16 +1993,12 @@ public extension VariantTypeRef {
         return rv
     }
 
-    @inlinable static func checked_(arg0: UnsafePointer<gchar>!) -> VariantTypeRef! {
+    @inlinable static func checked(arg0: UnsafePointer<gchar>!) -> VariantTypeRef! {
         guard let rv = VariantTypeRef(gconstpointer: gconstpointer(g_variant_type_checked_(arg0))) else { return nil }
         return rv
     }
 }
 
-/// The `VariantType` type acts as an owner of an underlying `GVariantType` instance.
-/// It provides the methods that can operate on this data type through `VariantTypeProtocol` conformance.
-/// Use `VariantType` as a strong reference or owner of a `GVariantType` instance.
-///
 /// This section introduces the GVariant type system. It is based, in
 /// large part, on the D-Bus type system, with two major changes and
 /// some minor lifting of restrictions. The
@@ -2139,6 +2146,11 @@ public extension VariantTypeRef {
 /// so this type string corresponds to `G_VARIANT_TYPE_DICTIONARY`. Note
 /// that, due to the restriction that the key of a dictionary entry must
 /// be a basic type, "{**}" is not a valid type string.
+///
+/// The `VariantType` type acts as an owner of an underlying `GVariantType` instance.
+/// It provides the methods that can operate on this data type through `VariantTypeProtocol` conformance.
+/// Use `VariantType` as a strong reference or owner of a `GVariantType` instance.
+///
 open class VariantType: VariantTypeProtocol {
         /// Untyped pointer to the underlying `GVariantType` instance.
     /// For type-safe access, use the generated, typed pointer `variant_type_ptr` property instead.
@@ -2312,7 +2324,7 @@ open class VariantType: VariantTypeProtocol {
         return rv
     }
 
-    @inlinable public static func checked_(arg0: UnsafePointer<gchar>!) -> VariantType! {
+    @inlinable public static func checked(arg0: UnsafePointer<gchar>!) -> VariantType! {
         guard let rv = VariantType(gconstpointer: gconstpointer(g_variant_type_checked_(arg0))) else { return nil }
         return rv
     }

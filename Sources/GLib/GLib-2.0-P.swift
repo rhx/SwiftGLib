@@ -2,13 +2,14 @@ import CGLib
 
 // MARK: - PollFD Record
 
+/// Represents a file descriptor, which events to poll for, and which events
+/// occurred.
+///
 /// The `PollFDProtocol` protocol exposes the methods and properties of an underlying `GPollFD` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PollFD`.
 /// Alternatively, use `PollFDRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Represents a file descriptor, which events to poll for, and which events
-/// occurred.
 public protocol PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -20,12 +21,13 @@ public protocol PollFDProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Represents a file descriptor, which events to poll for, and which events
+/// occurred.
+///
 /// The `PollFDRef` type acts as a lightweight Swift reference to an underlying `GPollFD` instance.
 /// It exposes methods that can operate on this data type through `PollFDProtocol` conformance.
 /// Use `PollFDRef` only as an `unowned` reference to an existing `GPollFD` instance.
 ///
-/// Represents a file descriptor, which events to poll for, and which events
-/// occurred.
 public struct PollFDRef: PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
@@ -104,12 +106,13 @@ public extension PollFDRef {
 
     }
 
+/// Represents a file descriptor, which events to poll for, and which events
+/// occurred.
+///
 /// The `PollFD` type acts as an owner of an underlying `GPollFD` instance.
 /// It provides the methods that can operate on this data type through `PollFDProtocol` conformance.
 /// Use `PollFD` as a strong reference or owner of a `GPollFD` instance.
 ///
-/// Represents a file descriptor, which events to poll for, and which events
-/// occurred.
 open class PollFD: PollFDProtocol {
         /// Untyped pointer to the underlying `GPollFD` instance.
     /// For type-safe access, use the generated, typed pointer `pollfd_ptr` property instead.
@@ -343,11 +346,6 @@ public extension PollFDProtocol {
 
 // MARK: - Private Record
 
-/// The `PrivateProtocol` protocol exposes the methods and properties of an underlying `GPrivate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Private`.
-/// Alternatively, use `PrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
 /// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
@@ -365,6 +363,12 @@ public extension PollFDProtocol {
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
+///
+/// The `PrivateProtocol` protocol exposes the methods and properties of an underlying `GPrivate` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Private`.
+/// Alternatively, use `PrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol PrivateProtocol {
         /// Untyped pointer to the underlying `GPrivate` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -376,10 +380,6 @@ public protocol PrivateProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `PrivateRef` type acts as a lightweight Swift reference to an underlying `GPrivate` instance.
-/// It exposes methods that can operate on this data type through `PrivateProtocol` conformance.
-/// Use `PrivateRef` only as an `unowned` reference to an existing `GPrivate` instance.
-///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
 /// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
@@ -397,6 +397,11 @@ public protocol PrivateProtocol {
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
+///
+/// The `PrivateRef` type acts as a lightweight Swift reference to an underlying `GPrivate` instance.
+/// It exposes methods that can operate on this data type through `PrivateProtocol` conformance.
+/// Use `PrivateRef` only as an `unowned` reference to an existing `GPrivate` instance.
+///
 public struct PrivateRef: PrivateProtocol {
         /// Untyped pointer to the underlying `GPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -475,10 +480,6 @@ public extension PrivateRef {
 
     }
 
-/// The `Private` type acts as an owner of an underlying `GPrivate` instance.
-/// It provides the methods that can operate on this data type through `PrivateProtocol` conformance.
-/// Use `Private` as a strong reference or owner of a `GPrivate` instance.
-///
 /// The `GPrivate` struct is an opaque data structure to represent a
 /// thread-local data key. It is approximately equivalent to the
 /// `pthread_setspecific()``/pthread_getspecific()` APIs on POSIX and to
@@ -496,6 +497,11 @@ public extension PrivateRef {
 /// 
 /// The `GPrivate` structure should be considered opaque.  It should only
 /// be accessed via the g_private_ functions.
+///
+/// The `Private` type acts as an owner of an underlying `GPrivate` instance.
+/// It provides the methods that can operate on this data type through `PrivateProtocol` conformance.
+/// Use `Private` as a strong reference or owner of a `GPrivate` instance.
+///
 open class Private: PrivateProtocol {
         /// Untyped pointer to the underlying `GPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -693,12 +699,13 @@ public extension PrivateProtocol {
 
 // MARK: - PtrArray Record
 
+/// Contains the public fields of a pointer array.
+///
 /// The `PtrArrayProtocol` protocol exposes the methods and properties of an underlying `GPtrArray` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `PtrArray`.
 /// Alternatively, use `PtrArrayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains the public fields of a pointer array.
 public protocol PtrArrayProtocol {
         /// Untyped pointer to the underlying `GPtrArray` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -710,11 +717,12 @@ public protocol PtrArrayProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Contains the public fields of a pointer array.
+///
 /// The `PtrArrayRef` type acts as a lightweight Swift reference to an underlying `GPtrArray` instance.
 /// It exposes methods that can operate on this data type through `PtrArrayProtocol` conformance.
 /// Use `PtrArrayRef` only as an `unowned` reference to an existing `GPtrArray` instance.
 ///
-/// Contains the public fields of a pointer array.
 public struct PtrArrayRef: PtrArrayProtocol {
         /// Untyped pointer to the underlying `GPtrArray` instance.
     /// For type-safe access, use the generated, typed pointer `ptr_array_ptr` property instead.
@@ -793,11 +801,12 @@ public extension PtrArrayRef {
 
     }
 
+/// Contains the public fields of a pointer array.
+///
 /// The `PtrArray` type acts as an owner of an underlying `GPtrArray` instance.
 /// It provides the methods that can operate on this data type through `PtrArrayProtocol` conformance.
 /// Use `PtrArray` as a strong reference or owner of a `GPtrArray` instance.
 ///
-/// Contains the public fields of a pointer array.
 open class PtrArray: PtrArrayProtocol {
         /// Untyped pointer to the underlying `GPtrArray` instance.
     /// For type-safe access, use the generated, typed pointer `ptr_array_ptr` property instead.
@@ -988,13 +997,14 @@ public extension PtrArrayProtocol {
 
 // MARK: - Queue Record
 
+/// Contains the public fields of a
+/// [Queue](../Protocols/QueueProtocol.html).
+///
 /// The `QueueProtocol` protocol exposes the methods and properties of an underlying `GQueue` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Queue`.
 /// Alternatively, use `QueueRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Contains the public fields of a
-/// [Queue](../Protocols/QueueProtocol.html).
 public protocol QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1006,12 +1016,13 @@ public protocol QueueProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Contains the public fields of a
+/// [Queue](../Protocols/QueueProtocol.html).
+///
 /// The `QueueRef` type acts as a lightweight Swift reference to an underlying `GQueue` instance.
 /// It exposes methods that can operate on this data type through `QueueProtocol` conformance.
 /// Use `QueueRef` only as an `unowned` reference to an existing `GQueue` instance.
 ///
-/// Contains the public fields of a
-/// [Queue](../Protocols/QueueProtocol.html).
 public struct QueueRef: QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1090,12 +1101,13 @@ public extension QueueRef {
 
     }
 
+/// Contains the public fields of a
+/// [Queue](../Protocols/QueueProtocol.html).
+///
 /// The `Queue` type acts as an owner of an underlying `GQueue` instance.
 /// It provides the methods that can operate on this data type through `QueueProtocol` conformance.
 /// Use `Queue` as a strong reference or owner of a `GQueue` instance.
 ///
-/// Contains the public fields of a
-/// [Queue](../Protocols/QueueProtocol.html).
 open class Queue: QueueProtocol {
         /// Untyped pointer to the underlying `GQueue` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1275,8 +1287,8 @@ public extension QueueProtocol {
     /// Removes `link_` from `queue` and frees it.
     /// 
     /// `link_` must be part of `queue`.
-    @inlinable func deleteLink<ListT: ListProtocol>(link_: ListT) {
-        g_queue_delete_link(_ptr, link_._ptr)
+    @inlinable func delete<ListT: ListProtocol>(link: ListT) {
+        g_queue_delete_link(_ptr, link._ptr)
     
     }
 
@@ -1368,8 +1380,8 @@ public extension QueueProtocol {
     /// Inserts `link_` into `queue` after `sibling`.
     /// 
     /// `sibling` must be part of `queue`.
-    @inlinable func insertAfterLink<ListT: ListProtocol>(sibling: ListT?, link_: ListT) {
-        g_queue_insert_after_link(_ptr, sibling?._ptr, link_._ptr)
+    @inlinable func insertAfterLink<ListT: ListProtocol>(sibling: ListT?, link: ListT) {
+        g_queue_insert_after_link(_ptr, sibling?._ptr, link._ptr)
     
     }
 
@@ -1393,8 +1405,8 @@ public extension QueueProtocol {
     /// Inserts `link_` into `queue` before `sibling`.
     /// 
     /// `sibling` must be part of `queue`.
-    @inlinable func insertBeforeLink<ListT: ListProtocol>(sibling: ListT?, link_: ListT) {
-        g_queue_insert_before_link(_ptr, sibling?._ptr, link_._ptr)
+    @inlinable func insertBeforeLink<ListT: ListProtocol>(sibling: ListT?, link: ListT) {
+        g_queue_insert_before_link(_ptr, sibling?._ptr, link._ptr)
     
     }
 
@@ -1405,8 +1417,8 @@ public extension QueueProtocol {
     }
 
     /// Returns the position of `link_` in `queue`.
-    @inlinable func linkIndex<ListT: ListProtocol>(link_: ListT) -> Int {
-        let rv = Int(g_queue_link_index(_ptr, link_._ptr))
+    @inlinable func linkIndex<ListT: ListProtocol>(link: ListT) -> Int {
+        let rv = Int(g_queue_link_index(_ptr, link._ptr))
         return rv
     }
 
@@ -1489,8 +1501,8 @@ public extension QueueProtocol {
     }
 
     /// Adds a new element at the head of the queue.
-    @inlinable func pushHeadLink<ListT: ListProtocol>(link_: ListT) {
-        g_queue_push_head_link(_ptr, link_._ptr)
+    @inlinable func pushHead<ListT: ListProtocol>(link: ListT) {
+        g_queue_push_head_link(_ptr, link._ptr)
     
     }
 
@@ -1501,8 +1513,8 @@ public extension QueueProtocol {
     }
 
     /// Inserts `link` into `queue` at the given position.
-    @inlinable func pushNthLink<ListT: ListProtocol>(n: Int, link_: ListT) {
-        g_queue_push_nth_link(_ptr, gint(n), link_._ptr)
+    @inlinable func pushNthLink<ListT: ListProtocol>(n: Int, link: ListT) {
+        g_queue_push_nth_link(_ptr, gint(n), link._ptr)
     
     }
 
@@ -1513,8 +1525,8 @@ public extension QueueProtocol {
     }
 
     /// Adds a new element at the tail of the queue.
-    @inlinable func pushTailLink<ListT: ListProtocol>(link_: ListT) {
-        g_queue_push_tail_link(_ptr, link_._ptr)
+    @inlinable func pushTail<ListT: ListProtocol>(link: ListT) {
+        g_queue_push_tail_link(_ptr, link._ptr)
     
     }
 
@@ -1546,8 +1558,8 @@ public extension QueueProtocol {
     /// The link is not freed.
     /// 
     /// `link_` must be part of `queue`.
-    @inlinable func unlink<ListT: ListProtocol>(link_: ListT) {
-        g_queue_unlink(_ptr, link_._ptr)
+    @inlinable func unlink<ListT: ListProtocol>(link: ListT) {
+        g_queue_unlink(_ptr, link._ptr)
     
     }
     /// Returns `true` if the queue is empty.

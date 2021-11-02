@@ -2,12 +2,13 @@ import CGLib
 
 // MARK: - TestConfig Record
 
+
+///
 /// The `TestConfigProtocol` protocol exposes the methods and properties of an underlying `GTestConfig` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TestConfig`.
 /// Alternatively, use `TestConfigRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TestConfigProtocol {
         /// Untyped pointer to the underlying `GTestConfig` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19,11 +20,12 @@ public protocol TestConfigProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TestConfigRef` type acts as a lightweight Swift reference to an underlying `GTestConfig` instance.
 /// It exposes methods that can operate on this data type through `TestConfigProtocol` conformance.
 /// Use `TestConfigRef` only as an `unowned` reference to an existing `GTestConfig` instance.
 ///
-
 public struct TestConfigRef: TestConfigProtocol {
         /// Untyped pointer to the underlying `GTestConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -102,11 +104,12 @@ public extension TestConfigRef {
 
     }
 
+
+///
 /// The `TestConfig` type acts as an owner of an underlying `GTestConfig` instance.
 /// It provides the methods that can operate on this data type through `TestConfigProtocol` conformance.
 /// Use `TestConfig` as a strong reference or owner of a `GTestConfig` instance.
 ///
-
 open class TestConfig: TestConfigProtocol {
         /// Untyped pointer to the underlying `GTestConfig` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -328,12 +331,13 @@ public extension TestConfigProtocol {
 
 // MARK: - TestLogBuffer Record
 
+
+///
 /// The `TestLogBufferProtocol` protocol exposes the methods and properties of an underlying `GTestLogBuffer` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TestLogBuffer`.
 /// Alternatively, use `TestLogBufferRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TestLogBufferProtocol {
         /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -345,11 +349,12 @@ public protocol TestLogBufferProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TestLogBufferRef` type acts as a lightweight Swift reference to an underlying `GTestLogBuffer` instance.
 /// It exposes methods that can operate on this data type through `TestLogBufferProtocol` conformance.
 /// Use `TestLogBufferRef` only as an `unowned` reference to an existing `GTestLogBuffer` instance.
 ///
-
 public struct TestLogBufferRef: TestLogBufferProtocol {
         /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -428,11 +433,12 @@ public extension TestLogBufferRef {
 
     }
 
+
+///
 /// The `TestLogBuffer` type acts as an owner of an underlying `GTestLogBuffer` instance.
 /// It provides the methods that can operate on this data type through `TestLogBufferProtocol` conformance.
 /// Use `TestLogBuffer` as a strong reference or owner of a `GTestLogBuffer` instance.
 ///
-
 open class TestLogBuffer: TestLogBufferProtocol {
         /// Untyped pointer to the underlying `GTestLogBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -615,12 +621,13 @@ public extension TestLogBufferProtocol {
 
 // MARK: - TestLogMsg Record
 
+
+///
 /// The `TestLogMsgProtocol` protocol exposes the methods and properties of an underlying `GTestLogMsg` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TestLogMsg`.
 /// Alternatively, use `TestLogMsgRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-
 public protocol TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -632,11 +639,12 @@ public protocol TestLogMsgProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+
+///
 /// The `TestLogMsgRef` type acts as a lightweight Swift reference to an underlying `GTestLogMsg` instance.
 /// It exposes methods that can operate on this data type through `TestLogMsgProtocol` conformance.
 /// Use `TestLogMsgRef` only as an `unowned` reference to an existing `GTestLogMsg` instance.
 ///
-
 public struct TestLogMsgRef: TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -715,11 +723,12 @@ public extension TestLogMsgRef {
 
     }
 
+
+///
 /// The `TestLogMsg` type acts as an owner of an underlying `GTestLogMsg` instance.
 /// It provides the methods that can operate on this data type through `TestLogMsgProtocol` conformance.
 /// Use `TestLogMsg` as a strong reference or owner of a `GTestLogMsg` instance.
 ///
-
 open class TestLogMsg: TestLogMsgProtocol {
         /// Untyped pointer to the underlying `GTestLogMsg` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -938,12 +947,13 @@ public extension TestLogMsgProtocol {
 
 // MARK: - TestSuite Record
 
+/// An opaque structure representing a test suite.
+///
 /// The `TestSuiteProtocol` protocol exposes the methods and properties of an underlying `GTestSuite` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TestSuite`.
 /// Alternatively, use `TestSuiteRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An opaque structure representing a test suite.
 public protocol TestSuiteProtocol {
         /// Untyped pointer to the underlying `GTestSuite` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -955,11 +965,12 @@ public protocol TestSuiteProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque structure representing a test suite.
+///
 /// The `TestSuiteRef` type acts as a lightweight Swift reference to an underlying `GTestSuite` instance.
 /// It exposes methods that can operate on this data type through `TestSuiteProtocol` conformance.
 /// Use `TestSuiteRef` only as an `unowned` reference to an existing `GTestSuite` instance.
 ///
-/// An opaque structure representing a test suite.
 public struct TestSuiteRef: TestSuiteProtocol {
         /// Untyped pointer to the underlying `GTestSuite` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1038,11 +1049,12 @@ public extension TestSuiteRef {
 
     }
 
+/// An opaque structure representing a test suite.
+///
 /// The `TestSuite` type acts as an owner of an underlying `GTestSuite` instance.
 /// It provides the methods that can operate on this data type through `TestSuiteProtocol` conformance.
 /// Use `TestSuite` as a strong reference or owner of a `GTestSuite` instance.
 ///
-/// An opaque structure representing a test suite.
 open class TestSuite: TestSuiteProtocol {
         /// Untyped pointer to the underlying `GTestSuite` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1209,6 +1221,12 @@ public extension TestSuiteProtocol {
     
     }
 
+    /// Free the `suite` and all nested `GTestSuites`.
+    @inlinable func free() {
+        g_test_suite_free(_ptr)
+    
+    }
+
     /// Execute the tests within `suite` and all nested `GTestSuites`.
     /// The test suites to be executed are filtered according to
     /// test path arguments (`-p testpath` and `-s testpath`) as parsed by
@@ -1229,11 +1247,6 @@ public extension TestSuiteProtocol {
 
 // MARK: - Thread Record
 
-/// The `ThreadProtocol` protocol exposes the methods and properties of an underlying `GThread` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Thread`.
-/// Alternatively, use `ThreadRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GThread` struct represents a running thread. This struct
 /// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
@@ -1247,6 +1260,12 @@ public extension TestSuiteProtocol {
 /// 
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
+///
+/// The `ThreadProtocol` protocol exposes the methods and properties of an underlying `GThread` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Thread`.
+/// Alternatively, use `ThreadRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1258,10 +1277,6 @@ public protocol ThreadProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `ThreadRef` type acts as a lightweight Swift reference to an underlying `GThread` instance.
-/// It exposes methods that can operate on this data type through `ThreadProtocol` conformance.
-/// Use `ThreadRef` only as an `unowned` reference to an existing `GThread` instance.
-///
 /// The `GThread` struct represents a running thread. This struct
 /// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
@@ -1275,6 +1290,11 @@ public protocol ThreadProtocol {
 /// 
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
+///
+/// The `ThreadRef` type acts as a lightweight Swift reference to an underlying `GThread` instance.
+/// It exposes methods that can operate on this data type through `ThreadProtocol` conformance.
+/// Use `ThreadRef` only as an `unowned` reference to an existing `GThread` instance.
+///
 public struct ThreadRef: ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
@@ -1422,10 +1442,6 @@ public extension ThreadRef {
     }
 }
 
-/// The `Thread` type acts as a reference-counted owner of an underlying `GThread` instance.
-/// It provides the methods that can operate on this data type through `ThreadProtocol` conformance.
-/// Use `Thread` as a strong reference or owner of a `GThread` instance.
-///
 /// The `GThread` struct represents a running thread. This struct
 /// is returned by `g_thread_new()` or `g_thread_try_new()`. You can
 /// obtain the `GThread` struct representing the current thread by
@@ -1439,6 +1455,11 @@ public extension ThreadRef {
 /// 
 /// The structure is opaque -- none of its fields may be directly
 /// accessed.
+///
+/// The `Thread` type acts as a reference-counted owner of an underlying `GThread` instance.
+/// It provides the methods that can operate on this data type through `ThreadProtocol` conformance.
+/// Use `Thread` as a strong reference or owner of a `GThread` instance.
+///
 open class Thread: ThreadProtocol {
         /// Untyped pointer to the underlying `GThread` instance.
     /// For type-safe access, use the generated, typed pointer `thread_ptr` property instead.
@@ -1707,14 +1728,15 @@ public extension ThreadProtocol {
 
 // MARK: - ThreadPool Record
 
+/// The `GThreadPool` struct represents a thread pool. It has three
+/// public read-only members, but the underlying struct is bigger,
+/// so you must not copy this struct.
+///
 /// The `ThreadPoolProtocol` protocol exposes the methods and properties of an underlying `GThreadPool` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `ThreadPool`.
 /// Alternatively, use `ThreadPoolRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GThreadPool` struct represents a thread pool. It has three
-/// public read-only members, but the underlying struct is bigger,
-/// so you must not copy this struct.
 public protocol ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1726,13 +1748,14 @@ public protocol ThreadPoolProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GThreadPool` struct represents a thread pool. It has three
+/// public read-only members, but the underlying struct is bigger,
+/// so you must not copy this struct.
+///
 /// The `ThreadPoolRef` type acts as a lightweight Swift reference to an underlying `GThreadPool` instance.
 /// It exposes methods that can operate on this data type through `ThreadPoolProtocol` conformance.
 /// Use `ThreadPoolRef` only as an `unowned` reference to an existing `GThreadPool` instance.
 ///
-/// The `GThreadPool` struct represents a thread pool. It has three
-/// public read-only members, but the underlying struct is bigger,
-/// so you must not copy this struct.
 public struct ThreadPoolRef: ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1809,15 +1832,27 @@ public extension ThreadPoolRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// This function creates a new thread pool similar to `g_thread_pool_new()`
+    /// but allowing `item_free_func` to be specified to free the data passed
+    /// to `g_thread_pool_push()` in the case that the `GThreadPool` is stopped
+    /// and freed before all tasks have been executed.
+    @inlinable static func new(full `func`: GFunc?, userData: gpointer! = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPoolRef! {
+        var error: UnsafeMutablePointer<GError>?
+        let maybeRV = ThreadPoolRef(gconstpointer: gconstpointer(g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
+}
 
+/// The `GThreadPool` struct represents a thread pool. It has three
+/// public read-only members, but the underlying struct is bigger,
+/// so you must not copy this struct.
+///
 /// The `ThreadPool` type acts as an owner of an underlying `GThreadPool` instance.
 /// It provides the methods that can operate on this data type through `ThreadPoolProtocol` conformance.
 /// Use `ThreadPool` as a strong reference or owner of a `GThreadPool` instance.
 ///
-/// The `GThreadPool` struct represents a thread pool. It has three
-/// public read-only members, but the underlying struct is bigger,
-/// so you must not copy this struct.
 open class ThreadPool: ThreadPoolProtocol {
         /// Untyped pointer to the underlying `GThreadPool` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1959,6 +1994,17 @@ open class ThreadPool: ThreadPoolProtocol {
     }
 
 
+    /// This function creates a new thread pool similar to `g_thread_pool_new()`
+    /// but allowing `item_free_func` to be specified to free the data passed
+    /// to `g_thread_pool_push()` in the case that the `GThreadPool` is stopped
+    /// and freed before all tasks have been executed.
+    @inlinable public static func new(full `func`: GFunc?, userData: gpointer! = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPool! {
+        var error: UnsafeMutablePointer<GError>?
+        let maybeRV = ThreadPool(gconstpointer: gconstpointer(g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
+    }
 
 }
 
@@ -1986,8 +2032,8 @@ public extension ThreadPoolProtocol {
     /// Otherwise this function returns immediately.
     /// 
     /// After calling this function `pool` must not be used anymore.
-    @inlinable func free(immediate: Bool, wait_: Bool) {
-        g_thread_pool_free(_ptr, gboolean((immediate) ? 1 : 0), gboolean((wait_) ? 1 : 0))
+    @inlinable func free(immediate: Bool, wait: Bool) {
+        g_thread_pool_free(_ptr, gboolean((immediate) ? 1 : 0), gboolean((wait) ? 1 : 0))
     
     }
 
@@ -2165,13 +2211,9 @@ public extension ThreadPoolProtocol {
 
 // MARK: - TimeVal Record
 
-/// The `TimeValProtocol` protocol exposes the methods and properties of an underlying `GTimeVal` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TimeVal`.
-/// Alternatively, use `TimeValRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the `gettimeofday()`
+/// 
+/// Similar to the struct timeval returned by the ``gettimeofday()``
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -2179,6 +2221,12 @@ public extension ThreadPoolProtocol {
 /// removed from a future version of GLib. A consequence of using `glong` for
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
+///
+/// The `TimeValProtocol` protocol exposes the methods and properties of an underlying `GTimeVal` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TimeVal`.
+/// Alternatively, use `TimeValRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2190,12 +2238,9 @@ public protocol TimeValProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `TimeValRef` type acts as a lightweight Swift reference to an underlying `GTimeVal` instance.
-/// It exposes methods that can operate on this data type through `TimeValProtocol` conformance.
-/// Use `TimeValRef` only as an `unowned` reference to an existing `GTimeVal` instance.
-///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the `gettimeofday()`
+/// 
+/// Similar to the struct timeval returned by the ``gettimeofday()``
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -2203,6 +2248,11 @@ public protocol TimeValProtocol {
 /// removed from a future version of GLib. A consequence of using `glong` for
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
+///
+/// The `TimeValRef` type acts as a lightweight Swift reference to an underlying `GTimeVal` instance.
+/// It exposes methods that can operate on this data type through `TimeValProtocol` conformance.
+/// Use `TimeValRef` only as an `unowned` reference to an existing `GTimeVal` instance.
+///
 public struct TimeValRef: TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2281,12 +2331,9 @@ public extension TimeValRef {
 
     }
 
-/// The `TimeVal` type acts as an owner of an underlying `GTimeVal` instance.
-/// It provides the methods that can operate on this data type through `TimeValProtocol` conformance.
-/// Use `TimeVal` as a strong reference or owner of a `GTimeVal` instance.
-///
 /// Represents a precise time, with seconds and microseconds.
-/// Similar to the struct timeval returned by the `gettimeofday()`
+/// 
+/// Similar to the struct timeval returned by the ``gettimeofday()``
 /// UNIX system call.
 /// 
 /// GLib is attempting to unify around the use of 64-bit integers to
@@ -2294,6 +2341,11 @@ public extension TimeValRef {
 /// removed from a future version of GLib. A consequence of using `glong` for
 /// `tv_sec` is that on 32-bit systems `GTimeVal` is subject to the year 2038
 /// problem.
+///
+/// The `TimeVal` type acts as an owner of an underlying `GTimeVal` instance.
+/// It provides the methods that can operate on this data type through `TimeValProtocol` conformance.
+/// Use `TimeVal` as a strong reference or owner of a `GTimeVal` instance.
+///
 open class TimeVal: TimeValProtocol {
         /// Untyped pointer to the underlying `GTimeVal` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2601,13 +2653,14 @@ public extension TimeValProtocol {
 
 // MARK: - TimeZone Record
 
+/// `GTimeZone` is an opaque structure whose members cannot be accessed
+/// directly.
+///
 /// The `TimeZoneProtocol` protocol exposes the methods and properties of an underlying `GTimeZone` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TimeZone`.
 /// Alternatively, use `TimeZoneRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GTimeZone` is an opaque structure whose members cannot be accessed
-/// directly.
 public protocol TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2619,12 +2672,13 @@ public protocol TimeZoneProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// `GTimeZone` is an opaque structure whose members cannot be accessed
+/// directly.
+///
 /// The `TimeZoneRef` type acts as a lightweight Swift reference to an underlying `GTimeZone` instance.
 /// It exposes methods that can operate on this data type through `TimeZoneProtocol` conformance.
 /// Use `TimeZoneRef` only as an `unowned` reference to an existing `GTimeZone` instance.
 ///
-/// `GTimeZone` is an opaque structure whose members cannot be accessed
-/// directly.
 public struct TimeZoneRef: TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
     /// For type-safe access, use the generated, typed pointer `time_zone_ptr` property instead.
@@ -2716,6 +2770,76 @@ public extension TimeZoneRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
+    /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
+    /// parsed or loaded, `nil` is returned.
+    /// 
+    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
+    /// something that would pass as a valid value for the `TZ` environment
+    /// variable (including `nil`).
+    /// 
+    /// In Windows, `identifier` can also be the unlocalized name of a time
+    /// zone for standard time, for example "Pacific Standard Time".
+    /// 
+    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
+    /// `"±hh:mm"`.  ISO 8601 additionally specifies
+    /// `"±hhmm"` and `"±hh"`.  Offsets are
+    /// time values to be added to Coordinated Universal Time (UTC) to get
+    /// the local time.
+    /// 
+    /// In UNIX, the `TZ` environment variable typically corresponds
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
+    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
+    /// There  are  no spaces in the specification. The name of standard
+    /// and daylight savings time zone must be three or more alphabetic
+    /// characters. Offsets are time values to be added to local time to
+    /// get Coordinated Universal Time (UTC) and should be
+    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
+    /// `"Jn"` (Julian day with n between 1 and 365, leap
+    /// years not counted), `"n"` (zero-based Julian day
+    /// with n between 0 and 365) or `"Mm.w.d"` (day d
+    /// (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
+    /// 0 is a Sunday).  Times are in local wall clock time, the default is
+    /// 02:00:00.
+    /// 
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
+    /// accepts POSIX format.  The Windows format uses US rules for all time
+    /// zones; daylight savings time is 60 minutes behind the standard time
+    /// with date and time of change taken from Pacific Standard Time.
+    /// Offsets are time values to be added to the local time to get
+    /// Coordinated Universal Time (UTC).
+    /// 
+    /// `g_time_zone_new_local()` calls this function with the value of the
+    /// `TZ` environment variable. This function itself is independent of
+    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
+    /// will be consulted to discover the correct time zone on UNIX and the
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
+    /// to get the local time zone on Windows.
+    /// 
+    /// If intervals are not available, only time zone rules from `TZ`
+    /// environment variable or other means, then they will be computed
+    /// from year 1900 to 2037.  If the maximum year for the rules is
+    /// available and it is greater than 2037, then it will followed
+    /// instead.
+    /// 
+    /// See
+    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section-5.6`)
+    /// for a precise definition of valid RFC3339 time offsets
+    /// (the `time-offset` expansion) and ISO 8601 for the
+    /// full list of valid time offsets.  See
+    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
+    /// for an explanation of the possible
+    /// values of the `TZ` environment variable. See
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
+    /// for the list of time zones on Windows.
+    /// 
+    /// You should release the return value by calling `g_time_zone_unref()`
+    /// when you are done with it.
+    @inlinable init(identifier: UnsafePointer<gchar>? = nil) {
+        let rv = g_time_zone_new_identifier(identifier)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
@@ -2725,6 +2849,76 @@ public extension TimeZoneRef {
         let rv = g_time_zone_new_offset(seconds)
         ptr = UnsafeMutableRawPointer(rv)
     }
+    /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
+    /// parsed or loaded, `nil` is returned.
+    /// 
+    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
+    /// something that would pass as a valid value for the `TZ` environment
+    /// variable (including `nil`).
+    /// 
+    /// In Windows, `identifier` can also be the unlocalized name of a time
+    /// zone for standard time, for example "Pacific Standard Time".
+    /// 
+    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
+    /// `"±hh:mm"`.  ISO 8601 additionally specifies
+    /// `"±hhmm"` and `"±hh"`.  Offsets are
+    /// time values to be added to Coordinated Universal Time (UTC) to get
+    /// the local time.
+    /// 
+    /// In UNIX, the `TZ` environment variable typically corresponds
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
+    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
+    /// There  are  no spaces in the specification. The name of standard
+    /// and daylight savings time zone must be three or more alphabetic
+    /// characters. Offsets are time values to be added to local time to
+    /// get Coordinated Universal Time (UTC) and should be
+    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
+    /// `"Jn"` (Julian day with n between 1 and 365, leap
+    /// years not counted), `"n"` (zero-based Julian day
+    /// with n between 0 and 365) or `"Mm.w.d"` (day d
+    /// (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
+    /// 0 is a Sunday).  Times are in local wall clock time, the default is
+    /// 02:00:00.
+    /// 
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
+    /// accepts POSIX format.  The Windows format uses US rules for all time
+    /// zones; daylight savings time is 60 minutes behind the standard time
+    /// with date and time of change taken from Pacific Standard Time.
+    /// Offsets are time values to be added to the local time to get
+    /// Coordinated Universal Time (UTC).
+    /// 
+    /// `g_time_zone_new_local()` calls this function with the value of the
+    /// `TZ` environment variable. This function itself is independent of
+    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
+    /// will be consulted to discover the correct time zone on UNIX and the
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
+    /// to get the local time zone on Windows.
+    /// 
+    /// If intervals are not available, only time zone rules from `TZ`
+    /// environment variable or other means, then they will be computed
+    /// from year 1900 to 2037.  If the maximum year for the rules is
+    /// available and it is greater than 2037, then it will followed
+    /// instead.
+    /// 
+    /// See
+    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section-5.6`)
+    /// for a precise definition of valid RFC3339 time offsets
+    /// (the `time-offset` expansion) and ISO 8601 for the
+    /// full list of valid time offsets.  See
+    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
+    /// for an explanation of the possible
+    /// values of the `TZ` environment variable. See
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
+    /// for the list of time zones on Windows.
+    /// 
+    /// You should release the return value by calling `g_time_zone_unref()`
+    /// when you are done with it.
+    @inlinable static func new(identifier: UnsafePointer<gchar>? = nil) -> TimeZoneRef! {
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_identifier(identifier))) else { return nil }
+        return rv
+    }
+
     /// Creates a `GTimeZone` corresponding to local time.  The local time
     /// zone may change between invocations to this function; for example,
     /// if the system administrator changes it.
@@ -2762,12 +2956,13 @@ public extension TimeZoneRef {
     }
 }
 
+/// `GTimeZone` is an opaque structure whose members cannot be accessed
+/// directly.
+///
 /// The `TimeZone` type acts as a reference-counted owner of an underlying `GTimeZone` instance.
 /// It provides the methods that can operate on this data type through `TimeZoneProtocol` conformance.
 /// Use `TimeZone` as a strong reference or owner of a `GTimeZone` instance.
 ///
-/// `GTimeZone` is an opaque structure whose members cannot be accessed
-/// directly.
 open class TimeZone: TimeZoneProtocol {
         /// Untyped pointer to the underlying `GTimeZone` instance.
     /// For type-safe access, use the generated, typed pointer `time_zone_ptr` property instead.
@@ -2923,6 +3118,76 @@ open class TimeZone: TimeZoneProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
+    /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
+    /// parsed or loaded, `nil` is returned.
+    /// 
+    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
+    /// something that would pass as a valid value for the `TZ` environment
+    /// variable (including `nil`).
+    /// 
+    /// In Windows, `identifier` can also be the unlocalized name of a time
+    /// zone for standard time, for example "Pacific Standard Time".
+    /// 
+    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
+    /// `"±hh:mm"`.  ISO 8601 additionally specifies
+    /// `"±hhmm"` and `"±hh"`.  Offsets are
+    /// time values to be added to Coordinated Universal Time (UTC) to get
+    /// the local time.
+    /// 
+    /// In UNIX, the `TZ` environment variable typically corresponds
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
+    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
+    /// There  are  no spaces in the specification. The name of standard
+    /// and daylight savings time zone must be three or more alphabetic
+    /// characters. Offsets are time values to be added to local time to
+    /// get Coordinated Universal Time (UTC) and should be
+    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
+    /// `"Jn"` (Julian day with n between 1 and 365, leap
+    /// years not counted), `"n"` (zero-based Julian day
+    /// with n between 0 and 365) or `"Mm.w.d"` (day d
+    /// (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
+    /// 0 is a Sunday).  Times are in local wall clock time, the default is
+    /// 02:00:00.
+    /// 
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
+    /// accepts POSIX format.  The Windows format uses US rules for all time
+    /// zones; daylight savings time is 60 minutes behind the standard time
+    /// with date and time of change taken from Pacific Standard Time.
+    /// Offsets are time values to be added to the local time to get
+    /// Coordinated Universal Time (UTC).
+    /// 
+    /// `g_time_zone_new_local()` calls this function with the value of the
+    /// `TZ` environment variable. This function itself is independent of
+    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
+    /// will be consulted to discover the correct time zone on UNIX and the
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
+    /// to get the local time zone on Windows.
+    /// 
+    /// If intervals are not available, only time zone rules from `TZ`
+    /// environment variable or other means, then they will be computed
+    /// from year 1900 to 2037.  If the maximum year for the rules is
+    /// available and it is greater than 2037, then it will followed
+    /// instead.
+    /// 
+    /// See
+    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section-5.6`)
+    /// for a precise definition of valid RFC3339 time offsets
+    /// (the `time-offset` expansion) and ISO 8601 for the
+    /// full list of valid time offsets.  See
+    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
+    /// for an explanation of the possible
+    /// values of the `TZ` environment variable. See
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
+    /// for the list of time zones on Windows.
+    /// 
+    /// You should release the return value by calling `g_time_zone_unref()`
+    /// when you are done with it.
+    @inlinable public init(identifier: UnsafePointer<gchar>? = nil) {
+        let rv = g_time_zone_new_identifier(identifier)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
     /// in seconds.
     /// 
@@ -2931,6 +3196,76 @@ open class TimeZone: TimeZoneProtocol {
     @inlinable public init(offset seconds: gint32) {
         let rv = g_time_zone_new_offset(seconds)
         ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
+    /// parsed or loaded, `nil` is returned.
+    /// 
+    /// `identifier` can either be an RFC3339/ISO 8601 time offset or
+    /// something that would pass as a valid value for the `TZ` environment
+    /// variable (including `nil`).
+    /// 
+    /// In Windows, `identifier` can also be the unlocalized name of a time
+    /// zone for standard time, for example "Pacific Standard Time".
+    /// 
+    /// Valid RFC3339 time offsets are `"Z"` (for UTC) or
+    /// `"±hh:mm"`.  ISO 8601 additionally specifies
+    /// `"±hhmm"` and `"±hh"`.  Offsets are
+    /// time values to be added to Coordinated Universal Time (UTC) to get
+    /// the local time.
+    /// 
+    /// In UNIX, the `TZ` environment variable typically corresponds
+    /// to the name of a file in the zoneinfo database, an absolute path to a file
+    /// somewhere else, or a string in
+    /// "std offset [dst [offset],start[/time],end[/time]]" (POSIX) format.
+    /// There  are  no spaces in the specification. The name of standard
+    /// and daylight savings time zone must be three or more alphabetic
+    /// characters. Offsets are time values to be added to local time to
+    /// get Coordinated Universal Time (UTC) and should be
+    /// `"[±]hh[[:]mm[:ss]]"`.  Dates are either
+    /// `"Jn"` (Julian day with n between 1 and 365, leap
+    /// years not counted), `"n"` (zero-based Julian day
+    /// with n between 0 and 365) or `"Mm.w.d"` (day d
+    /// (0 &lt;= d &lt;= 6) of week w (1 &lt;= w &lt;= 5) of month m (1 &lt;= m &lt;= 12), day
+    /// 0 is a Sunday).  Times are in local wall clock time, the default is
+    /// 02:00:00.
+    /// 
+    /// In Windows, the "tzn[+|–]hh[:mm[:ss]](#dzn)" format is used, but also
+    /// accepts POSIX format.  The Windows format uses US rules for all time
+    /// zones; daylight savings time is 60 minutes behind the standard time
+    /// with date and time of change taken from Pacific Standard Time.
+    /// Offsets are time values to be added to the local time to get
+    /// Coordinated Universal Time (UTC).
+    /// 
+    /// `g_time_zone_new_local()` calls this function with the value of the
+    /// `TZ` environment variable. This function itself is independent of
+    /// the value of `TZ`, but if `identifier` is `nil` then `/etc/localtime`
+    /// will be consulted to discover the correct time zone on UNIX and the
+    /// registry will be consulted or `GetTimeZoneInformation()` will be used
+    /// to get the local time zone on Windows.
+    /// 
+    /// If intervals are not available, only time zone rules from `TZ`
+    /// environment variable or other means, then they will be computed
+    /// from year 1900 to 2037.  If the maximum year for the rules is
+    /// available and it is greater than 2037, then it will followed
+    /// instead.
+    /// 
+    /// See
+    /// [RFC3339 §5.6](http://tools.ietf.org/html/rfc3339`section-5.6`)
+    /// for a precise definition of valid RFC3339 time offsets
+    /// (the `time-offset` expansion) and ISO 8601 for the
+    /// full list of valid time offsets.  See
+    /// [The GNU C Library manual](http://www.gnu.org/s/libc/manual/html_node/TZ-Variable.html)
+    /// for an explanation of the possible
+    /// values of the `TZ` environment variable. See
+    /// [Microsoft Time Zone Index Values](http://msdn.microsoft.com/en-us/library/ms912391`28v`=winembedded.11`29.aspx`)
+    /// for the list of time zones on Windows.
+    /// 
+    /// You should release the return value by calling `g_time_zone_unref()`
+    /// when you are done with it.
+    @inlinable public static func new(identifier: UnsafePointer<gchar>? = nil) -> TimeZone! {
+        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_identifier(identifier))) else { return nil }
+        return rv
     }
 
     /// Creates a `GTimeZone` corresponding to local time.  The local time
@@ -2997,8 +3332,8 @@ public extension TimeZoneProtocol {
     /// requested on March 14th 2010 in Toronto then this function would
     /// adjust `time_` to be 03:00 and return the interval containing the
     /// adjusted time.
-    @inlinable func adjustTime(type: GTimeType, time_: UnsafeMutablePointer<gint64>!) -> Int {
-        let rv = Int(g_time_zone_adjust_time(time_zone_ptr, type, time_))
+    @inlinable func adjustTime(type: GTimeType, time: UnsafeMutablePointer<gint64>!) -> Int {
+        let rv = Int(g_time_zone_adjust_time(time_zone_ptr, type, time))
         return rv
     }
 
@@ -3020,8 +3355,8 @@ public extension TimeZoneProtocol {
     /// example, 02:00 on March 14th 2010 does not exist (due to the leap
     /// forward to begin daylight savings time).  -1 is returned in that
     /// case.
-    @inlinable func findInterval(type: GTimeType, time_: gint64) -> Int {
-        let rv = Int(g_time_zone_find_interval(time_zone_ptr, type, time_))
+    @inlinable func findInterval(type: GTimeType, time: gint64) -> Int {
+        let rv = Int(g_time_zone_find_interval(time_zone_ptr, type, time))
         return rv
     }
 
@@ -3108,12 +3443,13 @@ public extension TimeZoneProtocol {
 
 // MARK: - Timer Record
 
+/// Opaque datatype that records a start time.
+///
 /// The `TimerProtocol` protocol exposes the methods and properties of an underlying `GTimer` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Timer`.
 /// Alternatively, use `TimerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Opaque datatype that records a start time.
 public protocol TimerProtocol {
         /// Untyped pointer to the underlying `GTimer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3125,11 +3461,12 @@ public protocol TimerProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Opaque datatype that records a start time.
+///
 /// The `TimerRef` type acts as a lightweight Swift reference to an underlying `GTimer` instance.
 /// It exposes methods that can operate on this data type through `TimerProtocol` conformance.
 /// Use `TimerRef` only as an `unowned` reference to an existing `GTimer` instance.
 ///
-/// Opaque datatype that records a start time.
 public struct TimerRef: TimerProtocol {
         /// Untyped pointer to the underlying `GTimer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3208,11 +3545,12 @@ public extension TimerRef {
 
     }
 
+/// Opaque datatype that records a start time.
+///
 /// The `Timer` type acts as an owner of an underlying `GTimer` instance.
 /// It provides the methods that can operate on this data type through `TimerProtocol` conformance.
 /// Use `Timer` as a strong reference or owner of a `GTimer` instance.
 ///
-/// Opaque datatype that records a start time.
 open class Timer: TimerProtocol {
         /// Untyped pointer to the underlying `GTimer` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3431,13 +3769,14 @@ public extension TimerProtocol {
 
 // MARK: - TrashStack Record
 
+/// Each piece of memory that is pushed onto the stack
+/// is cast to a GTrashStack*.
+///
 /// The `TrashStackProtocol` protocol exposes the methods and properties of an underlying `GTrashStack` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TrashStack`.
 /// Alternatively, use `TrashStackRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Each piece of memory that is pushed onto the stack
-/// is cast to a GTrashStack*.
 public protocol TrashStackProtocol {
         /// Untyped pointer to the underlying `GTrashStack` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3449,12 +3788,13 @@ public protocol TrashStackProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// Each piece of memory that is pushed onto the stack
+/// is cast to a GTrashStack*.
+///
 /// The `TrashStackRef` type acts as a lightweight Swift reference to an underlying `GTrashStack` instance.
 /// It exposes methods that can operate on this data type through `TrashStackProtocol` conformance.
 /// Use `TrashStackRef` only as an `unowned` reference to an existing `GTrashStack` instance.
 ///
-/// Each piece of memory that is pushed onto the stack
-/// is cast to a GTrashStack*.
 public struct TrashStackRef: TrashStackProtocol {
         /// Untyped pointer to the underlying `GTrashStack` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3533,12 +3873,13 @@ public extension TrashStackRef {
 
     }
 
+/// Each piece of memory that is pushed onto the stack
+/// is cast to a GTrashStack*.
+///
 /// The `TrashStack` type acts as an owner of an underlying `GTrashStack` instance.
 /// It provides the methods that can operate on this data type through `TrashStackProtocol` conformance.
 /// Use `TrashStack` as a strong reference or owner of a `GTrashStack` instance.
 ///
-/// Each piece of memory that is pushed onto the stack
-/// is cast to a GTrashStack*.
 open class TrashStack: TrashStackProtocol {
         /// Untyped pointer to the underlying `GTrashStack` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3719,35 +4060,37 @@ public extension TrashStackProtocol {
 
 // MARK: - Tree Record
 
+/// The GTree struct is an opaque data structure representing a
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
+/// accessed only by using the following functions.
+///
 /// The `TreeProtocol` protocol exposes the methods and properties of an underlying `GTree` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Tree`.
 /// Alternatively, use `TreeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
-/// accessed only by using the following functions.
 public protocol TreeProtocol {
         /// Untyped pointer to the underlying `GTree` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GTree` instance.
-    var _ptr: UnsafeMutablePointer<GTree>! { get }
+    var tree_ptr: UnsafeMutablePointer<GTree>! { get }
 
     /// Required Initialiser for types conforming to `TreeProtocol`
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GTree struct is an opaque data structure representing a
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
+/// accessed only by using the following functions.
+///
 /// The `TreeRef` type acts as a lightweight Swift reference to an underlying `GTree` instance.
 /// It exposes methods that can operate on this data type through `TreeProtocol` conformance.
 /// Use `TreeRef` only as an `unowned` reference to an existing `GTree` instance.
 ///
-/// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
-/// accessed only by using the following functions.
 public struct TreeRef: TreeProtocol {
         /// Untyped pointer to the underlying `GTree` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `tree_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 }
 
@@ -3821,7 +4164,27 @@ public extension TreeRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
+        /// Creates a new `GTree`.
+    @inlinable init( keyCompareFunc: GCompareFunc?) {
+        let rv = g_tree_new(keyCompareFunc)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
+    /// to free the memory allocated for the key and value that get called when
+    /// removing the entry from the `GTree`.
+    @inlinable init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
+        let rv = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GTree` with a comparison function that accepts user data.
+    /// See `g_tree_new()` for more details.
+    @inlinable init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) {
+        let rv = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+    /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
     @inlinable static func new(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) -> TreeRef! {
@@ -3837,16 +4200,17 @@ public extension TreeRef {
     }
 }
 
+/// The GTree struct is an opaque data structure representing a
+/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
+/// accessed only by using the following functions.
+///
 /// The `Tree` type acts as a reference-counted owner of an underlying `GTree` instance.
 /// It provides the methods that can operate on this data type through `TreeProtocol` conformance.
 /// Use `Tree` as a strong reference or owner of a `GTree` instance.
 ///
-/// The GTree struct is an opaque data structure representing a
-/// [balanced binary tree](../Protocols/TreeProtocol.html). It should be
-/// accessed only by using the following functions.
 open class Tree: TreeProtocol {
         /// Untyped pointer to the underlying `GTree` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    /// For type-safe access, use the generated, typed pointer `tree_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
@@ -3984,6 +4348,26 @@ open class Tree: TreeProtocol {
         g_tree_ref(ptr.assumingMemoryBound(to: GTree.self))
     }
 
+    /// Creates a new `GTree`.
+    @inlinable public init( keyCompareFunc: GCompareFunc?) {
+        let rv = g_tree_new(keyCompareFunc)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
+    /// to free the memory allocated for the key and value that get called when
+    /// removing the entry from the `GTree`.
+    @inlinable public init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
+        let rv = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Creates a new `GTree` with a comparison function that accepts user data.
+    /// See `g_tree_new()` for more details.
+    @inlinable public init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) {
+        let rv = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        ptr = UnsafeMutableRawPointer(rv)
+    }
 
     /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
@@ -4010,7 +4394,7 @@ open class Tree: TreeProtocol {
 // MARK: Tree Record: TreeProtocol extension (methods and fields)
 public extension TreeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GTree` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GTree>! { return ptr?.assumingMemoryBound(to: GTree.self) }
+    @inlinable var tree_ptr: UnsafeMutablePointer<GTree>! { return ptr?.assumingMemoryBound(to: GTree.self) }
 
     /// Removes all keys and values from the `GTree` and decreases its
     /// reference count by one. If keys and/or values are dynamically
@@ -4019,7 +4403,7 @@ public extension TreeProtocol {
     /// you supplied will be called on all keys and values before destroying
     /// the `GTree`.
     @inlinable func destroy() {
-        g_tree_destroy(_ptr)
+        g_tree_destroy(tree_ptr)
     
     }
 
@@ -4032,7 +4416,20 @@ public extension TreeProtocol {
     /// to add each item to a list in your `GTraverseFunc` as you walk over
     /// the tree, then walk the list and remove each item.
     @inlinable func foreach(`func`: GTraverseFunc?, userData: gpointer! = nil) {
-        g_tree_foreach(_ptr, `func`, userData)
+        g_tree_foreach(tree_ptr, `func`, userData)
+    
+    }
+
+    /// Calls the given function for each of the nodes in the `GTree`.
+    /// The function is passed the pointer to the particular node, and the given
+    /// `data` parameter. The tree traversal happens in-order.
+    /// 
+    /// The tree may not be modified while iterating over it (you can't
+    /// add/remove items). To remove all items matching a predicate, you need
+    /// to add each item to a list in your `GTraverseFunc` as you walk over
+    /// the tree, then walk the list and remove each item.
+    @inlinable func foreachNode(`func`: GTraverseNodeFunc?, userData: gpointer! = nil) {
+        g_tree_foreach_node(tree_ptr, `func`, userData)
     
     }
 
@@ -4042,7 +4439,7 @@ public extension TreeProtocol {
     /// If the `GTree` contains only one root node the height is 1.
     /// If the root node has children the height is 2, etc.
     @inlinable func height() -> Int {
-        let rv = Int(g_tree_height(_ptr))
+        let rv = Int(g_tree_height(tree_ptr))
         return rv
     }
 
@@ -4051,15 +4448,33 @@ public extension TreeProtocol {
     /// Inserts a new key and value into a `GTree` as `g_tree_insert_node()` does,
     /// only this function does not return the inserted or set node.
     @inlinable func insert(key: gpointer! = nil, value: gpointer! = nil) {
-        g_tree_insert(_ptr, key, value)
+        g_tree_insert(tree_ptr, key, value)
     
+    }
+
+    /// Inserts a key/value pair into a `GTree`.
+    /// 
+    /// If the given key already exists in the `GTree` its corresponding value
+    /// is set to the new value. If you supplied a `value_destroy_func` when
+    /// creating the `GTree`, the old value is freed using that function. If
+    /// you supplied a `key_destroy_func` when creating the `GTree`, the passed
+    /// key is freed using that function.
+    /// 
+    /// The tree is automatically 'balanced' as new key/value pairs are added,
+    /// so that the distance from the root to every leaf is as small as possible.
+    /// The cost of maintaining a balanced tree while inserting new key/value
+    /// result in a `O(n log(n)`) operation where most of the other operations
+    /// are `O(log(n)`).
+    @inlinable func insertNode(key: gpointer! = nil, value: gpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_insert_node(tree_ptr, key, value)))
+        return rv
     }
 
     /// Gets the value corresponding to the given key. Since a `GTree` is
     /// automatically balanced as key/value pairs are added, key lookup
     /// is `O(log n)` (where n is the number of key/value pairs in the tree).
     @inlinable func lookup(key: gconstpointer! = nil) -> gpointer! {
-        let rv = g_tree_lookup(_ptr, key)
+        let rv = g_tree_lookup(tree_ptr, key)
         return rv
     }
 
@@ -4068,13 +4483,46 @@ public extension TreeProtocol {
     /// allocated for the original key, for example before calling
     /// `g_tree_remove()`.
     @inlinable func lookupExtended(lookupKey: gconstpointer! = nil, origKey: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
-        let rv = ((g_tree_lookup_extended(_ptr, lookupKey, origKey, value)) != 0)
+        let rv = ((g_tree_lookup_extended(tree_ptr, lookupKey, origKey, value)) != 0)
+        return rv
+    }
+
+    /// Gets the tree node corresponding to the given key. Since a `GTree` is
+    /// automatically balanced as key/value pairs are added, key lookup
+    /// is `O(log n)` (where n is the number of key/value pairs in the tree).
+    @inlinable func lookupNode(key: gconstpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_lookup_node(tree_ptr, key)))
+        return rv
+    }
+
+    /// Gets the lower bound node corresponding to the given key,
+    /// or `nil` if the tree is empty or all the nodes in the tree
+    /// have keys that are strictly lower than the searched key.
+    /// 
+    /// The lower bound is the first node that has its key greater
+    /// than or equal to the searched key.
+    @inlinable func lowerBound(key: gconstpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_lower_bound(tree_ptr, key)))
         return rv
     }
 
     /// Gets the number of nodes in a `GTree`.
     @inlinable func nnodes() -> Int {
-        let rv = Int(g_tree_nnodes(_ptr))
+        let rv = Int(g_tree_nnodes(tree_ptr))
+        return rv
+    }
+
+    /// Returns the first in-order node of the tree, or `nil`
+    /// for an empty tree.
+    @inlinable func nodeFirst() -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_first(tree_ptr)))
+        return rv
+    }
+
+    /// Returns the last in-order node of the tree, or `nil`
+    /// for an empty tree.
+    @inlinable func nodeLast() -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_last(tree_ptr)))
         return rv
     }
 
@@ -4082,7 +4530,7 @@ public extension TreeProtocol {
     /// 
     /// It is safe to call this function from any thread.
     @discardableResult @inlinable func ref() -> TreeRef! {
-        guard let rv = TreeRef(gconstpointer: gconstpointer(g_tree_ref(_ptr))) else { return nil }
+        guard let rv = TreeRef(gconstpointer: gconstpointer(g_tree_ref(tree_ptr))) else { return nil }
         return rv
     }
 
@@ -4097,15 +4545,36 @@ public extension TreeProtocol {
     /// result in a `O(n log(n)`) operation where most of the other operations
     /// are `O(log(n)`).
     @inlinable func remove(key: gconstpointer! = nil) -> Bool {
-        let rv = ((g_tree_remove(_ptr, key)) != 0)
+        let rv = ((g_tree_remove(tree_ptr, key)) != 0)
         return rv
+    }
+
+    /// Removes all nodes from a `GTree` and destroys their keys and values,
+    /// then resets the `GTree`’s root to `nil`.
+    @inlinable func removeAll() {
+        g_tree_remove_all(tree_ptr)
+    
     }
 
     /// Inserts a new key and value into a `GTree` as `g_tree_replace_node()` does,
     /// only this function does not return the inserted or set node.
     @inlinable func replace(key: gpointer! = nil, value: gpointer! = nil) {
-        g_tree_replace(_ptr, key, value)
+        g_tree_replace(tree_ptr, key, value)
     
+    }
+
+    /// Inserts a new key and value into a `GTree` similar to `g_tree_insert_node()`.
+    /// The difference is that if the key already exists in the `GTree`, it gets
+    /// replaced by the new key. If you supplied a `value_destroy_func` when
+    /// creating the `GTree`, the old value is freed using that function. If you
+    /// supplied a `key_destroy_func` when creating the `GTree`, the old key is
+    /// freed using that function.
+    /// 
+    /// The tree is automatically 'balanced' as new key/value pairs are added,
+    /// so that the distance from the root to every leaf is as small as possible.
+    @inlinable func replaceNode(key: gpointer! = nil, value: gpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_replace_node(tree_ptr, key, value)))
+        return rv
     }
 
     /// Searches a `GTree` using `search_func`.
@@ -4118,7 +4587,21 @@ public extension TreeProtocol {
     /// `search_func` returns 1, searching will proceed among the key/value
     /// pairs that have a larger key.
     @inlinable func search(searchFunc: GCompareFunc?, userData: gconstpointer! = nil) -> gpointer! {
-        let rv = g_tree_search(_ptr, searchFunc, userData)
+        let rv = g_tree_search(tree_ptr, searchFunc, userData)
+        return rv
+    }
+
+    /// Searches a `GTree` using `search_func`.
+    /// 
+    /// The `search_func` is called with a pointer to the key of a key/value
+    /// pair in the tree, and the passed in `user_data`. If `search_func` returns
+    /// 0 for a key/value pair, then the corresponding node is returned as
+    /// the result of `g_tree_search()`. If `search_func` returns -1, searching
+    /// will proceed among the key/value pairs that have a smaller key; if
+    /// `search_func` returns 1, searching will proceed among the key/value
+    /// pairs that have a larger key.
+    @inlinable func searchNode(searchFunc: GCompareFunc?, userData: gconstpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_search_node(tree_ptr, searchFunc, userData)))
         return rv
     }
 
@@ -4127,7 +4610,7 @@ public extension TreeProtocol {
     /// 
     /// If the key does not exist in the `GTree`, the function does nothing.
     @inlinable func steal(key: gconstpointer! = nil) -> Bool {
-        let rv = ((g_tree_steal(_ptr, key)) != 0)
+        let rv = ((g_tree_steal(tree_ptr, key)) != 0)
         return rv
     }
 
@@ -4139,7 +4622,7 @@ public extension TreeProtocol {
     ///     g_tree_foreach() instead. If you really need to visit nodes in
     ///     a different order, consider using an [n-ary tree][glib-N-ary-Trees].
     @available(*, deprecated) @inlinable func traverse(traverseFunc: GTraverseFunc?, traverseType: GTraverseType, userData: gpointer! = nil) {
-        g_tree_traverse(_ptr, traverseFunc, traverseType, userData)
+        g_tree_traverse(tree_ptr, traverseFunc, traverseType, userData)
     
     }
 
@@ -4150,8 +4633,314 @@ public extension TreeProtocol {
     /// 
     /// It is safe to call this function from any thread.
     @inlinable func unref() {
-        g_tree_unref(_ptr)
+        g_tree_unref(tree_ptr)
     
+    }
+
+    /// Gets the upper bound node corresponding to the given key,
+    /// or `nil` if the tree is empty or all the nodes in the tree
+    /// have keys that are lower than or equal to the searched key.
+    /// 
+    /// The upper bound is the first node that has its key strictly greater
+    /// than the searched key.
+    @inlinable func upperBound(key: gconstpointer! = nil) -> TreeNodeRef! {
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_upper_bound(tree_ptr, key)))
+        return rv
+    }
+
+
+}
+
+
+
+// MARK: - TreeNode Record
+
+/// An opaque type which identifies a specific node in a `GTree`.
+///
+/// The `TreeNodeProtocol` protocol exposes the methods and properties of an underlying `GTreeNode` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TreeNode`.
+/// Alternatively, use `TreeNodeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol TreeNodeProtocol {
+        /// Untyped pointer to the underlying `GTreeNode` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GTreeNode` instance.
+    var _ptr: UnsafeMutablePointer<GTreeNode>! { get }
+
+    /// Required Initialiser for types conforming to `TreeNodeProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// An opaque type which identifies a specific node in a `GTree`.
+///
+/// The `TreeNodeRef` type acts as a lightweight Swift reference to an underlying `GTreeNode` instance.
+/// It exposes methods that can operate on this data type through `TreeNodeProtocol` conformance.
+/// Use `TreeNodeRef` only as an `unowned` reference to an existing `GTreeNode` instance.
+///
+public struct TreeNodeRef: TreeNodeProtocol {
+        /// Untyped pointer to the underlying `GTreeNode` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension TreeNodeRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GTreeNode>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTreeNode>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTreeNode>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTreeNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `TreeNodeProtocol`
+    @inlinable init<T: TreeNodeProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// An opaque type which identifies a specific node in a `GTree`.
+///
+/// The `TreeNode` type acts as an owner of an underlying `GTreeNode` instance.
+/// It provides the methods that can operate on this data type through `TreeNodeProtocol` conformance.
+/// Use `TreeNode` as a strong reference or owner of a `GTreeNode` instance.
+///
+open class TreeNode: TreeNodeProtocol {
+        /// Untyped pointer to the underlying `GTreeNode` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GTreeNode>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTreeNode>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTreeNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTreeNode>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTreeNode` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TreeNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTreeNode>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `TreeNodeProtocol`
+    /// `GTreeNode` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `TreeNodeProtocol`
+    @inlinable public init<T: TreeNodeProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GTreeNode`.
+    deinit {
+        // no reference counting for GTreeNode, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TreeNodeProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTreeNode, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no TreeNode properties
+
+// MARK: no TreeNode signals
+
+// MARK: TreeNode has no signals
+// MARK: TreeNode Record: TreeNodeProtocol extension (methods and fields)
+public extension TreeNodeProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GTreeNode` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GTreeNode>! { return ptr?.assumingMemoryBound(to: GTreeNode.self) }
+
+    /// Gets the key stored at a particular tree node.
+    @inlinable func key() -> gpointer! {
+        let rv = g_tree_node_key(_ptr)
+        return rv
+    }
+
+    /// Returns the next in-order node of the tree, or `nil`
+    /// if the passed node was already the last one.
+    @inlinable func next() -> TreeNodeRef! {
+        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_next(_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Returns the previous in-order node of the tree, or `nil`
+    /// if the passed node was already the first one.
+    @inlinable func previous() -> TreeNodeRef! {
+        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_previous(_ptr))) else { return nil }
+        return rv
+    }
+
+    /// Gets the value stored at a particular tree node.
+    @inlinable func value() -> gpointer! {
+        let rv = g_tree_node_value(_ptr)
+        return rv
     }
 
 
@@ -4161,11 +4950,6 @@ public extension TreeProtocol {
 
 // MARK: - URI Record
 
-/// The `URIProtocol` protocol exposes the methods and properties of an underlying `GUri` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `URI`.
-/// Alternatively, use `URIRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GUri` type and related functions can be used to parse URIs into
 /// their components, and build valid URIs from individual components.
 /// 
@@ -4274,6 +5058,12 @@ public extension TreeProtocol {
 /// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
 /// thing according to the `data:` URI specification which GLib does not
 /// handle.
+///
+/// The `URIProtocol` protocol exposes the methods and properties of an underlying `GUri` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `URI`.
+/// Alternatively, use `URIRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4285,10 +5075,6 @@ public protocol URIProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `URIRef` type acts as a lightweight Swift reference to an underlying `GUri` instance.
-/// It exposes methods that can operate on this data type through `URIProtocol` conformance.
-/// Use `URIRef` only as an `unowned` reference to an existing `GUri` instance.
-///
 /// The `GUri` type and related functions can be used to parse URIs into
 /// their components, and build valid URIs from individual components.
 /// 
@@ -4397,6 +5183,11 @@ public protocol URIProtocol {
 /// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
 /// thing according to the `data:` URI specification which GLib does not
 /// handle.
+///
+/// The `URIRef` type acts as a lightweight Swift reference to an underlying `GUri` instance.
+/// It exposes methods that can operate on this data type through `URIProtocol` conformance.
+/// Use `URIRef` only as an `unowned` reference to an existing `GUri` instance.
+///
 public struct URIRef: URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.
@@ -4507,10 +5298,6 @@ public extension URIRef {
     }
 }
 
-/// The `URI` type acts as a reference-counted owner of an underlying `GUri` instance.
-/// It provides the methods that can operate on this data type through `URIProtocol` conformance.
-/// Use `URI` as a strong reference or owner of a `GUri` instance.
-///
 /// The `GUri` type and related functions can be used to parse URIs into
 /// their components, and build valid URIs from individual components.
 /// 
@@ -4619,6 +5406,11 @@ public extension URIRef {
 /// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
 /// thing according to the `data:` URI specification which GLib does not
 /// handle.
+///
+/// The `URI` type acts as a reference-counted owner of an underlying `GUri` instance.
+/// It provides the methods that can operate on this data type through `URIProtocol` conformance.
+/// Use `URI` as a strong reference or owner of a `GUri` instance.
+///
 open class URI: URIProtocol {
         /// Untyped pointer to the underlying `GUri` instance.
     /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.

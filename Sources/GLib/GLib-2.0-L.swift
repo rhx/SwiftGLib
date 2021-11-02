@@ -2,12 +2,13 @@ import CGLib
 
 // MARK: - List Record
 
+/// The `GList` struct is used for each element in a doubly-linked list.
+///
 /// The `ListProtocol` protocol exposes the methods and properties of an underlying `GList` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `List`.
 /// Alternatively, use `ListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GList` struct is used for each element in a doubly-linked list.
 public protocol ListProtocol {
         /// Untyped pointer to the underlying `GList` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -19,11 +20,12 @@ public protocol ListProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GList` struct is used for each element in a doubly-linked list.
+///
 /// The `ListRef` type acts as a lightweight Swift reference to an underlying `GList` instance.
 /// It exposes methods that can operate on this data type through `ListProtocol` conformance.
 /// Use `ListRef` only as an `unowned` reference to an existing `GList` instance.
 ///
-/// The `GList` struct is used for each element in a doubly-linked list.
 public struct ListRef: ListProtocol {
         /// Untyped pointer to the underlying `GList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -102,11 +104,12 @@ public extension ListRef {
 
     }
 
+/// The `GList` struct is used for each element in a doubly-linked list.
+///
 /// The `List` type acts as an owner of an underlying `GList` instance.
 /// It provides the methods that can operate on this data type through `ListProtocol` conformance.
 /// Use `List` as a strong reference or owner of a `GList` instance.
 ///
-/// The `GList` struct is used for each element in a doubly-linked list.
 open class List: ListProtocol {
         /// Untyped pointer to the underlying `GList` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -313,11 +316,6 @@ public extension ListProtocol {
 
 // MARK: - LogField Record
 
-/// The `LogFieldProtocol` protocol exposes the methods and properties of an underlying `GLogField` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `LogField`.
-/// Alternatively, use `LogFieldRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Structure representing a single field in a structured log entry. See
 /// `g_log_structured()` for details.
 /// 
@@ -325,6 +323,12 @@ public extension ListProtocol {
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
+///
+/// The `LogFieldProtocol` protocol exposes the methods and properties of an underlying `GLogField` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `LogField`.
+/// Alternatively, use `LogFieldRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol LogFieldProtocol {
         /// Untyped pointer to the underlying `GLogField` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -336,10 +340,6 @@ public protocol LogFieldProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `LogFieldRef` type acts as a lightweight Swift reference to an underlying `GLogField` instance.
-/// It exposes methods that can operate on this data type through `LogFieldProtocol` conformance.
-/// Use `LogFieldRef` only as an `unowned` reference to an existing `GLogField` instance.
-///
 /// Structure representing a single field in a structured log entry. See
 /// `g_log_structured()` for details.
 /// 
@@ -347,6 +347,11 @@ public protocol LogFieldProtocol {
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
+///
+/// The `LogFieldRef` type acts as a lightweight Swift reference to an underlying `GLogField` instance.
+/// It exposes methods that can operate on this data type through `LogFieldProtocol` conformance.
+/// Use `LogFieldRef` only as an `unowned` reference to an existing `GLogField` instance.
+///
 public struct LogFieldRef: LogFieldProtocol {
         /// Untyped pointer to the underlying `GLogField` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -425,10 +430,6 @@ public extension LogFieldRef {
 
     }
 
-/// The `LogField` type acts as an owner of an underlying `GLogField` instance.
-/// It provides the methods that can operate on this data type through `LogFieldProtocol` conformance.
-/// Use `LogField` as a strong reference or owner of a `GLogField` instance.
-///
 /// Structure representing a single field in a structured log entry. See
 /// `g_log_structured()` for details.
 /// 
@@ -436,6 +437,11 @@ public extension LogFieldRef {
 /// bytes. If the field contains a string, the string must be UTF-8 encoded and
 /// have a trailing nul byte. Otherwise, `length` must be set to a non-negative
 /// value.
+///
+/// The `LogField` type acts as an owner of an underlying `GLogField` instance.
+/// It provides the methods that can operate on this data type through `LogFieldProtocol` conformance.
+/// Use `LogField` as a strong reference or owner of a `GLogField` instance.
+///
 open class LogField: LogFieldProtocol {
         /// Untyped pointer to the underlying `GLogField` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -636,13 +642,14 @@ public extension LogFieldProtocol {
 
 // MARK: - MainContext Record
 
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
 /// The `MainContextProtocol` protocol exposes the methods and properties of an underlying `GMainContext` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `MainContext`.
 /// Alternatively, use `MainContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GMainContext` struct is an opaque data
-/// type representing a set of sources to be handled in a main loop.
 public protocol MainContextProtocol {
         /// Untyped pointer to the underlying `GMainContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -654,12 +661,13 @@ public protocol MainContextProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
 /// The `MainContextRef` type acts as a lightweight Swift reference to an underlying `GMainContext` instance.
 /// It exposes methods that can operate on this data type through `MainContextProtocol` conformance.
 /// Use `MainContextRef` only as an `unowned` reference to an existing `GMainContext` instance.
 ///
-/// The `GMainContext` struct is an opaque data
-/// type representing a set of sources to be handled in a main loop.
 public struct MainContextRef: MainContextProtocol {
         /// Untyped pointer to the underlying `GMainContext` instance.
     /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
@@ -778,12 +786,13 @@ public extension MainContextRef {
     }
 }
 
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
 /// The `MainContext` type acts as a reference-counted owner of an underlying `GMainContext` instance.
 /// It provides the methods that can operate on this data type through `MainContextProtocol` conformance.
 /// Use `MainContext` as a strong reference or owner of a `GMainContext` instance.
 ///
-/// The `GMainContext` struct is an opaque data
-/// type representing a set of sources to be handled in a main loop.
 open class MainContext: MainContextProtocol {
         /// Untyped pointer to the underlying `GMainContext` instance.
     /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
@@ -1191,8 +1200,8 @@ public extension MainContextProtocol {
     /// 
     /// You must have successfully acquired the context with
     /// `g_main_context_acquire()` before you may call this function.
-    @inlinable func query(maxPriority: Int, timeout_: UnsafeMutablePointer<gint>!, fds: UnsafeMutablePointer<GPollFD>!, nFds: Int) -> Int {
-        let rv = Int(g_main_context_query(main_context_ptr, gint(maxPriority), timeout_, fds, gint(nFds)))
+    @inlinable func query(maxPriority: Int, timeout: UnsafeMutablePointer<gint>!, fds: UnsafeMutablePointer<GPollFD>!, nFds: Int) -> Int {
+        let rv = Int(g_main_context_query(main_context_ptr, gint(maxPriority), timeout, fds, gint(nFds)))
         return rv
     }
 

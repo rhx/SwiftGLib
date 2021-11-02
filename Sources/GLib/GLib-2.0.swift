@@ -1,5 +1,7 @@
 import CGLib
 
+import CGLib
+
 // The following three declarations are invalid in the .gir XML file:
 
 public let G_MININT16: Int16 = -32768

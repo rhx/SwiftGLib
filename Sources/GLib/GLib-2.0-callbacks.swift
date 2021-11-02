@@ -1,9 +1,14 @@
 import CGLib
 
 /// Prototype of a `GChildWatchSource` callback, called when a child
-/// process has exited.  To interpret `status`, see the documentation
-/// for `g_spawn_check_exit_status()`.
+/// process has exited.
+/// 
+/// To interpret `wait_status`, see the documentation
+/// for `g_spawn_check_wait_status()`. In particular,
+/// on Unix platforms, note that it is usually not equal
+/// to the integer passed to ``exit()`` or returned from ``main()``.
 public typealias ChildWatchFunc = GChildWatchFunc
+
 
 /// Specifies the type of function passed to `g_clear_handle_id()`.
 /// The implementation is expected to free the resource identified
@@ -11,11 +16,13 @@ public typealias ChildWatchFunc = GChildWatchFunc
 /// `g_source_remove()` can be used.
 public typealias ClearHandleFunc = GClearHandleFunc
 
+
 /// Specifies the type of a comparison function used to compare two
 /// values.  The function should return a negative integer if the first
 /// value comes before the second, 0 if they are equal, or a positive
 /// integer if the first value comes after the second.
 public typealias CompareDataFunc = GCompareDataFunc
+
 
 /// Specifies the type of a comparison function used to compare two
 /// values.  The function should return a negative integer if the first
@@ -23,19 +30,23 @@ public typealias CompareDataFunc = GCompareDataFunc
 /// integer if the first value comes after the second.
 public typealias CompareFunc = GCompareFunc
 
+
 /// A function of this signature is used to copy the node data
 /// when doing a deep-copy of a tree.
 public typealias CopyFunc = GCopyFunc
+
 
 /// Specifies the type of function passed to `g_dataset_foreach()`. It is
 /// called with each `GQuark` id and associated data element, together
 /// with the `user_data` parameter supplied to `g_dataset_foreach()`.
 public typealias DataForeachFunc = GDataForeachFunc
 
+
 /// Specifies the type of function which is called when a data element
 /// is destroyed. It is passed the pointer to the data element and
 /// should free any memory and resources allocated for it.
 public typealias DestroyNotify = GDestroyNotify
+
 
 /// The type of functions that are used to 'duplicate' an object.
 /// What this means depends on the context, it could just be
@@ -43,24 +54,59 @@ public typealias DestroyNotify = GDestroyNotify
 /// object.
 public typealias DuplicateFunc = GDuplicateFunc
 
+
 /// Specifies the type of a function used to test two values for
 /// equality. The function should return `true` if both values are equal
 /// and `false` otherwise.
 public typealias EqualFunc = GEqualFunc
+
+
+/// Specifies the type of function which is called when an extended
+/// error instance is freed. It is passed the error pointer about to be
+/// freed, and should free the error's private data fields.
+/// 
+/// Normally, it is better to use `G_DEFINE_EXTENDED_ERROR()`, as it
+/// already takes care of getting the private data from `error`.
+public typealias ErrorClearFunc = GErrorClearFunc
+
+
+/// Specifies the type of function which is called when an extended
+/// error instance is copied. It is passed the pointer to the
+/// destination error and source error, and should copy only the fields
+/// of the private data from `src_error` to `dest_error`.
+/// 
+/// Normally, it is better to use `G_DEFINE_EXTENDED_ERROR()`, as it
+/// already takes care of getting the private data from `src_error` and
+/// `dest_error`.
+public typealias ErrorCopyFunc = GErrorCopyFunc
+
+
+/// Specifies the type of function which is called just after an
+/// extended error instance is created and its fields filled. It should
+/// only initialize the fields in the private data, which can be
+/// received with the generated ``*_get_private()`` function.
+/// 
+/// Normally, it is better to use `G_DEFINE_EXTENDED_ERROR()`, as it
+/// already takes care of getting the private data from `error`.
+public typealias ErrorInitFunc = GErrorInitFunc
+
 
 /// Declares a type of function which takes an arbitrary
 /// data pointer argument and has no return value. It is
 /// not currently used in GLib or GTK+.
 public typealias FreeFunc = GFreeFunc
 
+
 /// Specifies the type of functions passed to `g_list_foreach()` and
 /// `g_slist_foreach()`.
 public typealias Func = GFunc
+
 
 /// Specifies the type of the function passed to `g_hash_table_foreach()`.
 /// It is called with each key/value pair, together with the `user_data`
 /// parameter which is passed to `g_hash_table_foreach()`.
 public typealias HFunc = GHFunc
+
 
 /// Specifies the type of the function passed to
 /// `g_hash_table_foreach_remove()`. It is called with each key/value
@@ -68,6 +114,7 @@ public typealias HFunc = GHFunc
 /// `g_hash_table_foreach_remove()`. It should return `true` if the
 /// key/value pair should be removed from the `GHashTable`.
 public typealias HRFunc = GHRFunc
+
 
 /// Specifies the type of the hash function which is passed to
 /// `g_hash_table_new()` when a `GHashTable` is created.
@@ -101,35 +148,44 @@ public typealias HRFunc = GHRFunc
 /// must be an element of randomness that an attacker is unable to guess.
 public typealias HashFunc = GHashFunc
 
+
 /// Defines the type of a hook function that can be invoked
 /// by `g_hook_list_invoke_check()`.
 public typealias HookCheckFunc = GHookCheckFunc
 
+
 /// Defines the type of function used by `g_hook_list_marshal_check()`.
 public typealias HookCheckMarshaller = GHookCheckMarshaller
+
 
 /// Defines the type of function used to compare `GHook` elements in
 /// `g_hook_insert_sorted()`.
 public typealias HookCompareFunc = GHookCompareFunc
 
+
 /// Defines the type of function to be called when a hook in a
 /// list of hooks gets finalized.
 public typealias HookFinalizeFunc = GHookFinalizeFunc
 
+
 /// Defines the type of the function passed to `g_hook_find()`.
 public typealias HookFindFunc = GHookFindFunc
+
 
 /// Defines the type of a hook function that can be invoked
 /// by `g_hook_list_invoke()`.
 public typealias HookFunc = GHookFunc
 
+
 /// Defines the type of function used by `g_hook_list_marshal()`.
 public typealias HookMarshaller = GHookMarshaller
+
 
 /// Specifies the type of function passed to `g_io_add_watch()` or
 /// `g_io_add_watch_full()`, which is called when the requested condition
 /// on a `GIOChannel` is satisfied.
 public typealias IOFunc = GIOFunc
+
 
 /// Specifies the prototype of log handler functions.
 /// 
@@ -142,6 +198,7 @@ public typealias IOFunc = GIOFunc
 /// This is not used if structured logging is enabled; see
 /// [Using Structured Logging](#using-structured-logging).
 public typealias LogFunc = GLogFunc
+
 
 /// Writer function for log entries. A log entry is a collection of one or more
 /// `GLogFields`, using the standard [field names from journal
@@ -163,10 +220,12 @@ public typealias LogFunc = GLogFunc
 /// chained and fall back to simpler handlers in case of failure.
 public typealias LogWriterFunc = GLogWriterFunc
 
+
 /// Specifies the type of function passed to `g_node_children_foreach()`.
 /// The function is called with each child node, together with the user
 /// data passed to `g_node_children_foreach()`.
 public typealias NodeForeachFunc = GNodeForeachFunc
+
 
 /// Specifies the type of function passed to `g_node_traverse()`. The
 /// function is called with each of the nodes visited, together with the
@@ -174,23 +233,29 @@ public typealias NodeForeachFunc = GNodeForeachFunc
 /// `true`, then the traversal is stopped.
 public typealias NodeTraverseFunc = GNodeTraverseFunc
 
+
 /// The type of function to be passed as callback for `G_OPTION_ARG_CALLBACK`
 /// options.
 public typealias OptionArgFunc = GOptionArgFunc
 
+
 /// The type of function to be used as callback when a parse error occurs.
 public typealias OptionErrorFunc = GOptionErrorFunc
 
+
 /// The type of function that can be called before and after parsing.
 public typealias OptionParseFunc = GOptionParseFunc
+
 
 /// Specifies the type of function passed to `g_main_context_set_poll_func()`.
 /// The semantics of the function should match those of the `poll()` system call.
 public typealias PollFunc = GPollFunc
 
+
 /// Specifies the type of the print handler functions.
 /// These are called with the complete formatted string to output.
 public typealias PrintFunc = GPrintFunc
+
 
 /// Specifies the type of the function passed to `g_regex_replace_eval()`.
 /// It is called for each occurrence of the pattern in the string passed
@@ -198,21 +263,26 @@ public typealias PrintFunc = GPrintFunc
 /// `result`.
 public typealias RegexEvalCallback = GRegexEvalCallback
 
+
 /// Specifies the type of the message handler function.
 public typealias ScannerMsgFunc = GScannerMsgFunc
+
 
 /// A `GSequenceIterCompareFunc` is a function used to compare iterators.
 /// It must return zero if the iterators compare equal, a negative value
 /// if `a` comes before `b`, and a positive value if `b` comes before `a`.
 public typealias SequenceIterCompareFunc = GSequenceIterCompareFunc
 
+
 /// Dispose function for `source`. See `g_source_set_dispose_function()` for
 /// details.
 public typealias SourceDisposeFunc = GSourceDisposeFunc
 
+
 /// This is just a placeholder for `GClosureMarshal`,
 /// which cannot be used here for dependency reasons.
 public typealias SourceDummyMarshal = GSourceDummyMarshal
+
 
 /// Specifies the type of function passed to `g_timeout_add()`,
 /// `g_timeout_add_full()`, `g_idle_add()`, and `g_idle_add_full()`.
@@ -221,6 +291,7 @@ public typealias SourceDummyMarshal = GSourceDummyMarshal
 /// different type to this type. Use `G_SOURCE_FUNC()` to avoid warnings about
 /// incompatible function types.
 public typealias SourceFunc = GSourceFunc
+
 
 /// Specifies the type of the setup function passed to `g_spawn_async()`,
 /// `g_spawn_sync()` and `g_spawn_async_with_pipes()`, which can, in very
@@ -254,9 +325,11 @@ public typealias SourceFunc = GSourceFunc
 /// list to the `g_spawn...` function.
 public typealias SpawnChildSetupFunc = GSpawnChildSetupFunc
 
+
 /// The type used for test case functions that take an extra pointer
 /// argument.
 public typealias TestDataFunc = GTestDataFunc
+
 
 /// The type used for functions that operate on test fixtures.  This is
 /// used for the fixture setup and teardown functions as well as for the
@@ -270,19 +343,24 @@ public typealias TestDataFunc = GTestDataFunc
 /// zero then `fixture` will be equal to `user_data`.
 public typealias TestFixtureFunc = GTestFixtureFunc
 
+
 /// The type used for test case functions.
 public typealias TestFunc = GTestFunc
 
+
 /// Specifies the prototype of fatal log handler functions.
 public typealias TestLogFatalFunc = GTestLogFatalFunc
+
 
 /// Specifies the type of the `func` functions passed to `g_thread_new()`
 /// or `g_thread_try_new()`.
 public typealias ThreadFunc = GThreadFunc
 
+
 /// The type of functions which are used to translate user-visible
 /// strings, for &lt;option&gt;--help&lt;/option&gt; output.
 public typealias TranslateFunc = GTranslateFunc
+
 
 /// Specifies the type of function passed to `g_tree_traverse()`. It is
 /// passed the key and value of each node, together with the `user_data`
@@ -290,9 +368,18 @@ public typealias TranslateFunc = GTranslateFunc
 /// `true`, the traversal is stopped.
 public typealias TraverseFunc = GTraverseFunc
 
+
+/// Specifies the type of function passed to `g_tree_foreach_node()`. It is
+/// passed each node, together with the `user_data` parameter passed to
+/// `g_tree_foreach_node()`. If the function returns `true`, the traversal is
+/// stopped.
+public typealias TraverseNodeFunc = GTraverseNodeFunc
+
+
 /// The type of functions to be called when a UNIX fd watch source
 /// triggers.
 public typealias UnixFDSourceFunc = GUnixFDSourceFunc
+
 
 /// Declares a type of function which takes no arguments
 /// and has no return value. It is used to specify the type

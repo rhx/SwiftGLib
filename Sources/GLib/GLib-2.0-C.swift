@@ -2,11 +2,6 @@ import CGLib
 
 // MARK: - Cond Record
 
-/// The `CondProtocol` protocol exposes the methods and properties of an underlying `GCond` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Cond`.
-/// Alternatively, use `CondRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// The `GCond` struct is an opaque data structure that represents a
 /// condition. Threads can block on a `GCond` if they find a certain
 /// condition to be false. If other threads change the state of this
@@ -73,6 +68,12 @@ import CGLib
 /// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
+///
+/// The `CondProtocol` protocol exposes the methods and properties of an underlying `GCond` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Cond`.
+/// Alternatively, use `CondRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol CondProtocol {
         /// Untyped pointer to the underlying `GCond` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -84,10 +85,6 @@ public protocol CondProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `CondRef` type acts as a lightweight Swift reference to an underlying `GCond` instance.
-/// It exposes methods that can operate on this data type through `CondProtocol` conformance.
-/// Use `CondRef` only as an `unowned` reference to an existing `GCond` instance.
-///
 /// The `GCond` struct is an opaque data structure that represents a
 /// condition. Threads can block on a `GCond` if they find a certain
 /// condition to be false. If other threads change the state of this
@@ -154,6 +151,11 @@ public protocol CondProtocol {
 /// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
+///
+/// The `CondRef` type acts as a lightweight Swift reference to an underlying `GCond` instance.
+/// It exposes methods that can operate on this data type through `CondProtocol` conformance.
+/// Use `CondRef` only as an `unowned` reference to an existing `GCond` instance.
+///
 public struct CondRef: CondProtocol {
         /// Untyped pointer to the underlying `GCond` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -232,10 +234,6 @@ public extension CondRef {
 
     }
 
-/// The `Cond` type acts as an owner of an underlying `GCond` instance.
-/// It provides the methods that can operate on this data type through `CondProtocol` conformance.
-/// Use `Cond` as a strong reference or owner of a `GCond` instance.
-///
 /// The `GCond` struct is an opaque data structure that represents a
 /// condition. Threads can block on a `GCond` if they find a certain
 /// condition to be false. If other threads change the state of this
@@ -302,6 +300,11 @@ public extension CondRef {
 /// on it and `g_cond_clear()` when done.
 /// 
 /// A `GCond` should only be accessed via the g_cond_ functions.
+///
+/// The `Cond` type acts as an owner of an underlying `GCond` instance.
+/// It provides the methods that can operate on this data type through `CondProtocol` conformance.
+/// Use `Cond` as a strong reference or owner of a `GCond` instance.
+///
 open class Cond: CondProtocol {
         /// Untyped pointer to the underlying `GCond` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -585,14 +588,15 @@ public extension CondProtocol {
 
 // MARK: - Data Record
 
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
 /// The `DataProtocol` protocol exposes the methods and properties of an underlying `GData` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `Data`.
 /// Alternatively, use `DataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
-/// accessed via the following functions.
 public protocol DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -604,13 +608,14 @@ public protocol DataProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
 /// The `DataRef` type acts as a lightweight Swift reference to an underlying `GData` instance.
 /// It exposes methods that can operate on this data type through `DataProtocol` conformance.
 /// Use `DataRef` only as an `unowned` reference to an existing `GData` instance.
 ///
-/// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
-/// accessed via the following functions.
 public struct DataRef: DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -689,13 +694,14 @@ public extension DataRef {
 
     }
 
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
 /// The `Data` type acts as an owner of an underlying `GData` instance.
 /// It provides the methods that can operate on this data type through `DataProtocol` conformance.
 /// Use `Data` as a strong reference or owner of a `GData` instance.
 ///
-/// The `GData` struct is an opaque data structure to represent a
-/// [Keyed Data List](../Protocols/DataProtocol.html). It should only be
-/// accessed via the following functions.
 open class Data: DataProtocol {
         /// Untyped pointer to the underlying `GData` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

@@ -2,14 +2,15 @@ import CGLib
 
 // MARK: - IOChannel Record
 
+/// A data structure representing an IO Channel. The fields should be
+/// considered private and should only be accessed with the following
+/// functions.
+///
 /// The `IOChannelProtocol` protocol exposes the methods and properties of an underlying `GIOChannel` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOChannel`.
 /// Alternatively, use `IOChannelRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A data structure representing an IO Channel. The fields should be
-/// considered private and should only be accessed with the following
-/// functions.
 public protocol IOChannelProtocol {
         /// Untyped pointer to the underlying `GIOChannel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -21,13 +22,14 @@ public protocol IOChannelProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A data structure representing an IO Channel. The fields should be
+/// considered private and should only be accessed with the following
+/// functions.
+///
 /// The `IOChannelRef` type acts as a lightweight Swift reference to an underlying `GIOChannel` instance.
 /// It exposes methods that can operate on this data type through `IOChannelProtocol` conformance.
 /// Use `IOChannelRef` only as an `unowned` reference to an existing `GIOChannel` instance.
 ///
-/// A data structure representing an IO Channel. The fields should be
-/// considered private and should only be accessed with the following
-/// functions.
 public struct IOChannelRef: IOChannelProtocol {
         /// Untyped pointer to the underlying `GIOChannel` instance.
     /// For type-safe access, use the generated, typed pointer `io_channel_ptr` property instead.
@@ -183,13 +185,14 @@ public extension IOChannelRef {
     }
 }
 
+/// A data structure representing an IO Channel. The fields should be
+/// considered private and should only be accessed with the following
+/// functions.
+///
 /// The `IOChannel` type acts as a reference-counted owner of an underlying `GIOChannel` instance.
 /// It provides the methods that can operate on this data type through `IOChannelProtocol` conformance.
 /// Use `IOChannel` as a strong reference or owner of a `GIOChannel` instance.
 ///
-/// A data structure representing an IO Channel. The fields should be
-/// considered private and should only be accessed with the following
-/// functions.
 open class IOChannel: IOChannelProtocol {
         /// Untyped pointer to the underlying `GIOChannel` instance.
     /// For type-safe access, use the generated, typed pointer `io_channel_ptr` property instead.
@@ -985,13 +988,14 @@ public extension IOChannelProtocol {
 
 // MARK: - IOFuncs Record
 
+/// A table of functions used to handle different types of `GIOChannel`
+/// in a generic way.
+///
 /// The `IOFuncsProtocol` protocol exposes the methods and properties of an underlying `GIOFuncs` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `IOFuncs`.
 /// Alternatively, use `IOFuncsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A table of functions used to handle different types of `GIOChannel`
-/// in a generic way.
 public protocol IOFuncsProtocol {
         /// Untyped pointer to the underlying `GIOFuncs` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1003,12 +1007,13 @@ public protocol IOFuncsProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// A table of functions used to handle different types of `GIOChannel`
+/// in a generic way.
+///
 /// The `IOFuncsRef` type acts as a lightweight Swift reference to an underlying `GIOFuncs` instance.
 /// It exposes methods that can operate on this data type through `IOFuncsProtocol` conformance.
 /// Use `IOFuncsRef` only as an `unowned` reference to an existing `GIOFuncs` instance.
 ///
-/// A table of functions used to handle different types of `GIOChannel`
-/// in a generic way.
 public struct IOFuncsRef: IOFuncsProtocol {
         /// Untyped pointer to the underlying `GIOFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1087,12 +1092,13 @@ public extension IOFuncsRef {
 
     }
 
+/// A table of functions used to handle different types of `GIOChannel`
+/// in a generic way.
+///
 /// The `IOFuncs` type acts as an owner of an underlying `GIOFuncs` instance.
 /// It provides the methods that can operate on this data type through `IOFuncsProtocol` conformance.
 /// Use `IOFuncs` as a strong reference or owner of a `GIOFuncs` instance.
 ///
-/// A table of functions used to handle different types of `GIOChannel`
-/// in a generic way.
 open class IOFuncs: IOFuncsProtocol {
         /// Untyped pointer to the underlying `GIOFuncs` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1270,13 +1276,14 @@ public extension IOFuncsProtocol {
 
 // MARK: - KeyFile Record
 
+/// The GKeyFile struct contains only private data
+/// and should not be accessed directly.
+///
 /// The `KeyFileProtocol` protocol exposes the methods and properties of an underlying `GKeyFile` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `KeyFile`.
 /// Alternatively, use `KeyFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
 public protocol KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1288,12 +1295,13 @@ public protocol KeyFileProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
+/// The GKeyFile struct contains only private data
+/// and should not be accessed directly.
+///
 /// The `KeyFileRef` type acts as a lightweight Swift reference to an underlying `GKeyFile` instance.
 /// It exposes methods that can operate on this data type through `KeyFileProtocol` conformance.
 /// Use `KeyFileRef` only as an `unowned` reference to an existing `GKeyFile` instance.
 ///
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
 public struct KeyFileRef: KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
     /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.
@@ -1380,12 +1388,13 @@ public extension KeyFileRef {
     }
 }
 
+/// The GKeyFile struct contains only private data
+/// and should not be accessed directly.
+///
 /// The `KeyFile` type acts as a reference-counted owner of an underlying `GKeyFile` instance.
 /// It provides the methods that can operate on this data type through `KeyFileProtocol` conformance.
 /// Use `KeyFile` as a strong reference or owner of a `GKeyFile` instance.
 ///
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
 open class KeyFile: KeyFileProtocol {
         /// Untyped pointer to the underlying `GKeyFile` instance.
     /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.

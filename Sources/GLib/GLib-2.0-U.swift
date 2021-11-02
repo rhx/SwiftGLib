@@ -2,11 +2,6 @@ import CGLib
 
 // MARK: - URIParamsIter Record
 
-/// The `URIParamsIterProtocol` protocol exposes the methods and properties of an underlying `GUriParamsIter` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `URIParamsIter`.
-/// Alternatively, use `URIParamsIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// Many URI schemes include one or more attribute/value pairs as part of the URI
 /// value. For example `scheme://server/path?query=string&is=there` has two
 /// attributes – `query=string` and `is=there` – in its query part.
@@ -16,6 +11,12 @@ import CGLib
 /// structures are typically allocated on the stack and then initialized with
 /// `g_uri_params_iter_init()`. See the documentation for `g_uri_params_iter_init()`
 /// for a usage example.
+///
+/// The `URIParamsIterProtocol` protocol exposes the methods and properties of an underlying `GUriParamsIter` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `URIParamsIter`.
+/// Alternatively, use `URIParamsIterRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol URIParamsIterProtocol {
         /// Untyped pointer to the underlying `GUriParamsIter` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -27,10 +28,6 @@ public protocol URIParamsIterProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `URIParamsIterRef` type acts as a lightweight Swift reference to an underlying `GUriParamsIter` instance.
-/// It exposes methods that can operate on this data type through `URIParamsIterProtocol` conformance.
-/// Use `URIParamsIterRef` only as an `unowned` reference to an existing `GUriParamsIter` instance.
-///
 /// Many URI schemes include one or more attribute/value pairs as part of the URI
 /// value. For example `scheme://server/path?query=string&is=there` has two
 /// attributes – `query=string` and `is=there` – in its query part.
@@ -40,6 +37,11 @@ public protocol URIParamsIterProtocol {
 /// structures are typically allocated on the stack and then initialized with
 /// `g_uri_params_iter_init()`. See the documentation for `g_uri_params_iter_init()`
 /// for a usage example.
+///
+/// The `URIParamsIterRef` type acts as a lightweight Swift reference to an underlying `GUriParamsIter` instance.
+/// It exposes methods that can operate on this data type through `URIParamsIterProtocol` conformance.
+/// Use `URIParamsIterRef` only as an `unowned` reference to an existing `GUriParamsIter` instance.
+///
 public struct URIParamsIterRef: URIParamsIterProtocol {
         /// Untyped pointer to the underlying `GUriParamsIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -118,10 +120,6 @@ public extension URIParamsIterRef {
 
     }
 
-/// The `URIParamsIter` type acts as an owner of an underlying `GUriParamsIter` instance.
-/// It provides the methods that can operate on this data type through `URIParamsIterProtocol` conformance.
-/// Use `URIParamsIter` as a strong reference or owner of a `GUriParamsIter` instance.
-///
 /// Many URI schemes include one or more attribute/value pairs as part of the URI
 /// value. For example `scheme://server/path?query=string&is=there` has two
 /// attributes – `query=string` and `is=there` – in its query part.
@@ -131,6 +129,11 @@ public extension URIParamsIterRef {
 /// structures are typically allocated on the stack and then initialized with
 /// `g_uri_params_iter_init()`. See the documentation for `g_uri_params_iter_init()`
 /// for a usage example.
+///
+/// The `URIParamsIter` type acts as an owner of an underlying `GUriParamsIter` instance.
+/// It provides the methods that can operate on this data type through `URIParamsIterProtocol` conformance.
+/// Use `URIParamsIter` as a strong reference or owner of a `GUriParamsIter` instance.
+///
 open class URIParamsIter: URIParamsIterProtocol {
         /// Untyped pointer to the underlying `GUriParamsIter` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -355,11 +358,6 @@ public extension URIParamsIterProtocol {
 
 // MARK: - Variant Record
 
-/// The `VariantProtocol` protocol exposes the methods and properties of an underlying `GVariant` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Variant`.
-/// Alternatively, use `VariantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
 /// `GVariant` is a variant datatype; it can contain one or more values
 /// along with information about the type of the values.
 /// 
@@ -405,19 +403,19 @@ public extension URIParamsIterProtocol {
 /// concurrently accessed in any way from any number of threads without
 /// problems.
 /// 
-/// `GVariant` is heavily optimised for dealing with data in serialised
+/// `GVariant` is heavily optimised for dealing with data in serialized
 /// form.  It works particularly well with data located in memory-mapped
-/// files.  It can perform nearly all deserialisation operations in a
+/// files.  It can perform nearly all deserialization operations in a
 /// small constant time, usually touching only a single memory page.
-/// Serialised `GVariant` data can also be sent over the network.
+/// Serialized `GVariant` data can also be sent over the network.
 /// 
 /// `GVariant` is largely compatible with D-Bus.  Almost all types of
 /// `GVariant` instances can be sent over D-Bus.  See `GVariantType` for
-/// exceptions.  (However, `GVariant`'s serialisation format is not the same
-/// as the serialisation format of a D-Bus message body: use `GDBusMessage`,
+/// exceptions.  (However, `GVariant`'s serialization format is not the same
+/// as the serialization format of a D-Bus message body: use `GDBusMessage`,
 /// in the gio library, for those.)
 /// 
-/// For space-efficiency, the `GVariant` serialisation format does not
+/// For space-efficiency, the `GVariant` serialization format does not
 /// automatically include the variant's length, type or endianness,
 /// which must either be implied from context (such as knowledge that a
 /// particular file format always contains a little-endian
@@ -447,14 +445,14 @@ public extension URIParamsIterProtocol {
 /// in the future.
 /// 
 /// The memory allocated by `GVariant` can be grouped into 4 broad
-/// purposes: memory for serialised data, memory for the type
+/// purposes: memory for serialized data, memory for the type
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ## Serialised Data Memory
+/// ## Serialized Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
-/// serialised form.  This is what would be sent over the network or
+/// serialized form.  This is what would be sent over the network or
 /// what would end up on disk, not counting any indicator of the
 /// endianness, or of the length or type of the top-level variant.
 /// 
@@ -488,7 +486,7 @@ public extension URIParamsIterProtocol {
 /// 
 /// As an example, consider a dictionary mapping strings to variants.
 /// In the case that the dictionary is empty, 0 bytes are required for
-/// the serialisation.
+/// the serialization.
 /// 
 /// If we add an item "width" that maps to the int32 value of 500 then
 /// we will use 4 byte to store the int32 (so 6 for the variant
@@ -514,7 +512,7 @@ public extension URIParamsIterProtocol {
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
-/// type information structure is required for rapid deserialisation.
+/// type information structure is required for rapid deserialization.
 /// 
 /// Continuing with the above example, if a `GVariant` exists with the
 /// type "a{sv}" then a type information struct will exist for
@@ -559,14 +557,14 @@ public extension URIParamsIterProtocol {
 /// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
-/// with the various different possible sources of serialised data
+/// with the various different possible sources of serialized data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
 /// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
 /// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
-/// serialised data.  The size of the buffer management structure
+/// serialized data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
 /// ## GVariant structure
@@ -576,7 +574,7 @@ public extension URIParamsIterProtocol {
 /// 
 /// `GVariant` structures only exist if they are explicitly created
 /// with API calls.  For example, if a `GVariant` is constructed out of
-/// serialised data for the example given above (with the dictionary)
+/// serialized data for the example given above (with the dictionary)
 /// then although there are 9 individual values that comprise the
 /// entire dictionary (two keys, two values, two variants containing
 /// the values, two dictionary entries, plus the dictionary itself),
@@ -586,8 +584,8 @@ public extension URIParamsIterProtocol {
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
 /// as they are in use (ie: until you call `g_variant_unref()`).  The
-/// type information is shared.  The serialised data and the buffer
-/// management structure for that serialised data is shared by the
+/// type information is shared.  The serialized data and the buffer
+/// management structure for that serialized data is shared by the
 /// child.
 /// 
 /// ## Summary
@@ -595,14 +593,20 @@ public extension URIParamsIterProtocol {
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
-/// for the serialised data, 16 bytes for buffer management and 24
+/// for the serialized data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
 /// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
-/// would use more memory for the serialised data and buffer
+/// would use more memory for the serialized data and buffer
 /// management for those dictionaries, but the type information would
 /// be shared.
+///
+/// The `VariantProtocol` protocol exposes the methods and properties of an underlying `GVariant` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Variant`.
+/// Alternatively, use `VariantRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
 public protocol VariantProtocol {
         /// Untyped pointer to the underlying `GVariant` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -614,10 +618,6 @@ public protocol VariantProtocol {
     init(raw: UnsafeMutableRawPointer)
 }
 
-/// The `VariantRef` type acts as a lightweight Swift reference to an underlying `GVariant` instance.
-/// It exposes methods that can operate on this data type through `VariantProtocol` conformance.
-/// Use `VariantRef` only as an `unowned` reference to an existing `GVariant` instance.
-///
 /// `GVariant` is a variant datatype; it can contain one or more values
 /// along with information about the type of the values.
 /// 
@@ -663,19 +663,19 @@ public protocol VariantProtocol {
 /// concurrently accessed in any way from any number of threads without
 /// problems.
 /// 
-/// `GVariant` is heavily optimised for dealing with data in serialised
+/// `GVariant` is heavily optimised for dealing with data in serialized
 /// form.  It works particularly well with data located in memory-mapped
-/// files.  It can perform nearly all deserialisation operations in a
+/// files.  It can perform nearly all deserialization operations in a
 /// small constant time, usually touching only a single memory page.
-/// Serialised `GVariant` data can also be sent over the network.
+/// Serialized `GVariant` data can also be sent over the network.
 /// 
 /// `GVariant` is largely compatible with D-Bus.  Almost all types of
 /// `GVariant` instances can be sent over D-Bus.  See `GVariantType` for
-/// exceptions.  (However, `GVariant`'s serialisation format is not the same
-/// as the serialisation format of a D-Bus message body: use `GDBusMessage`,
+/// exceptions.  (However, `GVariant`'s serialization format is not the same
+/// as the serialization format of a D-Bus message body: use `GDBusMessage`,
 /// in the gio library, for those.)
 /// 
-/// For space-efficiency, the `GVariant` serialisation format does not
+/// For space-efficiency, the `GVariant` serialization format does not
 /// automatically include the variant's length, type or endianness,
 /// which must either be implied from context (such as knowledge that a
 /// particular file format always contains a little-endian
@@ -705,14 +705,14 @@ public protocol VariantProtocol {
 /// in the future.
 /// 
 /// The memory allocated by `GVariant` can be grouped into 4 broad
-/// purposes: memory for serialised data, memory for the type
+/// purposes: memory for serialized data, memory for the type
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ## Serialised Data Memory
+/// ## Serialized Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
-/// serialised form.  This is what would be sent over the network or
+/// serialized form.  This is what would be sent over the network or
 /// what would end up on disk, not counting any indicator of the
 /// endianness, or of the length or type of the top-level variant.
 /// 
@@ -746,7 +746,7 @@ public protocol VariantProtocol {
 /// 
 /// As an example, consider a dictionary mapping strings to variants.
 /// In the case that the dictionary is empty, 0 bytes are required for
-/// the serialisation.
+/// the serialization.
 /// 
 /// If we add an item "width" that maps to the int32 value of 500 then
 /// we will use 4 byte to store the int32 (so 6 for the variant
@@ -772,7 +772,7 @@ public protocol VariantProtocol {
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
-/// type information structure is required for rapid deserialisation.
+/// type information structure is required for rapid deserialization.
 /// 
 /// Continuing with the above example, if a `GVariant` exists with the
 /// type "a{sv}" then a type information struct will exist for
@@ -817,14 +817,14 @@ public protocol VariantProtocol {
 /// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
-/// with the various different possible sources of serialised data
+/// with the various different possible sources of serialized data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
 /// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
 /// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
-/// serialised data.  The size of the buffer management structure
+/// serialized data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
 /// ## GVariant structure
@@ -834,7 +834,7 @@ public protocol VariantProtocol {
 /// 
 /// `GVariant` structures only exist if they are explicitly created
 /// with API calls.  For example, if a `GVariant` is constructed out of
-/// serialised data for the example given above (with the dictionary)
+/// serialized data for the example given above (with the dictionary)
 /// then although there are 9 individual values that comprise the
 /// entire dictionary (two keys, two values, two variants containing
 /// the values, two dictionary entries, plus the dictionary itself),
@@ -844,8 +844,8 @@ public protocol VariantProtocol {
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
 /// as they are in use (ie: until you call `g_variant_unref()`).  The
-/// type information is shared.  The serialised data and the buffer
-/// management structure for that serialised data is shared by the
+/// type information is shared.  The serialized data and the buffer
+/// management structure for that serialized data is shared by the
 /// child.
 /// 
 /// ## Summary
@@ -853,14 +853,19 @@ public protocol VariantProtocol {
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
-/// for the serialised data, 16 bytes for buffer management and 24
+/// for the serialized data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
 /// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
-/// would use more memory for the serialised data and buffer
+/// would use more memory for the serialized data and buffer
 /// management for those dictionaries, but the type information would
 /// be shared.
+///
+/// The `VariantRef` type acts as a lightweight Swift reference to an underlying `GVariant` instance.
+/// It exposes methods that can operate on this data type through `VariantProtocol` conformance.
+/// Use `VariantRef` only as an `unowned` reference to an existing `GVariant` instance.
+///
 public struct VariantRef: VariantProtocol {
         /// Untyped pointer to the underlying `GVariant` instance.
     /// For type-safe access, use the generated, typed pointer `variant_ptr` property instead.
@@ -1008,7 +1013,7 @@ public extension VariantRef {
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
-    /// of a double-check that the form of the serialised data matches the caller's
+    /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     /// 
     /// `n_elements` must be the length of the `elements` array.
@@ -1017,8 +1022,8 @@ public extension VariantRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Constructs a new serialised-mode `GVariant` instance.  This is the
-    /// inner interface for creation of new serialised values that gets
+    /// Constructs a new serialized-mode `GVariant` instance.  This is the
+    /// inner interface for creation of new serialized values that gets
     /// called from various functions in gvariant.c.
     /// 
     /// A reference is taken on `bytes`.
@@ -1031,7 +1036,7 @@ public extension VariantRef {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GVariant` instance from serialised data.
+    /// Creates a new `GVariant` instance from serialized data.
     /// 
     /// `type` is the type of `GVariant` instance that will be constructed.
     /// The interpretation of `data` depends on knowing the type.
@@ -1041,8 +1046,8 @@ public extension VariantRef {
     /// `user_data`.  If the contents of `data` change before that time then
     /// the result is undefined.
     /// 
-    /// If `data` is trusted to be serialised data in normal form then
-    /// `trusted` should be `true`.  This applies to serialised data created
+    /// If `data` is trusted to be serialized data in normal form then
+    /// `trusted` should be `true`.  This applies to serialized data created
     /// within this process or read from a trusted location on the disk (such
     /// as a file installed in /usr/lib alongside your application).  You
     /// should set trusted to `false` if `data` is read from the network, a
@@ -1347,7 +1352,7 @@ public extension VariantRef {
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
-    /// of a double-check that the form of the serialised data matches the caller's
+    /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     /// 
     /// `n_elements` must be the length of the `elements` array.
@@ -1356,8 +1361,8 @@ public extension VariantRef {
         return rv
     }
 
-    /// Constructs a new serialised-mode `GVariant` instance.  This is the
-    /// inner interface for creation of new serialised values that gets
+    /// Constructs a new serialized-mode `GVariant` instance.  This is the
+    /// inner interface for creation of new serialized values that gets
     /// called from various functions in gvariant.c.
     /// 
     /// A reference is taken on `bytes`.
@@ -1370,7 +1375,7 @@ public extension VariantRef {
         return rv
     }
 
-    /// Creates a new `GVariant` instance from serialised data.
+    /// Creates a new `GVariant` instance from serialized data.
     /// 
     /// `type` is the type of `GVariant` instance that will be constructed.
     /// The interpretation of `data` depends on knowing the type.
@@ -1380,8 +1385,8 @@ public extension VariantRef {
     /// `user_data`.  If the contents of `data` change before that time then
     /// the result is undefined.
     /// 
-    /// If `data` is trusted to be serialised data in normal form then
-    /// `trusted` should be `true`.  This applies to serialised data created
+    /// If `data` is trusted to be serialized data in normal form then
+    /// `trusted` should be `true`.  This applies to serialized data created
     /// within this process or read from a trusted location on the disk (such
     /// as a file installed in /usr/lib alongside your application).  You
     /// should set trusted to `false` if `data` is read from the network, a
@@ -1664,10 +1669,6 @@ public extension VariantRef {
     }
 }
 
-/// The `Variant` type acts as a reference-counted owner of an underlying `GVariant` instance.
-/// It provides the methods that can operate on this data type through `VariantProtocol` conformance.
-/// Use `Variant` as a strong reference or owner of a `GVariant` instance.
-///
 /// `GVariant` is a variant datatype; it can contain one or more values
 /// along with information about the type of the values.
 /// 
@@ -1713,19 +1714,19 @@ public extension VariantRef {
 /// concurrently accessed in any way from any number of threads without
 /// problems.
 /// 
-/// `GVariant` is heavily optimised for dealing with data in serialised
+/// `GVariant` is heavily optimised for dealing with data in serialized
 /// form.  It works particularly well with data located in memory-mapped
-/// files.  It can perform nearly all deserialisation operations in a
+/// files.  It can perform nearly all deserialization operations in a
 /// small constant time, usually touching only a single memory page.
-/// Serialised `GVariant` data can also be sent over the network.
+/// Serialized `GVariant` data can also be sent over the network.
 /// 
 /// `GVariant` is largely compatible with D-Bus.  Almost all types of
 /// `GVariant` instances can be sent over D-Bus.  See `GVariantType` for
-/// exceptions.  (However, `GVariant`'s serialisation format is not the same
-/// as the serialisation format of a D-Bus message body: use `GDBusMessage`,
+/// exceptions.  (However, `GVariant`'s serialization format is not the same
+/// as the serialization format of a D-Bus message body: use `GDBusMessage`,
 /// in the gio library, for those.)
 /// 
-/// For space-efficiency, the `GVariant` serialisation format does not
+/// For space-efficiency, the `GVariant` serialization format does not
 /// automatically include the variant's length, type or endianness,
 /// which must either be implied from context (such as knowledge that a
 /// particular file format always contains a little-endian
@@ -1755,14 +1756,14 @@ public extension VariantRef {
 /// in the future.
 /// 
 /// The memory allocated by `GVariant` can be grouped into 4 broad
-/// purposes: memory for serialised data, memory for the type
+/// purposes: memory for serialized data, memory for the type
 /// information cache, buffer management memory and memory for the
 /// `GVariant` structure itself.
 /// 
-/// ## Serialised Data Memory
+/// ## Serialized Data Memory
 /// 
 /// This is the memory that is used for storing GVariant data in
-/// serialised form.  This is what would be sent over the network or
+/// serialized form.  This is what would be sent over the network or
 /// what would end up on disk, not counting any indicator of the
 /// endianness, or of the length or type of the top-level variant.
 /// 
@@ -1796,7 +1797,7 @@ public extension VariantRef {
 /// 
 /// As an example, consider a dictionary mapping strings to variants.
 /// In the case that the dictionary is empty, 0 bytes are required for
-/// the serialisation.
+/// the serialization.
 /// 
 /// If we add an item "width" that maps to the int32 value of 500 then
 /// we will use 4 byte to store the int32 (so 6 for the variant
@@ -1822,7 +1823,7 @@ public extension VariantRef {
 /// 
 /// For each GVariant type that currently exists in the program a type
 /// information structure is kept in the type information cache.  The
-/// type information structure is required for rapid deserialisation.
+/// type information structure is required for rapid deserialization.
 /// 
 /// Continuing with the above example, if a `GVariant` exists with the
 /// type "a{sv}" then a type information struct will exist for
@@ -1867,14 +1868,14 @@ public extension VariantRef {
 /// ## Buffer Management Memory
 /// 
 /// `GVariant` uses an internal buffer management structure to deal
-/// with the various different possible sources of serialised data
+/// with the various different possible sources of serialized data
 /// that it uses.  The buffer is responsible for ensuring that the
 /// correct call is made when the data is no longer in use by
 /// `GVariant`.  This may involve a `g_free()` or a `g_slice_free()` or
 /// even `g_mapped_file_unref()`.
 /// 
 /// One buffer management structure is used for each chunk of
-/// serialised data.  The size of the buffer management structure
+/// serialized data.  The size of the buffer management structure
 /// is 4 * (void *).  On 32-bit systems, that's 16 bytes.
 /// 
 /// ## GVariant structure
@@ -1884,7 +1885,7 @@ public extension VariantRef {
 /// 
 /// `GVariant` structures only exist if they are explicitly created
 /// with API calls.  For example, if a `GVariant` is constructed out of
-/// serialised data for the example given above (with the dictionary)
+/// serialized data for the example given above (with the dictionary)
 /// then although there are 9 individual values that comprise the
 /// entire dictionary (two keys, two values, two variants containing
 /// the values, two dictionary entries, plus the dictionary itself),
@@ -1894,8 +1895,8 @@ public extension VariantRef {
 /// If calls are made to start accessing the other values then
 /// `GVariant` instances will exist for those values only for as long
 /// as they are in use (ie: until you call `g_variant_unref()`).  The
-/// type information is shared.  The serialised data and the buffer
-/// management structure for that serialised data is shared by the
+/// type information is shared.  The serialized data and the buffer
+/// management structure for that serialized data is shared by the
 /// child.
 /// 
 /// ## Summary
@@ -1903,14 +1904,19 @@ public extension VariantRef {
 /// To put the entire example together, for our dictionary mapping
 /// strings to variants (with two entries, as given above), we are
 /// using 91 bytes of memory for type information, 29 bytes of memory
-/// for the serialised data, 16 bytes for buffer management and 24
+/// for the serialized data, 16 bytes for buffer management and 24
 /// bytes for the `GVariant` instance, or a total of 160 bytes, plus
 /// malloc overhead.  If we were to use `g_variant_get_child_value()` to
 /// access the two dictionary entries, we would use an additional 48
 /// bytes.  If we were to have other dictionaries of the same type, we
-/// would use more memory for the serialised data and buffer
+/// would use more memory for the serialized data and buffer
 /// management for those dictionaries, but the type information would
 /// be shared.
+///
+/// The `Variant` type acts as a reference-counted owner of an underlying `GVariant` instance.
+/// It provides the methods that can operate on this data type through `VariantProtocol` conformance.
+/// Use `Variant` as a strong reference or owner of a `GVariant` instance.
+///
 open class Variant: VariantProtocol {
         /// Untyped pointer to the underlying `GVariant` instance.
     /// For type-safe access, use the generated, typed pointer `variant_ptr` property instead.
@@ -2122,7 +2128,7 @@ open class Variant: VariantProtocol {
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
-    /// of a double-check that the form of the serialised data matches the caller's
+    /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     /// 
     /// `n_elements` must be the length of the `elements` array.
@@ -2131,8 +2137,8 @@ open class Variant: VariantProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Constructs a new serialised-mode `GVariant` instance.  This is the
-    /// inner interface for creation of new serialised values that gets
+    /// Constructs a new serialized-mode `GVariant` instance.  This is the
+    /// inner interface for creation of new serialized values that gets
     /// called from various functions in gvariant.c.
     /// 
     /// A reference is taken on `bytes`.
@@ -2145,7 +2151,7 @@ open class Variant: VariantProtocol {
         ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Creates a new `GVariant` instance from serialised data.
+    /// Creates a new `GVariant` instance from serialized data.
     /// 
     /// `type` is the type of `GVariant` instance that will be constructed.
     /// The interpretation of `data` depends on knowing the type.
@@ -2155,8 +2161,8 @@ open class Variant: VariantProtocol {
     /// `user_data`.  If the contents of `data` change before that time then
     /// the result is undefined.
     /// 
-    /// If `data` is trusted to be serialised data in normal form then
-    /// `trusted` should be `true`.  This applies to serialised data created
+    /// If `data` is trusted to be serialized data in normal form then
+    /// `trusted` should be `true`.  This applies to serialized data created
     /// within this process or read from a trusted location on the disk (such
     /// as a file installed in /usr/lib alongside your application).  You
     /// should set trusted to `false` if `data` is read from the network, a
@@ -2399,7 +2405,7 @@ open class Variant: VariantProtocol {
     /// `element_size` must be the size of a single element in the array.
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say `sizeof(gint32)`. This value isn't used except for the purpose
-    /// of a double-check that the form of the serialised data matches the caller's
+    /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     /// 
     /// `n_elements` must be the length of the `elements` array.
@@ -2408,8 +2414,8 @@ open class Variant: VariantProtocol {
         return rv
     }
 
-    /// Constructs a new serialised-mode `GVariant` instance.  This is the
-    /// inner interface for creation of new serialised values that gets
+    /// Constructs a new serialized-mode `GVariant` instance.  This is the
+    /// inner interface for creation of new serialized values that gets
     /// called from various functions in gvariant.c.
     /// 
     /// A reference is taken on `bytes`.
@@ -2422,7 +2428,7 @@ open class Variant: VariantProtocol {
         return rv
     }
 
-    /// Creates a new `GVariant` instance from serialised data.
+    /// Creates a new `GVariant` instance from serialized data.
     /// 
     /// `type` is the type of `GVariant` instance that will be constructed.
     /// The interpretation of `data` depends on knowing the type.
@@ -2432,8 +2438,8 @@ open class Variant: VariantProtocol {
     /// `user_data`.  If the contents of `data` change before that time then
     /// the result is undefined.
     /// 
-    /// If `data` is trusted to be serialised data in normal form then
-    /// `trusted` should be `true`.  This applies to serialised data created
+    /// If `data` is trusted to be serialized data in normal form then
+    /// `trusted` should be `true`.  This applies to serialized data created
     /// within this process or read from a trusted location on the disk (such
     /// as a file installed in /usr/lib alongside your application).  You
     /// should set trusted to `false` if `data` is read from the network, a
@@ -2880,7 +2886,7 @@ public extension VariantProtocol {
     /// 
     /// Note that values borrowed from the returned child are not guaranteed to
     /// still be valid after the child is freed even if you still hold a reference
-    /// to `value`, if `value` has not been serialised at the time this function is
+    /// to `value`, if `value` has not been serialized at the time this function is
     /// called. To avoid this, you can serialize `value` by calling
     /// `g_variant_get_data()` and optionally ignoring the return value.
     /// 
@@ -2890,42 +2896,42 @@ public extension VariantProtocol {
     /// nesting up to at least 64 levels.
     /// 
     /// This function is `O(1)`.
-    @inlinable func getChildValue(index_: Int) -> VariantRef! {
-        guard let rv = VariantRef(gconstpointer: gconstpointer(g_variant_get_child_value(variant_ptr, gsize(index_)))) else { return nil }
+    @inlinable func getChildValue(index: Int) -> VariantRef! {
+        guard let rv = VariantRef(gconstpointer: gconstpointer(g_variant_get_child_value(variant_ptr, gsize(index)))) else { return nil }
         return rv
     }
 
-    /// Returns a pointer to the serialised form of a `GVariant` instance.
+    /// Returns a pointer to the serialized form of a `GVariant` instance.
     /// The returned data may not be in fully-normalised form if read from an
     /// untrusted source.  The returned data must not be freed; it remains
     /// valid for as long as `value` exists.
     /// 
-    /// If `value` is a fixed-sized value that was deserialised from a
-    /// corrupted serialised container then `nil` may be returned.  In this
+    /// If `value` is a fixed-sized value that was deserialized from a
+    /// corrupted serialized container then `nil` may be returned.  In this
     /// case, the proper thing to do is typically to use the appropriate
     /// number of nul bytes in place of `value`.  If `value` is not fixed-sized
     /// then `nil` is never returned.
     /// 
-    /// In the case that `value` is already in serialised form, this function
-    /// is `O(1)`.  If the value is not already in serialised form,
-    /// serialisation occurs implicitly and is approximately `O(n)` in the size
+    /// In the case that `value` is already in serialized form, this function
+    /// is `O(1)`.  If the value is not already in serialized form,
+    /// serialization occurs implicitly and is approximately `O(n)` in the size
     /// of the result.
     /// 
-    /// To deserialise the data returned by this function, in addition to the
-    /// serialised data, you must know the type of the `GVariant`, and (if the
+    /// To deserialize the data returned by this function, in addition to the
+    /// serialized data, you must know the type of the `GVariant`, and (if the
     /// machine might be different) the endianness of the machine that stored
     /// it. As a result, file formats or network messages that incorporate
-    /// serialised `GVariants` must include this information either
+    /// serialized `GVariants` must include this information either
     /// implicitly (for instance "the file always contains a
     /// `G_VARIANT_TYPE_VARIANT` and it is always in little-endian order") or
     /// explicitly (by storing the type and/or endianness in addition to the
-    /// serialised data).
+    /// serialized data).
     @inlinable func getData() -> gconstpointer! {
         let rv = g_variant_get_data(variant_ptr)
         return rv
     }
 
-    /// Returns a pointer to the serialised form of a `GVariant` instance.
+    /// Returns a pointer to the serialized form of a `GVariant` instance.
     /// The semantics of this function are exactly the same as
     /// `g_variant_get_data()`, except that the returned `GBytes` holds
     /// a reference to the variant data.
@@ -2943,7 +2949,7 @@ public extension VariantProtocol {
         return rv
     }
 
-    /// Provides access to the serialised data for an array of fixed-sized
+    /// Provides access to the serialized data for an array of fixed-sized
     /// items.
     /// 
     /// `value` must be an array with fixed-sized elements.  Numeric types are
@@ -2951,7 +2957,7 @@ public extension VariantProtocol {
     /// 
     /// `element_size` must be the size of a single element in the array,
     /// as given by the section on
-    /// [serialized data memory](#gvariant-serialised-data-memory).
+    /// [serialized data memory](#gvariant-serialized-data-memory).
     /// 
     /// In particular, arrays of these fixed-sized types can be interpreted
     /// as an array of the given C type, with `element_size` set to the size
@@ -2964,7 +2970,7 @@ public extension VariantProtocol {
     /// 
     /// For example, if calling this function for an array of 32-bit integers,
     /// you might say ``sizeof(gint32)``. This value isn't used except for the purpose
-    /// of a double-check that the form of the serialised data matches the caller's
+    /// of a double-check that the form of the serialized data matches the caller's
     /// expectation.
     /// 
     /// `n_elements`, which must be non-`nil`, is set equal to the number of
@@ -3035,7 +3041,7 @@ public extension VariantProtocol {
     /// `GVariant` is created with the same value as `value`.
     /// 
     /// It makes sense to call this function if you've received `GVariant`
-    /// data from untrusted sources and you want to ensure your serialised
+    /// data from untrusted sources and you want to ensure your serialized
     /// output is definitely in normal form.
     /// 
     /// If `value` is already in normal form, a new reference will be returned
@@ -3070,7 +3076,7 @@ public extension VariantProtocol {
     /// If `value` has a fixed-sized type then this function always returned
     /// that fixed size.
     /// 
-    /// In the case that `value` is already in serialised form or the size has
+    /// In the case that `value` is already in serialized form or the size has
     /// already been calculated (ie: this function has been called before)
     /// then this function is `O(1)`.  Otherwise, the size is calculated, an
     /// operation which is approximately `O(n)` in the number of values
@@ -3365,15 +3371,15 @@ public extension VariantProtocol {
         return rv
     }
 
-    /// Stores the serialised form of `value` at `data`.  `data` should be
+    /// Stores the serialized form of `value` at `data`.  `data` should be
     /// large enough.  See `g_variant_get_size()`.
     /// 
     /// The stored data is in machine native byte order but may not be in
     /// fully-normalised form if read from an untrusted source.  See
     /// `g_variant_get_normal_form()` for a solution.
     /// 
-    /// As with `g_variant_get_data()`, to be able to deserialise the
-    /// serialised variant successfully, its type and (if the destination
+    /// As with `g_variant_get_data()`, to be able to deserialize the
+    /// serialized variant successfully, its type and (if the destination
     /// machine might be different) its endianness must also be available.
     /// 
     /// This function is approximately `O(n)` in the size of `data`.
@@ -3517,69 +3523,69 @@ public extension VariantProtocol {
         }
     }
 
-    /// Returns a pointer to the serialised form of a `GVariant` instance.
+    /// Returns a pointer to the serialized form of a `GVariant` instance.
     /// The returned data may not be in fully-normalised form if read from an
     /// untrusted source.  The returned data must not be freed; it remains
     /// valid for as long as `value` exists.
     /// 
-    /// If `value` is a fixed-sized value that was deserialised from a
-    /// corrupted serialised container then `nil` may be returned.  In this
+    /// If `value` is a fixed-sized value that was deserialized from a
+    /// corrupted serialized container then `nil` may be returned.  In this
     /// case, the proper thing to do is typically to use the appropriate
     /// number of nul bytes in place of `value`.  If `value` is not fixed-sized
     /// then `nil` is never returned.
     /// 
-    /// In the case that `value` is already in serialised form, this function
-    /// is `O(1)`.  If the value is not already in serialised form,
-    /// serialisation occurs implicitly and is approximately `O(n)` in the size
+    /// In the case that `value` is already in serialized form, this function
+    /// is `O(1)`.  If the value is not already in serialized form,
+    /// serialization occurs implicitly and is approximately `O(n)` in the size
     /// of the result.
     /// 
-    /// To deserialise the data returned by this function, in addition to the
-    /// serialised data, you must know the type of the `GVariant`, and (if the
+    /// To deserialize the data returned by this function, in addition to the
+    /// serialized data, you must know the type of the `GVariant`, and (if the
     /// machine might be different) the endianness of the machine that stored
     /// it. As a result, file formats or network messages that incorporate
-    /// serialised `GVariants` must include this information either
+    /// serialized `GVariants` must include this information either
     /// implicitly (for instance "the file always contains a
     /// `G_VARIANT_TYPE_VARIANT` and it is always in little-endian order") or
     /// explicitly (by storing the type and/or endianness in addition to the
-    /// serialised data).
+    /// serialized data).
     @inlinable var data: gconstpointer! {
-        /// Returns a pointer to the serialised form of a `GVariant` instance.
+        /// Returns a pointer to the serialized form of a `GVariant` instance.
         /// The returned data may not be in fully-normalised form if read from an
         /// untrusted source.  The returned data must not be freed; it remains
         /// valid for as long as `value` exists.
         /// 
-        /// If `value` is a fixed-sized value that was deserialised from a
-        /// corrupted serialised container then `nil` may be returned.  In this
+        /// If `value` is a fixed-sized value that was deserialized from a
+        /// corrupted serialized container then `nil` may be returned.  In this
         /// case, the proper thing to do is typically to use the appropriate
         /// number of nul bytes in place of `value`.  If `value` is not fixed-sized
         /// then `nil` is never returned.
         /// 
-        /// In the case that `value` is already in serialised form, this function
-        /// is `O(1)`.  If the value is not already in serialised form,
-        /// serialisation occurs implicitly and is approximately `O(n)` in the size
+        /// In the case that `value` is already in serialized form, this function
+        /// is `O(1)`.  If the value is not already in serialized form,
+        /// serialization occurs implicitly and is approximately `O(n)` in the size
         /// of the result.
         /// 
-        /// To deserialise the data returned by this function, in addition to the
-        /// serialised data, you must know the type of the `GVariant`, and (if the
+        /// To deserialize the data returned by this function, in addition to the
+        /// serialized data, you must know the type of the `GVariant`, and (if the
         /// machine might be different) the endianness of the machine that stored
         /// it. As a result, file formats or network messages that incorporate
-        /// serialised `GVariants` must include this information either
+        /// serialized `GVariants` must include this information either
         /// implicitly (for instance "the file always contains a
         /// `G_VARIANT_TYPE_VARIANT` and it is always in little-endian order") or
         /// explicitly (by storing the type and/or endianness in addition to the
-        /// serialised data).
+        /// serialized data).
         get {
             let rv = g_variant_get_data(variant_ptr)
             return rv
         }
     }
 
-    /// Returns a pointer to the serialised form of a `GVariant` instance.
+    /// Returns a pointer to the serialized form of a `GVariant` instance.
     /// The semantics of this function are exactly the same as
     /// `g_variant_get_data()`, except that the returned `GBytes` holds
     /// a reference to the variant data.
     @inlinable var dataAsBytes: BytesRef! {
-        /// Returns a pointer to the serialised form of a `GVariant` instance.
+        /// Returns a pointer to the serialized form of a `GVariant` instance.
         /// The semantics of this function are exactly the same as
         /// `g_variant_get_data()`, except that the returned `GBytes` holds
         /// a reference to the variant data.
@@ -3709,7 +3715,7 @@ public extension VariantProtocol {
     /// Checks if `value` is in normal form.
     /// 
     /// The main reason to do this is to detect if a given chunk of
-    /// serialised data is in normal form: load the data into a `GVariant`
+    /// serialized data is in normal form: load the data into a `GVariant`
     /// using `g_variant_new_from_data()` and then use this function to
     /// check.
     /// 
@@ -3723,7 +3729,7 @@ public extension VariantProtocol {
         /// Checks if `value` is in normal form.
         /// 
         /// The main reason to do this is to detect if a given chunk of
-        /// serialised data is in normal form: load the data into a `GVariant`
+        /// serialized data is in normal form: load the data into a `GVariant`
         /// using `g_variant_new_from_data()` and then use this function to
         /// check.
         /// 
@@ -3764,7 +3770,7 @@ public extension VariantProtocol {
     /// `GVariant` is created with the same value as `value`.
     /// 
     /// It makes sense to call this function if you've received `GVariant`
-    /// data from untrusted sources and you want to ensure your serialised
+    /// data from untrusted sources and you want to ensure your serialized
     /// output is definitely in normal form.
     /// 
     /// If `value` is already in normal form, a new reference will be returned
@@ -3788,7 +3794,7 @@ public extension VariantProtocol {
         /// `GVariant` is created with the same value as `value`.
         /// 
         /// It makes sense to call this function if you've received `GVariant`
-        /// data from untrusted sources and you want to ensure your serialised
+        /// data from untrusted sources and you want to ensure your serialized
         /// output is definitely in normal form.
         /// 
         /// If `value` is already in normal form, a new reference will be returned
@@ -3809,7 +3815,7 @@ public extension VariantProtocol {
     /// If `value` has a fixed-sized type then this function always returned
     /// that fixed size.
     /// 
-    /// In the case that `value` is already in serialised form or the size has
+    /// In the case that `value` is already in serialized form or the size has
     /// already been calculated (ie: this function has been called before)
     /// then this function is `O(1)`.  Otherwise, the size is calculated, an
     /// operation which is approximately `O(n)` in the number of values
@@ -3821,7 +3827,7 @@ public extension VariantProtocol {
         /// If `value` has a fixed-sized type then this function always returned
         /// that fixed size.
         /// 
-        /// In the case that `value` is already in serialised form or the size has
+        /// In the case that `value` is already in serialized form or the size has
         /// already been calculated (ie: this function has been called before)
         /// then this function is `O(1)`.  Otherwise, the size is calculated, an
         /// operation which is approximately `O(n)` in the number of values
