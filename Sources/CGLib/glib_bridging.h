@@ -220,6 +220,7 @@ struct _GStrvBuilder {};
 #include <unistd.h>
 #include <termios.h>
 #include <sys/types.h>
+#include <pwd.h>
 #include <glib-unix.h>
 #include <glib-object.h>
 #include <gobject/gvaluecollector.h>

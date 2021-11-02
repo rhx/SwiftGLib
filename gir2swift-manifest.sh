@@ -15,9 +15,9 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     local NAME=$(package_name)
     local GIR_PRE_ARGS=`for FILE in ${GIR_PRE}; do echo -n "-p ${GIR_PATH}/${FILE}.gir "; done`
     
-    bash -c "${G2S_EXEC} -o Sources/${NAME} -m ${GIR_NAME}.module ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
+    bash -c "${G2S_EXEC} --alpha-names -o Sources/${NAME} --post-process Sources/CGLib/glib_bridging.h ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
 
-    for src in Sources/${NAME}/*-*.swift Sources/CGLib/glib_bridging.h ; do
+    for src in Sources/CGLib/glib_bridging.h ; do
         sed -f ${GIR_NAME}.sed < ${src} | awk -f ${GIR_NAME}.awk > ${src}.out
         mv -f ${src}.out ${src}
         for ver in 2.62.0 ; do
@@ -29,7 +29,7 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
         done
         for ver in 2.60.0 ; do
             if pkg-config --max-version=$ver glib-2.0 ; then
-                sed -f ${GIR_NAME}-$ver.sed < ${src} > ${src}.out
+                sed -f "${GIR_NAME}<=$ver.sed" < ${src} > ${src}.out
                 mv -f ${src}.out ${src}
             fi
         done
