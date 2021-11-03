@@ -22,6 +22,7 @@ struct _GOptionContext {};
 struct _GOptionGroup {};
 struct _GParamSpecPool {};
 struct _GPatternSpec {};
+struct _GPowerProfileMonitor {};
 struct _GRand {};
 struct _GRegex {};
 struct _GSequence {};
