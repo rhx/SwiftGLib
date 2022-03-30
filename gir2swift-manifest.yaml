@@ -2,5 +2,3 @@ version: 1
 gir-name: GLib-2.0
 output-directory: Sources/GLib
 alpha-names: true
-post-process:
-  - Sources/CGLib/glib_bridging.h

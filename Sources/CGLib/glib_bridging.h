@@ -1,3 +1,8 @@
+#define __GLIB_H_INSIDE__
+#include <glib/gversion.h>
+#include <glib/gversionmacros.h>
+#undef __GLIB_H_INSIDE__
+
 struct _GAsyncQueue {};
 struct _GBookmarkFile {};
 struct _GBinding {};
