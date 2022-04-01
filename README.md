@@ -3,7 +3,6 @@ A Swift wrapper around glib-2.x that is largely auto-generated from gobject-intr
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
 
 ![macOS 11 build](https://github.com/rhx/SwiftGLib/workflows/macOS%2011/badge.svg)
-![macOS 10.15 build](https://github.com/rhx/SwiftGLib/workflows/macOS%2010.15/badge.svg)
 ![Ubuntu 20.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2020.04/badge.svg)
 ![Ubuntu 18.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2018.04/badge.svg)
 
@@ -11,15 +10,11 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
 
-Version 14 of gir2swift automates post-processing using `sed` and `awk`, simplifying build-system integration.
-
-Version 13 of gir2swift uses [swift-argument-parser](https://github.com/apple/swift-argument-parser) instead of `getopt()`.
-
 ## Prerequisites
 
-### Swift
+### Swift 5.6 or higher
 
-To build, you need at least Swift 5.6; download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	swift-driver version: 1.45.2 Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
@@ -33,7 +28,7 @@ on macOS, or on Linux you should get something like:
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, and 2.70.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, and 2.72.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -63,16 +58,22 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
-        .package(name: "GLib", url: "https://github.com/rhx/SwiftGLib.git", .branch("main")),
-    ],
-    targets: [.target(name: "MyPackage", dependencies: ["GLib"])]
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
+        .package(url: "https://github.com/rhx/SwiftGLib.git", branch: "main"),
+    ],    
+    targets: [
+        .target(name: "MyPackage",
+                dependencies: [
+                    .product(name: "GLib", package: "SwiftGLib")
+                ]
+        )
+    ]
 )
 ```
 
@@ -82,28 +83,11 @@ Normally, you don't build this package directly, but you embed it into your own 
 
 	git clone https://github.com/rhx/SwiftGLib.git
 	cd SwiftGLib
-    ./run-gir2swift.sh
     swift build
     swift test
 
-Please note that on macOS, due to a bug in the Swift Package Manager prior to Swift 5.4,
-if you have Xcode-12.4 or older, you need to pass in the build flags manually,
-i.e. instead of `swift build` and `swift test` you can run
-
-    swift build `./run-gir2swift.sh flags -noUpdate`
-    swift test  `./run-gir2swift.sh flags -noUpdate`
-
-### Xcode
-
-On macOS, you can build the project using Xcode instead.  To do this, you need to create an Xcode project first, then open the project in the Xcode IDE:
-
-	./xcodegen.sh
-	open GLib.xcodeproj
-
-After that, use the (usual) Build and Test buttons to build/test this package.
-
-
 ## Documentation
+
 You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
@@ -112,7 +96,6 @@ Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [ja
 
 	brew install sourcekitten
 	sudo gem install jazzy
-	./run-gir2swift.sh
 	./generate-documentation.sh
 
 ## Troubleshooting
@@ -131,7 +114,8 @@ If, when you run `swift build`, you get a `Segmentation fault (core dumped)` or 
 
 	warning: circular dependency detected while parsing pangocairo: harfbuzz -> freetype2 -> harfbuzz
 	
-this probably means that your Swift toolchain is too old, particularly on Linux (at the time of this writing, some Linux distributions require at least Swift 5.5).  Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
+this probably means that your Swift toolchain is too old, particularly on Linux.
+Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
 
