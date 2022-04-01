@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -30,7 +30,7 @@ public extension SequenceProtocol {
 
     /// Get the element at the given position
     /// - Parameter position: The position in the sequence to retrieve the element from
-    @inlinable subscript(position: Int) -> gpointer {
+    @inlinable subscript(position: Int) -> gpointer! {
         getIterAt(pos: position)!.sequenceGet()
     }
 

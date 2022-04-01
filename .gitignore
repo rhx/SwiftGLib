@@ -9,5 +9,5 @@ Package.pins
 Package.resolved
 *.tgz
 undocumented.json
-*-*.swift
+/Sources/*/*-*.swift
 *-*.swift.out
