@@ -6,7 +6,7 @@ let package = Package(
     name: "GLib",
     products: [ .library(name: "GLib", targets: ["GLib"]) ],
     dependencies: [
-        .package(url: "https://github.com/rhx/gir2swift.git", branch: "plugin")
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "development")
     ],
     targets: [
         .systemLibrary(name: "CGLib", pkgConfig: "gio-unix-2.0",
