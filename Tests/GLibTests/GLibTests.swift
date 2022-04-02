@@ -256,24 +256,3 @@ class GLibTests: XCTestCase {
         }
     }
 }
-
-extension GLibTests {
-    static var allTests : [(String, (GLibTests) -> () throws -> Void)] {
-        return [
-            ("testDateTime",            testDateTime),
-            ("testDateTimeUnixUTC",     testDateTimeUnixUTC),
-            ("testDefaultMainContext",  testDefaultMainContext),
-            ("testDirOpen",             testDirOpen),
-            ("testDoubleIEEE754",       testDoubleIEEE754),
-            ("testErrorType",           testErrorType),
-            ("testFloatIEEE754",        testFloatIEEE754),
-            ("testLog",                 testLog),
-            ("testLogLevel",            testLogLevel),
-            ("testLogDomain",           testLogDomain),
-            ("testLogDomainLevel",      testLogDomainLevel),
-            ("testMainLoopCreation",    testMainLoopCreation),
-            ("testMutex",               testMutex),
-            ("testTimeoutAdd",          testTimeoutAdd),
-        ]
-    }
-}
