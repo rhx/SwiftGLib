@@ -33,6 +33,7 @@ struct _GRegex {};
 struct _GSequence {};
 struct _GSequenceNode {};
 struct _GSequenceIter {};
+struct _GSignalGroup {};
 struct _GSourcePrivate {};
 struct _GStringChunk {};
 struct _GTestCase {};
