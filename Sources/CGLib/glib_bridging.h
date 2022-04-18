@@ -66,6 +66,7 @@ struct _GApplicationCommandLinePrivate {};
 struct _GApplicationPrivate {};
 struct _GAsyncInitable {};
 struct _GAsyncResult {};
+struct _GBindingGroup {};
 struct _GBufferedInputStreamPrivate {};
 struct _GBufferedOutputStreamPrivate {};
 struct _GBytesIcon {};
