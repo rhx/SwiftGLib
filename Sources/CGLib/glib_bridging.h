@@ -11,6 +11,7 @@ struct _GChecksum {};
 struct _GData {};
 struct _GDatagramBased {};
 struct _GDateTime {};
+struct _GDebugController {};
 struct _GDir {};
 struct _GHashTable {};
 struct _GHmac {};
