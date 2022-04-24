@@ -23,7 +23,7 @@ To build, download Swift from https://swift.org/download/ -- if you are using ma
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.6.0 (swift-5.6.0-RELEASE)
+	Swift version 5.6.1 (swift-5.6.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
@@ -34,7 +34,7 @@ These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.
 
 ##### Ubuntu
 
-On Ubuntu 16.04, 18.04, and 20.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 18.04, 20.04, and 22.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
 	sudo apt install libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
@@ -88,15 +88,18 @@ Normally, you don't build this package directly, but you embed it into your own 
 
 ## Documentation
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
-This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
-If you want to generate your own documentation, matching your local installation,
-you can use the `generate-documentation.sh` script in the repository.
-Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+You can generate documentation using the [DocC plugin](https://apple.github.io/swift-docc-plugin/documentation/swiftdoccplugin/).  To preview documentation matching your local installation, simply run
 
-	brew install sourcekitten
-	sudo gem install jazzy
-	./generate-documentation.sh
+    swift package --disable-sandbox preview-documentation
+
+Then navigate to URL shown for the local preview server.  Make sure you have JavaScript enabled in your browser.
+
+Alternatively, you can create static documentation using [jazzy](https://github.com/realm/jazzy).
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS (x86_64):
+
+	brew install ruby sourcekitten
+	/usr/local/opt/ruby/bin/gem install jazzy
+	./generate-jazzy.sh
 
 ## Troubleshooting
 Here are some common errors you might encounter and how to fix them.
@@ -121,12 +124,3 @@ Make sure the latest toolchain is the one that is found when you run the Swift c
 
 	sudo xcode-select -s /Applications/Xcode.app
 	xcode-select --install
-
-### Known Issues
-
- * When building, a lot of warnings appear.  This is largely an issue with automatic `RawRepresentable` conformance in the Swift Standard library.  As a workaround, you can turn this off by passing the `-Xswiftc -suppress-warnings` parameter when building.
- 
- * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
- * BUILD_DIR is not supported in the current build system.
- 
-As a workaround, you can use the old build scripts, e.g. `./build.sh` (instead of `run-gir2swift.sh` and `swift build`) to build a package.
