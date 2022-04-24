@@ -1,5 +1,281 @@
 import CGLib
 
+// MARK: - Data Record
+
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
+/// The `DataProtocol` protocol exposes the methods and properties of an underlying `GData` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `Data`.
+/// Alternatively, use `DataRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol DataProtocol {
+        /// Untyped pointer to the underlying `GData` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GData` instance.
+    var _ptr: UnsafeMutablePointer<GData>! { get }
+
+    /// Required Initialiser for types conforming to `DataProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
+/// The `DataRef` type acts as a lightweight Swift reference to an underlying `GData` instance.
+/// It exposes methods that can operate on this data type through `DataProtocol` conformance.
+/// Use `DataRef` only as an `unowned` reference to an existing `GData` instance.
+///
+public struct DataRef: DataProtocol {
+        /// Untyped pointer to the underlying `GData` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension DataRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GData>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GData>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `DataProtocol`
+    @inlinable init<T: DataProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// An opaque data structure that represents a keyed data list.
+/// 
+/// See also: [Keyed data lists](../Protocols/DataProtocol.html).
+///
+/// The `Data` type acts as an owner of an underlying `GData` instance.
+/// It provides the methods that can operate on this data type through `DataProtocol` conformance.
+/// Use `Data` as a strong reference or owner of a `GData` instance.
+///
+open class Data: DataProtocol {
+        /// Untyped pointer to the underlying `GData` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GData>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GData>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GData` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `Data` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GData>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `DataProtocol`
+    /// `GData` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `DataProtocol`
+    @inlinable public init<T: DataProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GData`.
+    deinit {
+        // no reference counting for GData, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DataProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GData, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no Data properties
+
+// MARK: no Data signals
+
+// MARK: Data has no signals
+// MARK: Data Record: DataProtocol extension (methods and fields)
+public extension DataProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GData` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GData>! { return ptr?.assumingMemoryBound(to: GData.self) }
+
+
+
+}
+
+
+
 // MARK: - Date Record
 
 /// Represents a day between January 1, Year 1 and a few thousand years in
@@ -127,38 +403,51 @@ public extension DateRef {
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     @inlinable init() {
-        let rv = g_date_new()
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new()
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// day-month-year triplet you pass in represents an existing day, the
-    /// returned date will be valid.
+    /// Create a new `GDate` representing the given day-month-year triplet.
+    /// 
+    /// The triplet you pass in must represent a valid date. Use `g_date_valid_dmy()`
+    /// if needed to validate it. The returned `GDate` is guaranteed to be non-`nil`
+    /// and valid.
     @inlinable init(dmy day: GDateDay, month: GDateMonth, year: GDateYear) {
-        let rv = g_date_new_dmy(day, month, year)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new_dmy(day, month, year)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// Julian day number you pass in is valid (greater than 0, less than an
-    /// unreasonably large number), the returned date will be valid.
+    /// Create a new `GDate` representing the given Julian date.
+    /// 
+    /// The `julian_day` you pass in must be valid. Use `g_date_valid_julian()` if
+    /// needed to validate it. The returned `GDate` is guaranteed to be non-`nil` and
+    /// valid.
     @inlinable init(julian julianDay: guint32) {
-        let rv = g_date_new_julian(julianDay)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new_julian(julianDay)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// day-month-year triplet you pass in represents an existing day, the
-    /// returned date will be valid.
+    /// Create a new `GDate` representing the given day-month-year triplet.
+    /// 
+    /// The triplet you pass in must represent a valid date. Use `g_date_valid_dmy()`
+    /// if needed to validate it. The returned `GDate` is guaranteed to be non-`nil`
+    /// and valid.
     @inlinable static func new(dmy day: GDateDay, month: GDateMonth, year: GDateYear) -> DateRef! {
-        guard let rv = DateRef(gconstpointer: gconstpointer(g_date_new_dmy(day, month, year))) else { return nil }
+            let result = g_date_new_dmy(day, month, year)
+        guard let rv = DateRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// Julian day number you pass in is valid (greater than 0, less than an
-    /// unreasonably large number), the returned date will be valid.
+    /// Create a new `GDate` representing the given Julian date.
+    /// 
+    /// The `julian_day` you pass in must be valid. Use `g_date_valid_julian()` if
+    /// needed to validate it. The returned `GDate` is guaranteed to be non-`nil` and
+    /// valid.
     @inlinable static func new(julian julianDay: guint32) -> DateRef! {
-        guard let rv = DateRef(gconstpointer: gconstpointer(g_date_new_julian(julianDay))) else { return nil }
+            let result = g_date_new_julian(julianDay)
+        guard let rv = DateRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -324,39 +613,52 @@ open class Date: DateProtocol {
     /// be cleared (as if you'd called `g_date_clear()`) but invalid (it won't
     /// represent an existing day). Free the return value with `g_date_free()`.
     @inlinable public init() {
-        let rv = g_date_new()
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new()
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// day-month-year triplet you pass in represents an existing day, the
-    /// returned date will be valid.
+    /// Create a new `GDate` representing the given day-month-year triplet.
+    /// 
+    /// The triplet you pass in must represent a valid date. Use `g_date_valid_dmy()`
+    /// if needed to validate it. The returned `GDate` is guaranteed to be non-`nil`
+    /// and valid.
     @inlinable public init(dmy day: GDateDay, month: GDateMonth, year: GDateYear) {
-        let rv = g_date_new_dmy(day, month, year)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new_dmy(day, month, year)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// Julian day number you pass in is valid (greater than 0, less than an
-    /// unreasonably large number), the returned date will be valid.
+    /// Create a new `GDate` representing the given Julian date.
+    /// 
+    /// The `julian_day` you pass in must be valid. Use `g_date_valid_julian()` if
+    /// needed to validate it. The returned `GDate` is guaranteed to be non-`nil` and
+    /// valid.
     @inlinable public init(julian julianDay: guint32) {
-        let rv = g_date_new_julian(julianDay)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_new_julian(julianDay)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// day-month-year triplet you pass in represents an existing day, the
-    /// returned date will be valid.
+    /// Create a new `GDate` representing the given day-month-year triplet.
+    /// 
+    /// The triplet you pass in must represent a valid date. Use `g_date_valid_dmy()`
+    /// if needed to validate it. The returned `GDate` is guaranteed to be non-`nil`
+    /// and valid.
     @inlinable public static func new(dmy day: GDateDay, month: GDateMonth, year: GDateYear) -> Date! {
-        guard let rv = Date(gconstpointer: gconstpointer(g_date_new_dmy(day, month, year))) else { return nil }
+            let result = g_date_new_dmy(day, month, year)
+        guard let rv = Date(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
-    /// Like `g_date_new()`, but also sets the value of the date. Assuming the
-    /// Julian day number you pass in is valid (greater than 0, less than an
-    /// unreasonably large number), the returned date will be valid.
+    /// Create a new `GDate` representing the given Julian date.
+    /// 
+    /// The `julian_day` you pass in must be valid. Use `g_date_valid_julian()` if
+    /// needed to validate it. The returned `GDate` is guaranteed to be non-`nil` and
+    /// valid.
     @inlinable public static func new(julian julianDay: guint32) -> Date! {
-        guard let rv = Date(gconstpointer: gconstpointer(g_date_new_julian(julianDay))) else { return nil }
+            let result = g_date_new_julian(julianDay)
+        guard let rv = Date(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -376,8 +678,9 @@ public extension DateProtocol {
     /// To move forward by weeks, add weeks*7 days.
     /// The date must be valid.
     @inlinable func addDays(nDays: Int) {
+        
         g_date_add_days(date_ptr, guint(nDays))
-    
+        
     }
 
     /// Increments a date by some number of months.
@@ -386,8 +689,9 @@ public extension DateProtocol {
     /// (because the destination month may not have
     /// the current day in it). The date must be valid.
     @inlinable func addMonths(nMonths: Int) {
+        
         g_date_add_months(date_ptr, guint(nMonths))
-    
+        
     }
 
     /// Increments a date by some number of years.
@@ -395,8 +699,9 @@ public extension DateProtocol {
     /// year is not a leap year, the date will be changed
     /// to February 28. The date must be valid.
     @inlinable func addYears(nYears: Int) {
+        
         g_date_add_years(date_ptr, guint(nYears))
-    
+        
     }
 
     /// If `date` is prior to `min_date`, sets `date` equal to `min_date`.
@@ -405,8 +710,9 @@ public extension DateProtocol {
     /// Either of `min_date` and `max_date` may be `nil`.
     /// All non-`nil` dates must be valid.
     @inlinable func clamp<DateT: DateProtocol>(minDate: DateT, maxDate: DateT) {
+        
         g_date_clamp(date_ptr, minDate.date_ptr, maxDate.date_ptr)
-    
+        
     }
 
     /// Initializes one or more `GDate` structs to a safe but invalid
@@ -414,14 +720,16 @@ public extension DateProtocol {
     /// not contain garbage. Useful to init a date declared on the stack.
     /// Validity can be tested with `g_date_valid()`.
     @inlinable func clear(nDates: Int) {
+        
         g_date_clear(date_ptr, guint(nDates))
-    
+        
     }
 
     /// `qsort()`-style comparison function for dates.
     /// Both dates must be valid.
     @inlinable func compare<DateT: DateProtocol>(rhs: DateT) -> Int {
-        let rv = Int(g_date_compare(date_ptr, rhs.date_ptr))
+        let result = g_date_compare(date_ptr, rhs.date_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -429,7 +737,8 @@ public extension DateProtocol {
     /// (as determined by `g_date_valid()`), the invalid state will be copied
     /// as is into the new object.
     @inlinable func copy() -> DateRef! {
-        guard let rv = DateRef(gconstpointer: gconstpointer(g_date_copy(date_ptr))) else { return nil }
+        let result = g_date_copy(date_ptr)
+        guard let rv = DateRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -437,33 +746,38 @@ public extension DateProtocol {
     /// If `date2` is prior to `date1`, the returned value is negative.
     /// Both dates must be valid.
     @inlinable func daysBetween<DateT: DateProtocol>(date2: DateT) -> Int {
-        let rv = Int(g_date_days_between(date_ptr, date2.date_ptr))
+        let result = g_date_days_between(date_ptr, date2.date_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Frees a `GDate` returned from `g_date_new()`.
     @inlinable func free() {
+        
         g_date_free(date_ptr)
-    
+        
     }
 
     /// Returns the day of the month. The date must be valid.
     @inlinable func getDay() -> GDateDay {
-        let rv = g_date_get_day(date_ptr)
+        let result = g_date_get_day(date_ptr)
+        let rv = result
         return rv
     }
 
     /// Returns the day of the year, where Jan 1 is the first day of the
     /// year. The date must be valid.
     @inlinable func getDayOfYear() -> Int {
-        let rv = Int(g_date_get_day_of_year(date_ptr))
+        let result = g_date_get_day_of_year(date_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the week of the year, where weeks are interpreted according
     /// to ISO 8601.
     @inlinable func getIso8601WeekOfYear() -> Int {
-        let rv = Int(g_date_get_iso8601_week_of_year(date_ptr))
+        let result = g_date_get_iso8601_week_of_year(date_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -472,7 +786,8 @@ public extension DateProtocol {
     /// January 1, Year 1 is Julian day 1; January 2, Year 1 is Julian day 2,
     /// etc. The date must be valid.
     @inlinable func getJulian() -> guint32 {
-        let rv = g_date_get_julian(date_ptr)
+        let result = g_date_get_julian(date_ptr)
+        let rv = result
         return rv
     }
 
@@ -480,13 +795,15 @@ public extension DateProtocol {
     /// Monday. If the date is before the first Monday of the year, return 0.
     /// The date must be valid.
     @inlinable func getMondayWeekOfYear() -> Int {
-        let rv = Int(g_date_get_monday_week_of_year(date_ptr))
+        let result = g_date_get_monday_week_of_year(date_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the month of the year. The date must be valid.
     @inlinable func getMonth() -> GDateMonth {
-        let rv = g_date_get_month(date_ptr)
+        let result = g_date_get_month(date_ptr)
+        let rv = result
         return rv
     }
 
@@ -494,34 +811,39 @@ public extension DateProtocol {
     /// weeks are understood to begin on Sunday. The date must be valid.
     /// Can return 0 if the day is before the first Sunday of the year.
     @inlinable func getSundayWeekOfYear() -> Int {
-        let rv = Int(g_date_get_sunday_week_of_year(date_ptr))
+        let result = g_date_get_sunday_week_of_year(date_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the day of the week for a `GDate`. The date must be valid.
     @inlinable func getWeekday() -> GDateWeekday {
-        let rv = g_date_get_weekday(date_ptr)
+        let result = g_date_get_weekday(date_ptr)
+        let rv = result
         return rv
     }
 
     /// Returns the year of a `GDate`. The date must be valid.
     @inlinable func getYear() -> GDateYear {
-        let rv = g_date_get_year(date_ptr)
+        let result = g_date_get_year(date_ptr)
+        let rv = result
         return rv
     }
 
     /// Checks if `date1` is less than or equal to `date2`,
     /// and swap the values if this is not the case.
     @inlinable func order<DateT: DateProtocol>(date2: DateT) {
+        
         g_date_order(date_ptr, date2.date_ptr)
-    
+        
     }
 
     /// Sets the day of the month for a `GDate`. If the resulting
     /// day-month-year triplet is invalid, the date will be invalid.
     @inlinable func set(day: GDateDay) {
+        
         g_date_set_day(date_ptr, day)
-    
+        
     }
 
     /// Sets the value of a `GDate` from a day, month, and year.
@@ -529,21 +851,24 @@ public extension DateProtocol {
     /// sure it is, call `g_date_valid_dmy()` to check before you
     /// set it.
     @inlinable func setDmy(day: GDateDay, month: GDateMonth, y: GDateYear) {
+        
         g_date_set_dmy(date_ptr, day, month, y)
-    
+        
     }
 
     /// Sets the value of a `GDate` from a Julian day number.
     @inlinable func setJulian(julianDate: guint32) {
+        
         g_date_set_julian(date_ptr, julianDate)
-    
+        
     }
 
     /// Sets the month of the year for a `GDate`.  If the resulting
     /// day-month-year triplet is invalid, the date will be invalid.
     @inlinable func set(month: GDateMonth) {
+        
         g_date_set_month(date_ptr, month)
-    
+        
     }
 
     /// Parses a user-inputted string `str`, and try to figure out what date it
@@ -558,8 +883,9 @@ public extension DateProtocol {
     /// means by a given string (and it does work pretty well in that
     /// capacity).
     @inlinable func setParse(str: UnsafePointer<gchar>!) {
+        
         g_date_set_parse(date_ptr, str)
-    
+        
     }
 
     /// Sets the value of a date from a `GTime` value.
@@ -568,8 +894,9 @@ public extension DateProtocol {
     /// **set_time is deprecated:**
     /// Use g_date_set_time_t() instead.
     @available(*, deprecated) @inlinable func set(time: GTime) {
+        
         g_date_set_time(date_ptr, time)
-    
+        
     }
 
     /// Sets the value of a date to the date corresponding to a time
@@ -586,8 +913,9 @@ public extension DateProtocol {
     /// ```
     /// 
     @inlinable func setTimeT(timet: time_t) {
+        
         g_date_set_time_t(date_ptr, timet)
-    
+        
     }
 
     /// Sets the value of a date from a `GTimeVal` value.  Note that the
@@ -600,23 +928,26 @@ public extension DateProtocol {
     /// #GTimeVal is not year-2038-safe. Use g_date_set_time_t()
     ///    instead.
     @available(*, deprecated) @inlinable func setTimeVal<TimeValT: TimeValProtocol>(timeval: TimeValT) {
+        
         g_date_set_time_val(date_ptr, timeval._ptr)
-    
+        
     }
 
     /// Sets the year for a `GDate`. If the resulting day-month-year
     /// triplet is invalid, the date will be invalid.
     @inlinable func set(year: GDateYear) {
+        
         g_date_set_year(date_ptr, year)
-    
+        
     }
 
     /// Moves a date some number of days into the past.
     /// To move by weeks, just move by weeks*7 days.
     /// The date must be valid.
     @inlinable func subtractDays(nDays: Int) {
+        
         g_date_subtract_days(date_ptr, guint(nDays))
-    
+        
     }
 
     /// Moves a date some number of months into the past.
@@ -624,8 +955,9 @@ public extension DateProtocol {
     /// the destination month, the day of the month
     /// may change. The date must be valid.
     @inlinable func subtractMonths(nMonths: Int) {
+        
         g_date_subtract_months(date_ptr, guint(nMonths))
-    
+        
     }
 
     /// Moves a date some number of years into the past.
@@ -634,22 +966,25 @@ public extension DateProtocol {
     /// then the day is changed to February 29. The date
     /// must be valid.
     @inlinable func subtractYears(nYears: Int) {
+        
         g_date_subtract_years(date_ptr, guint(nYears))
-    
+        
     }
 
     /// Fills in the date-related bits of a struct tm using the `date` value.
     /// Initializes the non-date parts with something safe but meaningless.
     @inlinable func toStruct(tm: UnsafeMutablePointer<tm>!) {
+        
         g_date_to_struct_tm(date_ptr, tm)
-    
+        
     }
 
     /// Returns `true` if the `GDate` represents an existing day. The date must not
     /// contain garbage; it should have been initialized with `g_date_clear()`
     /// if it wasn't allocated by one of the `g_date_new()` variants.
     @inlinable func valid() -> Bool {
-        let rv = ((g_date_valid(date_ptr)) != 0)
+        let result = g_date_valid(date_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -667,7 +1002,8 @@ public extension DateProtocol {
     /// make the \`F` provided by the C99 `strftime()` work on Windows
     /// where the C library only complies to C89.
     @inlinable func strftime(s: UnsafeMutablePointer<gchar>!, slen: Int, format: UnsafePointer<gchar>!) -> Int {
-        let rv = Int(g_date_strftime(s, gsize(slen), format, date_ptr))
+        let result = g_date_strftime(s, gsize(slen), format, date_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -685,14 +1021,16 @@ public extension DateProtocol {
     /// make the \`F` provided by the C99 `strftime()` work on Windows
     /// where the C library only complies to C89.
     @inlinable func dateStrftime(s: UnsafeMutablePointer<gchar>!, slen: Int, format: UnsafePointer<gchar>!) -> Int {
-        let rv = Int(g_date_strftime(s, gsize(slen), format, date_ptr))
+        let result = g_date_strftime(s, gsize(slen), format, date_ptr)
+        let rv = Int(result)
         return rv
     }
     /// Returns the day of the month. The date must be valid.
     @inlinable var day: GDateDay {
         /// Returns the day of the month. The date must be valid.
         get {
-            let rv = g_date_get_day(date_ptr)
+            let result = g_date_get_day(date_ptr)
+        let rv = result
             return rv
         }
         /// Sets the day of the month for a `GDate`. If the resulting
@@ -708,7 +1046,8 @@ public extension DateProtocol {
         /// Returns the day of the year, where Jan 1 is the first day of the
         /// year. The date must be valid.
         get {
-            let rv = Int(g_date_get_day_of_year(date_ptr))
+            let result = g_date_get_day_of_year(date_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -719,7 +1058,8 @@ public extension DateProtocol {
         /// Returns `true` if the date is on the first of a month.
         /// The date must be valid.
         get {
-            let rv = ((g_date_is_first_of_month(date_ptr)) != 0)
+            let result = g_date_is_first_of_month(date_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -730,7 +1070,8 @@ public extension DateProtocol {
         /// Returns `true` if the date is the last day of the month.
         /// The date must be valid.
         get {
-            let rv = ((g_date_is_last_of_month(date_ptr)) != 0)
+            let result = g_date_is_last_of_month(date_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -741,7 +1082,8 @@ public extension DateProtocol {
         /// Returns the week of the year, where weeks are interpreted according
         /// to ISO 8601.
         get {
-            let rv = Int(g_date_get_iso8601_week_of_year(date_ptr))
+            let result = g_date_get_iso8601_week_of_year(date_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -756,7 +1098,8 @@ public extension DateProtocol {
         /// January 1, Year 1 is Julian day 1; January 2, Year 1 is Julian day 2,
         /// etc. The date must be valid.
         get {
-            let rv = g_date_get_julian(date_ptr)
+            let result = g_date_get_julian(date_ptr)
+        let rv = result
             return rv
         }
         /// Sets the value of a `GDate` from a Julian day number.
@@ -773,7 +1116,8 @@ public extension DateProtocol {
         /// Monday. If the date is before the first Monday of the year, return 0.
         /// The date must be valid.
         get {
-            let rv = Int(g_date_get_monday_week_of_year(date_ptr))
+            let result = g_date_get_monday_week_of_year(date_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -782,7 +1126,8 @@ public extension DateProtocol {
     @inlinable var month: GDateMonth {
         /// Returns the month of the year. The date must be valid.
         get {
-            let rv = g_date_get_month(date_ptr)
+            let result = g_date_get_month(date_ptr)
+        let rv = result
             return rv
         }
         /// Sets the month of the year for a `GDate`.  If the resulting
@@ -800,7 +1145,8 @@ public extension DateProtocol {
         /// weeks are understood to begin on Sunday. The date must be valid.
         /// Can return 0 if the day is before the first Sunday of the year.
         get {
-            let rv = Int(g_date_get_sunday_week_of_year(date_ptr))
+            let result = g_date_get_sunday_week_of_year(date_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -809,7 +1155,8 @@ public extension DateProtocol {
     @inlinable var weekday: GDateWeekday {
         /// Returns the day of the week for a `GDate`. The date must be valid.
         get {
-            let rv = g_date_get_weekday(date_ptr)
+            let result = g_date_get_weekday(date_ptr)
+        let rv = result
             return rv
         }
     }
@@ -818,7 +1165,8 @@ public extension DateProtocol {
     @inlinable var year: GDateYear {
         /// Returns the year of a `GDate`. The date must be valid.
         get {
-            let rv = g_date_get_year(date_ptr)
+            let result = g_date_get_year(date_ptr)
+        let rv = result
             return rv
         }
         /// Sets the year for a `GDate`. If the resulting day-month-year
@@ -833,7 +1181,7 @@ public extension DateProtocol {
         /// the Julian representation of the date
         get {
             let rv = date_ptr.pointee.julian_days
-            return rv
+    return rv
         }
         /// the Julian representation of the date
          set {
@@ -846,7 +1194,7 @@ public extension DateProtocol {
         /// this bit is set if `julian_days` is valid
         get {
             let rv = date_ptr.pointee.julian
-            return rv
+    return rv
         }
         /// this bit is set if `julian_days` is valid
          set {
@@ -859,7 +1207,7 @@ public extension DateProtocol {
         /// this is set if `day`, `month` and `year` are valid
         get {
             let rv = date_ptr.pointee.dmy
-            return rv
+    return rv
         }
         /// this is set if `day`, `month` and `year` are valid
          set {
@@ -874,7 +1222,7 @@ public extension DateProtocol {
         ///   as a number between 1 and 31
         get {
             let rv = date_ptr.pointee.day
-            return rv
+    return rv
         }
         /// the day of the day-month-year representation of the date,
         ///   as a number between 1 and 31
@@ -890,7 +1238,7 @@ public extension DateProtocol {
         ///   as a number between 1 and 12
         get {
             let rv = date_ptr.pointee.month
-            return rv
+    return rv
         }
         /// the day of the day-month-year representation of the date,
         ///   as a number between 1 and 12
@@ -904,7 +1252,7 @@ public extension DateProtocol {
         /// the day of the day-month-year representation of the date
         get {
             let rv = date_ptr.pointee.year
-            return rv
+    return rv
         }
         /// the day of the day-month-year representation of the date
          set {
@@ -1047,8 +1395,9 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable init<TimeZoneT: TimeZoneProtocol>( tz: TimeZoneT, year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new(tz.time_zone_ptr, gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new(tz.time_zone_ptr, gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given
@@ -1095,8 +1444,9 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable init<TimeZoneT: TimeZoneProtocol>(iso8601 text: UnsafePointer<gchar>!, defaultTz: TimeZoneT?) {
-        let rv = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in the
@@ -1116,8 +1466,9 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) @inlinable init<TimeValT: TimeValProtocol>(timevalLocal tv: TimeValT) {
-        let rv = g_date_time_new_from_timeval_local(tv._ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_timeval_local(tv._ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in UTC.
@@ -1135,8 +1486,9 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) @inlinable init<TimeValT: TimeValProtocol>(timevalUTC tv: TimeValT) {
-        let rv = g_date_time_new_from_timeval_utc(tv._ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_timeval_utc(tv._ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in the
@@ -1151,8 +1503,9 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable init(unixLocal t: gint64) {
-        let rv = g_date_time_new_from_unix_local(t)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_unix_local(t)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in UTC.
@@ -1166,8 +1519,9 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable init(unixUTC t: gint64) {
-        let rv = g_date_time_new_from_unix_utc(t)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_unix_utc(t)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -1176,8 +1530,9 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable init(local year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to this exact instant in the given
@@ -1190,8 +1545,9 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable init<TimeZoneT: TimeZoneProtocol>(now tz: TimeZoneT) {
-        let rv = g_date_time_new_now(tz.time_zone_ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_now(tz.time_zone_ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -1200,8 +1556,9 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable init(utc year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a `GDateTime` corresponding to the given
     /// [ISO 8601 formatted string](https://en.wikipedia.org/wiki/ISO_8601)
@@ -1247,7 +1604,8 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable static func newFrom<TimeZoneT: TimeZoneProtocol>(iso8601 text: UnsafePointer<gchar>!, defaultTz: TimeZoneT?) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr))) else { return nil }
+            let result = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1268,7 +1626,8 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) @inlinable static func newFrom<TimeValT: TimeValProtocol>(timevalLocal tv: TimeValT) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_from_timeval_local(tv._ptr))) else { return nil }
+            let result = g_date_time_new_from_timeval_local(tv._ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1287,7 +1646,8 @@ public extension DateTimeRef {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) @inlinable static func newFrom<TimeValT: TimeValProtocol>(timevalUTC tv: TimeValT) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_from_timeval_utc(tv._ptr))) else { return nil }
+            let result = g_date_time_new_from_timeval_utc(tv._ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1303,7 +1663,8 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable static func newFrom(unixLocal t: gint64) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_from_unix_local(t))) else { return nil }
+            let result = g_date_time_new_from_unix_local(t)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1318,7 +1679,8 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable static func newFrom(unixUTC t: gint64) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_from_unix_utc(t))) else { return nil }
+            let result = g_date_time_new_from_unix_utc(t)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1328,7 +1690,8 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable static func new(local year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds)))) else { return nil }
+            let result = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1342,7 +1705,8 @@ public extension DateTimeRef {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable static func new<TimeZoneT: TimeZoneProtocol>(now tz: TimeZoneT) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_now(tz.time_zone_ptr))) else { return nil }
+            let result = g_date_time_new_now(tz.time_zone_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1352,7 +1716,8 @@ public extension DateTimeRef {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable static func newNowLocal() -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_now_local())) else { return nil }
+            let result = g_date_time_new_now_local()
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1361,7 +1726,8 @@ public extension DateTimeRef {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable static func newNowUTC() -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_now_utc())) else { return nil }
+            let result = g_date_time_new_now_utc()
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1371,7 +1737,8 @@ public extension DateTimeRef {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable static func new(utc year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds)))) else { return nil }
+            let result = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -1551,8 +1918,9 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public init<TimeZoneT: TimeZoneProtocol>( tz: TimeZoneT, year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new(tz.time_zone_ptr, gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new(tz.time_zone_ptr, gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given
@@ -1599,8 +1967,9 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public init<TimeZoneT: TimeZoneProtocol>(iso8601 text: UnsafePointer<gchar>!, defaultTz: TimeZoneT?) {
-        let rv = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in the
@@ -1620,8 +1989,9 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) @inlinable public init<TimeValT: TimeValProtocol>(timevalLocal tv: TimeValT) {
-        let rv = g_date_time_new_from_timeval_local(tv._ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_timeval_local(tv._ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given `GTimeVal` `tv` in UTC.
@@ -1639,8 +2009,9 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) @inlinable public init<TimeValT: TimeValProtocol>(timevalUTC tv: TimeValT) {
-        let rv = g_date_time_new_from_timeval_utc(tv._ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_timeval_utc(tv._ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in the
@@ -1655,8 +2026,9 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public init(unixLocal t: gint64) {
-        let rv = g_date_time_new_from_unix_local(t)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_unix_local(t)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given Unix time `t` in UTC.
@@ -1670,8 +2042,9 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public init(unixUTC t: gint64) {
-        let rv = g_date_time_new_from_unix_utc(t)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_from_unix_utc(t)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -1680,8 +2053,9 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable public init(local year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to this exact instant in the given
@@ -1694,8 +2068,9 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public init<TimeZoneT: TimeZoneProtocol>(now tz: TimeZoneT) {
-        let rv = g_date_time_new_now(tz.time_zone_ptr)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_now(tz.time_zone_ptr)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GDateTime` corresponding to the given date and time in
@@ -1704,8 +2079,9 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable public init(utc year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) {
-        let rv = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GDateTime` corresponding to the given
@@ -1752,7 +2128,8 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public static func newFrom<TimeZoneT: TimeZoneProtocol>(iso8601 text: UnsafePointer<gchar>!, defaultTz: TimeZoneT?) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr))) else { return nil }
+            let result = g_date_time_new_from_iso8601(text, defaultTz?.time_zone_ptr)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1773,7 +2150,8 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_local() instead.
     @available(*, deprecated) @inlinable public static func newFrom<TimeValT: TimeValProtocol>(timevalLocal tv: TimeValT) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_from_timeval_local(tv._ptr))) else { return nil }
+            let result = g_date_time_new_from_timeval_local(tv._ptr)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1792,7 +2170,8 @@ open class DateTime: DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_unix_utc() instead.
     @available(*, deprecated) @inlinable public static func newFrom<TimeValT: TimeValProtocol>(timevalUTC tv: TimeValT) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_from_timeval_utc(tv._ptr))) else { return nil }
+            let result = g_date_time_new_from_timeval_utc(tv._ptr)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1808,7 +2187,8 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public static func newFrom(unixLocal t: gint64) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_from_unix_local(t))) else { return nil }
+            let result = g_date_time_new_from_unix_local(t)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1823,7 +2203,8 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public static func newFrom(unixUTC t: gint64) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_from_unix_utc(t))) else { return nil }
+            let result = g_date_time_new_from_unix_utc(t)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1833,7 +2214,8 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable public static func new(local year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds)))) else { return nil }
+            let result = g_date_time_new_local(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1847,7 +2229,8 @@ open class DateTime: DateTimeProtocol {
     /// You should release the return value by calling `g_date_time_unref()`
     /// when you are done with it.
     @inlinable public static func new<TimeZoneT: TimeZoneProtocol>(now tz: TimeZoneT) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_now(tz.time_zone_ptr))) else { return nil }
+            let result = g_date_time_new_now(tz.time_zone_ptr)
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1857,7 +2240,8 @@ open class DateTime: DateTimeProtocol {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_local()`.
     @inlinable public static func newNowLocal() -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_now_local())) else { return nil }
+            let result = g_date_time_new_now_local()
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1866,7 +2250,8 @@ open class DateTime: DateTimeProtocol {
     /// This is equivalent to calling `g_date_time_new_now()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable public static func newNowUTC() -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_now_utc())) else { return nil }
+            let result = g_date_time_new_now_utc()
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1876,7 +2261,8 @@ open class DateTime: DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_new()` with the time
     /// zone returned by `g_time_zone_new_utc()`.
     @inlinable public static func new(utc year: Int, month: Int, day: Int, hour: Int, minute: Int, seconds: Double) -> DateTime! {
-        guard let rv = DateTime(gconstpointer: gconstpointer(g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds)))) else { return nil }
+            let result = g_date_time_new_utc(gint(year), gint(month), gint(day), gint(hour), gint(minute), gdouble(seconds))
+        guard let rv = DateTime(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1894,35 +2280,40 @@ public extension DateTimeProtocol {
 
     /// Creates a copy of `datetime` and adds the specified timespan to the copy.
     @inlinable func add(timespan: GTimeSpan) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add(date_time_ptr, timespan))) else { return nil }
+        let result = g_date_time_add(date_time_ptr, timespan)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a copy of `datetime` and adds the specified number of days to the
     /// copy. Add negative values to subtract days.
     @inlinable func add(days: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_days(date_time_ptr, gint(days)))) else { return nil }
+        let result = g_date_time_add_days(date_time_ptr, gint(days))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a new `GDateTime` adding the specified values to the current date and
     /// time in `datetime`. Add negative values to subtract.
     @inlinable func addFull(years: Int, months: Int, days: Int, hours: Int, minutes: Int, seconds: Double) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_full(date_time_ptr, gint(years), gint(months), gint(days), gint(hours), gint(minutes), gdouble(seconds)))) else { return nil }
+        let result = g_date_time_add_full(date_time_ptr, gint(years), gint(months), gint(days), gint(hours), gint(minutes), gdouble(seconds))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a copy of `datetime` and adds the specified number of hours.
     /// Add negative values to subtract hours.
     @inlinable func add(hours: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_hours(date_time_ptr, gint(hours)))) else { return nil }
+        let result = g_date_time_add_hours(date_time_ptr, gint(hours))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a copy of `datetime` adding the specified number of minutes.
     /// Add negative values to subtract minutes.
     @inlinable func add(minutes: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_minutes(date_time_ptr, gint(minutes)))) else { return nil }
+        let result = g_date_time_add_minutes(date_time_ptr, gint(minutes))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1934,21 +2325,24 @@ public extension DateTimeProtocol {
     /// 31st January 2018, the result would be 28th February 2018. In 2020 (a leap
     /// year), the result would be 29th February.
     @inlinable func add(months: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_months(date_time_ptr, gint(months)))) else { return nil }
+        let result = g_date_time_add_months(date_time_ptr, gint(months))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a copy of `datetime` and adds the specified number of seconds.
     /// Add negative values to subtract seconds.
     @inlinable func add(seconds: Double) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_seconds(date_time_ptr, gdouble(seconds)))) else { return nil }
+        let result = g_date_time_add_seconds(date_time_ptr, gdouble(seconds))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a copy of `datetime` and adds the specified number of weeks to the
     /// copy. Add negative values to subtract weeks.
     @inlinable func add(weeks: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_weeks(date_time_ptr, gint(weeks)))) else { return nil }
+        let result = g_date_time_add_weeks(date_time_ptr, gint(weeks))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1958,14 +2352,16 @@ public extension DateTimeProtocol {
     /// As with `g_date_time_add_months()`, if the resulting date would be 29th
     /// February on a non-leap year, the day will be clamped to 28th February.
     @inlinable func add(years: Int) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_add_years(date_time_ptr, gint(years)))) else { return nil }
+        let result = g_date_time_add_years(date_time_ptr, gint(years))
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// A comparison function for `GDateTimes` that is suitable
     /// as a `GCompareFunc`. Both `GDateTimes` must be non-`nil`.
     @inlinable func compare<DateTimeT: DateTimeProtocol>(dt2: DateTimeT) -> Int {
-        let rv = Int(g_date_time_compare(date_time_ptr, dt2.date_time_ptr))
+        let result = g_date_time_compare(date_time_ptr, dt2.date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -1973,7 +2369,8 @@ public extension DateTimeProtocol {
     /// `GTimeSpan` that is returned is effectively `end` - `begin` (ie:
     /// positive if the first parameter is larger).
     @inlinable func difference<DateTimeT: DateTimeProtocol>(begin: DateTimeT) -> GTimeSpan {
-        let rv = g_date_time_difference(date_time_ptr, begin.date_time_ptr)
+        let result = g_date_time_difference(date_time_ptr, begin.date_time_ptr)
+        let rv = result
         return rv
     }
 
@@ -1982,7 +2379,8 @@ public extension DateTimeProtocol {
     /// Equal here means that they represent the same moment after converting
     /// them to the same time zone.
     @inlinable func equal<DateTimeT: DateTimeProtocol>(dt2: DateTimeT) -> Bool {
-        let rv = ((g_date_time_equal(date_time_ptr, dt2.date_time_ptr)) != 0)
+        let result = g_date_time_equal(date_time_ptr, dt2.date_time_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2086,7 +2484,8 @@ public extension DateTimeProtocol {
     /// `strftime()` extension expected to be added to the future POSIX specification,
     /// \`Ob` and \`Oh` are GNU `strftime()` extensions. Since: 2.56
     @inlinable func format(format: UnsafePointer<gchar>!) -> String! {
-        let rv = g_date_time_format(date_time_ptr, format).map({ String(cString: $0) })
+        let result = g_date_time_format(date_time_ptr, format)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2096,72 +2495,83 @@ public extension DateTimeProtocol {
     /// 
     /// Since GLib 2.66, this will output to sub-second precision if needed.
     @inlinable func formatIso8601() -> String! {
-        let rv = g_date_time_format_iso8601(date_time_ptr).map({ String(cString: $0) })
+        let result = g_date_time_format_iso8601(date_time_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Retrieves the day of the month represented by `datetime` in the gregorian
     /// calendar.
     @inlinable func getDayOfMonth() -> Int {
-        let rv = Int(g_date_time_get_day_of_month(date_time_ptr))
+        let result = g_date_time_get_day_of_month(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the ISO 8601 day of the week on which `datetime` falls (1 is
     /// Monday, 2 is Tuesday... 7 is Sunday).
     @inlinable func getDayOfWeek() -> Int {
-        let rv = Int(g_date_time_get_day_of_week(date_time_ptr))
+        let result = g_date_time_get_day_of_week(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the day of the year represented by `datetime` in the Gregorian
     /// calendar.
     @inlinable func getDayOfYear() -> Int {
-        let rv = Int(g_date_time_get_day_of_year(date_time_ptr))
+        let result = g_date_time_get_day_of_year(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the hour of the day represented by `datetime`
     @inlinable func getHour() -> Int {
-        let rv = Int(g_date_time_get_hour(date_time_ptr))
+        let result = g_date_time_get_hour(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the microsecond of the date represented by `datetime`
     @inlinable func getMicrosecond() -> Int {
-        let rv = Int(g_date_time_get_microsecond(date_time_ptr))
+        let result = g_date_time_get_microsecond(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the minute of the hour represented by `datetime`
     @inlinable func getMinute() -> Int {
-        let rv = Int(g_date_time_get_minute(date_time_ptr))
+        let result = g_date_time_get_minute(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the month of the year represented by `datetime` in the Gregorian
     /// calendar.
     @inlinable func getMonth() -> Int {
-        let rv = Int(g_date_time_get_month(date_time_ptr))
+        let result = g_date_time_get_month(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the second of the minute represented by `datetime`
     @inlinable func getSecond() -> Int {
-        let rv = Int(g_date_time_get_second(date_time_ptr))
+        let result = g_date_time_get_second(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the number of seconds since the start of the last minute,
     /// including the fractional part.
     @inlinable func getSeconds() -> Double {
-        let rv = Double(g_date_time_get_seconds(date_time_ptr))
+        let result = g_date_time_get_seconds(date_time_ptr)
+        let rv = Double(result)
         return rv
     }
 
     /// Get the time zone for this `datetime`.
     @inlinable func getTimezone() -> TimeZoneRef! {
-        let rv = TimeZoneRef(gconstpointer: gconstpointer(g_date_time_get_timezone(date_time_ptr)))
+        let result = g_date_time_get_timezone(date_time_ptr)
+        let rv = TimeZoneRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -2172,7 +2582,8 @@ public extension DateTimeProtocol {
     /// months and "EDT" during the summer months when daylight savings
     /// time is in effect.
     @inlinable func getTimezoneAbbreviation() -> String! {
-        let rv = g_date_time_get_timezone_abbreviation(date_time_ptr).map({ String(cString: $0) })
+        let result = g_date_time_get_timezone_abbreviation(date_time_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2185,7 +2596,8 @@ public extension DateTimeProtocol {
     /// 
     /// If `datetime` represents UTC time, then the offset is always zero.
     @inlinable func getUTCOffset() -> GTimeSpan {
-        let rv = g_date_time_get_utc_offset(date_time_ptr)
+        let result = g_date_time_get_utc_offset(date_time_ptr)
+        let rv = result
         return rv
     }
 
@@ -2221,7 +2633,8 @@ public extension DateTimeProtocol {
     /// Note that January 1 0001 in the proleptic Gregorian calendar is a
     /// Monday, so this function never returns 0.
     @inlinable func getWeekNumberingYear() -> Int {
-        let rv = Int(g_date_time_get_week_numbering_year(date_time_ptr))
+        let result = g_date_time_get_week_numbering_year(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -2241,31 +2654,36 @@ public extension DateTimeProtocol {
     /// considered as being part of the first ISO 8601 week of the next year
     /// if 4 or more days of that week are contained within the new year.
     @inlinable func getWeekOfYear() -> Int {
-        let rv = Int(g_date_time_get_week_of_year(date_time_ptr))
+        let result = g_date_time_get_week_of_year(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the year represented by `datetime` in the Gregorian calendar.
     @inlinable func getYear() -> Int {
-        let rv = Int(g_date_time_get_year(date_time_ptr))
+        let result = g_date_time_get_year(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Retrieves the Gregorian day, month, and year of a given `GDateTime`.
     @inlinable func getYmd(year: UnsafeMutablePointer<gint>! = nil, month: UnsafeMutablePointer<gint>! = nil, day: UnsafeMutablePointer<gint>! = nil) {
+        
         g_date_time_get_ymd(date_time_ptr, year, month, day)
-    
+        
     }
 
     /// Hashes `datetime` into a `guint`, suitable for use within `GHashTable`.
     @inlinable func hash() -> Int {
-        let rv = Int(g_date_time_hash(date_time_ptr))
+        let result = g_date_time_hash(date_time_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Atomically increments the reference count of `datetime` by one.
     @discardableResult @inlinable func ref() -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_ref(date_time_ptr))) else { return nil }
+        let result = g_date_time_ref(date_time_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2275,7 +2693,8 @@ public extension DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_to_timezone()` with the
     /// time zone returned by `g_time_zone_new_local()`.
     @inlinable func toLocal() -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_to_local(date_time_ptr))) else { return nil }
+        let result = g_date_time_to_local(date_time_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2297,7 +2716,8 @@ public extension DateTimeProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_to_unix() instead.
     @available(*, deprecated) @inlinable func toTimeval<TimeValT: TimeValProtocol>(tv: TimeValT) -> Bool {
-        let rv = ((g_date_time_to_timeval(date_time_ptr, tv._ptr)) != 0)
+        let result = g_date_time_to_timeval(date_time_ptr, tv._ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2308,7 +2728,8 @@ public extension DateTimeProtocol {
     /// example, converting 0001-01-01 00:00:00 UTC to a time zone west of
     /// Greenwich will fail (due to the year 0 being out of range).
     @inlinable func toTimezone<TimeZoneT: TimeZoneProtocol>(tz: TimeZoneT) -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_to_timezone(date_time_ptr, tz.time_zone_ptr))) else { return nil }
+        let result = g_date_time_to_timezone(date_time_ptr, tz.time_zone_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2318,7 +2739,8 @@ public extension DateTimeProtocol {
     /// Unix time is the number of seconds that have elapsed since 1970-01-01
     /// 00:00:00 UTC, regardless of the time zone associated with `datetime`.
     @inlinable func toUnix() -> gint64 {
-        let rv = g_date_time_to_unix(date_time_ptr)
+        let result = g_date_time_to_unix(date_time_ptr)
+        let rv = result
         return rv
     }
 
@@ -2328,7 +2750,8 @@ public extension DateTimeProtocol {
     /// This call is equivalent to calling `g_date_time_to_timezone()` with the
     /// time zone returned by `g_time_zone_new_utc()`.
     @inlinable func toUTC() -> DateTimeRef! {
-        guard let rv = DateTimeRef(gconstpointer: gconstpointer(g_date_time_to_utc(date_time_ptr))) else { return nil }
+        let result = g_date_time_to_utc(date_time_ptr)
+        guard let rv = DateTimeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2337,8 +2760,9 @@ public extension DateTimeProtocol {
     /// When the reference count reaches zero, the resources allocated by
     /// `datetime` are freed
     @inlinable func unref() {
+        
         g_date_time_unref(date_time_ptr)
-    
+        
     }
     /// Retrieves the day of the month represented by `datetime` in the gregorian
     /// calendar.
@@ -2346,7 +2770,8 @@ public extension DateTimeProtocol {
         /// Retrieves the day of the month represented by `datetime` in the gregorian
         /// calendar.
         get {
-            let rv = Int(g_date_time_get_day_of_month(date_time_ptr))
+            let result = g_date_time_get_day_of_month(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2357,7 +2782,8 @@ public extension DateTimeProtocol {
         /// Retrieves the ISO 8601 day of the week on which `datetime` falls (1 is
         /// Monday, 2 is Tuesday... 7 is Sunday).
         get {
-            let rv = Int(g_date_time_get_day_of_week(date_time_ptr))
+            let result = g_date_time_get_day_of_week(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2368,7 +2794,8 @@ public extension DateTimeProtocol {
         /// Retrieves the day of the year represented by `datetime` in the Gregorian
         /// calendar.
         get {
-            let rv = Int(g_date_time_get_day_of_year(date_time_ptr))
+            let result = g_date_time_get_day_of_year(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2377,7 +2804,8 @@ public extension DateTimeProtocol {
     @inlinable var hour: Int {
         /// Retrieves the hour of the day represented by `datetime`
         get {
-            let rv = Int(g_date_time_get_hour(date_time_ptr))
+            let result = g_date_time_get_hour(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2388,7 +2816,8 @@ public extension DateTimeProtocol {
         /// Determines if daylight savings time is in effect at the time and in
         /// the time zone of `datetime`.
         get {
-            let rv = ((g_date_time_is_daylight_savings(date_time_ptr)) != 0)
+            let result = g_date_time_is_daylight_savings(date_time_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -2397,7 +2826,8 @@ public extension DateTimeProtocol {
     @inlinable var microsecond: Int {
         /// Retrieves the microsecond of the date represented by `datetime`
         get {
-            let rv = Int(g_date_time_get_microsecond(date_time_ptr))
+            let result = g_date_time_get_microsecond(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2406,7 +2836,8 @@ public extension DateTimeProtocol {
     @inlinable var minute: Int {
         /// Retrieves the minute of the hour represented by `datetime`
         get {
-            let rv = Int(g_date_time_get_minute(date_time_ptr))
+            let result = g_date_time_get_minute(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2417,7 +2848,8 @@ public extension DateTimeProtocol {
         /// Retrieves the month of the year represented by `datetime` in the Gregorian
         /// calendar.
         get {
-            let rv = Int(g_date_time_get_month(date_time_ptr))
+            let result = g_date_time_get_month(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2426,7 +2858,8 @@ public extension DateTimeProtocol {
     @inlinable var second: Int {
         /// Retrieves the second of the minute represented by `datetime`
         get {
-            let rv = Int(g_date_time_get_second(date_time_ptr))
+            let result = g_date_time_get_second(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2437,7 +2870,8 @@ public extension DateTimeProtocol {
         /// Retrieves the number of seconds since the start of the last minute,
         /// including the fractional part.
         get {
-            let rv = Double(g_date_time_get_seconds(date_time_ptr))
+            let result = g_date_time_get_seconds(date_time_ptr)
+        let rv = Double(result)
             return rv
         }
     }
@@ -2446,7 +2880,8 @@ public extension DateTimeProtocol {
     @inlinable var timezone: TimeZoneRef! {
         /// Get the time zone for this `datetime`.
         get {
-            let rv = TimeZoneRef(gconstpointer: gconstpointer(g_date_time_get_timezone(date_time_ptr)))
+            let result = g_date_time_get_timezone(date_time_ptr)
+        let rv = TimeZoneRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -2465,7 +2900,8 @@ public extension DateTimeProtocol {
         /// months and "EDT" during the summer months when daylight savings
         /// time is in effect.
         get {
-            let rv = g_date_time_get_timezone_abbreviation(date_time_ptr).map({ String(cString: $0) })
+            let result = g_date_time_get_timezone_abbreviation(date_time_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -2488,7 +2924,8 @@ public extension DateTimeProtocol {
         /// 
         /// If `datetime` represents UTC time, then the offset is always zero.
         get {
-            let rv = g_date_time_get_utc_offset(date_time_ptr)
+            let result = g_date_time_get_utc_offset(date_time_ptr)
+        let rv = result
             return rv
         }
     }
@@ -2557,7 +2994,8 @@ public extension DateTimeProtocol {
         /// Note that January 1 0001 in the proleptic Gregorian calendar is a
         /// Monday, so this function never returns 0.
         get {
-            let rv = Int(g_date_time_get_week_numbering_year(date_time_ptr))
+            let result = g_date_time_get_week_numbering_year(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2594,7 +3032,8 @@ public extension DateTimeProtocol {
         /// considered as being part of the first ISO 8601 week of the next year
         /// if 4 or more days of that week are contained within the new year.
         get {
-            let rv = Int(g_date_time_get_week_of_year(date_time_ptr))
+            let result = g_date_time_get_week_of_year(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2603,7 +3042,8 @@ public extension DateTimeProtocol {
     @inlinable var year: Int {
         /// Retrieves the year represented by `datetime` in the Gregorian calendar.
         get {
-            let rv = Int(g_date_time_get_year(date_time_ptr))
+            let result = g_date_time_get_year(date_time_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2886,7 +3326,7 @@ public extension DebugKeyProtocol {
         /// the string
         get {
             let rv = _ptr.pointee.key
-            return rv
+    return rv
         }
         /// the string
          set {
@@ -2899,7 +3339,7 @@ public extension DebugKeyProtocol {
         /// the flag
         get {
             let rv = _ptr.pointee.value
-            return rv
+    return rv
         }
         /// the flag
          set {
@@ -3017,9 +3457,11 @@ public extension DirRef {
     /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     @inlinable static func open(path: UnsafePointer<gchar>!, flags: Int) throws -> DirRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = DirRef(gconstpointer: gconstpointer(g_dir_open(path, guint(flags), &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_dir_open(path, guint(flags), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = DirRef(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -3176,9 +3618,11 @@ open class Dir: DirProtocol {
     /// directory can then be retrieved using `g_dir_read_name()`.  Note
     /// that the ordering is not defined.
     @inlinable public static func open(path: UnsafePointer<gchar>!, flags: Int) throws -> Dir! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = Dir(gconstpointer: gconstpointer(g_dir_open(path, guint(flags), &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_dir_open(path, guint(flags), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = Dir(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -3197,8 +3641,9 @@ public extension DirProtocol {
 
     /// Closes the directory and deallocates all related resources.
     @inlinable func close() {
+        
         g_dir_close(_ptr)
-    
+        
     }
 
     /// Retrieves the name of another entry in the directory, or `nil`.
@@ -3215,466 +3660,19 @@ public extension DirProtocol {
     /// On Windows, as is true of all GLib functions which operate on
     /// filenames, the returned name is in UTF-8.
     @inlinable func readName() -> String! {
-        let rv = g_dir_read_name(_ptr).map({ String(cString: $0) })
+        let result = g_dir_read_name(_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Resets the given directory. The next call to `g_dir_read_name()`
     /// will return the first entry again.
     @inlinable func rewind() {
+        
         g_dir_rewind(_ptr)
-    
+        
     }
 
-
-}
-
-
-
-// MARK: - Error Record
-
-/// The `GError` structure contains information about
-/// an error that has occurred.
-///
-/// The `ErrorProtocol` protocol exposes the methods and properties of an underlying `GError` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `GLibError`.
-/// Alternatively, use `ErrorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol ErrorProtocol: Error {
-        /// Untyped pointer to the underlying `GError` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GError` instance.
-    var error_ptr: UnsafeMutablePointer<GError>! { get }
-
-    /// Required Initialiser for types conforming to `ErrorProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The `GError` structure contains information about
-/// an error that has occurred.
-///
-/// The `ErrorRef` type acts as a lightweight Swift reference to an underlying `GError` instance.
-/// It exposes methods that can operate on this data type through `ErrorProtocol` conformance.
-/// Use `ErrorRef` only as an `unowned` reference to an existing `GError` instance.
-///
-public struct ErrorRef: ErrorProtocol {
-        /// Untyped pointer to the underlying `GError` instance.
-    /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension ErrorRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GError>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GError>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GError>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GError>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `ErrorProtocol`
-    @inlinable init<T: ErrorProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    
-    // *** new() is not available because it has a varargs (...) parameter!
-
-
-    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
-    /// not a `printf()`-style format string. Use this function if
-    /// `message` contains text you don't have control over,
-    /// that could include `printf()` escape sequences.
-    @inlinable init(literal domain: GQuark, code: Int, message: UnsafePointer<gchar>!) {
-        let rv = g_error_new_literal(domain, gint(code), message)
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-
-    /// Creates a new `GError` with the given `domain` and `code`,
-    /// and a message formatted with `format`.
-    @inlinable init(valist domain: GQuark, code: Int, format: UnsafePointer<gchar>!, args: CVaListPointer) {
-        let rv = g_error_new_valist(domain, gint(code), format, args)
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
-    /// not a `printf()`-style format string. Use this function if
-    /// `message` contains text you don't have control over,
-    /// that could include `printf()` escape sequences.
-    @inlinable static func new(literal domain: GQuark, code: Int, message: UnsafePointer<gchar>!) -> ErrorRef! {
-        guard let rv = ErrorRef(gconstpointer: gconstpointer(g_error_new_literal(domain, gint(code), message))) else { return nil }
-        return rv
-    }
-
-    /// Creates a new `GError` with the given `domain` and `code`,
-    /// and a message formatted with `format`.
-    @inlinable static func new(valist domain: GQuark, code: Int, format: UnsafePointer<gchar>!, args: CVaListPointer) -> ErrorRef! {
-        guard let rv = ErrorRef(gconstpointer: gconstpointer(g_error_new_valist(domain, gint(code), format, args))) else { return nil }
-        return rv
-    }
-}
-
-/// The `GError` structure contains information about
-/// an error that has occurred.
-///
-/// The `GLibError` type acts as an owner of an underlying `GError` instance.
-/// It provides the methods that can operate on this data type through `ErrorProtocol` conformance.
-/// Use `GLibError` as a strong reference or owner of a `GError` instance.
-///
-open class GLibError: ErrorProtocol {
-        /// Untyped pointer to the underlying `GError` instance.
-    /// For type-safe access, use the generated, typed pointer `error_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GError>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GError>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GError>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GError>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GError` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `GLibError` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GError>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Reference intialiser for a related type that implements `ErrorProtocol`
-    /// `GError` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ErrorProtocol`
-    @inlinable public init<T: ErrorProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Do-nothing destructor for `GError`.
-    deinit {
-	    g_error_free(error_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ErrorProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-
-    // *** new() is not available because it has a varargs (...) parameter!
-
-
-    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
-    /// not a `printf()`-style format string. Use this function if
-    /// `message` contains text you don't have control over,
-    /// that could include `printf()` escape sequences.
-    @inlinable public init(literal domain: GQuark, code: Int, message: UnsafePointer<gchar>!) {
-        let rv = g_error_new_literal(domain, gint(code), message)
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-
-
-    // *** newValist() is currently not available because g_error_new_valist takes a va_list pointer!
-
-
-    /// Creates a new `GError`; unlike `g_error_new()`, `message` is
-    /// not a `printf()`-style format string. Use this function if
-    /// `message` contains text you don't have control over,
-    /// that could include `printf()` escape sequences.
-    @inlinable public static func new(literal domain: GQuark, code: Int, message: UnsafePointer<gchar>!) -> GLibError! {
-        guard let rv = GLibError(gconstpointer: gconstpointer(g_error_new_literal(domain, gint(code), message))) else { return nil }
-        return rv
-    }
-
-
-    // *** newValist() is currently not available because g_error_new_valist takes a va_list pointer!
-
-
-}
-
-// MARK: no GLibError properties
-
-// MARK: no GLibError signals
-
-// MARK: GLibError has no signals
-// MARK: Error Record: ErrorProtocol extension (methods and fields)
-public extension ErrorProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GError` instance.
-    @inlinable var error_ptr: UnsafeMutablePointer<GError>! { return ptr?.assumingMemoryBound(to: GError.self) }
-
-    /// Makes a copy of `error`.
-    @inlinable func copy() -> ErrorRef! {
-        guard let rv = ErrorRef(gconstpointer: gconstpointer(g_error_copy(error_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Frees a `GError` and associated resources.
-    @inlinable func free() {
-        g_error_free(error_ptr)
-    
-    }
-
-    /// Returns `true` if `error` matches `domain` and `code`, `false`
-    /// otherwise. In particular, when `error` is `nil`, `false` will
-    /// be returned.
-    /// 
-    /// If `domain` contains a `FAILED` (or otherwise generic) error code,
-    /// you should generally not check for it explicitly, but should
-    /// instead treat any not-explicitly-recognized error code as being
-    /// equivalent to the `FAILED` code. This way, if the domain is
-    /// extended in the future to provide a more specific error code for
-    /// a certain case, your code will still work.
-    @inlinable func matches(domain: GQuark, code: Int) -> Bool {
-        let rv = ((g_error_matches(error_ptr, domain, gint(code))) != 0)
-        return rv
-    }
-
-    @inlinable func assertionMessageError(domain: UnsafePointer<CChar>!, file: UnsafePointer<CChar>!, line: Int, `func`: UnsafePointer<CChar>!, expr: UnsafePointer<CChar>!, errorDomain: GQuark, errorCode: Int) {
-        g_assertion_message_error(domain, file, gint(line), `func`, expr, error_ptr, errorDomain, gint(errorCode))
-    
-    }
-
-    /// If `dest` is `nil`, free `src`; otherwise, moves `src` into *`dest`.
-    /// The error variable `dest` points to must be `nil`.
-    /// 
-    /// `src` must be non-`nil`.
-    /// 
-    /// Note that `src` is no longer valid after this call. If you want
-    /// to keep using the same GError*, you need to set it to `nil`
-    /// after calling this function on it.
-    @inlinable func propagateError(dest: UnsafeMutablePointer<UnsafeMutablePointer<GError>?>? = nil) {
-        g_propagate_error(dest, error_ptr)
-    
-    }
-
-
-    // *** propagatePrefixedError() is not available because it has a varargs (...) parameter!
-
-
-    /// Pretty-prints a message showing the context of a `GVariant` parse
-    /// error within the string for which parsing was attempted.
-    /// 
-    /// The resulting string is suitable for output to the console or other
-    /// monospace media where newlines are treated in the usual way.
-    /// 
-    /// The message will typically look something like one of the following:
-    /// 
-    /// ```
-    /// unterminated string constant:
-    ///   (1, 2, 3, 'abc
-    ///             ^^^^
-    /// ```
-    /// 
-    /// or
-    /// 
-    /// ```
-    /// unable to find a common type:
-    ///   [1, 2, 3, 'str']
-    ///    ^        ^^^^^
-    /// ```
-    /// 
-    /// The format of the message may change in a future version.
-    /// 
-    /// `error` must have come from a failed attempt to `g_variant_parse()` and
-    /// `source_str` must be exactly the same string that caused the error.
-    /// If `source_str` was not nul-terminated when you passed it to
-    /// `g_variant_parse()` then you must add nul termination before using this
-    /// function.
-    @inlinable func variantParseErrorPrintContext(sourceStr: UnsafePointer<gchar>!) -> String! {
-        let rv = g_variant_parse_error_print_context(error_ptr, sourceStr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// error domain, e.g. `G_FILE_ERROR`
-    @inlinable var domain: GQuark {
-        /// error domain, e.g. `G_FILE_ERROR`
-        get {
-            let rv = error_ptr.pointee.domain
-            return rv
-        }
-        /// error domain, e.g. `G_FILE_ERROR`
-         set {
-            error_ptr.pointee.domain = newValue
-        }
-    }
-
-    /// error code, e.g. `G_FILE_ERROR_NOENT`
-    @inlinable var code: gint {
-        /// error code, e.g. `G_FILE_ERROR_NOENT`
-        get {
-            let rv = error_ptr.pointee.code
-            return rv
-        }
-        /// error code, e.g. `G_FILE_ERROR_NOENT`
-         set {
-            error_ptr.pointee.code = newValue
-        }
-    }
-
-    /// human-readable informative error message
-    @inlinable var message: UnsafeMutablePointer<gchar>! {
-        /// human-readable informative error message
-        get {
-            let rv = error_ptr.pointee.message
-            return rv
-        }
-        /// human-readable informative error message
-         set {
-            error_ptr.pointee.message = newValue
-        }
-    }
 
 }
 

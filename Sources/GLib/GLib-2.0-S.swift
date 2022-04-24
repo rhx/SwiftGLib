@@ -1,5 +1,656 @@
 import CGLib
 
+// MARK: - SList Record
+
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
+/// The `SListProtocol` protocol exposes the methods and properties of an underlying `GSList` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `SList`.
+/// Alternatively, use `SListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol SListProtocol {
+        /// Untyped pointer to the underlying `GSList` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GSList` instance.
+    var _ptr: UnsafeMutablePointer<GSList>! { get }
+
+    /// Required Initialiser for types conforming to `SListProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
+/// The `SListRef` type acts as a lightweight Swift reference to an underlying `GSList` instance.
+/// It exposes methods that can operate on this data type through `SListProtocol` conformance.
+/// Use `SListRef` only as an `unowned` reference to an existing `GSList` instance.
+///
+public struct SListRef: SListProtocol {
+        /// Untyped pointer to the underlying `GSList` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension SListRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSList>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GSList>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `SListProtocol`
+    @inlinable init<T: SListProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+        /// Allocates space for one `GSList` element. It is called by the
+    /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
+    /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
+    @inlinable static func alloc() -> SListRef! {
+            let result = g_slist_alloc()
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+}
+
+/// The `GSList` struct is used for each element in the singly-linked
+/// list.
+///
+/// The `SList` type acts as an owner of an underlying `GSList` instance.
+/// It provides the methods that can operate on this data type through `SListProtocol` conformance.
+/// Use `SList` as a strong reference or owner of a `GSList` instance.
+///
+open class SList: SListProtocol {
+        /// Untyped pointer to the underlying `GSList` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GSList>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GSList>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GSList` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `SList` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GSList>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `SListProtocol`
+    /// `GSList` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `SListProtocol`
+    @inlinable public init<T: SListProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GSList`.
+    deinit {
+        // no reference counting for GSList, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GSList, cannot ref(_ptr)
+    }
+
+
+    /// Allocates space for one `GSList` element. It is called by the
+    /// `g_slist_append()`, `g_slist_prepend()`, `g_slist_insert()` and
+    /// `g_slist_insert_sorted()` functions and so is rarely used on its own.
+    @inlinable public static func alloc() -> SList! {
+            let result = g_slist_alloc()
+        guard let rv = SList(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+}
+
+// MARK: no SList properties
+
+// MARK: no SList signals
+
+// MARK: SList has no signals
+// MARK: SList Record: SListProtocol extension (methods and fields)
+public extension SListProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GSList` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GSList>! { return ptr?.assumingMemoryBound(to: GSList.self) }
+
+    /// Adds a new element on to the end of the list.
+    /// 
+    /// The return value is the new start of the list, which may
+    /// have changed, so make sure you store the new value.
+    /// 
+    /// Note that `g_slist_append()` has to traverse the entire list
+    /// to find the end, which is inefficient when adding multiple
+    /// elements. A common idiom to avoid the inefficiency is to prepend
+    /// the elements and reverse the list when all elements have been added.
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// // Notice that these are initialized to the empty list.
+    /// GSList *list = NULL, *number_list = NULL;
+    /// 
+    /// // This is a list of strings.
+    /// list = g_slist_append (list, "first");
+    /// list = g_slist_append (list, "second");
+    /// 
+    /// // This is a list of integers.
+    /// number_list = g_slist_append (number_list, GINT_TO_POINTER (27));
+    /// number_list = g_slist_append (number_list, GINT_TO_POINTER (14));
+    /// ```
+    /// 
+    @inlinable func append(data: gpointer? = nil) -> SListRef! {
+        let result = g_slist_append(_ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Adds the second `GSList` onto the end of the first `GSList`.
+    /// Note that the elements of the second `GSList` are not copied.
+    /// They are used directly.
+    @inlinable func concat<SListT: SListProtocol>(list2: SListT) -> SListRef! {
+        let result = g_slist_concat(_ptr, list2._ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Copies a `GSList`.
+    /// 
+    /// Note that this is a "shallow" copy. If the list elements
+    /// consist of pointers to data, the pointers are copied but
+    /// the actual data isn't. See `g_slist_copy_deep()` if you need
+    /// to copy the data as well.
+    @inlinable func copy() -> SListRef! {
+        let result = g_slist_copy(_ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Makes a full (deep) copy of a `GSList`.
+    /// 
+    /// In contrast with `g_slist_copy()`, this function uses `func` to make a copy of
+    /// each list element, in addition to copying the list container itself.
+    /// 
+    /// `func`, as a `GCopyFunc`, takes two arguments, the data to be copied
+    /// and a `user_data` pointer. On common processor architectures, it's safe to
+    /// pass `nil` as `user_data` if the copy function takes only one argument. You
+    /// may get compiler warnings from this though if compiling with GCC’s
+    /// `-Wcast-function-type` warning.
+    /// 
+    /// For instance, if `list` holds a list of GObjects, you can do:
+    /// (C Language Example):
+    /// ```C
+    /// another_list = g_slist_copy_deep (list, (GCopyFunc) g_object_ref, NULL);
+    /// ```
+    /// 
+    /// And, to entirely free the new list, you could do:
+    /// (C Language Example):
+    /// ```C
+    /// g_slist_free_full (another_list, g_object_unref);
+    /// ```
+    /// 
+    @inlinable func copyDeep(`func`: GCopyFunc?, userData: gpointer? = nil) -> SListRef! {
+        let result = g_slist_copy_deep(_ptr, `func`, userData)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Removes the node link_ from the list and frees it.
+    /// Compare this to `g_slist_remove_link()` which removes the node
+    /// without freeing it.
+    /// 
+    /// Removing arbitrary nodes from a singly-linked list requires time
+    /// that is proportional to the length of the list (ie. `O(n)`). If you
+    /// find yourself using `g_slist_delete_link()` frequently, you should
+    /// consider a different data structure, such as the doubly-linked
+    /// `GList`.
+    @inlinable func delete<SListT: SListProtocol>(link: SListT) -> SListRef! {
+        let result = g_slist_delete_link(_ptr, link._ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Finds the element in a `GSList` which
+    /// contains the given data.
+    @inlinable func find(data: gconstpointer? = nil) -> SListRef! {
+        let result = g_slist_find(_ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Finds an element in a `GSList`, using a supplied function to
+    /// find the desired element. It iterates over the list, calling
+    /// the given function which should return 0 when the desired
+    /// element is found. The function takes two `gconstpointer` arguments,
+    /// the `GSList` element's data as the first argument and the
+    /// given user data.
+    @inlinable func findCustom(data: gconstpointer? = nil, `func`: GCompareFunc?) -> SListRef! {
+        let result = g_slist_find_custom(_ptr, data, `func`)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Calls a function for each element of a `GSList`.
+    /// 
+    /// It is safe for `func` to remove the element from `list`, but it must
+    /// not modify any part of the list after that element.
+    @inlinable func foreach(`func`: GFunc?, userData: gpointer? = nil) {
+        
+        g_slist_foreach(_ptr, `func`, userData)
+        
+    }
+
+    /// Frees all of the memory used by a `GSList`.
+    /// The freed elements are returned to the slice allocator.
+    /// 
+    /// If list elements contain dynamically-allocated memory,
+    /// you should either use `g_slist_free_full()` or free them manually
+    /// first.
+    /// 
+    /// It can be combined with `g_steal_pointer()` to ensure the list head pointer
+    /// is not left dangling:
+    /// (C Language Example):
+    /// ```C
+    /// GSList *list_of_borrowed_things = …;  /<!-- -->* (transfer container) *<!-- -->/
+    /// g_slist_free (g_steal_pointer (&list_of_borrowed_things));
+    /// ```
+    /// 
+    @inlinable func free() {
+        
+        g_slist_free(_ptr)
+        
+    }
+
+    /// Frees one `GSList` element.
+    /// It is usually used after `g_slist_remove_link()`.
+    @inlinable func free1() {
+        
+        g_slist_free_1(_ptr)
+        
+    }
+
+    /// Convenience method, which frees all the memory used by a `GSList`, and
+    /// calls the specified destroy function on every element's data.
+    /// 
+    /// `free_func` must not modify the list (eg, by removing the freed
+    /// element from it).
+    /// 
+    /// It can be combined with `g_steal_pointer()` to ensure the list head pointer
+    /// is not left dangling ­— this also has the nice property that the head pointer
+    /// is cleared before any of the list elements are freed, to prevent double frees
+    /// from `free_func:`
+    /// (C Language Example):
+    /// ```C
+    /// GSList *list_of_owned_things = …;  /<!-- -->* (transfer full) (element-type GObject) *<!-- -->/
+    /// g_slist_free_full (g_steal_pointer (&list_of_owned_things), g_object_unref);
+    /// ```
+    /// 
+    @inlinable func freeFull(freeFunc: GDestroyNotify?) {
+        
+        g_slist_free_full(_ptr, freeFunc)
+        
+    }
+
+    /// Gets the position of the element containing
+    /// the given data (starting from 0).
+    @inlinable func index(data: gconstpointer? = nil) -> Int {
+        let result = g_slist_index(_ptr, data)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Inserts a new element into the list at the given position.
+    @inlinable func insert(data: gpointer? = nil, position: Int) -> SListRef! {
+        let result = g_slist_insert(_ptr, data, gint(position))
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Inserts a node before `sibling` containing `data`.
+    @inlinable func insertBefore<SListT: SListProtocol>(sibling: SListT, data: gpointer? = nil) -> SListRef! {
+        let result = g_slist_insert_before(_ptr, sibling._ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Inserts a new element into the list, using the given
+    /// comparison function to determine its position.
+    @inlinable func insertSorted(data: gpointer? = nil, `func`: GCompareFunc?) -> SListRef! {
+        let result = g_slist_insert_sorted(_ptr, data, `func`)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Inserts a new element into the list, using the given
+    /// comparison function to determine its position.
+    @inlinable func insertSortedWith(data: gpointer? = nil, `func`: GCompareDataFunc?, userData: gpointer? = nil) -> SListRef! {
+        let result = g_slist_insert_sorted_with_data(_ptr, data, `func`, userData)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the last element in a `GSList`.
+    /// 
+    /// This function iterates over the whole list.
+    @inlinable func last() -> SListRef! {
+        let result = g_slist_last(_ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the number of elements in a `GSList`.
+    /// 
+    /// This function iterates over the whole list to
+    /// count its elements. To check whether the list is non-empty, it is faster to
+    /// check `list` against `nil`.
+    @inlinable func length() -> Int {
+        let result = g_slist_length(_ptr)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Gets the element at the given position in a `GSList`.
+    @inlinable func nth(n: Int) -> SListRef! {
+        let result = g_slist_nth(_ptr, guint(n))
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the data of the element at the given position.
+    @inlinable func nthData(n: Int) -> gpointer? {
+        let result = g_slist_nth_data(_ptr, guint(n))
+        let rv = result
+        return rv
+    }
+
+    /// Gets the position of the given element
+    /// in the `GSList` (starting from 0).
+    @inlinable func position<SListT: SListProtocol>(llink: SListT) -> Int {
+        let result = g_slist_position(_ptr, llink._ptr)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Adds a new element on to the start of the list.
+    /// 
+    /// The return value is the new start of the list, which
+    /// may have changed, so make sure you store the new value.
+    /// 
+    /// (C Language Example):
+    /// ```C
+    /// // Notice that it is initialized to the empty list.
+    /// GSList *list = NULL;
+    /// list = g_slist_prepend (list, "last");
+    /// list = g_slist_prepend (list, "first");
+    /// ```
+    /// 
+    @inlinable func prepend(data: gpointer? = nil) -> SListRef! {
+        let result = g_slist_prepend(_ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Removes an element from a `GSList`.
+    /// If two elements contain the same data, only the first is removed.
+    /// If none of the elements contain the data, the `GSList` is unchanged.
+    @inlinable func remove(data: gconstpointer? = nil) -> SListRef! {
+        let result = g_slist_remove(_ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Removes all list nodes with data equal to `data`.
+    /// Returns the new head of the list. Contrast with
+    /// `g_slist_remove()` which removes only the first node
+    /// matching the given data.
+    @inlinable func removeAll(data: gconstpointer? = nil) -> SListRef! {
+        let result = g_slist_remove_all(_ptr, data)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Removes an element from a `GSList`, without
+    /// freeing the element. The removed element's next
+    /// link is set to `nil`, so that it becomes a
+    /// self-contained list with one element.
+    /// 
+    /// Removing arbitrary nodes from a singly-linked list
+    /// requires time that is proportional to the length of the list
+    /// (ie. `O(n)`). If you find yourself using `g_slist_remove_link()`
+    /// frequently, you should consider a different data structure,
+    /// such as the doubly-linked `GList`.
+    @inlinable func remove<SListT: SListProtocol>(link: SListT) -> SListRef! {
+        let result = g_slist_remove_link(_ptr, link._ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Reverses a `GSList`.
+    @inlinable func reverse() -> SListRef! {
+        let result = g_slist_reverse(_ptr)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Sorts a `GSList` using the given comparison function. The algorithm
+    /// used is a stable sort.
+    @inlinable func sort(compareFunc: GCompareFunc?) -> SListRef! {
+        let result = g_slist_sort(_ptr, compareFunc)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Like `g_slist_sort()`, but the sort function accepts a user data argument.
+    @inlinable func sortWithData(compareFunc: GCompareDataFunc?, userData: gpointer? = nil) -> SListRef! {
+        let result = g_slist_sort_with_data(_ptr, compareFunc, userData)
+        guard let rv = SListRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// holds the element's data, which can be a pointer to any kind
+    ///        of data, or any integer value using the
+    ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+    @inlinable var data: gpointer? {
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+        get {
+            let rv = _ptr.pointee.data
+    return rv
+        }
+        /// holds the element's data, which can be a pointer to any kind
+        ///        of data, or any integer value using the
+        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
+         set {
+            _ptr.pointee.data = newValue
+        }
+    }
+
+    /// contains the link to the next element in the list.
+    @inlinable var next: SListRef! {
+        /// contains the link to the next element in the list.
+        get {
+            let rv = SListRef(gconstpointer: gconstpointer(_ptr.pointee.next))
+    return rv
+        }
+        /// contains the link to the next element in the list.
+         set {
+            _ptr.pointee.next = UnsafeMutablePointer<GSList>(newValue._ptr)
+        }
+    }
+
+}
+
+
+
 // MARK: - Scanner Record
 
 /// The data structure representing a lexical scanner.
@@ -307,7 +958,8 @@ public extension ScannerProtocol {
     /// from 1). This is the line of the last token parsed via
     /// `g_scanner_get_next_token()`.
     @inlinable func curLine() -> Int {
-        let rv = Int(g_scanner_cur_line(_ptr))
+        let result = g_scanner_cur_line(_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -315,34 +967,39 @@ public extension ScannerProtocol {
     /// from 0). This is the position of the last token parsed via
     /// `g_scanner_get_next_token()`.
     @inlinable func curPosition() -> Int {
-        let rv = Int(g_scanner_cur_position(_ptr))
+        let result = g_scanner_cur_position(_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Gets the current token type. This is simply the `token`
     /// field in the `GScanner` structure.
     @inlinable func curToken() -> GTokenType {
-        let rv = g_scanner_cur_token(_ptr)
+        let result = g_scanner_cur_token(_ptr)
+        let rv = result
         return rv
     }
 
     /// Gets the current token value. This is simply the `value`
     /// field in the `GScanner` structure.
     @inlinable func curValue() -> GTokenValue {
-        let rv = g_scanner_cur_value(_ptr)
+        let result = g_scanner_cur_value(_ptr)
+        let rv = result
         return rv
     }
 
     /// Frees all memory used by the `GScanner`.
     @inlinable func destroy() {
+        
         g_scanner_destroy(_ptr)
-    
+        
     }
 
     /// Returns `true` if the scanner has reached the end of
     /// the file or text buffer.
     @inlinable func eof() -> Bool {
-        let rv = ((g_scanner_eof(_ptr)) != 0)
+        let result = g_scanner_eof(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -355,27 +1012,31 @@ public extension ScannerProtocol {
     /// placed in the `token`, `value`, `line`, and `position` fields of
     /// the `GScanner` structure.
     @inlinable func getNextToken() -> GTokenType {
-        let rv = g_scanner_get_next_token(_ptr)
+        let result = g_scanner_get_next_token(_ptr)
+        let rv = result
         return rv
     }
 
     /// Prepares to scan a file.
     @inlinable func inputFile(inputFd: Int) {
+        
         g_scanner_input_file(_ptr, gint(inputFd))
-    
+        
     }
 
     /// Prepares to scan a text buffer.
     @inlinable func input(text: UnsafePointer<gchar>!, textLen: Int) {
+        
         g_scanner_input_text(_ptr, text, guint(textLen))
-    
+        
     }
 
     /// Looks up a symbol in the current scope and return its value.
     /// If the symbol is not bound in the current scope, `nil` is
     /// returned.
-    @inlinable func lookup(symbol: UnsafePointer<gchar>!) -> gpointer! {
-        let rv = g_scanner_lookup_symbol(_ptr, symbol)
+    @inlinable func lookup(symbol: UnsafePointer<gchar>!) -> gpointer? {
+        let result = g_scanner_lookup_symbol(_ptr, symbol)
+        let rv = result
         return rv
     }
 
@@ -391,41 +1052,47 @@ public extension ScannerProtocol {
     /// configuration will return whatever was peeked before, regardless of
     /// any symbols that may have been added or removed in the new scope.
     @inlinable func peekNextToken() -> GTokenType {
-        let rv = g_scanner_peek_next_token(_ptr)
+        let result = g_scanner_peek_next_token(_ptr)
+        let rv = result
         return rv
     }
 
     /// Adds a symbol to the given scope.
-    @inlinable func scopeAddSymbol(scopeID: Int, symbol: UnsafePointer<gchar>!, value: gpointer! = nil) {
+    @inlinable func scopeAddSymbol(scopeID: Int, symbol: UnsafePointer<gchar>!, value: gpointer? = nil) {
+        
         g_scanner_scope_add_symbol(_ptr, guint(scopeID), symbol, value)
-    
+        
     }
 
     /// Calls the given function for each of the symbol/value pairs
     /// in the given scope of the `GScanner`. The function is passed
     /// the symbol and value of each pair, and the given `user_data`
     /// parameter.
-    @inlinable func scopeForeachSymbol(scopeID: Int, `func`: GHFunc?, userData: gpointer! = nil) {
+    @inlinable func scopeForeachSymbol(scopeID: Int, `func`: GHFunc?, userData: gpointer? = nil) {
+        
         g_scanner_scope_foreach_symbol(_ptr, guint(scopeID), `func`, userData)
-    
+        
     }
 
     /// Looks up a symbol in a scope and return its value. If the
     /// symbol is not bound in the scope, `nil` is returned.
-    @inlinable func scopeLookupSymbol(scopeID: Int, symbol: UnsafePointer<gchar>!) -> gpointer! {
-        let rv = g_scanner_scope_lookup_symbol(_ptr, guint(scopeID), symbol)
+    @inlinable func scopeLookupSymbol(scopeID: Int, symbol: UnsafePointer<gchar>!) -> gpointer? {
+        let result = g_scanner_scope_lookup_symbol(_ptr, guint(scopeID), symbol)
+        let rv = result
         return rv
     }
 
     /// Removes a symbol from a scope.
     @inlinable func scopeRemoveSymbol(scopeID: Int, symbol: UnsafePointer<gchar>!) {
+        
         g_scanner_scope_remove_symbol(_ptr, guint(scopeID), symbol)
-    
+        
     }
 
     /// Sets the current scope.
     @inlinable func setScope(scopeID: Int) -> Int {
-        let rv = Int(g_scanner_set_scope(_ptr, guint(scopeID)))
+        let result = g_scanner_set_scope(_ptr, guint(scopeID))
+        let rv = Int(result)
         return rv
     }
 
@@ -434,8 +1101,9 @@ public extension ScannerProtocol {
     /// third party uses of the scanners filedescriptor, which hooks
     /// onto the current scanning position.
     @inlinable func syncFileOffset() {
+        
         g_scanner_sync_file_offset(_ptr)
-    
+        
     }
 
     /// Outputs a message through the scanner's msg_handler,
@@ -446,8 +1114,9 @@ public extension ScannerProtocol {
     /// evaluates the scanner's current token (not the peeked token)
     /// to construct part of the message.
     @inlinable func unexpToken(expectedToken: GTokenType, identifierSpec: UnsafePointer<gchar>!, symbolSpec: UnsafePointer<gchar>!, symbolName: UnsafePointer<gchar>!, message: UnsafePointer<gchar>!, isError: Int) {
+        
         g_scanner_unexp_token(_ptr, expectedToken, identifierSpec, symbolSpec, symbolName, message, gint(isError))
-    
+        
     }
 
 
@@ -463,17 +1132,18 @@ public extension ScannerProtocol {
         /// placed in the `token`, `value`, `line`, and `position` fields of
         /// the `GScanner` structure.
         get {
-            let rv = g_scanner_get_next_token(_ptr)
+            let result = g_scanner_get_next_token(_ptr)
+        let rv = result
             return rv
         }
     }
 
     /// unused
-    @inlinable var userData: gpointer! {
+    @inlinable var userData: gpointer? {
         /// unused
         get {
             let rv = _ptr.pointee.user_data
-            return rv
+    return rv
         }
         /// unused
          set {
@@ -486,7 +1156,7 @@ public extension ScannerProtocol {
         /// unused
         get {
             let rv = _ptr.pointee.max_parse_errors
-            return rv
+    return rv
         }
         /// unused
          set {
@@ -499,7 +1169,7 @@ public extension ScannerProtocol {
         /// `g_scanner_error()` increments this field
         get {
             let rv = _ptr.pointee.parse_errors
-            return rv
+    return rv
         }
         /// `g_scanner_error()` increments this field
          set {
@@ -512,7 +1182,7 @@ public extension ScannerProtocol {
         /// name of input stream, featured by the default message handler
         get {
             let rv = _ptr.pointee.input_name
-            return rv
+    return rv
         }
         /// name of input stream, featured by the default message handler
          set {
@@ -525,7 +1195,7 @@ public extension ScannerProtocol {
         /// quarked data
         get {
             let rv = DataRef(gconstpointer: gconstpointer(_ptr.pointee.qdata))
-            return rv
+    return rv
         }
         /// quarked data
          set {
@@ -538,7 +1208,7 @@ public extension ScannerProtocol {
         /// link into the scanner configuration
         get {
             let rv = ScannerConfigRef(gconstpointer: gconstpointer(_ptr.pointee.config))
-            return rv
+    return rv
         }
         /// link into the scanner configuration
          set {
@@ -551,7 +1221,7 @@ public extension ScannerProtocol {
         /// token parsed by the last `g_scanner_get_next_token()`
         get {
             let rv = _ptr.pointee.token
-            return rv
+    return rv
         }
         /// token parsed by the last `g_scanner_get_next_token()`
          set {
@@ -564,7 +1234,7 @@ public extension ScannerProtocol {
         /// value of the last token from `g_scanner_get_next_token()`
         get {
             let rv = _ptr.pointee.value
-            return rv
+    return rv
         }
         /// value of the last token from `g_scanner_get_next_token()`
          set {
@@ -577,7 +1247,7 @@ public extension ScannerProtocol {
         /// line number of the last token from `g_scanner_get_next_token()`
         get {
             let rv = _ptr.pointee.line
-            return rv
+    return rv
         }
         /// line number of the last token from `g_scanner_get_next_token()`
          set {
@@ -590,7 +1260,7 @@ public extension ScannerProtocol {
         /// char number of the last token from `g_scanner_get_next_token()`
         get {
             let rv = _ptr.pointee.position
-            return rv
+    return rv
         }
         /// char number of the last token from `g_scanner_get_next_token()`
          set {
@@ -603,7 +1273,7 @@ public extension ScannerProtocol {
         /// token parsed by the last `g_scanner_peek_next_token()`
         get {
             let rv = _ptr.pointee.next_token
-            return rv
+    return rv
         }
         /// token parsed by the last `g_scanner_peek_next_token()`
          set {
@@ -616,7 +1286,7 @@ public extension ScannerProtocol {
         /// value of the last token from `g_scanner_peek_next_token()`
         get {
             let rv = _ptr.pointee.next_value
-            return rv
+    return rv
         }
         /// value of the last token from `g_scanner_peek_next_token()`
          set {
@@ -629,7 +1299,7 @@ public extension ScannerProtocol {
         /// line number of the last token from `g_scanner_peek_next_token()`
         get {
             let rv = _ptr.pointee.next_line
-            return rv
+    return rv
         }
         /// line number of the last token from `g_scanner_peek_next_token()`
          set {
@@ -642,7 +1312,7 @@ public extension ScannerProtocol {
         /// char number of the last token from `g_scanner_peek_next_token()`
         get {
             let rv = _ptr.pointee.next_position
-            return rv
+    return rv
         }
         /// char number of the last token from `g_scanner_peek_next_token()`
          set {
@@ -667,7 +1337,7 @@ public extension ScannerProtocol {
         /// handler function for _warn and _error
         get {
             let rv = _ptr.pointee.msg_handler
-            return rv
+    return rv
         }
         /// handler function for _warn and _error
          set {
@@ -959,7 +1629,7 @@ public extension ScannerConfigProtocol {
         ///     tab, carriage-return and line-feed).
         get {
             let rv = _ptr.pointee.cset_skip_characters
-            return rv
+    return rv
         }
         /// specifies which characters should be skipped
         ///     by the scanner (the default is the whitespace characters: space,
@@ -976,7 +1646,7 @@ public extension ScannerConfigProtocol {
         ///     identifiers (the default is `G_CSET_a_2_z`, "_", and `G_CSET_A_2_Z`).
         get {
             let rv = _ptr.pointee.cset_identifier_first
-            return rv
+    return rv
         }
         /// specifies the characters which can start
         ///     identifiers (the default is `G_CSET_a_2_z`, "_", and `G_CSET_A_2_Z`).
@@ -996,7 +1666,7 @@ public extension ScannerConfigProtocol {
         ///     `G_CSET_LATINC`).
         get {
             let rv = _ptr.pointee.cset_identifier_nth
-            return rv
+    return rv
         }
         /// specifies the characters which can be used
         ///     in identifiers, after the first character (the default is
@@ -1018,7 +1688,7 @@ public extension ScannerConfigProtocol {
         ///     a '\n' (end of line).
         get {
             let rv = _ptr.pointee.cpair_comment_single
-            return rv
+    return rv
         }
         /// specifies the characters at the start and
         ///     end of single-line comments. The default is "#\n" which means
@@ -1036,7 +1706,7 @@ public extension ScannerConfigProtocol {
         ///     default is `false`).
         get {
             let rv = _ptr.pointee.case_sensitive
-            return rv
+    return rv
         }
         /// specifies if symbols are case sensitive (the
         ///     default is `false`).
@@ -1052,7 +1722,7 @@ public extension ScannerConfigProtocol {
         ///     and not returned as tokens (the default is `true`).
         get {
             let rv = _ptr.pointee.skip_comment_multi
-            return rv
+    return rv
         }
         /// specifies if multi-line comments are skipped
         ///     and not returned as tokens (the default is `true`).
@@ -1068,7 +1738,7 @@ public extension ScannerConfigProtocol {
         ///     and not returned as tokens (the default is `true`).
         get {
             let rv = _ptr.pointee.skip_comment_single
-            return rv
+    return rv
         }
         /// specifies if single-line comments are skipped
         ///     and not returned as tokens (the default is `true`).
@@ -1084,7 +1754,7 @@ public extension ScannerConfigProtocol {
         ///     (the default is `true`).
         get {
             let rv = _ptr.pointee.scan_comment_multi
-            return rv
+    return rv
         }
         /// specifies if multi-line comments are recognized
         ///     (the default is `true`).
@@ -1100,7 +1770,7 @@ public extension ScannerConfigProtocol {
         ///     default is `true`).
         get {
             let rv = _ptr.pointee.scan_identifier
-            return rv
+    return rv
         }
         /// specifies if identifiers are recognized (the
         ///     default is `true`).
@@ -1116,7 +1786,7 @@ public extension ScannerConfigProtocol {
         ///     identifiers are recognized (the default is `false`).
         get {
             let rv = _ptr.pointee.scan_identifier_1char
-            return rv
+    return rv
         }
         /// specifies if single-character
         ///     identifiers are recognized (the default is `false`).
@@ -1132,7 +1802,7 @@ public extension ScannerConfigProtocol {
         ///     `G_TOKEN_IDENTIFIER_NULL` (the default is `false`).
         get {
             let rv = _ptr.pointee.scan_identifier_NULL
-            return rv
+    return rv
         }
         /// specifies if `nil` is reported as
         ///     `G_TOKEN_IDENTIFIER_NULL` (the default is `false`).
@@ -1148,7 +1818,7 @@ public extension ScannerConfigProtocol {
         ///     is `true`).
         get {
             let rv = _ptr.pointee.scan_symbols
-            return rv
+    return rv
         }
         /// specifies if symbols are recognized (the default
         ///     is `true`).
@@ -1164,7 +1834,7 @@ public extension ScannerConfigProtocol {
         ///     default is `false`).
         get {
             let rv = _ptr.pointee.scan_binary
-            return rv
+    return rv
         }
         /// specifies if binary numbers are recognized (the
         ///     default is `false`).
@@ -1180,7 +1850,7 @@ public extension ScannerConfigProtocol {
         ///     default is `true`).
         get {
             let rv = _ptr.pointee.scan_octal
-            return rv
+    return rv
         }
         /// specifies if octal numbers are recognized (the
         ///     default is `true`).
@@ -1196,7 +1866,7 @@ public extension ScannerConfigProtocol {
         ///     (the default is `true`).
         get {
             let rv = _ptr.pointee.scan_float
-            return rv
+    return rv
         }
         /// specifies if floating point numbers are recognized
         ///     (the default is `true`).
@@ -1212,7 +1882,7 @@ public extension ScannerConfigProtocol {
         ///     default is `true`).
         get {
             let rv = _ptr.pointee.scan_hex
-            return rv
+    return rv
         }
         /// specifies if hexadecimal numbers are recognized (the
         ///     default is `true`).
@@ -1228,7 +1898,7 @@ public extension ScannerConfigProtocol {
         ///     hexadecimal numbers (the default is `false`).
         get {
             let rv = _ptr.pointee.scan_hex_dollar
-            return rv
+    return rv
         }
         /// specifies if '$' is recognized as a prefix for
         ///     hexadecimal numbers (the default is `false`).
@@ -1244,7 +1914,7 @@ public extension ScannerConfigProtocol {
         ///     quotes (the default is `true`).
         get {
             let rv = _ptr.pointee.scan_string_sq
-            return rv
+    return rv
         }
         /// specifies if strings can be enclosed in single
         ///     quotes (the default is `true`).
@@ -1260,7 +1930,7 @@ public extension ScannerConfigProtocol {
         ///     quotes (the default is `true`).
         get {
             let rv = _ptr.pointee.scan_string_dq
-            return rv
+    return rv
         }
         /// specifies if strings can be enclosed in double
         ///     quotes (the default is `true`).
@@ -1276,7 +1946,7 @@ public extension ScannerConfigProtocol {
         ///     are reported as `G_TOKEN_INT` (the default is `true`).
         get {
             let rv = _ptr.pointee.numbers_2_int
-            return rv
+    return rv
         }
         /// specifies if binary, octal and hexadecimal numbers
         ///     are reported as `G_TOKEN_INT` (the default is `true`).
@@ -1292,7 +1962,7 @@ public extension ScannerConfigProtocol {
         ///     (the default is `false`).
         get {
             let rv = _ptr.pointee.int_2_float
-            return rv
+    return rv
         }
         /// specifies if all numbers are reported as `G_TOKEN_FLOAT`
         ///     (the default is `false`).
@@ -1308,7 +1978,7 @@ public extension ScannerConfigProtocol {
         ///     (the default is `false`).
         get {
             let rv = _ptr.pointee.identifier_2_string
-            return rv
+    return rv
         }
         /// specifies if identifiers are reported as strings
         ///     (the default is `false`).
@@ -1324,7 +1994,7 @@ public extension ScannerConfigProtocol {
         ///     `token = ch` or as `G_TOKEN_CHAR` (the default is `true`).
         get {
             let rv = _ptr.pointee.char_2_token
-            return rv
+    return rv
         }
         /// specifies if characters are reported by setting
         ///     `token = ch` or as `G_TOKEN_CHAR` (the default is `true`).
@@ -1340,7 +2010,7 @@ public extension ScannerConfigProtocol {
         ///     `token = v_symbol` or as `G_TOKEN_SYMBOL` (the default is `false`).
         get {
             let rv = _ptr.pointee.symbol_2_token
-            return rv
+    return rv
         }
         /// specifies if symbols are reported by setting
         ///     `token = v_symbol` or as `G_TOKEN_SYMBOL` (the default is `false`).
@@ -1356,7 +2026,7 @@ public extension ScannerConfigProtocol {
         ///     default scope in addition to the current scope (the default is `false`).
         get {
             let rv = _ptr.pointee.scope_0_fallback
-            return rv
+    return rv
         }
         /// specifies if a symbol is searched for in the
         ///     default scope in addition to the current scope (the default is `false`).
@@ -1370,7 +2040,7 @@ public extension ScannerConfigProtocol {
         /// use value.v_int64 rather than v_int
         get {
             let rv = _ptr.pointee.store_int64
-            return rv
+    return rv
         }
         /// use value.v_int64 rather than v_int
          set {
@@ -1652,42 +2322,48 @@ public extension SequenceProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GSequence>! { return ptr?.assumingMemoryBound(to: GSequence.self) }
 
     /// Adds a new item to the end of `seq`.
-    @inlinable func append(data: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_append(_ptr, data)))
+    @inlinable func append(data: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_append(_ptr, data)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Calls `func` for each item in the sequence passing `user_data`
     /// to the function. `func` must not modify the sequence itself.
-    @inlinable func foreach(`func`: GFunc?, userData: gpointer! = nil) {
+    @inlinable func foreach(`func`: GFunc?, userData: gpointer? = nil) {
+        
         g_sequence_foreach(_ptr, `func`, userData)
-    
+        
     }
 
     /// Frees the memory allocated for `seq`. If `seq` has a data destroy
     /// function associated with it, that function is called on all items
     /// in `seq`.
     @inlinable func free() {
+        
         g_sequence_free(_ptr)
-    
+        
     }
 
     /// Returns the begin iterator for `seq`.
     @inlinable func getBeginIter() -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_begin_iter(_ptr)))
+        let result = g_sequence_get_begin_iter(_ptr)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Returns the end iterator for `seg`
     @inlinable func getEndIter() -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_end_iter(_ptr)))
+        let result = g_sequence_get_end_iter(_ptr)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Returns the iterator at position `pos`. If `pos` is negative or larger
     /// than the number of items in `seq`, the end iterator is returned.
     @inlinable func getIterAt(pos: Int) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_iter_at_pos(_ptr, gint(pos))))
+        let result = g_sequence_get_iter_at_pos(_ptr, gint(pos))
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1695,7 +2371,8 @@ public extension SequenceProtocol {
     /// `O(h)` where `h' is the height of the tree. It is thus more efficient
     /// to use `g_sequence_is_empty()` when comparing the length to zero.
     @inlinable func getLength() -> Int {
-        let rv = Int(g_sequence_get_length(_ptr))
+        let result = g_sequence_get_length(_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -1711,8 +2388,9 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    @inlinable func insertSorted(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_insert_sorted(_ptr, data, cmpFunc, cmpData)))
+    @inlinable func insertSorted(data: gpointer? = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_insert_sorted(_ptr, data, cmpFunc, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1728,8 +2406,9 @@ public extension SequenceProtocol {
     /// Note that when adding a large amount of data to a `GSequence`,
     /// it is more efficient to do unsorted insertions and then call
     /// `g_sequence_sort()` or `g_sequence_sort_iter()`.
-    @inlinable func insertSortedIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_insert_sorted_iter(_ptr, data, iterCmp, cmpData)))
+    @inlinable func insertSortedIter(data: gpointer? = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_insert_sorted_iter(_ptr, data, iterCmp, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1746,8 +2425,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    @inlinable func lookup(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_lookup(_ptr, data, cmpFunc, cmpData)))
+    @inlinable func lookup(data: gpointer? = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_lookup(_ptr, data, cmpFunc, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1761,14 +2441,16 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    @inlinable func lookupIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_lookup_iter(_ptr, data, iterCmp, cmpData)))
+    @inlinable func lookupIter(data: gpointer? = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_lookup_iter(_ptr, data, iterCmp, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Adds a new item to the front of `seq`
-    @inlinable func prepend(data: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_prepend(_ptr, data)))
+    @inlinable func prepend(data: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_prepend(_ptr, data)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1785,8 +2467,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    @inlinable func search(data: gpointer! = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_search(_ptr, data, cmpFunc, cmpData)))
+    @inlinable func search(data: gpointer? = nil, cmpFunc: GCompareDataFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_search(_ptr, data, cmpFunc, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1803,8 +2486,9 @@ public extension SequenceProtocol {
     /// 
     /// This function will fail if the data contained in the sequence is
     /// unsorted.
-    @inlinable func searchIter(data: gpointer! = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) -> SequenceIterRef! {
-        let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_search_iter(_ptr, data, iterCmp, cmpData)))
+    @inlinable func searchIter(data: gpointer? = nil, iterCmp: GSequenceIterCompareFunc?, cmpData: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_search_iter(_ptr, data, iterCmp, cmpData)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1814,9 +2498,10 @@ public extension SequenceProtocol {
     /// return 0 if they are equal, a negative value if the
     /// first comes before the second, and a positive value
     /// if the second comes before the first.
-    @inlinable func sort(cmpFunc: GCompareDataFunc?, cmpData: gpointer! = nil) {
+    @inlinable func sort(cmpFunc: GCompareDataFunc?, cmpData: gpointer? = nil) {
+        
         g_sequence_sort(_ptr, cmpFunc, cmpData)
-    
+        
     }
 
     /// Like `g_sequence_sort()`, but uses a `GSequenceIterCompareFunc` instead
@@ -1826,15 +2511,17 @@ public extension SequenceProtocol {
     /// return 0 if the iterators are equal, a negative value if the first
     /// iterator comes before the second, and a positive value if the second
     /// iterator comes before the first.
-    @inlinable func sortIter(cmpFunc: GSequenceIterCompareFunc?, cmpData: gpointer! = nil) {
+    @inlinable func sortIter(cmpFunc: GSequenceIterCompareFunc?, cmpData: gpointer? = nil) {
+        
         g_sequence_sort_iter(_ptr, cmpFunc, cmpData)
-    
+        
     }
     /// Returns the begin iterator for `seq`.
     @inlinable var beginIter: SequenceIterRef! {
         /// Returns the begin iterator for `seq`.
         get {
-            let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_begin_iter(_ptr)))
+            let result = g_sequence_get_begin_iter(_ptr)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -1843,7 +2530,8 @@ public extension SequenceProtocol {
     @inlinable var endIter: SequenceIterRef! {
         /// Returns the end iterator for `seg`
         get {
-            let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_get_end_iter(_ptr)))
+            let result = g_sequence_get_end_iter(_ptr)
+        let rv = SequenceIterRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -1860,7 +2548,8 @@ public extension SequenceProtocol {
         /// `g_sequence_get_length()` being equal to zero. However this function is
         /// implemented in `O(1)` running time.
         get {
-            let rv = ((g_sequence_is_empty(_ptr)) != 0)
+            let result = g_sequence_is_empty(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -1873,7 +2562,8 @@ public extension SequenceProtocol {
         /// `O(h)` where `h' is the height of the tree. It is thus more efficient
         /// to use `g_sequence_is_empty()` when comparing the length to zero.
         get {
-            let rv = Int(g_sequence_get_length(_ptr))
+            let result = g_sequence_get_length(_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2155,19 +2845,22 @@ public extension SequenceIterProtocol {
     /// 
     /// The `a` and `b` iterators must point into the same sequence.
     @inlinable func compare<SequenceIterT: SequenceIterProtocol>(b: SequenceIterT) -> Int {
-        let rv = Int(g_sequence_iter_compare(_ptr, b._ptr))
+        let result = g_sequence_iter_compare(_ptr, b._ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the position of `iter`
     @inlinable func getPosition() -> Int {
-        let rv = Int(g_sequence_iter_get_position(_ptr))
+        let result = g_sequence_iter_get_position(_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the `GSequence` that `iter` points into.
     @inlinable func getSequence() -> SequenceRef! {
-        let rv = SequenceRef(gconstpointer: gconstpointer(g_sequence_iter_get_sequence(_ptr)))
+        let result = g_sequence_iter_get_sequence(_ptr)
+        let rv = SequenceRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -2176,33 +2869,38 @@ public extension SequenceIterProtocol {
     /// the begin iterator is returned. If `iter` is closer than `delta` positions
     /// to the end of the sequence, the end iterator is returned.
     @inlinable func move(delta: Int) -> SequenceIterRef! {
-        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_iter_move(_ptr, gint(delta)))) else { return nil }
+        let result = g_sequence_iter_move(_ptr, gint(delta))
+        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns an iterator pointing to the next position after `iter`.
     /// If `iter` is the end iterator, the end iterator is returned.
     @inlinable func next() -> SequenceIterRef! {
-        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_iter_next(_ptr))) else { return nil }
+        let result = g_sequence_iter_next(_ptr)
+        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns an iterator pointing to the previous position before `iter`.
     /// If `iter` is the begin iterator, the begin iterator is returned.
     @inlinable func prev() -> SequenceIterRef! {
-        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_iter_prev(_ptr))) else { return nil }
+        let result = g_sequence_iter_prev(_ptr)
+        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns the data that `iter` points to.
-    @inlinable func sequenceGet() -> gpointer! {
-        let rv = g_sequence_get(_ptr)
+    @inlinable func sequenceGet() -> gpointer? {
+        let result = g_sequence_get(_ptr)
+        let rv = result
         return rv
     }
 
     /// Inserts a new item just before the item pointed to by `iter`.
-    @inlinable func sequenceInsertBefore(data: gpointer! = nil) -> SequenceIterRef! {
-        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_insert_before(_ptr, data))) else { return nil }
+    @inlinable func sequenceInsertBefore(data: gpointer? = nil) -> SequenceIterRef! {
+        let result = g_sequence_insert_before(_ptr, data)
+        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2211,8 +2909,9 @@ public extension SequenceIterProtocol {
     /// after `src`. It is allowed for `src` and `dest` to point into different
     /// sequences.
     @inlinable func sequenceMove<SequenceIterT: SequenceIterProtocol>(dest: SequenceIterT) {
+        
         g_sequence_move(_ptr, dest._ptr)
-    
+        
     }
 
     /// Inserts the (`begin`, `end`) range at the destination pointed to by `dest`.
@@ -2224,8 +2923,9 @@ public extension SequenceIterProtocol {
     /// removed from the sequence. If `dest` points to a place within
     /// the (`begin`, `end`) range, the range does not move.
     @inlinable func sequenceMoveRange<SequenceIterT: SequenceIterProtocol>(begin: SequenceIterT, end: SequenceIterT) {
+        
         g_sequence_move_range(_ptr, begin._ptr, end._ptr)
-    
+        
     }
 
     /// Finds an iterator somewhere in the range (`begin`, `end`). This
@@ -2235,7 +2935,8 @@ public extension SequenceIterProtocol {
     /// The `begin` and `end` iterators must both point to the same sequence
     /// and `begin` must come before or be equal to `end` in the sequence.
     @inlinable func sequenceRangeGetMidpoint<SequenceIterT: SequenceIterProtocol>(end: SequenceIterT) -> SequenceIterRef! {
-        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(g_sequence_range_get_midpoint(_ptr, end._ptr))) else { return nil }
+        let result = g_sequence_range_get_midpoint(_ptr, end._ptr)
+        guard let rv = SequenceIterRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2245,8 +2946,9 @@ public extension SequenceIterProtocol {
     /// If the sequence has a data destroy function associated with it, this
     /// function is called on the data for the removed item.
     @inlinable func sequenceRemove() {
+        
         g_sequence_remove(_ptr)
-    
+        
     }
 
     /// Removes all items in the (`begin`, `end`) range.
@@ -2254,29 +2956,33 @@ public extension SequenceIterProtocol {
     /// If the sequence has a data destroy function associated with it, this
     /// function is called on the data for the removed items.
     @inlinable func sequenceRemoveRange<SequenceIterT: SequenceIterProtocol>(end: SequenceIterT) {
+        
         g_sequence_remove_range(_ptr, end._ptr)
-    
+        
     }
 
     /// Changes the data for the item pointed to by `iter` to be `data`. If
     /// the sequence has a data destroy function associated with it, that
     /// function is called on the existing data that `iter` pointed to.
-    @inlinable func sequenceSet(data: gpointer! = nil) {
+    @inlinable func sequenceSet(data: gpointer? = nil) {
+        
         g_sequence_set(_ptr, data)
-    
+        
     }
 
     /// Swaps the items pointed to by `a` and `b`. It is allowed for `a` and `b`
     /// to point into difference sequences.
     @inlinable func sequenceSwap<SequenceIterT: SequenceIterProtocol>(b: SequenceIterT) {
+        
         g_sequence_swap(_ptr, b._ptr)
-    
+        
     }
     /// Returns whether `iter` is the begin iterator
     @inlinable var isBegin: Bool {
         /// Returns whether `iter` is the begin iterator
         get {
-            let rv = ((g_sequence_iter_is_begin(_ptr)) != 0)
+            let result = g_sequence_iter_is_begin(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -2285,7 +2991,8 @@ public extension SequenceIterProtocol {
     @inlinable var isEnd: Bool {
         /// Returns whether `iter` is the end iterator
         get {
-            let rv = ((g_sequence_iter_is_end(_ptr)) != 0)
+            let result = g_sequence_iter_is_end(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -2294,7 +3001,8 @@ public extension SequenceIterProtocol {
     @inlinable var position: Int {
         /// Returns the position of `iter`
         get {
-            let rv = Int(g_sequence_iter_get_position(_ptr))
+            let result = g_sequence_iter_get_position(_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2303,7 +3011,8 @@ public extension SequenceIterProtocol {
     @inlinable var sequence: SequenceRef! {
         /// Returns the `GSequence` that `iter` points into.
         get {
-            let rv = SequenceRef(gconstpointer: gconstpointer(g_sequence_iter_get_sequence(_ptr)))
+            let result = g_sequence_iter_get_sequence(_ptr)
+        let rv = SequenceRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -2426,8 +3135,9 @@ public extension SourceRef {
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     @inlinable init<SourceFuncsT: SourceFuncsProtocol>( sourceFuncs: SourceFuncsT, structSize: Int) {
-        let rv = g_source_new(sourceFuncs._ptr, guint(structSize))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_source_new(sourceFuncs._ptr, guint(structSize))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -2587,8 +3297,9 @@ open class Source: SourceProtocol {
     /// and must be added to one with `g_source_attach()` before it will be
     /// executed.
     @inlinable public init<SourceFuncsT: SourceFuncsProtocol>( sourceFuncs: SourceFuncsT, structSize: Int) {
-        let rv = g_source_new(sourceFuncs._ptr, guint(structSize))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_source_new(sourceFuncs._ptr, guint(structSize))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -2622,8 +3333,9 @@ public extension SourceProtocol {
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
     @inlinable func add<SourceT: SourceProtocol>(childSource: SourceT) {
+        
         g_source_add_child_source(source_ptr, childSource.source_ptr)
-    
+        
     }
 
     /// Adds a file descriptor to the set of file descriptors polled for
@@ -2639,8 +3351,9 @@ public extension SourceProtocol {
     /// main loop iteration.  Newly-written event sources should try to use
     /// `g_source_add_unix_fd()` instead of this API.
     @inlinable func addPoll<PollFDT: PollFDProtocol>(fd: PollFDT) {
+        
         g_source_add_poll(source_ptr, fd.pollfd_ptr)
-    
+        
     }
 
     /// Monitors `fd` for the IO events in `events`.
@@ -2657,7 +3370,8 @@ public extension SourceProtocol {
     /// 
     /// As the name suggests, this function is not available on Windows.
     @inlinable func addUnix(fd: Int, events: IOCondition) -> gpointer! {
-        let rv = gpointer?(g_source_add_unix_fd(source_ptr, gint(fd), events.value))
+        let result = g_source_add_unix_fd(source_ptr, gint(fd), events.value)
+        let rv = gpointer(result)
         return rv
     }
 
@@ -2667,8 +3381,9 @@ public extension SourceProtocol {
     /// This function is safe to call from any thread, regardless of which thread
     /// the `context` is running in.
     @inlinable func attach(context: MainContextRef? = nil) -> Int {
-        let rv = Int(g_source_attach(source_ptr, context?.main_context_ptr))
-        return rv
+            let result = g_source_attach(source_ptr, context?.main_context_ptr)
+        let rv = Int(result)
+            return rv
     }
     /// Adds a `GSource` to a `context` so that it will be executed within
     /// that context. Remove it by calling `g_source_destroy()`.
@@ -2676,7 +3391,8 @@ public extension SourceProtocol {
     /// This function is safe to call from any thread, regardless of which thread
     /// the `context` is running in.
     @inlinable func attach<MainContextT: MainContextProtocol>(context: MainContextT?) -> Int {
-        let rv = Int(g_source_attach(source_ptr, context?.main_context_ptr))
+        let result = g_source_attach(source_ptr, context?.main_context_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -2695,14 +3411,16 @@ public extension SourceProtocol {
     /// will effectively unset the callback similar to calling `g_source_set_callback()`.
     /// This can mean, that the data's `GDestroyNotify` gets called right away.
     @inlinable func destroy() {
+        
         g_source_destroy(source_ptr)
-    
+        
     }
 
     /// Checks whether a source is allowed to be called recursively.
     /// see `g_source_set_can_recurse()`.
     @inlinable func getCanRecurse() -> Bool {
-        let rv = ((g_source_get_can_recurse(source_ptr)) != 0)
+        let result = g_source_get_can_recurse(source_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2715,7 +3433,8 @@ public extension SourceProtocol {
     /// `g_main_current_source()`. But calling this function on a source
     /// whose `GMainContext` has been destroyed is an error.
     @inlinable func getContext() -> MainContextRef! {
-        let rv = MainContextRef(gconstpointer: gconstpointer(g_source_get_context(source_ptr)))
+        let result = g_source_get_context(source_ptr)
+        let rv = MainContextRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -2725,8 +3444,9 @@ public extension SourceProtocol {
     /// **get_current_time is deprecated:**
     /// use g_source_get_time() instead
     @available(*, deprecated) @inlinable func getCurrentTime<TimeValT: TimeValProtocol>(timeval: TimeValT) {
+        
         g_source_get_current_time(source_ptr, timeval._ptr)
-    
+        
     }
 
     /// Returns the numeric ID for a particular source. The ID of a source
@@ -2739,20 +3459,23 @@ public extension SourceProtocol {
     /// or after `g_source_destroy()` yields undefined behavior. The ID returned
     /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
     @inlinable func getID() -> Int {
-        let rv = Int(g_source_get_id(source_ptr))
+        let result = g_source_get_id(source_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Gets a name for the source, used in debugging and profiling.  The
     /// name may be `NULL` if it has never been set with `g_source_set_name()`.
     @inlinable func getName() -> String! {
-        let rv = g_source_get_name(source_ptr).map({ String(cString: $0) })
+        let result = g_source_get_name(source_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Gets the priority of a source.
     @inlinable func getPriority() -> Int {
-        let rv = Int(g_source_get_priority(source_ptr))
+        let result = g_source_get_priority(source_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -2762,7 +3485,8 @@ public extension SourceProtocol {
     /// Any time before the current monotonic time (including 0) is an
     /// indication that the source will fire immediately.
     @inlinable func getReadyTime() -> gint64 {
-        let rv = g_source_get_ready_time(source_ptr)
+        let result = g_source_get_ready_time(source_ptr)
+        let rv = result
         return rv
     }
 
@@ -2774,7 +3498,8 @@ public extension SourceProtocol {
     /// The time here is the system monotonic time, if available, or some
     /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
     @inlinable func getTime() -> gint64 {
-        let rv = g_source_get_time(source_ptr)
+        let result = g_source_get_time(source_ptr)
+        let rv = result
         return rv
     }
 
@@ -2790,8 +3515,9 @@ public extension SourceProtocol {
     /// 
     /// As the name suggests, this function is not available on Windows.
     @inlinable func modifyUnixFd(tag: gpointer!, newEvents: IOCondition) {
+        
         g_source_modify_unix_fd(source_ptr, tag, newEvents.value)
-    
+        
     }
 
     /// Queries the events reported for the fd corresponding to `tag` on
@@ -2804,14 +3530,16 @@ public extension SourceProtocol {
     /// Do not call this API on a `GSource` that you did not create.
     /// 
     /// As the name suggests, this function is not available on Windows.
-    @inlinable func queryUnixFd(tag: gpointer!) -> IOCondition {
-        let rv = IOCondition(g_source_query_unix_fd(source_ptr, tag))
+    @inlinable func queryUnixFd(tag: gpointer!) -> GLib.IOCondition {
+        let result = g_source_query_unix_fd(source_ptr, tag)
+        let rv = IOCondition(result)
         return rv
     }
 
     /// Increases the reference count on a source by one.
     @discardableResult @inlinable func ref() -> SourceRef! {
-        guard let rv = SourceRef(gconstpointer: gconstpointer(g_source_ref(source_ptr))) else { return nil }
+        let result = g_source_ref(source_ptr)
+        guard let rv = SourceRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2820,8 +3548,9 @@ public extension SourceProtocol {
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
     @inlinable func remove<SourceT: SourceProtocol>(childSource: SourceT) {
+        
         g_source_remove_child_source(source_ptr, childSource.source_ptr)
-    
+        
     }
 
     /// Removes a file descriptor from the set of file descriptors polled for
@@ -2830,8 +3559,9 @@ public extension SourceProtocol {
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
     @inlinable func removePoll<PollFDT: PollFDProtocol>(fd: PollFDT) {
+        
         g_source_remove_poll(source_ptr, fd.pollfd_ptr)
-    
+        
     }
 
     /// Reverses the effect of a previous call to `g_source_add_unix_fd()`.
@@ -2845,8 +3575,9 @@ public extension SourceProtocol {
     /// 
     /// As the name suggests, this function is not available on Windows.
     @inlinable func removeUnixFd(tag: gpointer!) {
+        
         g_source_remove_unix_fd(source_ptr, tag)
-    
+        
     }
 
     /// Sets the callback function for a source. The callback for a source is
@@ -2869,9 +3600,10 @@ public extension SourceProtocol {
     /// 
     /// Note that `g_source_destroy()` for a currently attached source has the effect
     /// of also unsetting the callback.
-    @inlinable func setCallback(`func`: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) {
+    @inlinable func setCallback(`func`: GSourceFunc?, data: gpointer? = nil, notify: GDestroyNotify? = nil) {
+        
         g_source_set_callback(source_ptr, `func`, data, notify)
-    
+        
     }
 
     /// Sets the callback function storing the data as a refcounted callback
@@ -2884,9 +3616,10 @@ public extension SourceProtocol {
     /// It is safe to call this function multiple times on a source which has already
     /// been attached to a context. The changes will take effect for the next time
     /// the source is dispatched after this call returns.
-    @inlinable func setCallbackIndirect<SourceCallbackFuncsT: SourceCallbackFuncsProtocol>(callbackData: gpointer! = nil, callbackFuncs: SourceCallbackFuncsT) {
+    @inlinable func setCallbackIndirect<SourceCallbackFuncsT: SourceCallbackFuncsProtocol>(callbackData: gpointer? = nil, callbackFuncs: SourceCallbackFuncsT) {
+        
         g_source_set_callback_indirect(source_ptr, callbackData, callbackFuncs._ptr)
-    
+        
     }
 
     /// Sets whether a source can be called recursively. If `can_recurse` is
@@ -2894,8 +3627,9 @@ public extension SourceProtocol {
     /// will be processed normally. Otherwise, all processing of this
     /// source is blocked until the dispatch function returns.
     @inlinable func set(canRecurse: Bool) {
+        
         g_source_set_can_recurse(source_ptr, gboolean((canRecurse) ? 1 : 0))
-    
+        
     }
 
     /// Set `dispose` as dispose function on `source`. `dispose` will be called once
@@ -2915,15 +3649,17 @@ public extension SourceProtocol {
     /// 
     /// This should only ever be called from `GSource` implementations.
     @inlinable func setDisposeFunction(dispose: GSourceDisposeFunc?) {
+        
         g_source_set_dispose_function(source_ptr, dispose)
-    
+        
     }
 
     /// Sets the source functions (can be used to override
     /// default implementations) of an unattached source.
     @inlinable func set<SourceFuncsT: SourceFuncsProtocol>(funcs: SourceFuncsT) {
+        
         g_source_set_funcs(source_ptr, funcs._ptr)
-    
+        
     }
 
     /// Sets a name for the source, used in debugging and profiling.
@@ -2945,8 +3681,9 @@ public extension SourceProtocol {
     /// 
     /// Also see `g_source_set_static_name()`.
     @inlinable func set(name: UnsafePointer<CChar>!) {
+        
         g_source_set_name(source_ptr, name)
-    
+        
     }
 
     /// Sets the priority of a source. While the main loop is being run, a
@@ -2958,8 +3695,9 @@ public extension SourceProtocol {
     /// permitted to change the priority of a source once it has been added
     /// as a child of another source.
     @inlinable func set(priority: Int) {
+        
         g_source_set_priority(source_ptr, gint(priority))
-    
+        
     }
 
     /// Sets a `GSource` to be dispatched when the given monotonic time is
@@ -2985,24 +3723,27 @@ public extension SourceProtocol {
     /// This API is only intended to be used by implementations of `GSource`.
     /// Do not call this API on a `GSource` that you did not create.
     @inlinable func set(readyTime: gint64) {
+        
         g_source_set_ready_time(source_ptr, readyTime)
-    
+        
     }
 
     /// A variant of `g_source_set_name()` that does not
     /// duplicate the `name`, and can only be used with
     /// string literals.
     @inlinable func setStatic(name: UnsafePointer<CChar>!) {
+        
         g_source_set_static_name(source_ptr, name)
-    
+        
     }
 
     /// Decreases the reference count of a source by one. If the
     /// resulting reference count is zero the source and associated
     /// memory will be destroyed.
     @inlinable func unref() {
+        
         g_source_unref(source_ptr)
-    
+        
     }
     /// Checks whether a source is allowed to be called recursively.
     /// see `g_source_set_can_recurse()`.
@@ -3010,7 +3751,8 @@ public extension SourceProtocol {
         /// Checks whether a source is allowed to be called recursively.
         /// see `g_source_set_can_recurse()`.
         get {
-            let rv = ((g_source_get_can_recurse(source_ptr)) != 0)
+            let result = g_source_get_can_recurse(source_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// Sets whether a source can be called recursively. If `can_recurse` is
@@ -3040,7 +3782,8 @@ public extension SourceProtocol {
         /// `g_main_current_source()`. But calling this function on a source
         /// whose `GMainContext` has been destroyed is an error.
         get {
-            let rv = MainContextRef(gconstpointer: gconstpointer(g_source_get_context(source_ptr)))
+            let result = g_source_get_context(source_ptr)
+        let rv = MainContextRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -3065,7 +3808,8 @@ public extension SourceProtocol {
         /// or after `g_source_destroy()` yields undefined behavior. The ID returned
         /// is unique within the `GMainContext` instance passed to `g_source_attach()`.
         get {
-            let rv = Int(g_source_get_id(source_ptr))
+            let result = g_source_get_id(source_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -3232,7 +3976,8 @@ public extension SourceProtocol {
         /// once a source is destroyed it cannot be un-destroyed, so this function can be
         /// used for opportunistic checks from any thread.
         get {
-            let rv = ((g_source_is_destroyed(source_ptr)) != 0)
+            let result = g_source_is_destroyed(source_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -3243,7 +3988,8 @@ public extension SourceProtocol {
         /// Gets a name for the source, used in debugging and profiling.  The
         /// name may be `NULL` if it has never been set with `g_source_set_name()`.
         get {
-            let rv = g_source_get_name(source_ptr).map({ String(cString: $0) })
+            let result = g_source_get_name(source_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
         /// Sets a name for the source, used in debugging and profiling.
@@ -3273,7 +4019,8 @@ public extension SourceProtocol {
     @inlinable var priority: Int {
         /// Gets the priority of a source.
         get {
-            let rv = Int(g_source_get_priority(source_ptr))
+            let result = g_source_get_priority(source_ptr)
+        let rv = Int(result)
             return rv
         }
         /// Sets the priority of a source. While the main loop is being run, a
@@ -3301,7 +4048,8 @@ public extension SourceProtocol {
         /// Any time before the current monotonic time (including 0) is an
         /// indication that the source will fire immediately.
         get {
-            let rv = g_source_get_ready_time(source_ptr)
+            let result = g_source_get_ready_time(source_ptr)
+        let rv = result
             return rv
         }
         /// Sets a `GSource` to be dispatched when the given monotonic time is
@@ -3347,7 +4095,8 @@ public extension SourceProtocol {
         /// The time here is the system monotonic time, if available, or some
         /// other reasonable alternative otherwise.  See `g_get_monotonic_time()`.
         get {
-            let rv = g_source_get_time(source_ptr)
+            let result = g_source_get_time(source_ptr)
+        let rv = result
             return rv
         }
     }
@@ -3984,8 +4733,9 @@ public extension SourceFuncsProtocol {
     /// Removes a source from the default main loop context given the
     /// source functions and user data. If multiple sources exist with the
     /// same source functions and user data, only one will be destroyed.
-    @inlinable func sourceRemoveByFuncs(userData: gpointer! = nil) -> Bool {
-        let rv = ((g_source_remove_by_funcs_user_data(_ptr, userData)) != 0)
+    @inlinable func sourceRemoveByFuncs(userData: gpointer? = nil) -> Bool {
+        let result = g_source_remove_by_funcs_user_data(_ptr, userData)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -4658,8 +5408,9 @@ public extension StringRef {
 
         /// Creates a new `GString`, initialized with the given string.
     @inlinable init( `init`: UnsafePointer<gchar>? = nil) {
-        let rv = g_string_new(`init`)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_new(`init`)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GString` with `len` bytes of the `init` buffer.
@@ -4670,8 +5421,9 @@ public extension StringRef {
     /// responsibility to ensure that `init` has at least `len` addressable
     /// bytes.
     @inlinable init(len `init`: UnsafePointer<gchar>!, len: gssize) {
-        let rv = g_string_new_len(`init`, len)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_new_len(`init`, len)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GString`, with enough space for `dfl_size`
@@ -4679,8 +5431,9 @@ public extension StringRef {
     /// text to the string and don't want it to be reallocated
     /// too often.
     @inlinable init(sized dflSize: Int) {
-        let rv = g_string_sized_new(gsize(dflSize))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_sized_new(gsize(dflSize))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GString` with `len` bytes of the `init` buffer.
     /// Because a length is provided, `init` need not be nul-terminated,
@@ -4690,7 +5443,8 @@ public extension StringRef {
     /// responsibility to ensure that `init` has at least `len` addressable
     /// bytes.
     @inlinable static func new(len `init`: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_new_len(`init`, len))) else { return nil }
+            let result = g_string_new_len(`init`, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4699,7 +5453,8 @@ public extension StringRef {
     /// text to the string and don't want it to be reallocated
     /// too often.
     @inlinable static func sizedNew(sized dflSize: Int) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_sized_new(gsize(dflSize)))) else { return nil }
+            let result = g_string_sized_new(gsize(dflSize))
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -4852,8 +5607,9 @@ open class StringType: StringProtocol {
 
     /// Creates a new `GString`, initialized with the given string.
     @inlinable public init( `init`: UnsafePointer<gchar>? = nil) {
-        let rv = g_string_new(`init`)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_new(`init`)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GString` with `len` bytes of the `init` buffer.
@@ -4864,8 +5620,9 @@ open class StringType: StringProtocol {
     /// responsibility to ensure that `init` has at least `len` addressable
     /// bytes.
     @inlinable public init(len `init`: UnsafePointer<gchar>!, len: gssize) {
-        let rv = g_string_new_len(`init`, len)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_new_len(`init`, len)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GString`, with enough space for `dfl_size`
@@ -4873,8 +5630,9 @@ open class StringType: StringProtocol {
     /// text to the string and don't want it to be reallocated
     /// too often.
     @inlinable public init(sized dflSize: Int) {
-        let rv = g_string_sized_new(gsize(dflSize))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_string_sized_new(gsize(dflSize))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GString` with `len` bytes of the `init` buffer.
@@ -4885,7 +5643,8 @@ open class StringType: StringProtocol {
     /// responsibility to ensure that `init` has at least `len` addressable
     /// bytes.
     @inlinable public static func new(len `init`: UnsafePointer<gchar>!, len: gssize) -> StringType! {
-        guard let rv = StringType(gconstpointer: gconstpointer(g_string_new_len(`init`, len))) else { return nil }
+            let result = g_string_new_len(`init`, len)
+        guard let rv = StringType(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4894,7 +5653,8 @@ open class StringType: StringProtocol {
     /// text to the string and don't want it to be reallocated
     /// too often.
     @inlinable public static func sizedNew(sized dflSize: Int) -> StringType! {
-        guard let rv = StringType(gconstpointer: gconstpointer(g_string_sized_new(gsize(dflSize)))) else { return nil }
+            let result = g_string_sized_new(gsize(dflSize))
+        guard let rv = StringType(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4913,14 +5673,16 @@ public extension StringProtocol {
     /// Adds a string onto the end of a `GString`, expanding
     /// it if necessary.
     @inlinable func append(val: UnsafePointer<gchar>!) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append(gstring_ptr, val))) else { return nil }
+        let result = g_string_append(gstring_ptr, val)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Adds a byte onto the end of a `GString`, expanding
     /// it if necessary.
     @inlinable func append(c: gchar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append_c(gstring_ptr, c))) else { return nil }
+        let result = g_string_append_c(gstring_ptr, c)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4934,7 +5696,8 @@ public extension StringProtocol {
     /// is considered to request the entire string length. This
     /// makes `g_string_append_len()` equivalent to `g_string_append()`.
     @inlinable func appendLen(val: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append_len(gstring_ptr, val, len))) else { return nil }
+        let result = g_string_append_len(gstring_ptr, val, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4945,14 +5708,16 @@ public extension StringProtocol {
     /// Converts a Unicode character into UTF-8, and appends it
     /// to the string.
     @inlinable func appendUnichar(wc: gunichar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append_unichar(gstring_ptr, wc))) else { return nil }
+        let result = g_string_append_unichar(gstring_ptr, wc)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Appends `unescaped` to `string`, escaping any characters that
     /// are reserved in URIs using URI-style escape sequences.
     @inlinable func appendURIEscaped(unescaped: UnsafePointer<gchar>!, reservedCharsAllowed: UnsafePointer<gchar>!, allowUTF8: Bool) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_append_uri_escaped(gstring_ptr, unescaped, reservedCharsAllowed, gboolean((allowUTF8) ? 1 : 0)))) else { return nil }
+        let result = g_string_append_uri_escaped(gstring_ptr, unescaped, reservedCharsAllowed, gboolean((allowUTF8) ? 1 : 0))
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4961,19 +5726,22 @@ public extension StringProtocol {
     /// except that the arguments to the format string are passed
     /// as a va_list.
     @inlinable func appendVprintf(format: UnsafePointer<gchar>!, args: CVaListPointer) {
+        
         g_string_append_vprintf(gstring_ptr, format, args)
-    
+        
     }
 
     /// Converts all uppercase ASCII letters to lowercase ASCII letters.
     @inlinable func asciiDown() -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_ascii_down(gstring_ptr))) else { return nil }
+        let result = g_string_ascii_down(gstring_ptr)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Converts all lowercase ASCII letters to uppercase ASCII letters.
     @inlinable func asciiUp() -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_ascii_up(gstring_ptr))) else { return nil }
+        let result = g_string_ascii_up(gstring_ptr)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4982,7 +5750,8 @@ public extension StringProtocol {
     /// the standard `strcpy()` function, except that you do not
     /// have to worry about having enough space to copy the string.
     @inlinable func assign(rval: UnsafePointer<gchar>!) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_assign(gstring_ptr, rval))) else { return nil }
+        let result = g_string_assign(gstring_ptr, rval)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4993,21 +5762,24 @@ public extension StringProtocol {
     ///     tolower() function, which is almost never the right thing.
     ///     Use g_string_ascii_down() or g_utf8_strdown() instead.
     @available(*, deprecated) @inlinable func down() -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_down(gstring_ptr))) else { return nil }
+        let result = g_string_down(gstring_ptr)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Compares two strings for equality, returning `true` if they are equal.
     /// For use with `GHashTable`.
     @inlinable func equal<StringTypeT: StringProtocol>(v2: StringTypeT) -> Bool {
-        let rv = ((g_string_equal(gstring_ptr, v2.gstring_ptr)) != 0)
+        let result = g_string_equal(gstring_ptr, v2.gstring_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Removes `len` bytes from a `GString`, starting at position `pos`.
     /// The rest of the `GString` is shifted down to fill the gap.
     @inlinable func erase(pos: gssize, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_erase(gstring_ptr, pos, len))) else { return nil }
+        let result = g_string_erase(gstring_ptr, pos, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5016,7 +5788,8 @@ public extension StringProtocol {
     /// it's `false`, the caller gains ownership of the buffer and must
     /// free it after use with `g_free()`.
     @inlinable func free(freeSegment: Bool) -> String! {
-        let rv = g_string_free(gstring_ptr, gboolean((freeSegment) ? 1 : 0)).map({ String(cString: $0) })
+        let result = g_string_free(gstring_ptr, gboolean((freeSegment) ? 1 : 0))
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -5029,26 +5802,30 @@ public extension StringProtocol {
     /// `GBytes` does not include this extra nul; i.e. it has length exactly
     /// equal to the "len" member.
     @inlinable func freeToBytes() -> BytesRef! {
-        let rv = BytesRef(gconstpointer: gconstpointer(g_string_free_to_bytes(gstring_ptr)))
+        let result = g_string_free_to_bytes(gstring_ptr)
+        let rv = BytesRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Creates a hash code for `str`; for use with `GHashTable`.
     @inlinable func hash() -> Int {
-        let rv = Int(g_string_hash(gstring_ptr))
+        let result = g_string_hash(gstring_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Inserts a copy of a string into a `GString`,
     /// expanding it if necessary.
     @inlinable func insert(pos: gssize, val: UnsafePointer<gchar>!) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_insert(gstring_ptr, pos, val))) else { return nil }
+        let result = g_string_insert(gstring_ptr, pos, val)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Inserts a byte into a `GString`, expanding it if necessary.
     @inlinable func insertC(pos: gssize, c: gchar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_insert_c(gstring_ptr, pos, c))) else { return nil }
+        let result = g_string_insert_c(gstring_ptr, pos, c)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5063,41 +5840,47 @@ public extension StringProtocol {
     /// 
     /// If `pos` is -1, bytes are inserted at the end of the string.
     @inlinable func insertLen(pos: gssize, val: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_insert_len(gstring_ptr, pos, val, len))) else { return nil }
+        let result = g_string_insert_len(gstring_ptr, pos, val, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Converts a Unicode character into UTF-8, and insert it
     /// into the string at the given position.
     @inlinable func insertUnichar(pos: gssize, wc: gunichar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_insert_unichar(gstring_ptr, pos, wc))) else { return nil }
+        let result = g_string_insert_unichar(gstring_ptr, pos, wc)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Overwrites part of a string, lengthening it if necessary.
     @inlinable func overwrite(pos: Int, val: UnsafePointer<gchar>!) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_overwrite(gstring_ptr, gsize(pos), val))) else { return nil }
+        let result = g_string_overwrite(gstring_ptr, gsize(pos), val)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Overwrites part of a string, lengthening it if necessary.
     /// This function will work with embedded nuls.
     @inlinable func overwriteLen(pos: Int, val: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_overwrite_len(gstring_ptr, gsize(pos), val, len))) else { return nil }
+        let result = g_string_overwrite_len(gstring_ptr, gsize(pos), val, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Adds a string on to the start of a `GString`,
     /// expanding it if necessary.
     @inlinable func prepend(val: UnsafePointer<gchar>!) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_prepend(gstring_ptr, val))) else { return nil }
+        let result = g_string_prepend(gstring_ptr, val)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Adds a byte onto the start of a `GString`,
     /// expanding it if necessary.
     @inlinable func prepend(c: gchar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_prepend_c(gstring_ptr, c))) else { return nil }
+        let result = g_string_prepend_c(gstring_ptr, c)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5111,14 +5894,16 @@ public extension StringProtocol {
     /// is considered to request the entire string length. This
     /// makes `g_string_prepend_len()` equivalent to `g_string_prepend()`.
     @inlinable func prependLen(val: UnsafePointer<gchar>!, len: gssize) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_prepend_len(gstring_ptr, val, len))) else { return nil }
+        let result = g_string_prepend_len(gstring_ptr, val, len)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Converts a Unicode character into UTF-8, and prepends it
     /// to the string.
     @inlinable func prependUnichar(wc: gunichar) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_prepend_unichar(gstring_ptr, wc))) else { return nil }
+        let result = g_string_prepend_unichar(gstring_ptr, wc)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5136,7 +5921,8 @@ public extension StringProtocol {
     /// (beginning of string, end of string and between characters). This did
     /// not work correctly in earlier versions.
     @inlinable func replace(find: UnsafePointer<gchar>!, replace: UnsafePointer<gchar>!, limit: Int) -> Int {
-        let rv = Int(g_string_replace(gstring_ptr, find, replace, guint(limit)))
+        let result = g_string_replace(gstring_ptr, find, replace, guint(limit))
+        let rv = Int(result)
         return rv
     }
 
@@ -5146,13 +5932,15 @@ public extension StringProtocol {
     /// of the newly added area are undefined. (However, as
     /// always, string-&gt;str[string-&gt;len] will be a nul byte.)
     @inlinable func setSize(len: Int) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_set_size(gstring_ptr, gsize(len)))) else { return nil }
+        let result = g_string_set_size(gstring_ptr, gsize(len))
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Cuts off the end of the GString, leaving the first `len` bytes.
     @inlinable func truncate(len: Int) -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_truncate(gstring_ptr, gsize(len)))) else { return nil }
+        let result = g_string_truncate(gstring_ptr, gsize(len))
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5163,7 +5951,8 @@ public extension StringProtocol {
     ///     toupper() function, which is almost never the right thing.
     ///     Use g_string_ascii_up() or g_utf8_strup() instead.
     @available(*, deprecated) @inlinable func up() -> StringRef! {
-        guard let rv = StringRef(gconstpointer: gconstpointer(g_string_up(gstring_ptr))) else { return nil }
+        let result = g_string_up(gstring_ptr)
+        guard let rv = StringRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5171,8 +5960,9 @@ public extension StringProtocol {
     /// This function is similar to `g_string_printf()` except that
     /// the arguments to the format string are passed as a va_list.
     @inlinable func vprintf(format: UnsafePointer<gchar>!, args: CVaListPointer) {
+        
         g_string_vprintf(gstring_ptr, format, args)
-    
+        
     }
 
     /// points to the character data. It may move as text is added.
@@ -5184,7 +5974,7 @@ public extension StringProtocol {
         ///   can be used as an ordinary C string.
         get {
             let rv = gstring_ptr.pointee.str
-            return rv
+    return rv
         }
         /// points to the character data. It may move as text is added.
         ///   The `str` field is null-terminated and so
@@ -5201,7 +5991,7 @@ public extension StringProtocol {
         ///   terminating nul byte.
         get {
             let rv = gstring_ptr.pointee.len
-            return rv
+    return rv
         }
         /// contains the length of the string, not including the
         ///   terminating nul byte.
@@ -5217,7 +6007,7 @@ public extension StringProtocol {
         ///   string before it needs to be reallocated. May be larger than `len`.
         get {
             let rv = gstring_ptr.pointee.allocated_len
-            return rv
+    return rv
         }
         /// the number of bytes that can be stored in the
         ///   string before it needs to be reallocated. May be larger than `len`.
@@ -5501,16 +6291,18 @@ public extension StringChunkProtocol {
     /// After calling `g_string_chunk_clear()` it is not safe to
     /// access any of the strings which were contained within it.
     @inlinable func clear() {
+        
         g_string_chunk_clear(_ptr)
-    
+        
     }
 
     /// Frees all memory allocated by the `GStringChunk`.
     /// After calling `g_string_chunk_free()` it is not safe to
     /// access any of the strings which were contained within it.
     @inlinable func free() {
+        
         g_string_chunk_free(_ptr)
-    
+        
     }
 
     /// Adds a copy of `string` to the `GStringChunk`.
@@ -5525,7 +6317,8 @@ public extension StringChunkProtocol {
     /// by `g_string_chunk_insert_const()` when looking for
     /// duplicates.
     @inlinable func insert(string: UnsafePointer<gchar>!) -> String! {
-        let rv = g_string_chunk_insert(_ptr, string).map({ String(cString: $0) })
+        let result = g_string_chunk_insert(_ptr, string)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -5543,7 +6336,8 @@ public extension StringChunkProtocol {
     /// pointer to a string added with `g_string_chunk_insert()`, even
     /// if they do match.
     @inlinable func insertConst(string: UnsafePointer<gchar>!) -> String! {
-        let rv = g_string_chunk_insert_const(_ptr, string).map({ String(cString: $0) })
+        let result = g_string_chunk_insert_const(_ptr, string)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -5557,7 +6351,8 @@ public extension StringChunkProtocol {
     /// The characters in the returned string can be changed, if necessary,
     /// though you should not change anything after the end of the string.
     @inlinable func insertLen(string: UnsafePointer<gchar>!, len: gssize) -> String! {
-        let rv = g_string_chunk_insert_len(_ptr, string, len).map({ String(cString: $0) })
+        let result = g_string_chunk_insert_len(_ptr, string, len)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -5870,8 +6665,9 @@ public extension StrvBuilderProtocol {
     /// 
     /// Since 2.68
     @inlinable func add(value: UnsafePointer<CChar>!) {
+        
         g_strv_builder_add(_ptr, value)
-    
+        
     }
 
 
@@ -5882,22 +6678,25 @@ public extension StrvBuilderProtocol {
     /// 
     /// Since 2.70
     @inlinable func addv(value: UnsafeMutablePointer<UnsafePointer<CChar>?>!) {
+        
         g_strv_builder_addv(_ptr, value)
-    
+        
     }
 
     /// Ends the builder process and returns the constructed NULL-terminated string
     /// array. The returned value should be freed with `g_strfreev()` when no longer
     /// needed.
     @inlinable func end() -> GStrv! {
-        let rv = g_strv_builder_end(_ptr)
+        let result = g_strv_builder_end(_ptr)
+        let rv = result
         return rv
     }
 
     /// Atomically increments the reference count of `builder` by one.
     /// This function is thread-safe and may be called from any thread.
     @discardableResult @inlinable func ref() -> StrvBuilderRef! {
-        guard let rv = StrvBuilderRef(gconstpointer: gconstpointer(g_strv_builder_ref(_ptr))) else { return nil }
+        let result = g_strv_builder_ref(_ptr)
+        guard let rv = StrvBuilderRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -5906,283 +6705,9 @@ public extension StrvBuilderProtocol {
     /// In the event that there are no more references, releases all memory
     /// associated with the `GStrvBuilder`.
     @inlinable func unref() {
+        
         g_strv_builder_unref(_ptr)
-    
-    }
-
-
-}
-
-
-
-// MARK: - TestCase Record
-
-/// An opaque structure representing a test case.
-///
-/// The `TestCaseProtocol` protocol exposes the methods and properties of an underlying `GTestCase` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `TestCase`.
-/// Alternatively, use `TestCaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol TestCaseProtocol {
-        /// Untyped pointer to the underlying `GTestCase` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GTestCase` instance.
-    var _ptr: UnsafeMutablePointer<GTestCase>! { get }
-
-    /// Required Initialiser for types conforming to `TestCaseProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// An opaque structure representing a test case.
-///
-/// The `TestCaseRef` type acts as a lightweight Swift reference to an underlying `GTestCase` instance.
-/// It exposes methods that can operate on this data type through `TestCaseProtocol` conformance.
-/// Use `TestCaseRef` only as an `unowned` reference to an existing `GTestCase` instance.
-///
-public struct TestCaseRef: TestCaseProtocol {
-        /// Untyped pointer to the underlying `GTestCase` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension TestCaseRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GTestCase>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GTestCase>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTestCase>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GTestCase>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `TestCaseProtocol`
-    @inlinable init<T: TestCaseProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// An opaque structure representing a test case.
-///
-/// The `TestCase` type acts as an owner of an underlying `GTestCase` instance.
-/// It provides the methods that can operate on this data type through `TestCaseProtocol` conformance.
-/// Use `TestCase` as a strong reference or owner of a `GTestCase` instance.
-///
-open class TestCase: TestCaseProtocol {
-        /// Untyped pointer to the underlying `GTestCase` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GTestCase>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GTestCase>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GTestCase>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GTestCase>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GTestCase` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `TestCase` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GTestCase>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `TestCaseProtocol`
-    /// `GTestCase` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `TestCaseProtocol`
-    @inlinable public init<T: TestCaseProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GTestCase`.
-    deinit {
-        // no reference counting for GTestCase, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GTestCase, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no TestCase properties
-
-// MARK: no TestCase signals
-
-// MARK: TestCase has no signals
-// MARK: TestCase Record: TestCaseProtocol extension (methods and fields)
-public extension TestCaseProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GTestCase` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GTestCase>! { return ptr?.assumingMemoryBound(to: GTestCase.self) }
-
-    /// Free the `test_case`.
-    @inlinable func free() {
-        g_test_case_free(_ptr)
-    
+        
     }
 
 

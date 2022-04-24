@@ -1,5 +1,281 @@
 import CGLib
 
+// MARK: - TestCase Record
+
+/// An opaque structure representing a test case.
+///
+/// The `TestCaseProtocol` protocol exposes the methods and properties of an underlying `GTestCase` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `TestCase`.
+/// Alternatively, use `TestCaseRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol TestCaseProtocol {
+        /// Untyped pointer to the underlying `GTestCase` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GTestCase` instance.
+    var _ptr: UnsafeMutablePointer<GTestCase>! { get }
+
+    /// Required Initialiser for types conforming to `TestCaseProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// An opaque structure representing a test case.
+///
+/// The `TestCaseRef` type acts as a lightweight Swift reference to an underlying `GTestCase` instance.
+/// It exposes methods that can operate on this data type through `TestCaseProtocol` conformance.
+/// Use `TestCaseRef` only as an `unowned` reference to an existing `GTestCase` instance.
+///
+public struct TestCaseRef: TestCaseProtocol {
+        /// Untyped pointer to the underlying `GTestCase` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension TestCaseRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GTestCase>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GTestCase>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GTestCase>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GTestCase>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `TestCaseProtocol`
+    @inlinable init<T: TestCaseProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// An opaque structure representing a test case.
+///
+/// The `TestCase` type acts as an owner of an underlying `GTestCase` instance.
+/// It provides the methods that can operate on this data type through `TestCaseProtocol` conformance.
+/// Use `TestCase` as a strong reference or owner of a `GTestCase` instance.
+///
+open class TestCase: TestCaseProtocol {
+        /// Untyped pointer to the underlying `GTestCase` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GTestCase>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GTestCase>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GTestCase>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GTestCase>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GTestCase` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `TestCase` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GTestCase>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `TestCaseProtocol`
+    /// `GTestCase` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `TestCaseProtocol`
+    @inlinable public init<T: TestCaseProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GTestCase`.
+    deinit {
+        // no reference counting for GTestCase, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `TestCaseProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GTestCase, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no TestCase properties
+
+// MARK: no TestCase signals
+
+// MARK: TestCase has no signals
+// MARK: TestCase Record: TestCaseProtocol extension (methods and fields)
+public extension TestCaseProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GTestCase` instance.
+    @inlinable var _ptr: UnsafeMutablePointer<GTestCase>! { return ptr?.assumingMemoryBound(to: GTestCase.self) }
+
+    /// Free the `test_case`.
+    @inlinable func free() {
+        
+        g_test_case_free(_ptr)
+        
+    }
+
+
+}
+
+
+
 // MARK: - TestConfig Record
 
 
@@ -268,7 +544,7 @@ public extension TestConfigProtocol {
     @inlinable var testInitialized: gboolean {
         get {
             let rv = _ptr.pointee.test_initialized
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_initialized = newValue
@@ -278,7 +554,7 @@ public extension TestConfigProtocol {
     @inlinable var testQuick: gboolean {
         get {
             let rv = _ptr.pointee.test_quick
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_quick = newValue
@@ -288,7 +564,7 @@ public extension TestConfigProtocol {
     @inlinable var testPerf: gboolean {
         get {
             let rv = _ptr.pointee.test_perf
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_perf = newValue
@@ -298,7 +574,7 @@ public extension TestConfigProtocol {
     @inlinable var testVerbose: gboolean {
         get {
             let rv = _ptr.pointee.test_verbose
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_verbose = newValue
@@ -308,7 +584,7 @@ public extension TestConfigProtocol {
     @inlinable var testQuiet: gboolean {
         get {
             let rv = _ptr.pointee.test_quiet
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_quiet = newValue
@@ -318,7 +594,7 @@ public extension TestConfigProtocol {
     @inlinable var testUndefined: gboolean {
         get {
             let rv = _ptr.pointee.test_undefined
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.test_undefined = newValue
@@ -595,20 +871,23 @@ public extension TestLogBufferProtocol {
 
     /// Internal function for gtester to free test log messages, no ABI guarantees provided.
     @inlinable func free() {
+        
         g_test_log_buffer_free(_ptr)
-    
+        
     }
 
     /// Internal function for gtester to retrieve test log messages, no ABI guarantees provided.
     @inlinable func pop() -> TestLogMsgRef! {
-        let rv = TestLogMsgRef(gconstpointer: gconstpointer(g_test_log_buffer_pop(_ptr)))
+        let result = g_test_log_buffer_pop(_ptr)
+        let rv = TestLogMsgRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Internal function for gtester to decode test log messages, no ABI guarantees provided.
     @inlinable func push(nBytes: Int, bytes: UnsafePointer<guint8>!) {
+        
         g_test_log_buffer_push(_ptr, guint(nBytes), bytes)
-    
+        
     }
 
     // var data is unavailable because data is private
@@ -885,14 +1164,15 @@ public extension TestLogMsgProtocol {
 
     /// Internal function for gtester to free test log messages, no ABI guarantees provided.
     @inlinable func free() {
+        
         g_test_log_msg_free(_ptr)
-    
+        
     }
 
     @inlinable var logType: GTestLogType {
         get {
             let rv = _ptr.pointee.log_type
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.log_type = newValue
@@ -902,7 +1182,7 @@ public extension TestLogMsgProtocol {
     @inlinable var nStrings: guint {
         get {
             let rv = _ptr.pointee.n_strings
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.n_strings = newValue
@@ -912,7 +1192,7 @@ public extension TestLogMsgProtocol {
     @inlinable var strings: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         get {
             let rv = _ptr.pointee.strings
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.strings = newValue
@@ -922,7 +1202,7 @@ public extension TestLogMsgProtocol {
     @inlinable var nNums: guint {
         get {
             let rv = _ptr.pointee.n_nums
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.n_nums = newValue
@@ -933,7 +1213,7 @@ public extension TestLogMsgProtocol {
     @inlinable var nums: UnsafeMutablePointer<CLongDouble>! {
         get {
             let rv = _ptr.pointee.nums
-            return rv
+    return rv
         }
          set {
             _ptr.pointee.nums = newValue
@@ -1211,20 +1491,23 @@ public extension TestSuiteProtocol {
 
     /// Adds `test_case` to `suite`.
     @inlinable func add<TestCaseT: TestCaseProtocol>(testCase: TestCaseT) {
+        
         g_test_suite_add(_ptr, testCase._ptr)
-    
+        
     }
 
     /// Adds `nestedsuite` to `suite`.
     @inlinable func addSuite<TestSuiteT: TestSuiteProtocol>(nestedsuite: TestSuiteT) {
+        
         g_test_suite_add_suite(_ptr, nestedsuite._ptr)
-    
+        
     }
 
     /// Free the `suite` and all nested `GTestSuites`.
     @inlinable func free() {
+        
         g_test_suite_free(_ptr)
-    
+        
     }
 
     /// Execute the tests within `suite` and all nested `GTestSuites`.
@@ -1236,7 +1519,8 @@ public extension TestSuiteProtocol {
     /// `g_test_run_suite()` or `g_test_run()` may only be called once
     /// in a program.
     @inlinable func testRunSuite() -> Int {
-        let rv = Int(g_test_run_suite(_ptr))
+        let result = g_test_run_suite(_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -1398,9 +1682,10 @@ public extension ThreadRef {
     /// inheriting the thread priority but were spawned with the default priority.
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
-    @inlinable init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) {
-        let rv = g_thread_new(name, `func`, data)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) {
+            let result = g_thread_new(name, `func`, data)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -1408,21 +1693,24 @@ public extension ThreadRef {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    @inlinable init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_thread_try_new(name, `func`, data, &error)
+    @inlinable init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) throws {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_try_new(name, `func`, data, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// This function is the same as `g_thread_new()` except that
     /// it allows for the possibility of failure.
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    @inlinable static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws -> ThreadRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = ThreadRef(gconstpointer: gconstpointer(g_thread_try_new(name, `func`, data, &error)))
+    @inlinable static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) throws -> ThreadRef! {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_try_new(name, `func`, data, &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = ThreadRef(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -1437,7 +1725,8 @@ public extension ThreadRef {
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
     @inlinable static func self_() -> ThreadRef! {
-        guard let rv = ThreadRef(gconstpointer: gconstpointer(g_thread_self())) else { return nil }
+            let result = g_thread_self()
+        guard let rv = ThreadRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -1627,9 +1916,10 @@ open class Thread: ThreadProtocol {
     /// inheriting the thread priority but were spawned with the default priority.
     /// Starting with GLib 2.64 the behaviour is now consistent between Windows and
     /// POSIX and all threads inherit their parent thread's priority.
-    @inlinable public init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) {
-        let rv = g_thread_new(name, `func`, data)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable public init( name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) {
+            let result = g_thread_new(name, `func`, data)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -1637,11 +1927,12 @@ open class Thread: ThreadProtocol {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    @inlinable public init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_thread_try_new(name, `func`, data, &error)
+    @inlinable public init(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) throws {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_try_new(name, `func`, data, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// This function is the same as `g_thread_new()` except that
@@ -1649,10 +1940,12 @@ open class Thread: ThreadProtocol {
     /// 
     /// If a thread can not be created (due to resource limits),
     /// `error` is set and `nil` is returned.
-    @inlinable public static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer! = nil) throws -> Thread! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = Thread(gconstpointer: gconstpointer(g_thread_try_new(name, `func`, data, &error)))
+    @inlinable public static func tryNew(try_ name: UnsafePointer<gchar>? = nil, `func`: GThreadFunc?, data: gpointer? = nil) throws -> Thread! {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_try_new(name, `func`, data, &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = Thread(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -1667,7 +1960,8 @@ open class Thread: ThreadProtocol {
     /// (i.e. comparisons) but you must not use GLib functions (such
     /// as `g_thread_join()`) on these threads.
     @inlinable public static func self_() -> Thread! {
-        guard let rv = Thread(gconstpointer: gconstpointer(g_thread_self())) else { return nil }
+            let result = g_thread_self()
+        guard let rv = Thread(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1699,14 +1993,16 @@ public extension ThreadProtocol {
     /// This will usually cause the `GThread` struct and associated resources
     /// to be freed. Use `g_thread_ref()` to obtain an extra reference if you
     /// want to keep the GThread alive beyond the `g_thread_join()` call.
-    @inlinable func join() -> gpointer! {
-        let rv = g_thread_join(thread_ptr)
+    @inlinable func join() -> gpointer? {
+        let result = g_thread_join(thread_ptr)
+        let rv = result
         return rv
     }
 
     /// Increase the reference count on `thread`.
     @discardableResult @inlinable func ref() -> ThreadRef! {
-        guard let rv = ThreadRef(gconstpointer: gconstpointer(g_thread_ref(thread_ptr))) else { return nil }
+        let result = g_thread_ref(thread_ptr)
+        guard let rv = ThreadRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1717,8 +2013,9 @@ public extension ThreadProtocol {
     /// it is running, so it is safe to drop your own reference to it
     /// if you don't need it anymore.
     @inlinable func unref() {
+        
         g_thread_unref(thread_ptr)
-    
+        
     }
 
 
@@ -1836,10 +2133,12 @@ public extension ThreadPoolRef {
     /// but allowing `item_free_func` to be specified to free the data passed
     /// to `g_thread_pool_push()` in the case that the `GThreadPool` is stopped
     /// and freed before all tasks have been executed.
-    @inlinable static func new(full `func`: GFunc?, userData: gpointer! = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPoolRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = ThreadPoolRef(gconstpointer: gconstpointer(g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)))
+    @inlinable static func new(full `func`: GFunc?, userData: gpointer? = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPoolRef! {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = ThreadPoolRef(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -1998,10 +2297,12 @@ open class ThreadPool: ThreadPoolProtocol {
     /// but allowing `item_free_func` to be specified to free the data passed
     /// to `g_thread_pool_push()` in the case that the `GThreadPool` is stopped
     /// and freed before all tasks have been executed.
-    @inlinable public static func new(full `func`: GFunc?, userData: gpointer! = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPool! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = ThreadPool(gconstpointer: gconstpointer(g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)))
+    @inlinable public static func new(full `func`: GFunc?, userData: gpointer? = nil, itemFreeFunc: GDestroyNotify? = nil, maxThreads: Int, exclusive: Bool) throws -> ThreadPool! {
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_thread_pool_new_full(`func`, userData, itemFreeFunc, gint(maxThreads), gboolean((exclusive) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = ThreadPool(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -2033,26 +2334,30 @@ public extension ThreadPoolProtocol {
     /// 
     /// After calling this function `pool` must not be used anymore.
     @inlinable func free(immediate: Bool, wait: Bool) {
+        
         g_thread_pool_free(_ptr, gboolean((immediate) ? 1 : 0), gboolean((wait) ? 1 : 0))
-    
+        
     }
 
     /// Returns the maximal number of threads for `pool`.
     @inlinable func getMaxThreads() -> Int {
-        let rv = Int(g_thread_pool_get_max_threads(_ptr))
+        let result = g_thread_pool_get_max_threads(_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the number of threads currently running in `pool`.
     @inlinable func getNumThreads() -> Int {
-        let rv = Int(g_thread_pool_get_num_threads(_ptr))
+        let result = g_thread_pool_get_num_threads(_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Moves the item to the front of the queue of unprocessed
     /// items, so that it will be processed next.
-    @inlinable func moveToFront(data: gpointer! = nil) -> Bool {
-        let rv = ((g_thread_pool_move_to_front(_ptr, data)) != 0)
+    @inlinable func moveToFront(data: gpointer? = nil) -> Bool {
+        let result = g_thread_pool_move_to_front(_ptr, data)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2070,10 +2375,11 @@ public extension ThreadPoolProtocol {
     /// work to do.
     /// 
     /// Before version 2.32, this function did not return a success status.
-    @inlinable func push(data: gpointer! = nil) throws -> Bool {
+    @inlinable func push(data: gpointer? = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_thread_pool_push(_ptr, data, &error)) != 0)
+        let result = g_thread_pool_push(_ptr, data, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2099,8 +2405,9 @@ public extension ThreadPoolProtocol {
     /// Before version 2.32, this function did not return a success status.
     @inlinable func set(maxThreads: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_thread_pool_set_max_threads(_ptr, gint(maxThreads), &error)) != 0)
+        let result = g_thread_pool_set_max_threads(_ptr, gint(maxThreads), &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2113,21 +2420,24 @@ public extension ThreadPoolProtocol {
     /// scheduled by the operating system and are executed at random. It
     /// cannot be assumed that threads are executed in the order they are
     /// created.
-    @inlinable func setSortFunction(`func`: GCompareDataFunc?, userData: gpointer! = nil) {
+    @inlinable func setSortFunction(`func`: GCompareDataFunc?, userData: gpointer? = nil) {
+        
         g_thread_pool_set_sort_function(_ptr, `func`, userData)
-    
+        
     }
 
     /// Returns the number of tasks still unprocessed in `pool`.
     @inlinable func unprocessed() -> Int {
-        let rv = Int(g_thread_pool_unprocessed(_ptr))
+        let result = g_thread_pool_unprocessed(_ptr)
+        let rv = Int(result)
         return rv
     }
     /// Returns the maximal number of threads for `pool`.
     @inlinable var maxThreads: Int {
         /// Returns the maximal number of threads for `pool`.
         get {
-            let rv = Int(g_thread_pool_get_max_threads(_ptr))
+            let result = g_thread_pool_get_max_threads(_ptr)
+        let rv = Int(result)
             return rv
         }
         /// Sets the maximal allowed number of threads for `pool`.
@@ -2151,9 +2461,9 @@ public extension ThreadPoolProtocol {
         /// 
         /// Before version 2.32, this function did not return a success status.
         nonmutating set {
-            var error: UnsafeMutablePointer<GError>?
-            _ = g_thread_pool_set_max_threads(_ptr, gint(newValue), &error)
-            g_log(messagePtr: error?.pointee.message, level: .error)
+                var error: UnsafeMutablePointer<GError>?
+        _ = g_thread_pool_set_max_threads(_ptr, gint(newValue), &error)
+        g_log(messagePtr: error?.pointee.message, level: .error)
         }
     }
 
@@ -2161,7 +2471,8 @@ public extension ThreadPoolProtocol {
     @inlinable var numThreads: Int {
         /// Returns the number of threads currently running in `pool`.
         get {
-            let rv = Int(g_thread_pool_get_num_threads(_ptr))
+            let result = g_thread_pool_get_num_threads(_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2171,7 +2482,7 @@ public extension ThreadPoolProtocol {
         /// the function to execute in the threads of this pool
         get {
             let rv = _ptr.pointee.func
-            return rv
+    return rv
         }
         /// the function to execute in the threads of this pool
          set {
@@ -2180,11 +2491,11 @@ public extension ThreadPoolProtocol {
     }
 
     /// the user data for the threads of this pool
-    @inlinable var userData: gpointer! {
+    @inlinable var userData: gpointer? {
         /// the user data for the threads of this pool
         get {
             let rv = _ptr.pointee.user_data
-            return rv
+    return rv
         }
         /// the user data for the threads of this pool
          set {
@@ -2197,7 +2508,7 @@ public extension ThreadPoolProtocol {
         /// are all threads exclusive to this pool
         get {
             let rv = _ptr.pointee.exclusive
-            return rv
+    return rv
         }
         /// are all threads exclusive to this pool
          set {
@@ -2507,8 +2818,9 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use `guint64` for
     ///    representing microseconds since the epoch, or use #GDateTime.
     @available(*, deprecated) @inlinable func add(microseconds: Int) {
+        
         g_time_val_add(_ptr, glong(microseconds))
-    
+        
     }
 
     /// Converts `time_` into an RFC 3339 encoded string, relative to the
@@ -2550,7 +2862,8 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_format_iso8601(dt) instead.
     @available(*, deprecated) @inlinable func toIso8601() -> String! {
-        let rv = g_time_val_to_iso8601(_ptr).map({ String(cString: $0) })
+        let result = g_time_val_to_iso8601(_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2577,7 +2890,8 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_iso8601() instead.
     @available(*, deprecated) @inlinable func fromIso8601(isoDate: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_time_val_from_iso8601(isoDate, _ptr)) != 0)
+        let result = g_time_val_from_iso8601(isoDate, _ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2589,8 +2903,9 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use g_get_real_time()
     ///    instead.
     @available(*, deprecated) @inlinable func getCurrentTime() {
+        
         g_get_current_time(_ptr)
-    
+        
     }
 
     /// Converts a string containing an ISO 8601 encoded date and time
@@ -2616,7 +2931,8 @@ public extension TimeValProtocol {
     /// #GTimeVal is not year-2038-safe. Use
     ///    g_date_time_new_from_iso8601() instead.
     @available(*, deprecated) @inlinable func timeValFromIso8601(isoDate: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_time_val_from_iso8601(isoDate, _ptr)) != 0)
+        let result = g_time_val_from_iso8601(isoDate, _ptr)
+        let rv = ((result) != 0)
         return rv
     }
     // var currentTime is unavailable because it does not have a valid getter or setter
@@ -2626,7 +2942,7 @@ public extension TimeValProtocol {
         /// seconds
         get {
             let rv = _ptr.pointee.tv_sec
-            return rv
+    return rv
         }
         /// seconds
          set {
@@ -2639,7 +2955,7 @@ public extension TimeValProtocol {
         /// microseconds
         get {
             let rv = _ptr.pointee.tv_usec
-            return rv
+    return rv
         }
         /// microseconds
          set {
@@ -2766,8 +3082,9 @@ public extension TimeZoneRef {
     ///     error reporting. Change your code to handle a potentially %NULL return
     ///     value.
     @available(*, deprecated) @inlinable init(identifierOrUtc identifier: UnsafePointer<gchar>? = nil) {
-        let rv = g_time_zone_new(identifier)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new(identifier)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
@@ -2836,8 +3153,9 @@ public extension TimeZoneRef {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable init(identifier: UnsafePointer<gchar>? = nil) {
-        let rv = g_time_zone_new_identifier(identifier)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new_identifier(identifier)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -2846,8 +3164,9 @@ public extension TimeZoneRef {
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     @inlinable init(offset seconds: gint32) {
-        let rv = g_time_zone_new_offset(seconds)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new_offset(seconds)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
     /// parsed or loaded, `nil` is returned.
@@ -2915,7 +3234,8 @@ public extension TimeZoneRef {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable static func new(identifier: UnsafePointer<gchar>? = nil) -> TimeZoneRef! {
-        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_identifier(identifier))) else { return nil }
+            let result = g_time_zone_new_identifier(identifier)
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2929,7 +3249,8 @@ public extension TimeZoneRef {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable static func newLocal() -> TimeZoneRef! {
-        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_local())) else { return nil }
+            let result = g_time_zone_new_local()
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2939,7 +3260,8 @@ public extension TimeZoneRef {
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     @inlinable static func new(offset seconds: gint32) -> TimeZoneRef! {
-        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_offset(seconds))) else { return nil }
+            let result = g_time_zone_new_offset(seconds)
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2951,7 +3273,8 @@ public extension TimeZoneRef {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable static func newUTC() -> TimeZoneRef! {
-        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_new_utc())) else { return nil }
+            let result = g_time_zone_new_utc()
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -3114,8 +3437,9 @@ open class TimeZone: TimeZoneProtocol {
     ///     error reporting. Change your code to handle a potentially %NULL return
     ///     value.
     @available(*, deprecated) @inlinable public init(identiferOrUtc identifier: UnsafePointer<gchar>? = nil) {
-        let rv = g_time_zone_new(identifier)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new(identifier)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
@@ -3184,8 +3508,9 @@ open class TimeZone: TimeZoneProtocol {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable public init(identifier: UnsafePointer<gchar>? = nil) {
-        let rv = g_time_zone_new_identifier(identifier)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new_identifier(identifier)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to the given constant offset from UTC,
@@ -3194,8 +3519,9 @@ open class TimeZone: TimeZoneProtocol {
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     @inlinable public init(offset seconds: gint32) {
-        let rv = g_time_zone_new_offset(seconds)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_time_zone_new_offset(seconds)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a `GTimeZone` corresponding to `identifier`. If `identifier` cannot be
@@ -3264,7 +3590,8 @@ open class TimeZone: TimeZoneProtocol {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable public static func new(identifier: UnsafePointer<gchar>? = nil) -> TimeZone! {
-        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_identifier(identifier))) else { return nil }
+            let result = g_time_zone_new_identifier(identifier)
+        guard let rv = TimeZone(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -3278,7 +3605,8 @@ open class TimeZone: TimeZoneProtocol {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable public static func newLocal() -> TimeZone! {
-        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_local())) else { return nil }
+            let result = g_time_zone_new_local()
+        guard let rv = TimeZone(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -3288,7 +3616,8 @@ open class TimeZone: TimeZoneProtocol {
     /// This is equivalent to calling `g_time_zone_new()` with a string in the form
     /// `[+|-]hh[:mm[:ss]]`.
     @inlinable public static func new(offset seconds: gint32) -> TimeZone! {
-        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_offset(seconds))) else { return nil }
+            let result = g_time_zone_new_offset(seconds)
+        guard let rv = TimeZone(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -3300,7 +3629,8 @@ open class TimeZone: TimeZoneProtocol {
     /// You should release the return value by calling `g_time_zone_unref()`
     /// when you are done with it.
     @inlinable public static func newUTC() -> TimeZone! {
-        guard let rv = TimeZone(gconstpointer: gconstpointer(g_time_zone_new_utc())) else { return nil }
+            let result = g_time_zone_new_utc()
+        guard let rv = TimeZone(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -3333,7 +3663,8 @@ public extension TimeZoneProtocol {
     /// adjust `time_` to be 03:00 and return the interval containing the
     /// adjusted time.
     @inlinable func adjustTime(type: GTimeType, time: UnsafeMutablePointer<gint64>!) -> Int {
-        let rv = Int(g_time_zone_adjust_time(time_zone_ptr, type, time))
+        let result = g_time_zone_adjust_time(time_zone_ptr, type, time)
+        let rv = Int(result)
         return rv
     }
 
@@ -3356,7 +3687,8 @@ public extension TimeZoneProtocol {
     /// forward to begin daylight savings time).  -1 is returned in that
     /// case.
     @inlinable func findInterval(type: GTimeType, time: gint64) -> Int {
-        let rv = Int(g_time_zone_find_interval(time_zone_ptr, type, time))
+        let result = g_time_zone_find_interval(time_zone_ptr, type, time)
+        let rv = Int(result)
         return rv
     }
 
@@ -3367,7 +3699,8 @@ public extension TimeZoneProtocol {
     /// months and "EDT" during the summer months when daylight savings time
     /// is in effect.
     @inlinable func getAbbreviation(interval: Int) -> String! {
-        let rv = g_time_zone_get_abbreviation(time_zone_ptr, gint(interval)).map({ String(cString: $0) })
+        let result = g_time_zone_get_abbreviation(time_zone_ptr, gint(interval))
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -3380,7 +3713,8 @@ public extension TimeZoneProtocol {
     /// construction time: if provided as a time offset, that will be returned by
     /// this function.
     @inlinable func getIDentifier() -> String! {
-        let rv = g_time_zone_get_identifier(time_zone_ptr).map({ String(cString: $0) })
+        let result = g_time_zone_get_identifier(time_zone_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -3391,27 +3725,31 @@ public extension TimeZoneProtocol {
     /// arrive at local time for `tz` (ie: negative numbers for time zones
     /// west of GMT, positive numbers for east).
     @inlinable func getOffset(interval: Int) -> gint32 {
-        let rv = g_time_zone_get_offset(time_zone_ptr, gint(interval))
+        let result = g_time_zone_get_offset(time_zone_ptr, gint(interval))
+        let rv = result
         return rv
     }
 
     /// Determines if daylight savings time is in effect during a particular
     /// `interval` of time in the time zone `tz`.
     @inlinable func isDst(interval: Int) -> Bool {
-        let rv = ((g_time_zone_is_dst(time_zone_ptr, gint(interval))) != 0)
+        let result = g_time_zone_is_dst(time_zone_ptr, gint(interval))
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Increases the reference count on `tz`.
     @discardableResult @inlinable func ref() -> TimeZoneRef! {
-        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(g_time_zone_ref(time_zone_ptr))) else { return nil }
+        let result = g_time_zone_ref(time_zone_ptr)
+        guard let rv = TimeZoneRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Decreases the reference count on `tz`.
     @inlinable func unref() {
+        
         g_time_zone_unref(time_zone_ptr)
-    
+        
     }
     /// Get the identifier of this `GTimeZone`, as passed to `g_time_zone_new()`.
     /// If the identifier passed at construction time was not recognised, `UTC` will
@@ -3431,7 +3769,8 @@ public extension TimeZoneProtocol {
         /// construction time: if provided as a time offset, that will be returned by
         /// this function.
         get {
-            let rv = g_time_zone_get_identifier(time_zone_ptr).map({ String(cString: $0) })
+            let result = g_time_zone_get_identifier(time_zone_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -3709,14 +4048,16 @@ public extension TimerProtocol {
     /// `g_timer_stop()`. `g_timer_stop()` must be called before using this
     /// function.
     @inlinable func continue_() {
+        
         g_timer_continue(_ptr)
-    
+        
     }
 
     /// Destroys a timer, freeing associated resources.
     @inlinable func destroy() {
+        
         g_timer_destroy(_ptr)
-    
+        
     }
 
     /// If `timer` has been started but not stopped, obtains the time since
@@ -3726,7 +4067,8 @@ public extension TimerProtocol {
     /// including any fractional part. The `microseconds` out parameter is
     /// essentially useless.
     @inlinable func elapsed(microseconds: UnsafeMutablePointer<gulong>!) -> Double {
-        let rv = Double(g_timer_elapsed(_ptr, microseconds))
+        let result = g_timer_elapsed(_ptr, microseconds)
+        let rv = Double(result)
         return rv
     }
 
@@ -3734,8 +4076,9 @@ public extension TimerProtocol {
     /// already-started timer to reset the start time, so `g_timer_reset()`
     /// serves no purpose.
     @inlinable func reset() {
+        
         g_timer_reset(_ptr)
-    
+        
     }
 
     /// Marks a start time, so that future calls to `g_timer_elapsed()` will
@@ -3743,21 +4086,24 @@ public extension TimerProtocol {
     /// automatically marks the start time, so no need to call
     /// `g_timer_start()` immediately after creating the timer.
     @inlinable func start() {
+        
         g_timer_start(_ptr)
-    
+        
     }
 
     /// Marks an end time, so calls to `g_timer_elapsed()` will return the
     /// difference between this end time and the start time.
     @inlinable func stop() {
+        
         g_timer_stop(_ptr)
-    
+        
     }
     /// Exposes whether the timer is currently active.
     @inlinable var isActive: Bool {
         /// Exposes whether the timer is currently active.
         get {
-            let rv = ((g_timer_is_active(_ptr)) != 0)
+            let result = g_timer_is_active(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -4044,7 +4390,7 @@ public extension TrashStackProtocol {
         ///     bytes of the element
         get {
             let rv = TrashStackRef(gconstpointer: gconstpointer(_ptr.pointee.next))
-            return rv
+    return rv
         }
         /// pointer to the previous element of the stack,
         ///     gets stored in the first `sizeof (gpointer)`
@@ -4166,36 +4512,41 @@ public extension TreeRef {
 
         /// Creates a new `GTree`.
     @inlinable init( keyCompareFunc: GCompareFunc?) {
-        let rv = g_tree_new(keyCompareFunc)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_tree_new(keyCompareFunc)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
-    @inlinable init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
-        let rv = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
+            let result = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
-    @inlinable init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) {
-        let rv = g_tree_new_with_data(keyCompareFunc, keyCompareData)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil) {
+            let result = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
-    @inlinable static func new(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) -> TreeRef! {
-        guard let rv = TreeRef(gconstpointer: gconstpointer(g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc))) else { return nil }
+    @inlinable static func new(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) -> TreeRef! {
+            let result = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        guard let rv = TreeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
-    @inlinable static func newWith(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) -> TreeRef! {
-        guard let rv = TreeRef(gconstpointer: gconstpointer(g_tree_new_with_data(keyCompareFunc, keyCompareData))) else { return nil }
+    @inlinable static func newWith(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil) -> TreeRef! {
+            let result = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        guard let rv = TreeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -4350,37 +4701,42 @@ open class Tree: TreeProtocol {
 
     /// Creates a new `GTree`.
     @inlinable public init( keyCompareFunc: GCompareFunc?) {
-        let rv = g_tree_new(keyCompareFunc)
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_tree_new(keyCompareFunc)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
-    @inlinable public init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
-        let rv = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable public init(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) {
+            let result = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
-    @inlinable public init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) {
-        let rv = g_tree_new_with_data(keyCompareFunc, keyCompareData)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable public init(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil) {
+            let result = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GTree` like `g_tree_new()` and allows to specify functions
     /// to free the memory allocated for the key and value that get called when
     /// removing the entry from the `GTree`.
-    @inlinable public static func new(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) -> Tree! {
-        guard let rv = Tree(gconstpointer: gconstpointer(g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc))) else { return nil }
+    @inlinable public static func new(full keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil, keyDestroyFunc: GDestroyNotify?, valueDestroyFunc: GDestroyNotify?) -> Tree! {
+            let result = g_tree_new_full(keyCompareFunc, keyCompareData, keyDestroyFunc, valueDestroyFunc)
+        guard let rv = Tree(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a new `GTree` with a comparison function that accepts user data.
     /// See `g_tree_new()` for more details.
-    @inlinable public static func newWith(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer! = nil) -> Tree! {
-        guard let rv = Tree(gconstpointer: gconstpointer(g_tree_new_with_data(keyCompareFunc, keyCompareData))) else { return nil }
+    @inlinable public static func newWith(data keyCompareFunc: GCompareDataFunc?, keyCompareData: gpointer? = nil) -> Tree! {
+            let result = g_tree_new_with_data(keyCompareFunc, keyCompareData)
+        guard let rv = Tree(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4403,8 +4759,9 @@ public extension TreeProtocol {
     /// you supplied will be called on all keys and values before destroying
     /// the `GTree`.
     @inlinable func destroy() {
+        
         g_tree_destroy(tree_ptr)
-    
+        
     }
 
     /// Calls the given function for each of the key/value pairs in the `GTree`.
@@ -4415,9 +4772,10 @@ public extension TreeProtocol {
     /// add/remove items). To remove all items matching a predicate, you need
     /// to add each item to a list in your `GTraverseFunc` as you walk over
     /// the tree, then walk the list and remove each item.
-    @inlinable func foreach(`func`: GTraverseFunc?, userData: gpointer! = nil) {
+    @inlinable func foreach(`func`: GTraverseFunc?, userData: gpointer? = nil) {
+        
         g_tree_foreach(tree_ptr, `func`, userData)
-    
+        
     }
 
     /// Calls the given function for each of the nodes in the `GTree`.
@@ -4428,9 +4786,10 @@ public extension TreeProtocol {
     /// add/remove items). To remove all items matching a predicate, you need
     /// to add each item to a list in your `GTraverseFunc` as you walk over
     /// the tree, then walk the list and remove each item.
-    @inlinable func foreachNode(`func`: GTraverseNodeFunc?, userData: gpointer! = nil) {
+    @inlinable func foreachNode(`func`: GTraverseNodeFunc?, userData: gpointer? = nil) {
+        
         g_tree_foreach_node(tree_ptr, `func`, userData)
-    
+        
     }
 
     /// Gets the height of a `GTree`.
@@ -4439,7 +4798,8 @@ public extension TreeProtocol {
     /// If the `GTree` contains only one root node the height is 1.
     /// If the root node has children the height is 2, etc.
     @inlinable func height() -> Int {
-        let rv = Int(g_tree_height(tree_ptr))
+        let result = g_tree_height(tree_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -4447,9 +4807,10 @@ public extension TreeProtocol {
     /// 
     /// Inserts a new key and value into a `GTree` as `g_tree_insert_node()` does,
     /// only this function does not return the inserted or set node.
-    @inlinable func insert(key: gpointer! = nil, value: gpointer! = nil) {
+    @inlinable func insert(key: gpointer? = nil, value: gpointer? = nil) {
+        
         g_tree_insert(tree_ptr, key, value)
-    
+        
     }
 
     /// Inserts a key/value pair into a `GTree`.
@@ -4465,16 +4826,18 @@ public extension TreeProtocol {
     /// The cost of maintaining a balanced tree while inserting new key/value
     /// result in a `O(n log(n)`) operation where most of the other operations
     /// are `O(log(n)`).
-    @inlinable func insertNode(key: gpointer! = nil, value: gpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_insert_node(tree_ptr, key, value)))
+    @inlinable func insertNode(key: gpointer? = nil, value: gpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_insert_node(tree_ptr, key, value)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Gets the value corresponding to the given key. Since a `GTree` is
     /// automatically balanced as key/value pairs are added, key lookup
     /// is `O(log n)` (where n is the number of key/value pairs in the tree).
-    @inlinable func lookup(key: gconstpointer! = nil) -> gpointer! {
-        let rv = g_tree_lookup(tree_ptr, key)
+    @inlinable func lookup(key: gconstpointer? = nil) -> gpointer? {
+        let result = g_tree_lookup(tree_ptr, key)
+        let rv = result
         return rv
     }
 
@@ -4482,16 +4845,18 @@ public extension TreeProtocol {
     /// associated value. This is useful if you need to free the memory
     /// allocated for the original key, for example before calling
     /// `g_tree_remove()`.
-    @inlinable func lookupExtended(lookupKey: gconstpointer! = nil, origKey: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
-        let rv = ((g_tree_lookup_extended(tree_ptr, lookupKey, origKey, value)) != 0)
+    @inlinable func lookupExtended(lookupKey: gconstpointer? = nil, origKey: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
+        let result = g_tree_lookup_extended(tree_ptr, lookupKey, origKey, value)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Gets the tree node corresponding to the given key. Since a `GTree` is
     /// automatically balanced as key/value pairs are added, key lookup
     /// is `O(log n)` (where n is the number of key/value pairs in the tree).
-    @inlinable func lookupNode(key: gconstpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_lookup_node(tree_ptr, key)))
+    @inlinable func lookupNode(key: gconstpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_lookup_node(tree_ptr, key)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -4501,28 +4866,32 @@ public extension TreeProtocol {
     /// 
     /// The lower bound is the first node that has its key greater
     /// than or equal to the searched key.
-    @inlinable func lowerBound(key: gconstpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_lower_bound(tree_ptr, key)))
+    @inlinable func lowerBound(key: gconstpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_lower_bound(tree_ptr, key)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Gets the number of nodes in a `GTree`.
     @inlinable func nnodes() -> Int {
-        let rv = Int(g_tree_nnodes(tree_ptr))
+        let result = g_tree_nnodes(tree_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns the first in-order node of the tree, or `nil`
     /// for an empty tree.
     @inlinable func nodeFirst() -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_first(tree_ptr)))
+        let result = g_tree_node_first(tree_ptr)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
     /// Returns the last in-order node of the tree, or `nil`
     /// for an empty tree.
     @inlinable func nodeLast() -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_last(tree_ptr)))
+        let result = g_tree_node_last(tree_ptr)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -4530,7 +4899,8 @@ public extension TreeProtocol {
     /// 
     /// It is safe to call this function from any thread.
     @discardableResult @inlinable func ref() -> TreeRef! {
-        guard let rv = TreeRef(gconstpointer: gconstpointer(g_tree_ref(tree_ptr))) else { return nil }
+        let result = g_tree_ref(tree_ptr)
+        guard let rv = TreeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -4544,23 +4914,26 @@ public extension TreeProtocol {
     /// The cost of maintaining a balanced tree while removing a key/value
     /// result in a `O(n log(n)`) operation where most of the other operations
     /// are `O(log(n)`).
-    @inlinable func remove(key: gconstpointer! = nil) -> Bool {
-        let rv = ((g_tree_remove(tree_ptr, key)) != 0)
+    @inlinable func remove(key: gconstpointer? = nil) -> Bool {
+        let result = g_tree_remove(tree_ptr, key)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Removes all nodes from a `GTree` and destroys their keys and values,
     /// then resets the `GTree`’s root to `nil`.
     @inlinable func removeAll() {
+        
         g_tree_remove_all(tree_ptr)
-    
+        
     }
 
     /// Inserts a new key and value into a `GTree` as `g_tree_replace_node()` does,
     /// only this function does not return the inserted or set node.
-    @inlinable func replace(key: gpointer! = nil, value: gpointer! = nil) {
+    @inlinable func replace(key: gpointer? = nil, value: gpointer? = nil) {
+        
         g_tree_replace(tree_ptr, key, value)
-    
+        
     }
 
     /// Inserts a new key and value into a `GTree` similar to `g_tree_insert_node()`.
@@ -4572,8 +4945,9 @@ public extension TreeProtocol {
     /// 
     /// The tree is automatically 'balanced' as new key/value pairs are added,
     /// so that the distance from the root to every leaf is as small as possible.
-    @inlinable func replaceNode(key: gpointer! = nil, value: gpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_replace_node(tree_ptr, key, value)))
+    @inlinable func replaceNode(key: gpointer? = nil, value: gpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_replace_node(tree_ptr, key, value)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -4586,8 +4960,9 @@ public extension TreeProtocol {
     /// will proceed among the key/value pairs that have a smaller key; if
     /// `search_func` returns 1, searching will proceed among the key/value
     /// pairs that have a larger key.
-    @inlinable func search(searchFunc: GCompareFunc?, userData: gconstpointer! = nil) -> gpointer! {
-        let rv = g_tree_search(tree_ptr, searchFunc, userData)
+    @inlinable func search(searchFunc: GCompareFunc?, userData: gconstpointer? = nil) -> gpointer? {
+        let result = g_tree_search(tree_ptr, searchFunc, userData)
+        let rv = result
         return rv
     }
 
@@ -4600,8 +4975,9 @@ public extension TreeProtocol {
     /// will proceed among the key/value pairs that have a smaller key; if
     /// `search_func` returns 1, searching will proceed among the key/value
     /// pairs that have a larger key.
-    @inlinable func searchNode(searchFunc: GCompareFunc?, userData: gconstpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_search_node(tree_ptr, searchFunc, userData)))
+    @inlinable func searchNode(searchFunc: GCompareFunc?, userData: gconstpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_search_node(tree_ptr, searchFunc, userData)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -4609,8 +4985,9 @@ public extension TreeProtocol {
     /// the key and value destroy functions.
     /// 
     /// If the key does not exist in the `GTree`, the function does nothing.
-    @inlinable func steal(key: gconstpointer! = nil) -> Bool {
-        let rv = ((g_tree_steal(tree_ptr, key)) != 0)
+    @inlinable func steal(key: gconstpointer? = nil) -> Bool {
+        let result = g_tree_steal(tree_ptr, key)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -4621,9 +4998,10 @@ public extension TreeProtocol {
     ///     If you just want to visit all nodes in sorted order, use
     ///     g_tree_foreach() instead. If you really need to visit nodes in
     ///     a different order, consider using an [n-ary tree][glib-N-ary-Trees].
-    @available(*, deprecated) @inlinable func traverse(traverseFunc: GTraverseFunc?, traverseType: GTraverseType, userData: gpointer! = nil) {
+    @available(*, deprecated) @inlinable func traverse(traverseFunc: GTraverseFunc?, traverseType: GTraverseType, userData: gpointer? = nil) {
+        
         g_tree_traverse(tree_ptr, traverseFunc, traverseType, userData)
-    
+        
     }
 
     /// Decrements the reference count of `tree` by one.
@@ -4633,8 +5011,9 @@ public extension TreeProtocol {
     /// 
     /// It is safe to call this function from any thread.
     @inlinable func unref() {
+        
         g_tree_unref(tree_ptr)
-    
+        
     }
 
     /// Gets the upper bound node corresponding to the given key,
@@ -4643,8 +5022,9 @@ public extension TreeProtocol {
     /// 
     /// The upper bound is the first node that has its key strictly greater
     /// than the searched key.
-    @inlinable func upperBound(key: gconstpointer! = nil) -> TreeNodeRef! {
-        let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_upper_bound(tree_ptr, key)))
+    @inlinable func upperBound(key: gconstpointer? = nil) -> TreeNodeRef! {
+        let result = g_tree_upper_bound(tree_ptr, key)
+        let rv = TreeNodeRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -4918,979 +5298,33 @@ public extension TreeNodeProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GTreeNode>! { return ptr?.assumingMemoryBound(to: GTreeNode.self) }
 
     /// Gets the key stored at a particular tree node.
-    @inlinable func key() -> gpointer! {
-        let rv = g_tree_node_key(_ptr)
+    @inlinable func key() -> gpointer? {
+        let result = g_tree_node_key(_ptr)
+        let rv = result
         return rv
     }
 
     /// Returns the next in-order node of the tree, or `nil`
     /// if the passed node was already the last one.
     @inlinable func next() -> TreeNodeRef! {
-        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_next(_ptr))) else { return nil }
+        let result = g_tree_node_next(_ptr)
+        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns the previous in-order node of the tree, or `nil`
     /// if the passed node was already the first one.
     @inlinable func previous() -> TreeNodeRef! {
-        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(g_tree_node_previous(_ptr))) else { return nil }
+        let result = g_tree_node_previous(_ptr)
+        guard let rv = TreeNodeRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Gets the value stored at a particular tree node.
-    @inlinable func value() -> gpointer! {
-        let rv = g_tree_node_value(_ptr)
+    @inlinable func value() -> gpointer? {
+        let result = g_tree_node_value(_ptr)
+        let rv = result
         return rv
-    }
-
-
-}
-
-
-
-// MARK: - URI Record
-
-/// The `GUri` type and related functions can be used to parse URIs into
-/// their components, and build valid URIs from individual components.
-/// 
-/// Note that `GUri` scope is to help manipulate URIs in various applications,
-/// following [RFC 3986](https://tools.ietf.org/html/rfc3986). In particular,
-/// it doesn't intend to cover web browser needs, and doesn't implement the
-/// [WHATWG URL](https://url.spec.whatwg.org/) standard. No APIs are provided to
-/// help prevent
-/// [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), so
-/// `GUri` is not suitable for formatting URIs for display to the user for making
-/// security-sensitive decisions.
-/// 
-/// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
-/// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
-/// hierarchical nature of URIs means that they can either be ‘relative
-/// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
-/// clarity, ‘URIs’ are referred to in this documentation as
-/// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
-/// fragment identifiers are always allowed).
-/// 
-/// Relative references have one or more components of the URI missing. In
-/// particular, they have no scheme. Any other component, such as hostname,
-/// query, etc. may be missing, apart from a path, which has to be specified (but
-/// may be empty). The path may be relative, starting with `./` rather than `/`.
-/// 
-/// For example, a valid relative reference is `./path?query`,
-/// `/?query`fragment`` or `//example.com`.
-/// 
-/// Absolute URIs have a scheme specified. Any other components of the URI which
-/// are missing are specified as explicitly unset in the URI, rather than being
-/// resolved relative to a base URI using `g_uri_parse_relative()`.
-/// 
-/// For example, a valid absolute URI is `file:///home/bob` or
-/// `https://search.com?query=string`.
-/// 
-/// A `GUri` instance is always an absolute URI. A string may be an absolute URI
-/// or a relative reference; see the documentation for individual functions as to
-/// what forms they accept.
-/// 
-/// ## Parsing URIs
-/// 
-/// The most minimalist APIs for parsing URIs are `g_uri_split()` and
-/// `g_uri_split_with_user()`. These split a URI into its component
-/// parts, and return the parts; the difference between the two is that
-/// `g_uri_split()` treats the ‘userinfo’ component of the URI as a
-/// single element, while `g_uri_split_with_user()` can (depending on the
-/// `GUriFlags` you pass) treat it as containing a username, password,
-/// and authentication parameters. Alternatively, `g_uri_split_network()`
-/// can be used when you are only interested in the components that are
-/// needed to initiate a network connection to the service (scheme,
-/// host, and port).
-/// 
-/// `g_uri_parse()` is similar to `g_uri_split()`, but instead of returning
-/// individual strings, it returns a `GUri` structure (and it requires
-/// that the URI be an absolute URI).
-/// 
-/// `g_uri_resolve_relative()` and `g_uri_parse_relative()` allow you to
-/// resolve a relative URI relative to a base URI.
-/// `g_uri_resolve_relative()` takes two strings and returns a string,
-/// and `g_uri_parse_relative()` takes a `GUri` and a string and returns a
-/// `GUri`.
-/// 
-/// All of the parsing functions take a `GUriFlags` argument describing
-/// exactly how to parse the URI; see the documentation for that type
-/// for more details on the specific flags that you can pass. If you
-/// need to choose different flags based on the type of URI, you can
-/// use `g_uri_peek_scheme()` on the URI string to check the scheme
-/// first, and use that to decide what flags to parse it with.
-/// 
-/// For example, you might want to use `G_URI_PARAMS_WWW_FORM` when parsing the
-/// params for a web URI, so compare the result of `g_uri_peek_scheme()` against
-/// `http` and `https`.
-/// 
-/// ## Building URIs
-/// 
-/// `g_uri_join()` and `g_uri_join_with_user()` can be used to construct
-/// valid URI strings from a set of component strings. They are the
-/// inverse of `g_uri_split()` and `g_uri_split_with_user()`.
-/// 
-/// Similarly, `g_uri_build()` and `g_uri_build_with_user()` can be used to
-/// construct a `GUri` from a set of component strings.
-/// 
-/// As with the parsing functions, the building functions take a
-/// `GUriFlags` argument. In particular, it is important to keep in mind
-/// whether the URI components you are using are already ````-encoded. If so,
-/// you must pass the `G_URI_FLAGS_ENCODED` flag.
-/// 
-/// ## `file://` URIs
-/// 
-/// Note that Windows and Unix both define special rules for parsing
-/// `file://` URIs (involving non-UTF-8 character sets on Unix, and the
-/// interpretation of path separators on Windows). `GUri` does not
-/// implement these rules. Use `g_filename_from_uri()` and
-/// `g_filename_to_uri()` if you want to properly convert between
-/// `file://` URIs and local filenames.
-/// 
-/// ## URI Equality
-/// 
-/// Note that there is no `g_uri_equal ()` function, because comparing
-/// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. `GUri` can help with normalization if you use the various
-/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
-/// it is not comprehensive.
-/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
-/// thing according to the `data:` URI specification which GLib does not
-/// handle.
-///
-/// The `URIProtocol` protocol exposes the methods and properties of an underlying `GUri` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `URI`.
-/// Alternatively, use `URIRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol URIProtocol {
-        /// Untyped pointer to the underlying `GUri` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GUri` instance.
-    var uri_ptr: UnsafeMutablePointer<GUri>! { get }
-
-    /// Required Initialiser for types conforming to `URIProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The `GUri` type and related functions can be used to parse URIs into
-/// their components, and build valid URIs from individual components.
-/// 
-/// Note that `GUri` scope is to help manipulate URIs in various applications,
-/// following [RFC 3986](https://tools.ietf.org/html/rfc3986). In particular,
-/// it doesn't intend to cover web browser needs, and doesn't implement the
-/// [WHATWG URL](https://url.spec.whatwg.org/) standard. No APIs are provided to
-/// help prevent
-/// [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), so
-/// `GUri` is not suitable for formatting URIs for display to the user for making
-/// security-sensitive decisions.
-/// 
-/// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
-/// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
-/// hierarchical nature of URIs means that they can either be ‘relative
-/// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
-/// clarity, ‘URIs’ are referred to in this documentation as
-/// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
-/// fragment identifiers are always allowed).
-/// 
-/// Relative references have one or more components of the URI missing. In
-/// particular, they have no scheme. Any other component, such as hostname,
-/// query, etc. may be missing, apart from a path, which has to be specified (but
-/// may be empty). The path may be relative, starting with `./` rather than `/`.
-/// 
-/// For example, a valid relative reference is `./path?query`,
-/// `/?query`fragment`` or `//example.com`.
-/// 
-/// Absolute URIs have a scheme specified. Any other components of the URI which
-/// are missing are specified as explicitly unset in the URI, rather than being
-/// resolved relative to a base URI using `g_uri_parse_relative()`.
-/// 
-/// For example, a valid absolute URI is `file:///home/bob` or
-/// `https://search.com?query=string`.
-/// 
-/// A `GUri` instance is always an absolute URI. A string may be an absolute URI
-/// or a relative reference; see the documentation for individual functions as to
-/// what forms they accept.
-/// 
-/// ## Parsing URIs
-/// 
-/// The most minimalist APIs for parsing URIs are `g_uri_split()` and
-/// `g_uri_split_with_user()`. These split a URI into its component
-/// parts, and return the parts; the difference between the two is that
-/// `g_uri_split()` treats the ‘userinfo’ component of the URI as a
-/// single element, while `g_uri_split_with_user()` can (depending on the
-/// `GUriFlags` you pass) treat it as containing a username, password,
-/// and authentication parameters. Alternatively, `g_uri_split_network()`
-/// can be used when you are only interested in the components that are
-/// needed to initiate a network connection to the service (scheme,
-/// host, and port).
-/// 
-/// `g_uri_parse()` is similar to `g_uri_split()`, but instead of returning
-/// individual strings, it returns a `GUri` structure (and it requires
-/// that the URI be an absolute URI).
-/// 
-/// `g_uri_resolve_relative()` and `g_uri_parse_relative()` allow you to
-/// resolve a relative URI relative to a base URI.
-/// `g_uri_resolve_relative()` takes two strings and returns a string,
-/// and `g_uri_parse_relative()` takes a `GUri` and a string and returns a
-/// `GUri`.
-/// 
-/// All of the parsing functions take a `GUriFlags` argument describing
-/// exactly how to parse the URI; see the documentation for that type
-/// for more details on the specific flags that you can pass. If you
-/// need to choose different flags based on the type of URI, you can
-/// use `g_uri_peek_scheme()` on the URI string to check the scheme
-/// first, and use that to decide what flags to parse it with.
-/// 
-/// For example, you might want to use `G_URI_PARAMS_WWW_FORM` when parsing the
-/// params for a web URI, so compare the result of `g_uri_peek_scheme()` against
-/// `http` and `https`.
-/// 
-/// ## Building URIs
-/// 
-/// `g_uri_join()` and `g_uri_join_with_user()` can be used to construct
-/// valid URI strings from a set of component strings. They are the
-/// inverse of `g_uri_split()` and `g_uri_split_with_user()`.
-/// 
-/// Similarly, `g_uri_build()` and `g_uri_build_with_user()` can be used to
-/// construct a `GUri` from a set of component strings.
-/// 
-/// As with the parsing functions, the building functions take a
-/// `GUriFlags` argument. In particular, it is important to keep in mind
-/// whether the URI components you are using are already ````-encoded. If so,
-/// you must pass the `G_URI_FLAGS_ENCODED` flag.
-/// 
-/// ## `file://` URIs
-/// 
-/// Note that Windows and Unix both define special rules for parsing
-/// `file://` URIs (involving non-UTF-8 character sets on Unix, and the
-/// interpretation of path separators on Windows). `GUri` does not
-/// implement these rules. Use `g_filename_from_uri()` and
-/// `g_filename_to_uri()` if you want to properly convert between
-/// `file://` URIs and local filenames.
-/// 
-/// ## URI Equality
-/// 
-/// Note that there is no `g_uri_equal ()` function, because comparing
-/// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. `GUri` can help with normalization if you use the various
-/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
-/// it is not comprehensive.
-/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
-/// thing according to the `data:` URI specification which GLib does not
-/// handle.
-///
-/// The `URIRef` type acts as a lightweight Swift reference to an underlying `GUri` instance.
-/// It exposes methods that can operate on this data type through `URIProtocol` conformance.
-/// Use `URIRef` only as an `unowned` reference to an existing `GUri` instance.
-///
-public struct URIRef: URIProtocol {
-        /// Untyped pointer to the underlying `GUri` instance.
-    /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension URIRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GUri>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GUri>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GUri>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GUri>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `URIProtocol`
-    @inlinable init<T: URIProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-        /// Creates a new `GUri` from the given components according to `flags`.
-    /// 
-    /// See also `g_uri_build_with_user()`, which allows specifying the
-    /// components of the "userinfo" separately.
-    @inlinable static func build(flags: URIFlags, scheme: UnsafePointer<gchar>!, userinfo: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URIRef! {
-        guard let rv = URIRef(gconstpointer: gconstpointer(g_uri_build(flags.value, scheme, userinfo, host, gint(port), path, query, fragment))) else { return nil }
-        return rv
-    }
-
-    /// Creates a new `GUri` from the given components according to `flags`
-    /// (`G_URI_FLAGS_HAS_PASSWORD` is added unconditionally). The `flags` must be
-    /// coherent with the passed values, in particular use ````-encoded values with
-    /// `G_URI_FLAGS_ENCODED`.
-    /// 
-    /// In contrast to `g_uri_build()`, this allows specifying the components
-    /// of the ‘userinfo’ field separately. Note that `user` must be non-`nil`
-    /// if either `password` or `auth_params` is non-`nil`.
-    @inlinable static func buildWith(user flags: URIFlags, scheme: UnsafePointer<gchar>!, user: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil, authParams: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URIRef! {
-        guard let rv = URIRef(gconstpointer: gconstpointer(g_uri_build_with_user(flags.value, scheme, user, password, authParams, host, gint(port), path, query, fragment))) else { return nil }
-        return rv
-    }
-
-    /// Parses `uri_string` according to `flags`. If the result is not a
-    /// valid [absolute URI](#relative-absolute-uris), it will be discarded, and an
-    /// error returned.
-    @inlinable static func parse(uriString: UnsafePointer<gchar>!, flags: URIFlags) throws -> URIRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = URIRef(gconstpointer: gconstpointer(g_uri_parse(uriString, flags.value, &error)))
-        if let error = error { throw GLibError(error) }
-        guard let rv = maybeRV else { return nil }
-        return rv
-    }
-}
-
-/// The `GUri` type and related functions can be used to parse URIs into
-/// their components, and build valid URIs from individual components.
-/// 
-/// Note that `GUri` scope is to help manipulate URIs in various applications,
-/// following [RFC 3986](https://tools.ietf.org/html/rfc3986). In particular,
-/// it doesn't intend to cover web browser needs, and doesn't implement the
-/// [WHATWG URL](https://url.spec.whatwg.org/) standard. No APIs are provided to
-/// help prevent
-/// [homograph attacks](https://en.wikipedia.org/wiki/IDN_homograph_attack), so
-/// `GUri` is not suitable for formatting URIs for display to the user for making
-/// security-sensitive decisions.
-/// 
-/// ## Relative and absolute URIs # <a name="relative-absolute-uris"></a>
-/// 
-/// As defined in [RFC 3986](https://tools.ietf.org/html/rfc3986`section-4`), the
-/// hierarchical nature of URIs means that they can either be ‘relative
-/// references’ (sometimes referred to as ‘relative URIs’) or ‘URIs’ (for
-/// clarity, ‘URIs’ are referred to in this documentation as
-/// ‘absolute URIs’ — although
-/// [in constrast to RFC 3986](https://tools.ietf.org/html/rfc3986`section-4.3`),
-/// fragment identifiers are always allowed).
-/// 
-/// Relative references have one or more components of the URI missing. In
-/// particular, they have no scheme. Any other component, such as hostname,
-/// query, etc. may be missing, apart from a path, which has to be specified (but
-/// may be empty). The path may be relative, starting with `./` rather than `/`.
-/// 
-/// For example, a valid relative reference is `./path?query`,
-/// `/?query`fragment`` or `//example.com`.
-/// 
-/// Absolute URIs have a scheme specified. Any other components of the URI which
-/// are missing are specified as explicitly unset in the URI, rather than being
-/// resolved relative to a base URI using `g_uri_parse_relative()`.
-/// 
-/// For example, a valid absolute URI is `file:///home/bob` or
-/// `https://search.com?query=string`.
-/// 
-/// A `GUri` instance is always an absolute URI. A string may be an absolute URI
-/// or a relative reference; see the documentation for individual functions as to
-/// what forms they accept.
-/// 
-/// ## Parsing URIs
-/// 
-/// The most minimalist APIs for parsing URIs are `g_uri_split()` and
-/// `g_uri_split_with_user()`. These split a URI into its component
-/// parts, and return the parts; the difference between the two is that
-/// `g_uri_split()` treats the ‘userinfo’ component of the URI as a
-/// single element, while `g_uri_split_with_user()` can (depending on the
-/// `GUriFlags` you pass) treat it as containing a username, password,
-/// and authentication parameters. Alternatively, `g_uri_split_network()`
-/// can be used when you are only interested in the components that are
-/// needed to initiate a network connection to the service (scheme,
-/// host, and port).
-/// 
-/// `g_uri_parse()` is similar to `g_uri_split()`, but instead of returning
-/// individual strings, it returns a `GUri` structure (and it requires
-/// that the URI be an absolute URI).
-/// 
-/// `g_uri_resolve_relative()` and `g_uri_parse_relative()` allow you to
-/// resolve a relative URI relative to a base URI.
-/// `g_uri_resolve_relative()` takes two strings and returns a string,
-/// and `g_uri_parse_relative()` takes a `GUri` and a string and returns a
-/// `GUri`.
-/// 
-/// All of the parsing functions take a `GUriFlags` argument describing
-/// exactly how to parse the URI; see the documentation for that type
-/// for more details on the specific flags that you can pass. If you
-/// need to choose different flags based on the type of URI, you can
-/// use `g_uri_peek_scheme()` on the URI string to check the scheme
-/// first, and use that to decide what flags to parse it with.
-/// 
-/// For example, you might want to use `G_URI_PARAMS_WWW_FORM` when parsing the
-/// params for a web URI, so compare the result of `g_uri_peek_scheme()` against
-/// `http` and `https`.
-/// 
-/// ## Building URIs
-/// 
-/// `g_uri_join()` and `g_uri_join_with_user()` can be used to construct
-/// valid URI strings from a set of component strings. They are the
-/// inverse of `g_uri_split()` and `g_uri_split_with_user()`.
-/// 
-/// Similarly, `g_uri_build()` and `g_uri_build_with_user()` can be used to
-/// construct a `GUri` from a set of component strings.
-/// 
-/// As with the parsing functions, the building functions take a
-/// `GUriFlags` argument. In particular, it is important to keep in mind
-/// whether the URI components you are using are already ````-encoded. If so,
-/// you must pass the `G_URI_FLAGS_ENCODED` flag.
-/// 
-/// ## `file://` URIs
-/// 
-/// Note that Windows and Unix both define special rules for parsing
-/// `file://` URIs (involving non-UTF-8 character sets on Unix, and the
-/// interpretation of path separators on Windows). `GUri` does not
-/// implement these rules. Use `g_filename_from_uri()` and
-/// `g_filename_to_uri()` if you want to properly convert between
-/// `file://` URIs and local filenames.
-/// 
-/// ## URI Equality
-/// 
-/// Note that there is no `g_uri_equal ()` function, because comparing
-/// URIs usefully requires scheme-specific knowledge that `GUri` does
-/// not have. `GUri` can help with normalization if you use the various
-/// encoded `GUriFlags` as well as `G_URI_FLAGS_SCHEME_NORMALIZE` however
-/// it is not comprehensive.
-/// For example, `data:,foo` and `data:;base64,Zm9v` resolve to the same
-/// thing according to the `data:` URI specification which GLib does not
-/// handle.
-///
-/// The `URI` type acts as a reference-counted owner of an underlying `GUri` instance.
-/// It provides the methods that can operate on this data type through `URIProtocol` conformance.
-/// Use `URI` as a strong reference or owner of a `GUri` instance.
-///
-open class URI: URIProtocol {
-        /// Untyped pointer to the underlying `GUri` instance.
-    /// For type-safe access, use the generated, typed pointer `uri_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GUri>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GUri>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GUri>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GUri>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// Will retain `GUri`.
-    /// i.e., ownership is transferred to the `URI` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GUri>) {
-        ptr = UnsafeMutableRawPointer(op)
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Reference intialiser for a related type that implements `URIProtocol`
-    /// Will retain `GUri`.
-    /// - Parameter other: an instance of a related type that implements `URIProtocol`
-    @inlinable public init<T: URIProtocol>(_ other: T) {
-        ptr = other.ptr
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Releases the underlying `GUri` instance using `g_uri_unref`.
-    deinit {
-        g_uri_unref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `URIProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        g_uri_ref(ptr.assumingMemoryBound(to: GUri.self))
-    }
-
-
-    /// Creates a new `GUri` from the given components according to `flags`.
-    /// 
-    /// See also `g_uri_build_with_user()`, which allows specifying the
-    /// components of the "userinfo" separately.
-    @inlinable public static func build(flags: URIFlags, scheme: UnsafePointer<gchar>!, userinfo: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URI! {
-        guard let rv = URI(gconstpointer: gconstpointer(g_uri_build(flags.value, scheme, userinfo, host, gint(port), path, query, fragment))) else { return nil }
-        return rv
-    }
-
-    /// Creates a new `GUri` from the given components according to `flags`
-    /// (`G_URI_FLAGS_HAS_PASSWORD` is added unconditionally). The `flags` must be
-    /// coherent with the passed values, in particular use ````-encoded values with
-    /// `G_URI_FLAGS_ENCODED`.
-    /// 
-    /// In contrast to `g_uri_build()`, this allows specifying the components
-    /// of the ‘userinfo’ field separately. Note that `user` must be non-`nil`
-    /// if either `password` or `auth_params` is non-`nil`.
-    @inlinable public static func buildWith(user flags: URIFlags, scheme: UnsafePointer<gchar>!, user: UnsafePointer<gchar>? = nil, password: UnsafePointer<gchar>? = nil, authParams: UnsafePointer<gchar>? = nil, host: UnsafePointer<gchar>? = nil, port: Int, path: UnsafePointer<gchar>!, query: UnsafePointer<gchar>? = nil, fragment: UnsafePointer<gchar>? = nil) -> URI! {
-        guard let rv = URI(gconstpointer: gconstpointer(g_uri_build_with_user(flags.value, scheme, user, password, authParams, host, gint(port), path, query, fragment))) else { return nil }
-        return rv
-    }
-
-    /// Parses `uri_string` according to `flags`. If the result is not a
-    /// valid [absolute URI](#relative-absolute-uris), it will be discarded, and an
-    /// error returned.
-    @inlinable public static func parse(uriString: UnsafePointer<gchar>!, flags: URIFlags) throws -> URI! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = URI(gconstpointer: gconstpointer(g_uri_parse(uriString, flags.value, &error)))
-        if let error = error { throw GLibError(error) }
-        guard let rv = maybeRV else { return nil }
-        return rv
-    }
-
-}
-
-// MARK: no URI properties
-
-// MARK: no URI signals
-
-// MARK: URI has no signals
-// MARK: URI Record: URIProtocol extension (methods and fields)
-public extension URIProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GUri` instance.
-    @inlinable var uri_ptr: UnsafeMutablePointer<GUri>! { return ptr?.assumingMemoryBound(to: GUri.self) }
-
-    /// Gets `uri`'s authentication parameters, which may contain
-    /// ````-encoding, depending on the flags with which `uri` was created.
-    /// (If `uri` was not created with `G_URI_FLAGS_HAS_AUTH_PARAMS` then this will
-    /// be `nil`.)
-    /// 
-    /// Depending on the URI scheme, `g_uri_parse_params()` may be useful for
-    /// further parsing this information.
-    @inlinable func getAuthParams() -> String! {
-        let rv = g_uri_get_auth_params(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s flags set upon construction.
-    @inlinable func getFlags() -> URIFlags {
-        let rv = URIFlags(g_uri_get_flags(uri_ptr))
-        return rv
-    }
-
-    /// Gets `uri`'s fragment, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created.
-    @inlinable func getFragment() -> String! {
-        let rv = g_uri_get_fragment(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s host. This will never have ````-encoded characters,
-    /// unless it is non-UTF-8 (which can only be the case if `uri` was
-    /// created with `G_URI_FLAGS_NON_DNS`).
-    /// 
-    /// If `uri` contained an IPv6 address literal, this value will be just
-    /// that address, without the brackets around it that are necessary in
-    /// the string form of the URI. Note that in this case there may also
-    /// be a scope ID attached to the address. Eg, `fe80`1234`````em1` (or
-    /// `fe80`1234`````25em1` if the string is still encoded).
-    @inlinable func getHost() -> String! {
-        let rv = g_uri_get_host(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s password, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created. (If `uri` was not created
-    /// with `G_URI_FLAGS_HAS_PASSWORD` then this will be `nil`.)
-    @inlinable func getPassword() -> String! {
-        let rv = g_uri_get_password(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s path, which may contain ````-encoding, depending on the
-    /// flags with which `uri` was created.
-    @inlinable func getPath() -> String! {
-        let rv = g_uri_get_path(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s port.
-    @inlinable func getPort() -> Int {
-        let rv = Int(g_uri_get_port(uri_ptr))
-        return rv
-    }
-
-    /// Gets `uri`'s query, which may contain ````-encoding, depending on the
-    /// flags with which `uri` was created.
-    /// 
-    /// For queries consisting of a series of `name=value` parameters,
-    /// `GUriParamsIter` or `g_uri_parse_params()` may be useful.
-    @inlinable func getQuery() -> String! {
-        let rv = g_uri_get_query(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s scheme. Note that this will always be all-lowercase,
-    /// regardless of the string or strings that `uri` was created from.
-    @inlinable func getScheme() -> String! {
-        let rv = g_uri_get_scheme(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets the ‘username’ component of `uri`'s userinfo, which may contain
-    /// ````-encoding, depending on the flags with which `uri` was created.
-    /// If `uri` was not created with `G_URI_FLAGS_HAS_PASSWORD` or
-    /// `G_URI_FLAGS_HAS_AUTH_PARAMS`, this is the same as `g_uri_get_userinfo()`.
-    @inlinable func getUser() -> String! {
-        let rv = g_uri_get_user(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Gets `uri`'s userinfo, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created.
-    @inlinable func getUserinfo() -> String! {
-        let rv = g_uri_get_userinfo(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Parses `uri_ref` according to `flags` and, if it is a
-    /// [relative URI](#relative-absolute-uris), resolves it relative to `base_uri`.
-    /// If the result is not a valid absolute URI, it will be discarded, and an error
-    /// returned.
-    @inlinable func parseRelative(uriRef: UnsafePointer<gchar>!, flags: URIFlags) throws -> URIRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = URIRef(gconstpointer: gconstpointer(g_uri_parse_relative(uri_ptr, uriRef, flags.value, &error)))
-        if let error = error { throw GLibError(error) }
-        guard let rv = maybeRV else { return nil }
-        return rv
-    }
-
-    /// Increments the reference count of `uri` by one.
-    @discardableResult @inlinable func ref() -> URIRef! {
-        guard let rv = URIRef(gconstpointer: gconstpointer(g_uri_ref(uri_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Returns a string representing `uri`.
-    /// 
-    /// This is not guaranteed to return a string which is identical to the
-    /// string that `uri` was parsed from. However, if the source URI was
-    /// syntactically correct (according to RFC 3986), and it was parsed
-    /// with `G_URI_FLAGS_ENCODED`, then `g_uri_to_string()` is guaranteed to return
-    /// a string which is at least semantically equivalent to the source
-    /// URI (according to RFC 3986).
-    /// 
-    /// If `uri` might contain sensitive details, such as authentication parameters,
-    /// or private data in its query string, and the returned string is going to be
-    /// logged, then consider using `g_uri_to_string_partial()` to redact parts.
-    @inlinable func toString() -> String! {
-        let rv = g_uri_to_string(uri_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Returns a string representing `uri`, subject to the options in
-    /// `flags`. See `g_uri_to_string()` and `GUriHideFlags` for more details.
-    @inlinable func toStringPartial(flags: URIHideFlags) -> String! {
-        let rv = g_uri_to_string_partial(uri_ptr, flags.value).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Atomically decrements the reference count of `uri` by one.
-    /// 
-    /// When the reference count reaches zero, the resources allocated by
-    /// `uri` are freed
-    @inlinable func unref() {
-        g_uri_unref(uri_ptr)
-    
-    }
-    /// Gets `uri`'s authentication parameters, which may contain
-    /// ````-encoding, depending on the flags with which `uri` was created.
-    /// (If `uri` was not created with `G_URI_FLAGS_HAS_AUTH_PARAMS` then this will
-    /// be `nil`.)
-    /// 
-    /// Depending on the URI scheme, `g_uri_parse_params()` may be useful for
-    /// further parsing this information.
-    @inlinable var authParams: String! {
-        /// Gets `uri`'s authentication parameters, which may contain
-        /// ````-encoding, depending on the flags with which `uri` was created.
-        /// (If `uri` was not created with `G_URI_FLAGS_HAS_AUTH_PARAMS` then this will
-        /// be `nil`.)
-        /// 
-        /// Depending on the URI scheme, `g_uri_parse_params()` may be useful for
-        /// further parsing this information.
-        get {
-            let rv = g_uri_get_auth_params(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s flags set upon construction.
-    @inlinable var flags: URIFlags {
-        /// Gets `uri`'s flags set upon construction.
-        get {
-            let rv = URIFlags(g_uri_get_flags(uri_ptr))
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s fragment, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created.
-    @inlinable var fragment: String! {
-        /// Gets `uri`'s fragment, which may contain ````-encoding, depending on
-        /// the flags with which `uri` was created.
-        get {
-            let rv = g_uri_get_fragment(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s host. This will never have ````-encoded characters,
-    /// unless it is non-UTF-8 (which can only be the case if `uri` was
-    /// created with `G_URI_FLAGS_NON_DNS`).
-    /// 
-    /// If `uri` contained an IPv6 address literal, this value will be just
-    /// that address, without the brackets around it that are necessary in
-    /// the string form of the URI. Note that in this case there may also
-    /// be a scope ID attached to the address. Eg, `fe80`1234`````em1` (or
-    /// `fe80`1234`````25em1` if the string is still encoded).
-    @inlinable var host: String! {
-        /// Gets `uri`'s host. This will never have ````-encoded characters,
-        /// unless it is non-UTF-8 (which can only be the case if `uri` was
-        /// created with `G_URI_FLAGS_NON_DNS`).
-        /// 
-        /// If `uri` contained an IPv6 address literal, this value will be just
-        /// that address, without the brackets around it that are necessary in
-        /// the string form of the URI. Note that in this case there may also
-        /// be a scope ID attached to the address. Eg, `fe80`1234`````em1` (or
-        /// `fe80`1234`````25em1` if the string is still encoded).
-        get {
-            let rv = g_uri_get_host(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s password, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created. (If `uri` was not created
-    /// with `G_URI_FLAGS_HAS_PASSWORD` then this will be `nil`.)
-    @inlinable var password: String! {
-        /// Gets `uri`'s password, which may contain ````-encoding, depending on
-        /// the flags with which `uri` was created. (If `uri` was not created
-        /// with `G_URI_FLAGS_HAS_PASSWORD` then this will be `nil`.)
-        get {
-            let rv = g_uri_get_password(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s path, which may contain ````-encoding, depending on the
-    /// flags with which `uri` was created.
-    @inlinable var path: String! {
-        /// Gets `uri`'s path, which may contain ````-encoding, depending on the
-        /// flags with which `uri` was created.
-        get {
-            let rv = g_uri_get_path(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s port.
-    @inlinable var port: Int {
-        /// Gets `uri`'s port.
-        get {
-            let rv = Int(g_uri_get_port(uri_ptr))
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s query, which may contain ````-encoding, depending on the
-    /// flags with which `uri` was created.
-    /// 
-    /// For queries consisting of a series of `name=value` parameters,
-    /// `GUriParamsIter` or `g_uri_parse_params()` may be useful.
-    @inlinable var query: String! {
-        /// Gets `uri`'s query, which may contain ````-encoding, depending on the
-        /// flags with which `uri` was created.
-        /// 
-        /// For queries consisting of a series of `name=value` parameters,
-        /// `GUriParamsIter` or `g_uri_parse_params()` may be useful.
-        get {
-            let rv = g_uri_get_query(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s scheme. Note that this will always be all-lowercase,
-    /// regardless of the string or strings that `uri` was created from.
-    @inlinable var scheme: String! {
-        /// Gets `uri`'s scheme. Note that this will always be all-lowercase,
-        /// regardless of the string or strings that `uri` was created from.
-        get {
-            let rv = g_uri_get_scheme(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets the ‘username’ component of `uri`'s userinfo, which may contain
-    /// ````-encoding, depending on the flags with which `uri` was created.
-    /// If `uri` was not created with `G_URI_FLAGS_HAS_PASSWORD` or
-    /// `G_URI_FLAGS_HAS_AUTH_PARAMS`, this is the same as `g_uri_get_userinfo()`.
-    @inlinable var user: String! {
-        /// Gets the ‘username’ component of `uri`'s userinfo, which may contain
-        /// ````-encoding, depending on the flags with which `uri` was created.
-        /// If `uri` was not created with `G_URI_FLAGS_HAS_PASSWORD` or
-        /// `G_URI_FLAGS_HAS_AUTH_PARAMS`, this is the same as `g_uri_get_userinfo()`.
-        get {
-            let rv = g_uri_get_user(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
-    /// Gets `uri`'s userinfo, which may contain ````-encoding, depending on
-    /// the flags with which `uri` was created.
-    @inlinable var userinfo: String! {
-        /// Gets `uri`'s userinfo, which may contain ````-encoding, depending on
-        /// the flags with which `uri` was created.
-        get {
-            let rv = g_uri_get_userinfo(uri_ptr).map({ String(cString: $0) })
-            return rv
-        }
     }
 
 

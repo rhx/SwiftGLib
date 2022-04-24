@@ -1,5 +1,731 @@
 import CGLib
 
+// MARK: - MainContext Record
+
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
+/// The `MainContextProtocol` protocol exposes the methods and properties of an underlying `GMainContext` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `MainContext`.
+/// Alternatively, use `MainContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol MainContextProtocol {
+        /// Untyped pointer to the underlying `GMainContext` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GMainContext` instance.
+    var main_context_ptr: UnsafeMutablePointer<GMainContext>! { get }
+
+    /// Required Initialiser for types conforming to `MainContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
+/// The `MainContextRef` type acts as a lightweight Swift reference to an underlying `GMainContext` instance.
+/// It exposes methods that can operate on this data type through `MainContextProtocol` conformance.
+/// Use `MainContextRef` only as an `unowned` reference to an existing `GMainContext` instance.
+///
+public struct MainContextRef: MainContextProtocol {
+        /// Untyped pointer to the underlying `GMainContext` instance.
+    /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension MainContextRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GMainContext>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GMainContext>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GMainContext>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GMainContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `MainContextProtocol`
+    @inlinable init<T: MainContextProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+        /// Creates a new `GMainContext` structure.
+    @inlinable init() {
+            let result = g_main_context_new()
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
+    }
+    /// Returns the global default main context. This is the main context
+    /// used for main loop functions when a main loop is not explicitly
+    /// specified, and corresponds to the "main" main loop. See also
+    /// `g_main_context_get_thread_default()`.
+    @inlinable static func default_() -> MainContextRef! {
+            let result = g_main_context_default()
+        guard let rv = MainContextRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the thread-default `GMainContext` for this thread. Asynchronous
+    /// operations that want to be able to be run in contexts other than
+    /// the default one should call this method or
+    /// `g_main_context_ref_thread_default()` to get a `GMainContext` to add
+    /// their `GSources` to. (Note that even in single-threaded
+    /// programs applications may sometimes want to temporarily push a
+    /// non-default context, so it is not safe to assume that this will
+    /// always return `nil` if you are running in the default thread.)
+    /// 
+    /// If you need to hold a reference on the context, use
+    /// `g_main_context_ref_thread_default()` instead.
+    @inlinable static func getThreadDefault() -> MainContextRef! {
+            let result = g_main_context_get_thread_default()
+        guard let rv = MainContextRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the thread-default `GMainContext` for this thread, as with
+    /// `g_main_context_get_thread_default()`, but also adds a reference to
+    /// it with `g_main_context_ref()`. In addition, unlike
+    /// `g_main_context_get_thread_default()`, if the thread-default context
+    /// is the global default context, this will return that `GMainContext`
+    /// (with a ref added to it) rather than returning `nil`.
+    @inlinable static func refThreadDefault() -> MainContextRef! {
+            let result = g_main_context_ref_thread_default()
+        guard let rv = MainContextRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+}
+
+/// The `GMainContext` struct is an opaque data
+/// type representing a set of sources to be handled in a main loop.
+///
+/// The `MainContext` type acts as a reference-counted owner of an underlying `GMainContext` instance.
+/// It provides the methods that can operate on this data type through `MainContextProtocol` conformance.
+/// Use `MainContext` as a strong reference or owner of a `GMainContext` instance.
+///
+open class MainContext: MainContextProtocol {
+        /// Untyped pointer to the underlying `GMainContext` instance.
+    /// For type-safe access, use the generated, typed pointer `main_context_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GMainContext>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GMainContext>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GMainContext>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GMainContext>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// Will retain `GMainContext`.
+    /// i.e., ownership is transferred to the `MainContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GMainContext>) {
+        ptr = UnsafeMutableRawPointer(op)
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Reference intialiser for a related type that implements `MainContextProtocol`
+    /// Will retain `GMainContext`.
+    /// - Parameter other: an instance of a related type that implements `MainContextProtocol`
+    @inlinable public init<T: MainContextProtocol>(_ other: T) {
+        ptr = other.ptr
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Releases the underlying `GMainContext` instance using `g_main_context_unref`.
+    deinit {
+        g_main_context_unref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MainContextProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        g_main_context_ref(ptr.assumingMemoryBound(to: GMainContext.self))
+    }
+
+    /// Creates a new `GMainContext` structure.
+    @inlinable public init() {
+            let result = g_main_context_new()
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
+    }
+
+    /// Returns the global default main context. This is the main context
+    /// used for main loop functions when a main loop is not explicitly
+    /// specified, and corresponds to the "main" main loop. See also
+    /// `g_main_context_get_thread_default()`.
+    @inlinable public static func default_() -> MainContext! {
+            let result = g_main_context_default()
+        guard let rv = MainContext(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the thread-default `GMainContext` for this thread. Asynchronous
+    /// operations that want to be able to be run in contexts other than
+    /// the default one should call this method or
+    /// `g_main_context_ref_thread_default()` to get a `GMainContext` to add
+    /// their `GSources` to. (Note that even in single-threaded
+    /// programs applications may sometimes want to temporarily push a
+    /// non-default context, so it is not safe to assume that this will
+    /// always return `nil` if you are running in the default thread.)
+    /// 
+    /// If you need to hold a reference on the context, use
+    /// `g_main_context_ref_thread_default()` instead.
+    @inlinable public static func getThreadDefault() -> MainContext! {
+            let result = g_main_context_get_thread_default()
+        guard let rv = MainContext(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Gets the thread-default `GMainContext` for this thread, as with
+    /// `g_main_context_get_thread_default()`, but also adds a reference to
+    /// it with `g_main_context_ref()`. In addition, unlike
+    /// `g_main_context_get_thread_default()`, if the thread-default context
+    /// is the global default context, this will return that `GMainContext`
+    /// (with a ref added to it) rather than returning `nil`.
+    @inlinable public static func refThreadDefault() -> MainContext! {
+            let result = g_main_context_ref_thread_default()
+        guard let rv = MainContext(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+}
+
+// MARK: no MainContext properties
+
+// MARK: no MainContext signals
+
+// MARK: MainContext has no signals
+// MARK: MainContext Record: MainContextProtocol extension (methods and fields)
+public extension MainContextProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GMainContext` instance.
+    @inlinable var main_context_ptr: UnsafeMutablePointer<GMainContext>! { return ptr?.assumingMemoryBound(to: GMainContext.self) }
+
+    /// Tries to become the owner of the specified context.
+    /// If some other thread is the owner of the context,
+    /// returns `false` immediately. Ownership is properly
+    /// recursive: the owner can require ownership again
+    /// and will release ownership when `g_main_context_release()`
+    /// is called as many times as `g_main_context_acquire()`.
+    /// 
+    /// You must be the owner of a context before you
+    /// can call `g_main_context_prepare()`, `g_main_context_query()`,
+    /// `g_main_context_check()`, `g_main_context_dispatch()`.
+    @inlinable func acquire() -> Bool {
+        let result = g_main_context_acquire(main_context_ptr)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Adds a file descriptor to the set of file descriptors polled for
+    /// this context. This will very seldom be used directly. Instead
+    /// a typical event source will use `g_source_add_unix_fd()` instead.
+    @inlinable func addPoll<PollFDT: PollFDProtocol>(fd: PollFDT, priority: Int) {
+        
+        g_main_context_add_poll(main_context_ptr, fd.pollfd_ptr, gint(priority))
+        
+    }
+
+    /// Passes the results of polling back to the main loop. You should be
+    /// careful to pass `fds` and its length `n_fds` as received from
+    /// `g_main_context_query()`, as this functions relies on assumptions
+    /// on how `fds` is filled.
+    /// 
+    /// You must have successfully acquired the context with
+    /// `g_main_context_acquire()` before you may call this function.
+    @inlinable func check(maxPriority: Int, fds: UnsafeMutablePointer<GPollFD>!, nFds: Int) -> Bool {
+        let result = g_main_context_check(main_context_ptr, gint(maxPriority), fds, gint(nFds))
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Dispatches all pending sources.
+    /// 
+    /// You must have successfully acquired the context with
+    /// `g_main_context_acquire()` before you may call this function.
+    @inlinable func dispatch() {
+        
+        g_main_context_dispatch(main_context_ptr)
+        
+    }
+
+    /// Finds a source with the given source functions and user data.  If
+    /// multiple sources exist with the same source function and user data,
+    /// the first one found will be returned.
+    @inlinable func findSourceByFuncsUserData<SourceFuncsT: SourceFuncsProtocol>(funcs: SourceFuncsT, userData: gpointer? = nil) -> SourceRef! {
+        let result = g_main_context_find_source_by_funcs_user_data(main_context_ptr, funcs._ptr, userData)
+        let rv = SourceRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Finds a `GSource` given a pair of context and ID.
+    /// 
+    /// It is a programmer error to attempt to look up a non-existent source.
+    /// 
+    /// More specifically: source IDs can be reissued after a source has been
+    /// destroyed and therefore it is never valid to use this function with a
+    /// source ID which may have already been removed.  An example is when
+    /// scheduling an idle to run in another thread with `g_idle_add()`: the
+    /// idle may already have run and been removed by the time this function
+    /// is called on its (now invalid) source ID.  This source ID may have
+    /// been reissued, leading to the operation being performed against the
+    /// wrong source.
+    @inlinable func findSourceByID(sourceID: Int) -> SourceRef! {
+        let result = g_main_context_find_source_by_id(main_context_ptr, guint(sourceID))
+        let rv = SourceRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Finds a source with the given user data for the callback.  If
+    /// multiple sources exist with the same user data, the first
+    /// one found will be returned.
+    @inlinable func findSourceBy(userData: gpointer? = nil) -> SourceRef! {
+        let result = g_main_context_find_source_by_user_data(main_context_ptr, userData)
+        let rv = SourceRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Gets the poll function set by `g_main_context_set_poll_func()`.
+    @inlinable func getPollFunc() -> GPollFunc! {
+        let result = g_main_context_get_poll_func(main_context_ptr)
+        let rv = result
+        return rv
+    }
+
+    /// Invokes a function in such a way that `context` is owned during the
+    /// invocation of `function`.
+    /// 
+    /// If `context` is `nil` then the global default main context — as
+    /// returned by `g_main_context_default()` — is used.
+    /// 
+    /// If `context` is owned by the current thread, `function` is called
+    /// directly.  Otherwise, if `context` is the thread-default main context
+    /// of the current thread and `g_main_context_acquire()` succeeds, then
+    /// `function` is called and `g_main_context_release()` is called
+    /// afterwards.
+    /// 
+    /// In any other case, an idle source is created to call `function` and
+    /// that source is attached to `context` (presumably to be run in another
+    /// thread).  The idle source is attached with `G_PRIORITY_DEFAULT`
+    /// priority.  If you want a different priority, use
+    /// `g_main_context_invoke_full()`.
+    /// 
+    /// Note that, as with normal idle functions, `function` should probably
+    /// return `false`.  If it returns `true`, it will be continuously run in a
+    /// loop (and may prevent this call from returning).
+    @inlinable func invoke(function: GSourceFunc?, data: gpointer? = nil) {
+        
+        g_main_context_invoke(main_context_ptr, function, data)
+        
+    }
+
+    /// Invokes a function in such a way that `context` is owned during the
+    /// invocation of `function`.
+    /// 
+    /// This function is the same as `g_main_context_invoke()` except that it
+    /// lets you specify the priority in case `function` ends up being
+    /// scheduled as an idle and also lets you give a `GDestroyNotify` for `data`.
+    /// 
+    /// `notify` should not assume that it is called from any particular
+    /// thread or with any particular context acquired.
+    @inlinable func invokeFull(priority: Int, function: GSourceFunc?, data: gpointer? = nil, notify: GDestroyNotify? = nil) {
+        
+        g_main_context_invoke_full(main_context_ptr, gint(priority), function, data, notify)
+        
+    }
+
+    /// Runs a single iteration for the given main loop. This involves
+    /// checking to see if any event sources are ready to be processed,
+    /// then if no events sources are ready and `may_block` is `true`, waiting
+    /// for a source to become ready, then dispatching the highest priority
+    /// events sources that are ready. Otherwise, if `may_block` is `false`
+    /// sources are not waited to become ready, only those highest priority
+    /// events sources will be dispatched (if any), that are ready at this
+    /// given moment without further waiting.
+    /// 
+    /// Note that even when `may_block` is `true`, it is still possible for
+    /// `g_main_context_iteration()` to return `false`, since the wait may
+    /// be interrupted for other reasons than an event source becoming ready.
+    @inlinable func iteration(mayBlock: Bool) -> Bool {
+        let result = g_main_context_iteration(main_context_ptr, gboolean((mayBlock) ? 1 : 0))
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Checks if any sources have pending events for the given context.
+    @inlinable func pending() -> Bool {
+        let result = g_main_context_pending(main_context_ptr)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Pops `context` off the thread-default context stack (verifying that
+    /// it was on the top of the stack).
+    @inlinable func popThreadDefault() {
+        
+        g_main_context_pop_thread_default(main_context_ptr)
+        
+    }
+
+    /// Prepares to poll sources within a main loop. The resulting information
+    /// for polling is determined by calling g_main_context_query ().
+    /// 
+    /// You must have successfully acquired the context with
+    /// `g_main_context_acquire()` before you may call this function.
+    @inlinable func prepare(priority: UnsafeMutablePointer<gint>! = nil) -> Bool {
+        let result = g_main_context_prepare(main_context_ptr, priority)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Acquires `context` and sets it as the thread-default context for the
+    /// current thread. This will cause certain asynchronous operations
+    /// (such as most [gio](#gio)-based I/O) which are
+    /// started in this thread to run under `context` and deliver their
+    /// results to its main loop, rather than running under the global
+    /// default context in the main thread. Note that calling this function
+    /// changes the context returned by `g_main_context_get_thread_default()`,
+    /// not the one returned by `g_main_context_default()`, so it does not affect
+    /// the context used by functions like `g_idle_add()`.
+    /// 
+    /// Normally you would call this function shortly after creating a new
+    /// thread, passing it a `GMainContext` which will be run by a
+    /// `GMainLoop` in that thread, to set a new default context for all
+    /// async operations in that thread. In this case you may not need to
+    /// ever call `g_main_context_pop_thread_default()`, assuming you want the
+    /// new `GMainContext` to be the default for the whole lifecycle of the
+    /// thread.
+    /// 
+    /// If you don't have control over how the new thread was created (e.g.
+    /// in the new thread isn't newly created, or if the thread life
+    /// cycle is managed by a `GThreadPool`), it is always suggested to wrap
+    /// the logic that needs to use the new `GMainContext` inside a
+    /// `g_main_context_push_thread_default()` / `g_main_context_pop_thread_default()`
+    /// pair, otherwise threads that are re-used will end up never explicitly
+    /// releasing the `GMainContext` reference they hold.
+    /// 
+    /// In some cases you may want to schedule a single operation in a
+    /// non-default context, or temporarily use a non-default context in
+    /// the main thread. In that case, you can wrap the call to the
+    /// asynchronous operation inside a
+    /// `g_main_context_push_thread_default()` /
+    /// `g_main_context_pop_thread_default()` pair, but it is up to you to
+    /// ensure that no other asynchronous operations accidentally get
+    /// started while the non-default context is active.
+    /// 
+    /// Beware that libraries that predate this function may not correctly
+    /// handle being used from a thread with a thread-default context. Eg,
+    /// see `g_file_supports_thread_contexts()`.
+    @inlinable func pushThreadDefault() {
+        
+        g_main_context_push_thread_default(main_context_ptr)
+        
+    }
+
+    /// Determines information necessary to poll this main loop. You should
+    /// be careful to pass the resulting `fds` array and its length `n_fds`
+    /// as is when calling `g_main_context_check()`, as this function relies
+    /// on assumptions made when the array is filled.
+    /// 
+    /// You must have successfully acquired the context with
+    /// `g_main_context_acquire()` before you may call this function.
+    @inlinable func query(maxPriority: Int, timeout: UnsafeMutablePointer<gint>!, fds: UnsafeMutablePointer<GPollFD>!, nFds: Int) -> Int {
+        let result = g_main_context_query(main_context_ptr, gint(maxPriority), timeout, fds, gint(nFds))
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Increases the reference count on a `GMainContext` object by one.
+    @discardableResult @inlinable func ref() -> MainContextRef! {
+        let result = g_main_context_ref(main_context_ptr)
+        guard let rv = MainContextRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Releases ownership of a context previously acquired by this thread
+    /// with `g_main_context_acquire()`. If the context was acquired multiple
+    /// times, the ownership will be released only when `g_main_context_release()`
+    /// is called as many times as it was acquired.
+    @inlinable func release() {
+        
+        g_main_context_release(main_context_ptr)
+        
+    }
+
+    /// Removes file descriptor from the set of file descriptors to be
+    /// polled for a particular context.
+    @inlinable func removePoll<PollFDT: PollFDProtocol>(fd: PollFDT) {
+        
+        g_main_context_remove_poll(main_context_ptr, fd.pollfd_ptr)
+        
+    }
+
+    /// Sets the function to use to handle polling of file descriptors. It
+    /// will be used instead of the `poll()` system call
+    /// (or GLib's replacement function, which is used where
+    /// `poll()` isn't available).
+    /// 
+    /// This function could possibly be used to integrate the GLib event
+    /// loop with an external event loop.
+    @inlinable func setPollFunc(`func`: GPollFunc?) {
+        
+        g_main_context_set_poll_func(main_context_ptr, `func`)
+        
+    }
+
+    /// Decreases the reference count on a `GMainContext` object by one. If
+    /// the result is zero, free the context and free all associated memory.
+    @inlinable func unref() {
+        
+        g_main_context_unref(main_context_ptr)
+        
+    }
+
+    /// Tries to become the owner of the specified context,
+    /// as with `g_main_context_acquire()`. But if another thread
+    /// is the owner, atomically drop `mutex` and wait on `cond` until
+    /// that owner releases ownership or until `cond` is signaled, then
+    /// try again (once) to become the owner.
+    ///
+    /// **wait is deprecated:**
+    /// Use g_main_context_is_owner() and separate locking instead.
+    @available(*, deprecated) @inlinable func wait<CondT: CondProtocol, MutexT: MutexProtocol>(cond: CondT, mutex: MutexT) -> Bool {
+        let result = g_main_context_wait(main_context_ptr, cond._ptr, mutex._ptr)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// If `context` is currently blocking in `g_main_context_iteration()`
+    /// waiting for a source to become ready, cause it to stop blocking
+    /// and return.  Otherwise, cause the next invocation of
+    /// `g_main_context_iteration()` to return without blocking.
+    /// 
+    /// This API is useful for low-level control over `GMainContext`; for
+    /// example, integrating it with main loop implementations such as
+    /// `GMainLoop`.
+    /// 
+    /// Another related use for this function is when implementing a main
+    /// loop with a termination condition, computed from multiple threads:
+    /// 
+    /// (C Language Example):
+    /// ```C
+    ///   #define NUM_TASKS 10
+    ///   static gint tasks_remaining = NUM_TASKS;  // (atomic)
+    ///   ...
+    ///  
+    ///   while (g_atomic_int_get (&tasks_remaining) != 0)
+    ///     g_main_context_iteration (NULL, TRUE);
+    /// ```
+    ///  
+    /// Then in a thread:
+    /// (C Language Example):
+    /// ```C
+    ///   perform_work();
+    /// 
+    ///   if (g_atomic_int_dec_and_test (&tasks_remaining))
+    ///     g_main_context_wakeup (NULL);
+    /// ```
+    /// 
+    @inlinable func wakeup() {
+        
+        g_main_context_wakeup(main_context_ptr)
+        
+    }
+    /// Determines whether this thread holds the (recursive)
+    /// ownership of this `GMainContext`. This is useful to
+    /// know before waiting on another thread that may be
+    /// blocking to get ownership of `context`.
+    @inlinable var isOwner: Bool {
+        /// Determines whether this thread holds the (recursive)
+        /// ownership of this `GMainContext`. This is useful to
+        /// know before waiting on another thread that may be
+        /// blocking to get ownership of `context`.
+        get {
+            let result = g_main_context_is_owner(main_context_ptr)
+        let rv = ((result) != 0)
+            return rv
+        }
+    }
+
+    /// Gets the poll function set by `g_main_context_set_poll_func()`.
+    @inlinable var pollFunc: GPollFunc! {
+        /// Gets the poll function set by `g_main_context_set_poll_func()`.
+        get {
+            let result = g_main_context_get_poll_func(main_context_ptr)
+        let rv = result
+            return rv
+        }
+        /// Sets the function to use to handle polling of file descriptors. It
+        /// will be used instead of the `poll()` system call
+        /// (or GLib's replacement function, which is used where
+        /// `poll()` isn't available).
+        /// 
+        /// This function could possibly be used to integrate the GLib event
+        /// loop with an external event loop.
+        nonmutating set {
+            g_main_context_set_poll_func(main_context_ptr, newValue)
+        }
+    }
+
+
+}
+
+
+
 // MARK: - MainLoop Record
 
 /// The `GMainLoop` struct is an opaque data type
@@ -106,8 +832,9 @@ public extension MainLoopRef {
 
         /// Creates a new `GMainLoop` structure.
     @inlinable init<MainContextT: MainContextProtocol>( context: MainContextT?, isRunning: Bool) {
-        let rv = g_main_loop_new(context?.main_context_ptr, gboolean((isRunning) ? 1 : 0))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_main_loop_new(context?.main_context_ptr, gboolean((isRunning) ? 1 : 0))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -260,8 +987,9 @@ open class MainLoop: MainLoopProtocol {
 
     /// Creates a new `GMainLoop` structure.
     @inlinable public init<MainContextT: MainContextProtocol>( context: MainContextT?, isRunning: Bool) {
-        let rv = g_main_loop_new(context?.main_context_ptr, gboolean((isRunning) ? 1 : 0))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_main_loop_new(context?.main_context_ptr, gboolean((isRunning) ? 1 : 0))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -279,7 +1007,8 @@ public extension MainLoopProtocol {
 
     /// Returns the `GMainContext` of `loop`.
     @inlinable func getContext() -> MainContextRef! {
-        let rv = MainContextRef(gconstpointer: gconstpointer(g_main_loop_get_context(main_loop_ptr)))
+        let result = g_main_loop_get_context(main_loop_ptr)
+        let rv = MainContextRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -289,13 +1018,15 @@ public extension MainLoopProtocol {
     /// Note that sources that have already been dispatched when
     /// `g_main_loop_quit()` is called will still be executed.
     @inlinable func quit() {
+        
         g_main_loop_quit(main_loop_ptr)
-    
+        
     }
 
     /// Increases the reference count on a `GMainLoop` object by one.
     @discardableResult @inlinable func ref() -> MainLoopRef! {
-        guard let rv = MainLoopRef(gconstpointer: gconstpointer(g_main_loop_ref(main_loop_ptr))) else { return nil }
+        let result = g_main_loop_ref(main_loop_ptr)
+        guard let rv = MainLoopRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -304,21 +1035,24 @@ public extension MainLoopProtocol {
     /// it will process events from the loop, otherwise it will
     /// simply wait.
     @inlinable func run() {
+        
         g_main_loop_run(main_loop_ptr)
-    
+        
     }
 
     /// Decreases the reference count on a `GMainLoop` object by one. If
     /// the result is zero, free the loop and free all associated memory.
     @inlinable func unref() {
+        
         g_main_loop_unref(main_loop_ptr)
-    
+        
     }
     /// Returns the `GMainContext` of `loop`.
     @inlinable var context: MainContextRef! {
         /// Returns the `GMainContext` of `loop`.
         get {
-            let rv = MainContextRef(gconstpointer: gconstpointer(g_main_loop_get_context(main_loop_ptr)))
+            let result = g_main_loop_get_context(main_loop_ptr)
+        let rv = MainContextRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -327,7 +1061,8 @@ public extension MainLoopProtocol {
     @inlinable var isRunning: Bool {
         /// Checks to see if the main loop is currently being run via `g_main_loop_run()`.
         get {
-            let rv = ((g_main_loop_is_running(main_loop_ptr)) != 0)
+            let result = g_main_loop_is_running(main_loop_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -460,10 +1195,11 @@ public extension MappedFileRef {
     /// size 0 (e.g. device files such as /dev/null), `error` will be set
     /// to the `GFileError` value `G_FILE_ERROR_INVAL`.
     @inlinable init( filename: UnsafePointer<gchar>!, writable: Bool) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_mapped_file_new(filename, gboolean((writable) ? 1 : 0), &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new(filename, gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
@@ -478,10 +1214,11 @@ public extension MappedFileRef {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     @inlinable init(fd: Int, writable: Bool) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
     /// 
@@ -495,9 +1232,11 @@ public extension MappedFileRef {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     @inlinable static func newFrom(fd: Int, writable: Bool) throws -> MappedFileRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = MappedFileRef(gconstpointer: gconstpointer(g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = MappedFileRef(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -668,10 +1407,11 @@ open class MappedFile: MappedFileProtocol {
     /// size 0 (e.g. device files such as /dev/null), `error` will be set
     /// to the `GFileError` value `G_FILE_ERROR_INVAL`.
     @inlinable public init( filename: UnsafePointer<gchar>!, writable: Bool) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_mapped_file_new(filename, gboolean((writable) ? 1 : 0), &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new(filename, gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
@@ -686,10 +1426,11 @@ open class MappedFile: MappedFileProtocol {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     @inlinable public init(fd: Int, writable: Bool) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Maps a file into memory. On UNIX, this is using the `mmap()` function.
@@ -704,9 +1445,11 @@ open class MappedFile: MappedFileProtocol {
     /// will not be modified, or if all modifications of the file are done
     /// atomically (e.g. using `g_file_set_contents()`).
     @inlinable public static func newFrom(fd: Int, writable: Bool) throws -> MappedFile! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = MappedFile(gconstpointer: gconstpointer(g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_mapped_file_new_from_fd(gint(fd), gboolean((writable) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = MappedFile(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -729,15 +1472,17 @@ public extension MappedFileProtocol {
     /// **free is deprecated:**
     /// Use g_mapped_file_unref() instead.
     @available(*, deprecated) @inlinable func free() {
+        
         g_mapped_file_free(mapped_file_ptr)
-    
+        
     }
 
     /// Creates a new `GBytes` which references the data mapped from `file`.
     /// The mapped contents of the file must not be modified after creating this
     /// bytes object, because a `GBytes` should be immutable.
     @inlinable func getBytes() -> BytesRef! {
-        let rv = BytesRef(gconstpointer: gconstpointer(g_mapped_file_get_bytes(mapped_file_ptr)))
+        let result = g_mapped_file_get_bytes(mapped_file_ptr)
+        let rv = BytesRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -748,20 +1493,23 @@ public extension MappedFileProtocol {
     /// 
     /// If the file is empty then `nil` is returned.
     @inlinable func getContents() -> String! {
-        let rv = g_mapped_file_get_contents(mapped_file_ptr).map({ String(cString: $0) })
+        let result = g_mapped_file_get_contents(mapped_file_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Returns the length of the contents of a `GMappedFile`.
     @inlinable func getLength() -> Int {
-        let rv = Int(g_mapped_file_get_length(mapped_file_ptr))
+        let result = g_mapped_file_get_length(mapped_file_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Increments the reference count of `file` by one.  It is safe to call
     /// this function from any thread.
     @discardableResult @inlinable func ref() -> MappedFileRef! {
-        guard let rv = MappedFileRef(gconstpointer: gconstpointer(g_mapped_file_ref(mapped_file_ptr))) else { return nil }
+        let result = g_mapped_file_ref(mapped_file_ptr)
+        guard let rv = MappedFileRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -772,8 +1520,9 @@ public extension MappedFileProtocol {
     /// 
     /// Since 2.22
     @inlinable func unref() {
+        
         g_mapped_file_unref(mapped_file_ptr)
-    
+        
     }
     /// Creates a new `GBytes` which references the data mapped from `file`.
     /// The mapped contents of the file must not be modified after creating this
@@ -783,7 +1532,8 @@ public extension MappedFileProtocol {
         /// The mapped contents of the file must not be modified after creating this
         /// bytes object, because a `GBytes` should be immutable.
         get {
-            let rv = BytesRef(gconstpointer: gconstpointer(g_mapped_file_get_bytes(mapped_file_ptr)))
+            let result = g_mapped_file_get_bytes(mapped_file_ptr)
+        let rv = BytesRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -802,7 +1552,8 @@ public extension MappedFileProtocol {
         /// 
         /// If the file is empty then `nil` is returned.
         get {
-            let rv = g_mapped_file_get_contents(mapped_file_ptr).map({ String(cString: $0) })
+            let result = g_mapped_file_get_contents(mapped_file_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -811,7 +1562,8 @@ public extension MappedFileProtocol {
     @inlinable var length: Int {
         /// Returns the length of the contents of a `GMappedFile`.
         get {
-            let rv = Int(g_mapped_file_get_length(mapped_file_ptr))
+            let result = g_mapped_file_get_length(mapped_file_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -936,9 +1688,10 @@ public extension MarkupParseContextRef {
     /// a context, as long as no errors occur; once an error occurs,
     /// the parse context can't continue to parse text (you have to
     /// free it and create a new parse context).
-    @inlinable init<MarkupParserT: MarkupParserProtocol>( parser: MarkupParserT, flags: MarkupParseFlags, userData: gpointer! = nil, userDataDnotify: GDestroyNotify?) {
-        let rv = g_markup_parse_context_new(parser._ptr, flags.value, userData, userDataDnotify)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable init<MarkupParserT: MarkupParserProtocol>( parser: MarkupParserT, flags: MarkupParseFlags, userData: gpointer? = nil, userDataDnotify: GDestroyNotify?) {
+            let result = g_markup_parse_context_new(parser._ptr, flags.value, userData, userDataDnotify)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1097,9 +1850,10 @@ open class MarkupParseContext: MarkupParseContextProtocol {
     /// a context, as long as no errors occur; once an error occurs,
     /// the parse context can't continue to parse text (you have to
     /// free it and create a new parse context).
-    @inlinable public init<MarkupParserT: MarkupParserProtocol>( parser: MarkupParserT, flags: MarkupParseFlags, userData: gpointer! = nil, userDataDnotify: GDestroyNotify?) {
-        let rv = g_markup_parse_context_new(parser._ptr, flags.value, userData, userDataDnotify)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable public init<MarkupParserT: MarkupParserProtocol>( parser: MarkupParserT, flags: MarkupParseFlags, userData: gpointer? = nil, userDataDnotify: GDestroyNotify?) {
+            let result = g_markup_parse_context_new(parser._ptr, flags.value, userData, userDataDnotify)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -1122,8 +1876,9 @@ public extension MarkupParseContextProtocol {
     /// for example if elements are still open.
     @inlinable func endParse() throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_markup_parse_context_end_parse(markup_parse_context_ptr, &error)) != 0)
+        let result = g_markup_parse_context_end_parse(markup_parse_context_ptr, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1132,8 +1887,9 @@ public extension MarkupParseContextProtocol {
     /// This function can't be called from inside one of the
     /// `GMarkupParser` functions or while a subparser is pushed.
     @inlinable func free() {
+        
         g_markup_parse_context_free(markup_parse_context_ptr)
-    
+        
     }
 
     /// Retrieves the name of the currently open element.
@@ -1142,7 +1898,8 @@ public extension MarkupParseContextProtocol {
     /// give the element_name as passed to those functions. For the parent
     /// elements, see `g_markup_parse_context_get_element_stack()`.
     @inlinable func getElement() -> String! {
-        let rv = g_markup_parse_context_get_element(markup_parse_context_ptr).map({ String(cString: $0) })
+        let result = g_markup_parse_context_get_element(markup_parse_context_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -1157,8 +1914,9 @@ public extension MarkupParseContextProtocol {
     /// end_element handlers where `g_markup_parse_context_get_element()`
     /// would merely return the name of the element that is being
     /// processed.
-    @inlinable func getElementStack() -> GLib.SListRef! {
-        let rv = GLib.SListRef(g_markup_parse_context_get_element_stack(markup_parse_context_ptr))
+    @inlinable func getElementStack() -> SListRef! {
+        let result = g_markup_parse_context_get_element_stack(markup_parse_context_ptr)
+        let rv = SListRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -1167,8 +1925,9 @@ public extension MarkupParseContextProtocol {
     /// semantics for what constitutes the "current" line number other than
     /// "the best number we could come up with for error messages."
     @inlinable func getPosition(lineNumber: UnsafeMutablePointer<gint>! = nil, charNumber: UnsafeMutablePointer<gint>! = nil) {
+        
         g_markup_parse_context_get_position(markup_parse_context_ptr, lineNumber, charNumber)
-    
+        
     }
 
     /// Returns the user_data associated with `context`.
@@ -1176,8 +1935,9 @@ public extension MarkupParseContextProtocol {
     /// This will either be the user_data that was provided to
     /// `g_markup_parse_context_new()` or to the most recent call
     /// of `g_markup_parse_context_push()`.
-    @inlinable func getUserData() -> gpointer! {
-        let rv = g_markup_parse_context_get_user_data(markup_parse_context_ptr)
+    @inlinable func getUserData() -> gpointer? {
+        let result = g_markup_parse_context_get_user_data(markup_parse_context_ptr)
+        let rv = result
         return rv
     }
 
@@ -1193,8 +1953,9 @@ public extension MarkupParseContextProtocol {
     /// all errors are fatal.
     @inlinable func parse(text: UnsafePointer<gchar>!, textLen: gssize) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_markup_parse_context_parse(markup_parse_context_ptr, text, textLen, &error)) != 0)
+        let result = g_markup_parse_context_parse(markup_parse_context_ptr, text, textLen, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1211,8 +1972,9 @@ public extension MarkupParseContextProtocol {
     /// interested in invoking subparsers. Instead, it is intended to
     /// be used by the subparsers themselves to implement a higher-level
     /// interface.
-    @inlinable func pop() -> gpointer! {
-        let rv = g_markup_parse_context_pop(markup_parse_context_ptr)
+    @inlinable func pop() -> gpointer? {
+        let result = g_markup_parse_context_pop(markup_parse_context_ptr)
+        let rv = result
         return rv
     }
 
@@ -1334,22 +2096,25 @@ public extension MarkupParseContextProtocol {
     /// }
     /// ```
     /// 
-    @inlinable func push<MarkupParserT: MarkupParserProtocol>(parser: MarkupParserT, userData: gpointer! = nil) {
+    @inlinable func push<MarkupParserT: MarkupParserProtocol>(parser: MarkupParserT, userData: gpointer? = nil) {
+        
         g_markup_parse_context_push(markup_parse_context_ptr, parser._ptr, userData)
-    
+        
     }
 
     /// Increases the reference count of `context`.
     @discardableResult @inlinable func ref() -> MarkupParseContextRef! {
-        guard let rv = MarkupParseContextRef(gconstpointer: gconstpointer(g_markup_parse_context_ref(markup_parse_context_ptr))) else { return nil }
+        let result = g_markup_parse_context_ref(markup_parse_context_ptr)
+        guard let rv = MarkupParseContextRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Decreases the reference count of `context`.  When its reference count
     /// drops to 0, it is freed.
     @inlinable func unref() {
+        
         g_markup_parse_context_unref(markup_parse_context_ptr)
-    
+        
     }
     /// Retrieves the name of the currently open element.
     /// 
@@ -1363,7 +2128,8 @@ public extension MarkupParseContextProtocol {
         /// give the element_name as passed to those functions. For the parent
         /// elements, see `g_markup_parse_context_get_element_stack()`.
         get {
-            let rv = g_markup_parse_context_get_element(markup_parse_context_ptr).map({ String(cString: $0) })
+            let result = g_markup_parse_context_get_element(markup_parse_context_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -1379,7 +2145,7 @@ public extension MarkupParseContextProtocol {
     /// end_element handlers where `g_markup_parse_context_get_element()`
     /// would merely return the name of the element that is being
     /// processed.
-    @inlinable var elementStack: GLib.SListRef! {
+    @inlinable var elementStack: SListRef! {
         /// Retrieves the element stack from the internal state of the parser.
         /// 
         /// The returned `GSList` is a list of strings where the first item is
@@ -1392,7 +2158,8 @@ public extension MarkupParseContextProtocol {
         /// would merely return the name of the element that is being
         /// processed.
         get {
-            let rv = GLib.SListRef(g_markup_parse_context_get_element_stack(markup_parse_context_ptr))
+            let result = g_markup_parse_context_get_element_stack(markup_parse_context_ptr)
+        let rv = SListRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -1402,14 +2169,15 @@ public extension MarkupParseContextProtocol {
     /// This will either be the user_data that was provided to
     /// `g_markup_parse_context_new()` or to the most recent call
     /// of `g_markup_parse_context_push()`.
-    @inlinable var userData: gpointer! {
+    @inlinable var userData: gpointer? {
         /// Returns the user_data associated with `context`.
         /// 
         /// This will either be the user_data that was provided to
         /// `g_markup_parse_context_new()` or to the most recent call
         /// of `g_markup_parse_context_push()`.
         get {
-            let rv = g_markup_parse_context_get_user_data(markup_parse_context_ptr)
+            let result = g_markup_parse_context_get_user_data(markup_parse_context_ptr)
+        let rv = result
             return rv
         }
     }
@@ -2002,8 +2770,9 @@ public extension MatchInfoProtocol {
     /// contains references.
     @inlinable func expandReferences(stringToExpand: UnsafePointer<gchar>!) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_match_info_expand_references(match_info_ptr, stringToExpand, &error).map({ String(cString: $0) })
+        let result = g_match_info_expand_references(match_info_ptr, stringToExpand, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2024,7 +2793,8 @@ public extension MatchInfoProtocol {
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     @inlinable func fetch(matchNum: Int) -> String! {
-        let rv = g_match_info_fetch(match_info_ptr, gint(matchNum)).map({ String(cString: $0) })
+        let result = g_match_info_fetch(match_info_ptr, gint(matchNum))
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2045,7 +2815,8 @@ public extension MatchInfoProtocol {
     /// The strings are fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     @inlinable func fetchAll() -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        let rv = g_match_info_fetch_all(match_info_ptr)
+        let result = g_match_info_fetch_all(match_info_ptr)
+        let rv = result
         return rv
     }
 
@@ -2058,7 +2829,8 @@ public extension MatchInfoProtocol {
     /// The string is fetched from the string passed to the match function,
     /// so you cannot call this function after freeing the string.
     @inlinable func fetchNamed(name: UnsafePointer<gchar>!) -> String! {
-        let rv = g_match_info_fetch_named(match_info_ptr, name).map({ String(cString: $0) })
+        let result = g_match_info_fetch_named(match_info_ptr, name)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2068,7 +2840,8 @@ public extension MatchInfoProtocol {
     /// (e.g. sub pattern "X", matching "b" against "(?P&lt;X&gt;a)?b")
     /// then `start_pos` and `end_pos` are set to -1 and `true` is returned.
     @inlinable func fetchNamedPos(name: UnsafePointer<gchar>!, startPos: UnsafeMutablePointer<gint>! = nil, endPos: UnsafeMutablePointer<gint>! = nil) -> Bool {
-        let rv = ((g_match_info_fetch_named_pos(match_info_ptr, name, startPos, endPos)) != 0)
+        let result = g_match_info_fetch_named_pos(match_info_ptr, name, startPos, endPos)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2086,15 +2859,17 @@ public extension MatchInfoProtocol {
     /// substring. Substrings are matched in reverse order of length, so
     /// 0 is the longest match.
     @inlinable func fetchPos(matchNum: Int, startPos: UnsafeMutablePointer<gint>! = nil, endPos: UnsafeMutablePointer<gint>! = nil) -> Bool {
-        let rv = ((g_match_info_fetch_pos(match_info_ptr, gint(matchNum), startPos, endPos)) != 0)
+        let result = g_match_info_fetch_pos(match_info_ptr, gint(matchNum), startPos, endPos)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// If `match_info` is not `nil`, calls `g_match_info_unref()`; otherwise does
     /// nothing.
     @inlinable func free() {
+        
         g_match_info_free(match_info_ptr)
-    
+        
     }
 
     /// Retrieves the number of matched substrings (including substring 0,
@@ -2106,7 +2881,8 @@ public extension MatchInfoProtocol {
     /// count is not that of the number of capturing parentheses but that of
     /// the number of matched substrings.
     @inlinable func getMatchCount() -> Int {
-        let rv = Int(g_match_info_get_match_count(match_info_ptr))
+        let result = g_match_info_get_match_count(match_info_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -2114,7 +2890,8 @@ public extension MatchInfoProtocol {
     /// and must not be freed. Use `g_regex_ref()` if you need to keep it
     /// after you free `match_info` object.
     @inlinable func getRegex() -> RegexRef! {
-        let rv = RegexRef(gconstpointer: gconstpointer(g_match_info_get_regex(match_info_ptr)))
+        let result = g_match_info_get_regex(match_info_ptr)
+        let rv = RegexRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -2122,13 +2899,15 @@ public extension MatchInfoProtocol {
     /// string passed to `g_regex_match()` or `g_regex_replace()` so
     /// you may not free it before calling this function.
     @inlinable func getString() -> String! {
-        let rv = g_match_info_get_string(match_info_ptr).map({ String(cString: $0) })
+        let result = g_match_info_get_string(match_info_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Returns whether the previous match operation succeeded.
     @inlinable func matches() -> Bool {
-        let rv = ((g_match_info_matches(match_info_ptr)) != 0)
+        let result = g_match_info_matches(match_info_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2140,22 +2919,25 @@ public extension MatchInfoProtocol {
     /// cannot free it before calling this function.
     @inlinable func next() throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_match_info_next(match_info_ptr, &error)) != 0)
+        let result = g_match_info_next(match_info_ptr, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Increases reference count of `match_info` by 1.
     @discardableResult @inlinable func ref() -> MatchInfoRef! {
-        guard let rv = MatchInfoRef(gconstpointer: gconstpointer(g_match_info_ref(match_info_ptr))) else { return nil }
+        let result = g_match_info_ref(match_info_ptr)
+        guard let rv = MatchInfoRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Decreases reference count of `match_info` by 1. When reference count drops
     /// to zero, it frees all the memory associated with the match_info structure.
     @inlinable func unref() {
+        
         g_match_info_unref(match_info_ptr)
-    
+        
     }
     /// Usually if the string passed to g_regex_match*() matches as far as
     /// it goes, but is too short to match the entire pattern, `false` is
@@ -2225,7 +3007,8 @@ public extension MatchInfoProtocol {
         /// 
         /// See `pcrepartial(3)` for more information on partial matching.
         get {
-            let rv = ((g_match_info_is_partial_match(match_info_ptr)) != 0)
+            let result = g_match_info_is_partial_match(match_info_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
@@ -2248,7 +3031,8 @@ public extension MatchInfoProtocol {
         /// count is not that of the number of capturing parentheses but that of
         /// the number of matched substrings.
         get {
-            let rv = Int(g_match_info_get_match_count(match_info_ptr))
+            let result = g_match_info_get_match_count(match_info_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2261,7 +3045,8 @@ public extension MatchInfoProtocol {
         /// and must not be freed. Use `g_regex_ref()` if you need to keep it
         /// after you free `match_info` object.
         get {
-            let rv = RegexRef(gconstpointer: gconstpointer(g_match_info_get_regex(match_info_ptr)))
+            let result = g_match_info_get_regex(match_info_ptr)
+        let rv = RegexRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -2274,7 +3059,8 @@ public extension MatchInfoProtocol {
         /// string passed to `g_regex_match()` or `g_regex_replace()` so
         /// you may not free it before calling this function.
         get {
-            let rv = g_match_info_get_string(match_info_ptr).map({ String(cString: $0) })
+            let result = g_match_info_get_string(match_info_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -2569,8 +3355,9 @@ public extension MemVTableProtocol {
     /// This function now does nothing. Use other memory
     /// profiling tools instead
     @available(*, deprecated) @inlinable func memSetVtable() {
+        
         g_mem_set_vtable(_ptr)
-    
+        
     }
 
     // var malloc is unavailable because malloc is void
@@ -2584,533 +3371,6 @@ public extension MemVTableProtocol {
     // var tryMalloc is unavailable because try_malloc is void
 
     // var tryRealloc is unavailable because try_realloc is void
-
-}
-
-
-
-// MARK: - Node Record
-
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
-///
-/// The `NodeProtocol` protocol exposes the methods and properties of an underlying `GNode` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `Node`.
-/// Alternatively, use `NodeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol NodeProtocol {
-        /// Untyped pointer to the underlying `GNode` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GNode` instance.
-    var _ptr: UnsafeMutablePointer<GNode>! { get }
-
-    /// Required Initialiser for types conforming to `NodeProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
-///
-/// The `NodeRef` type acts as a lightweight Swift reference to an underlying `GNode` instance.
-/// It exposes methods that can operate on this data type through `NodeProtocol` conformance.
-/// Use `NodeRef` only as an `unowned` reference to an existing `GNode` instance.
-///
-public struct NodeRef: NodeProtocol {
-        /// Untyped pointer to the underlying `GNode` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension NodeRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GNode>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GNode>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GNode>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GNode>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `NodeProtocol`
-    @inlinable init<T: NodeProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `GNode` struct represents one node in a [n-ary tree](../Protocols/NodeProtocol.html).
-///
-/// The `Node` type acts as an owner of an underlying `GNode` instance.
-/// It provides the methods that can operate on this data type through `NodeProtocol` conformance.
-/// Use `Node` as a strong reference or owner of a `GNode` instance.
-///
-open class Node: NodeProtocol {
-        /// Untyped pointer to the underlying `GNode` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GNode>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GNode>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GNode>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GNode>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GNode` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `Node` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GNode>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `NodeProtocol`
-    /// `GNode` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `NodeProtocol`
-    @inlinable public init<T: NodeProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GNode`.
-    deinit {
-        // no reference counting for GNode, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `NodeProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GNode, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no Node properties
-
-// MARK: no Node signals
-
-// MARK: Node has no signals
-// MARK: Node Record: NodeProtocol extension (methods and fields)
-public extension NodeProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GNode` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GNode>! { return ptr?.assumingMemoryBound(to: GNode.self) }
-
-    /// Gets the position of the first child of a `GNode`
-    /// which contains the given data.
-    @inlinable func childIndex(data: gpointer! = nil) -> Int {
-        let rv = Int(g_node_child_index(_ptr, data))
-        return rv
-    }
-
-    /// Gets the position of a `GNode` with respect to its siblings.
-    /// `child` must be a child of `node`. The first child is numbered 0,
-    /// the second 1, and so on.
-    @inlinable func childPosition<NodeT: NodeProtocol>(child: NodeT) -> Int {
-        let rv = Int(g_node_child_position(_ptr, child._ptr))
-        return rv
-    }
-
-    /// Calls a function for each of the children of a `GNode`. Note that it
-    /// doesn't descend beneath the child nodes. `func` must not do anything
-    /// that would modify the structure of the tree.
-    @inlinable func childrenForeach(flags: TraverseFlags, `func`: GNodeForeachFunc?, data: gpointer! = nil) {
-        g_node_children_foreach(_ptr, flags.value, `func`, data)
-    
-    }
-
-    /// Recursively copies a `GNode` (but does not deep-copy the data inside the
-    /// nodes, see `g_node_copy_deep()` if you need that).
-    @inlinable func copy() -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_copy(_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Recursively copies a `GNode` and its data.
-    @inlinable func copyDeep(copyFunc: GCopyFunc?, data: gpointer! = nil) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_copy_deep(_ptr, copyFunc, data))) else { return nil }
-        return rv
-    }
-
-    /// Gets the depth of a `GNode`.
-    /// 
-    /// If `node` is `nil` the depth is 0. The root node has a depth of 1.
-    /// For the children of the root node the depth is 2. And so on.
-    @inlinable func depth() -> Int {
-        let rv = Int(g_node_depth(_ptr))
-        return rv
-    }
-
-    /// Removes `root` and its children from the tree, freeing any memory
-    /// allocated.
-    @inlinable func destroy() {
-        g_node_destroy(_ptr)
-    
-    }
-
-    /// Finds a `GNode` in a tree.
-    @inlinable func find(order: GTraverseType, flags: TraverseFlags, data: gpointer! = nil) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_find(_ptr, order, flags.value, data))) else { return nil }
-        return rv
-    }
-
-    /// Finds the first child of a `GNode` with the given data.
-    @inlinable func findChild(flags: TraverseFlags, data: gpointer! = nil) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_find_child(_ptr, flags.value, data))) else { return nil }
-        return rv
-    }
-
-    /// Gets the first sibling of a `GNode`.
-    /// This could possibly be the node itself.
-    @inlinable func firstSibling() -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_first_sibling(_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Gets the root of a tree.
-    @inlinable func getRoot() -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_get_root(_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Inserts a `GNode` beneath the parent at the given position.
-    @inlinable func insert<NodeT: NodeProtocol>(position: Int, node: NodeT) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_insert(_ptr, gint(position), node._ptr))) else { return nil }
-        return rv
-    }
-
-    /// Inserts a `GNode` beneath the parent after the given sibling.
-    @inlinable func insertAfter<NodeT: NodeProtocol>(sibling: NodeT, node: NodeT) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_insert_after(_ptr, sibling._ptr, node._ptr))) else { return nil }
-        return rv
-    }
-
-    /// Inserts a `GNode` beneath the parent before the given sibling.
-    @inlinable func insertBefore<NodeT: NodeProtocol>(sibling: NodeT, node: NodeT) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_insert_before(_ptr, sibling._ptr, node._ptr))) else { return nil }
-        return rv
-    }
-
-    /// Returns `true` if `node` is an ancestor of `descendant`.
-    /// This is true if node is the parent of `descendant`,
-    /// or if node is the grandparent of `descendant` etc.
-    @inlinable func isAncestor<NodeT: NodeProtocol>(descendant: NodeT) -> Bool {
-        let rv = ((g_node_is_ancestor(_ptr, descendant._ptr)) != 0)
-        return rv
-    }
-
-    /// Gets the last child of a `GNode`.
-    @inlinable func lastChild() -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_last_child(_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Gets the last sibling of a `GNode`.
-    /// This could possibly be the node itself.
-    @inlinable func lastSibling() -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_last_sibling(_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Gets the maximum height of all branches beneath a `GNode`.
-    /// This is the maximum distance from the `GNode` to all leaf nodes.
-    /// 
-    /// If `root` is `nil`, 0 is returned. If `root` has no children,
-    /// 1 is returned. If `root` has children, 2 is returned. And so on.
-    @inlinable func maxHeight() -> Int {
-        let rv = Int(g_node_max_height(_ptr))
-        return rv
-    }
-
-    /// Gets the number of children of a `GNode`.
-    @inlinable func nChildren() -> Int {
-        let rv = Int(g_node_n_children(_ptr))
-        return rv
-    }
-
-    /// Gets the number of nodes in a tree.
-    @inlinable func nNodes(flags: TraverseFlags) -> Int {
-        let rv = Int(g_node_n_nodes(_ptr, flags.value))
-        return rv
-    }
-
-    /// Gets a child of a `GNode`, using the given index.
-    /// The first child is at index 0. If the index is
-    /// too big, `nil` is returned.
-    @inlinable func nthChild(n: Int) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_nth_child(_ptr, guint(n)))) else { return nil }
-        return rv
-    }
-
-    /// Inserts a `GNode` as the first child of the given parent.
-    @inlinable func prepend<NodeT: NodeProtocol>(node: NodeT) -> NodeRef! {
-        guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_prepend(_ptr, node._ptr))) else { return nil }
-        return rv
-    }
-
-    /// Reverses the order of the children of a `GNode`.
-    /// (It doesn't change the order of the grandchildren.)
-    @inlinable func reverseChildren() {
-        g_node_reverse_children(_ptr)
-    
-    }
-
-    /// Traverses a tree starting at the given root `GNode`.
-    /// It calls the given function for each node visited.
-    /// The traversal can be halted at any point by returning `true` from `func`.
-    /// `func` must not do anything that would modify the structure of the tree.
-    @inlinable func traverse(order: GTraverseType, flags: TraverseFlags, maxDepth: Int, `func`: GNodeTraverseFunc?, data: gpointer! = nil) {
-        g_node_traverse(_ptr, order, flags.value, gint(maxDepth), `func`, data)
-    
-    }
-
-    /// Unlinks a `GNode` from a tree, resulting in two separate trees.
-    @inlinable func unlink() {
-        g_node_unlink(_ptr)
-    
-    }
-    /// Gets the root of a tree.
-    @inlinable var root: NodeRef! {
-        /// Gets the root of a tree.
-        get {
-            guard let rv = NodeRef(gconstpointer: gconstpointer(g_node_get_root(_ptr))) else { return nil }
-            return rv
-        }
-    }
-
-    /// contains the actual data of the node.
-    @inlinable var data: gpointer! {
-        /// contains the actual data of the node.
-        get {
-            let rv = _ptr.pointee.data
-            return rv
-        }
-        /// contains the actual data of the node.
-         set {
-            _ptr.pointee.data = newValue
-        }
-    }
-
-    /// points to the node's next sibling (a sibling is another
-    ///        `GNode` with the same parent).
-    @inlinable var next: NodeRef! {
-        /// points to the node's next sibling (a sibling is another
-        ///        `GNode` with the same parent).
-        get {
-            let rv = NodeRef(gconstpointer: gconstpointer(_ptr.pointee.next))
-            return rv
-        }
-        /// points to the node's next sibling (a sibling is another
-        ///        `GNode` with the same parent).
-         set {
-            _ptr.pointee.next = UnsafeMutablePointer<GNode>(newValue._ptr)
-        }
-    }
-
-    /// points to the node's previous sibling.
-    @inlinable var prev: NodeRef! {
-        /// points to the node's previous sibling.
-        get {
-            let rv = NodeRef(gconstpointer: gconstpointer(_ptr.pointee.prev))
-            return rv
-        }
-        /// points to the node's previous sibling.
-         set {
-            _ptr.pointee.prev = UnsafeMutablePointer<GNode>(newValue._ptr)
-        }
-    }
-
-    /// points to the parent of the `GNode`, or is `nil` if the
-    ///          `GNode` is the root of the tree.
-    @inlinable var parent: NodeRef! {
-        /// points to the parent of the `GNode`, or is `nil` if the
-        ///          `GNode` is the root of the tree.
-        get {
-            let rv = NodeRef(gconstpointer: gconstpointer(_ptr.pointee.parent))
-            return rv
-        }
-        /// points to the parent of the `GNode`, or is `nil` if the
-        ///          `GNode` is the root of the tree.
-         set {
-            _ptr.pointee.parent = UnsafeMutablePointer<GNode>(newValue._ptr)
-        }
-    }
-
-    /// points to the first child of the `GNode`.  The other
-    ///            children are accessed by using the `next` pointer of each
-    ///            child.
-    @inlinable var children: NodeRef! {
-        /// points to the first child of the `GNode`.  The other
-        ///            children are accessed by using the `next` pointer of each
-        ///            child.
-        get {
-            let rv = NodeRef(gconstpointer: gconstpointer(_ptr.pointee.children))
-            return rv
-        }
-        /// points to the first child of the `GNode`.  The other
-        ///            children are accessed by using the `next` pointer of each
-        ///            child.
-         set {
-            _ptr.pointee.children = UnsafeMutablePointer<GNode>(newValue._ptr)
-        }
-    }
 
 }
 

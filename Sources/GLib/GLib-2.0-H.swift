@@ -106,13 +106,29 @@ public extension HashTableRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
+        /// Creates a new `GHashTable` like `g_hash_table_new()` with a reference
+    /// count of 1 and allows to specify functions to free the memory
+    /// allocated for the key and value that get called when removing the
+    /// entry from the `GHashTable`.
+    /// 
+    /// Since version 2.42 it is permissible for destroy notify functions to
+    /// recursively remove further items from the hash table. This is only
+    /// permissible if the application still holds a reference to the hash table.
+    /// This means that you may need to ensure that the hash table is empty by
+    /// calling `g_hash_table_remove_all()` before releasing the last reference using
+    /// `g_hash_table_unref()`.
+    @inlinable static func new(full hashFunc: GHashFunc?, keyEqualFunc: GEqualFunc?, keyDestroyFunc: GDestroyNotify? = nil, valueDestroyFunc: GDestroyNotify? = nil) -> HashTableRef! {
+            let result = g_hash_table_new_full(hashFunc, keyEqualFunc, keyDestroyFunc, valueDestroyFunc)
+        guard let rv = HashTableRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
     }
+}
 
 /// The `GHashTable` struct is an opaque data structure to represent a
 /// [Hash Table](../Protocols/HashTableProtocol.html). It should only be accessed via the
 /// following functions.
 ///
-/// The `HashTable` type acts as an owner of an underlying `GHashTable` instance.
+/// The `HashTable` type acts as a reference-counted owner of an underlying `GHashTable` instance.
 /// It provides the methods that can operate on this data type through `HashTableProtocol` conformance.
 /// Use `HashTable` as a strong reference or owner of a `GHashTable` instance.
 ///
@@ -176,25 +192,25 @@ open class HashTable: HashTableProtocol {
     }
 
     /// Designated initialiser from the underlying `C` data type.
-    /// `GHashTable` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// Will retain `GHashTable`.
     /// i.e., ownership is transferred to the `HashTable` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(retaining op: UnsafeMutablePointer<GHashTable>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
     /// Reference intialiser for a related type that implements `HashTableProtocol`
-    /// `GHashTable` does not allow reference counting.
+    /// Will retain `GHashTable`.
     /// - Parameter other: an instance of a related type that implements `HashTableProtocol`
     @inlinable public init<T: HashTableProtocol>(_ other: T) {
         ptr = other.ptr
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
-    /// Do-nothing destructor for `GHashTable`.
+    /// Releases the underlying `GHashTable` instance using `g_hash_table_unref`.
     deinit {
-        // no reference counting for GHashTable, cannot unref(hash_table_ptr)
+        g_hash_table_unref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
     /// Unsafe typed initialiser.
@@ -209,7 +225,7 @@ open class HashTable: HashTableProtocol {
     /// - Parameter cPointer: pointer to the underlying object
     @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
     /// Unsafe untyped initialiser.
@@ -223,7 +239,7 @@ open class HashTable: HashTableProtocol {
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `HashTableProtocol`.**
     @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
     /// Unsafe untyped initialiser.
@@ -238,7 +254,7 @@ open class HashTable: HashTableProtocol {
     /// - Parameter raw: mutable raw pointer to the underlying object
     @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
     /// Unsafe untyped initialiser.
@@ -253,10 +269,26 @@ open class HashTable: HashTableProtocol {
     /// - Parameter p: opaque pointer to the underlying object
     @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GHashTable, cannot ref(hash_table_ptr)
+        g_hash_table_ref(ptr.assumingMemoryBound(to: GHashTable.self))
     }
 
 
+    /// Creates a new `GHashTable` like `g_hash_table_new()` with a reference
+    /// count of 1 and allows to specify functions to free the memory
+    /// allocated for the key and value that get called when removing the
+    /// entry from the `GHashTable`.
+    /// 
+    /// Since version 2.42 it is permissible for destroy notify functions to
+    /// recursively remove further items from the hash table. This is only
+    /// permissible if the application still holds a reference to the hash table.
+    /// This means that you may need to ensure that the hash table is empty by
+    /// calling `g_hash_table_remove_all()` before releasing the last reference using
+    /// `g_hash_table_unref()`.
+    @inlinable public static func new(full hashFunc: GHashFunc?, keyEqualFunc: GEqualFunc?, keyDestroyFunc: GDestroyNotify? = nil, valueDestroyFunc: GDestroyNotify? = nil) -> HashTable! {
+            let result = g_hash_table_new_full(hashFunc, keyEqualFunc, keyDestroyFunc, valueDestroyFunc)
+        guard let rv = HashTable(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
 
 }
 
@@ -270,6 +302,507 @@ public extension HashTableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GHashTable` instance.
     @inlinable var hash_table_ptr: UnsafeMutablePointer<GHashTable>! { return ptr?.assumingMemoryBound(to: GHashTable.self) }
 
+    /// This is a convenience function for using a `GHashTable` as a set.  It
+    /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
+    /// key and the value.
+    /// 
+    /// In particular, this means that if `key` already exists in the hash table, then
+    /// the old copy of `key` in the hash table is freed and `key` replaces it in the
+    /// table.
+    /// 
+    /// When a hash table only ever contains keys that have themselves as the
+    /// corresponding value it is able to be stored more efficiently.  See
+    /// the discussion in the section description.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func add(key: gpointer? = nil) -> Bool {
+        let result = g_hash_table_add(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Checks if `key` is in `hash_table`.
+    @inlinable func contains(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_contains(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Destroys all keys and values in the `GHashTable` and decrements its
+    /// reference count by 1. If keys and/or values are dynamically allocated,
+    /// you should either free them first or create the `GHashTable` with destroy
+    /// notifiers using `g_hash_table_new_full()`. In the latter case the destroy
+    /// functions you supplied will be called on all keys and values during the
+    /// destruction phase.
+    @inlinable func destroy() {
+        
+        g_hash_table_destroy(hash_table_ptr)
+        
+    }
+
+    /// Calls the given function for key/value pairs in the `GHashTable`
+    /// until `predicate` returns `true`. The function is passed the key
+    /// and value of each pair, and the given `user_data` parameter. The
+    /// hash table may not be modified while iterating over it (you can't
+    /// add/remove items).
+    /// 
+    /// Note, that hash tables are really only optimized for forward
+    /// lookups, i.e. `g_hash_table_lookup()`. So code that frequently issues
+    /// `g_hash_table_find()` or `g_hash_table_foreach()` (e.g. in the order of
+    /// once per every entry in a hash table) should probably be reworked
+    /// to use additional or different data structures for reverse lookups
+    /// (keep in mind that an `O(n)` find/foreach operation issued for all n
+    /// values in a hash table ends up needing `O(n*n)` operations).
+    @inlinable func find(predicate: GHRFunc?, userData: gpointer? = nil) -> gpointer? {
+        let result = g_hash_table_find(hash_table_ptr, predicate, userData)
+        let rv = result
+        return rv
+    }
+
+    /// Calls the given function for each of the key/value pairs in the
+    /// `GHashTable`.  The function is passed the key and value of each
+    /// pair, and the given `user_data` parameter.  The hash table may not
+    /// be modified while iterating over it (you can't add/remove
+    /// items). To remove all items matching a predicate, use
+    /// `g_hash_table_foreach_remove()`.
+    /// 
+    /// The order in which `g_hash_table_foreach()` iterates over the keys/values in
+    /// the hash table is not defined.
+    /// 
+    /// See `g_hash_table_find()` for performance caveats for linear
+    /// order searches in contrast to `g_hash_table_lookup()`.
+    @inlinable func foreach(`func`: GHFunc?, userData: gpointer? = nil) {
+        
+        g_hash_table_foreach(hash_table_ptr, `func`, userData)
+        
+    }
+
+    /// Calls the given function for each key/value pair in the
+    /// `GHashTable`. If the function returns `true`, then the key/value
+    /// pair is removed from the `GHashTable`. If you supplied key or
+    /// value destroy functions when creating the `GHashTable`, they are
+    /// used to free the memory allocated for the removed keys and values.
+    /// 
+    /// See `GHashTableIter` for an alternative way to loop over the
+    /// key/value pairs in the hash table.
+    @inlinable func foreachRemove(`func`: GHRFunc?, userData: gpointer? = nil) -> Int {
+        let result = g_hash_table_foreach_remove(hash_table_ptr, `func`, userData)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Calls the given function for each key/value pair in the
+    /// `GHashTable`. If the function returns `true`, then the key/value
+    /// pair is removed from the `GHashTable`, but no key or value
+    /// destroy functions are called.
+    /// 
+    /// See `GHashTableIter` for an alternative way to loop over the
+    /// key/value pairs in the hash table.
+    @inlinable func foreachSteal(`func`: GHRFunc?, userData: gpointer? = nil) -> Int {
+        let result = g_hash_table_foreach_steal(hash_table_ptr, `func`, userData)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Retrieves every key inside `hash_table`. The returned data is valid
+    /// until changes to the hash release those keys.
+    /// 
+    /// This iterates over every entry in the hash table to build its return value.
+    /// To iterate over the entries in a `GHashTable` more efficiently, use a
+    /// `GHashTableIter`.
+    @inlinable func getKeys() -> ListRef! {
+        let result = g_hash_table_get_keys(hash_table_ptr)
+        let rv = ListRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Retrieves every key inside `hash_table`, as an array.
+    /// 
+    /// The returned array is `nil`-terminated but may contain `nil` as a
+    /// key.  Use `length` to determine the true length if it's possible that
+    /// `nil` was used as the value for a key.
+    /// 
+    /// Note: in the common case of a string-keyed `GHashTable`, the return
+    /// value of this function can be conveniently cast to (const gchar **).
+    /// 
+    /// This iterates over every entry in the hash table to build its return value.
+    /// To iterate over the entries in a `GHashTable` more efficiently, use a
+    /// `GHashTableIter`.
+    /// 
+    /// You should always free the return result with `g_free()`.  In the
+    /// above-mentioned case of a string-keyed hash table, it may be
+    /// appropriate to use `g_strfreev()` if you call `g_hash_table_steal_all()`
+    /// first to transfer ownership of the keys.
+    @inlinable func getKeysAsArray(length: UnsafeMutablePointer<guint>! = nil) -> UnsafeMutablePointer<gpointer?>! {
+        let result = g_hash_table_get_keys_as_array(hash_table_ptr, length)
+        let rv = result
+        return rv
+    }
+
+    /// Retrieves every value inside `hash_table`. The returned data
+    /// is valid until `hash_table` is modified.
+    /// 
+    /// This iterates over every entry in the hash table to build its return value.
+    /// To iterate over the entries in a `GHashTable` more efficiently, use a
+    /// `GHashTableIter`.
+    @inlinable func getValues() -> ListRef! {
+        let result = g_hash_table_get_values(hash_table_ptr)
+        let rv = ListRef(gconstpointer: gconstpointer(result))
+        return rv
+    }
+
+    /// Inserts a new key and value into a `GHashTable`.
+    /// 
+    /// If the key already exists in the `GHashTable` its current
+    /// value is replaced with the new value. If you supplied a
+    /// `value_destroy_func` when creating the `GHashTable`, the old
+    /// value is freed using that function. If you supplied a
+    /// `key_destroy_func` when creating the `GHashTable`, the passed
+    /// key is freed using that function.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func insert(key: gpointer? = nil, value: gpointer? = nil) -> Bool {
+        let result = g_hash_table_insert(hash_table_ptr, key, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Looks up a key in a `GHashTable`. Note that this function cannot
+    /// distinguish between a key that is not present and one which is present
+    /// and has the value `nil`. If you need this distinction, use
+    /// `g_hash_table_lookup_extended()`.
+    @inlinable func lookup(key: gconstpointer? = nil) -> gpointer? {
+        let result = g_hash_table_lookup(hash_table_ptr, key)
+        let rv = result
+        return rv
+    }
+
+    /// Looks up a key in the `GHashTable`, returning the original key and the
+    /// associated value and a `gboolean` which is `true` if the key was found. This
+    /// is useful if you need to free the memory allocated for the original key,
+    /// for example before calling `g_hash_table_remove()`.
+    /// 
+    /// You can actually pass `nil` for `lookup_key` to test
+    /// whether the `nil` key exists, provided the hash and equal functions
+    /// of `hash_table` are `nil`-safe.
+    @inlinable func lookupExtended(lookupKey: gconstpointer? = nil, origKey: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
+        let result = g_hash_table_lookup_extended(hash_table_ptr, lookupKey, origKey, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Atomically increments the reference count of `hash_table` by one.
+    /// This function is MT-safe and may be called from any thread.
+    @discardableResult @inlinable func ref() -> HashTableRef! {
+        let result = g_hash_table_ref(hash_table_ptr)
+        guard let rv = HashTableRef(gconstpointer: gconstpointer(result)) else { return nil }
+        return rv
+    }
+
+    /// Removes a key and its associated value from a `GHashTable`.
+    /// 
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`, the
+    /// key and value are freed using the supplied destroy functions, otherwise
+    /// you have to make sure that any dynamically allocated values are freed
+    /// yourself.
+    @inlinable func remove(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_remove(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Removes all keys and their associated values from a `GHashTable`.
+    /// 
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`,
+    /// the keys and values are freed using the supplied destroy functions,
+    /// otherwise you have to make sure that any dynamically allocated
+    /// values are freed yourself.
+    @inlinable func removeAll() {
+        
+        g_hash_table_remove_all(hash_table_ptr)
+        
+    }
+
+    /// Inserts a new key and value into a `GHashTable` similar to
+    /// `g_hash_table_insert()`. The difference is that if the key
+    /// already exists in the `GHashTable`, it gets replaced by the
+    /// new key. If you supplied a `value_destroy_func` when creating
+    /// the `GHashTable`, the old value is freed using that function.
+    /// If you supplied a `key_destroy_func` when creating the
+    /// `GHashTable`, the old key is freed using that function.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func replace(key: gpointer? = nil, value: gpointer? = nil) -> Bool {
+        let result = g_hash_table_replace(hash_table_ptr, key, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Returns the number of elements contained in the `GHashTable`.
+    @inlinable func size() -> Int {
+        let result = g_hash_table_size(hash_table_ptr)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Removes a key and its associated value from a `GHashTable` without
+    /// calling the key and value destroy functions.
+    @inlinable func steal(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_steal(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Removes all keys and their associated values from a `GHashTable`
+    /// without calling the key and value destroy functions.
+    @inlinable func stealAll() {
+        
+        g_hash_table_steal_all(hash_table_ptr)
+        
+    }
+
+    /// Looks up a key in the `GHashTable`, stealing the original key and the
+    /// associated value and returning `true` if the key was found. If the key was
+    /// not found, `false` is returned.
+    /// 
+    /// If found, the stolen key and value are removed from the hash table without
+    /// calling the key and value destroy functions, and ownership is transferred to
+    /// the caller of this method; as with `g_hash_table_steal()`.
+    /// 
+    /// You can pass `nil` for `lookup_key`, provided the hash and equal functions
+    /// of `hash_table` are `nil`-safe.
+    @inlinable func stealExtended(lookupKey: gconstpointer? = nil, stolenKey: UnsafeMutablePointer<gpointer?>? = nil, stolenValue: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
+        let result = g_hash_table_steal_extended(hash_table_ptr, lookupKey, stolenKey, stolenValue)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Atomically decrements the reference count of `hash_table` by one.
+    /// If the reference count drops to 0, all keys and values will be
+    /// destroyed, and all memory allocated by the hash table is released.
+    /// This function is MT-safe and may be called from any thread.
+    @inlinable func unref() {
+        
+        g_hash_table_unref(hash_table_ptr)
+        
+    }
+
+    /// This is a convenience function for using a `GHashTable` as a set.  It
+    /// is equivalent to calling `g_hash_table_replace()` with `key` as both the
+    /// key and the value.
+    /// 
+    /// In particular, this means that if `key` already exists in the hash table, then
+    /// the old copy of `key` in the hash table is freed and `key` replaces it in the
+    /// table.
+    /// 
+    /// When a hash table only ever contains keys that have themselves as the
+    /// corresponding value it is able to be stored more efficiently.  See
+    /// the discussion in the section description.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func hashTableAdd(key: gpointer? = nil) -> Bool {
+        let result = g_hash_table_add(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Checks if `key` is in `hash_table`.
+    @inlinable func hashTableContains(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_contains(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Destroys all keys and values in the `GHashTable` and decrements its
+    /// reference count by 1. If keys and/or values are dynamically allocated,
+    /// you should either free them first or create the `GHashTable` with destroy
+    /// notifiers using `g_hash_table_new_full()`. In the latter case the destroy
+    /// functions you supplied will be called on all keys and values during the
+    /// destruction phase.
+    @inlinable func hashTableDestroy() {
+        
+        g_hash_table_destroy(hash_table_ptr)
+        
+    }
+
+    /// Inserts a new key and value into a `GHashTable`.
+    /// 
+    /// If the key already exists in the `GHashTable` its current
+    /// value is replaced with the new value. If you supplied a
+    /// `value_destroy_func` when creating the `GHashTable`, the old
+    /// value is freed using that function. If you supplied a
+    /// `key_destroy_func` when creating the `GHashTable`, the passed
+    /// key is freed using that function.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func hashTableInsert(key: gpointer? = nil, value: gpointer? = nil) -> Bool {
+        let result = g_hash_table_insert(hash_table_ptr, key, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Looks up a key in a `GHashTable`. Note that this function cannot
+    /// distinguish between a key that is not present and one which is present
+    /// and has the value `nil`. If you need this distinction, use
+    /// `g_hash_table_lookup_extended()`.
+    @inlinable func hashTableLookup(key: gconstpointer? = nil) -> gpointer? {
+        let result = g_hash_table_lookup(hash_table_ptr, key)
+        let rv = result
+        return rv
+    }
+
+    /// Looks up a key in the `GHashTable`, returning the original key and the
+    /// associated value and a `gboolean` which is `true` if the key was found. This
+    /// is useful if you need to free the memory allocated for the original key,
+    /// for example before calling `g_hash_table_remove()`.
+    /// 
+    /// You can actually pass `nil` for `lookup_key` to test
+    /// whether the `nil` key exists, provided the hash and equal functions
+    /// of `hash_table` are `nil`-safe.
+    @inlinable func hashTableLookupExtended(lookupKey: gconstpointer? = nil, origKey: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
+        let result = g_hash_table_lookup_extended(hash_table_ptr, lookupKey, origKey, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Removes a key and its associated value from a `GHashTable`.
+    /// 
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`, the
+    /// key and value are freed using the supplied destroy functions, otherwise
+    /// you have to make sure that any dynamically allocated values are freed
+    /// yourself.
+    @inlinable func hashTableRemove(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_remove(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Removes all keys and their associated values from a `GHashTable`.
+    /// 
+    /// If the `GHashTable` was created using `g_hash_table_new_full()`,
+    /// the keys and values are freed using the supplied destroy functions,
+    /// otherwise you have to make sure that any dynamically allocated
+    /// values are freed yourself.
+    @inlinable func hashTableRemoveAll() {
+        
+        g_hash_table_remove_all(hash_table_ptr)
+        
+    }
+
+    /// Inserts a new key and value into a `GHashTable` similar to
+    /// `g_hash_table_insert()`. The difference is that if the key
+    /// already exists in the `GHashTable`, it gets replaced by the
+    /// new key. If you supplied a `value_destroy_func` when creating
+    /// the `GHashTable`, the old value is freed using that function.
+    /// If you supplied a `key_destroy_func` when creating the
+    /// `GHashTable`, the old key is freed using that function.
+    /// 
+    /// Starting from GLib 2.40, this function returns a boolean value to
+    /// indicate whether the newly added value was already in the hash table
+    /// or not.
+    @inlinable func hashTableReplace(key: gpointer? = nil, value: gpointer? = nil) -> Bool {
+        let result = g_hash_table_replace(hash_table_ptr, key, value)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Returns the number of elements contained in the `GHashTable`.
+    @inlinable func hashTableSize() -> Int {
+        let result = g_hash_table_size(hash_table_ptr)
+        let rv = Int(result)
+        return rv
+    }
+
+    /// Removes a key and its associated value from a `GHashTable` without
+    /// calling the key and value destroy functions.
+    @inlinable func hashTableSteal(key: gconstpointer? = nil) -> Bool {
+        let result = g_hash_table_steal(hash_table_ptr, key)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Removes all keys and their associated values from a `GHashTable`
+    /// without calling the key and value destroy functions.
+    @inlinable func hashTableStealAll() {
+        
+        g_hash_table_steal_all(hash_table_ptr)
+        
+    }
+
+    /// Looks up a key in the `GHashTable`, stealing the original key and the
+    /// associated value and returning `true` if the key was found. If the key was
+    /// not found, `false` is returned.
+    /// 
+    /// If found, the stolen key and value are removed from the hash table without
+    /// calling the key and value destroy functions, and ownership is transferred to
+    /// the caller of this method; as with `g_hash_table_steal()`.
+    /// 
+    /// You can pass `nil` for `lookup_key`, provided the hash and equal functions
+    /// of `hash_table` are `nil`-safe.
+    @inlinable func hashTableStealExtended(lookupKey: gconstpointer? = nil, stolenKey: UnsafeMutablePointer<gpointer?>? = nil, stolenValue: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
+        let result = g_hash_table_steal_extended(hash_table_ptr, lookupKey, stolenKey, stolenValue)
+        let rv = ((result) != 0)
+        return rv
+    }
+
+    /// Atomically decrements the reference count of `hash_table` by one.
+    /// If the reference count drops to 0, all keys and values will be
+    /// destroyed, and all memory allocated by the hash table is released.
+    /// This function is MT-safe and may be called from any thread.
+    @inlinable func hashTableUnref() {
+        
+        g_hash_table_unref(hash_table_ptr)
+        
+    }
+    /// Retrieves every key inside `hash_table`. The returned data is valid
+    /// until changes to the hash release those keys.
+    /// 
+    /// This iterates over every entry in the hash table to build its return value.
+    /// To iterate over the entries in a `GHashTable` more efficiently, use a
+    /// `GHashTableIter`.
+    @inlinable var keys: ListRef! {
+        /// Retrieves every key inside `hash_table`. The returned data is valid
+        /// until changes to the hash release those keys.
+        /// 
+        /// This iterates over every entry in the hash table to build its return value.
+        /// To iterate over the entries in a `GHashTable` more efficiently, use a
+        /// `GHashTableIter`.
+        get {
+            let result = g_hash_table_get_keys(hash_table_ptr)
+        let rv = ListRef(gconstpointer: gconstpointer(result))
+            return rv
+        }
+    }
+
+    /// Retrieves every value inside `hash_table`. The returned data
+    /// is valid until `hash_table` is modified.
+    /// 
+    /// This iterates over every entry in the hash table to build its return value.
+    /// To iterate over the entries in a `GHashTable` more efficiently, use a
+    /// `GHashTableIter`.
+    @inlinable var values: ListRef! {
+        /// Retrieves every value inside `hash_table`. The returned data
+        /// is valid until `hash_table` is modified.
+        /// 
+        /// This iterates over every entry in the hash table to build its return value.
+        /// To iterate over the entries in a `GHashTable` more efficiently, use a
+        /// `GHashTableIter`.
+        get {
+            let result = g_hash_table_get_values(hash_table_ptr)
+        let rv = ListRef(gconstpointer: gconstpointer(result))
+            return rv
+        }
+    }
 
 
 }
@@ -559,8 +1092,9 @@ public extension HashTableIterProtocol {
     @inlinable var _ptr: UnsafeMutablePointer<GHashTableIter>! { return ptr?.assumingMemoryBound(to: GHashTableIter.self) }
 
     /// Returns the `GHashTable` associated with `iter`.
-    @inlinable func getHashTable() -> GLib.HashTableRef! {
-        let rv = GLib.HashTableRef(g_hash_table_iter_get_hash_table(_ptr))
+    @inlinable func getHashTable() -> HashTableRef! {
+        let result = g_hash_table_iter_get_hash_table(_ptr)
+        let rv = HashTableRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -584,15 +1118,17 @@ public extension HashTableIterProtocol {
     /// ```
     /// 
     @inlinable func init_<HashTableT: HashTableProtocol>(hashTable: HashTableT) {
+        
         g_hash_table_iter_init(_ptr, hashTable.hash_table_ptr)
-    
+        
     }
 
     /// Advances `iter` and retrieves the key and/or value that are now
     /// pointed to as a result of this advancement. If `false` is returned,
     /// `key` and `value` are not set, and the iterator becomes invalid.
     @inlinable func next(key: UnsafeMutablePointer<gpointer?>? = nil, value: UnsafeMutablePointer<gpointer?>? = nil) -> Bool {
-        let rv = ((g_hash_table_iter_next(_ptr, key, value)) != 0)
+        let result = g_hash_table_iter_next(_ptr, key, value)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -617,8 +1153,9 @@ public extension HashTableIterProtocol {
     /// ```
     /// 
     @inlinable func remove() {
+        
         g_hash_table_iter_remove(_ptr)
-    
+        
     }
 
     /// Replaces the value currently pointed to by the iterator
@@ -627,9 +1164,10 @@ public extension HashTableIterProtocol {
     /// 
     /// If you supplied a `value_destroy_func` when creating the
     /// `GHashTable`, the old value is freed using that function.
-    @inlinable func replace(value: gpointer! = nil) {
+    @inlinable func replace(value: gpointer? = nil) {
+        
         g_hash_table_iter_replace(_ptr, value)
-    
+        
     }
 
     /// Removes the key/value pair currently pointed to by the
@@ -638,14 +1176,16 @@ public extension HashTableIterProtocol {
     /// after `g_hash_table_iter_next()` returned `true`, and cannot
     /// be called more than once for the same key/value pair.
     @inlinable func steal() {
+        
         g_hash_table_iter_steal(_ptr)
-    
+        
     }
     /// Returns the `GHashTable` associated with `iter`.
-    @inlinable var hashTable: GLib.HashTableRef! {
+    @inlinable var hashTable: HashTableRef! {
         /// Returns the `GHashTable` associated with `iter`.
         get {
-            let rv = GLib.HashTableRef(g_hash_table_iter_get_hash_table(_ptr))
+            let result = g_hash_table_iter_get_hash_table(_ptr)
+        let rv = HashTableRef(gconstpointer: gconstpointer(result))
             return rv
         }
     }
@@ -940,7 +1480,8 @@ public extension HmacProtocol {
     /// `g_hmac_get_string()` or `g_hmac_get_digest()`, the copied
     /// HMAC will be closed as well.
     @inlinable func copy() -> HmacRef! {
-        guard let rv = HmacRef(gconstpointer: gconstpointer(g_hmac_copy(_ptr))) else { return nil }
+        let result = g_hmac_copy(_ptr)
+        guard let rv = HmacRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -950,8 +1491,9 @@ public extension HmacProtocol {
     /// Once this function has been called, the `GHmac` is closed and can
     /// no longer be updated with `g_checksum_update()`.
     @inlinable func getDigest(buffer: UnsafeMutablePointer<guint8>!, digestLen: UnsafeMutablePointer<gsize>!) {
+        
         g_hmac_get_digest(_ptr, buffer, digestLen)
-    
+        
     }
 
     /// Gets the HMAC as a hexadecimal string.
@@ -961,7 +1503,8 @@ public extension HmacProtocol {
     /// 
     /// The hexadecimal characters will be lower case.
     @inlinable func getString() -> String! {
-        let rv = g_hmac_get_string(_ptr).map({ String(cString: $0) })
+        let result = g_hmac_get_string(_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -969,7 +1512,8 @@ public extension HmacProtocol {
     /// 
     /// This function is MT-safe and may be called from any thread.
     @discardableResult @inlinable func ref() -> HmacRef! {
-        guard let rv = HmacRef(gconstpointer: gconstpointer(g_hmac_ref(_ptr))) else { return nil }
+        let result = g_hmac_ref(_ptr)
+        guard let rv = HmacRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -980,8 +1524,9 @@ public extension HmacProtocol {
     /// This function is MT-safe and may be called from any thread.
     /// Frees the memory allocated for `hmac`.
     @inlinable func unref() {
+        
         g_hmac_unref(_ptr)
-    
+        
     }
 
     /// Feeds `data` into an existing `GHmac`.
@@ -989,8 +1534,9 @@ public extension HmacProtocol {
     /// The HMAC must still be open, that is `g_hmac_get_string()` or
     /// `g_hmac_get_digest()` must not have been called on `hmac`.
     @inlinable func update(data: UnsafePointer<guchar>!, length: gssize) {
+        
         g_hmac_update(_ptr, data, length)
-    
+        
     }
     /// Gets the HMAC as a hexadecimal string.
     /// 
@@ -1006,7 +1552,8 @@ public extension HmacProtocol {
         /// 
         /// The hexadecimal characters will be lower case.
         get {
-            let rv = g_hmac_get_string(_ptr).map({ String(cString: $0) })
+            let result = g_hmac_get_string(_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
@@ -1120,32 +1667,37 @@ public extension HookRef {
 
         /// Allocates space for a `GHook` and initializes it.
     @inlinable static func alloc<HookListT: HookListProtocol>(hookList: HookListT) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_alloc(hookList._ptr))) else { return nil }
+            let result = g_hook_alloc(hookList._ptr)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` using the given function to
     /// test for a match.
-    @inlinable static func find<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: GHookFindFunc?, data: gpointer! = nil) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_find(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data))) else { return nil }
+    @inlinable static func find<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: GHookFindFunc?, data: gpointer? = nil) -> HookRef! {
+            let result = g_hook_find(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given data.
-    @inlinable static func findData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, data: gpointer! = nil) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_find_data(hookList._ptr, gboolean((needValids) ? 1 : 0), data))) else { return nil }
+    @inlinable static func findData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, data: gpointer? = nil) -> HookRef! {
+            let result = g_hook_find_data(hookList._ptr, gboolean((needValids) ? 1 : 0), data)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given function.
-    @inlinable static func findFunc<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer! = nil) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_find_func(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`))) else { return nil }
+    @inlinable static func findFunc<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer? = nil) -> HookRef! {
+            let result = g_hook_find_func(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given function and data.
-    @inlinable static func findFuncData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer!, data: gpointer! = nil) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_find_func_data(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data))) else { return nil }
+    @inlinable static func findFuncData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer!, data: gpointer? = nil) -> HookRef! {
+            let result = g_hook_find_func_data(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1154,13 +1706,15 @@ public extension HookRef {
     /// `g_hook_unref()` to restore it when no longer needed. (Or call
     /// `g_hook_next_valid()` if you are stepping through the `GHookList`.)
     @inlinable static func firstValid<HookListT: HookListProtocol>(hookList: HookListT, mayBeInCall: Bool) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_first_valid(hookList._ptr, gboolean((mayBeInCall) ? 1 : 0)))) else { return nil }
+            let result = g_hook_first_valid(hookList._ptr, gboolean((mayBeInCall) ? 1 : 0))
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns the `GHook` with the given id, or `nil` if it is not found.
     @inlinable static func get<HookListT: HookListProtocol>(hookList: HookListT, hookID: Int) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_get(hookList._ptr, gulong(hookID)))) else { return nil }
+            let result = g_hook_get(hookList._ptr, gulong(hookID))
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1169,13 +1723,15 @@ public extension HookRef {
     /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
     /// `g_hook_next_valid()` until `nil` is returned.)
     @inlinable static func nextValid<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT, mayBeInCall: Bool) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_next_valid(hookList._ptr, hook._ptr, gboolean((mayBeInCall) ? 1 : 0)))) else { return nil }
+            let result = g_hook_next_valid(hookList._ptr, hook._ptr, gboolean((mayBeInCall) ? 1 : 0))
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Increments the reference count for a `GHook`.
     @inlinable static func ref<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_ref(hookList._ptr, hook._ptr))) else { return nil }
+            let result = g_hook_ref(hookList._ptr, hook._ptr)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -1329,32 +1885,37 @@ open class Hook: HookProtocol {
 
     /// Allocates space for a `GHook` and initializes it.
     @inlinable public static func alloc<HookListT: HookListProtocol>(hookList: HookListT) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_alloc(hookList._ptr))) else { return nil }
+            let result = g_hook_alloc(hookList._ptr)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` using the given function to
     /// test for a match.
-    @inlinable public static func find<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: GHookFindFunc?, data: gpointer! = nil) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_find(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data))) else { return nil }
+    @inlinable public static func find<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: GHookFindFunc?, data: gpointer? = nil) -> Hook! {
+            let result = g_hook_find(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given data.
-    @inlinable public static func findData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, data: gpointer! = nil) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_find_data(hookList._ptr, gboolean((needValids) ? 1 : 0), data))) else { return nil }
+    @inlinable public static func findData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, data: gpointer? = nil) -> Hook! {
+            let result = g_hook_find_data(hookList._ptr, gboolean((needValids) ? 1 : 0), data)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given function.
-    @inlinable public static func findFunc<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer! = nil) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_find_func(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`))) else { return nil }
+    @inlinable public static func findFunc<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer? = nil) -> Hook! {
+            let result = g_hook_find_func(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Finds a `GHook` in a `GHookList` with the given function and data.
-    @inlinable public static func findFuncData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer!, data: gpointer! = nil) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_find_func_data(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data))) else { return nil }
+    @inlinable public static func findFuncData<HookListT: HookListProtocol>(hookList: HookListT, needValids: Bool, `func`: gpointer!, data: gpointer? = nil) -> Hook! {
+            let result = g_hook_find_func_data(hookList._ptr, gboolean((needValids) ? 1 : 0), `func`, data)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1363,13 +1924,15 @@ open class Hook: HookProtocol {
     /// `g_hook_unref()` to restore it when no longer needed. (Or call
     /// `g_hook_next_valid()` if you are stepping through the `GHookList`.)
     @inlinable public static func firstValid<HookListT: HookListProtocol>(hookList: HookListT, mayBeInCall: Bool) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_first_valid(hookList._ptr, gboolean((mayBeInCall) ? 1 : 0)))) else { return nil }
+            let result = g_hook_first_valid(hookList._ptr, gboolean((mayBeInCall) ? 1 : 0))
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns the `GHook` with the given id, or `nil` if it is not found.
     @inlinable public static func get<HookListT: HookListProtocol>(hookList: HookListT, hookID: Int) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_get(hookList._ptr, gulong(hookID)))) else { return nil }
+            let result = g_hook_get(hookList._ptr, gulong(hookID))
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1378,13 +1941,15 @@ open class Hook: HookProtocol {
     /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
     /// `g_hook_next_valid()` until `nil` is returned.)
     @inlinable public static func nextValid<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT, mayBeInCall: Bool) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_next_valid(hookList._ptr, hook._ptr, gboolean((mayBeInCall) ? 1 : 0)))) else { return nil }
+            let result = g_hook_next_valid(hookList._ptr, hook._ptr, gboolean((mayBeInCall) ? 1 : 0))
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Increments the reference count for a `GHook`.
     @inlinable public static func ref<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT) -> Hook! {
-        guard let rv = Hook(gconstpointer: gconstpointer(g_hook_ref(hookList._ptr, hook._ptr))) else { return nil }
+            let result = g_hook_ref(hookList._ptr, hook._ptr)
+        guard let rv = Hook(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1403,34 +1968,39 @@ public extension HookProtocol {
     /// Compares the ids of two `GHook` elements, returning a negative value
     /// if the second id is greater than the first.
     @inlinable func compareIDs<HookT: HookProtocol>(sibling: HookT) -> Int {
-        let rv = Int(g_hook_compare_ids(_ptr, sibling._ptr))
+        let result = g_hook_compare_ids(_ptr, sibling._ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
     /// inactive and calling `g_hook_unref()` on it.
     @inlinable func destroyLink<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_destroy_link(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Calls the `GHookList` `finalize_hook` function if it exists,
     /// and frees the memory allocated for the `GHook`.
     @inlinable func free<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_free(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Inserts a `GHook` into a `GHookList`, before a given `GHook`.
     @inlinable func insertBefore<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT) {
+        
         g_hook_insert_before(hookList._ptr, _ptr, hook._ptr)
-    
+        
     }
 
     /// Inserts a `GHook` into a `GHookList`, sorted by the given function.
     @inlinable func insertSorted<HookListT: HookListProtocol>(hookList: HookListT, `func`: GHookCompareFunc?) {
+        
         g_hook_insert_sorted(hookList._ptr, _ptr, `func`)
-    
+        
     }
 
     /// Returns the next `GHook` in a `GHookList` which has not been destroyed.
@@ -1438,19 +2008,22 @@ public extension HookProtocol {
     /// `g_hook_unref()` to restore it when no longer needed. (Or continue to call
     /// `g_hook_next_valid()` until `nil` is returned.)
     @inlinable func nextValid<HookListT: HookListProtocol>(hookList: HookListT, mayBeInCall: Bool) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_next_valid(hookList._ptr, _ptr, gboolean((mayBeInCall) ? 1 : 0)))) else { return nil }
+        let result = g_hook_next_valid(hookList._ptr, _ptr, gboolean((mayBeInCall) ? 1 : 0))
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Prepends a `GHook` on the start of a `GHookList`.
     @inlinable func prepend<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_prepend(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Increments the reference count for a `GHook`.
     @inlinable func ref<HookListT: HookListProtocol>(hookList: HookListT) -> HookRef! {
-        guard let rv = HookRef(gconstpointer: gconstpointer(g_hook_ref(hookList._ptr, _ptr))) else { return nil }
+        let result = g_hook_ref(hookList._ptr, _ptr)
+        guard let rv = HookRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1458,50 +2031,56 @@ public extension HookProtocol {
     /// If the reference count falls to 0, the `GHook` is removed
     /// from the `GHookList` and `g_hook_free()` is called to free it.
     @inlinable func unref<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_unref(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
     /// inactive and calling `g_hook_unref()` on it.
     @inlinable func hookDestroyLink<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_destroy_link(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Calls the `GHookList` `finalize_hook` function if it exists,
     /// and frees the memory allocated for the `GHook`.
     @inlinable func hookFree<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_free(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Inserts a `GHook` into a `GHookList`, before a given `GHook`.
     @inlinable func hookInsertBefore<HookListT: HookListProtocol, HookT: HookProtocol>(hookList: HookListT, hook: HookT) {
+        
         g_hook_insert_before(hookList._ptr, _ptr, hook._ptr)
-    
+        
     }
 
     /// Prepends a `GHook` on the start of a `GHookList`.
     @inlinable func hookPrepend<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_prepend(hookList._ptr, _ptr)
-    
+        
     }
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
     /// from the `GHookList` and `g_hook_free()` is called to free it.
     @inlinable func hookUnref<HookListT: HookListProtocol>(hookList: HookListT) {
+        
         g_hook_unref(hookList._ptr, _ptr)
-    
+        
     }
 
     /// data which is passed to func when this hook is invoked
-    @inlinable var data: gpointer! {
+    @inlinable var data: gpointer? {
         /// data which is passed to func when this hook is invoked
         get {
             let rv = _ptr.pointee.data
-            return rv
+    return rv
         }
         /// data which is passed to func when this hook is invoked
          set {
@@ -1514,7 +2093,7 @@ public extension HookProtocol {
         /// pointer to the next hook in the list
         get {
             let rv = HookRef(gconstpointer: gconstpointer(_ptr.pointee.next))
-            return rv
+    return rv
         }
         /// pointer to the next hook in the list
          set {
@@ -1527,7 +2106,7 @@ public extension HookProtocol {
         /// pointer to the previous hook in the list
         get {
             let rv = HookRef(gconstpointer: gconstpointer(_ptr.pointee.prev))
-            return rv
+    return rv
         }
         /// pointer to the previous hook in the list
          set {
@@ -1540,7 +2119,7 @@ public extension HookProtocol {
         /// the reference count of this hook
         get {
             let rv = _ptr.pointee.ref_count
-            return rv
+    return rv
         }
         /// the reference count of this hook
          set {
@@ -1553,7 +2132,7 @@ public extension HookProtocol {
         /// the id of this hook, which is unique within its list
         get {
             let rv = _ptr.pointee.hook_id
-            return rv
+    return rv
         }
         /// the id of this hook, which is unique within its list
          set {
@@ -1568,7 +2147,7 @@ public extension HookProtocol {
         ///     predefined flags
         get {
             let rv = _ptr.pointee.flags
-            return rv
+    return rv
         }
         /// flags which are set for this hook. See `GHookFlagMask` for
         ///     predefined flags
@@ -1579,12 +2158,12 @@ public extension HookProtocol {
 
     /// the function to call when this hook is invoked. The possible
     ///     signatures for this function are `GHookFunc` and `GHookCheckFunc`
-    @inlinable var `func`: gpointer! {
+    @inlinable var `func`: gpointer? {
         /// the function to call when this hook is invoked. The possible
         ///     signatures for this function are `GHookFunc` and `GHookCheckFunc`
         get {
             let rv = _ptr.pointee.func
-            return rv
+    return rv
         }
         /// the function to call when this hook is invoked. The possible
         ///     signatures for this function are `GHookFunc` and `GHookCheckFunc`
@@ -1600,7 +2179,7 @@ public extension HookProtocol {
         ///     this member of the hook that is being finalized
         get {
             let rv = _ptr.pointee.destroy
-            return rv
+    return rv
         }
         /// the default `finalize_hook` function of a `GHookList` calls
         ///     this member of the hook that is being finalized
@@ -1879,81 +2458,93 @@ public extension HookListProtocol {
 
     /// Removes all the `GHook` elements from a `GHookList`.
     @inlinable func clear() {
+        
         g_hook_list_clear(_ptr)
-    
+        
     }
 
     /// Initializes a `GHookList`.
     /// This must be called before the `GHookList` is used.
     @inlinable func init_(hookSize: Int) {
+        
         g_hook_list_init(_ptr, guint(hookSize))
-    
+        
     }
 
     /// Calls all of the `GHook` functions in a `GHookList`.
     @inlinable func invoke(mayRecurse: Bool) {
+        
         g_hook_list_invoke(_ptr, gboolean((mayRecurse) ? 1 : 0))
-    
+        
     }
 
     /// Calls all of the `GHook` functions in a `GHookList`.
     /// Any function which returns `false` is removed from the `GHookList`.
     @inlinable func invokeCheck(mayRecurse: Bool) {
+        
         g_hook_list_invoke_check(_ptr, gboolean((mayRecurse) ? 1 : 0))
-    
+        
     }
 
     /// Calls a function on each valid `GHook`.
-    @inlinable func marshal(mayRecurse: Bool, marshaller: GHookMarshaller?, marshalData: gpointer! = nil) {
+    @inlinable func marshal(mayRecurse: Bool, marshaller: GHookMarshaller?, marshalData: gpointer? = nil) {
+        
         g_hook_list_marshal(_ptr, gboolean((mayRecurse) ? 1 : 0), marshaller, marshalData)
-    
+        
     }
 
     /// Calls a function on each valid `GHook` and destroys it if the
     /// function returns `false`.
-    @inlinable func marshalCheck(mayRecurse: Bool, marshaller: GHookCheckMarshaller?, marshalData: gpointer! = nil) {
+    @inlinable func marshalCheck(mayRecurse: Bool, marshaller: GHookCheckMarshaller?, marshalData: gpointer? = nil) {
+        
         g_hook_list_marshal_check(_ptr, gboolean((mayRecurse) ? 1 : 0), marshaller, marshalData)
-    
+        
     }
 
     /// Destroys a `GHook`, given its ID.
     @inlinable func hookDestroy(hookID: Int) -> Bool {
-        let rv = ((g_hook_destroy(_ptr, gulong(hookID))) != 0)
+        let result = g_hook_destroy(_ptr, gulong(hookID))
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Removes one `GHook` from a `GHookList`, marking it
     /// inactive and calling `g_hook_unref()` on it.
     @inlinable func hookDestroyLink<HookT: HookProtocol>(hook: HookT) {
+        
         g_hook_destroy_link(_ptr, hook._ptr)
-    
+        
     }
 
     /// Calls the `GHookList` `finalize_hook` function if it exists,
     /// and frees the memory allocated for the `GHook`.
     @inlinable func hookFree<HookT: HookProtocol>(hook: HookT) {
+        
         g_hook_free(_ptr, hook._ptr)
-    
+        
     }
 
     /// Inserts a `GHook` into a `GHookList`, before a given `GHook`.
     @inlinable func hookInsertBefore<HookT: HookProtocol>(sibling: HookT?, hook: HookT) {
+        
         g_hook_insert_before(_ptr, sibling?._ptr, hook._ptr)
-    
+        
     }
 
     /// Prepends a `GHook` on the start of a `GHookList`.
     @inlinable func hookPrepend<HookT: HookProtocol>(hook: HookT) {
+        
         g_hook_prepend(_ptr, hook._ptr)
-    
+        
     }
 
     /// Decrements the reference count of a `GHook`.
     /// If the reference count falls to 0, the `GHook` is removed
     /// from the `GHookList` and `g_hook_free()` is called to free it.
     @inlinable func hookUnref<HookT: HookProtocol>(hook: HookT) {
+        
         g_hook_unref(_ptr, hook._ptr)
-    
+        
     }
 
     /// the next free `GHook` id
@@ -1961,7 +2552,7 @@ public extension HookListProtocol {
         /// the next free `GHook` id
         get {
             let rv = _ptr.pointee.seq_id
-            return rv
+    return rv
         }
         /// the next free `GHook` id
          set {
@@ -1974,7 +2565,7 @@ public extension HookListProtocol {
         /// the size of the `GHookList` elements, in bytes
         get {
             let rv = _ptr.pointee.hook_size
-            return rv
+    return rv
         }
         /// the size of the `GHookList` elements, in bytes
          set {
@@ -1987,7 +2578,7 @@ public extension HookListProtocol {
         /// 1 if the `GHookList` has been initialized
         get {
             let rv = _ptr.pointee.is_setup
-            return rv
+    return rv
         }
         /// 1 if the `GHookList` has been initialized
          set {
@@ -2000,7 +2591,7 @@ public extension HookListProtocol {
         /// the first `GHook` element in the list
         get {
             let rv = HookRef(gconstpointer: gconstpointer(_ptr.pointee.hooks))
-            return rv
+    return rv
         }
         /// the first `GHook` element in the list
          set {
@@ -2009,11 +2600,11 @@ public extension HookListProtocol {
     }
 
     /// unused
-    @inlinable var dummy3: gpointer! {
+    @inlinable var dummy3: gpointer? {
         /// unused
         get {
             let rv = _ptr.pointee.dummy3
-            return rv
+    return rv
         }
         /// unused
          set {
@@ -2028,7 +2619,7 @@ public extension HookListProtocol {
         ///     The default behaviour is to call the hooks `destroy` function
         get {
             let rv = _ptr.pointee.finalize_hook
-            return rv
+    return rv
         }
         /// the function to call to finalize a `GHook` element.
         ///     The default behaviour is to call the hooks `destroy` function
@@ -2042,302 +2633,13 @@ public extension HookListProtocol {
         /// unused
         get {
             let rv = _ptr.pointee.dummy
-            return rv
+    return rv
         }
         /// unused
          set {
             _ptr.pointee.dummy = newValue
         }
     }
-
-}
-
-
-
-// MARK: - IConv Record
-
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
-///
-/// The `IConvProtocol` protocol exposes the methods and properties of an underlying `GIConv` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `IConv`.
-/// Alternatively, use `IConvRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol IConvProtocol {
-        /// Untyped pointer to the underlying `GIConv` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GIConv` instance.
-    var _ptr: GIConv! { get }
-
-    /// Required Initialiser for types conforming to `IConvProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
-///
-/// The `IConvRef` type acts as a lightweight Swift reference to an underlying `GIConv` instance.
-/// It exposes methods that can operate on this data type through `IConvProtocol` conformance.
-/// Use `IConvRef` only as an `unowned` reference to an existing `GIConv` instance.
-///
-public struct IConvRef: IConvProtocol {
-        /// Untyped pointer to the underlying `GIConv` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension IConvRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GIConv>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GIConv>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GIConv>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GIConv>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `IConvProtocol`
-    @inlinable init<T: IConvProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
-/// private data and should only be accessed using the following functions.
-///
-/// The `IConv` type acts as an owner of an underlying `GIConv` instance.
-/// It provides the methods that can operate on this data type through `IConvProtocol` conformance.
-/// Use `IConv` as a strong reference or owner of a `GIConv` instance.
-///
-open class IConv: IConvProtocol {
-        /// Untyped pointer to the underlying `GIConv` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GIConv>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GIConv>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GIConv>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GIConv>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GIConv` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `IConv` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GIConv>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `IConvProtocol`
-    /// `GIConv` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `IConvProtocol`
-    @inlinable public init<T: IConvProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GIConv`.
-    deinit {
-        // no reference counting for GIConv, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GIConv, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no IConv properties
-
-// MARK: no IConv signals
-
-// MARK: IConv has no signals
-// MARK: IConv Record: IConvProtocol extension (methods and fields)
-public extension IConvProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GIConv` instance.
-    @inlinable var _ptr: GIConv! { return GIConv(bitPattern: UInt(bitPattern: ptr)) }
-
-
-    // *** gIconv() causes a syntax error and is therefore not available!
-
-
-    /// Same as the standard UNIX routine `iconv_close()`, but
-    /// may be implemented via libiconv on UNIX flavors that lack
-    /// a native implementation. Should be called to clean up
-    /// the conversion descriptor from `g_iconv_open()` when
-    /// you are done converting things.
-    /// 
-    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
-    /// more convenient than the raw iconv wrappers.
-    @inlinable func close() -> Int {
-        let rv = Int(g_iconv_close(_ptr))
-        return rv
-    }
-
 
 }
 

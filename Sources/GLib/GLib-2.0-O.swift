@@ -270,8 +270,9 @@ public extension OnceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GOnce` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GOnce>! { return ptr?.assumingMemoryBound(to: GOnce.self) }
 
-    @inlinable func impl(`func`: GThreadFunc?, arg: gpointer! = nil) -> gpointer! {
-        let rv = g_once_impl(_ptr, `func`, arg)
+    @inlinable func impl(`func`: GThreadFunc?, arg: gpointer? = nil) -> gpointer? {
+        let result = g_once_impl(_ptr, `func`, arg)
+        let rv = result
         return rv
     }
 
@@ -280,7 +281,7 @@ public extension OnceProtocol {
         /// the status of the `GOnce`
         get {
             let rv = _ptr.pointee.status
-            return rv
+    return rv
         }
         /// the status of the `GOnce`
          set {
@@ -290,12 +291,12 @@ public extension OnceProtocol {
 
     /// the value returned by the call to the function, if `status`
     ///          is `G_ONCE_STATUS_READY`
-    @inlinable var retval: gpointer! {
+    @inlinable var retval: gpointer? {
         /// the value returned by the call to the function, if `status`
         ///          is `G_ONCE_STATUS_READY`
         get {
             let rv = _ptr.pointee.retval
-            return rv
+    return rv
         }
         /// the value returned by the call to the function, if `status`
         ///          is `G_ONCE_STATUS_READY`
@@ -582,15 +583,17 @@ public extension OptionContextProtocol {
     /// will recognize the options in the group. Note that this will take
     /// ownership of the `group` and thus the `group` should not be freed.
     @inlinable func add<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+        
         g_option_context_add_group(_ptr, group.option_group_ptr)
-    
+        
     }
 
     /// A convenience function which creates a main group if it doesn't
     /// exist, adds the `entries` to it and sets the translation domain.
     @inlinable func addMain(entries: UnsafePointer<GOptionEntry>!, translationDomain: UnsafePointer<gchar>? = nil) {
+        
         g_option_context_add_main_entries(_ptr, entries, translationDomain)
-    
+        
     }
 
     /// Frees context and all the groups which have been
@@ -599,13 +602,15 @@ public extension OptionContextProtocol {
     /// Please note that parsed arguments need to be freed separately (see
     /// `GOptionEntry`).
     @inlinable func free() {
+        
         g_option_context_free(_ptr)
-    
+        
     }
 
     /// Returns the description. See `g_option_context_set_description()`.
     @inlinable func getDescription() -> String! {
-        let rv = g_option_context_get_description(_ptr).map({ String(cString: $0) })
+        let result = g_option_context_get_description(_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -617,8 +622,9 @@ public extension OptionContextProtocol {
     /// To obtain the help text for an option group, call
     /// `g_option_context_get_help (context, FALSE, group)`.
     @inlinable func getHelp(mainHelp: Bool, group: OptionGroupRef? = nil) -> String! {
-        let rv = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr).map({ String(cString: $0) })
-        return rv
+            let result = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr)
+        let rv = result.map({ String(cString: $0) })
+            return rv
     }
     /// Returns a formatted, translated help text for the given context.
     /// To obtain the text produced by `--help`, call
@@ -628,27 +634,31 @@ public extension OptionContextProtocol {
     /// To obtain the help text for an option group, call
     /// `g_option_context_get_help (context, FALSE, group)`.
     @inlinable func getHelp<OptionGroupT: OptionGroupProtocol>(mainHelp: Bool, group: OptionGroupT?) -> String! {
-        let rv = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr).map({ String(cString: $0) })
+        let result = g_option_context_get_help(_ptr, gboolean((mainHelp) ? 1 : 0), group?.option_group_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Returns whether automatic `--help` generation
     /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
     @inlinable func getHelpEnabled() -> Bool {
-        let rv = ((g_option_context_get_help_enabled(_ptr)) != 0)
+        let result = g_option_context_get_help_enabled(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Returns whether unknown options are ignored or not. See
     /// `g_option_context_set_ignore_unknown_options()`.
     @inlinable func getIgnoreUnknownOptions() -> Bool {
-        let rv = ((g_option_context_get_ignore_unknown_options(_ptr)) != 0)
+        let result = g_option_context_get_ignore_unknown_options(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Returns a pointer to the main group of `context`.
     @inlinable func getMainGroup() -> OptionGroupRef! {
-        let rv = OptionGroupRef(gconstpointer: gconstpointer(g_option_context_get_main_group(_ptr)))
+        let result = g_option_context_get_main_group(_ptr)
+        let rv = OptionGroupRef(gconstpointer: gconstpointer(result))
         return rv
     }
 
@@ -656,13 +666,15 @@ public extension OptionContextProtocol {
     /// 
     /// See `g_option_context_set_strict_posix()` for more information.
     @inlinable func getStrictPosix() -> Bool {
-        let rv = ((g_option_context_get_strict_posix(_ptr)) != 0)
+        let result = g_option_context_get_strict_posix(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Returns the summary. See `g_option_context_set_summary()`.
     @inlinable func getSummary() -> String! {
-        let rv = g_option_context_get_summary(_ptr).map({ String(cString: $0) })
+        let result = g_option_context_get_summary(_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -689,8 +701,9 @@ public extension OptionContextProtocol {
     /// arguments.
     @inlinable func parse(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_option_context_parse(_ptr, argc, argv, &error)) != 0)
+        let result = g_option_context_parse(_ptr, argc, argv, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -712,8 +725,9 @@ public extension OptionContextProtocol {
     /// `GApplication`.
     @inlinable func parseStrv(arguments: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_option_context_parse_strv(_ptr, arguments, &error)) != 0)
+        let result = g_option_context_parse_strv(_ptr, arguments, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -723,8 +737,9 @@ public extension OptionContextProtocol {
     /// Note that the summary is translated (see
     /// `g_option_context_set_translate_func()`).
     @inlinable func set(description: UnsafePointer<gchar>? = nil) {
+        
         g_option_context_set_description(_ptr, description)
-    
+        
     }
 
     /// Enables or disables automatic generation of `--help` output.
@@ -732,8 +747,9 @@ public extension OptionContextProtocol {
     /// `-?`, `--help-all` and `--help-groupname` and creates suitable
     /// output to stdout.
     @inlinable func set(helpEnabled: Bool) {
+        
         g_option_context_set_help_enabled(_ptr, gboolean((helpEnabled) ? 1 : 0))
-    
+        
     }
 
     /// Sets whether to ignore unknown options or not. If an argument is
@@ -744,8 +760,9 @@ public extension OptionContextProtocol {
     /// which don't start with a dash). But note that GOption cannot reliably
     /// determine whether a non-option belongs to a preceding unknown option.
     @inlinable func setIgnoreUnknownOptions(ignoreUnknown: Bool) {
+        
         g_option_context_set_ignore_unknown_options(_ptr, gboolean((ignoreUnknown) ? 1 : 0))
-    
+        
     }
 
     /// Sets a `GOptionGroup` as main group of the `context`.
@@ -753,8 +770,9 @@ public extension OptionContextProtocol {
     /// the only difference is that the options in the main group are
     /// treated differently when generating `--help` output.
     @inlinable func setMain<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+        
         g_option_context_set_main_group(_ptr, group.option_group_ptr)
-    
+        
     }
 
     /// Sets strict POSIX mode.
@@ -782,8 +800,9 @@ public extension OptionContextProtocol {
     /// examining the verb name, which should be present in argv[1] after
     /// parsing).
     @inlinable func set(strictPosix: Bool) {
+        
         g_option_context_set_strict_posix(_ptr, gboolean((strictPosix) ? 1 : 0))
-    
+        
     }
 
     /// Adds a string to be displayed in `--help` output before the list
@@ -793,8 +812,9 @@ public extension OptionContextProtocol {
     /// `g_option_context_set_translate_func()` and
     /// `g_option_context_set_translation_domain()`).
     @inlinable func set(summary: UnsafePointer<gchar>? = nil) {
+        
         g_option_context_set_summary(_ptr, summary)
-    
+        
     }
 
     /// Sets the function which is used to translate the contexts
@@ -808,22 +828,25 @@ public extension OptionContextProtocol {
     /// 
     /// If you are using `gettext()`, you only need to set the translation
     /// domain, see `g_option_context_set_translation_domain()`.
-    @inlinable func setTranslateFunc(`func`: GTranslateFunc? = nil, data: gpointer! = nil, destroyNotify: GDestroyNotify? = nil) {
+    @inlinable func setTranslateFunc(`func`: GTranslateFunc? = nil, data: gpointer? = nil, destroyNotify: GDestroyNotify? = nil) {
+        
         g_option_context_set_translate_func(_ptr, `func`, data, destroyNotify)
-    
+        
     }
 
     /// A convenience function to use `gettext()` for translating
     /// user-visible strings.
     @inlinable func setTranslation(domain: UnsafePointer<gchar>!) {
+        
         g_option_context_set_translation_domain(_ptr, domain)
-    
+        
     }
     /// Returns the description. See `g_option_context_set_description()`.
     @inlinable var description: String! {
         /// Returns the description. See `g_option_context_set_description()`.
         get {
-            let rv = g_option_context_get_description(_ptr).map({ String(cString: $0) })
+            let result = g_option_context_get_description(_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
         /// Adds a string to be displayed in `--help` output after the list
@@ -842,7 +865,8 @@ public extension OptionContextProtocol {
         /// Returns whether automatic `--help` generation
         /// is turned on for `context`. See `g_option_context_set_help_enabled()`.
         get {
-            let rv = ((g_option_context_get_help_enabled(_ptr)) != 0)
+            let result = g_option_context_get_help_enabled(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// Enables or disables automatic generation of `--help` output.
@@ -860,7 +884,8 @@ public extension OptionContextProtocol {
         /// Returns whether unknown options are ignored or not. See
         /// `g_option_context_set_ignore_unknown_options()`.
         get {
-            let rv = ((g_option_context_get_ignore_unknown_options(_ptr)) != 0)
+            let result = g_option_context_get_ignore_unknown_options(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// Sets whether to ignore unknown options or not. If an argument is
@@ -879,7 +904,8 @@ public extension OptionContextProtocol {
     @inlinable var mainGroup: OptionGroupRef! {
         /// Returns a pointer to the main group of `context`.
         get {
-            let rv = OptionGroupRef(gconstpointer: gconstpointer(g_option_context_get_main_group(_ptr)))
+            let result = g_option_context_get_main_group(_ptr)
+        let rv = OptionGroupRef(gconstpointer: gconstpointer(result))
             return rv
         }
         /// Sets a `GOptionGroup` as main group of the `context`.
@@ -899,7 +925,8 @@ public extension OptionContextProtocol {
         /// 
         /// See `g_option_context_set_strict_posix()` for more information.
         get {
-            let rv = ((g_option_context_get_strict_posix(_ptr)) != 0)
+            let result = g_option_context_get_strict_posix(_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// Sets strict POSIX mode.
@@ -935,7 +962,8 @@ public extension OptionContextProtocol {
     @inlinable var summary: String! {
         /// Returns the summary. See `g_option_context_set_summary()`.
         get {
-            let rv = g_option_context_get_summary(_ptr).map({ String(cString: $0) })
+            let result = g_option_context_get_summary(_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
         /// Adds a string to be displayed in `--help` output before the list
@@ -1238,7 +1266,7 @@ public extension OptionEntryProtocol {
         ///     `--groupname-long_name`.
         get {
             let rv = _ptr.pointee.long_name
-            return rv
+    return rv
         }
         /// The long name of an option can be used to specify it
         ///     in a commandline as `--long_name`. Every option must have a
@@ -1261,7 +1289,7 @@ public extension OptionEntryProtocol {
         ///     short name.
         get {
             let rv = _ptr.pointee.short_name
-            return rv
+    return rv
         }
         /// If an option has a short name, it can be specified
         ///     `-short_name` in a commandline. `short_name` must be  a printable
@@ -1277,7 +1305,7 @@ public extension OptionEntryProtocol {
         /// Flags from `GOptionFlags`
         get {
             let rv = _ptr.pointee.flags
-            return rv
+    return rv
         }
         /// Flags from `GOptionFlags`
          set {
@@ -1290,7 +1318,7 @@ public extension OptionEntryProtocol {
         /// The type of the option, as a `GOptionArg`
         get {
             let rv = _ptr.pointee.arg
-            return rv
+    return rv
         }
         /// The type of the option, as a `GOptionArg`
          set {
@@ -1315,7 +1343,7 @@ public extension OptionEntryProtocol {
     ///     was given. That string needs to be freed by the callee using `g_free()`.
     ///     Likewise if `arg` type is `G_OPTION_ARG_STRING_ARRAY` or
     ///     `G_OPTION_ARG_FILENAME_ARRAY`, the data should be freed using `g_strfreev()`.
-    @inlinable var argData: gpointer! {
+    @inlinable var argData: gpointer? {
         /// If the `arg` type is `G_OPTION_ARG_CALLBACK`, then `arg_data`
         ///     must point to a `GOptionArgFunc` callback function, which will be
         ///     called to handle the extra argument. Otherwise, `arg_data` is a
@@ -1335,7 +1363,7 @@ public extension OptionEntryProtocol {
         ///     `G_OPTION_ARG_FILENAME_ARRAY`, the data should be freed using `g_strfreev()`.
         get {
             let rv = _ptr.pointee.arg_data
-            return rv
+    return rv
         }
         /// If the `arg` type is `G_OPTION_ARG_CALLBACK`, then `arg_data`
         ///     must point to a `GOptionArgFunc` callback function, which will be
@@ -1368,7 +1396,7 @@ public extension OptionEntryProtocol {
         ///     of the group, see `g_option_group_set_translation_domain()`.
         get {
             let rv = _ptr.pointee.description
-            return rv
+    return rv
         }
         /// the description for the option in `--help`
         ///     output. The `description` is translated using the `translate_func`
@@ -1389,7 +1417,7 @@ public extension OptionEntryProtocol {
         ///     `g_option_group_set_translation_domain()`.
         get {
             let rv = _ptr.pointee.arg_description
-            return rv
+    return rv
         }
         /// The placeholder to use for the extra argument parsed
         ///     by the option in `--help` output. The `arg_description` is translated
@@ -1519,9 +1547,10 @@ public extension OptionGroupRef {
     }
 
         /// Creates a new `GOptionGroup`.
-    @inlinable init( name: UnsafePointer<gchar>!, description: UnsafePointer<gchar>!, helpDescription: UnsafePointer<gchar>!, userData: gpointer! = nil, destroy: GDestroyNotify? = nil) {
-        let rv = g_option_group_new(name, description, helpDescription, userData, destroy)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable init( name: UnsafePointer<gchar>!, description: UnsafePointer<gchar>!, helpDescription: UnsafePointer<gchar>!, userData: gpointer? = nil, destroy: GDestroyNotify? = nil) {
+            let result = g_option_group_new(name, description, helpDescription, userData, destroy)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1678,9 +1707,10 @@ open class OptionGroup: OptionGroupProtocol {
     }
 
     /// Creates a new `GOptionGroup`.
-    @inlinable public init( name: UnsafePointer<gchar>!, description: UnsafePointer<gchar>!, helpDescription: UnsafePointer<gchar>!, userData: gpointer! = nil, destroy: GDestroyNotify? = nil) {
-        let rv = g_option_group_new(name, description, helpDescription, userData, destroy)
-        ptr = UnsafeMutableRawPointer(rv)
+    @inlinable public init( name: UnsafePointer<gchar>!, description: UnsafePointer<gchar>!, helpDescription: UnsafePointer<gchar>!, userData: gpointer? = nil, destroy: GDestroyNotify? = nil) {
+            let result = g_option_group_new(name, description, helpDescription, userData, destroy)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -1698,8 +1728,9 @@ public extension OptionGroupProtocol {
 
     /// Adds the options specified in `entries` to `group`.
     @inlinable func add(entries: UnsafePointer<GOptionEntry>!) {
+        
         g_option_group_add_entries(option_group_ptr, entries)
-    
+        
     }
 
     /// Frees a `GOptionGroup`. Note that you must not free groups
@@ -1708,13 +1739,15 @@ public extension OptionGroupProtocol {
     /// **free is deprecated:**
     /// Use g_option_group_unref() instead.
     @available(*, deprecated) @inlinable func free() {
+        
         g_option_group_free(option_group_ptr)
-    
+        
     }
 
     /// Increments the reference count of `group` by one.
     @discardableResult @inlinable func ref() -> OptionGroupRef! {
-        guard let rv = OptionGroupRef(gconstpointer: gconstpointer(g_option_group_ref(option_group_ptr))) else { return nil }
+        let result = g_option_group_ref(option_group_ptr)
+        guard let rv = OptionGroupRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -1724,8 +1757,9 @@ public extension OptionGroupProtocol {
     /// Note that the user data to be passed to `error_func` can be
     /// specified when constructing the group with `g_option_group_new()`.
     @inlinable func setErrorHook(errorFunc: GOptionErrorFunc?) {
+        
         g_option_group_set_error_hook(option_group_ptr, errorFunc)
-    
+        
     }
 
     /// Associates two functions with `group` which will be called
@@ -1736,8 +1770,9 @@ public extension OptionGroupProtocol {
     /// `post_parse_func` can be specified when constructing the group
     /// with `g_option_group_new()`.
     @inlinable func setParseHooks(preParseFunc: GOptionParseFunc? = nil, postParseFunc: GOptionParseFunc? = nil) {
+        
         g_option_group_set_parse_hooks(option_group_ptr, preParseFunc, postParseFunc)
-    
+        
     }
 
     /// Sets the function which is used to translate user-visible strings,
@@ -1746,391 +1781,27 @@ public extension OptionGroupProtocol {
     /// 
     /// If you are using `gettext()`, you only need to set the translation
     /// domain, see `g_option_group_set_translation_domain()`.
-    @inlinable func setTranslateFunc(`func`: GTranslateFunc? = nil, data: gpointer! = nil, destroyNotify: GDestroyNotify? = nil) {
+    @inlinable func setTranslateFunc(`func`: GTranslateFunc? = nil, data: gpointer? = nil, destroyNotify: GDestroyNotify? = nil) {
+        
         g_option_group_set_translate_func(option_group_ptr, `func`, data, destroyNotify)
-    
+        
     }
 
     /// A convenience function to use `gettext()` for translating
     /// user-visible strings.
     @inlinable func setTranslation(domain: UnsafePointer<gchar>!) {
+        
         g_option_group_set_translation_domain(option_group_ptr, domain)
-    
+        
     }
 
     /// Decrements the reference count of `group` by one.
     /// If the reference count drops to 0, the `group` will be freed.
     /// and all memory allocated by the `group` is released.
     @inlinable func unref() {
+        
         g_option_group_unref(option_group_ptr)
-    
-    }
-
-
-}
-
-
-
-// MARK: - PatternSpec Record
-
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
-///
-/// The `PatternSpecProtocol` protocol exposes the methods and properties of an underlying `GPatternSpec` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `PatternSpec`.
-/// Alternatively, use `PatternSpecRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol PatternSpecProtocol {
-        /// Untyped pointer to the underlying `GPatternSpec` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GPatternSpec` instance.
-    var pattern_spec_ptr: UnsafeMutablePointer<GPatternSpec>! { get }
-
-    /// Required Initialiser for types conforming to `PatternSpecProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
-///
-/// The `PatternSpecRef` type acts as a lightweight Swift reference to an underlying `GPatternSpec` instance.
-/// It exposes methods that can operate on this data type through `PatternSpecProtocol` conformance.
-/// Use `PatternSpecRef` only as an `unowned` reference to an existing `GPatternSpec` instance.
-///
-public struct PatternSpecRef: PatternSpecProtocol {
-        /// Untyped pointer to the underlying `GPatternSpec` instance.
-    /// For type-safe access, use the generated, typed pointer `pattern_spec_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension PatternSpecRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GPatternSpec>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GPatternSpec>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GPatternSpec>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GPatternSpec>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `PatternSpecProtocol`
-    @inlinable init<T: PatternSpecProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-        /// Compiles a pattern to a `GPatternSpec`.
-    @inlinable init( pattern: UnsafePointer<gchar>!) {
-        let rv = g_pattern_spec_new(pattern)
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-}
-
-/// A GPatternSpec struct is the 'compiled' form of a pattern. This
-/// structure is opaque and its fields cannot be accessed directly.
-///
-/// The `PatternSpec` type acts as an owner of an underlying `GPatternSpec` instance.
-/// It provides the methods that can operate on this data type through `PatternSpecProtocol` conformance.
-/// Use `PatternSpec` as a strong reference or owner of a `GPatternSpec` instance.
-///
-open class PatternSpec: PatternSpecProtocol {
-        /// Untyped pointer to the underlying `GPatternSpec` instance.
-    /// For type-safe access, use the generated, typed pointer `pattern_spec_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GPatternSpec>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GPatternSpec>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GPatternSpec>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GPatternSpec>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GPatternSpec` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `PatternSpec` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GPatternSpec>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `PatternSpecProtocol`
-    /// `GPatternSpec` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `PatternSpecProtocol`
-    @inlinable public init<T: PatternSpecProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Do-nothing destructor for `GPatternSpec`.
-    deinit {
-        // no reference counting for GPatternSpec, cannot unref(pattern_spec_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PatternSpecProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GPatternSpec, cannot ref(pattern_spec_ptr)
-    }
-
-    /// Compiles a pattern to a `GPatternSpec`.
-    @inlinable public init( pattern: UnsafePointer<gchar>!) {
-        let rv = g_pattern_spec_new(pattern)
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-
-
-}
-
-// MARK: no PatternSpec properties
-
-// MARK: no PatternSpec signals
-
-// MARK: PatternSpec has no signals
-// MARK: PatternSpec Record: PatternSpecProtocol extension (methods and fields)
-public extension PatternSpecProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GPatternSpec` instance.
-    @inlinable var pattern_spec_ptr: UnsafeMutablePointer<GPatternSpec>! { return ptr?.assumingMemoryBound(to: GPatternSpec.self) }
-
-    /// Copies `pspec` in a new `GPatternSpec`.
-    @inlinable func copy() -> PatternSpecRef! {
-        guard let rv = PatternSpecRef(gconstpointer: gconstpointer(g_pattern_spec_copy(pattern_spec_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Compares two compiled pattern specs and returns whether they will
-    /// match the same set of strings.
-    @inlinable func equal<PatternSpecT: PatternSpecProtocol>(pspec2: PatternSpecT) -> Bool {
-        let rv = ((g_pattern_spec_equal(pattern_spec_ptr, pspec2.pattern_spec_ptr)) != 0)
-        return rv
-    }
-
-    /// Frees the memory allocated for the `GPatternSpec`.
-    @inlinable func free() {
-        g_pattern_spec_free(pattern_spec_ptr)
-    
-    }
-
-    /// Matches a string against a compiled pattern. Passing the correct
-    /// length of the string given is mandatory. The reversed string can be
-    /// omitted by passing `nil`, this is more efficient if the reversed
-    /// version of the string to be matched is not at hand, as
-    /// `g_pattern_match()` will only construct it if the compiled pattern
-    /// requires reverse matches.
-    /// 
-    /// Note that, if the user code will (possibly) match a string against a
-    /// multitude of patterns containing wildcards, chances are high that
-    /// some patterns will require a reversed string. In this case, it's
-    /// more efficient to provide the reversed string to avoid multiple
-    /// constructions thereof in the various calls to `g_pattern_match()`.
-    /// 
-    /// Note also that the reverse of a UTF-8 encoded string can in general
-    /// not be obtained by `g_strreverse()`. This works only if the string
-    /// does not contain any multibyte characters. GLib offers the
-    /// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
-    @inlinable func match(stringLength: Int, string: UnsafePointer<gchar>!, stringReversed: UnsafePointer<gchar>? = nil) -> Bool {
-        let rv = ((g_pattern_spec_match(pattern_spec_ptr, gsize(stringLength), string, stringReversed)) != 0)
-        return rv
-    }
-
-    /// Matches a string against a compiled pattern. If the string is to be
-    /// matched against more than one pattern, consider using
-    /// `g_pattern_match()` instead while supplying the reversed string.
-    @inlinable func match(string: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_pattern_spec_match_string(pattern_spec_ptr, string)) != 0)
-        return rv
-    }
-
-    /// Matches a string against a compiled pattern. Passing the correct
-    /// length of the string given is mandatory. The reversed string can be
-    /// omitted by passing `nil`, this is more efficient if the reversed
-    /// version of the string to be matched is not at hand, as
-    /// `g_pattern_match()` will only construct it if the compiled pattern
-    /// requires reverse matches.
-    /// 
-    /// Note that, if the user code will (possibly) match a string against a
-    /// multitude of patterns containing wildcards, chances are high that
-    /// some patterns will require a reversed string. In this case, it's
-    /// more efficient to provide the reversed string to avoid multiple
-    /// constructions thereof in the various calls to `g_pattern_match()`.
-    /// 
-    /// Note also that the reverse of a UTF-8 encoded string can in general
-    /// not be obtained by `g_strreverse()`. This works only if the string
-    /// does not contain any multibyte characters. GLib offers the
-    /// `g_utf8_strreverse()` function to reverse UTF-8 encoded strings.
-    ///
-    /// **pattern_match is deprecated:**
-    /// Use g_pattern_spec_match() instead
-    @available(*, deprecated) @inlinable func patternMatch(stringLength: Int, string: UnsafePointer<gchar>!, stringReversed: UnsafePointer<gchar>? = nil) -> Bool {
-        let rv = ((g_pattern_match(pattern_spec_ptr, guint(stringLength), string, stringReversed)) != 0)
-        return rv
-    }
-
-    /// Matches a string against a compiled pattern. If the string is to be
-    /// matched against more than one pattern, consider using
-    /// `g_pattern_match()` instead while supplying the reversed string.
-    ///
-    /// **pattern_match_string is deprecated:**
-    /// Use g_pattern_spec_match_string() instead
-    @available(*, deprecated) @inlinable func patternMatch(string: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_pattern_match_string(pattern_spec_ptr, string)) != 0)
-        return rv
+        
     }
 
 

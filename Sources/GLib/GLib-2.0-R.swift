@@ -466,8 +466,9 @@ public extension RWLockProtocol {
     /// 
     /// Sine: 2.32
     @inlinable func clear() {
+        
         g_rw_lock_clear(_ptr)
-    
+        
     }
 
     /// Initializes a `GRWLock` so that it can be used.
@@ -496,8 +497,9 @@ public extension RWLockProtocol {
     /// Calling `g_rw_lock_init()` on an already initialized `GRWLock` leads
     /// to undefined behaviour.
     @inlinable func init_() {
+        
         g_rw_lock_init(_ptr)
-    
+        
     }
 
     /// Obtain a read lock on `rw_lock`. If another thread currently holds
@@ -516,15 +518,17 @@ public extension RWLockProtocol {
     /// held on the same lock simultaneously. If the limit is hit,
     /// or if a deadlock is detected, a critical warning will be emitted.
     @inlinable func readerLock() {
+        
         g_rw_lock_reader_lock(_ptr)
-    
+        
     }
 
     /// Tries to obtain a read lock on `rw_lock` and returns `true` if
     /// the read lock was successfully obtained. Otherwise it
     /// returns `false`.
     @inlinable func readerTrylock() -> Bool {
-        let rv = ((g_rw_lock_reader_trylock(_ptr)) != 0)
+        let result = g_rw_lock_reader_trylock(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -533,8 +537,9 @@ public extension RWLockProtocol {
     /// Calling `g_rw_lock_reader_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
     @inlinable func readerUnlock() {
+        
         g_rw_lock_reader_unlock(_ptr)
-    
+        
     }
 
     /// Obtain a write lock on `rw_lock`. If another thread currently holds
@@ -544,8 +549,9 @@ public extension RWLockProtocol {
     /// Calling `g_rw_lock_writer_lock()` while the current thread already
     /// owns a read or write lock on `rw_lock` leads to undefined behaviour.
     @inlinable func writerLock() {
+        
         g_rw_lock_writer_lock(_ptr)
-    
+        
     }
 
     /// Tries to obtain a write lock on `rw_lock`. If another thread
@@ -553,7 +559,8 @@ public extension RWLockProtocol {
     /// returns `false`.
     /// Otherwise it locks `rw_lock` and returns `true`.
     @inlinable func writerTrylock() -> Bool {
-        let rv = ((g_rw_lock_writer_trylock(_ptr)) != 0)
+        let result = g_rw_lock_writer_trylock(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -562,8 +569,9 @@ public extension RWLockProtocol {
     /// Calling `g_rw_lock_writer_unlock()` on a lock that is not held
     /// by the current thread leads to undefined behaviour.
     @inlinable func writerUnlock() {
+        
         g_rw_lock_writer_unlock(_ptr)
-    
+        
     }
 
     // var p is unavailable because p is private
@@ -680,13 +688,15 @@ public extension RandRef {
 
         /// Creates a new random number generator initialized with `seed`.
     @inlinable static func newWith(seed: guint32) -> RandRef! {
-        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_new_with_seed(seed))) else { return nil }
+            let result = g_rand_new_with_seed(seed)
+        guard let rv = RandRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a new random number generator initialized with `seed`.
     @inlinable static func newWith(seedArray seed: UnsafePointer<guint32>!, seedLength: Int) -> RandRef! {
-        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_new_with_seed_array(seed, guint(seedLength)))) else { return nil }
+            let result = g_rand_new_with_seed_array(seed, guint(seedLength))
+        guard let rv = RandRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -841,13 +851,15 @@ open class Rand: RandProtocol {
 
     /// Creates a new random number generator initialized with `seed`.
     @inlinable public static func newWith(seed: guint32) -> Rand! {
-        guard let rv = Rand(gconstpointer: gconstpointer(g_rand_new_with_seed(seed))) else { return nil }
+            let result = g_rand_new_with_seed(seed)
+        guard let rv = Rand(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Creates a new random number generator initialized with `seed`.
     @inlinable public static func newWith(seedArray seed: UnsafePointer<guint32>!, seedLength: Int) -> Rand! {
-        guard let rv = Rand(gconstpointer: gconstpointer(g_rand_new_with_seed_array(seed, guint(seedLength)))) else { return nil }
+            let result = g_rand_new_with_seed_array(seed, guint(seedLength))
+        guard let rv = Rand(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -867,48 +879,55 @@ public extension RandProtocol {
     /// This way you can take a snapshot of the random number generator for
     /// replaying later.
     @inlinable func copy() -> RandRef! {
-        guard let rv = RandRef(gconstpointer: gconstpointer(g_rand_copy(_ptr))) else { return nil }
+        let result = g_rand_copy(_ptr)
+        guard let rv = RandRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [0..1).
     @inlinable func CDouble() -> Double {
-        let rv = Double(g_rand_double(_ptr))
+        let result = g_rand_double(_ptr)
+        let rv = Double(result)
         return rv
     }
 
     /// Returns the next random `gdouble` from `rand_` equally distributed over
     /// the range [`begin.`.`end`).
     @inlinable func doubleRange(begin: Double, end: Double) -> Double {
-        let rv = Double(g_rand_double_range(_ptr, gdouble(begin), gdouble(end)))
+        let result = g_rand_double_range(_ptr, gdouble(begin), gdouble(end))
+        let rv = Double(result)
         return rv
     }
 
     /// Frees the memory allocated for the `GRand`.
     @inlinable func free() {
+        
         g_rand_free(_ptr)
-    
+        
     }
 
     /// Returns the next random `guint32` from `rand_` equally distributed over
     /// the range [0..2^32-1].
     @inlinable func CInt() -> guint32 {
-        let rv = g_rand_int(_ptr)
+        let result = g_rand_int(_ptr)
+        let rv = result
         return rv
     }
 
     /// Returns the next random `gint32` from `rand_` equally distributed over
     /// the range [`begin.`.`end-1`].
     @inlinable func intRange(begin: gint32, end: gint32) -> gint32 {
-        let rv = g_rand_int_range(_ptr, begin, end)
+        let result = g_rand_int_range(_ptr, begin, end)
+        let rv = result
         return rv
     }
 
     /// Sets the seed for the random number generator `GRand` to `seed`.
     @inlinable func set(seed: guint32) {
+        
         g_rand_set_seed(_ptr, seed)
-    
+        
     }
 
     /// Initializes the random number generator by an array of longs.
@@ -917,8 +936,9 @@ public extension RandProtocol {
     /// seeds, or if you require more then 32 bits of actual entropy for
     /// your application.
     @inlinable func setSeedArray(seed: UnsafePointer<guint32>!, seedLength: Int) {
+        
         g_rand_set_seed_array(_ptr, seed, guint(seedLength))
-    
+        
     }
 
 
@@ -1234,8 +1254,9 @@ public extension RecMutexProtocol {
     /// 
     /// Sine: 2.32
     @inlinable func clear() {
+        
         g_rec_mutex_clear(_ptr)
-    
+        
     }
 
     /// Initializes a `GRecMutex` so that it can be used.
@@ -1266,8 +1287,9 @@ public extension RecMutexProtocol {
     /// To undo the effect of `g_rec_mutex_init()` when a recursive mutex
     /// is no longer needed, use `g_rec_mutex_clear()`.
     @inlinable func init_() {
+        
         g_rec_mutex_init(_ptr)
-    
+        
     }
 
     /// Locks `rec_mutex`. If `rec_mutex` is already locked by another
@@ -1277,15 +1299,17 @@ public extension RecMutexProtocol {
     /// The mutex will only become available again when it is unlocked
     /// as many times as it has been locked.
     @inlinable func lock() {
+        
         g_rec_mutex_lock(_ptr)
-    
+        
     }
 
     /// Tries to lock `rec_mutex`. If `rec_mutex` is already locked
     /// by another thread, it immediately returns `false`. Otherwise
     /// it locks `rec_mutex` and returns `true`.
     @inlinable func trylock() -> Bool {
-        let rv = ((g_rec_mutex_trylock(_ptr)) != 0)
+        let result = g_rec_mutex_trylock(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1296,8 +1320,9 @@ public extension RecMutexProtocol {
     /// Calling `g_rec_mutex_unlock()` on a recursive mutex that is not
     /// locked by the current thread leads to undefined behaviour.
     @inlinable func unlock() {
+        
         g_rec_mutex_unlock(_ptr)
-    
+        
     }
 
     // var p is unavailable because p is private
@@ -1541,10 +1566,11 @@ public extension RegexRef {
         /// Compiles the regular expression to an internal form, and does
     /// the initial setup of the `GRegex` structure.
     @inlinable init( pattern: UnsafePointer<gchar>!, compileOptions: RegexCompileFlags, matchOptions: RegexMatchFlags) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_new(pattern, compileOptions.value, matchOptions.value, &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_regex_new(pattern, compileOptions.value, matchOptions.value, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1761,10 +1787,11 @@ open class Regex: RegexProtocol {
     /// Compiles the regular expression to an internal form, and does
     /// the initial setup of the `GRegex` structure.
     @inlinable public init( pattern: UnsafePointer<gchar>!, compileOptions: RegexCompileFlags, matchOptions: RegexMatchFlags) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_new(pattern, compileOptions.value, matchOptions.value, &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_regex_new(pattern, compileOptions.value, matchOptions.value, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
 
@@ -1782,7 +1809,8 @@ public extension RegexProtocol {
 
     /// Returns the number of capturing subpatterns in the pattern.
     @inlinable func getCaptureCount() -> Int {
-        let rv = Int(g_regex_get_capture_count(regex_ptr))
+        let result = g_regex_get_capture_count(regex_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -1791,20 +1819,23 @@ public extension RegexProtocol {
     /// Depending on the version of PCRE that is used, this may or may not
     /// include flags set by option expressions such as `(?i)` found at the
     /// top-level within the compiled pattern.
-    @inlinable func getCompileFlags() -> RegexCompileFlags {
-        let rv = RegexCompileFlags(g_regex_get_compile_flags(regex_ptr))
+    @inlinable func getCompileFlags() -> GLib.RegexCompileFlags {
+        let result = g_regex_get_compile_flags(regex_ptr)
+        let rv = RegexCompileFlags(result)
         return rv
     }
 
     /// Checks whether the pattern contains explicit CR or LF references.
     @inlinable func getHasCrOrLf() -> Bool {
-        let rv = ((g_regex_get_has_cr_or_lf(regex_ptr)) != 0)
+        let result = g_regex_get_has_cr_or_lf(regex_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Returns the match options that `regex` was created with.
-    @inlinable func getMatchFlags() -> RegexMatchFlags {
-        let rv = RegexMatchFlags(g_regex_get_match_flags(regex_ptr))
+    @inlinable func getMatchFlags() -> GLib.RegexMatchFlags {
+        let result = g_regex_get_match_flags(regex_ptr)
+        let rv = RegexMatchFlags(result)
         return rv
     }
 
@@ -1812,7 +1843,8 @@ public extension RegexProtocol {
     /// in the pattern, or 0 if the pattern does not contain
     /// back references.
     @inlinable func getMaxBackref() -> Int {
-        let rv = Int(g_regex_get_max_backref(regex_ptr))
+        let result = g_regex_get_max_backref(regex_ptr)
+        let rv = Int(result)
         return rv
     }
 
@@ -1820,20 +1852,23 @@ public extension RegexProtocol {
     /// pattern. This information is useful when doing multi-segment matching using
     /// the partial matching facilities.
     @inlinable func getMaxLookbehind() -> Int {
-        let rv = Int(g_regex_get_max_lookbehind(regex_ptr))
+        let result = g_regex_get_max_lookbehind(regex_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Gets the pattern string associated with `regex`, i.e. a copy of
     /// the string passed to `g_regex_new()`.
     @inlinable func getPattern() -> String! {
-        let rv = g_regex_get_pattern(regex_ptr).map({ String(cString: $0) })
+        let result = g_regex_get_pattern(regex_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
     /// Retrieves the number of the subexpression named `name`.
     @inlinable func getStringNumber(name: UnsafePointer<gchar>!) -> Int {
-        let rv = Int(g_regex_get_string_number(regex_ptr, name))
+        let result = g_regex_get_string_number(regex_ptr, name)
+        let rv = Int(result)
         return rv
     }
 
@@ -1879,7 +1914,8 @@ public extension RegexProtocol {
     /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     @inlinable func match(string: UnsafePointer<gchar>!, matchOptions: RegexMatchFlags, matchInfo: UnsafeMutablePointer<UnsafeMutablePointer<GMatchInfo>?>! = nil) -> Bool {
-        let rv = ((g_regex_match(regex_ptr, string, matchOptions.value, matchInfo)) != 0)
+        let result = g_regex_match(regex_ptr, string, matchOptions.value, matchInfo)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1898,7 +1934,8 @@ public extension RegexProtocol {
     /// you use any `GMatchInfo` method (except `g_match_info_free()`) after
     /// freeing or modifying `string` then the behaviour is undefined.
     @inlinable func matchAll(string: UnsafePointer<gchar>!, matchOptions: RegexMatchFlags, matchInfo: UnsafeMutablePointer<UnsafeMutablePointer<GMatchInfo>?>! = nil) -> Bool {
-        let rv = ((g_regex_match_all(regex_ptr, string, matchOptions.value, matchInfo)) != 0)
+        let result = g_regex_match_all(regex_ptr, string, matchOptions.value, matchInfo)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1942,8 +1979,9 @@ public extension RegexProtocol {
     /// freeing or modifying `string` then the behaviour is undefined.
     @inlinable func matchAllFull(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, matchOptions: RegexMatchFlags, matchInfo: UnsafeMutablePointer<UnsafeMutablePointer<GMatchInfo>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_regex_match_all_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, matchInfo, &error)) != 0)
+        let result = g_regex_match_all_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, matchInfo, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -2002,14 +2040,16 @@ public extension RegexProtocol {
     /// 
     @inlinable func matchFull(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, matchOptions: RegexMatchFlags, matchInfo: UnsafeMutablePointer<UnsafeMutablePointer<GMatchInfo>?>! = nil) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_regex_match_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, matchInfo, &error)) != 0)
+        let result = g_regex_match_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, matchInfo, &error)
         if let error = error { throw GLibError(error) }
+        let rv = ((result) != 0)
         return rv
     }
 
     /// Increases reference count of `regex` by 1.
     @discardableResult @inlinable func ref() -> RegexRef! {
-        guard let rv = RegexRef(gconstpointer: gconstpointer(g_regex_ref(regex_ptr))) else { return nil }
+        let result = g_regex_ref(regex_ptr)
+        guard let rv = RegexRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -2041,8 +2081,9 @@ public extension RegexProtocol {
     /// begins with any kind of lookbehind assertion, such as "\b".
     @inlinable func replace(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, replacement: UnsafePointer<gchar>!, matchOptions: RegexMatchFlags) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_replace(regex_ptr, string, stringLen, gint(startPosition), replacement, matchOptions.value, &error).map({ String(cString: $0) })
+        let result = g_regex_replace(regex_ptr, string, stringLen, gint(startPosition), replacement, matchOptions.value, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2093,10 +2134,11 @@ public extension RegexProtocol {
     /// ...
     /// ```
     /// 
-    @inlinable func replaceEval(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, matchOptions: RegexMatchFlags, eval: GRegexEvalCallback?, userData: gpointer! = nil) throws -> String! {
+    @inlinable func replaceEval(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, matchOptions: RegexMatchFlags, eval: GRegexEvalCallback?, userData: gpointer? = nil) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_replace_eval(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, eval, userData, &error).map({ String(cString: $0) })
+        let result = g_regex_replace_eval(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, eval, userData, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2110,8 +2152,9 @@ public extension RegexProtocol {
     /// assertion, such as "\b".
     @inlinable func replaceLiteral(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, replacement: UnsafePointer<gchar>!, matchOptions: RegexMatchFlags) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_replace_literal(regex_ptr, string, stringLen, gint(startPosition), replacement, matchOptions.value, &error).map({ String(cString: $0) })
+        let result = g_regex_replace_literal(regex_ptr, string, stringLen, gint(startPosition), replacement, matchOptions.value, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -2133,7 +2176,8 @@ public extension RegexProtocol {
     /// For example splitting "ab c" using as a separator "\s*", you will get
     /// "a", "b" and "c".
     @inlinable func split(string: UnsafePointer<gchar>!, matchOptions: RegexMatchFlags) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        let rv = g_regex_split(regex_ptr, string, matchOptions.value)
+        let result = g_regex_split(regex_ptr, string, matchOptions.value)
+        let rv = result
         return rv
     }
 
@@ -2160,22 +2204,25 @@ public extension RegexProtocol {
     /// that begins with any kind of lookbehind assertion, such as "\b".
     @inlinable func splitFull(string: UnsafePointer<gchar>!, stringLen: gssize, startPosition: Int, matchOptions: RegexMatchFlags, maxTokens: Int) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_regex_split_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, gint(maxTokens), &error)
+        let result = g_regex_split_full(regex_ptr, string, stringLen, gint(startPosition), matchOptions.value, gint(maxTokens), &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Decreases reference count of `regex` by 1. When reference count drops
     /// to zero, it frees all the memory associated with the regex structure.
     @inlinable func unref() {
+        
         g_regex_unref(regex_ptr)
-    
+        
     }
     /// Returns the number of capturing subpatterns in the pattern.
     @inlinable var captureCount: Int {
         /// Returns the number of capturing subpatterns in the pattern.
         get {
-            let rv = Int(g_regex_get_capture_count(regex_ptr))
+            let result = g_regex_get_capture_count(regex_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2185,14 +2232,15 @@ public extension RegexProtocol {
     /// Depending on the version of PCRE that is used, this may or may not
     /// include flags set by option expressions such as `(?i)` found at the
     /// top-level within the compiled pattern.
-    @inlinable var compileFlags: RegexCompileFlags {
+    @inlinable var compileFlags: GLib.RegexCompileFlags {
         /// Returns the compile options that `regex` was created with.
         /// 
         /// Depending on the version of PCRE that is used, this may or may not
         /// include flags set by option expressions such as `(?i)` found at the
         /// top-level within the compiled pattern.
         get {
-            let rv = RegexCompileFlags(g_regex_get_compile_flags(regex_ptr))
+            let result = g_regex_get_compile_flags(regex_ptr)
+        let rv = RegexCompileFlags(result)
             return rv
         }
     }
@@ -2201,16 +2249,18 @@ public extension RegexProtocol {
     @inlinable var hasCrOrLf: Bool {
         /// Checks whether the pattern contains explicit CR or LF references.
         get {
-            let rv = ((g_regex_get_has_cr_or_lf(regex_ptr)) != 0)
+            let result = g_regex_get_has_cr_or_lf(regex_ptr)
+        let rv = ((result) != 0)
             return rv
         }
     }
 
     /// Returns the match options that `regex` was created with.
-    @inlinable var matchFlags: RegexMatchFlags {
+    @inlinable var matchFlags: GLib.RegexMatchFlags {
         /// Returns the match options that `regex` was created with.
         get {
-            let rv = RegexMatchFlags(g_regex_get_match_flags(regex_ptr))
+            let result = g_regex_get_match_flags(regex_ptr)
+        let rv = RegexMatchFlags(result)
             return rv
         }
     }
@@ -2223,7 +2273,8 @@ public extension RegexProtocol {
         /// in the pattern, or 0 if the pattern does not contain
         /// back references.
         get {
-            let rv = Int(g_regex_get_max_backref(regex_ptr))
+            let result = g_regex_get_max_backref(regex_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2236,7 +2287,8 @@ public extension RegexProtocol {
         /// pattern. This information is useful when doing multi-segment matching using
         /// the partial matching facilities.
         get {
-            let rv = Int(g_regex_get_max_lookbehind(regex_ptr))
+            let result = g_regex_get_max_lookbehind(regex_ptr)
+        let rv = Int(result)
             return rv
         }
     }
@@ -2247,315 +2299,12 @@ public extension RegexProtocol {
         /// Gets the pattern string associated with `regex`, i.e. a copy of
         /// the string passed to `g_regex_new()`.
         get {
-            let rv = g_regex_get_pattern(regex_ptr).map({ String(cString: $0) })
+            let result = g_regex_get_pattern(regex_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
     }
 
-
-}
-
-
-
-// MARK: - SList Record
-
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
-///
-/// The `SListProtocol` protocol exposes the methods and properties of an underlying `GSList` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SList`.
-/// Alternatively, use `SListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol SListProtocol {
-        /// Untyped pointer to the underlying `GSList` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GSList` instance.
-    var _ptr: UnsafeMutablePointer<GSList>! { get }
-
-    /// Required Initialiser for types conforming to `SListProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
-///
-/// The `SListRef` type acts as a lightweight Swift reference to an underlying `GSList` instance.
-/// It exposes methods that can operate on this data type through `SListProtocol` conformance.
-/// Use `SListRef` only as an `unowned` reference to an existing `GSList` instance.
-///
-public struct SListRef: SListProtocol {
-        /// Untyped pointer to the underlying `GSList` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension SListRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GSList>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GSList>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GSList>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GSList>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `SListProtocol`
-    @inlinable init<T: SListProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `GSList` struct is used for each element in the singly-linked
-/// list.
-///
-/// The `SList` type acts as an owner of an underlying `GSList` instance.
-/// It provides the methods that can operate on this data type through `SListProtocol` conformance.
-/// Use `SList` as a strong reference or owner of a `GSList` instance.
-///
-open class SList: SListProtocol {
-        /// Untyped pointer to the underlying `GSList` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GSList>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GSList>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GSList>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GSList>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GSList` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `SList` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GSList>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `SListProtocol`
-    /// `GSList` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `SListProtocol`
-    @inlinable public init<T: SListProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GSList`.
-    deinit {
-        // no reference counting for GSList, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SListProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GSList, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no SList properties
-
-// MARK: no SList signals
-
-// MARK: SList has no signals
-// MARK: SList Record: SListProtocol extension (methods and fields)
-public extension SListProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GSList` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<GSList>! { return ptr?.assumingMemoryBound(to: GSList.self) }
-
-
-    /// holds the element's data, which can be a pointer to any kind
-    ///        of data, or any integer value using the
-    ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
-    @inlinable var data: gpointer! {
-        /// holds the element's data, which can be a pointer to any kind
-        ///        of data, or any integer value using the
-        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
-        get {
-            let rv = _ptr.pointee.data
-            return rv
-        }
-        /// holds the element's data, which can be a pointer to any kind
-        ///        of data, or any integer value using the
-        ///        [Type Conversion Macros](#glib-Type-Conversion-Macros)
-         set {
-            _ptr.pointee.data = newValue
-        }
-    }
-
-    /// contains the link to the next element in the list.
-    @inlinable var next: SListRef! {
-        /// contains the link to the next element in the list.
-        get {
-            let rv = SListRef(gconstpointer: gconstpointer(_ptr.pointee.next))
-            return rv
-        }
-        /// contains the link to the next element in the list.
-         set {
-            _ptr.pointee.next = UnsafeMutablePointer<GSList>(newValue._ptr)
-        }
-    }
 
 }
 

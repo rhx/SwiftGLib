@@ -487,7 +487,7 @@ public extension IOError {
         self.init(rawValue: castToIOErrorInt(raw))
     }
     /// no error
-    static let `none` = G_IO_ERROR_NONE // 0
+    static let `none` = 0
 
     /// an EAGAIN error occurred
     static let again = G_IO_ERROR_AGAIN // 1
@@ -748,7 +748,7 @@ public extension OptionArg {
         self.init(rawValue: castToOptionArgInt(raw))
     }
     /// No extra argument. This is useful for simple flags.
-    static let `none` = G_OPTION_ARG_NONE // 0
+    static let `none` = 0
 
     /// The option takes a UTF-8 string argument.
     static let string = G_OPTION_ARG_STRING // 1
@@ -1250,7 +1250,7 @@ public extension TestLogType {
         func castToTestLogTypeInt<I: BinaryInteger, J: BinaryInteger>(_ param: I) -> J { J(param) }
         self.init(rawValue: castToTestLogTypeInt(raw))
     }
-    static let `none` = G_TEST_LOG_NONE // 0
+    static let `none` = 0
 
     static let error = G_TEST_LOG_ERROR // 1
 
@@ -1394,7 +1394,7 @@ public extension TokenType {
     static let comma = G_TOKEN_COMMA // 44
 
     /// not a token
-    static let `none` = G_TOKEN_NONE // 256
+    static let `none` = 256
 
     /// an error occurred
     static let error = G_TOKEN_ERROR // 257

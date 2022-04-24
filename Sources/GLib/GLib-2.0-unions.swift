@@ -282,7 +282,7 @@ public extension DoubleIEEE754Protocol {
         /// the double value
         get {
             let rv = _ptr.pointee.v_double
-            return rv
+    return rv
         }
         /// the double value
          set {
@@ -581,7 +581,7 @@ public extension FloatIEEE754Protocol {
         /// the double value
         get {
             let rv = _ptr.pointee.v_float
-            return rv
+    return rv
         }
         /// the double value
          set {
@@ -1007,8 +1007,9 @@ public extension MutexProtocol {
     /// 
     /// Sine: 2.32
     @inlinable func clear() {
+        
         g_mutex_clear(_ptr)
-    
+        
     }
 
     /// Initializes a `GMutex` so that it can be used.
@@ -1037,8 +1038,9 @@ public extension MutexProtocol {
     /// Calling `g_mutex_init()` on an already initialized `GMutex` leads
     /// to undefined behaviour.
     @inlinable func init_() {
+        
         g_mutex_init(_ptr)
-    
+        
     }
 
     /// Locks `mutex`. If `mutex` is already locked by another thread, the
@@ -1050,8 +1052,9 @@ public extension MutexProtocol {
     /// already been locked by the same thread results in undefined behaviour
     /// (including but not limited to deadlocks).
     @inlinable func lock() {
+        
         g_mutex_lock(_ptr)
-    
+        
     }
 
     /// Tries to lock `mutex`. If `mutex` is already locked by another thread,
@@ -1063,7 +1066,8 @@ public extension MutexProtocol {
     /// already been locked by the same thread results in undefined behaviour
     /// (including but not limited to deadlocks or arbitrary return values).
     @inlinable func trylock() -> Bool {
-        let rv = ((g_mutex_trylock(_ptr)) != 0)
+        let result = g_mutex_trylock(_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -1073,8 +1077,9 @@ public extension MutexProtocol {
     /// Calling `g_mutex_unlock()` on a mutex that is not locked by the
     /// current thread leads to undefined behaviour.
     @inlinable func unlock() {
+        
         g_mutex_unlock(_ptr)
-    
+        
     }
 
     // var p is unavailable because p is private
@@ -1351,11 +1356,11 @@ public extension TokenValueProtocol {
 
 
     /// token symbol value
-    @inlinable var vSymbol: gpointer! {
+    @inlinable var vSymbol: gpointer? {
         /// token symbol value
         get {
             let rv = _ptr.pointee.v_symbol
-            return rv
+    return rv
         }
         /// token symbol value
          set {
@@ -1368,7 +1373,7 @@ public extension TokenValueProtocol {
         /// token identifier value
         get {
             let rv = _ptr.pointee.v_identifier
-            return rv
+    return rv
         }
         /// token identifier value
          set {
@@ -1381,7 +1386,7 @@ public extension TokenValueProtocol {
         /// token binary integer value
         get {
             let rv = _ptr.pointee.v_binary
-            return rv
+    return rv
         }
         /// token binary integer value
          set {
@@ -1394,7 +1399,7 @@ public extension TokenValueProtocol {
         /// octal integer value
         get {
             let rv = _ptr.pointee.v_octal
-            return rv
+    return rv
         }
         /// octal integer value
          set {
@@ -1407,7 +1412,7 @@ public extension TokenValueProtocol {
         /// integer value
         get {
             let rv = _ptr.pointee.v_int
-            return rv
+    return rv
         }
         /// integer value
          set {
@@ -1420,7 +1425,7 @@ public extension TokenValueProtocol {
         /// 64-bit integer value
         get {
             let rv = _ptr.pointee.v_int64
-            return rv
+    return rv
         }
         /// 64-bit integer value
          set {
@@ -1433,7 +1438,7 @@ public extension TokenValueProtocol {
         /// floating point value
         get {
             let rv = _ptr.pointee.v_float
-            return rv
+    return rv
         }
         /// floating point value
          set {
@@ -1446,7 +1451,7 @@ public extension TokenValueProtocol {
         /// hex integer value
         get {
             let rv = _ptr.pointee.v_hex
-            return rv
+    return rv
         }
         /// hex integer value
          set {
@@ -1459,7 +1464,7 @@ public extension TokenValueProtocol {
         /// string value
         get {
             let rv = _ptr.pointee.v_string
-            return rv
+    return rv
         }
         /// string value
          set {
@@ -1472,7 +1477,7 @@ public extension TokenValueProtocol {
         /// comment value
         get {
             let rv = _ptr.pointee.v_comment
-            return rv
+    return rv
         }
         /// comment value
          set {
@@ -1485,7 +1490,7 @@ public extension TokenValueProtocol {
         /// character value
         get {
             let rv = _ptr.pointee.v_char
-            return rv
+    return rv
         }
         /// character value
          set {
@@ -1498,7 +1503,7 @@ public extension TokenValueProtocol {
         /// error value
         get {
             let rv = _ptr.pointee.v_error
-            return rv
+    return rv
         }
         /// error value
          set {

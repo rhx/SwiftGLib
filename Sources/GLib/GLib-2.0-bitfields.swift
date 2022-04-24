@@ -76,7 +76,7 @@ public struct FileSetContentsFlags: OptionSet {
 
     /// No guarantees about file consistency or durability.
     ///   The most dangerous setting, which is slightly faster than other settings.
-    public static let `none` = FileSetContentsFlags(0) // G_FILE_SET_CONTENTS_NONE
+    public static let `none` = FileSetContentsFlags(0)
 
     /// Guarantee file consistency: after a crash,
     ///   either the old version of the file or the new version of the file will be
@@ -372,7 +372,7 @@ public struct KeyFileFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// No flags, default behaviour
-    public static let `none` = KeyFileFlags(0) // G_KEY_FILE_NONE
+    public static let `none` = KeyFileFlags(0)
 
     /// Use this flag if you plan to write the
     ///   (possibly modified) contents of the key file back to a file;
@@ -594,7 +594,7 @@ public struct OptionFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// No flags. Since: 2.42.
-    public static let `none` = OptionFlags(0) // G_OPTION_FLAG_NONE
+    public static let `none` = OptionFlags(0)
 
     /// The option doesn't appear in `--help` output.
     public static let hidden = OptionFlags(1) // G_OPTION_FLAG_HIDDEN
@@ -1136,7 +1136,7 @@ public struct URIFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// No flags set.
-    public static let `none` = URIFlags(0) // G_URI_FLAGS_NONE
+    public static let `none` = URIFlags(0)
 
     /// Parse the URI more relaxedly than the
     ///     [RFC 3986](https://tools.ietf.org/html/rfc3986) grammar specifies,
@@ -1216,7 +1216,7 @@ public struct URIHideFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// No flags set.
-    public static let `none` = URIHideFlags(0) // G_URI_HIDE_NONE
+    public static let `none` = URIHideFlags(0)
 
     /// Hide the userinfo.
     public static let userinfo = URIHideFlags(1) // G_URI_HIDE_USERINFO
@@ -1263,7 +1263,7 @@ public struct URIParamsFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// No flags set.
-    public static let `none` = URIParamsFlags(0) // G_URI_PARAMS_NONE
+    public static let `none` = URIParamsFlags(0)
 
     /// Parameter names are case insensitive.
     public static let caseInsensitive = URIParamsFlags(1) // G_URI_PARAMS_CASE_INSENSITIVE

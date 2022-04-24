@@ -1,5 +1,295 @@
 import CGLib
 
+// MARK: - IConv Record
+
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
+/// The `IConvProtocol` protocol exposes the methods and properties of an underlying `GIConv` instance.
+/// The default implementation of these can be found in the protocol extension below.
+/// For a concrete class that implements these methods and properties, see `IConv`.
+/// Alternatively, use `IConvRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
+///
+public protocol IConvProtocol {
+        /// Untyped pointer to the underlying `GIConv` instance.
+    var ptr: UnsafeMutableRawPointer! { get }
+
+    /// Typed pointer to the underlying `GIConv` instance.
+    var _ptr: GIConv! { get }
+
+    /// Required Initialiser for types conforming to `IConvProtocol`
+    init(raw: UnsafeMutableRawPointer)
+}
+
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
+/// The `IConvRef` type acts as a lightweight Swift reference to an underlying `GIConv` instance.
+/// It exposes methods that can operate on this data type through `IConvProtocol` conformance.
+/// Use `IConvRef` only as an `unowned` reference to an existing `GIConv` instance.
+///
+public struct IConvRef: IConvProtocol {
+        /// Untyped pointer to the underlying `GIConv` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+}
+
+public extension IConvRef {
+    /// Designated initialiser from the underlying `C` data type
+    @inlinable init(_ p: UnsafeMutablePointer<GIConv>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GIConv>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GIConv>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GIConv>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
+
+    /// Reference intialiser for a related type that implements `IConvProtocol`
+    @inlinable init<T: IConvProtocol>(_ other: T) {
+        ptr = other.ptr
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
+        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable init(mutating raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable init(raw: UnsafeMutableRawPointer) {
+        ptr = raw
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable init(opaquePointer: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(opaquePointer)
+    }
+
+    }
+
+/// The GIConv struct wraps an `iconv()` conversion descriptor. It contains
+/// private data and should only be accessed using the following functions.
+///
+/// The `IConv` type acts as an owner of an underlying `GIConv` instance.
+/// It provides the methods that can operate on this data type through `IConvProtocol` conformance.
+/// Use `IConv` as a strong reference or owner of a `GIConv` instance.
+///
+open class IConv: IConvProtocol {
+        /// Untyped pointer to the underlying `GIConv` instance.
+    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
+    public let ptr: UnsafeMutableRawPointer!
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafeMutablePointer<GIConv>) {
+        ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GIConv>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GIConv>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GIConv>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GIConv` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `IConv` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(retaining op: UnsafeMutablePointer<GIConv>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+    /// Reference intialiser for a related type that implements `IConvProtocol`
+    /// `GIConv` does not allow reference counting.
+    /// - Parameter other: an instance of a related type that implements `IConvProtocol`
+    @inlinable public init<T: IConvProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+    /// Do-nothing destructor for `GIConv`.
+    deinit {
+        // no reference counting for GIConv, cannot unref(_ptr)
+    }
+
+    /// Unsafe typed initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter p: raw pointer to the underlying object
+    @inlinable public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter p: mutable raw pointer to the underlying object
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+    /// Unsafe untyped initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IConvProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GIConv, cannot ref(_ptr)
+    }
+
+
+
+}
+
+// MARK: no IConv properties
+
+// MARK: no IConv signals
+
+// MARK: IConv has no signals
+// MARK: IConv Record: IConvProtocol extension (methods and fields)
+public extension IConvProtocol {
+    /// Return the stored, untyped pointer as a typed pointer to the `GIConv` instance.
+    @inlinable var _ptr: GIConv! { return GIConv(bitPattern: UInt(bitPattern: ptr)) }
+
+
+    // *** gIconv() causes a syntax error and is therefore not available!
+
+
+    /// Same as the standard UNIX routine `iconv_close()`, but
+    /// may be implemented via libiconv on UNIX flavors that lack
+    /// a native implementation. Should be called to clean up
+    /// the conversion descriptor from `g_iconv_open()` when
+    /// you are done converting things.
+    /// 
+    /// GLib provides `g_convert()` and `g_locale_to_utf8()` which are likely
+    /// more convenient than the raw iconv wrappers.
+    @inlinable func close() -> Int {
+        let result = g_iconv_close(_ptr)
+        let rv = Int(result)
+        return rv
+    }
+
+
+}
+
+
+
 // MARK: - IOChannel Record
 
 /// A data structure representing an IO Channel. The fields should be
@@ -112,10 +402,11 @@ public extension IOChannelRef {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     @inlinable init(file filename: UnsafePointer<gchar>!, mode: UnsafePointer<gchar>!) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_new_file(filename, mode, &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_io_channel_new_file(filename, mode, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GIOChannel` given a file descriptor. On UNIX systems
@@ -141,8 +432,9 @@ public extension IOChannelRef {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     @inlinable init(unix fd: Int) {
-        let rv = g_io_channel_unix_new(gint(fd))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_io_channel_unix_new(gint(fd))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
     /// channel will be closed when the last reference to it is dropped,
@@ -150,9 +442,11 @@ public extension IOChannelRef {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     @inlinable static func new(file filename: UnsafePointer<gchar>!, mode: UnsafePointer<gchar>!) throws -> IOChannelRef! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = IOChannelRef(gconstpointer: gconstpointer(g_io_channel_new_file(filename, mode, &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_io_channel_new_file(filename, mode, &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = IOChannelRef(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -180,7 +474,8 @@ public extension IOChannelRef {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     @inlinable static func unixNew(unix fd: Int) -> IOChannelRef! {
-        guard let rv = IOChannelRef(gconstpointer: gconstpointer(g_io_channel_unix_new(gint(fd)))) else { return nil }
+            let result = g_io_channel_unix_new(gint(fd))
+        guard let rv = IOChannelRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 }
@@ -339,10 +634,11 @@ open class IOChannel: IOChannelProtocol {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     @inlinable public init(file filename: UnsafePointer<gchar>!, mode: UnsafePointer<gchar>!) throws {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_new_file(filename, mode, &error)
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_io_channel_new_file(filename, mode, &error)
         if let error = error { throw GLibError(error) }
-        ptr = UnsafeMutableRawPointer(rv)
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `GIOChannel` given a file descriptor. On UNIX systems
@@ -368,8 +664,9 @@ open class IOChannel: IOChannelProtocol {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     @inlinable public init(unix fd: Int) {
-        let rv = g_io_channel_unix_new(gint(fd))
-        ptr = UnsafeMutableRawPointer(rv)
+            let result = g_io_channel_unix_new(gint(fd))
+        let rv = result
+            ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Open a file `filename` as a `GIOChannel` using mode `mode`. This
@@ -378,9 +675,11 @@ open class IOChannel: IOChannelProtocol {
     /// so will not cause problems, as long as no attempt is made to
     /// access the channel after it is closed).
     @inlinable public static func new(file filename: UnsafePointer<gchar>!, mode: UnsafePointer<gchar>!) throws -> IOChannel! {
-        var error: UnsafeMutablePointer<GError>?
-        let maybeRV = IOChannel(gconstpointer: gconstpointer(g_io_channel_new_file(filename, mode, &error)))
+            var error: UnsafeMutablePointer<GError>?
+        let result = g_io_channel_new_file(filename, mode, &error)
         if let error = error { throw GLibError(error) }
+        let maybeRV = IOChannel(gconstpointer: gconstpointer(result))
+        
         guard let rv = maybeRV else { return nil }
         return rv
     }
@@ -408,7 +707,8 @@ open class IOChannel: IOChannelProtocol {
     /// valid file descriptor and socket. If that happens a warning is
     /// issued, and GLib assumes that it is the file descriptor you mean.
     @inlinable public static func unixNew(unix fd: Int) -> IOChannel! {
-        guard let rv = IOChannel(gconstpointer: gconstpointer(g_io_channel_unix_new(gint(fd)))) else { return nil }
+            let result = g_io_channel_unix_new(gint(fd))
+        guard let rv = IOChannel(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -431,35 +731,40 @@ public extension IOChannelProtocol {
     /// **close is deprecated:**
     /// Use g_io_channel_shutdown() instead.
     @available(*, deprecated) @inlinable func close() {
+        
         g_io_channel_close(io_channel_ptr)
-    
+        
     }
 
     /// Flushes the write buffer for the GIOChannel.
     @inlinable func flush() throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_flush(io_channel_ptr, &error)
+        let result = g_io_channel_flush(io_channel_ptr, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// This function returns a `GIOCondition` depending on whether there
     /// is data to be read/space to write data in the internal buffers in
     /// the `GIOChannel`. Only the flags `G_IO_IN` and `G_IO_OUT` may be set.
-    @inlinable func getBufferCondition() -> IOCondition {
-        let rv = IOCondition(g_io_channel_get_buffer_condition(io_channel_ptr))
+    @inlinable func getBufferCondition() -> GLib.IOCondition {
+        let result = g_io_channel_get_buffer_condition(io_channel_ptr)
+        let rv = IOCondition(result)
         return rv
     }
 
     /// Gets the buffer size.
     @inlinable func getBufferSize() -> Int {
-        let rv = Int(g_io_channel_get_buffer_size(io_channel_ptr))
+        let result = g_io_channel_get_buffer_size(io_channel_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Returns whether `channel` is buffered.
     @inlinable func getBuffered() -> Bool {
-        let rv = ((g_io_channel_get_buffered(io_channel_ptr)) != 0)
+        let result = g_io_channel_get_buffered(io_channel_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -468,7 +773,8 @@ public extension IOChannelProtocol {
     /// destroyed. The default value of this is `true` for channels created
     /// by g_io_channel_new_file (), and `false` for all other channels.
     @inlinable func getCloseOnUnref() -> Bool {
-        let rv = ((g_io_channel_get_close_on_unref(io_channel_ptr)) != 0)
+        let result = g_io_channel_get_close_on_unref(io_channel_ptr)
+        let rv = ((result) != 0)
         return rv
     }
 
@@ -476,7 +782,8 @@ public extension IOChannelProtocol {
     /// The internal encoding is always UTF-8. The encoding `nil`
     /// makes the channel safe for binary data.
     @inlinable func getEncoding() -> String! {
-        let rv = g_io_channel_get_encoding(io_channel_ptr).map({ String(cString: $0) })
+        let result = g_io_channel_get_encoding(io_channel_ptr)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -489,8 +796,9 @@ public extension IOChannelProtocol {
     /// of a socket with the UNIX `shutdown()` function), the user
     /// should immediately call `g_io_channel_get_flags()` to update
     /// the internal values of these flags.
-    @inlinable func getFlags() -> IOFlags {
-        let rv = IOFlags(g_io_channel_get_flags(io_channel_ptr))
+    @inlinable func getFlags() -> GLib.IOFlags {
+        let result = g_io_channel_get_flags(io_channel_ptr)
+        let rv = IOFlags(result)
         return rv
     }
 
@@ -498,7 +806,8 @@ public extension IOChannelProtocol {
     /// where in the file a line break occurs. A value of `nil`
     /// indicates autodetection.
     @inlinable func getLineTerm(length: UnsafeMutablePointer<gint>!) -> String! {
-        let rv = g_io_channel_get_line_term(io_channel_ptr, length).map({ String(cString: $0) })
+        let result = g_io_channel_get_line_term(io_channel_ptr, length)
+        let rv = result.map({ String(cString: $0) })
         return rv
     }
 
@@ -508,8 +817,9 @@ public extension IOChannelProtocol {
     /// `GIOChannel`, and so is not often needed by the application
     /// programmer (unless you are creating a new type of `GIOChannel`).
     @inlinable func init_() {
+        
         g_io_channel_init(io_channel_ptr)
-    
+        
     }
 
     /// Reads data from a `GIOChannel`.
@@ -517,15 +827,17 @@ public extension IOChannelProtocol {
     /// **read is deprecated:**
     /// Use g_io_channel_read_chars() instead.
     @available(*, deprecated) @inlinable func read(buf: UnsafeMutablePointer<gchar>!, count: Int, bytesRead: UnsafeMutablePointer<gsize>!) -> GIOError {
-        let rv = g_io_channel_read(io_channel_ptr, buf, gsize(count), bytesRead)
+        let result = g_io_channel_read(io_channel_ptr, buf, gsize(count), bytesRead)
+        let rv = result
         return rv
     }
 
     /// Replacement for `g_io_channel_read()` with the new API.
     @inlinable func readChars(buf: UnsafeMutablePointer<gchar>!, count: Int, bytesRead: UnsafeMutablePointer<gsize>! = nil) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_read_chars(io_channel_ptr, buf, gsize(count), bytesRead, &error)
+        let result = g_io_channel_read_chars(io_channel_ptr, buf, gsize(count), bytesRead, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
@@ -535,24 +847,27 @@ public extension IOChannelProtocol {
     /// is `G_IO_STATUS_NORMAL`.
     @inlinable func readLine(strReturn: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, length: UnsafeMutablePointer<gsize>! = nil, terminatorPos: UnsafeMutablePointer<gsize>! = nil) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_read_line(io_channel_ptr, strReturn, length, terminatorPos, &error)
+        let result = g_io_channel_read_line(io_channel_ptr, strReturn, length, terminatorPos, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Reads a line from a `GIOChannel`, using a `GString` as a buffer.
     @inlinable func readLineString<StringTypeT: StringProtocol>(buffer: StringTypeT, terminatorPos: UnsafeMutablePointer<gsize>? = nil) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_read_line_string(io_channel_ptr, buffer.gstring_ptr, terminatorPos, &error)
+        let result = g_io_channel_read_line_string(io_channel_ptr, buffer.gstring_ptr, terminatorPos, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Reads all the remaining data from the file.
     @inlinable func readToEnd(strReturn: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>!, length: UnsafeMutablePointer<gsize>!) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_read_to_end(io_channel_ptr, strReturn, length, &error)
+        let result = g_io_channel_read_to_end(io_channel_ptr, strReturn, length, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
@@ -560,14 +875,16 @@ public extension IOChannelProtocol {
     /// This function cannot be called on a channel with `nil` encoding.
     @inlinable func readUnichar(thechar: UnsafeMutablePointer<gunichar>!) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_read_unichar(io_channel_ptr, thechar, &error)
+        let result = g_io_channel_read_unichar(io_channel_ptr, thechar, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Increments the reference count of a `GIOChannel`.
     @discardableResult @inlinable func ref() -> IOChannelRef! {
-        guard let rv = IOChannelRef(gconstpointer: gconstpointer(g_io_channel_ref(io_channel_ptr))) else { return nil }
+        let result = g_io_channel_ref(io_channel_ptr)
+        guard let rv = IOChannelRef(gconstpointer: gconstpointer(result)) else { return nil }
         return rv
     }
 
@@ -577,22 +894,25 @@ public extension IOChannelProtocol {
     /// **seek is deprecated:**
     /// Use g_io_channel_seek_position() instead.
     @available(*, deprecated) @inlinable func seek(offset: gint64, type: GSeekType) -> GIOError {
-        let rv = g_io_channel_seek(io_channel_ptr, offset, type)
+        let result = g_io_channel_seek(io_channel_ptr, offset, type)
+        let rv = result
         return rv
     }
 
     /// Replacement for `g_io_channel_seek()` with the new API.
     @inlinable func seekPosition(offset: gint64, type: GSeekType) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_seek_position(io_channel_ptr, offset, type, &error)
+        let result = g_io_channel_seek_position(io_channel_ptr, offset, type, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Sets the buffer size.
     @inlinable func setBuffer(size: Int) {
+        
         g_io_channel_set_buffer_size(io_channel_ptr, gsize(size))
-    
+        
     }
 
     /// The buffering state can only be set if the channel's encoding
@@ -615,8 +935,9 @@ public extension IOChannelProtocol {
     /// 
     /// The default state of the channel is buffered.
     @inlinable func set(buffered: Bool) {
+        
         g_io_channel_set_buffered(io_channel_ptr, gboolean((buffered) ? 1 : 0))
-    
+        
     }
 
     /// Whether to close the channel on the final unref of the `GIOChannel`
@@ -626,8 +947,9 @@ public extension IOChannelProtocol {
     /// Setting this flag to `true` for a channel you have already closed
     /// can cause problems when the final reference to the `GIOChannel` is dropped.
     @inlinable func setCloseOnUnref(doClose: Bool) {
+        
         g_io_channel_set_close_on_unref(io_channel_ptr, gboolean((doClose) ? 1 : 0))
-    
+        
     }
 
     /// Sets the encoding for the input/output of the channel.
@@ -666,24 +988,27 @@ public extension IOChannelProtocol {
     /// calling one of the API "read" functions.
     @inlinable func set(encoding: UnsafePointer<gchar>? = nil) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_set_encoding(io_channel_ptr, encoding, &error)
+        let result = g_io_channel_set_encoding(io_channel_ptr, encoding, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Sets the (writeable) flags in `channel` to (`flags` & `G_IO_FLAG_SET_MASK`).
     @inlinable func set(flags: IOFlags) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_set_flags(io_channel_ptr, flags.value, &error)
+        let result = g_io_channel_set_flags(io_channel_ptr, flags.value, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// This sets the string that `GIOChannel` uses to determine
     /// where in the file a line break occurs.
     @inlinable func set(lineTerm: UnsafePointer<gchar>? = nil, length: Int) {
+        
         g_io_channel_set_line_term(io_channel_ptr, lineTerm, gint(length))
-    
+        
     }
 
     /// Close an IO channel. Any pending data to be written will be
@@ -691,8 +1016,9 @@ public extension IOChannelProtocol {
     /// last reference is dropped using `g_io_channel_unref()`.
     @inlinable func shutdown(flush: Bool) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_shutdown(io_channel_ptr, gboolean((flush) ? 1 : 0), &error)
+        let result = g_io_channel_shutdown(io_channel_ptr, gboolean((flush) ? 1 : 0), &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
@@ -701,14 +1027,16 @@ public extension IOChannelProtocol {
     /// On Windows this function returns the file descriptor or socket of
     /// the `GIOChannel`.
     @inlinable func unixGetFd() -> Int {
-        let rv = Int(g_io_channel_unix_get_fd(io_channel_ptr))
+        let result = g_io_channel_unix_get_fd(io_channel_ptr)
+        let rv = Int(result)
         return rv
     }
 
     /// Decrements the reference count of a `GIOChannel`.
     @inlinable func unref() {
+        
         g_io_channel_unref(io_channel_ptr)
-    
+        
     }
 
     /// Writes data to a `GIOChannel`.
@@ -716,7 +1044,8 @@ public extension IOChannelProtocol {
     /// **write is deprecated:**
     /// Use g_io_channel_write_chars() instead.
     @available(*, deprecated) @inlinable func write(buf: UnsafePointer<gchar>!, count: Int, bytesWritten: UnsafeMutablePointer<gsize>!) -> GIOError {
-        let rv = g_io_channel_write(io_channel_ptr, buf, gsize(count), bytesWritten)
+        let result = g_io_channel_write(io_channel_ptr, buf, gsize(count), bytesWritten)
+        let rv = result
         return rv
     }
 
@@ -728,8 +1057,9 @@ public extension IOChannelProtocol {
     /// cases described in the documentation for g_io_channel_set_encoding ().
     @inlinable func writeChars(buf: UnsafePointer<gchar>!, count: gssize, bytesWritten: UnsafeMutablePointer<gsize>!) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_write_chars(io_channel_ptr, buf, count, bytesWritten, &error)
+        let result = g_io_channel_write_chars(io_channel_ptr, buf, count, bytesWritten, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
@@ -737,15 +1067,17 @@ public extension IOChannelProtocol {
     /// This function cannot be called on a channel with `nil` encoding.
     @inlinable func writeUnichar(thechar: gunichar) throws -> GIOStatus {
         var error: UnsafeMutablePointer<GError>?
-        let rv = g_io_channel_write_unichar(io_channel_ptr, thechar, &error)
+        let result = g_io_channel_write_unichar(io_channel_ptr, thechar, &error)
         if let error = error { throw GLibError(error) }
+        let rv = result
         return rv
     }
 
     /// Adds the `GIOChannel` into the default main loop context
     /// with the default priority.
-    @inlinable func ioAddWatch(condition: IOCondition, `func`: GIOFunc?, userData: gpointer! = nil) -> Int {
-        let rv = Int(g_io_add_watch(io_channel_ptr, condition.value, `func`, userData))
+    @inlinable func ioAddWatch(condition: IOCondition, `func`: GIOFunc?, userData: gpointer? = nil) -> Int {
+        let result = g_io_add_watch(io_channel_ptr, condition.value, `func`, userData)
+        let rv = Int(result)
         return rv
     }
 
@@ -755,8 +1087,9 @@ public extension IOChannelProtocol {
     /// This internally creates a main loop source using `g_io_create_watch()`
     /// and attaches it to the main loop context with `g_source_attach()`.
     /// You can do these steps manually if you need greater control.
-    @inlinable func ioAddWatchFull(priority: Int, condition: IOCondition, `func`: GIOFunc?, userData: gpointer! = nil, notify: GDestroyNotify?) -> Int {
-        let rv = Int(g_io_add_watch_full(io_channel_ptr, gint(priority), condition.value, `func`, userData, notify))
+    @inlinable func ioAddWatchFull(priority: Int, condition: IOCondition, `func`: GIOFunc?, userData: gpointer? = nil, notify: GDestroyNotify?) -> Int {
+        let result = g_io_add_watch_full(io_channel_ptr, gint(priority), condition.value, `func`, userData, notify)
+        let rv = Int(result)
         return rv
     }
 
@@ -775,18 +1108,20 @@ public extension IOChannelProtocol {
     /// puts the socket in non-blocking mode. This is a side-effect of the
     /// implementation and unavoidable.
     @inlinable func ioCreateWatch(condition: IOCondition) -> SourceRef! {
-        let rv = SourceRef(gconstpointer: gconstpointer(g_io_create_watch(io_channel_ptr, condition.value)))
+        let result = g_io_create_watch(io_channel_ptr, condition.value)
+        let rv = SourceRef(gconstpointer: gconstpointer(result))
         return rv
     }
     /// This function returns a `GIOCondition` depending on whether there
     /// is data to be read/space to write data in the internal buffers in
     /// the `GIOChannel`. Only the flags `G_IO_IN` and `G_IO_OUT` may be set.
-    @inlinable var bufferCondition: IOCondition {
+    @inlinable var bufferCondition: GLib.IOCondition {
         /// This function returns a `GIOCondition` depending on whether there
         /// is data to be read/space to write data in the internal buffers in
         /// the `GIOChannel`. Only the flags `G_IO_IN` and `G_IO_OUT` may be set.
         get {
-            let rv = IOCondition(g_io_channel_get_buffer_condition(io_channel_ptr))
+            let result = g_io_channel_get_buffer_condition(io_channel_ptr)
+        let rv = IOCondition(result)
             return rv
         }
     }
@@ -795,7 +1130,8 @@ public extension IOChannelProtocol {
     @inlinable var bufferSize: Int {
         /// Gets the buffer size.
         get {
-            let rv = Int(g_io_channel_get_buffer_size(io_channel_ptr))
+            let result = g_io_channel_get_buffer_size(io_channel_ptr)
+        let rv = Int(result)
             return rv
         }
         /// Sets the buffer size.
@@ -808,7 +1144,8 @@ public extension IOChannelProtocol {
     @inlinable var buffered: Bool {
         /// Returns whether `channel` is buffered.
         get {
-            let rv = ((g_io_channel_get_buffered(io_channel_ptr)) != 0)
+            let result = g_io_channel_get_buffered(io_channel_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// The buffering state can only be set if the channel's encoding
@@ -845,7 +1182,8 @@ public extension IOChannelProtocol {
         /// destroyed. The default value of this is `true` for channels created
         /// by g_io_channel_new_file (), and `false` for all other channels.
         get {
-            let rv = ((g_io_channel_get_close_on_unref(io_channel_ptr)) != 0)
+            let result = g_io_channel_get_close_on_unref(io_channel_ptr)
+        let rv = ((result) != 0)
             return rv
         }
         /// Whether to close the channel on the final unref of the `GIOChannel`
@@ -867,7 +1205,8 @@ public extension IOChannelProtocol {
         /// The internal encoding is always UTF-8. The encoding `nil`
         /// makes the channel safe for binary data.
         get {
-            let rv = g_io_channel_get_encoding(io_channel_ptr).map({ String(cString: $0) })
+            let result = g_io_channel_get_encoding(io_channel_ptr)
+        let rv = result.map({ String(cString: $0) })
             return rv
         }
         /// Sets the encoding for the input/output of the channel.
@@ -905,9 +1244,9 @@ public extension IOChannelProtocol {
         /// they are "seekable", cannot call `g_io_channel_write_chars()` after
         /// calling one of the API "read" functions.
         nonmutating set {
-            var error: UnsafeMutablePointer<GError>?
-            _ = g_io_channel_set_encoding(io_channel_ptr, newValue, &error)
-            g_log(messagePtr: error?.pointee.message, level: .error)
+                var error: UnsafeMutablePointer<GError>?
+        _ = g_io_channel_set_encoding(io_channel_ptr, newValue, &error)
+        g_log(messagePtr: error?.pointee.message, level: .error)
         }
     }
 
@@ -920,7 +1259,7 @@ public extension IOChannelProtocol {
     /// of a socket with the UNIX `shutdown()` function), the user
     /// should immediately call `g_io_channel_get_flags()` to update
     /// the internal values of these flags.
-    @inlinable var flags: IOFlags {
+    @inlinable var flags: GLib.IOFlags {
         /// Gets the current flags for a `GIOChannel`, including read-only
         /// flags such as `G_IO_FLAG_IS_READABLE`.
         /// 
@@ -931,14 +1270,15 @@ public extension IOChannelProtocol {
         /// should immediately call `g_io_channel_get_flags()` to update
         /// the internal values of these flags.
         get {
-            let rv = IOFlags(g_io_channel_get_flags(io_channel_ptr))
+            let result = g_io_channel_get_flags(io_channel_ptr)
+        let rv = IOFlags(result)
             return rv
         }
         /// Sets the (writeable) flags in `channel` to (`flags` & `G_IO_FLAG_SET_MASK`).
         nonmutating set {
-            var error: UnsafeMutablePointer<GError>?
-            _ = g_io_channel_set_flags(io_channel_ptr, newValue.value, &error)
-            g_log(messagePtr: error?.pointee.message, level: .error)
+                var error: UnsafeMutablePointer<GError>?
+        _ = g_io_channel_set_flags(io_channel_ptr, newValue.value, &error)
+        g_log(messagePtr: error?.pointee.message, level: .error)
         }
     }
 
@@ -1269,827 +1609,6 @@ public extension IOFuncsProtocol {
     // var ioSetFlags is unavailable because io_set_flags is void
 
     // var ioGetFlags is unavailable because io_get_flags is void
-
-}
-
-
-
-// MARK: - KeyFile Record
-
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
-///
-/// The `KeyFileProtocol` protocol exposes the methods and properties of an underlying `GKeyFile` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `KeyFile`.
-/// Alternatively, use `KeyFileRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-public protocol KeyFileProtocol {
-        /// Untyped pointer to the underlying `GKeyFile` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `GKeyFile` instance.
-    var key_file_ptr: UnsafeMutablePointer<GKeyFile>! { get }
-
-    /// Required Initialiser for types conforming to `KeyFileProtocol`
-    init(raw: UnsafeMutableRawPointer)
-}
-
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
-///
-/// The `KeyFileRef` type acts as a lightweight Swift reference to an underlying `GKeyFile` instance.
-/// It exposes methods that can operate on this data type through `KeyFileProtocol` conformance.
-/// Use `KeyFileRef` only as an `unowned` reference to an existing `GKeyFile` instance.
-///
-public struct KeyFileRef: KeyFileProtocol {
-        /// Untyped pointer to the underlying `GKeyFile` instance.
-    /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension KeyFileRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GKeyFile>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<GKeyFile>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `KeyFileProtocol`
-    @inlinable init<T: KeyFileProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-        /// Creates a new empty `GKeyFile` object. Use
-    /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
-    /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
-    /// read an existing key file.
-    @inlinable init() {
-        let rv = g_key_file_new()
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-}
-
-/// The GKeyFile struct contains only private data
-/// and should not be accessed directly.
-///
-/// The `KeyFile` type acts as a reference-counted owner of an underlying `GKeyFile` instance.
-/// It provides the methods that can operate on this data type through `KeyFileProtocol` conformance.
-/// Use `KeyFile` as a strong reference or owner of a `GKeyFile` instance.
-///
-open class KeyFile: KeyFileProtocol {
-        /// Untyped pointer to the underlying `GKeyFile` instance.
-    /// For type-safe access, use the generated, typed pointer `key_file_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GKeyFile>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GKeyFile>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// Will retain `GKeyFile`.
-    /// i.e., ownership is transferred to the `KeyFile` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GKeyFile>) {
-        ptr = UnsafeMutableRawPointer(op)
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Reference intialiser for a related type that implements `KeyFileProtocol`
-    /// Will retain `GKeyFile`.
-    /// - Parameter other: an instance of a related type that implements `KeyFileProtocol`
-    @inlinable public init<T: KeyFileProtocol>(_ other: T) {
-        ptr = other.ptr
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Releases the underlying `GKeyFile` instance using `g_key_file_unref`.
-    deinit {
-        g_key_file_unref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyFileProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        g_key_file_ref(ptr.assumingMemoryBound(to: GKeyFile.self))
-    }
-
-    /// Creates a new empty `GKeyFile` object. Use
-    /// `g_key_file_load_from_file()`, `g_key_file_load_from_data()`,
-    /// `g_key_file_load_from_dirs()` or `g_key_file_load_from_data_dirs()` to
-    /// read an existing key file.
-    @inlinable public init() {
-        let rv = g_key_file_new()
-        ptr = UnsafeMutableRawPointer(rv)
-    }
-
-
-}
-
-// MARK: no KeyFile properties
-
-// MARK: no KeyFile signals
-
-// MARK: KeyFile has no signals
-// MARK: KeyFile Record: KeyFileProtocol extension (methods and fields)
-public extension KeyFileProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `GKeyFile` instance.
-    @inlinable var key_file_ptr: UnsafeMutablePointer<GKeyFile>! { return ptr?.assumingMemoryBound(to: GKeyFile.self) }
-
-    /// Clears all keys and groups from `key_file`, and decreases the
-    /// reference count by 1. If the reference count reaches zero,
-    /// frees the key file and all its allocated memory.
-    @inlinable func free() {
-        g_key_file_free(key_file_ptr)
-    
-    }
-
-    /// Returns the value associated with `key` under `group_name` as a
-    /// boolean.
-    /// 
-    /// If `key` cannot be found then `false` is returned and `error` is set
-    /// to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the value
-    /// associated with `key` cannot be interpreted as a boolean then `false`
-    /// is returned and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getBoolean(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_get_boolean(key_file_ptr, groupName, key, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the values associated with `key` under `group_name` as
-    /// booleans.
-    /// 
-    /// If `key` cannot be found then `nil` is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the values associated
-    /// with `key` cannot be interpreted as booleans then `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getBooleanList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gboolean>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_boolean_list(key_file_ptr, groupName, key, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Retrieves a comment above `key` from `group_name`.
-    /// If `key` is `nil` then `comment` will be read from above
-    /// `group_name`. If both `key` and `group_name` are `nil`, then
-    /// `comment` will be read from above the first group in the file.
-    /// 
-    /// Note that the returned string does not include the '#' comment markers,
-    /// but does include any whitespace after them (on each line). It includes
-    /// the line breaks between lines, but does not include the final line break.
-    @inlinable func getComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil) throws -> String! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_comment(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the value associated with `key` under `group_name` as a
-    /// double. If `group_name` is `nil`, the start_group is used.
-    /// 
-    /// If `key` cannot be found then 0.0 is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the value associated
-    /// with `key` cannot be interpreted as a double then 0.0 is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getDouble(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Double {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = Double(g_key_file_get_double(key_file_ptr, groupName, key, &error))
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the values associated with `key` under `group_name` as
-    /// doubles.
-    /// 
-    /// If `key` cannot be found then `nil` is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the values associated
-    /// with `key` cannot be interpreted as doubles then `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getDoubleList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gdouble>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_double_list(key_file_ptr, groupName, key, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns all groups in the key file loaded with `key_file`.
-    /// The array of returned groups will be `nil`-terminated, so
-    /// `length` may optionally be `nil`.
-    @inlinable func getGroups(length: UnsafeMutablePointer<gsize>! = nil) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        let rv = g_key_file_get_groups(key_file_ptr, length)
-        return rv
-    }
-
-    /// Returns the value associated with `key` under `group_name` as a signed
-    /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
-    /// 64-bit results without truncation.
-    @inlinable func getInt64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> gint64 {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_int64(key_file_ptr, groupName, key, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the value associated with `key` under `group_name` as an
-    /// integer.
-    /// 
-    /// If `key` cannot be found then 0 is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the value associated
-    /// with `key` cannot be interpreted as an integer, or is out of range
-    /// for a `gint`, then 0 is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getInteger(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Int {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = Int(g_key_file_get_integer(key_file_ptr, groupName, key, &error))
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the values associated with `key` under `group_name` as
-    /// integers.
-    /// 
-    /// If `key` cannot be found then `nil` is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. Likewise, if the values associated
-    /// with `key` cannot be interpreted as integers, or are out of range for
-    /// `gint`, then `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_INVALID_VALUE`.
-    @inlinable func getIntegerList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>!) throws -> UnsafeMutablePointer<gint>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_integer_list(key_file_ptr, groupName, key, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns all keys for the group name `group_name`.  The array of
-    /// returned keys will be `nil`-terminated, so `length` may
-    /// optionally be `nil`. In the event that the `group_name` cannot
-    /// be found, `nil` is returned and `error` is set to
-    /// `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    @inlinable func getKeys(groupName: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_keys(key_file_ptr, groupName, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the actual locale which the result of
-    /// `g_key_file_get_locale_string()` or `g_key_file_get_locale_string_list()`
-    /// came from.
-    /// 
-    /// If calling `g_key_file_get_locale_string()` or
-    /// `g_key_file_get_locale_string_list()` with exactly the same `key_file`,
-    /// `group_name`, `key` and `locale`, the result of those functions will
-    /// have originally been tagged with the locale that is the result of
-    /// this function.
-    @inlinable func getLocaleForKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil) -> String! {
-        let rv = g_key_file_get_locale_for_key(key_file_ptr, groupName, key, locale).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Returns the value associated with `key` under `group_name`
-    /// translated in the given `locale` if available.  If `locale` is
-    /// `nil` then the current locale is assumed.
-    /// 
-    /// If `locale` is to be non-`nil`, or if the current locale will change over
-    /// the lifetime of the `GKeyFile`, it must be loaded with
-    /// `G_KEY_FILE_KEEP_TRANSLATIONS` in order to load strings for all locales.
-    /// 
-    /// If `key` cannot be found then `nil` is returned and `error` is set
-    /// to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. If the value associated
-    /// with `key` cannot be interpreted or no suitable translation can
-    /// be found then the untranslated value is returned.
-    @inlinable func getLocaleString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil) throws -> String! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_locale_string(key_file_ptr, groupName, key, locale, &error).map({ String(cString: $0) })
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the values associated with `key` under `group_name`
-    /// translated in the given `locale` if available.  If `locale` is
-    /// `nil` then the current locale is assumed.
-    /// 
-    /// If `locale` is to be non-`nil`, or if the current locale will change over
-    /// the lifetime of the `GKeyFile`, it must be loaded with
-    /// `G_KEY_FILE_KEEP_TRANSLATIONS` in order to load strings for all locales.
-    /// 
-    /// If `key` cannot be found then `nil` is returned and `error` is set
-    /// to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`. If the values associated
-    /// with `key` cannot be interpreted or no suitable translations
-    /// can be found then the untranslated values are returned. The
-    /// returned array is `nil`-terminated, so `length` may optionally
-    /// be `nil`.
-    @inlinable func getLocaleStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>? = nil, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_locale_string_list(key_file_ptr, groupName, key, locale, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the name of the start group of the file.
-    @inlinable func getStartGroup() -> String! {
-        let rv = g_key_file_get_start_group(key_file_ptr).map({ String(cString: $0) })
-        return rv
-    }
-
-    /// Returns the string value associated with `key` under `group_name`.
-    /// Unlike `g_key_file_get_value()`, this function handles escape sequences
-    /// like \s.
-    /// 
-    /// In the event the key cannot be found, `nil` is returned and
-    /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
-    /// event that the `group_name` cannot be found, `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    @inlinable func getString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> String! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_string(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the values associated with `key` under `group_name`.
-    /// 
-    /// In the event the key cannot be found, `nil` is returned and
-    /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
-    /// event that the `group_name` cannot be found, `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    @inlinable func getStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, length: UnsafeMutablePointer<gsize>! = nil) throws -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_string_list(key_file_ptr, groupName, key, length, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the value associated with `key` under `group_name` as an unsigned
-    /// 64-bit integer. This is similar to `g_key_file_get_integer()` but can return
-    /// large positive results without truncation.
-    @inlinable func getUint64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> guint64 {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_uint64(key_file_ptr, groupName, key, &error)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Returns the raw value associated with `key` under `group_name`.
-    /// Use `g_key_file_get_string()` to retrieve an unescaped UTF-8 string.
-    /// 
-    /// In the event the key cannot be found, `nil` is returned and
-    /// `error` is set to `G_KEY_FILE_ERROR_KEY_NOT_FOUND`.  In the
-    /// event that the `group_name` cannot be found, `nil` is returned
-    /// and `error` is set to `G_KEY_FILE_ERROR_GROUP_NOT_FOUND`.
-    @inlinable func getValue(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> String! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_get_value(key_file_ptr, groupName, key, &error).map({ String(cString: $0) })
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Looks whether the key file has the group `group_name`.
-    @inlinable func hasGroup(groupName: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((g_key_file_has_group(key_file_ptr, groupName)) != 0)
-        return rv
-    }
-
-    /// Looks whether the key file has the key `key` in the group
-    /// `group_name`.
-    /// 
-    /// Note that this function does not follow the rules for `GError` strictly;
-    /// the return value both carries meaning and signals an error.  To use
-    /// this function, you must pass a `GError` pointer in `error`, and check
-    /// whether it is not `nil` to see if an error occurred.
-    /// 
-    /// Language bindings should use `g_key_file_get_value()` to test whether
-    /// or not a key exists.
-    @inlinable func hasKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_has_key(key_file_ptr, groupName, key, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Loads a key file from the data in `bytes` into an empty `GKeyFile` structure.
-    /// If the object cannot be created then `error` is set to a `GKeyFileError`.
-    @inlinable func loadFrom<BytesT: BytesProtocol>(bytes: BytesT, flags: KeyFileFlags) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_load_from_bytes(key_file_ptr, bytes.bytes_ptr, flags.value, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Loads a key file from memory into an empty `GKeyFile` structure.
-    /// If the object cannot be created then `error` is set to a `GKeyFileError`.
-    @inlinable func loadFrom(data: UnsafePointer<gchar>!, length: Int, flags: KeyFileFlags) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_load_from_data(key_file_ptr, data, gsize(length), flags.value, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// This function looks for a key file named `file` in the paths
-    /// returned from `g_get_user_data_dir()` and `g_get_system_data_dirs()`,
-    /// loads the file into `key_file` and returns the file's full path in
-    /// `full_path`.  If the file could not be loaded then an `error` is
-    /// set to either a `GFileError` or `GKeyFileError`.
-    @inlinable func loadFromDataDirs(file: UnsafePointer<gchar>!, fullPath: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: KeyFileFlags) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_load_from_data_dirs(key_file_ptr, file, fullPath, flags.value, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// This function looks for a key file named `file` in the paths
-    /// specified in `search_dirs`, loads the file into `key_file` and
-    /// returns the file's full path in `full_path`.
-    /// 
-    /// If the file could not be found in any of the `search_dirs`,
-    /// `G_KEY_FILE_ERROR_NOT_FOUND` is returned. If
-    /// the file is found but the OS returns an error when opening or reading the
-    /// file, a `G_FILE_ERROR` is returned. If there is a problem parsing the file, a
-    /// `G_KEY_FILE_ERROR` is returned.
-    @inlinable func loadFromDirs(file: UnsafePointer<gchar>!, searchDirs: UnsafeMutablePointer<UnsafePointer<gchar>?>!, fullPath: UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! = nil, flags: KeyFileFlags) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_load_from_dirs(key_file_ptr, file, searchDirs, fullPath, flags.value, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Loads a key file into an empty `GKeyFile` structure.
-    /// 
-    /// If the OS returns an error when opening or reading the file, a
-    /// `G_FILE_ERROR` is returned. If there is a problem parsing the file, a
-    /// `G_KEY_FILE_ERROR` is returned.
-    /// 
-    /// This function will never return a `G_KEY_FILE_ERROR_NOT_FOUND` error. If the
-    /// `file` is not found, `G_FILE_ERROR_NOENT` is returned.
-    @inlinable func loadFrom(file: UnsafePointer<gchar>!, flags: KeyFileFlags) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_load_from_file(key_file_ptr, file, flags.value, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Increases the reference count of `key_file`.
-    @discardableResult @inlinable func ref() -> KeyFileRef! {
-        guard let rv = KeyFileRef(gconstpointer: gconstpointer(g_key_file_ref(key_file_ptr))) else { return nil }
-        return rv
-    }
-
-    /// Removes a comment above `key` from `group_name`.
-    /// If `key` is `nil` then `comment` will be removed above `group_name`.
-    /// If both `key` and `group_name` are `nil`, then `comment` will
-    /// be removed above the first group in the file.
-    @inlinable func removeComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_remove_comment(key_file_ptr, groupName, key, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Removes the specified group, `group_name`,
-    /// from the key file.
-    @inlinable func removeGroup(groupName: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_remove_group(key_file_ptr, groupName, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Removes `key` in `group_name` from the key file.
-    @inlinable func removeKey(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_remove_key(key_file_ptr, groupName, key, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Writes the contents of `key_file` to `filename` using
-    /// `g_file_set_contents()`. If you need stricter guarantees about durability of
-    /// the written file than are provided by `g_file_set_contents()`, use
-    /// `g_file_set_contents_full()` with the return value of `g_key_file_to_data()`.
-    /// 
-    /// This function can fail for any of the reasons that
-    /// `g_file_set_contents()` may fail.
-    @inlinable func saveToFile(filename: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_save_to_file(key_file_ptr, filename, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Associates a new boolean value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setBoolean(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Bool) {
-        g_key_file_set_boolean(key_file_ptr, groupName, key, gboolean((value) ? 1 : 0))
-    
-    }
-
-    /// Associates a list of boolean values with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    /// If `group_name` is `nil`, the start_group is used.
-    @inlinable func setBooleanList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gboolean>!, length: Int) {
-        g_key_file_set_boolean_list(key_file_ptr, groupName, key, list, gsize(length))
-    
-    }
-
-    /// Places a comment above `key` from `group_name`.
-    /// 
-    /// If `key` is `nil` then `comment` will be written above `group_name`.
-    /// If both `key` and `group_name`  are `nil`, then `comment` will be
-    /// written above the first group in the file.
-    /// 
-    /// Note that this function prepends a '#' comment marker to
-    /// each line of `comment`.
-    @inlinable func setComment(groupName: UnsafePointer<gchar>? = nil, key: UnsafePointer<gchar>? = nil, comment: UnsafePointer<gchar>!) throws -> Bool {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = ((g_key_file_set_comment(key_file_ptr, groupName, key, comment, &error)) != 0)
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Associates a new double value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setDouble(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Double) {
-        g_key_file_set_double(key_file_ptr, groupName, key, gdouble(value))
-    
-    }
-
-    /// Associates a list of double values with `key` under
-    /// `group_name`.  If `key` cannot be found then it is created.
-    @inlinable func setDoubleList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gdouble>!, length: Int) {
-        g_key_file_set_double_list(key_file_ptr, groupName, key, list, gsize(length))
-    
-    }
-
-    /// Associates a new integer value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setInt64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: gint64) {
-        g_key_file_set_int64(key_file_ptr, groupName, key, value)
-    
-    }
-
-    /// Associates a new integer value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setInteger(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: Int) {
-        g_key_file_set_integer(key_file_ptr, groupName, key, gint(value))
-    
-    }
-
-    /// Associates a list of integer values with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setIntegerList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafeMutablePointer<gint>!, length: Int) {
-        g_key_file_set_integer_list(key_file_ptr, groupName, key, list, gsize(length))
-    
-    }
-
-    /// Sets the character which is used to separate
-    /// values in lists. Typically ';' or ',' are used
-    /// as separators. The default list separator is ';'.
-    @inlinable func setList(separator: gchar) {
-        g_key_file_set_list_separator(key_file_ptr, separator)
-    
-    }
-
-    /// Associates a string value for `key` and `locale` under `group_name`.
-    /// If the translation for `key` cannot be found then it is created.
-    @inlinable func setLocaleString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>!, string: UnsafePointer<gchar>!) {
-        g_key_file_set_locale_string(key_file_ptr, groupName, key, locale, string)
-    
-    }
-
-    /// Associates a list of string values for `key` and `locale` under
-    /// `group_name`.  If the translation for `key` cannot be found then
-    /// it is created.
-    @inlinable func setLocaleStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, locale: UnsafePointer<gchar>!, list: UnsafePointer<UnsafePointer<gchar>?>!, length: Int) {
-        g_key_file_set_locale_string_list(key_file_ptr, groupName, key, locale, list, gsize(length))
-    
-    }
-
-    /// Associates a new string value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    /// If `group_name` cannot be found then it is created.
-    /// Unlike `g_key_file_set_value()`, this function handles characters
-    /// that need escaping, such as newlines.
-    @inlinable func setString(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, string: UnsafePointer<gchar>!) {
-        g_key_file_set_string(key_file_ptr, groupName, key, string)
-    
-    }
-
-    /// Associates a list of string values for `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    /// If `group_name` cannot be found then it is created.
-    @inlinable func setStringList(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, list: UnsafePointer<UnsafePointer<gchar>?>!, length: Int) {
-        g_key_file_set_string_list(key_file_ptr, groupName, key, list, gsize(length))
-    
-    }
-
-    /// Associates a new integer value with `key` under `group_name`.
-    /// If `key` cannot be found then it is created.
-    @inlinable func setUint64(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: guint64) {
-        g_key_file_set_uint64(key_file_ptr, groupName, key, value)
-    
-    }
-
-    /// Associates a new value with `key` under `group_name`.
-    /// 
-    /// If `key` cannot be found then it is created. If `group_name` cannot
-    /// be found then it is created. To set an UTF-8 string which may contain
-    /// characters that need escaping (such as newlines or spaces), use
-    /// `g_key_file_set_string()`.
-    @inlinable func setValue(groupName: UnsafePointer<gchar>!, key: UnsafePointer<gchar>!, value: UnsafePointer<gchar>!) {
-        g_key_file_set_value(key_file_ptr, groupName, key, value)
-    
-    }
-
-    /// This function outputs `key_file` as a string.
-    /// 
-    /// Note that this function never reports an error,
-    /// so it is safe to pass `nil` as `error`.
-    @inlinable func toData(length: UnsafeMutablePointer<gsize>! = nil) throws -> String! {
-        var error: UnsafeMutablePointer<GError>?
-        let rv = g_key_file_to_data(key_file_ptr, length, &error).map({ String(cString: $0) })
-        if let error = error { throw GLibError(error) }
-        return rv
-    }
-
-    /// Decreases the reference count of `key_file` by 1. If the reference count
-    /// reaches zero, frees the key file and all its allocated memory.
-    @inlinable func unref() {
-        g_key_file_unref(key_file_ptr)
-    
-    }
-    /// Returns the name of the start group of the file.
-    @inlinable var startGroup: String! {
-        /// Returns the name of the start group of the file.
-        get {
-            let rv = g_key_file_get_start_group(key_file_ptr).map({ String(cString: $0) })
-            return rv
-        }
-    }
-
 
 }
 
