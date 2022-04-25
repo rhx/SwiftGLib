@@ -93,7 +93,7 @@ You can generate documentation using the [DocC plugin](https://apple.github.io/s
 
     swift package --disable-sandbox preview-documentation
 
-Then navigate to URL shown for the local preview server.  Make sure you have JavaScript enabled in your browser.
+then navigate to the URL shown for the local preview server.  Make sure you have JavaScript enabled in your browser.
 
 Alternatively, you can create static documentation using [jazzy](https://github.com/realm/jazzy).
 Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS (x86_64):
