@@ -9,7 +9,7 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 ## What is new?
 
 Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
-(older versions can be used via the `swift52` branch).
+(older versions can be used via the [swift52](https://github.com/rhx/SwiftGLib/tree/swift52) branch).
 
 ## Prerequisites
 
