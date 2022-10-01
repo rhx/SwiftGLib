@@ -123,7 +123,9 @@ class GLibTests: XCTestCase {
         }
         XCTAssertFalse(context.pending())
     }
-    
+
+// FIXME: macOS concurrency interferes with testing multiple different log hooks
+#if !os(macOS)
     func testLog() {
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
@@ -192,6 +194,7 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
+#endif
 
     func testLogDomainLevel() {
         var logResult = false
