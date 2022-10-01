@@ -46,3 +46,9 @@ s|\(func get.*Dirs.*\)UnsafeMutablePointer<UnsafeMutablePointer<gchar>|\1UnsafeP
 s|\GStrv[ 	]|\GStrv! |
 s|@available(\*, deprecated) @inlinable init( identifier: UnsafePointer<gchar>? = nil)|@available(\*, deprecated) @inlinable init(identifierOrUtc identifier: UnsafePointer<gchar>? = nil)|g
 s|@available(\*, deprecated) @inlinable public init( identifier: UnsafePointer<gchar>? = nil)|@available(\*, deprecated) @inlinable public init(identiferOrUtc identifier: UnsafePointer<gchar>? = nil)|g
+s/List/AnyList/g
+s/GAnyList/GList/g
+s/GSAnyList/GSList/g
+s/SAnyList/AnySList/g
+s/VaAnyList/VaList/g
+s/HookAnyList/HookList/g
