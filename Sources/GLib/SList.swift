@@ -9,16 +9,17 @@ import CGLib
 
 /// Protocol for a typed `SList`, representing each element in a singly-linked list.
 ///
-/// The `SListProtocol` protocol exposes the methods and properties of an underlying `GSList` instance.
+/// The `TypedSListProtocol` protocol exposes the methods and properties of an underlying `GSList` instance.
 /// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `SList`.
-/// Alternatively, use `SListRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-public protocol SListProtocol: AnySListProtocol {
+/// For a concrete class that implements these methods and properties, see `TypedSList`.
+/// Alternatively, use `TypedSListRef` as a lighweight, `unowned` reference
+/// if you already have an instance you just want to use.
+public protocol TypedSListProtocol: SListProtocol, Swift.Sequence {
     /// The element contained in each `SList` node.
     associatedtype Element: GPointerConstructible
 }
 
-public extension SListProtocol {
+public extension TypedSListProtocol {
     /// Create an interator over a`ListRef`
     /// - Returns: a list iterator
     @inlinable func makeIterator() -> SListIterator<Element> {
@@ -31,20 +32,20 @@ public extension SListProtocol {
     }
 }
 
-/// The `SList` class acts as a typed, memory-managed wrapper around `GSList`,
+/// The `TypedSList` class acts as a typed, memory-managed wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public class SList<Element: GPointerConstructible>: AnyList, SListProtocol {
+public class TypedSList<Element: GPointerConstructible>: SList, TypedSListProtocol {
 }
 
-/// The `SListRef` struct acts as a lightweight, typed wrapper around `GSList`,
+/// The `TypedSListRef` struct acts as a lightweight, typed wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public struct SListRef<Element: GPointerConstructible>: SListProtocol {
+public struct TypedSListRef<Element: GPointerConstructible>: TypedSListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }
 
-public extension SListRef {
+public extension TypedSListRef {
     /// Designated initialiser from the underlying `C` data type
     @inlinable init(_ p: UnsafeMutablePointer<GList>) {
         ptr = UnsafeMutableRawPointer(p)
@@ -79,8 +80,8 @@ public extension SListRef {
         ptr = p
     }
 
-    /// Reference intialiser for a related type that implements `AnyListProtocol`
-    @inlinable init<T: AnyListProtocol>(_ other: T) {
+    /// Reference intialiser for a related type that implements `SListProtocol`
+    @inlinable init<T: SListProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
@@ -114,9 +115,6 @@ public extension SListRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 }
-
-extension SList: Swift.Sequence {}
-extension SListRef: Swift.Sequence {}
 
 /// A lightweight iterator over a `GSList`
 public struct SListIterator<Element: GPointerConstructible>: IteratorProtocol {

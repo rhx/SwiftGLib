@@ -258,4 +258,17 @@ class GLibTests: XCTestCase {
             XCTAssertEqual(ieee.mpn.sign, 1)
         }
     }
+
+    func testArray() {
+        var array: TypedArray = [0, 1, 2, 3, 4, 5]
+        for (element, index) in array.enumerated() {
+            XCTAssertEqual(element, array[index])
+            XCTAssertEqual(element, index)
+            array[index] *= 2
+        }
+        for (element, index) in array.enumerated() {
+            XCTAssertEqual(element, array[index])
+            XCTAssertEqual(element, index*2)
+        }
+    }
 }
