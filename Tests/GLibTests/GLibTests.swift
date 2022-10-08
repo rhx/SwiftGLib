@@ -375,4 +375,17 @@ class GLibTests: XCTestCase {
         XCTAssertEqual(tl.count, i)
         XCTAssertEqual(tl.endIndex, g)
     }
+
+    func testByteArray() {
+        var array: ByteArray = [0, 1, 2, 3, 4, 5]
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, UInt8(i))
+            array[i] *= 2
+        }
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, UInt8(i*2))
+        }
+    }
 }
