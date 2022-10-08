@@ -7,7 +7,8 @@
 //
 import CGLib
 
-/// Protocol for a typed `Sequence`, representing each element in a sequence.
+/// Protocol for a typed `Sequence`, representing each element in a sequence
+/// with a pointer pointing to the element data.
 ///
 /// The `TypedSequenceProtocol` protocol exposes the methods and properties of an underlying `GSequence` instance.
 /// The default implementation of these can be found in the protocol extension below.
@@ -16,7 +17,7 @@ import CGLib
 /// if you already have an instance you just want to use.
 public protocol TypedSequenceProtocol: SequenceProtocol, BidirectionalCollection, MutableCollection {
     /// The element contained in each `SList` node.
-    associatedtype Element: GPointerConstructible
+    associatedtype Element
 }
 
 public extension TypedSequenceProtocol {
@@ -50,18 +51,34 @@ public extension TypedSequenceProtocol {
 
     /// Create an interator over a`TypedSequence`
     /// - Returns: a list iterator
-    @inlinable func makeIterator() -> SequenceIterator<Element> {
-        SequenceIterator(getBeginIter())
+    @inlinable func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
     }
-
-    /// Get the element at the given position
+    /// Get or set an element pointer at the given position
+    ///
     /// - Parameter position: The position in the sequence to retrieve the element from
+    ///
+    /// This subscript treats the node referenced by `position`
+    /// as containing a pointer to `Element`.
+    ///
+    /// - note: The setter of this subscript will always allocate memory for
+    /// the element being emplaced. This memory will need to be freed manually
+    /// if a `DestroyNotify` function to deallocate memory has not been set
+    /// (the corresponding pointer can be retrieved by calling
+    /// `position.sequenceGet()`).
     @inlinable subscript(position: SequenceIterRef) -> Element {
         get {
-            position.sequenceGet().flatMap { Element(gpointer: $0) }!
+            guard var data = position.sequenceGet() else {
+                fatalError("Invalid subscript index at \(position)")
+            }
+            return data.withMemoryRebound(to: Element.self, capacity: 1) {
+                $0.pointee
+            }
         }
         set {
-            position.sequenceSet(data: newValue.ptr)
+            let newElementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
+            newElementPointer.initialize(to: newValue)
+            position.sequenceSet(data: UnsafeMutableRawPointer(newElementPointer))
         }
     }
     /// Returns `true` if the typed sequence contains zero items.
@@ -76,11 +93,18 @@ public extension TypedSequenceProtocol {
 /// The `TypedSequence` class acts as a typed wrapper around `GSequence`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public class TypedSequence<Element: GPointerConstructible>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
+public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
+    /// `true` to deallocate the associated elements on deinit.
+    public var freeElements = false
     /// Array literal initialiser
+    ///
+    /// This initialiser will always allocate memory for the given elements
+    /// that will be freed upon deallocation.
+    /// 
     /// - Parameter elements: The elements to initialise the sequence with
     @inlinable required public init(arrayLiteral elements: Element...) {
         super.init(g_sequence_new({ $0?.deallocate() }))
+        freeElements = true
         for element in elements {
             let elementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
             elementPointer.initialize(to: element)
@@ -91,12 +115,21 @@ public class TypedSequence<Element: GPointerConstructible>: Sequence, TypedSeque
     @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
+
+    deinit {
+        guard freeElements else { return }
+        var i = startIndex
+        while i != endIndex {
+            defer { i = i.next() }
+            i.sequenceGet()?.deallocate()
+        }
+    }
 }
 
 /// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public struct TypedSequenceRef<Element: GPointerConstructible>: TypedSequenceProtocol {
+public struct TypedSequenceRef<Element>: TypedSequenceProtocol {
     /// Untyped reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
 }
@@ -174,10 +207,10 @@ public extension TypedSequenceRef {
 }
 
 /// A lightweight iterator over a `Sequence`
-public struct SequenceIterator<Element: GPointerConstructible>: IteratorProtocol {
+public struct TypedSequenceIterator<Element>: IteratorProtocol {
     public var iterator: SequenceIterRef?
 
-    /// Constructor for a `SequenceIterator`
+    /// Constructor for a `TypedSequenceIterator`
     /// - Parameter ptr: Optional `GSequenceIter` pointer
     @inlinable init(_ iter: SequenceIterRef?) {
         iterator = iter
@@ -187,28 +220,15 @@ public struct SequenceIterator<Element: GPointerConstructible>: IteratorProtocol
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
     @inlinable public mutating func next() -> Element? {
         defer { iterator = iterator?.next() }
-        return (iterator?.sequenceGet()).flatMap { Element.init(gpointer: $0) }
-    }
-}
-
-extension SequenceIterRef: Equatable {
-    /// Compare two sequence iterators for equality
-    /// - Parameters:
-    ///   - lhs: left hand side sequence iterator to compare
-    ///   - rhs: right hand side sequence iterator to compare
-    /// - Returns: `true` iff the two iterators refer to the same element
-    @inlinable public static func == (lhs: SequenceIterRef, rhs: SequenceIterRef) -> Bool {
-        lhs.ptr == rhs.ptr
-    }
-}
-
-extension SequenceIterRef: Comparable {
-    /// Compare two sequence iterator positions
-    /// - Parameters:
-    ///   - lhs: left hand side sequence iterator to compare
-    ///   - rhs: right hand side sequence iterator to compare
-    /// - Returns: `true` iff the left hand side iterator is positioned before the right hand side iterator
-    @inlinable public static func < (lhs: SequenceIterRef, rhs: SequenceIterRef) -> Bool {
-        lhs.compare(b: rhs) < 0
+        guard var data = iterator?.sequenceGet() else { return nil }
+        if MemoryLayout<Element>.size == MemoryLayout<gpointer>.size {
+            return withUnsafeBytes(of: &data) {
+                $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
+            }!
+        } else {
+            return data.withMemoryRebound(to: Element.self, capacity: 1) {
+                $0.pointee
+            }
+        }
     }
 }

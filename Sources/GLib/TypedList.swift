@@ -1,5 +1,5 @@
 //
-//  List.swift
+//  TypedList.swift
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
@@ -7,19 +7,11 @@
 //
 import CGLib
 
-/// Protocol for a GLib type that wraps a `gpointer`
-public protocol GPointerConstructible {
-    /// The underlying pointer
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Constructor that creates the type from the given pointer
-    /// - Parameter gpointer: The pointer referencing the underlying GLib type
-    init!(gpointer: gpointer?)
-}
-
-/// Protocol for a typed `GList`, representing each element in a doubly-linked list.
+/// Protocol for a typed `GList`, representing each element
+/// through a node pointing to the element in a doubly-linked list.
 ///
-/// The `TypedListProtocol` protocol exposes the methods and properties of an underlying `GList` instance.
+/// The `TypedListProtocol` protocol exposes the methods
+/// and properties of an underlying `GList` instance.
 /// The default implementation of these can be found in the protocol extension below.
 /// For a concrete class that implements these methods and properties, see `TypedList`.
 /// Alternatively, use `TypedListRef` as a lighweight, `unowned` reference
@@ -27,32 +19,86 @@ public protocol GPointerConstructible {
 ///
 public protocol TypedListProtocol: ListProtocol, Swift.Sequence {
     /// The element contained in each `GList` node.
-    associatedtype Element: GPointerConstructible
+    associatedtype Element
 }
 
 public extension TypedListProtocol {
     /// Create an interator over a`ListRef`
     /// - Returns: a list iterator returning the typed elements of the list
-    @inlinable func makeIterator() -> ListIterator<Element> {
-        ListIterator(_ptr)
+    @inlinable func makeIterator() -> TypedListIterator<Element> {
+        TypedListIterator(_ptr)
     }
 
     /// Return the typed data pointed to by the current element
+    ///
+    /// If `Element` is pointer size, this assumes that
+    /// the data type represented by `Element` wraps a pointer
+    /// to an underlying `GLib` type (which typically is the case for
+    /// `Ref` types).
+    ///
+    /// If `Element` is not pointer size, the list
+    /// node pointer is treated as pointing to `Element`
     @inlinable var element: Element! {
-        _ptr.pointee.data.flatMap { Element(gpointer: $0) }
+        data?.withMemoryRebound(to: Element.self, capacity: 1) {
+            $0.pointee
+        }
     }
 }
 
 /// The `TypedList` class acts as a typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public class TypedList<Element: GPointerConstructible>: List, TypedListProtocol {
+public class TypedList<Element>: List, TypedListProtocol, ExpressibleByArrayLiteral {
+    /// `true` to deallocate the associated list nodes on deinit.
+    public var freeNodes = true
+    /// `true` to deallocate the associated elements on deinit.
+    public var freeElements = false
+
+    /// Array literal initialiser
+    ///
+    /// This initialiser will always allocate memory for the given elements
+    /// that will be freed upon deallocation.
+    ///
+    /// - Parameter elements: The elements to initialise the sequence with
+    @inlinable required public init(arrayLiteral elements: Element...) {
+        var last: UnsafeMutablePointer<GList>! = nil
+        freeElements = true
+        for element in elements.reversed() {
+            let elementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
+            elementPointer.initialize(to: element)
+            last = g_list_prepend(last, gpointer(elementPointer))
+        }
+        super.init(last)
+    }
+
+    /// Designated Initialiser.
+    ///
+    /// By default, the nodes associated with the passed-in list
+    /// will not be deallocated.  This behaviour can be changed
+    /// by setting `freeNodes` to `true`.
+    ///
+    /// - Parameter p: Pointer to a list node representing the list
+    ///
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
+        freeNodes = false
+        super.init(raw: p)
+    }
+
+    deinit {
+        guard freeNodes || freeElements else { return }
+        var nextNode = self._ptr
+        while let node = nextNode {
+            nextNode = node.pointee.next
+            if freeElements { node.pointee.data.deallocate() }
+            if freeNodes { g_list_free_1(node) }
+        }
+    }
 }
 
 /// The `TypedListRef` struct acts as a lightweight, typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
-public struct TypedListRef<Element: GPointerConstructible>: TypedListProtocol {
+public struct TypedListRef<Element>: TypedListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }
 
@@ -128,10 +174,10 @@ public extension TypedListRef {
 }
 
 /// A lightweight, typed iterator over a `GList`
-public struct ListIterator<Element: GPointerConstructible>: IteratorProtocol {
+public struct TypedListIterator<Element>: IteratorProtocol {
     public var list: UnsafeMutablePointer<GList>?
 
-    /// Constructor for a ListIterator
+    /// Constructor for a TypedListIterator
     /// - Parameter ptr: Optional `GList` pointer to iterate over
     @inlinable init(_ ptr: UnsafeMutablePointer<GList>?) {
         list = ptr
@@ -141,6 +187,6 @@ public struct ListIterator<Element: GPointerConstructible>: IteratorProtocol {
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
     @inlinable public mutating func next() -> Element? {
         defer { list = list?.pointee.next }
-        return (list?.pointee.data).flatMap { Element.init(gpointer: $0) }
+        return list.flatMap { TypedListRef($0).element }
     }
 }

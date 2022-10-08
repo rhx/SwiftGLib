@@ -26,19 +26,19 @@ public extension TypedArrayProtocol {
     @inlinable var endIndex: Int { count }
 
     /// Return the number of elements in the sequence
-    @inlinable var count: Int { Int(len) }
+    @inlinable var count: Int { Int(len) / MemoryLayout<Element>.stride }
 
     /// Get the element at the given position
     /// - Parameter position: The position in the sequence to retrieve the element from
     @inlinable subscript(position: Int) -> Element {
         get {
             data.withMemoryRebound(to: Element.self, capacity: count) {
-                $0.pointee
+                $0[position]
             }
         }
         set(newValue) {
             data.withMemoryRebound(to: Element.self, capacity: count) {
-                $0.pointee = newValue
+                $0[position] = newValue
             }
         }
     }

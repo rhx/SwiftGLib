@@ -259,16 +259,120 @@ class GLibTests: XCTestCase {
         }
     }
 
+    func testTypedSequence() {
+        var sequence: TypedSequence = [0, 1, 2, 3, 4, 5]
+        var i = 0
+        var index = sequence.startIndex
+        for _ in sequence {
+            defer {
+                i += 1
+                index = sequence.index(after: index)
+            }
+            XCTAssertEqual(sequence[index], i)
+            sequence[index] *= 2
+        }
+        i = 0
+        index = sequence.startIndex
+        for _ in sequence {
+            defer {
+                i += 1
+                index = sequence.index(after: index)
+            }
+            XCTAssertEqual(sequence[index], i*2)
+        }
+        XCTAssertEqual(i, sequence.count)
+    }
+
     func testArray() {
         var array: TypedArray = [0, 1, 2, 3, 4, 5]
-        for (element, index) in array.enumerated() {
-            XCTAssertEqual(element, array[index])
-            XCTAssertEqual(element, index)
-            array[index] *= 2
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, i)
+            array[i] *= 2
         }
-        for (element, index) in array.enumerated() {
-            XCTAssertEqual(element, array[index])
-            XCTAssertEqual(element, index*2)
+        for (i, element) in array.enumerated() {
+            XCTAssertEqual(element, array[i])
+            XCTAssertEqual(element, i*2)
         }
+    }
+
+    func testTypedList() {
+        let list: TypedList = [0, 1, 2, 3, 4, 5]
+        for (i, element) in list.enumerated() {
+            XCTAssertEqual(element, i)
+        }
+    }
+
+    func testTypedSList() {
+        let list: TypedSList = [0, 1, 2, 3, 4, 5]
+        for (i, element) in list.enumerated() {
+            XCTAssertEqual(element, i)
+        }
+    }
+
+    func testReferenceList() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        XCTAssertEqual(tl.index(after: f), tl.endIndex)
+        let list: ReferenceList = [a, b, c, d, e, f]
+        var n = 0
+        for (i, index) in list.enumerated() {
+            XCTAssertEqual(tl[index], i)
+            n = i+1
+        }
+        XCTAssertEqual(tl.count, n)
+    }
+
+    func testReferenceSList() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        XCTAssertEqual(tl.index(after: f), tl.endIndex)
+        let list: ReferenceSList = [a, b, c, d, e, f]
+        var n = 0
+        for (i, index) in list.enumerated() {
+            XCTAssertEqual(tl[index], i)
+            n = i+1
+        }
+        XCTAssertEqual(tl.count, n)
+    }
+
+    func testReferenceSequence() {
+        let tl: TypedSequence = [0, 1, 2, 3, 4, 5]
+        let a: SequenceIterRef = tl.startIndex
+        let b: SequenceIterRef = tl.index(after: a)
+        let c: SequenceIterRef = tl.index(after: b)
+        let d: SequenceIterRef = tl.index(after: c)
+        let e: SequenceIterRef = tl.index(after: d)
+        let f: SequenceIterRef = tl.index(after: e)
+        let g: SequenceIterRef = tl.index(after: f)
+        let elements = [a, b, c, d, e, f]
+        let sequence: ReferenceSequence = [a, b, c, d, e, f]
+        var i = 0
+        var i1 = tl.startIndex
+        var index = sequence.startIndex
+        for element in sequence {
+            defer {
+                i1 = tl.index(after: i1)
+                index = sequence.index(after: index)
+                i += 1
+            }
+            let item = tl[element]
+            XCTAssertEqual(i1, elements[i])
+            XCTAssertEqual(element, i1)
+            XCTAssertEqual(element, sequence[index])
+            XCTAssertEqual(item, tl[i1])
+        }
+        XCTAssertEqual(tl.count, i)
+        XCTAssertEqual(tl.endIndex, g)
     }
 }
