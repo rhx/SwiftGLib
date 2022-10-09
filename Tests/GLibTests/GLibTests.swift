@@ -390,10 +390,12 @@ class GLibTests: XCTestCase {
     }
 
     func testByteArrayString() {
+        let string = "Test"
+        let utf8 = string.utf8CString
         let array1: ByteArray = "Test"
         for (i, element) in array1.enumerated() {
             XCTAssertEqual(element, array1[i])
-            XCTAssertEqual(element, UInt8(i))
+            XCTAssertEqual(element, UInt8(bitPattern: utf8[i]))
         }
         XCTAssertEqual(array1.stringValue, "Test")
         XCTAssertEqual(array1.count, 5)
