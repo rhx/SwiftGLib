@@ -8,7 +8,9 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## What is new?
 
-Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
+ * SwiftGLib 2.73 introduces typed convenience wrappers for GLib collection types such as `GArray`, `GByteArray`, `GList`, `GSList`, and `GSequence`.
+
+ * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
 (older versions can be used via the [swift52](https://github.com/rhx/SwiftGLib/tree/swift52) branch).
 
 ## Prerequisites
@@ -18,18 +20,18 @@ Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.45.2 Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)
-    Target: x86_64-apple-darwin20.3.0
+	swift-driver version: 1.62.8 Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+	Target: x86_64-apple-macosx12.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.6.1 (swift-5.6.1-RELEASE)
+	Swift version 5.7 (swift-5.7-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, and 2.72.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, and 2.74.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
