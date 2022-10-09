@@ -42,7 +42,7 @@ public extension ByteArrayProtocol {
     @inlinable static func ==<BArray: ByteArrayProtocol>(lhs: Self, rhs: BArray) -> Bool {
         lhs.ptr == rhs.ptr ||
         (lhs.len == rhs.len &&
-         (lhs.len == 0 || memcmp(lhs.ptr, rhs.ptr, lhs.endIndex) == 0))
+         (lhs.len == 0 || memcmp(lhs.data, rhs.data, lhs.endIndex) == 0))
     }
 }
 
