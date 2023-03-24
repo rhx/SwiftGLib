@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -28,7 +28,7 @@ public extension TypedSequenceProtocol {
     @inlinable var endIndex: SequenceIterRef { getEndIter() }
 
     /// Return the number of elements in the sequence
-    @inlinable var count: Int { endIndex.position - startIndex.position }
+    @inlinable var count: Int { length }
 
     /// Returns the position immediately after the given index.
     /// - Parameter i: The original index
