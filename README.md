@@ -20,18 +20,18 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.62.8 Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
-	Target: x86_64-apple-macosx12.0
+    swift-driver version: 1.62.15 Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+    Target: arm64-apple-macosx13.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.7 (swift-5.7-RELEASE)
+	Swift version 5.7.3 (swift-5.7.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, and 2.74.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, 2.74, and 2.76.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
