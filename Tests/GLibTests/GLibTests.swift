@@ -280,7 +280,7 @@ class GLibTests: XCTestCase {
             }
             XCTAssertEqual(sequence[index], i*2)
         }
-        XCTAssertEqual(i, sequence.count)
+        XCTAssertEqual(index, sequence.endIndex)
     }
 
     func testArray() {
