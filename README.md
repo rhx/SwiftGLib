@@ -3,6 +3,7 @@ A Swift wrapper around glib-2.x that is largely auto-generated from gobject-intr
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
 
 ![macOS 11 build](https://github.com/rhx/SwiftGLib/workflows/macOS%2011/badge.svg)
+[![Ubuntu 22.04 build](https://github.com/rhx/SwiftGLib/actions/workflows/jammy.yml/badge.svg)](https://github.com/rhx/SwiftGLib/actions/workflows/jammy.yml)
 ![Ubuntu 20.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2020.04/badge.svg)
 ![Ubuntu 18.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2018.04/badge.svg)
 
