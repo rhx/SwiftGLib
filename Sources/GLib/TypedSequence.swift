@@ -94,8 +94,6 @@ public extension TypedSequenceProtocol {
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
 public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, ExpressibleByArrayLiteral {
-    /// `true` to deallocate the associated elements on deinit.
-    public var freeElements = false
     /// Array literal initialiser
     ///
     /// This initialiser will always allocate memory for the given elements
@@ -103,8 +101,8 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     /// 
     /// - Parameter elements: The elements to initialise the sequence with
     @inlinable required public init(arrayLiteral elements: Element...) {
-        super.init(g_sequence_new({ $0?.deallocate() }))
-        freeElements = true
+        super.init(retaining: g_sequence_new({
+            $0?.deallocate() }))
         for element in elements {
             let elementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
             elementPointer.initialize(to: element)
@@ -117,12 +115,7 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     }
 
     deinit {
-        guard freeElements else { return }
-        var i = startIndex
-        while i != endIndex {
-            defer { i = i.next() }
-            i.sequenceGet()?.deallocate()
-        }
+        g_sequence_free(_ptr)
     }
 }
 
