@@ -2,7 +2,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -14,6 +14,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `ReferenceSList`.
 /// Alternatively, use `ReferenceSListRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSListProtocol`.
 public protocol ReferenceSListProtocol: SListProtocol, Swift.Sequence {
     /// The element contained in each `SList` node.
     associatedtype Element
@@ -47,6 +48,7 @@ public extension ReferenceSListProtocol {
 /// The `ReferenceSList` class acts as a Reference, memory-managed wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSList`.
 public class ReferenceSList<Element>: SList, ReferenceSListProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the associated list nodes on deinit.
     public var freeNodes = false
@@ -97,6 +99,7 @@ public class ReferenceSList<Element>: SList, ReferenceSListProtocol, Expressible
 /// The `ReferenceSListRef` struct acts as a lightweight, Reference wrapper around `GSList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefSListRef`.
 public struct ReferenceSListRef<Element>: ReferenceSListProtocol {
     public var ptr: UnsafeMutableRawPointer!
 }
