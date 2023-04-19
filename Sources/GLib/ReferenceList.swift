@@ -27,7 +27,7 @@ public extension ReferenceListProtocol {
     @inlinable func makeIterator() -> ReferenceListIterator<Element> {
         ReferenceListIterator(_ptr)
     }
-    
+
     /// Return the Reference data pointed to by the current element
     ///
     /// `Element` needs to be pointer size and a data type
@@ -62,14 +62,18 @@ public class ReferenceList<Element>: List, ReferenceListProtocol, ExpressibleByA
         freeNodes = true
         for var element in elements.reversed() {
             withUnsafeMutableBytes(of: &element) {
+#if swift(>=5.7)
                 $0.withMemoryRebound(to: gpointer.self) {
                     last = g_list_prepend(last, $0.baseAddress?.pointee)
                 }
+#else
+                last = g_list_prepend(last, $0.baseAddress?.assumingMemoryBound(to: gpointer.self).pointee)
+#endif
             }
         }
         super.init(last)
     }
-    
+
     /// Designated Initialiser.
     ///
     /// By default, the nodes associated with the passed-in list
@@ -106,65 +110,65 @@ public extension ReferenceListRef {
     @inlinable init(_ p: UnsafeMutablePointer<GList>) {
         ptr = UnsafeMutableRawPointer(p)
     }
-    
+
     /// Designated initialiser from a constant pointer to the underlying `C` data type
     @inlinable init(_ p: UnsafePointer<GList>) {
         ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
     }
-    
+
     /// Conditional initialiser from an optional pointer to the underlying `C` data type
     @inlinable init!(_ maybePointer: UnsafeMutablePointer<GList>?) {
         guard let p = maybePointer else { return nil }
         ptr = UnsafeMutableRawPointer(p)
     }
-    
+
     /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
     @inlinable init!(_ maybePointer: UnsafePointer<GList>?) {
         guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
         ptr = UnsafeMutableRawPointer(p)
     }
-    
+
     /// Conditional initialiser from an optional `gpointer`
     @inlinable init!(gpointer g: gpointer?) {
         guard let p = g else { return nil }
         ptr = UnsafeMutableRawPointer(p)
     }
-    
+
     /// Conditional initialiser from an optional, non-mutable `gconstpointer`
     @inlinable init!(gconstpointer g: gconstpointer?) {
         guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
         ptr = p
     }
-    
+
     /// Reference intialiser for a related type that implements `ReferenceListProtocol`
     @inlinable init<T: ListProtocol>(_ other: T) {
         ptr = other.ptr
     }
-    
+
     /// Unsafe Reference initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
-    
+
     /// Unsafe Reference initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
-    
+
     /// Unsafe unReference initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
-    
+
     /// Unsafe unReference initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
-    
+
     /// Unsafe unReference initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListProtocol`.**
     @inlinable init(opaquePointer: OpaquePointer) {
@@ -175,13 +179,13 @@ public extension ReferenceListRef {
 /// A lightweight, Reference iterator over a `GList`
 public struct ReferenceListIterator<Element>: IteratorProtocol {
     public var list: UnsafeMutablePointer<GList>?
-    
+
     /// Constructor for a ReferenceListIterator
     /// - Parameter ptr: Optional `GList` pointer to iterate over
     @inlinable init(_ ptr: UnsafeMutablePointer<GList>?) {
         list = ptr
     }
-    
+
     /// Return the next element in the list
     /// - Returns: a pointer to the next element in the list or `nil` if the end of the list has been reached
     @inlinable public mutating func next() -> Element? {

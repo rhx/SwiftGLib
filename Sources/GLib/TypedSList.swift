@@ -3,7 +3,7 @@
 //  GLib
 //
 //  Created by Rene Hexel on 5/1/21.
-//  Copyright © 2021, 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2021, 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -38,9 +38,13 @@ public extension TypedSListProtocol {
     /// If `Element` is not pointer size, the list
     /// node pointer is treated as pointing to `Element`
     @inlinable var element: Element! {
+#if swift(>=5.7)
         data?.withMemoryRebound(to: Element.self, capacity: 1) {
             $0.pointee
         }
+#else
+        data?.assumingMemoryBound(to: Element.self).pointee
+#endif
     }
 }
 
@@ -52,7 +56,7 @@ public class TypedSList<Element>: SList, TypedSListProtocol, ExpressibleByArrayL
     public var freeNodes = true
     /// `true` to deallocate the associated elements on deinit.
     public var freeElements = false
-    
+
     /// Array literal initialiser
     ///
     /// This initialiser will always allocate memory for the given elements
@@ -69,7 +73,7 @@ public class TypedSList<Element>: SList, TypedSListProtocol, ExpressibleByArrayL
         }
         super.init(last)
     }
-    
+
     /// Designated Initialiser.
     ///
     /// By default, the nodes associated with the passed-in list
@@ -82,7 +86,7 @@ public class TypedSList<Element>: SList, TypedSListProtocol, ExpressibleByArrayL
         freeNodes = false
         super.init(raw: p)
     }
-    
+
     deinit {
         guard freeNodes || freeElements else { return }
         var nextNode = self._ptr
