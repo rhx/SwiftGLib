@@ -71,9 +71,13 @@ public extension TypedSequenceProtocol {
             guard var data = position.sequenceGet() else {
                 fatalError("Invalid subscript index at \(position)")
             }
+#if swift(>=5.7)
             return data.withMemoryRebound(to: Element.self, capacity: 1) {
                 $0.pointee
             }
+#else
+            return data.assumingMemoryBound(to: Element.self).pointee
+#endif
         }
         set {
             let newElementPointer = UnsafeMutablePointer<Element>.allocate(capacity: 1)
@@ -98,7 +102,7 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     ///
     /// This initialiser will always allocate memory for the given elements
     /// that will be freed upon deallocation.
-    /// 
+    ///
     /// - Parameter elements: The elements to initialise the sequence with
     @inlinable required public init(arrayLiteral elements: Element...) {
         super.init(retaining: g_sequence_new({
@@ -219,9 +223,13 @@ public struct TypedSequenceIterator<Element>: IteratorProtocol {
                 $0.baseAddress?.assumingMemoryBound(to: Element.self).pointee
             }!
         } else {
+#if swift(>=5.7)
             return data.withMemoryRebound(to: Element.self, capacity: 1) {
                 $0.pointee
             }
+#else
+            return data.assumingMemoryBound(to: Element.self).pointee
+#endif
         }
     }
 }
