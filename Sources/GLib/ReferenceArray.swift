@@ -2,7 +2,7 @@
 //  ReferenceArray.swift
 //
 //  Created by Rene Hexel on 9/10/2022.
-//  Copyright © 2022 Rene Hexel.  All rights reserved.
+//  Copyright © 2022, 2023 Rene Hexel.  All rights reserved.
 //
 import CGLib
 
@@ -14,6 +14,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `ReferenceArray`.
 /// Alternatively, use `ReferenceArrayRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
+/// - Note: This colection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArrayProtocol`.
 public protocol ReferenceArrayProtocol: PtrArrayProtocol, RandomAccessCollection, MutableCollection {
     /// The element contained at each index
     associatedtype Element
@@ -52,6 +53,7 @@ public extension ReferenceArrayProtocol {
 /// The `ReferenceArray` class acts as a typed wrapper around `GPtrArray`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArray`.
 public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, ExpressibleByArrayLiteral {
     /// `true` to deallocate the block of associated elements on deinit.
     public var freeElements = false
@@ -83,6 +85,7 @@ public class ReferenceArray<Element>: PtrArray, ReferenceArrayProtocol, Expressi
 /// The `ReferenceArrayRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for referencing primitive types.  For referencing GLib objects, use `RefArrayRef`.
 public struct ReferenceArrayRef<Element>: ReferenceArrayProtocol {
     /// Untyped reference to the underlying `GPtrArray`
     public var ptr: UnsafeMutableRawPointer!
