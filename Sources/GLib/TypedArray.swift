@@ -13,6 +13,7 @@ import CGLib
 /// For a concrete class that implements these methods and properties, see `TypedArray`.
 /// Alternatively, use `TypedArrayRef` as a lighweight, `unowned` reference
 /// if you already have an instance you just want to use.
+/// - Note: This colection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceArrayProtocol`.
 public protocol TypedArrayProtocol: ArrayProtocol, RandomAccessCollection, MutableCollection {
     /// The element contained at each index
     associatedtype Element
@@ -47,6 +48,7 @@ public extension TypedArrayProtocol {
 /// The `TypedArray` class acts as a typed wrapper around `GArray`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for  primitive types.  For referencing GLib objects, use `ReferenceArray`.
 public class TypedArray<Element>: ArrayType, TypedArrayProtocol, ExpressibleByArrayLiteral {
     /// Array literal initialiser
     /// - Parameter elements: The elements to initialise the array with
@@ -69,9 +71,10 @@ public class TypedArray<Element>: ArrayType, TypedArrayProtocol, ExpressibleByAr
     }
 }
 
-/// The `TypedArrayRef` struct acts as a lightweight, typed wrapper aroundptr `GList`,
+/// The `TypedArrayRef` struct acts as a lightweight, typed wrapper around `GList`,
 /// with the associated `Element` representing the type of
 /// the elements stored in the list.
+/// - Note: This collection type is mainly for primitive types.  For referencing GLib objects, use `ReferenceArrayRef`.
 public struct TypedArrayRef<Element>: TypedArrayProtocol {
     /// Untyped reference to the underlying `GArray`
     public var ptr: UnsafeMutableRawPointer!
