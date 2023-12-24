@@ -5,6 +5,7 @@
 /Packages
 /GLib.xcodeproj
 /.swiftpm
+/.vscode
 Package.pins
 Package.resolved
 *.tgz
