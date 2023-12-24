@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04, macos-latest, macos-13, macos-12, windows-latest]
-        version: ["5.9.2", "5.7.3"]
+        version: ["5.9", "5.7"]
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
