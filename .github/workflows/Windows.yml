@@ -29,9 +29,6 @@ jobs:
         run: git config --global core.protectNTFS false
 
       - uses: actions/checkout@v4
-        with:
-          paths-ignore:
-            - '**/*<*'
       - uses: swift-actions/setup-swift@v1
         with:
           swift-version: ${{ matrix.version }}
