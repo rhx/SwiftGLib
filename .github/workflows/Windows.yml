@@ -25,6 +25,9 @@ jobs:
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Ignore invalid files.
+        run: git config --global core.protectNTFS false
+
       - uses: actions/checkout@v4
         with:
           paths-ignore:
