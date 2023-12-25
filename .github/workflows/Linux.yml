@@ -21,20 +21,20 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
-        version: ["5.9", "5.7"]
+        swift: ["5.9", "5.7"]
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: swift-actions/setup-swift@v1
         with:
-          swift-version: ${{ matrix.version }}
+          swift-version: ${{ matrix.swift }}
 
-      - name: Print Linux version
-        run: lsb_release -d
-
-      - name: Print Swift version
-        run: swift --version
+      - name: Print Linux and Swift version
+        run: |
+          lsb_release -d
+          swift --version
 
       - name: Fetch Linux dependencies
         if: ${{ runner.os == 'Linux' }}
