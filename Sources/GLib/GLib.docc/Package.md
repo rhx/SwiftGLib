@@ -1,11 +1,11 @@
 # SwiftGLib
 
 A Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
-For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
+For up to date (auto-generated) reference documentation, see
+[https://rhx.github.io/SwiftGLib/](https://rhx.github.io/SwiftGLib/)
 
 ![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
 ![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
-![Windows](https://github.com/rhx/SwiftGLib/actions/workflows/Windows.yml/badge.svg?branch=development)
 
 ## Overview
 
@@ -19,7 +19,9 @@ as well as Swift.
 
 ## Usage
 
-Typically, you need to embed this package into your own project (see <doc:GettingStarted>) using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites, add this package as a dependency to your `Package.swift` file, e.g.:
+Typically, you need to embed this package into your own project using the
+[Swift Package Manager](https://swift.org/package-manager/).
+After installing the prerequisites, add this package as a dependency to your `Package.swift` file, e.g.:
 
 ```swift
 // swift-tools-version: 5.9
