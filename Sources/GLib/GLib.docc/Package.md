@@ -1,20 +1,48 @@
 # SwiftGLib
+
 A Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
 
 ![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
 ![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
+![Windows](https://github.com/rhx/SwiftGLib/actions/workflows/Windows.yml/badge.svg?branch=development)
 
-## What is new?
+## Overview
 
- * SwiftGLib 2.73 introduces typed convenience wrappers for GLib collection types such as `GArray`, `GByteArray`, `GList`, `GSList`, and `GSequence`.
+SwiftGLib allows you to use the low-level GLib library directly from Swift
+without having to resort to using the low-level C interface.
+GLib has been in development for many years and is used by numerous open source
+programs and libraries including [Gtk](https://github.com/rhx/SwiftGtk).
+GLib is particularly useful for organising low-level data by providing abstractions
+for data structures, containers, and collections that can directly be used by C code
+as well as Swift.
 
- * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
-(older versions can be used via the [swift52](https://github.com/rhx/SwiftGLib/tree/swift52) branch).
+## Usage
 
-## Prerequisites
+Typically, you need to embed this package into your own project (see <doc:GettingStarted>) using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites, add this package as a dependency to your `Package.swift` file, e.g.:
 
-### Swift 5.6 or higher
+```swift
+// swift-tools-version: 5.9
+
+import PackageDescription
+
+let package = Package(
+    name: "MyPackage",
+    dependencies: [
+        .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
+        .package(url: "https://github.com/rhx/SwiftGLib.git", branch: "main"),
+    ],
+    targets: [
+        .executableTarget(
+            name: "MyPackage",
+            dependencies: [
+                .product(name: "GLib", package: "SwiftGLib"),
+            ]
+        ),
+    ]
+)
+
+## Getting Started
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
@@ -55,30 +83,6 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 	brew install glib glib-networking gobject-introspection pkg-config jq
 
 
-## Usage
-
-Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
-
-```Swift
-// swift-tools-version:5.6
-
-import PackageDescription
-
-let package = Package(name: "MyPackage",
-    dependencies: [
-        .package(url: "https://github.com/rhx/gir2swift.git", branch: "main"),
-        .package(url: "https://github.com/rhx/SwiftGLib.git", branch: "main"),
-    ],    
-    targets: [
-        .target(name: "MyPackage",
-                dependencies: [
-                    .product(name: "GLib", package: "SwiftGLib")
-                ]
-        )
-    ]
-)
-```
-
 ## Building
 
 Normally, you don't build this package directly, but you embed it into your own project (see 'Usage' above).  However, you can build and test this module separately to ensure that everything works.  Make sure you have all the prerequisites installed (see above).  After that, you can simply clone this repository and build the command line executable (be patient, this will download all the required dependencies and take a while to compile) using
@@ -104,9 +108,11 @@ Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [ja
 	./generate-jazzy.sh
 
 ## Troubleshooting
+
 Here are some common errors you might encounter and how to fix them.
 
 ### Missing `.gir` Files
+
 If you get an error such as
 
 	Girs located at
