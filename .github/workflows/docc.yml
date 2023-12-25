@@ -39,9 +39,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate Documentation
-        uses: mipalgu/swiftpm-generate-documentation@main
+        uses: rhx/swiftpm-generate-documentation@main
         with:
-          swift-version: "5.9"
           hosting-base-path: ${{ github.event.repository.name }} 
 
       - name: Deploy to GitHub Pages
