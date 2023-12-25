@@ -25,7 +25,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      - uses: swift-actions/setup-swift@v1
+      - uses: maxim-lobanov/setup-xcode
+        with:
+          xcode-version: latest
 
       - name: Print macOS and Swift version
         run: |
