@@ -1,0 +1,93 @@
+name: Windows
+
+# Dependencies of this package
+env:
+  MACOS_BREW: ${{ 'glib glib-networking gobject-introspection pkg-config jq' }}
+  UBUNTU_APT: ${{ 'libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+  WINDOWS_GTK: ${{ '2022-01-04' }}
+
+on:
+  push:
+    branches:
+      - development
+      - main
+  pull_request:
+    branches:
+      - development
+      - main
+
+jobs:
+  build-windows:
+    strategy:
+      matrix:
+        os: [windows-latest, windows-11, windows-10]
+        version: ["5.9"]
+    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          paths-ignore:
+            - '**/*<*'
+      - uses: swift-actions/setup-swift@v1
+        with:
+          swift-version: ${{ matrix.version }}
+
+      - name: Print Windows version
+        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+
+      - name: Print Swift version
+        run: swift --version
+
+      - name: Fetch Linux dependencies
+        if: ${{ runner.os == 'Linux' }}
+        run: sudo apt-get install $UBUNTU_APT
+
+      - name: Fetch macOS dependencies
+        if: ${{ runner.os == 'macOS' }}
+        run: |
+          brew install python@3 || brew link --overwrite python@3
+          brew install $MACOS_BREW
+
+      - name: Fetch Windows dependencies
+        uses: actions/checkout@v4
+        if: ${{ runner.os == 'Windows' }}
+        with:
+          repository: tschoonj/GTK-for-Windows-Runtime-Environment-Installer
+          ref: $WINDOWS_GTK
+          path: _tempGTK
+          sparse-checkout: gtk-nsis-pack
+          sparse-checkout-cone-mode: false
+          clean: false
+
+      - name: 'Add GTK to PowerShell ENV'
+        if: ${{ runner.os == 'Windows' }}
+        shell: powershell
+        run: |
+          $Env:PATH += "$PWD\_tempGTK\gtk-nsis-pack\bin"
+          echo "$PWD\_tempGTK\gtk-nsis-pack\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Checkout SwiftGLib
+        uses: actions/checkout@v2
+        with:
+          path: SwiftGLib
+
+      - name: Build SwiftGLib
+        run: |
+          cd SwiftGLib
+          swift build
+          cd ..
+
+      - name: Test SwiftGLib
+        run: |
+          cd SwiftGLib
+          swift test
+          cd ..
+
+      - name: Remove unneeded files and archive artefacts
+        run: | 
+          rm -rf _tempGTK
+          cd SwiftGLib
+          swift package clean
+          rm -rf .build/repositories
+          cd ..

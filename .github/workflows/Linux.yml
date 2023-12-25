@@ -1,4 +1,4 @@
-name: CI
+name: Linux
 
 # Dependencies of this package
 env:
@@ -20,7 +20,7 @@ jobs:
   build-linux:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04, macos-latest, macos-13, macos-12]
+        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
         version: ["5.9", "5.7"]
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -29,6 +29,9 @@ jobs:
       - uses: swift-actions/setup-swift@v1
         with:
           swift-version: ${{ matrix.version }}
+
+      - name: Print Linux version
+        run: lsb_release -d
 
       - name: Print Swift version
         run: swift --version
