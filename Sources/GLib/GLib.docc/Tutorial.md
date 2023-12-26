@@ -175,11 +175,11 @@ list.forEach { element in
     print(element)    // Prints: "hello" and "world"
 }
 ```
-If you run the
+Compile and run the code using:
 
     swift run
 
-command now, after some compiler output (and potentially
+After some compiler output (and potentially
 some warnings that you can ignore), you should get the
 following output:
 
