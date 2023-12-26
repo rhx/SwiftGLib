@@ -1,8 +1,12 @@
 # Usage
 
-Typically, you need to embed this package into your own project (see <doc:GettingStarted>)
+Typically, you embed this package into your own project
 using the [Swift Package Manager](https://swift.org/package-manager/).
-After installing the prerequisites, add this package as a dependency to your `Package.swift` file, e.g.:
+
+After installing the prerequisites (see <doc:GettingStarted>),
+add this package as a dependency to your `Package.swift` file.
+
+E.g.:
 
 ```swift
 // swift-tools-version: 5.9
