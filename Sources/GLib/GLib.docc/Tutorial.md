@@ -70,7 +70,8 @@ Depending on your Linux distributions, the names of the
 packages and package management tools will vary.
 You should be able to find this in the documentation for
 your Linux distribution.
-Some more examples can also be found in the
+
+> Tip: Some more examples can also be found in the
 [README](https://github.com/rhx/SwiftGLib/blob/main/README.md).
 
 ### Installing GLib on macOS
@@ -115,21 +116,29 @@ and a `main.swift` in `Sources/swift-glist`:
     Package.swift
     Sources/swift-glist/main.swift
 
-If the Swift Package manager created your `main.swift`
-directly in the `Sources` folder, i.e., you get a structure
-such as this
+> Warning: Some versions of the Swift Package manager create
+a flat structure when using `swift package init` that puts
+the `main.swift` directly in the `Sources` folder.
+This will cause the Swift compiler to exit with an error if
+you try to use `swift run`.
+
+Such a faulty structure that places your `main.swift`
+directly in the `Sources` folder would look like this:
 
     Package.swift
     Sources/main.swift
 
-your program won't compile or run, and you need to move the
-`main.swift` file into a `swift-glist` subfolder:
+In this case, your program won't compile or run.
+To fix this, you need to move the `main.swift` file
+into a `swift-glist` subfolder:
 
     mkdir Sources/swift-glist
     mv Sources/main.swift Sources/swift-glist/
 
-Once `swift run` works, let's change the `Package.swift`
-file so that it now reads:
+Now you should be able to build your project.
+
+Let us now change the `Package.swift` file so that it
+reads:
 
 ```Swift
 // swift-tools-version: 5.7
