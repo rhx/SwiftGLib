@@ -20,10 +20,8 @@ as well as Swift.
 ### Essentials
 
 - <doc:GettingStarted>
-
-### Usage
-
 - <doc:Usage>
+- <doc:Documentation>
 
 ### Tutorial
 
@@ -37,6 +35,3 @@ as well as Swift.
 
 - <doc:Building>
 
-### Building Documentation
-
-- <doc:Documentation>
