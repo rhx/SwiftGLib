@@ -1,0 +1,50 @@
+name: macOS
+
+# Dependencies of this package
+env:
+  MACOS_BREW: ${{ 'glib glib-networking gobject-introspection pkg-config jq' }}
+  UBUNTU_APT: ${{ 'libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
+  WINDOWS_GTK: ${{ '2022-01-04' }}
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate-docc:
+    strategy:
+      matrix:
+        os: [macos-13]
+    name: Generate Documentation
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest
+
+      - name: Print macOS and Swift version
+        run: |
+          uname -a
+          swift --version
+
+      - name: Fetch macOS dependencies
+        run: |
+          brew install python@3 || brew link --overwrite python@3
+          brew install $MACOS_BREW
+          sudo mv /Library/Developer/CommandLineTools /Library/Developer/CommandLineTools.orig
+
+      - name: Checkout SwiftGLib
+        uses: actions/checkout@v4
+
+      - name: Generate Documentation
+        uses: rhx/swiftpm-generate-documentation@main
+        with:
+          hosting-base-path: ${{ github.event.repository.name }} 
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: true

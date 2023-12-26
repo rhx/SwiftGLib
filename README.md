@@ -2,10 +2,8 @@
 A Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
 
-![macOS 11 build](https://github.com/rhx/SwiftGLib/workflows/macOS%2011/badge.svg)
-[![Ubuntu 22.04 build](https://github.com/rhx/SwiftGLib/actions/workflows/jammy.yml/badge.svg)](https://github.com/rhx/SwiftGLib/actions/workflows/jammy.yml)
-![Ubuntu 20.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2020.04/badge.svg)
-![Ubuntu 18.04 build](https://github.com/rhx/SwiftGLib/workflows/Ubuntu%2018.04/badge.svg)
+![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
+![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
 
 ## What is new?
 
@@ -21,13 +19,13 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-    swift-driver version: 1.87.1 Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+    swift-driver version: 1.87.3 Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
     Target: arm64-apple-macosx14.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.9 (swift-5.9-RELEASE)
+	Swift version 5.9.2 (swift-5.9.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
