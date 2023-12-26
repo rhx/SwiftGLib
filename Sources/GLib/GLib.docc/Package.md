@@ -1,6 +1,6 @@
-# GLib
+# SwiftGLib
 
-SwiftGLib is a Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
+A Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see
 [https://rhx.github.io/SwiftGLib/](https://rhx.github.io/SwiftGLib/)
 
