@@ -7,8 +7,8 @@ You can find this [project on GitHub](https://github.com/rhx/SwiftGLib/).
 
 ## Overview
 
-SwiftGLib allows you to use the low-level GLib library directly from Swift
-without having to resort to using the low-level C interface.
+[SwiftGLib](https://github.com/rhx/SwiftGLib/) allows you to use the low-level GLib library
+directly from Swift without having to resort to using the low-level C interface.
 GLib has been in development for many years and is used by numerous open source
 programs and libraries including [Gtk](https://github.com/rhx/SwiftGtk).
 GLib is particularly useful for organising low-level data by providing abstractions

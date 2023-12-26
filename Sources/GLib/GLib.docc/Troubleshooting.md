@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Here are some common errors you might encounter and how to fix them.
+This section shows some common errors you might encounter and how to fix them.
 
 ## FFI Module Errors
 

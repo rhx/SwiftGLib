@@ -1,6 +1,9 @@
 # Getting Started
 
-To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+This section contains the information to get you started in setting up the pre-requisites for building this library.
+You can then add this package as a dependency to your own project (see <doc:Usage> below).
+
+To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well). Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
     swift-driver version: 1.87.3 Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
