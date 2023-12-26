@@ -2,17 +2,16 @@
 
 This tutorial shows how to use GLib with Swift.
 This is particularly useful if you want to interact
-with libraries written in C or other languages that use
-[GLib](https://docs.gtk.org/glib/).
+with libraries written in C or other languages that use GLib.
 
 
 ## What is GLib?
 
-GLib is a low-level, general-purpose software library
-that provides a set of useful data types, string utilities,
-filesystem abstractions, a mainloop abstraction, and similar
-tools for developing libraries and applications in different
-programming languages.
+[GLib](https://docs.gtk.org/glib/) is a low-level,
+general-purpose software library that provides a set of
+useful data types, string utilities, filesystem abstractions,
+a mainloop abstraction, and similar tools for developing
+libraries and applications in different programming languages.
 GLIb is mainly used for creating and interacting with
 low-level data structures and supports features such as
 event-driven programming, memory management, and data
