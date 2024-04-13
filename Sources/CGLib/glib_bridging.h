@@ -372,3 +372,7 @@ typedef GUriParamsFlags GURIParamsFlags;
 typedef GUriHideFlags GURIHideFlags;
 typedef struct _GTreeNode GTreeNode;
 typedef struct _GStrvBuilder GStrvBuilder;
+
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION >= 80
+extern GType g_threaded_resolver_get_type(void);
+#endif
