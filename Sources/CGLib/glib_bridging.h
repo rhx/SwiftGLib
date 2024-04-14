@@ -375,4 +375,12 @@ typedef struct _GStrvBuilder GStrvBuilder;
 
 #if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION >= 80
 extern GType g_threaded_resolver_get_type(void);
+
+struct _GThreadedResolver {};
+struct _GThreadedResolverClass
+{
+    GResolverClass parent_class;
+};
+typedef struct _GThreadedResolver GThreadedResolver;
+typedef struct _GThreadedResolverClass GThreadedResolverClass;
 #endif
