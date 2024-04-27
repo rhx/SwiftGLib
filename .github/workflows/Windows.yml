@@ -2,8 +2,6 @@ name: Windows
 
 # Dependencies of this package
 env:
-  MACOS_BREW: ${{ 'glib glib-networking gobject-introspection pkg-config jq' }}
-  UBUNTU_APT: ${{ 'libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq' }}
   WINDOWS_GTK: ${{ '2022-01-04' }}
 
 on:
@@ -38,16 +36,6 @@ jobs:
       - name: Print Swift version
         run: swift --version
 
-      - name: Fetch Linux dependencies
-        if: ${{ runner.os == 'Linux' }}
-        run: sudo apt-get install $UBUNTU_APT
-
-      - name: Fetch macOS dependencies
-        if: ${{ runner.os == 'macOS' }}
-        run: |
-          brew install python@3 || brew link --overwrite python@3
-          brew install $MACOS_BREW
-
       - name: Fetch Windows dependencies
         uses: actions/checkout@v4
         if: ${{ runner.os == 'Windows' }}
@@ -59,7 +47,7 @@ jobs:
           sparse-checkout-cone-mode: false
           clean: false
 
-      - name: 'Add GTK to PowerShell ENV'
+      - name: "Add GTK to PowerShell ENV"
         if: ${{ runner.os == 'Windows' }}
         shell: powershell
         run: |
@@ -84,7 +72,7 @@ jobs:
           cd ..
 
       - name: Remove unneeded files and archive artefacts
-        run: | 
+        run: |
           rm -rf _tempGTK
           cd SwiftGLib
           swift package clean
