@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
-        swift: ["5.9", "5.7"]
+        swift: ["5.10", "5.9", "5.7"]
     name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     steps:
@@ -55,7 +55,7 @@ jobs:
           sparse-checkout-cone-mode: false
           clean: false
 
-      - name: 'Add GTK to PowerShell ENV'
+      - name: "Add GTK to PowerShell ENV"
         if: ${{ runner.os == 'Windows' }}
         shell: powershell
         run: |
@@ -80,7 +80,7 @@ jobs:
           cd ..
 
       - name: Remove unneeded files and archive artefacts
-        run: | 
+        run: |
           rm -rf _tempGTK
           cd SwiftGLib
           swift package clean
