@@ -1,7 +1,7 @@
 #ifdef __linux__
 #include <sys/types.h>
 #include <utime.h>
-#ifdef __aarch64__
+#ifdef __linux__
 extern int g_open(const char *, int, int) __nonnull ((1));
 #define g_open g_open_orig
 #else
@@ -12,7 +12,7 @@ extern int g_open(const char *, int, ...) __nonnull ((1));
 #include <glib/gversion.h>
 #include <glib/gversionmacros.h>
 #undef __GLIB_H_INSIDE__
-#if defined(__linux__) && defined(__aarch64__)
+#if defined(__linux__)
 #undef g_open
 #endif
 
