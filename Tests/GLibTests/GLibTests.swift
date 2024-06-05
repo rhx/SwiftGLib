@@ -35,9 +35,12 @@ class GLibTests: XCTestCase {
             guard let dir = try Dir.open(path: existing_path, flags: 0) else {
                 XCTFail() ; return
             }
+#if !os(macOS)
             defer { dir.close() }
-            let first: String! = dir.readName()    // get the first entry
+#endif
+            let first: String? = dir.readName()    // get the first entry
             XCTAssertNotNil(first)
+            guard let first = first else { return }
             XCTAssertFalse(first.isEmpty)
             dir.rewind()                            // go back
             let first_again = dir.readName()       // get first entry again

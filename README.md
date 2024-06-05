@@ -4,6 +4,7 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
 ![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
+![DocC](https://github.com/rhx/SwiftGLib/actions/workflows/docc.yml/badge.svg?branch=development)
 
 ## What is new?
 
@@ -14,18 +15,18 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
 ## Prerequisites
 
-### Swift 5.6 or higher
+### Swift 5.7 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-    swift-driver version: 1.87.3 Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+	swift-driver version: 1.90.11.1 Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
     Target: arm64-apple-macosx14.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.9.2 (swift-5.9.2-RELEASE)
+	Swift version 5.10 (swift-5.10-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
