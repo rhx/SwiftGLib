@@ -123,6 +123,12 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
     deinit {
         g_sequence_free(_ptr)
     }
+
+    /// Create an interator over a`TypedSequence`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
 /// The `TypedSequenceRef` struct acts as a lightweight, typed wrapper around `GList`,
@@ -132,6 +138,12 @@ public class TypedSequence<Element>: Sequence, TypedSequenceProtocol, Expressibl
 public struct TypedSequenceRef<Element>: TypedSequenceProtocol {
     /// Untyped reference to the underlying `GSequence`
     public var ptr: UnsafeMutableRawPointer!
+
+    /// Create an interator over a`TypedSequenceRef`
+    /// - Returns: a list iterator
+    @inlinable public func makeIterator() -> TypedSequenceIterator<Element> {
+        TypedSequenceIterator(getBeginIter())
+    }
 }
 
 public extension TypedSequenceRef {
