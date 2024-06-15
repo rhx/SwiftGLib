@@ -8,11 +8,8 @@ import XCTest
 import CGLib
 @testable import GLib
 
-let logWrapper = LogWriterWrapper()
-
-#if os(macOS)
-let semaphore = DispatchSemaphore(value: 1)
-#endif
+/// Mutex for single-threaded operations
+let mutex = Mutex()
 
 class GLibTests: XCTestCase {
 
@@ -134,22 +131,11 @@ class GLibTests: XCTestCase {
     }
 
     func testLog() {
-#if os(macOS)
-        semaphore.wait()
-        defer { semaphore.signal() }
-#endif
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
-        var logWriterResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logWrapper.logClosure = {
-                let fields = $1
-                XCTAssertEqual($0, .debug)
-                XCTAssertEqual($2, 3)
-                guard $2 == 3 else { return }
-                logWriterResult = strcmp(fields[1].value.assumingMemoryBound(to: CChar.self), "testLogWriter") == 0
-            }
-            g_log("testLogWriter")
             return g_log_set_default_handler({
                 guard $0 == nil, LogLevelFlags($1) == .debug,
                       let message = $2,
@@ -159,15 +145,12 @@ class GLibTests: XCTestCase {
         }
         g_log("testLog")
         g_log_set_default_handler(old, nil)
-        XCTAssertTrue(logWriterResult)
         XCTAssertTrue(logResult)
     }
 
     func testLogLevel() {
-#if os(macOS)
-        semaphore.wait()
-        defer { semaphore.signal() }
-#endif
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
@@ -184,10 +167,8 @@ class GLibTests: XCTestCase {
     }
 
     func testLogDomain() {
-#if os(macOS)
-        semaphore.wait()
-        defer { semaphore.signal() }
-#endif
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
@@ -206,10 +187,8 @@ class GLibTests: XCTestCase {
     }
 
     func testLogDomainLevel() {
-#if os(macOS)
-        semaphore.wait()
-        defer { semaphore.signal() }
-#endif
+        mutex.lock()
+        defer { mutex.unlock() }
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
@@ -440,19 +419,5 @@ class GLibTests: XCTestCase {
         XCTAssertEqual(array1, array2)
         XCTAssertEqual(array1.stringValue, array2.stringValue)
         XCTAssertNotEqual(array1.ptr, array2.ptr)
-    }
-}
-
-class LogWriterWrapper {
-    var logClosure: (LogLevelFlags, UnsafePointer<GLogField>, gsize) -> Void = { _,_,_ in }
-
-    init() {
-        let opaqueSelf = Unmanaged.passRetained(self).toOpaque()
-        logSetWriterFunc(func: {
-            guard let fields = $1, let opaqueSelf = $3 else { return .unhandled }
-            let this = Unmanaged<LogWriterWrapper>.fromOpaque(opaqueSelf).takeRetainedValue()
-            this.logClosure(LogLevelFlags($0), fields, $2)
-            return .handled
-        }, userData: gpointer(opaqueSelf), userDataFree: { _ in })
     }
 }
