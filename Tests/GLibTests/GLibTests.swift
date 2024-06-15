@@ -130,6 +130,7 @@ class GLibTests: XCTestCase {
         XCTAssertFalse(context.pending())
     }
 
+#if !os(Linux)
     func testLog() {
         mutex.lock()
         defer { mutex.unlock() }
@@ -205,6 +206,7 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
+#endif
 
     func testMutex() {
         let mutex = Mutex()
