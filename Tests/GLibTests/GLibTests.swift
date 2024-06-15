@@ -8,6 +8,12 @@ import XCTest
 import CGLib
 @testable import GLib
 
+let logWrapper = LogWriterWrapper()
+
+#if os(macOS)
+let semaphore = DispatchSemaphore(value: 1)
+#endif
+
 class GLibTests: XCTestCase {
 
     /// check that we can get the current date and time
@@ -35,9 +41,9 @@ class GLibTests: XCTestCase {
             guard let dir = try Dir.open(path: existing_path, flags: 0) else {
                 XCTFail() ; return
             }
-#if !os(macOS)
+
             defer { dir.close() }
-#endif
+
             let first: String? = dir.readName()    // get the first entry
             XCTAssertNotNil(first)
             guard let first = first else { return }
@@ -127,18 +133,23 @@ class GLibTests: XCTestCase {
         XCTAssertFalse(context.pending())
     }
 
-// FIXME: macOS concurrency interferes with testing multiple different log hooks
-#if !os(macOS)
     func testLog() {
+#if os(macOS)
+        semaphore.wait()
+        defer { semaphore.signal() }
+#endif
         var logResult = false
+        var logWriterResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .debug, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "testLog") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
+            logWrapper.logClosure = {
+                let fields = $1
+                XCTAssertEqual($0, .debug)
+                XCTAssertEqual($2, 3)
+                guard $2 == 3 else { return }
+                logWriterResult = strcmp(fields[1].value.assumingMemoryBound(to: CChar.self), "testLogWriter") == 0
+            }
+            g_log("testLogWriter")
             return g_log_set_default_handler({
                 guard $0 == nil, LogLevelFlags($1) == .debug,
                       let message = $2,
@@ -148,19 +159,18 @@ class GLibTests: XCTestCase {
         }
         g_log("testLog")
         g_log_set_default_handler(old, nil)
+        XCTAssertTrue(logWriterResult)
         XCTAssertTrue(logResult)
     }
 
     func testLogLevel() {
+#if os(macOS)
+        semaphore.wait()
+        defer { semaphore.signal() }
+#endif
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .critical, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "testLogLevel") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard $0 == nil, LogLevelFlags($1) == .critical,
                       let message = $2,
@@ -174,16 +184,13 @@ class GLibTests: XCTestCase {
     }
 
     func testLogDomain() {
+#if os(macOS)
+        semaphore.wait()
+        defer { semaphore.signal() }
+#endif
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .debug, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "test") == 0
-                                 && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomain") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard let domain = $0, LogLevelFlags($1) == .debug,
                       let message = $2,
@@ -197,19 +204,15 @@ class GLibTests: XCTestCase {
         g_log_set_default_handler(old, nil)
         XCTAssertTrue(logResult)
     }
-#endif
 
     func testLogDomainLevel() {
+#if os(macOS)
+        semaphore.wait()
+        defer { semaphore.signal() }
+#endif
         var logResult = false
         let old = withUnsafeMutablePointer(to: &logResult) {
             (result: UnsafeMutablePointer<Bool>) -> GLogFunc in
-            logSetWriterFunc(func: {
-                guard LogLevelFlags($0) == .message, let fields = $1,
-                      let resultPtr = $3?.assumingMemoryBound(to: Bool.self) else { return .unhandled }
-                resultPtr.pointee = strcmp(fields[0].value.assumingMemoryBound(to: CChar.self), "%%s") == 0
-                    && strcmp(fields[2].value.assumingMemoryBound(to: CChar.self), "testDomainLevel") == 0
-                return .handled
-            }, userData: gpointer(result), userDataFree: { _ in })
             return g_log_set_default_handler({
                 guard let domain = $0, LogLevelFlags($1) == .message,
                       let message = $2,
@@ -437,5 +440,19 @@ class GLibTests: XCTestCase {
         XCTAssertEqual(array1, array2)
         XCTAssertEqual(array1.stringValue, array2.stringValue)
         XCTAssertNotEqual(array1.ptr, array2.ptr)
+    }
+}
+
+class LogWriterWrapper {
+    var logClosure: (LogLevelFlags, UnsafePointer<GLogField>, gsize) -> Void = { _,_,_ in }
+
+    init() {
+        let opaqueSelf = Unmanaged.passRetained(self).toOpaque()
+        logSetWriterFunc(func: {
+            guard let fields = $1, let opaqueSelf = $3 else { return .unhandled }
+            let this = Unmanaged<LogWriterWrapper>.fromOpaque(opaqueSelf).takeRetainedValue()
+            this.logClosure(LogLevelFlags($0), fields, $2)
+            return .handled
+        }, userData: gpointer(opaqueSelf), userDataFree: { _ in })
     }
 }
