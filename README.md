@@ -61,7 +61,7 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
