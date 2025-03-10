@@ -19,7 +19,6 @@ let package = Package(
             name: "GLib", 
             dependencies: [
                 "CGLib",
-                .product(name: "gir2swift", package: "gir2swift"),
             ],
             swiftSettings: [
                 .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
