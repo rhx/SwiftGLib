@@ -1,8 +1,12 @@
 #ifdef __linux__
 #include <sys/types.h>
 #include <utime.h>
+#ifdef __aarch64__
 extern int g_open(const char *, int, int) __nonnull ((1));
 #define g_open g_open_orig
+#else
+extern int g_open(const char *, int, ...) __nonnull ((1));
+#endif
 #endif
 #define __GLIB_H_INSIDE__
 #include <glib/gversion.h>
@@ -66,7 +70,9 @@ struct _GUnixSocketAddressPrivate {};
 struct _GUri {};
 struct _GVariant {};
 struct _GVariantType {};
+#if GLIB_MAJOR_VERSION == 2 && GLIB_MINOR_VERSION < 84
 struct GMainContextPusher {};
+#endif
 struct GMutexLocker {};
 struct GTestCase {};
 struct GTestSuite {};
