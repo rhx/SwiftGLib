@@ -10,12 +10,12 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
  * SwiftGLib 2.73 introduces typed convenience wrappers for GLib collection types such as `GArray`, `GByteArray`, `GList`, `GSList`, and `GSequence`.
 
- * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.10 or higher
+ * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
 (older versions can be used via the [swift52](https://github.com/rhx/SwiftGLib/tree/swift52) branch).
 
 ## Prerequisites
 
-### Swift 6.1 or higher
+### Swift 5.7 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
@@ -29,7 +29,7 @@ on macOS, or on Linux you should get something like:
 	Swift version 6.1 (swift-6.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
-### GLib 2.80 or higher
+### GLib 2.56 or higher
 
 These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, 2.74, 2.76, 2.78, 2.80, 2.82, 2.84, and 2.86.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
@@ -37,7 +37,7 @@ These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.
 
 ##### Ubuntu
 
-On Ubuntu 22.04 and 24.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 18.04, 20.04, 22.04, and 24.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
 	sudo apt install libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
@@ -61,7 +61,7 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.10
+// swift-tools-version:5.7
 
 import PackageDescription
 
