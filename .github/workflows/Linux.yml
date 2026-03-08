@@ -6,57 +6,49 @@ env:
 
 on:
   push:
-    branches:
-      - development
-      - main
+    branches: [development, main]
   pull_request:
-    branches:
-      - development
-      - main
+    branches: [development, main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build-linux:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, ubuntu-22.04, ubuntu-20.04]
-        swift: ["5.9", "5.7"]
-    name: Swift ${{ matrix.swift }} on ${{ matrix.os }}
+    name: ${{ matrix.os }} (Swift ${{ matrix.swift }})
     runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-24.04
+            swift: "6.1"
+          - os: ubuntu-22.04
+            swift: "6.1"
+          - os: ubuntu-22.04
+            swift: "5.10.1"
     steps:
-      - uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: ${{ matrix.swift }}
-
-      - name: Print Linux and Swift version
-        run: |
-          lsb_release -d
-          swift --version
-
-      - name: Fetch Linux dependencies
-        if: ${{ runner.os == 'Linux' }}
-        run: sudo apt-get install $UBUNTU_APT
-
-      - name: Checkout SwiftGLib
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           path: SwiftGLib
 
-      - name: Build SwiftGLib
-        run: |
-          cd SwiftGLib
-          swift build
-          cd ..
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: ${{ matrix.swift }}
 
-      - name: Test SwiftGLib
-        run: |
-          cd SwiftGLib
-          swift test
-          cd ..
+      - name: Swift version
+        run: swift --version
 
-      - name: Remove unneeded files and archive artefacts
+      - name: Fetch Linux dependencies
         run: |
-          rm -rf _tempGTK
-          cd SwiftGLib
-          swift package clean
-          rm -rf .build/repositories
-          cd ..
+          sudo apt-get update
+          sudo apt-get install -y $UBUNTU_APT
+
+      - name: Build
+        run: cd SwiftGLib && swift build
+
+      - name: Test
+        run: cd SwiftGLib && swift test
