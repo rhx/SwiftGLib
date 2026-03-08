@@ -10,28 +10,28 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 
  * SwiftGLib 2.73 introduces typed convenience wrappers for GLib collection types such as `GArray`, `GByteArray`, `GList`, `GSList`, and `GSequence`.
 
- * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher
+ * Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.10 or higher
 (older versions can be used via the [swift52](https://github.com/rhx/SwiftGLib/tree/swift52) branch).
 
 ## Prerequisites
 
-### Swift 5.7 or higher
+### Swift 6.1 or higher
 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-    swift-driver version: 1.115.1 Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-    Target: arm64-apple-macosx14.0
+    swift-driver version: 1.127.15 Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+    Target: arm64-apple-macosx26.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 6.0 (swift-6.0-RELEASE)
+	Swift version 6.1 (swift-6.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
-### GLib 2.56 or higher
+### GLib 2.80 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, 2.74, 2.76, 2.78, 2.80, 2.82, and 2.84.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.73, 2.74, 2.76, 2.78, 2.80, 2.82, 2.84, and 2.86.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -61,7 +61,7 @@ On macOS, you can install glib using HomeBrew (for setup instructions, see http:
 Normally, you don't build this package directly (but for testing you can - see 'Building' below). Instead you need to embed SwiftGLib into your own project using the [Swift Package Manager](https://swift.org/package-manager/).  After installing the prerequisites (see 'Prerequisites' below), add `SwiftGLib` as a dependency to your `Package.swift` file, e.g.:
 
 ```Swift
-// swift-tools-version:5.7
+// swift-tools-version:5.10
 
 import PackageDescription
 
