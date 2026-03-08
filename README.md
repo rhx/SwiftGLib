@@ -2,9 +2,6 @@
 A Swift wrapper around glib-2.x that is largely auto-generated from gobject-introspection.
 For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGLib/
 
-![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=development)
-![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=development)
-![DocC](https://github.com/rhx/SwiftGLib/actions/workflows/docc.yml/badge.svg?branch=development)
 ![macOS](https://github.com/rhx/SwiftGLib/actions/workflows/macOS.yml/badge.svg?branch=main)
 ![Linux](https://github.com/rhx/SwiftGLib/actions/workflows/Linux.yml/badge.svg?branch=main)
 ![DocC](https://github.com/rhx/SwiftGLib/actions/workflows/docc.yml/badge.svg?branch=main)
