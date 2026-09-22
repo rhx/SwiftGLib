@@ -20,13 +20,13 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-  swift-driver version: 1.148.6 Apple Swift version 6.3.1 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
-  Target: arm64-apple-macosx26.0
+	swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)
+	Target: arm64-apple-macosx27.2.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 6.3 (swift-6.3-RELEASE)
+	Swift version 6.3.3 (swift-6.3.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.56 or higher
